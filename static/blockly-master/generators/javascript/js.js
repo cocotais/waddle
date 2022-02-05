@@ -1,5 +1,5 @@
 Blockly.JavaScript["js_usestrict"] = function(block){
-    let code = '"use strict";'
+    let code = '"use strict";\n'
     return code
 }
 
@@ -26,18 +26,18 @@ Blockly.JavaScript["js_time"] = function(block){
 
 Blockly.JavaScript["js_popup_alert"] = function(block){
     var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_ADDITION) || "null";
-    var code = 'alert('+text+');';
+    var code = 'alert('+text+');\n';
     return code;
 }
 
 Blockly.JavaScript["js_popup_confirm"] = function(block){
     var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_ADDITION) || "null";
-    var code = 'confirm('+text+')';
+    var code = 'confirm('+text+')\n';
     return code;
 }
 
 Blockly.JavaScript["js_popup_prompt"] = function(block){
     var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_ADDITION) || "null";
-    var code = 'prompt('+text+')';
+    var code = 'prompt('+text+')\n';
     return code;
 }
