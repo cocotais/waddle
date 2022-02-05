@@ -178,3 +178,82 @@ Blockly.Blocks['control_event_param'] = {
         this.setHelpUrl("");
     }
 };
+
+Blockly.Blocks['control_invisible_extends'] = {
+    init: function () {
+        this.appendValueInput("NAME")
+            .setCheck(null)
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("定义控件实体");
+        this.appendStatementInput("CONSTRUCTOR")
+            .setCheck(null)
+            .appendField("初始化");
+        this.appendStatementInput("FUN")
+            .setCheck(null)
+            .appendField("函数");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['control_invisible_super'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("继承控件");
+        this.setColour(114);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['control_craft_this'] = {
+    init: function () {
+        this.appendValueInput("NAME")
+            .setCheck("String")
+            .appendField("设置自己的");
+        this.appendValueInput("NAME")
+            .setCheck(null)
+            .appendField("为");
+        this.setColour(114);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['control_this'] = {
+    init: function () {
+        this.appendValueInput("NAME")
+            .setCheck("String")
+            .appendField("自己的");
+        this.setOutput(true, null);
+        this.setColour(114);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['control_invisible_function'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("定义控件方法");
+        this.appendValueInput("PARAMS")
+            .setCheck("Array")
+            .appendField("传入参数");
+        this.appendStatementInput("FUNCTION")
+            .setCheck(null)
+            .appendField("方法内容");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(114);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
