@@ -31,7 +31,7 @@ const types = {
 	docs: {
 		url: 'https://coco.codemao.cn'
 	},
-	properties: [],
+	properties: ${value_properties},
 	methods: [],
 	events: []
 };

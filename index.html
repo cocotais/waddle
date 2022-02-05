@@ -10,6 +10,8 @@
     <title>CocoMake</title>
     <script src="static/blockly-master/blocks/invisibleWidget.js"></script>
     <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script>
+    <script src="static/blockly-master/blocks/coco.js"></script>
+    <script src="static/blockly-master/generators/javascript/coco.js"></script>
 </head>
 
 <body>
@@ -239,12 +241,94 @@
             <category name="函数" colour="290" custom="PROCEDURE"></category>
             <sep></sep>
             <category name="不可见控件" colour="114">
-                <block type="ivw_invisiblewidget"></block>
+                <block type="ivw_invisiblewidget">
+                <field name="type">MY_WIDGET</field>
+                <field name="icon">链接</field>
+                <field name="title">我的控件</field>
+                <field name="isGlobalWidget">TRUE</field>
+                <value name="properties">
+                    <shadow type="lists_create_with">
+                        <mutation items="0"/>
+                    </shadow>
+                </value>
+                <value name="methods">
+                    <shadow type="lists_create_with">
+                        <mutation items="0"/>
+                    </shadow>
+                </value>
+                <value name="event">
+                    <shadow type="lists_create_with">
+                        <mutation items="0"/>
+                    </shadow>
+                </value>
+                <value name="functionsList">
+                    <shadow type="lists_create_with">
+                        <mutation items="0"/>
+                    </shadow>
+                    </value>
                 </block>
+            </category>
+            <category name='CoCo' colour="114">
+            <block type="coco_emit">
+                <field name="eventName">事件名称</field>
+                <value name="parameters">
+                    <shadow type="lists_create_with">
+                        <mutation items="0"></mutation>
+                    </shadow>
+                </value>
+            </block>
+            <block type="coco_property">
+                <field name="key">属性名</field>
+                <field name="label">标签</field>
+                <field name="valueType">string</field>
+                <field name="default">默认值</field>
+            </block>
+            <block type="coco_method">
+                <field name="key">方法名</field>
+                <field name="label">标签</field>
+                <value name="params">
+                    <shadow type="lists_create_with">
+                        <mutation items="0"></mutation>
+                    </shadow>
+                </value>
+            </block>
+            <block type="coco_method_return">
+                <field name="key">方法名</field>
+                <field name="label">标签</field>
+                <field name="valueType">string</field>
+                <value name="params">
+                    <shadow type="lists_create_with">
+                        <mutation items="0"></mutation>
+                    </shadow>
+                </value>
+            </block>
+            <block type="coco_method_parameter">
+                <field name="key">属性名</field>
+                <field name="label">标签</field>
+                <field name="labelAfter">尾标签</field>
+                <field name="valueType">string</field>
+                <field name="default">默认值</field>
+            </block>
+            <block type="coco_event">
+                <field name="key">事件名</field>
+                <field name="label">标签</field>
+                <value name="params">
+                    <shadow type="lists_create_with">
+                        <mutation items="0"></mutation>
+                    </shadow>
+                </value>
+            </block>
+            <block type="coco_event_parameter">
+                <field name="key">属性名</field>
+                <field name="label">标签</field>
+                <field name="valueType">string</field>
+            </block>
             </category>
         </xml>
     </div>
-    <div id="code" style="display: none;height: 95%;width: 100%;"></div>
+    <div id="code" style="display: none;height: 95%;width: 100%;pandding: 5px">
+        <textarea id="codeArea" style="height: 100%;width: 100%;pandding: 5px"></textarea>
+    </div>
     <script>
         var workspace = Blockly.inject('blocklyDiv',
             {
@@ -282,7 +366,8 @@
             code.style.display = "inline";
             var table = document.getElementById("table")
             table.style.display = "none";
-            code.innerText = Blockly.JavaScript.workspaceToCode(workspace);
+            var codeArea = document.getElementById("codeArea")
+            codeArea.innerHTML = Blockly.JavaScript.workspaceToCode(workspace);
         }
     </script>
     <style>

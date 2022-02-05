@@ -24,3 +24,4 @@ goog.require('Blockly.blocks.variablesDynamic');
 goog.require('Blockly.blocks.control');
 
 goog.require('Blockly.blocks.invisibleWidget');
+goog.require('Blockly.blocks.coco');

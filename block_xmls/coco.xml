@@ -1,0 +1,509 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="factory_base" id="OrOo(M/(mrhHk7W*@OI#" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">CoCo_emit</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="W{LGp,```=P!8Y?oe={O">
+        <field name="INPUTNAME">parameters</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="IpBm:UdksN1z[jk*CQiU">
+            <field name="TEXT">触发事件</field>
+            <next>
+              <block type="field_input" id=".J+UrhU)UILpZx*=8)C3">
+                <field name="TEXT">事件名称</field>
+                <field name="FIELDNAME">eventName</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="!{28Nlv?Ca^eUOM=wp~{"></shadow>
+          <block type="type_list" id="3ka.P0$z0YB4wHEXR;tq"></block>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="%LyQ,A(//wlM+Q-WiJir" deletable="false" movable="false">
+        <field name="TEXT">触发事件，并传参（可选）</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="^fwQQk`5,}d#jI+]+b+M" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="gk*OC^A0m-K3M%t?Q5Mi"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="PW$@sWQ#n,L0@PDn2N?~"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="]5MB(mv._H*~5*6*WQiD">
+        <mutation colour="#5ba55b"></mutation>
+        <field name="HUE">120</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="pne,7nabW%pPZga+E1=#" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">coco_property</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="#5f#)j,VTXzj:W0dkEqa">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="SODF[8IYKfL+[KR2w[P~">
+            <field name="TEXT">属性</field>
+            <next>
+              <block type="field_input" id="sjvVeSBB%Z?qc`h0{`Yj">
+                <field name="TEXT">属性名</field>
+                <field name="FIELDNAME">key</field>
+                <next>
+                  <block type="field_static" id="Tf{z4.NnCBfoqJBpY=c.">
+                    <field name="TEXT">标签</field>
+                    <next>
+                      <block type="field_input" id="Z@:^mcmj#-OFOyuPZ7~P">
+                        <field name="TEXT">标签</field>
+                        <field name="FIELDNAME">label</field>
+                        <next>
+                          <block type="field_static" id="oVY6Z4~g:4H@*SN5[|r[">
+                            <field name="TEXT">值类型</field>
+                            <next>
+                              <block type="field_dropdown" id="2`oH8=R7?-Sv8hGAY,@[">
+                                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                                <field name="FIELDNAME">valueType</field>
+                                <field name="USER0">字符串</field>
+                                <field name="CPU0">string</field>
+                                <field name="USER1">数字</field>
+                                <field name="CPU1">number</field>
+                                <field name="USER2">布尔</field>
+                                <field name="CPU2">boolean</field>
+                                <field name="USER3">颜色</field>
+                                <field name="CPU3">color</field>
+                                <next>
+                                  <block type="field_static" id="z0Lat,3t.g]ueTcpb@)?">
+                                    <field name="TEXT">默认值</field>
+                                    <next>
+                                      <block type="field_input" id="B~9#|THv.-a+p1F|Kz{t">
+                                        <field name="TEXT">默认值</field>
+                                        <field name="FIELDNAME">default</field>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Sm~r8S)Q4}ZVYA:0)n=_" deletable="false" movable="false">
+        <field name="TEXT">定义属性，放在列表里使用</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="k](Aq=upmYF;7Js42wnP" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="/wIqsBAWPA@]y0eJxOaI"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="5v`p{2_9gW@/pX*y8[V%">
+        <mutation colour="#80a55b"></mutation>
+        <field name="HUE">90</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="pne,7nabW%pPZga+E1=#" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">coco_method</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="#5f#)j,VTXzj:W0dkEqa">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="SODF[8IYKfL+[KR2w[P~">
+            <field name="TEXT">方法</field>
+            <next>
+              <block type="field_input" id="sjvVeSBB%Z?qc`h0{`Yj">
+                <field name="TEXT">方法名</field>
+                <field name="FIELDNAME">key</field>
+                <next>
+                  <block type="field_static" id="Tf{z4.NnCBfoqJBpY=c.">
+                    <field name="TEXT">标签</field>
+                    <next>
+                      <block type="field_input" id="Z@:^mcmj#-OFOyuPZ7~P">
+                        <field name="TEXT">标签</field>
+                        <field name="FIELDNAME">label</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="%`6k^jb+ETS;H]b?`GPs">
+            <field name="INPUTNAME">params</field>
+            <field name="ALIGN">RIGHT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="6kk8Io%K/bG[Xhakze_P">
+                <field name="TEXT">参数</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="*@/:~h:5PPkvpW.1b|^/"></shadow>
+              <block type="type_list" id=")Oe[zl_c$t_zzAc*J}xN"></block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Sm~r8S)Q4}ZVYA:0)n=_" deletable="false" movable="false">
+        <field name="TEXT">定义参数，放在列表里使用</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="k](Aq=upmYF;7Js42wnP" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="/wIqsBAWPA@]y0eJxOaI"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="5v`p{2_9gW@/pX*y8[V%">
+        <mutation colour="#80a55b"></mutation>
+        <field name="HUE">90</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="pne,7nabW%pPZga+E1=#" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">coco_method_return</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="#5f#)j,VTXzj:W0dkEqa">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="SODF[8IYKfL+[KR2w[P~">
+            <field name="TEXT">方法</field>
+            <next>
+              <block type="field_input" id="sjvVeSBB%Z?qc`h0{`Yj">
+                <field name="TEXT">方法名</field>
+                <field name="FIELDNAME">key</field>
+                <next>
+                  <block type="field_static" id="Tf{z4.NnCBfoqJBpY=c.">
+                    <field name="TEXT">标签</field>
+                    <next>
+                      <block type="field_input" id="Z@:^mcmj#-OFOyuPZ7~P">
+                        <field name="TEXT">标签</field>
+                        <field name="FIELDNAME">label</field>
+                        <next>
+                          <block type="field_static" id="oVY6Z4~g:4H@*SN5[|r[">
+                            <field name="TEXT">返回值类型</field>
+                            <next>
+                              <block type="field_dropdown" id="2`oH8=R7?-Sv8hGAY,@[">
+                                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                                <field name="FIELDNAME">valueType</field>
+                                <field name="USER0">字符串</field>
+                                <field name="CPU0">string</field>
+                                <field name="USER1">数字</field>
+                                <field name="CPU1">number</field>
+                                <field name="USER2">布尔</field>
+                                <field name="CPU2">boolean</field>
+                                <field name="USER3">颜色</field>
+                                <field name="CPU3">color</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="%`6k^jb+ETS;H]b?`GPs">
+            <field name="INPUTNAME">params</field>
+            <field name="ALIGN">RIGHT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="6kk8Io%K/bG[Xhakze_P">
+                <field name="TEXT">参数</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="*@/:~h:5PPkvpW.1b|^/"></shadow>
+              <block type="type_list" id=":Cz{%qO3iq,z+e~nmL,G"></block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Sm~r8S)Q4}ZVYA:0)n=_" deletable="false" movable="false">
+        <field name="TEXT">定义参数，放在列表里使用</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="k](Aq=upmYF;7Js42wnP" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="/wIqsBAWPA@]y0eJxOaI"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="5v`p{2_9gW@/pX*y8[V%">
+        <mutation colour="#80a55b"></mutation>
+        <field name="HUE">90</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="pne,7nabW%pPZga+E1=#" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">coco_method_parameter</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="#5f#)j,VTXzj:W0dkEqa">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="SODF[8IYKfL+[KR2w[P~">
+            <field name="TEXT">属性</field>
+            <next>
+              <block type="field_input" id="sjvVeSBB%Z?qc`h0{`Yj">
+                <field name="TEXT">属性名</field>
+                <field name="FIELDNAME">key</field>
+                <next>
+                  <block type="field_static" id="Tf{z4.NnCBfoqJBpY=c.">
+                    <field name="TEXT">标签</field>
+                    <next>
+                      <block type="field_input" id="Z@:^mcmj#-OFOyuPZ7~P">
+                        <field name="TEXT">标签</field>
+                        <field name="FIELDNAME">label</field>
+                        <next>
+                          <block type="field_static" id="kwIX|%xlr7gW9e;5spVl">
+                            <field name="TEXT">尾标签</field>
+                            <next>
+                              <block type="field_input" id="%f~*P;]|Q}4^V,NTln6%">
+                                <field name="TEXT">尾标签</field>
+                                <field name="FIELDNAME">labelAfter</field>
+                                <next>
+                                  <block type="field_static" id="oVY6Z4~g:4H@*SN5[|r[">
+                                    <field name="TEXT">值类型</field>
+                                    <next>
+                                      <block type="field_dropdown" id="2`oH8=R7?-Sv8hGAY,@[">
+                                        <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                                        <field name="FIELDNAME">valueType</field>
+                                        <field name="USER0">字符串</field>
+                                        <field name="CPU0">string</field>
+                                        <field name="USER1">数字</field>
+                                        <field name="CPU1">number</field>
+                                        <field name="USER2">布尔</field>
+                                        <field name="CPU2">boolean</field>
+                                        <field name="USER3">颜色</field>
+                                        <field name="CPU3">color</field>
+                                        <next>
+                                          <block type="field_static" id="z0Lat,3t.g]ueTcpb@)?">
+                                            <field name="TEXT">默认值</field>
+                                            <next>
+                                              <block type="field_input" id="B~9#|THv.-a+p1F|Kz{t">
+                                                <field name="TEXT">默认值</field>
+                                                <field name="FIELDNAME">default</field>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Sm~r8S)Q4}ZVYA:0)n=_" deletable="false" movable="false">
+        <field name="TEXT">定义用于方法的属性，放在列表里使用</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="k](Aq=upmYF;7Js42wnP" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="/wIqsBAWPA@]y0eJxOaI"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="5v`p{2_9gW@/pX*y8[V%">
+        <mutation colour="#5ba55b"></mutation>
+        <field name="HUE">120</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="pne,7nabW%pPZga+E1=#" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">coco_event</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="#5f#)j,VTXzj:W0dkEqa">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="SODF[8IYKfL+[KR2w[P~">
+            <field name="TEXT">事件</field>
+            <next>
+              <block type="field_input" id="sjvVeSBB%Z?qc`h0{`Yj">
+                <field name="TEXT">事件名</field>
+                <field name="FIELDNAME">key</field>
+                <next>
+                  <block type="field_static" id="Tf{z4.NnCBfoqJBpY=c.">
+                    <field name="TEXT">标签</field>
+                    <next>
+                      <block type="field_input" id="Z@:^mcmj#-OFOyuPZ7~P">
+                        <field name="TEXT">标签</field>
+                        <field name="FIELDNAME">label</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="%`6k^jb+ETS;H]b?`GPs">
+            <field name="INPUTNAME">params</field>
+            <field name="ALIGN">RIGHT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="6kk8Io%K/bG[Xhakze_P">
+                <field name="TEXT">参数</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="*@/:~h:5PPkvpW.1b|^/"></shadow>
+              <block type="type_list" id=")Oe[zl_c$t_zzAc*J}xN"></block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Sm~r8S)Q4}ZVYA:0)n=_" deletable="false" movable="false">
+        <field name="TEXT">定义参数，放在列表里使用</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="k](Aq=upmYF;7Js42wnP" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="/wIqsBAWPA@]y0eJxOaI"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="5v`p{2_9gW@/pX*y8[V%">
+        <mutation colour="#80a55b"></mutation>
+        <field name="HUE">90</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="pne,7nabW%pPZga+E1=#" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">coco_event_parameter</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="#5f#)j,VTXzj:W0dkEqa">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="SODF[8IYKfL+[KR2w[P~">
+            <field name="TEXT">属性</field>
+            <next>
+              <block type="field_input" id="sjvVeSBB%Z?qc`h0{`Yj">
+                <field name="TEXT">属性名</field>
+                <field name="FIELDNAME">key</field>
+                <next>
+                  <block type="field_static" id="Tf{z4.NnCBfoqJBpY=c.">
+                    <field name="TEXT">标签</field>
+                    <next>
+                      <block type="field_input" id="Z@:^mcmj#-OFOyuPZ7~P">
+                        <field name="TEXT">标签</field>
+                        <field name="FIELDNAME">label</field>
+                        <next>
+                          <block type="field_static" id="oVY6Z4~g:4H@*SN5[|r[">
+                            <field name="TEXT">值类型</field>
+                            <next>
+                              <block type="field_dropdown" id="2`oH8=R7?-Sv8hGAY,@[">
+                                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                                <field name="FIELDNAME">valueType</field>
+                                <field name="USER0">字符串</field>
+                                <field name="CPU0">string</field>
+                                <field name="USER1">数字</field>
+                                <field name="CPU1">number</field>
+                                <field name="USER2">布尔</field>
+                                <field name="CPU2">boolean</field>
+                                <field name="USER3">颜色</field>
+                                <field name="CPU3">color</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Sm~r8S)Q4}ZVYA:0)n=_" deletable="false" movable="false">
+        <field name="TEXT">定义用于事件的属性，放在列表里使用</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="k](Aq=upmYF;7Js42wnP" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="/wIqsBAWPA@]y0eJxOaI"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="5v`p{2_9gW@/pX*y8[V%">
+        <mutation colour="#5ba55b"></mutation>
+        <field name="HUE">120</field>
+      </block>
+    </value>
+  </block></xml>
