@@ -1,3 +1,8 @@
+Blockly.JavaScript["js_run"] = function(block){
+    var code = block.getFieldValue("CODE");
+    return code
+}
+
 Blockly.JavaScript["js_usestrict"] = function(block){
     let code = '"use strict";\n';
     return code;
@@ -130,13 +135,13 @@ Blockly.JavaScript["js_console_log"] = function(block){
     return code;
 }
 
-Blockly.JavaScript["js_warn_time"] = function(block){
+Blockly.JavaScript["js_console_time"] = function(block){
     var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE) || '""';
     var code = `console.time(${text});\n`;
     return code;
 }
 
-Blockly.JavaScript["js_warn_timeend"] = function(block){
+Blockly.JavaScript["js_console_timeend"] = function(block){
     var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE) || '""';
     var code = `console.timeEnd(${text});\n`;
     return code;
