@@ -95,3 +95,49 @@ Blockly.JavaScript['js_navigator_platform'] = function(block){
     var code = `navigator.platform`;
     return [code,Blockly.JavaScript.ORDER_NONE]
 }
+
+Blockly.JavaScript['js_math_constant'] = function(block){
+    var code = block.getFieldValue("TYPE");
+    return [code,Blockly.JavaScript.ORDER_NONE]
+}
+
+Blockly.JavaScript["js_console_clean"] = function(block){
+    var code = `console.clean();\n`;
+    return code;
+}
+
+Blockly.JavaScript["js_console_count"] = function(block){
+    var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE) || '""';
+    var code = `console.count(${text});\n`
+    return code
+}
+
+Blockly.JavaScript["js_console_error"] = function(block){
+    var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE) || '""';
+    var code = `console.error(${text});\n`;
+    return code;
+}
+
+Blockly.JavaScript["js_warn_error"] = function(block){
+    var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE) || '""';
+    var code = `console.warn(${text});\n`
+    return code;
+}
+
+Blockly.JavaScript["js_warn_log"] = function(block){
+    var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE) || '""';
+    var code = `console.log(${text});\n`;
+    return code;
+}
+
+Blockly.JavaScript["js_warn_time"] = function(block){
+    var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE) || '""';
+    var code = `console.time(${text});\n`;
+    return code;
+}
+
+Blockly.JavaScript["js_warn_timeend"] = function(block){
+    var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE) || '""';
+    var code = `console.timeEnd(${text});\n`;
+    return code;
+}
