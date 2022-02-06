@@ -139,3 +139,82 @@ Blockly.Blocks['js_json_access'] = {
         this.setHelpUrl("https://www.w3school.com.cn/js/js_json_objects.asp");
     }
 };
+
+Blockly.Blocks['js_window_screen'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("获取屏幕")
+            .appendField(new Blockly.FieldDropdown([["宽度", "screen.width"], ["高度", "screen.height"]]), "TYPE");
+        this.setOutput(true, "Number");
+        this.setColour(90);
+        this.setTooltip("获取屏幕的长或宽。单位为像素，返回数字。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window.asp");
+    }
+};
+
+Blockly.Blocks['js_window_avail_screen'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("获取屏幕可用")
+            .appendField(new Blockly.FieldDropdown([["宽度", "screen.availWidth"], ["高度", "screen.availHeight"]]), "TYPE");
+        this.setOutput(true, "Number");
+        this.setColour(90);
+        this.setTooltip("获取屏幕可用的长或宽，减去诸如窗口工具条之类的界面特征。单位为像素，返回数字。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window.asp");
+    }
+};
+
+Blockly.Blocks['js_window_colordepth'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("获取屏幕色深");
+        this.setOutput(true, "Number");
+        this.setColour(90);
+        this.setTooltip("获取屏幕色深。返回用于显示一种颜色的比特数。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window_screen.asp");
+    }
+};
+
+Blockly.Blocks['js_window_pixeldepth'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("获取屏幕像素深度");
+        this.setOutput(true, "Number");
+        this.setColour(90);
+        this.setTooltip("屏幕的像素深度。返回字符串。对于现代计算机，颜色深度和像素深度是相等的。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window_screen.asp");
+    }
+};
+
+Blockly.Blocks['js_navigator_online'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("是否有网络？");
+        this.setOutput(true, "Boolean");
+        this.setColour(90);
+        this.setTooltip("判断用户是否有网络。返回布尔值。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window_screen.asp");
+    }
+};
+
+Blockly.Blocks['js_navigator_language'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("获取浏览器语言");
+        this.setOutput(true, "String");
+        this.setColour(90);
+        this.setTooltip("用户的浏览器语言。返回字符串。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window_screen.asp");
+    }
+};
+
+Blockly.Blocks['js_navigator_platform'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("获取操作系统");
+        this.setOutput(true, "String");
+        this.setColour(90);
+        this.setTooltip("用户的操作系统。返回字符串。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window_navigator.asp");
+    }
+};
