@@ -1,3 +1,17 @@
+Blockly.Blocks['js_run'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("运行js")
+            .appendField(new Blockly.FieldTextInput("console.log(233);"), "CODE");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(0);
+        this.setTooltip("运行js代码。需要加分号，不需要加换行符。(感谢青PG5p提出意见！)");
+        this.setHelpUrl("https://www.w3school.com.cn/js/index.asp");
+    }
+};
+
 Blockly.Blocks['js_usestrict'] = {
     init: function () {
         this.appendDummyInput()
@@ -323,6 +337,19 @@ Blockly.Blocks['js_console_timeend'] = {
         this.setNextStatement(true, null);
         this.setColour(255);
         this.setTooltip("计时结束，并在控制台输出时间。");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
+
+Blockly.Blocks['js_typeof'] = {
+    init: function () {
+        this.appendValueInput("OBJECT")
+            .setCheck(null)
+            .appendField("判断类型");
+        this.setInputsInline(false);
+        this.setOutput(true, "String");
+        this.setColour(180);
+        this.setTooltip("判断值类型。返回字符串");
         this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
     }
 };
