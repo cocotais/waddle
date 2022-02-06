@@ -139,3 +139,190 @@ Blockly.Blocks['js_json_access'] = {
         this.setHelpUrl("https://www.w3school.com.cn/js/js_json_objects.asp");
     }
 };
+
+Blockly.Blocks['js_window_screen'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("获取屏幕")
+            .appendField(new Blockly.FieldDropdown([["宽度", "screen.width"], ["高度", "screen.height"]]), "TYPE");
+        this.setOutput(true, "Number");
+        this.setColour(90);
+        this.setTooltip("获取屏幕的长或宽。单位为像素，返回数字。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window.asp");
+    }
+};
+
+Blockly.Blocks['js_window_avail_screen'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("获取屏幕可用")
+            .appendField(new Blockly.FieldDropdown([["宽度", "screen.availWidth"], ["高度", "screen.availHeight"]]), "TYPE");
+        this.setOutput(true, "Number");
+        this.setColour(90);
+        this.setTooltip("获取屏幕可用的长或宽，减去诸如窗口工具条之类的界面特征。单位为像素，返回数字。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window.asp");
+    }
+};
+
+Blockly.Blocks['js_window_colordepth'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("获取屏幕色深");
+        this.setOutput(true, "Number");
+        this.setColour(90);
+        this.setTooltip("获取屏幕色深。返回用于显示一种颜色的比特数。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window_screen.asp");
+    }
+};
+
+Blockly.Blocks['js_window_pixeldepth'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("获取屏幕像素深度");
+        this.setOutput(true, "Number");
+        this.setColour(90);
+        this.setTooltip("屏幕的像素深度。返回字符串。对于现代计算机，颜色深度和像素深度是相等的。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window_screen.asp");
+    }
+};
+
+Blockly.Blocks['js_navigator_online'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("是否有网络？");
+        this.setOutput(true, "Boolean");
+        this.setColour(90);
+        this.setTooltip("判断用户是否有网络。返回布尔值。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window_screen.asp");
+    }
+};
+
+Blockly.Blocks['js_navigator_language'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("获取浏览器语言");
+        this.setOutput(true, "String");
+        this.setColour(90);
+        this.setTooltip("用户的浏览器语言。返回字符串。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window_screen.asp");
+    }
+};
+
+Blockly.Blocks['js_navigator_platform'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("获取操作系统");
+        this.setOutput(true, "String");
+        this.setColour(90);
+        this.setTooltip("用户的操作系统。返回字符串。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_window_navigator.asp");
+    }
+};
+
+Blockly.Blocks['js_math_constant'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("数学常量")
+            .appendField(new Blockly.FieldDropdown([["e", "Math.E"], ["π", "Math.PI"], ["2的平方根", "Math.SQRT2"], ["0.5的平方根", "Math.SQRT1_2"], ["2的自然对数", "Math.LN2"], ["10的自然对数", "Math.LN10"], ["以2为底的e的对数", "Math.LOG2E"], ["以10为底的e的对数", "Math.LN10"]]), "TYPE");
+        this.setOutput(true, "Number");
+        this.setColour(105);
+        this.setTooltip("数学常量。返回数字");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_math.asp");
+    }
+};
+
+Blockly.Blocks['js_console_clean'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("清空控制台");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("清除当前控制台的所有输出，将光标回置到第一行。");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
+
+Blockly.Blocks['js_console_count'] = {
+    init: function () {
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField("控制台计数");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("用于计数，输出它被调用了多少次。");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
+
+Blockly.Blocks['js_console_error'] = {
+    init: function () {
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField("控制台报错");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("输出信息时，在最前面加一个红色的叉，表示出错，同时会显示错误发生的堆栈。");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
+
+Blockly.Blocks['js_console_warn'] = {
+    init: function () {
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField("控制台警告");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("输出警告信息。");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
+
+Blockly.Blocks['js_console_log'] = {
+    init: function () {
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField("控制台输出");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("输出信息。（不建议使用太多）");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
+
+Blockly.Blocks['js_console_time'] = {
+    init: function () {
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField("控制台计时开始");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("计时开始！");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
+
+Blockly.Blocks['js_console_timeend'] = {
+    init: function () {
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField("控制台计时结束");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("计时结束，并在控制台输出时间。");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
