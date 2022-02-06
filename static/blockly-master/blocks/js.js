@@ -95,3 +95,47 @@ Blockly.Blocks['js_popup_prompt'] = {
         this.setHelpUrl("https://www.w3school.com.cn/js/js_popup.asp");
     }
 };
+
+Blockly.Blocks['js_json_parse'] = {
+    init: function () {
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField("解析json字符串");
+        this.setInputsInline(false);
+        this.setOutput(true, "Object");
+        this.setColour(165);
+        this.setTooltip("解析json字符串为对象。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_json_parse.asp");
+    }
+};
+
+Blockly.Blocks['js_json_stringify'] = {
+    init: function () {
+        this.appendValueInput("OBJECT")
+            .setCheck("Object")
+            .appendField("将对象");
+        this.appendDummyInput()
+            .appendField("转为字符串");
+        this.setOutput(true, "String");
+        this.setColour(165);
+        this.setTooltip("将对象转为json字符串。");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_json_stringify.asp");
+    }
+};
+
+Blockly.Blocks['js_json_access'] = {
+    init: function () {
+        this.appendValueInput("OBJECT")
+            .setCheck("Object")
+            .appendField("获取对象");
+        this.appendValueInput("KEY")
+            .setCheck("String")
+            .appendField("的键");
+        this.appendDummyInput()
+            .appendField("的值")
+        this.setOutput(true, null);
+        this.setColour(165);
+        this.setTooltip("获取对象的键的值");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_json_objects.asp");
+    }
+};
