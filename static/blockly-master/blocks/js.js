@@ -218,3 +218,111 @@ Blockly.Blocks['js_navigator_platform'] = {
         this.setHelpUrl("https://www.w3school.com.cn/js/js_window_navigator.asp");
     }
 };
+
+Blockly.Blocks['js_math_constant'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("数学常量")
+            .appendField(new Blockly.FieldDropdown([["e", "Math.E"], ["π", "Math.PI"], ["2的平方根", "Math.SQRT2"], ["0.5的平方根", "Math.SQRT1_2"], ["2的自然对数", "Math.LN2"], ["10的自然对数", "Math.LN10"], ["以2为底的e的对数", "Math.LOG2E"], ["以10为底的e的对数", "Math.LN10"]]), "TYPE");
+        this.setOutput(true, "Number");
+        this.setColour(105);
+        this.setTooltip("数学常量。返回数字");
+        this.setHelpUrl("https://www.w3school.com.cn/js/js_math.asp");
+    }
+};
+
+Blockly.Blocks['js_console_clean'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("清空控制台");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("清除当前控制台的所有输出，将光标回置到第一行。");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
+
+Blockly.Blocks['js_console_count'] = {
+    init: function () {
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField("控制台计数");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("用于计数，输出它被调用了多少次。");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
+
+Blockly.Blocks['js_console_error'] = {
+    init: function () {
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField("控制台报错");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("输出信息时，在最前面加一个红色的叉，表示出错，同时会显示错误发生的堆栈。");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
+
+Blockly.Blocks['js_console_warn'] = {
+    init: function () {
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField("控制台警告");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("输出警告信息。");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
+
+Blockly.Blocks['js_console_log'] = {
+    init: function () {
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField("控制台输出");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("输出信息。（不建议使用太多）");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
+
+Blockly.Blocks['js_console_time'] = {
+    init: function () {
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField("控制台计时开始");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("计时开始！");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
+
+Blockly.Blocks['js_console_timeend'] = {
+    init: function () {
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField("控制台计时结束");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(255);
+        this.setTooltip("计时结束，并在控制台输出时间。");
+        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+    }
+};
