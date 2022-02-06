@@ -398,6 +398,9 @@
             var codeArea = document.getElementById("codeArea")
             codeArea.innerHTML = Blockly.JavaScript.workspaceToCode(workspace);
         }
+        window.onbeforeunload = function(){
+            return "离开后，你的控件就没啦！";
+        }
     </script>
     <style>
         .js_button {
