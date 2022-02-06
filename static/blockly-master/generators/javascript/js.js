@@ -118,13 +118,13 @@ Blockly.JavaScript["js_console_error"] = function(block){
     return code;
 }
 
-Blockly.JavaScript["js_warn_error"] = function(block){
+Blockly.JavaScript["js_console_warn"] = function(block){
     var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE) || '""';
     var code = `console.warn(${text});\n`
     return code;
 }
 
-Blockly.JavaScript["js_warn_log"] = function(block){
+Blockly.JavaScript["js_console_log"] = function(block){
     var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE) || '""';
     var code = `console.log(${text});\n`;
     return code;
