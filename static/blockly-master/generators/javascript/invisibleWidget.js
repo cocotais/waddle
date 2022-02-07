@@ -28,7 +28,7 @@ Blockly.JavaScript['ivw_invisiblewidget'] = function (block) {
 		`
 /*
 * 嘿，欢迎使用CoCoMake制作控件
-* 本工具由中子星000（QQ：2422481178）、MathCalculus（QQ：2504556268）制作
+* 本工具由MathCalculus（QQ：2504556268）、中子星000（QQ：2422481178）制作
 */
 
 const TYPE = '${text_type}';
@@ -63,7 +63,7 @@ class Widget extends InvisibleWidget {
 }
 
 console.log('* 嘿，欢迎使用CoCoMake制作控件');
-console.log('* 本工具由中子星000（QQ：2422481178）、MathCalculus（QQ：2504556268）制作');
+console.log('* 本工具由MathCalculus（QQ：2504556268）、中子星000（QQ：2422481178）制作');
 
 exports.types = types;
 exports.widget = Widget;
