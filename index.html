@@ -27,6 +27,7 @@
                 文件
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuFile">
+                    <li><button onClick="craft()" class="dropdown-item">新建</button></li>
                     <li><button onClick="save()" class="dropdown-item">保存</button></li>
                     <li><input type="file" id="read" name="打开" class="dropdown-item"></li>
                 </ul>
@@ -423,8 +424,12 @@
             downa.click();
             URL.revokeObjectURL(url);
         }
+        let craft = function(){
+            workspace.clear()
+        }
         document.getElementById('read').addEventListener('change', function selectedFileChanged() {
             if (this.files.length !== 0) {
+                workspace.clear()
                 const reader = new FileReader();
                 reader.onload = function fileReadCompleted() {
                     const xml = Blockly.Xml.textToDom(reader.result);
