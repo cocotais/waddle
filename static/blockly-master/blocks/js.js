@@ -340,16 +340,3 @@ Blockly.Blocks['js_console_timeend'] = {
         this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
     }
 };
-
-Blockly.Blocks['js_typeof'] = {
-    init: function () {
-        this.appendValueInput("OBJECT")
-            .setCheck(null)
-            .appendField("判断类型");
-        this.setInputsInline(false);
-        this.setOutput(true, "String");
-        this.setColour(180);
-        this.setTooltip("判断值类型。返回字符串");
-        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
-    }
-};

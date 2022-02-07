@@ -1,6 +1,6 @@
 Blockly.JavaScript["js_run"] = function(block){
-    let code = block.getFieldValue("CODE");
-    return `${code}\n`
+    var code = block.getFieldValue("CODE");
+    return code
 }
 
 Blockly.JavaScript["js_usestrict"] = function(block){
