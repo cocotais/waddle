@@ -21,6 +21,17 @@
         <li class="nav-item">
             <p>CocoMake</p>
         </li>
+        <li class="nav-itam">
+            <div class="dropdown" style="padding-left: 5px">
+                <button class="btn" type="button" id="dropdownMenuFile" data-bs-toggle="dropdown" aria-expanded="false">
+                文件
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuFile">
+                    <li><button onClick="save()" class="dropdown-item">保存</button></li>
+                    <li><input type="file" id="read" name="打开" class="dropdown-item"></li>
+                </ul>
+            </div>
+        </li>
         <li class="nav-item">
             <button class="nav-link" onclick="switch_table()">工作台</button>
         </li>
@@ -402,7 +413,28 @@
         window.onbeforeunload = function(){
             return "离开后，你的控件就没啦！";
         }
+        let save = function(){
+            let code_xml = Blockly.Xml.workspaceToDom(workspace);
+            let code_data = Blockly.Xml.domToText(code_xml);
+            let blob = new Blob([code_data],{type:"text/plain;charset=utf-8"});
+            let url = URL.createObjectURL(blob);
+            let downa = document.getElementById("downa");
+            downa.href = url;
+            downa.click();
+            URL.revokeObjectURL(url);
+        }
+        document.getElementById('read').addEventListener('change', function selectedFileChanged() {
+            if (this.files.length !== 0) {
+                const reader = new FileReader();
+                reader.onload = function fileReadCompleted() {
+                    const xml = Blockly.Xml.textToDom(reader.result);
+                    Blockly.Xml.domToWorkspace(xml,workspace);
+                };
+            reader.readAsText(this.files[0]);
+            }
+        });
     </script>
+    <a href="" download="CocoWidget.cw" style="display: none;" id="downa"></a>
     <style>
         .js_button {
             padding: 10px;
