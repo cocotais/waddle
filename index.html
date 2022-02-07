@@ -242,87 +242,149 @@
             <sep></sep>
             <category name="不可见控件" colour="114">
                 <block type="ivw_invisiblewidget">
-                <field name="type">MY_WIDGET</field>
-                <field name="icon">链接</field>
-                <field name="title">我的控件</field>
-                <field name="isGlobalWidget">TRUE</field>
-                <value name="properties">
-                    <shadow type="lists_create_with">
-                        <mutation items="0"/>
-                    </shadow>
-                </value>
-                <value name="methods">
-                    <shadow type="lists_create_with">
-                        <mutation items="0"/>
-                    </shadow>
-                </value>
-                <value name="event">
-                    <shadow type="lists_create_with">
-                        <mutation items="0"/>
-                    </shadow>
-                </value>
-                <value name="functionsList">
-                    <shadow type="lists_create_with">
-                        <mutation items="0"/>
-                    </shadow>
+                    <field name="type">MY_WIDGET</field>
+                    <field name="icon">链接</field>
+                    <field name="title">我的控件</field>
+                    <field name="isGlobalWidget">TRUE</field>
+                    <value name="properties">
+                        <shadow type="lists_create_with">
+                            <mutation items="0" />
+                        </shadow>
+                    </value>
+                    <value name="methods">
+                        <shadow type="lists_create_with">
+                            <mutation items="0" />
+                        </shadow>
+                    </value>
+                    <value name="event">
+                        <shadow type="lists_create_with">
+                            <mutation items="0" />
+                        </shadow>
+                    </value>
+                    <value name="functionsList">
+                        <shadow type="lists_create_with">
+                            <mutation items="0" />
+                        </shadow>
                     </value>
                 </block>
             </category>
             <category name='CoCo' colour="114">
-            <block type="coco_emit">
-                <field name="eventName">事件名称</field>
-                <value name="parameters">
-                    <shadow type="lists_create_with">
-                        <mutation items="0"></mutation>
-                    </shadow>
-                </value>
-            </block>
-            <block type="coco_property">
-                <field name="key">属性名</field>
-                <field name="label">标签</field>
-                <field name="valueType">string</field>
-                <field name="default">默认值</field>
-            </block>
-            <block type="coco_method">
-                <field name="key">方法名</field>
-                <field name="label">标签</field>
-                <value name="params">
-                    <shadow type="lists_create_with">
-                        <mutation items="0"></mutation>
-                    </shadow>
-                </value>
-            </block>
-            <block type="coco_method_return">
-                <field name="key">方法名</field>
-                <field name="label">标签</field>
-                <field name="valueType">string</field>
-                <value name="params">
-                    <shadow type="lists_create_with">
-                        <mutation items="0"></mutation>
-                    </shadow>
-                </value>
-            </block>
-            <block type="coco_method_parameter">
-                <field name="key">属性名</field>
-                <field name="label">标签</field>
-                <field name="labelAfter">尾标签</field>
-                <field name="valueType">string</field>
-                <field name="default">默认值</field>
-            </block>
-            <block type="coco_event">
-                <field name="key">事件名</field>
-                <field name="label">标签</field>
-                <value name="params">
-                    <shadow type="lists_create_with">
-                        <mutation items="0"></mutation>
-                    </shadow>
-                </value>
-            </block>
-            <block type="coco_event_parameter">
-                <field name="key">属性名</field>
-                <field name="label">标签</field>
-                <field name="valueType">string</field>
-            </block>
+                <block type="coco_emit">
+                    <field name="eventName">事件名称</field>
+                    <value name="parameters">
+                        <block type="lists_create_with">
+                            <mutation items="0"></mutation>
+                        </block>
+                    </value>
+                </block>
+                <block type="coco_property">
+                    <field name="key">属性名</field>
+                    <field name="label">标签</field>
+                    <field name="valueType">string</field>
+                    <field name="default">默认值</field>
+                </block>
+                <block type="coco_method">
+                    <field name="key">方法名</field>
+                    <field name="label">标签</field>
+                    <value name="params">
+                        <block type="lists_create_with">
+                            <mutation items="0"></mutation>
+                        </block>
+                    </value>
+                </block>
+                <block type="coco_method_return">
+                    <field name="key">方法名</field>
+                    <field name="label">标签</field>
+                    <field name="valueType">string</field>
+                    <value name="params">
+                        <block type="lists_create_with">
+                            <mutation items="0"></mutation>
+                        </block>
+                    </value>
+                    <statement name="function_1">
+                        <block type="coco_return"></block>
+                    </statement>
+                </block>
+                <block type="coco_method_parameter">
+                    <field name="key">属性名</field>
+                    <field name="label">标签</field>
+                    <field name="labelAfter">尾标签</field>
+                    <field name="valueType">string</field>
+                    <field name="default">默认值</field>
+                </block>
+                <block type="coco_event">
+                    <field name="key">事件名</field>
+                    <field name="label">标签</field>
+                    <value name="params">
+                        <block type="lists_create_with">
+                            <mutation items="0"></mutation>
+                        </block>
+                    </value>
+                </block>
+                <block type="coco_event_parameter">
+                    <field name="key">属性名</field>
+                    <field name="label">标签</field>
+                    <field name="valueType">string</field>
+                </block>
+                <block type="coco_return"></block>
+                <block type="coco_emit">
+                    <field name="eventName">事件名称</field>
+                    <value name="parameters">
+                        <block type="lists_create_with">
+                            <mutation items="0"></mutation>
+                        </block>
+                    </value>
+                </block>
+                <block type="coco_property">
+                    <field name="key">属性名</field>
+                    <field name="label">标签</field>
+                    <field name="valueType">string</field>
+                    <field name="default">默认值</field>
+                </block>
+                <block type="coco_method">
+                    <field name="key">方法名</field>
+                    <field name="label">标签</field>
+                    <value name="params">
+                        <block type="lists_create_with">
+                            <mutation items="0"></mutation>
+                        </block>
+                    </value>
+                </block>
+                <block type="coco_method_return">
+                    <field name="key">方法名</field>
+                    <field name="label">标签</field>
+                    <field name="valueType">string</field>
+                    <value name="params">
+                        <block type="lists_create_with">
+                            <mutation items="0"></mutation>
+                        </block>
+                    </value>
+                    <statement name="function_1">
+                        <block type="coco_return"></block>
+                    </statement>
+                </block>
+                <block type="coco_method_parameter">
+                    <field name="key">属性名</field>
+                    <field name="label">标签</field>
+                    <field name="labelAfter">尾标签</field>
+                    <field name="valueType">string</field>
+                    <field name="default">默认值</field>
+                </block>
+                <block type="coco_event">
+                    <field name="key">事件名</field>
+                    <field name="label">标签</field>
+                    <value name="params">
+                        <block type="lists_create_with">
+                            <mutation items="0"></mutation>
+                        </block>
+                    </value>
+                </block>
+                <block type="coco_event_parameter">
+                    <field name="key">属性名</field>
+                    <field name="label">标签</field>
+                    <field name="valueType">string</field>
+                </block>
+                <block type="coco_return"></block>
             </category>
         </xml>
     </div>
@@ -355,13 +417,13 @@
             var code = Blockly.JavaScript.workspaceToCode(workspace);
             alert(code);
         };
-        let switch_table = function(){
+        let switch_table = function () {
             var code = document.getElementById("code")
             code.style.display = "none";
             var table = document.getElementById("table")
             table.style.display = "inline";
         }
-        let switch_code = function(){
+        let switch_code = function () {
             var code = document.getElementById("code")
             code.style.display = "inline";
             var table = document.getElementById("table")
@@ -374,15 +436,19 @@
         .js_button {
             padding: 10px;
         }
-        .nav{
+
+        .nav {
             height: 5%;
         }
-        .nav-item{
+
+        .nav-item {
             height: 5%;
         }
-        .nav-link{
+
+        .nav-link {
             height: 5%;
         }
     </style>
 </body>
+
 </html>

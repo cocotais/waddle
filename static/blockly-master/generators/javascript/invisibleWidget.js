@@ -21,19 +21,19 @@ const WIDGET_ICON = '${text_icon}';
 const TITLE = '${text_title}';
 
 const types = {
-	type: TYPE,
-	icon: WIDGET_ICON,
-	title: TITLE,
-	// version: '1.0.0',
-	// platforms: ['android', 'ios', 'web'],
-	isInvisibleWidget: true,
-	isGlobalWidget: ${checkbox_isglobalwidget},
-	docs: {
-		url: 'https://coco.codemao.cn'
+	'type': TYPE,
+	'icon': WIDGET_ICON,
+	'title': TITLE,
+	// 'version': '1.0.0',
+	// 'platforms': ['android', 'ios', 'web'],
+	'isInvisibleWidget': true,
+	'isGlobalWidget': ${checkbox_isglobalwidget},
+	'docs': {
+		'url': 'https://coco.codemao.cn'
 	},
-	properties: ${value_properties},
-	methods: [],
-	events: []
+	'properties': ${value_properties},
+	'methods': [],
+	'events': []
 };
 
 class Widget extends InvisibleWidget {
