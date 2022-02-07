@@ -1,4 +1,4 @@
-Blockly,JavaScript["js_run"] = function(block){
+Blockly.JavaScript["js_run"] = function(block){
     let code = block.getFieldValue("CODE");
     return `${code}\n`
 }
