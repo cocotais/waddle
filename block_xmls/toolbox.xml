@@ -1,0 +1,118 @@
+<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+  <block type="coco_emit">
+    <field name="eventName">事件名称</field>
+    <value name="parameters">
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="coco_property">
+    <field name="key">属性名</field>
+    <field name="label">标签</field>
+    <field name="valueType">string</field>
+    <field name="default">默认值</field>
+  </block>
+  <block type="coco_method">
+    <field name="key">方法名</field>
+    <field name="label">标签</field>
+    <value name="params">
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="coco_method_return">
+    <field name="key">方法名</field>
+    <field name="label">标签</field>
+    <field name="valueType">string</field>
+    <value name="params">
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+    <statement name="function_1">
+      <block type="coco_return"></block>
+    </statement>
+  </block>
+  <block type="coco_method_parameter">
+    <field name="key">属性名</field>
+    <field name="label">标签</field>
+    <field name="labelAfter">尾标签</field>
+    <field name="valueType">string</field>
+    <field name="default">默认值</field>
+  </block>
+  <block type="coco_event">
+    <field name="key">事件名</field>
+    <field name="label">标签</field>
+    <value name="params">
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="coco_event_parameter">
+    <field name="key">属性名</field>
+    <field name="label">标签</field>
+    <field name="valueType">string</field>
+  </block>
+  <block type="coco_return"></block>
+  <block type="coco_emit">
+    <field name="eventName">事件名称</field>
+    <value name="parameters">
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="coco_property">
+    <field name="key">属性名</field>
+    <field name="label">标签</field>
+    <field name="valueType">string</field>
+    <field name="default">默认值</field>
+  </block>
+  <block type="coco_method">
+    <field name="key">方法名</field>
+    <field name="label">标签</field>
+    <value name="params">
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="coco_method_return">
+    <field name="key">方法名</field>
+    <field name="label">标签</field>
+    <field name="valueType">string</field>
+    <value name="params">
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+    <statement name="function_1">
+      <block type="coco_return"></block>
+    </statement>
+  </block>
+  <block type="coco_method_parameter">
+    <field name="key">属性名</field>
+    <field name="label">标签</field>
+    <field name="labelAfter">尾标签</field>
+    <field name="valueType">string</field>
+    <field name="default">默认值</field>
+  </block>
+  <block type="coco_event">
+    <field name="key">事件名</field>
+    <field name="label">标签</field>
+    <value name="params">
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+  </block>
+  <block type="coco_event_parameter">
+    <field name="key">属性名</field>
+    <field name="label">标签</field>
+    <field name="valueType">string</field>
+  </block>
+  <block type="coco_return"></block>
+</xml>
