@@ -9,17 +9,30 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
     <meta charset="utf-8">
     <title>CocoMake</title>
-    <meta charset="utf-8">
     <script src="static/blockly-master/blocks/invisibleWidget.js"></script>
     <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script>
     <script src="static/blockly-master/blocks/coco.js"></script>
     <script src="static/blockly-master/generators/javascript/coco.js"></script>
+    <script src="static/blockly-master/blocks/js.js"></script>
+    <script src="static/blockly-master/generators/javascript/js.js"></script>
 </head>
 
 <body>
     <ul class="nav nav-tabs" id="nav">
         <li class="nav-item">
             <p>CocoMake</p>
+        </li>
+        <li class="nav-itam">
+            <div class="dropdown" style="padding-left: 5px">
+                <button class="btn" type="button" id="dropdownMenuFile" data-bs-toggle="dropdown" aria-expanded="false">
+                文件
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuFile">
+                    <li><button onClick="craft()" class="dropdown-item">新建</button></li>
+                    <li><button onClick="save()" class="dropdown-item">保存</button></li>
+                    <li><input type="file" id="read" name="打开" class="dropdown-item"></li>
+                </ul>
+            </div>
         </li>
         <li class="nav-item">
             <button class="nav-link" onclick="switch_table()">工作台</button>
@@ -271,6 +284,7 @@
                 </block>
             </category>
             <category name='CoCo' colour="114">
+                
                 <block type="coco_emit">
                     <field name="eventName">事件名称</field>
                     <value name="parameters">
@@ -388,10 +402,38 @@
                 </block>
                 <block type="coco_return"></block>
             </category>
+            <category name="JavaScript" colour="180">
+                <block type="js_run"></block>
+                <block type="js_usestrict"></block>
+                <block type="js_bitwise"></block>
+                <block type="js_comparisons"></block>
+                <block type="js_time"></block>
+                <block type="js_popup_alert"></block>
+                <block type="js_popup_confirm"></block>
+                <block type="js_popup_prompt"></block>
+                <block type="js_json_parse"></block>
+                <block type="js_json_stringify"></block>
+                <block type="js_json_access"></block>
+                <block type="js_window_screen"></block>
+                <block type="js_window_avail_screen"></block>
+                <block type="js_window_colordepth"></block>
+                <block type="js_window_pixeldepth"></block>
+                <block type="js_navigator_online"></block>
+                <block type="js_navigator_language"></block>
+                <block type="js_navigator_platform"></block>
+                <block type="js_math_constant"></block>
+                <block type="js_console_clean"></block>
+                <block type="js_console_count"></block>
+                <block type="js_console_error"></block>
+                <block type="js_console_warn"></block>
+                <block type="js_console_log"></block>
+                <block type="js_console_time"></block>
+                <block type="js_console_timeend"></block>
+            </category>
         </xml>
     </div>
-    <div id="code" style="display: none;height: 95%;width: 100%;pandding: 5px">
-        <textarea id="codeArea" style="height: 100%;width: 100%;pandding: 5px"></textarea>
+    <div id="code" style="display: none;height: 95%;width: 100%;padding: 5px">
+        <textarea id="codeArea" style="height: 100%;width: 100%;padding: 5px"></textarea>
     </div>
     <script>
         var workspace = Blockly.inject('blocklyDiv',
@@ -433,7 +475,35 @@
             var codeArea = document.getElementById("codeArea")
             codeArea.innerHTML = Blockly.JavaScript.workspaceToCode(workspace);
         }
+        window.onbeforeunload = function(){
+            return "离开后，你的控件就没啦！";
+        }
+        let save = function(){
+            let code_xml = Blockly.Xml.workspaceToDom(workspace);
+            let code_data = Blockly.Xml.domToText(code_xml);
+            let blob = new Blob([code_data],{type:"text/plain;charset=utf-8"});
+            let url = URL.createObjectURL(blob);
+            let downa = document.getElementById("downa");
+            downa.href = url;
+            downa.click();
+            URL.revokeObjectURL(url);
+        }
+        let craft = function(){
+            workspace.clear()
+        }
+        document.getElementById('read').addEventListener('change', function selectedFileChanged() {
+            if (this.files.length !== 0) {
+                workspace.clear()
+                const reader = new FileReader();
+                reader.onload = function fileReadCompleted() {
+                    const xml = Blockly.Xml.textToDom(reader.result);
+                    Blockly.Xml.domToWorkspace(xml,workspace);
+                };
+            reader.readAsText(this.files[0]);
+            }
+        });
     </script>
+    <a href="" download="CocoWidget.cw" style="display: none;" id="downa"></a>
     <style>
         .js_button {
             padding: 10px;
