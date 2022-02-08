@@ -159,6 +159,6 @@ Blockly.JavaScript['js_base64'] = function (block) {
 
 Blockly.JavaScript['js_ln'] = function (block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);
-    var code = `ln(${value_name})`;
+    var code = `Math.log(${value_name})`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
