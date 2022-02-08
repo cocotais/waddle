@@ -10,7 +10,8 @@ Blockly.JavaScript['ivw_invisiblewidget'] = function (block) {
 	var value_functionslist = Blockly.JavaScript.valueToCode(block, 'functionsList', Blockly.JavaScript.ORDER_ATOMIC);
 	// TODO: Assemble JavaScript into code variable.
 	var templist = value_methods.split('----#不怎么华丽的分割线#----')
-	var methods = []
+	console.log(templist)
+	var methods = ''
 	var functions = ''
 	for (let i = 0; i < templist.length - 1; i++) { // 这个-1不要去掉，谢谢
 		if (i % 2 == 0) {
@@ -20,10 +21,10 @@ Blockly.JavaScript['ivw_invisiblewidget'] = function (block) {
 		}
 
 	}
-	if (methods.length >= 1) {
-		methods[methods.length-1] = methods[methods.length-1].concat(']')
-	}
-
+	// if (methods.length >= 1) {
+	// 	methods[methods.length-1] = methods[methods.length-1].concat(']')
+	// }
+	console.log(String(methods))
 	var code =
 		`
 /*
@@ -58,8 +59,9 @@ class Widget extends InvisibleWidget {
 	}
 	
 	${functions}
-
+	/*
 	${value_functionslist}
+	*/
 }
 
 console.log('* 嘿，欢迎使用CoCoMake制作控件');

@@ -28,6 +28,7 @@
     <!--修改ToolBox样式-->
     <script src="static/js/custom_category.js"></script>
     <link href="static/css/toolbox_style.css" rel="stylesheet"/>
+
     <style>
         .nav-item {
             font-size: 20px;
@@ -398,6 +399,11 @@
         <textarea id="codeArea" style="height: 100%;width: 100%;padding: 5px"></textarea>
     </div>
     <script>
+        //定义主题
+        var theme = Blockly.Theme.defineTheme('widgetCraftTheme', {
+            'base': Blockly.Themes.Classic,
+        });
+        //工作区
         var workspace = Blockly.inject('blocklyDiv',
             {
                 toolbox: document.getElementById('toolbox'),
@@ -418,6 +424,7 @@
                     minScale: 0.3,
                     scaleSpeed: 1.2
                 },
+                theme:theme
             });
         let getjscode = function () {
             var code = Blockly.JavaScript.workspaceToCode(workspace);
