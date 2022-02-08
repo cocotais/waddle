@@ -29,5 +29,3 @@ widgetCraftTheme = Blockly.Theme.defineTheme('widgetCraftTheme', {
         flyoutBackgroundColour: "#F0F2F7CC",
     },
 });
-// var module$exports$Blockly$Themes$Classic = {}, module$contents$Blockly$Themes$Classic_defaultBlockStyles = {  }, module$contents$Blockly$Themes$Classic_categoryStyles =
-//     { colour_category: { colour: "20" }, list_category: { colour: "#F9CC37" }, logic_category: { colour: "#AE8964" }, loop_category: { colour: "#68CDFF" }, math_category: { colour: "230" }, procedure_category: { colour: "#F88767" }, text_category: { colour: "#548B54" }, variable_category: { colour: "#FFBB55" }, variable_dynamic_category: { colour: "310" } }; module$exports$Blockly$Themes$Classic.Classic = new module$exports$Blockly$Theme.Theme("classic", module$contents$Blockly$Themes$Classic_defaultBlockStyles, module$contents$Blockly$Themes$Classic_categoryStyles); var module$exports$Blockly$Options = {
