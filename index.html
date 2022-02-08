@@ -5,8 +5,7 @@
     <script src="static/blockly-master/javascript_compressed.js"></script>
     <script src="static/blockly-master/blocks_compressed.js"></script>
     <script src="static/blockly-master/msg/js/zh-hans.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+
     <meta charset="utf-8">
     <title>CocoMake</title>
     <script src="static/blockly-master/blocks/invisibleWidget.js"></script>
@@ -15,39 +14,48 @@
     <script src="static/blockly-master/generators/javascript/coco.js"></script>
     <script src="static/blockly-master/blocks/js.js"></script>
     <script src="static/blockly-master/generators/javascript/js.js"></script>
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!---->
+    <script src="static/js/custom_category.js"></script>
+    <link href="static/css/toolbox_style.css" rel="stylesheet"/>
 </head>
 
 <body>
-    <ul class="nav nav-tabs" id="nav">
-        <li class="nav-item">
-            <p>CocoMake</p>
-        </li>
-        <li class="nav-itam">
-            <div class="dropdown" style="padding-left: 5px">
-                <button class="btn" type="button" id="dropdownMenuFile" data-bs-toggle="dropdown" aria-expanded="false">
-                文件
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuFile">
-                    <li><button onClick="craft()" class="dropdown-item">新建</button></li>
-                    <li><button onClick="save()" class="dropdown-item">保存</button></li>
-                    <li><input type="file" id="read" name="打开" class="dropdown-item"></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <button class="nav-link" onclick="switch_table()">工作台</button>
-        </li>
-        <li class="nav-item">
-            <button class="nav-link" onclick="switch_code()">代码生成</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/about" target="_blank">关于</a>
-        </li>
-    </ul>
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6d50f0;">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">WidgetCraft</a>
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbardrop" data-toggle="dropdown">
+                    文件
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a>
+                    <a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存</a>
+                    <a class="dropdown-item" href="javascript:void(0)"><input type="file" id="read" name="打开" class="dropdown-item"/></a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="switch_table()">工作台</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="switch_code()">代码生成</a>
+            </li>
+			<li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" href="/about" target="_blank">关于</a>
+            </li>
+        </ul>
+    </nav>
     <div id="table">
-        <div id="blocklyDiv" style="width:100%;height: 95%;"></div>
+        <div id="blocklyDiv" style="width:100%;height: 94%;"></div>
         <xml id="toolbox" style="display: none">
-            <category name="控制" colour="210">
+            <category name="控制" colour="#68CDFF">
                 <block type="controls_whileUntil"></block>
                 <block type="controls_repeat_ext">
                     <value name="TIMES">
@@ -78,7 +86,7 @@
                 <block type="controls_forEach"></block>
                 <block type="controls_flow_statements"></block>
             </category>
-            <category name="逻辑" colour="30">
+            <category name="逻辑" colour="#AE8964">
                 <block type="controls_if"></block>
                 <block type="logic_compare"></block>
                 <block type="logic_operation"></block>
@@ -87,7 +95,7 @@
                 <block type="logic_null"></block>
                 <block type="logic_ternary"></block>
             </category>
-            <category name="数学" colour="230">
+            <category name="数学" colour="#FEAE8A">
                 <block type="math_number">
                     <field name="NUM">114514</field>
                 </block>
@@ -126,7 +134,7 @@
                 <block type="math_random_float"></block>
                 <block type="math_atan2"></block>
             </category>
-            <category name="文本" colour="115">
+            <category name="文本" colour="#548B54">
                 <block type="text"></block>
                 <block type="text_length"></block>
                 <block type="text_print"></block>
@@ -201,7 +209,7 @@
                 </block>
             </category>
             <sep></sep>
-            <category name="变量" colour="330" custom="VARIABLE"></category>
+            <category name="变量" colour="#FFBB55" custom="VARIABLE"></category>
             <category name="列表" colour="222">
                 <block type="lists_create_with">
                     <mutation items="0"></mutation>
@@ -253,7 +261,7 @@
                 </block>
                 <block type="lists_sort"></block>
             </category>
-            <category name="函数" colour="290" custom="PROCEDURE"></category>
+            <category name="函数" colour="#F88767" custom="PROCEDURE"></category>
             <sep></sep>
             <category name="不可见控件" colour="114">
                 <block type="ivw_invisiblewidget">
@@ -284,7 +292,6 @@
                 </block>
             </category>
             <category name='CoCo' colour="114">
-                
                 <block type="coco_emit">
                     <field name="eventName">事件名称</field>
                     <value name="parameters">
@@ -322,7 +329,7 @@
                     </statement>
                 </block>
                 <block type="coco_method_parameter">
-                    <field name="key">属性名</field>
+                    <field name="key">参数名</field>
                     <field name="label">标签</field>
                     <field name="labelAfter">尾标签</field>
                     <field name="valueType">string</field>
@@ -338,72 +345,14 @@
                     </value>
                 </block>
                 <block type="coco_event_parameter">
-                    <field name="key">属性名</field>
-                    <field name="label">标签</field>
-                    <field name="valueType">string</field>
-                </block>
-                <block type="coco_return"></block>
-                <block type="coco_emit">
-                    <field name="eventName">事件名称</field>
-                    <value name="parameters">
-                        <block type="lists_create_with">
-                            <mutation items="0"></mutation>
-                        </block>
-                    </value>
-                </block>
-                <block type="coco_property">
-                    <field name="key">属性名</field>
-                    <field name="label">标签</field>
-                    <field name="valueType">string</field>
-                    <field name="default">默认值</field>
-                </block>
-                <block type="coco_method">
-                    <field name="key">方法名</field>
-                    <field name="label">标签</field>
-                    <value name="params">
-                        <block type="lists_create_with">
-                            <mutation items="0"></mutation>
-                        </block>
-                    </value>
-                </block>
-                <block type="coco_method_return">
-                    <field name="key">方法名</field>
-                    <field name="label">标签</field>
-                    <field name="valueType">string</field>
-                    <value name="params">
-                        <block type="lists_create_with">
-                            <mutation items="0"></mutation>
-                        </block>
-                    </value>
-                    <statement name="function_1">
-                        <block type="coco_return"></block>
-                    </statement>
-                </block>
-                <block type="coco_method_parameter">
-                    <field name="key">属性名</field>
-                    <field name="label">标签</field>
-                    <field name="labelAfter">尾标签</field>
-                    <field name="valueType">string</field>
-                    <field name="default">默认值</field>
-                </block>
-                <block type="coco_event">
-                    <field name="key">事件名</field>
-                    <field name="label">标签</field>
-                    <value name="params">
-                        <block type="lists_create_with">
-                            <mutation items="0"></mutation>
-                        </block>
-                    </value>
-                </block>
-                <block type="coco_event_parameter">
-                    <field name="key">属性名</field>
+                    <field name="key">参数名</field>
                     <field name="label">标签</field>
                     <field name="valueType">string</field>
                 </block>
                 <block type="coco_return"></block>
             </category>
             <category name="JavaScript" colour="180">
-                <block type="js_run"></block>
+                <label text="鸡肋积木"></label>
                 <block type="js_usestrict"></block>
                 <block type="js_bitwise"></block>
                 <block type="js_comparisons"></block>
@@ -429,6 +378,7 @@
                 <block type="js_console_log"></block>
                 <block type="js_console_time"></block>
                 <block type="js_console_timeend"></block>
+                <block type="js_base64"></block>
             </category>
         </xml>
     </div>
@@ -441,9 +391,9 @@
                 toolbox: document.getElementById('toolbox'),
                 grid:
                 {
-                    spacing: 20,
-                    length: 3,
-                    colour: '#ccc',
+                    spacing: 7.5,
+                    length: 7.5,
+                    colour: '#fafafa',
                     snap: true,
                     trashcan: true
                 },
@@ -475,20 +425,20 @@
             var codeArea = document.getElementById("codeArea")
             codeArea.innerHTML = Blockly.JavaScript.workspaceToCode(workspace);
         }
-        window.onbeforeunload = function(){
+        window.onbeforeunload = function () {
             return "离开后，你的控件就没啦！";
         }
-        let save = function(){
+        let save = function () {
             let code_xml = Blockly.Xml.workspaceToDom(workspace);
             let code_data = Blockly.Xml.domToText(code_xml);
-            let blob = new Blob([code_data],{type:"text/plain;charset=utf-8"});
+            let blob = new Blob([code_data], { type: "text/plain;charset=utf-8" });
             let url = URL.createObjectURL(blob);
             let downa = document.getElementById("downa");
             downa.href = url;
             downa.click();
             URL.revokeObjectURL(url);
         }
-        let craft = function(){
+        let craft = function () {
             workspace.clear()
         }
         document.getElementById('read').addEventListener('change', function selectedFileChanged() {
@@ -497,9 +447,9 @@
                 const reader = new FileReader();
                 reader.onload = function fileReadCompleted() {
                     const xml = Blockly.Xml.textToDom(reader.result);
-                    Blockly.Xml.domToWorkspace(xml,workspace);
+                    Blockly.Xml.domToWorkspace(xml, workspace);
                 };
-            reader.readAsText(this.files[0]);
+                reader.readAsText(this.files[0]);
             }
         });
     </script>

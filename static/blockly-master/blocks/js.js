@@ -6,7 +6,7 @@ Blockly.Blocks['js_run'] = {
         this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(0);
+        this.setColour("#F86787");
         this.setTooltip("运行js代码。需要加分号，不需要加换行符。(感谢青PG5p提出意见！)");
         this.setHelpUrl("https://www.w3school.com.cn/js/index.asp");
     }
@@ -16,7 +16,7 @@ Blockly.Blocks['js_usestrict'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("使用严格模式");
-        this.setColour(180);
+        this.setColour("#F86787");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setTooltip("在js代码里使用严格模式。");
@@ -36,7 +36,7 @@ Blockly.Blocks['js_bitwise'] = {
             .setCheck("Number");
         this.setInputsInline(true);
         this.setOutput(true, "Number");
-        this.setColour(180);
+        this.setColour("#FEAE8A");
         this.setTooltip("位运算。返回二进制数。");
         this.setHelpUrl("https://www.w3school.com.cn/js/js_bitwise.asp");
     }
@@ -54,7 +54,7 @@ Blockly.Blocks['js_comparisons'] = {
             .setCheck(null);
         this.setInputsInline(true);
         this.setOutput(true, "Boolean");
-        this.setColour(180);
+        this.setColour("#FEAE8A");
         this.setTooltip("比较。返回布尔值。");
         this.setHelpUrl("https://www.w3school.com.cn/js/js_comparisons.asp");
     }
@@ -67,7 +67,7 @@ Blockly.Blocks['js_time'] = {
             .appendField(new Blockly.FieldDropdown([["时间戳", "new Date().getTime()"], ["年份", "new Date().getFullYear()"], ["月份", "new Date().getMonth()"], ["日", "new Date().getDate()"], ["小时", "new Date().getHours()"], ["分钟", "new Date().getMinutes()"], ["秒数", "new Date().getSeconds()"], ["毫秒数", "new Date().getMilliseconds()"], ["星期", "new Date().getDay()"]]), "TYPE");
         this.setInputsInline(true);
         this.setOutput(true, "Number");
-        this.setColour(180);
+        this.setColour("#A073FF");
         this.setTooltip("获取现在的时间。(月份返回0到11间的数，星期返回0到6之间的数。)");
         this.setHelpUrl("https://www.w3school.com.cn/js/js_date_methods.asp");
     }
@@ -80,7 +80,7 @@ Blockly.Blocks['js_popup_alert'] = {
             .appendField("弹出警告框，内容");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(180);
+        this.setColour("#A073FF");
         this.setTooltip("弹出一个警告框。");
         this.setHelpUrl("https://www.w3school.com.cn/js/js_popup.asp");
     }
@@ -92,7 +92,7 @@ Blockly.Blocks['js_popup_confirm'] = {
             .setCheck("String")
             .appendField("弹出确认框并获取选择状态，内容");
         this.setOutput(true, "Boolean");
-        this.setColour(180);
+        this.setColour("#A073FF");
         this.setTooltip("弹出一个确认框。返回布尔值");
         this.setHelpUrl("https://www.w3school.com.cn/js/js_popup.asp");
     }
@@ -104,7 +104,7 @@ Blockly.Blocks['js_popup_prompt'] = {
             .setCheck("String")
             .appendField("弹出输入框并获取输入，内容");
         this.setOutput(true, "String");
-        this.setColour(180);
+        this.setColour("#A073FF");
         this.setTooltip("弹出一个输入框。返回输入内容。");
         this.setHelpUrl("https://www.w3school.com.cn/js/js_popup.asp");
     }
@@ -117,7 +117,7 @@ Blockly.Blocks['js_json_parse'] = {
             .appendField("解析json字符串");
         this.setInputsInline(false);
         this.setOutput(true, "Object");
-        this.setColour(165);
+        this.setColour("#68CDFF");
         this.setTooltip("解析json字符串为对象。");
         this.setHelpUrl("https://www.w3school.com.cn/js/js_json_parse.asp");
     }
@@ -131,7 +131,7 @@ Blockly.Blocks['js_json_stringify'] = {
         this.appendDummyInput()
             .appendField("转为字符串");
         this.setOutput(true, "String");
-        this.setColour(165);
+        this.setColour("#68CDFF");
         this.setTooltip("将对象转为json字符串。");
         this.setHelpUrl("https://www.w3school.com.cn/js/js_json_stringify.asp");
     }
@@ -148,7 +148,7 @@ Blockly.Blocks['js_json_access'] = {
         this.appendDummyInput()
             .appendField("的值")
         this.setOutput(true, null);
-        this.setColour(165);
+        this.setColour("#68CDFF");
         this.setTooltip("获取对象的键的值");
         this.setHelpUrl("https://www.w3school.com.cn/js/js_json_objects.asp");
     }
@@ -160,7 +160,7 @@ Blockly.Blocks['js_window_screen'] = {
             .appendField("获取屏幕")
             .appendField(new Blockly.FieldDropdown([["宽度", "screen.width"], ["高度", "screen.height"]]), "TYPE");
         this.setOutput(true, "Number");
-        this.setColour(90);
+        this.setColour("#77D657");
         this.setTooltip("获取屏幕的长或宽。单位为像素，返回数字。");
         this.setHelpUrl("https://www.w3school.com.cn/js/js_window.asp");
     }
@@ -172,7 +172,7 @@ Blockly.Blocks['js_window_avail_screen'] = {
             .appendField("获取屏幕可用")
             .appendField(new Blockly.FieldDropdown([["宽度", "screen.availWidth"], ["高度", "screen.availHeight"]]), "TYPE");
         this.setOutput(true, "Number");
-        this.setColour(90);
+        this.setColour("#77D657");
         this.setTooltip("获取屏幕可用的长或宽，减去诸如窗口工具条之类的界面特征。单位为像素，返回数字。");
         this.setHelpUrl("https://www.w3school.com.cn/js/js_window.asp");
     }
@@ -183,7 +183,7 @@ Blockly.Blocks['js_window_colordepth'] = {
         this.appendDummyInput()
             .appendField("获取屏幕色深");
         this.setOutput(true, "Number");
-        this.setColour(90);
+        this.setColour("#77D657");
         this.setTooltip("获取屏幕色深。返回用于显示一种颜色的比特数。");
         this.setHelpUrl("https://www.w3school.com.cn/js/js_window_screen.asp");
     }
@@ -194,7 +194,7 @@ Blockly.Blocks['js_window_pixeldepth'] = {
         this.appendDummyInput()
             .appendField("获取屏幕像素深度");
         this.setOutput(true, "Number");
-        this.setColour(90);
+        this.setColour("#77D657");
         this.setTooltip("屏幕的像素深度。返回字符串。对于现代计算机，颜色深度和像素深度是相等的。");
         this.setHelpUrl("https://www.w3school.com.cn/js/js_window_screen.asp");
     }
@@ -341,15 +341,17 @@ Blockly.Blocks['js_console_timeend'] = {
     }
 };
 
-Blockly.Blocks['js_typeof'] = {
+Blockly.Blocks['js_base64'] = {
     init: function () {
-        this.appendValueInput("OBJECT")
-            .setCheck(null)
-            .appendField("判断类型");
-        this.setInputsInline(false);
+        this.appendDummyInput()
+            .appendField("Base64转换")
+            .appendField(new Blockly.FieldDropdown([["ASCII字符", "ASCII"], ["非ASCII字符", "UNASCII"]]), "TYPE_CODE")
+            .appendField(new Blockly.FieldDropdown([["编码", "BM"], ["解码", "JM"]]), "TYPE");
+        this.appendValueInput("TEXT")
+            .setCheck("String");
         this.setOutput(true, "String");
-        this.setColour(180);
-        this.setTooltip("判断值类型。返回字符串");
-        this.setHelpUrl("https://www.runoob.com/w3cnote/javascript-console-object.html");
+        this.setColour(230);
+        this.setTooltip("进行base64转换");
+        this.setHelpUrl("");
     }
 };

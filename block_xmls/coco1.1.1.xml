@@ -321,10 +321,10 @@
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
           <block type="field_static" id="SODF[8IYKfL+[KR2w[P~">
-            <field name="TEXT">属性</field>
+            <field name="TEXT">参数</field>
             <next>
               <block type="field_input" id="sjvVeSBB%Z?qc`h0{`Yj">
-                <field name="TEXT">属性名</field>
+                <field name="TEXT">参数名</field>
                 <field name="FIELDNAME">key</field>
                 <next>
                   <block type="field_static" id="Tf{z4.NnCBfoqJBpY=c.">
@@ -386,7 +386,7 @@
     </statement>
     <value name="TOOLTIP">
       <block type="text" id="Sm~r8S)Q4}ZVYA:0)n=_" deletable="false" movable="false">
-        <field name="TEXT">定义用于方法的属性，放在列表里使用</field>
+        <field name="TEXT">定义用于方法的参数，放在列表里使用</field>
       </block>
     </value>
     <value name="HELPURL">
@@ -479,10 +479,10 @@
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
           <block type="field_static" id="SODF[8IYKfL+[KR2w[P~">
-            <field name="TEXT">属性</field>
+            <field name="TEXT">参数</field>
             <next>
               <block type="field_input" id="sjvVeSBB%Z?qc`h0{`Yj">
-                <field name="TEXT">属性名</field>
+                <field name="TEXT">参数名</field>
                 <field name="FIELDNAME">key</field>
                 <next>
                   <block type="field_static" id="Tf{z4.NnCBfoqJBpY=c.">
@@ -522,7 +522,7 @@
     </statement>
     <value name="TOOLTIP">
       <block type="text" id="Sm~r8S)Q4}ZVYA:0)n=_" deletable="false" movable="false">
-        <field name="TEXT">定义用于事件的属性，放在列表里使用</field>
+        <field name="TEXT">定义用于事件的参数，放在列表里使用</field>
       </block>
     </value>
     <value name="HELPURL">

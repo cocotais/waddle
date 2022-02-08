@@ -1,6 +1,6 @@
 Blockly.JavaScript["js_run"] = function(block){
-    let code = block.getFieldValue("CODE");
-    return `${code}\n`
+    var code = block.getFieldValue("CODE");
+    return code
 }
 
 Blockly.JavaScript["js_usestrict"] = function(block){
@@ -146,3 +146,30 @@ Blockly.JavaScript["js_console_timeend"] = function(block){
     var code = `console.timeEnd(${text});\n`;
     return code;
 }
+
+Blockly.JavaScript['js_base64'] = function (block) {
+    var dropdown_type_code = block.getFieldValue('TYPE_CODE');
+    var dropdown_type = block.getFieldValue('TYPE');
+    var value_text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE);
+    if (dropdown_type_code == "ASCII") {
+        if (dropdown_type == "BM") {
+            let fun = "btoa"
+            var code = `${fun}(${value_text})`;
+            return [code, Blockly.JavaScript.ORDER_NONE];
+        } else {
+            let fun = "atob"
+            var code = `${fun}(${value_text})`;
+            return [code, Blockly.JavaScript.ORDER_NONE];
+        }
+    } else {
+        if (dropdown_type == "BM") {
+            let fun = "encodeURIComponent"
+            var code = `${fun}(${value_text})`;
+            return [code, Blockly.JavaScript.ORDER_NONE];
+        } else {
+            let fun = "decodeURIComponent"
+            var code = `${fun}(${value_text})`;
+            return [code, Blockly.JavaScript.ORDER_NONE];
+        }
+    }
+};

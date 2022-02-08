@@ -79,8 +79,8 @@ Blockly.Blocks['coco_method_return'] = {
 Blockly.Blocks['coco_method_parameter'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("属性于方法")
-        .appendField(new Blockly.FieldTextInput("属性名"), "key")
+        .appendField("参数于方法")
+        .appendField(new Blockly.FieldTextInput("参数名"), "key")
         .appendField("标签")
         .appendField(new Blockly.FieldTextInput("标签"), "label")
         .appendField("尾标签")
@@ -91,7 +91,7 @@ Blockly.Blocks['coco_method_parameter'] = {
         .appendField(new Blockly.FieldTextInput("默认值"), "default");
     this.setOutput(true, null);
     this.setColour(120);
- this.setTooltip("定义用于方法的属性，放在列表里使用");
+ this.setTooltip("定义用于方法的参数，放在列表里使用");
  this.setHelpUrl("");
   }
 };
@@ -117,15 +117,15 @@ Blockly.Blocks['coco_event'] = {
 Blockly.Blocks['coco_event_parameter'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("属性于事件")
-        .appendField(new Blockly.FieldTextInput("属性名"), "key")
+        .appendField("参数于事件")
+        .appendField(new Blockly.FieldTextInput("参数名"), "key")
         .appendField("标签")
         .appendField(new Blockly.FieldTextInput("标签"), "label")
         .appendField("值类型")
         .appendField(new Blockly.FieldDropdown([["字符串","string"], ["数字","number"], ["布尔","boolean"], ["颜色","color"]]), "valueType");
     this.setOutput(true, null);
     this.setColour(120);
- this.setTooltip("定义用于事件的属性，放在列表里使用");
+ this.setTooltip("定义用于事件的参数，放在列表里使用");
  this.setHelpUrl("");
   }
 };
