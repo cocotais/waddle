@@ -14,8 +14,12 @@
     justify-content: space-between;
     padding: 0 6px 0 12px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 8px;
     margin: 0 6px 4px;
     font-size: 12px;
 
+}
+
+.blocklyToolboxDiv {
+    background-color:#F0F2F7;
 }
