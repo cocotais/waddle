@@ -29,6 +29,11 @@
     <script src="static/js/custom_category.js"></script>
     <link href="static/css/toolbox_style.css" rel="stylesheet"/>
 
+
+    <!--引入WidgetCraft内容-->
+    <script src="static/WidgetCraft/core/theme/widgetCraftTheme.js"></script>
+
+
     <style>
         .nav-item {
             font-size: 20px;
@@ -223,7 +228,7 @@
             </category>
             <sep></sep>
             <category name="变量" colour="#FFBB55" custom="VARIABLE"></category>
-            <category name="列表" colour="222">
+            <category name="列表" colour="#F9CC37">
                 <block type="lists_create_with">
                     <mutation items="0"></mutation>
                 </block>
@@ -400,9 +405,7 @@
     </div>
     <script>
         //定义主题
-        var theme = Blockly.Theme.defineTheme('widgetCraftTheme', {
-            'base': Blockly.Themes.Classic,
-        });
+        var theme = widgetCraftTheme;
         //工作区
         var workspace = Blockly.inject('blocklyDiv',
             {
