@@ -202,4 +202,27 @@ args0:[{type:"input_value",name:"COLOUR1",check:"Colour",align:"RIGHT"},{type:"i
 
 return $.Blockly.Blocks;
 }));
+
+Blockly.Blocks["voxels_shape"] = {
+  init:function(){
+    this.setOutput(true,"String");
+    this.appendField("世界尺寸")
+    this.setColour(114);
+    this.setTooltip("世界地形最大尺寸。");
+    this.setHelpUrl("https://docs.box3.codemao.cn/box3voxels.html#voxelsshape");
+  },
+};
+
+Blockly.Blocks["voxels_id"] = {
+  init:function(){
+    this.appendValueInput("NAME")
+      .setCheck("string")
+      .appendField("方块名称转id")
+    this.setOutput(true,"Number");
+    this.setColour(114);
+    this.setTooltip("将方块名称转换为方块id。");
+    this.setHelpUrl("https://docs.box3.codemao.cn/box3voxels.html#voxelsid");
+  },
+};
+
 //# sourceMappingURL=blocks_compressed.js.map
