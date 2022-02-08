@@ -345,7 +345,6 @@ Blockly.Blocks['js_base64'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("Base64转换")
-            .appendField(new Blockly.FieldDropdown([["ASCII字符", "ASCII"], ["非ASCII字符", "UNASCII"]]), "TYPE_CODE")
             .appendField(new Blockly.FieldDropdown([["编码", "BM"], ["解码", "JM"]]), "TYPE");
         this.appendValueInput("TEXT")
             .setCheck("String");
@@ -353,5 +352,17 @@ Blockly.Blocks['js_base64'] = {
         this.setColour(230);
         this.setTooltip("进行base64转换");
         this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['js_ln'] = {
+    init: function () {
+        this.appendValueInput("NAME")
+            .setCheck("Number")
+            .appendField("ln");
+        this.setOutput(true, "Number");
+        this.setColour(230);
+        this.setTooltip("进行ln运算");
+        this.setHelpUrl("https://www.w3cschool.cn/wkjavascript/8ct21o9o.html");
     }
 };
