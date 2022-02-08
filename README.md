@@ -1,7 +1,7 @@
-# CocoGraphical
+# Widget工匠
 
 #### 介绍
-Coco自定义控件图形化
+Coco自定义控件图形化工具
 
 #### 软件架构
 软件架构说明
