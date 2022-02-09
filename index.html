@@ -1,4 +1,8 @@
 <html>
+<!--
+    TODO-1:xxxx
+    TODO-2:
+-->
 
 <head>
     <!--引入Blockly必要文件-->
@@ -8,7 +12,7 @@
     <script src="static/blockly-master/msg/js/zh-hans.js"></script>
 
     <meta charset="utf-8">
-    <title>Widget工匠</title>
+    <title>Widget 工匠</title>
     <!--定义Blocks-->
     <script src="static/blockly-master/blocks/invisibleWidget.js"></script>
     <script src="static/blockly-master/blocks/coco.js"></script>
@@ -30,9 +34,12 @@
     <link href="static/css/toolbox_style.css" rel="stylesheet"/>
 
 
-    <!--引入WidgetCraft内容-->
+    <!--引入WidgetCraft主题-->
     <script src="static/WidgetCraft/core/theme/widgetCraftTheme.js"></script>
-
+    <!--引入tools积木-->
+    <script src="static/WidgetCraft/core/theme/blocks/tools.js"></script>
+    <!--引入tools生成器-->
+    <script src="static/WidgetCraft/generators/javascript/tools.js"></script>
 
     <style>
         .nav-item {
@@ -65,7 +72,7 @@
                 <a class="nav-link" href="javascript:void(0)" onclick="switch_code()">代码生成</a>
             </li>
 			<li class="nav-item">
-                <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft/about" target="_blank" onclick="count()">关于</a>
+                <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft/about" target="_blank">关于</a>
             </li>
         </ul>
     </nav>
@@ -474,14 +481,6 @@
                 reader.readAsText(this.files[0]);
             }
         });
-        //彩蛋
-        var get_num = 0;
-        let count = function(){
-            get_num++;
-            if (get_num>=5){
-                window.open("static/blockly-master/aiwidget.html")
-            }
-        }
     </script>
     <a href="" download="CocoWidget.cw" style="display: none;" id="downa"></a>
     <style>

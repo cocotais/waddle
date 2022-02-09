@@ -148,28 +148,17 @@ Blockly.JavaScript["js_console_timeend"] = function(block){
 }
 
 Blockly.JavaScript['js_base64'] = function (block) {
-    var dropdown_type_code = block.getFieldValue('TYPE_CODE');
     var dropdown_type = block.getFieldValue('TYPE');
     var value_text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE);
-    if (dropdown_type_code == "ASCII") {
-        if (dropdown_type == "BM") {
-            let fun = "btoa"
-            var code = `${fun}(${value_text})`;
-            return [code, Blockly.JavaScript.ORDER_NONE];
-        } else {
-            let fun = "atob"
-            var code = `${fun}(${value_text})`;
-            return [code, Blockly.JavaScript.ORDER_NONE];
-        }
-    } else {
-        if (dropdown_type == "BM") {
-            let fun = "encodeURIComponent"
-            var code = `${fun}(${value_text})`;
-            return [code, Blockly.JavaScript.ORDER_NONE];
-        } else {
-            let fun = "decodeURIComponent"
-            var code = `${fun}(${value_text})`;
-            return [code, Blockly.JavaScript.ORDER_NONE];
-        }
+    if (dropdown_type == "BM"){
+        return `btoa(encodeURI(${value_text}))`
+    }else{
+        return `decodeURI(atob(${value_text}))`
     }
+};
+
+Blockly.JavaScript['js_ln'] = function (block) {
+    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);
+    var code = `Math.log(${value_name})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
 };
