@@ -21,6 +21,6 @@
 }
 
 .custom_renderer-renderer.widgetCraftTheme-theme .blocklySelected>.blocklyPath {
-    stroke: white;
-    stroke-width: 2px;
+    stroke: #FFFFDD;
+    stroke-width: 3px;
 }
