@@ -1,8 +1,4 @@
-<html>
-<!--
-    TODO-1:xxxx
-    TODO-2:
--->
+<html lang="zh">
 
 <head>
     <!--引入Blockly必要文件-->
@@ -22,7 +18,7 @@
     <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script>
     <script src="static/blockly-master/generators/javascript/coco.js"></script>
     <script src="static/blockly-master/generators/javascript/js.js"></script>
-    
+
     <!--引入框架-->
     <script src="static/js/jquery-3.4.1.min.js"></script>
     <script src="static/js/bootstrap.bundle.min.js"></script>
@@ -31,13 +27,13 @@
 
     <!--修改ToolBox样式-->
     <script src="static/js/custom_category.js"></script>
-    <link href="static/css/toolbox_style.css" rel="stylesheet"/>
+    <link href="static/css/toolbox_style.css" rel="stylesheet" />
 
 
     <!--引入WidgetCraft主题-->
     <script src="static/WidgetCraft/core/theme/widgetCraftTheme.js"></script>
     <!--引入tools积木-->
-    <script src="static/WidgetCraft/core/theme/blocks/tools.js"></script>
+    <script src="static/WidgetCraft/blocks/tools.js"></script>
     <!--引入tools生成器-->
     <script src="static/WidgetCraft/generators/javascript/tools.js"></script>
 
@@ -49,9 +45,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6d50f0;"><!--导航栏-->
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6d50f0;">
+        <!--导航栏-->
         <!-- Brand -->
-        <a class="navbar-brand" href="#"><img src="static/img/widget.png" style="height: 40px;padding-left: 15px;padding-bottom: 5px;" alt="WidgetCraft"/></a>
+        <a class="navbar-brand" href="#"><img src="static/img/widget.png"
+                style="height: 40px;padding-left: 15px;padding-bottom: 5px;" alt="WidgetCraft" /></a>
         <!-- Links -->
         <ul class="navbar-nav">
             <!-- Dropdown -->
@@ -62,7 +60,8 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a>
                     <a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存</a>
-                    <a class="dropdown-item" href="javascript:void(0)"><input type="file" id="read" name="打开" class="dropdown-item"/></a>
+                    <a class="dropdown-item" href="javascript:void(0)"><input type="file" id="read" name="打开"
+                            class="dropdown-item" /></a>
                 </div>
             </li>
             <li class="nav-item">
@@ -71,7 +70,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0)" onclick="switch_code()">代码生成</a>
             </li>
-			<li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft/about" target="_blank">关于</a>
             </li>
         </ul>
@@ -405,6 +404,36 @@
                 <block type="js_console_timeend"></block>
                 <block type="js_base64"></block>
             </category>
+            <category name="工具" colour="#000000">
+                <label text="工具.积木夹子"></label>
+                <label text="方便积木分段，折叠"></label>
+                <block type="tools_blocks_clip"></block>
+
+                <label text="工具.仅运行"></label>
+                <label text="用于运行有返回值的积木"></label>
+                <block type="tools_only_run"></block>
+
+                <label text="工具.注释"></label>
+                <label text="用于插入单行注释"></label>
+                <block type="tools_exegesis"></block>
+
+                <label text="工具.组合"></label>
+
+                <block type="tools_blocks_clip">
+                    <value name="exegesis">
+                        <block type="tools_exegesis">
+                            <field name="exegesis">一段代码</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="tools_only_run">
+                    <value name="codes">
+                        <block type="tools_exegesis">
+                            <field name="exegesis">一行注释</field>
+                        </block>
+                    </value>
+                </block>
+            </category>
         </xml>
     </div>
     <div id="code" style="display: none;height: 95%;width: 100%;padding: 5px">
@@ -434,7 +463,7 @@
                     minScale: 0.3,
                     scaleSpeed: 1.2
                 },
-                theme:theme
+                theme: theme
             });
         let getjscode = function () {
             var code = Blockly.JavaScript.workspaceToCode(workspace);
