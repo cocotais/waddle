@@ -65,7 +65,7 @@
                 <a class="nav-link" href="javascript:void(0)" onclick="switch_code()">代码生成</a>
             </li>
 			<li class="nav-item">
-                <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft/about" target="_blank">关于</a>
+                <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft/about" target="_blank" onclick="count()">关于</a>
             </li>
         </ul>
     </nav>
@@ -474,6 +474,14 @@
                 reader.readAsText(this.files[0]);
             }
         });
+        //彩蛋
+        var get_num = 0;
+        let count = function(){
+            let get_num = get_num + 1;
+            if (get_num>=5){
+                window.open("/static/blockly-master/aiwidget.html")
+            }
+        }
     </script>
     <a href="" download="CocoWidget.cw" style="display: none;" id="downa"></a>
     <style>
