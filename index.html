@@ -79,6 +79,7 @@
         <div id="blocklyDiv" style="width:100%;height: 94%;"></div>
         <!--ToolBox积木-->
         <xml id="toolbox" style="display: none">
+            <category name="基本积木" colour="#9429FF">
             <category name="控制" colour="#68CDFF">
                 <block type="controls_whileUntil"></block>
                 <block type="controls_repeat_ext">
@@ -109,8 +110,9 @@
                 </block>
                 <block type="controls_forEach"></block>
                 <block type="controls_flow_statements"></block>
-            </category>
-            <category name="逻辑" colour="#AE8964">
+                <!--控制和逻辑合并-->
+                <!-- </category>
+            <category name="逻辑" colour="#AE8964"> -->
                 <block type="controls_if"></block>
                 <block type="logic_compare"></block>
                 <block type="logic_operation"></block>
@@ -286,6 +288,7 @@
                 <block type="lists_sort"></block>
             </category>
             <category name="函数" colour="#F88767" custom="PROCEDURE"></category>
+            </category>
             <sep></sep>
             <category name="不可见控件" colour="114">
                 <block type="ivw_invisiblewidget">
@@ -404,7 +407,7 @@
                 <block type="js_console_timeend"></block>
                 <block type="js_base64"></block>
             </category>
-            <category name="工具" colour="#000000">
+            <category name="工具" colour="#9429FF">
                 <label text="工具.积木夹子"></label>
                 <label text="方便积木分段，折叠"></label>
                 <block type="tools_blocks_clip"></block>
