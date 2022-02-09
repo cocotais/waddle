@@ -79,7 +79,7 @@
         <div id="blocklyDiv" style="width:100%;height: 94%;"></div>
         <!--ToolBox积木-->
         <xml id="toolbox" style="display: none">
-            <category name="基本积木" colour="#9429FF">
+            <!-- <category name="基本积木" colour="#9429FF"> --><!--样式不对，暂时不用文件夹-->
             <category name="控制" colour="#68CDFF">
                 <block type="controls_whileUntil"></block>
                 <block type="controls_repeat_ext">
@@ -196,7 +196,7 @@
                     </value>
                 </block>
             </category>
-            <category name="颜色" colour="200">
+            <category name="颜色" colour="20">
                 <block type="colour_picker"></block>
                 <block type="colour_random"></block>
                 <block type="colour_rgb">
@@ -288,7 +288,7 @@
                 <block type="lists_sort"></block>
             </category>
             <category name="函数" colour="#F88767" custom="PROCEDURE"></category>
-            </category>
+            <!-- </category> -->
             <sep></sep>
             <category name="不可见控件" colour="114">
                 <block type="ivw_invisiblewidget">
@@ -392,7 +392,7 @@
                 <block type="js_json_access"></block>
                 <block type="js_window_screen"></block>
                 <block type="js_window_avail_screen"></block>
-                <block type="js_window_colordepth"></block>
+                <block type="js_window_depth"></block>
                 <block type="js_window_pixeldepth"></block>
                 <block type="js_navigator_online"></block>
                 <block type="js_navigator_language"></block>
@@ -409,7 +409,7 @@
             </category>
             <category name="工具" colour="#9429FF">
                 <label text="工具.积木夹子"></label>
-                <label text="方便积木分段，折叠"></label>
+                <label text="方便积木分段，折叠；顶部注释积木夹子标签"></label>
                 <block type="tools_blocks_clip"></block>
 
                 <label text="工具.仅运行"></label>
@@ -419,23 +419,6 @@
                 <label text="工具.注释"></label>
                 <label text="用于插入单行注释"></label>
                 <block type="tools_exegesis"></block>
-
-                <label text="工具.组合"></label>
-
-                <block type="tools_blocks_clip">
-                    <value name="exegesis">
-                        <block type="tools_exegesis">
-                            <field name="exegesis">一段代码</field>
-                        </block>
-                    </value>
-                </block>
-                <block type="tools_only_run">
-                    <value name="codes">
-                        <block type="tools_exegesis">
-                            <field name="exegesis">一行注释</field>
-                        </block>
-                    </value>
-                </block>
             </category>
         </xml>
     </div>

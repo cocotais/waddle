@@ -1,13 +1,13 @@
 
 Blockly.Blocks['tools_blocks_clip'] = {
     init: function () {
-        this.appendValueInput("exegesis")
-            .setCheck(null);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("标签"), "tag");
         this.appendStatementInput("codes")
             .setCheck(null);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setTooltip("工具.积木夹子：方便积木分段，折叠；顶部用于插入注释");
+        this.setTooltip("工具.积木夹子：方便积木分段，折叠；顶部注释积木夹子标签");
         this.setHelpUrl("");
         this.setColour("#9429FF");
     }
@@ -29,7 +29,8 @@ Blockly.Blocks['tools_exegesis'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(new Blockly.FieldTextInput("注释"), "exegesis");
-        this.setOutput(true, null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
         this.setTooltip("工具.注释：用于插入单行注释");
         this.setHelpUrl("");
         this.setColour("#9429FF");
