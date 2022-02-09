@@ -25,10 +25,12 @@
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <!--修改ToolBox样式-->
-    <script src="static/js/custom_category.js"></script>
+    <!--自定义ToolBox样式-->
+    <script src="static/WidgetCraft/custom_category.js"></script>
     <link href="static/css/toolbox_style.css" rel="stylesheet" />
 
+    <!--自定义积木样式-->
+    <script src="static/WidgetCraft/custom_renderer.js"></script>
 
     <!--引入WidgetCraft主题-->
     <script src="static/WidgetCraft/core/theme/widgetCraftTheme.js"></script>
@@ -449,7 +451,8 @@
                     minScale: 0.3,
                     scaleSpeed: 1.2
                 },
-                theme: theme
+                theme: theme,
+                renderer: 'custom_renderer'
             });
         let getjscode = function () {
             var code = Blockly.JavaScript.workspaceToCode(workspace);
