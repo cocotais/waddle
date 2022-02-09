@@ -56,16 +56,15 @@
         <ul class="navbar-nav">
             <!-- Dropdown -->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbardrop" data-toggle="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     文件
                 </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a>
-                    <a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存</a>
-                    <a class="dropdown-item" href="javascript:void(0)"><input type="file" id="read" name="打开"
-                            class="dropdown-item" /></a>
-                </div>
-            </li>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a></li>
+                  <li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存</a></li>
+                  <li><a class="dropdown-item" href="javascript:void(0)"><input type="file" id="read" name="打开" style="width: 167;"></input></a></li>
+                </ul>
+              </li>
             <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0)" onclick="switch_table()">工作台</a>
             </li>
