@@ -178,7 +178,7 @@ Blockly.Blocks['js_window_avail_screen'] = {
     }
 };
 
-Blockly.Blocks['js_window_colordepth'] = {
+Blockly.Blocks['js_window_depth'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("获取屏幕色深");
