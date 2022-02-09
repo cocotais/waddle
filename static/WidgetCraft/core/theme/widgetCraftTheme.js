@@ -25,8 +25,8 @@ widgetCraftTheme = Blockly.Theme.defineTheme('widgetCraftTheme', {
         variable_dynamic_category: { colour: "#F9CC37" }
     },
     'componentStyles': {
-        workspaceBackgroundColour: "",
-        toolboxBackgroundColour: "#F0F2F7",
-        flyoutBackgroundColour: "#F0F2F7CC",
+        workspaceBackgroundColour: "#F0EFF0",
+        toolboxBackgroundColour: "#F2F2F2",
+        flyoutBackgroundColour: "#F2F2F2CC",
     },
 });
