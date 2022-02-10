@@ -7,9 +7,10 @@
 <i>不可直接打开index.html</i>
 
 ### 已装Python，且在PATH上
+或直接运行run(windows).cmd
 1.  打开本文件夹
-2.  运行命令“python -m http.server”
-3.  确认8000端口没有占用（占用了回到第二部自定义）
+2.  在命令行运行命令 `python -m http.server`
+3.  确认8000端口没有占用（占用了请回到第二步自定义端口）
 4.  浏览器打开“http://localhost:8000/”
 
 
