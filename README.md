@@ -3,20 +3,17 @@
 ## 介绍
 由中控台制作的 CoCo 控件制作工具
 
-## 本地调试方法
-<i>不可直接打开index.html</i>
+## 安装
+1.  你需要确定你本地是否已安装了python(3.5)以及pip
 
-### 已装Python，且在PATH上
-或直接运行run(windows).cmd
-1.  打开本文件夹
-2.  在命令行运行命令 `python -m http.server`
-3.  确认8000端口没有占用（占用了请回到第二步自定义端口）
-4.  浏览器打开“http://localhost:8000/”
+## 运行
+2.  打开本文件夹
+3.  在命令行运行命令 `python server.py 8080`（unix环境下运行`python3 server.py 8080`）
+4.  确认8080端口没有占用（占用了请回到第二步自定义端口）
+5.  浏览器打开[http://localhost:8080](http://localhost:8080)
 
+## 遇到Bug/有好建议
+如果你遇到了Bug或者有了好建议，可以选择在 [Issues页（仅提Bug）](https://gitee.com/coco-ag/coco-widgetcraft/issues) 反馈，可以在 [反馈表单（Bug与建议均可填）](https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec) 内填写！我们会尽快处理！
 
 ## 参与贡献（欢迎）
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+如果你想要参与贡献，可以参考 [这份文档](https://www.yuque.com/appcraft/widget-craft/stc36x) 来参与！

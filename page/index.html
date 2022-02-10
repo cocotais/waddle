@@ -32,54 +32,54 @@
     </script>
 
     <!--引入Blockly必要文件-->
-    <script src="static/blockly-master/blockly_compressed.js"></script>
-    <script src="static/blockly-master/javascript_compressed.js"></script>
-    <script src="static/blockly-master/blocks_compressed.js"></script>
-    <script src="static/blockly-master/msg/js/zh-hans.js"></script>
+    <script src="{{static_url('blockly-master/blockly_compressed.js')}}"></script>
+    <script src="{{static_url('blockly-master/javascript_compressed.js')}}"></script>
+    <script src="{{static_url('blockly-master/blocks_compressed.js')}}"></script>
+    <script src="{{static_url('blockly-master/msg/js/zh-hans.js')}}"></script>
 
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="{{static_url('img/favicon.ico')}}">
     <title>Widget - 让CoCo没有难做的控件</title>
     <!--定义Blocks-->
     <!-- <script src="static/blockly-master/blocks/invisibleWidget.js"></script> -->
     <!-- <script src="static/blockly-master/blocks/coco.js"></script> -->
-    <script src="static/blockly-master/blocks/js.js"></script>
+    <script src="{{static_url('blockly-master/blocks/js.js')}}"></script>
 
     <!--Blocks 对应代码-->
     <!-- <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script> -->
     <!-- <script src="static/blockly-master/generators/javascript/coco.js"></script> -->
-    <script src="static/blockly-master/generators/javascript/js.js"></script>
+    <script src="{{static_url('blockly-master/generators/javascript/js.js')}}"></script>
 
     <!--引入框架-->
-    <script src="static/js/jquery-3.4.1.min.js"></script>
-    <script src="static/js/bootstrap.bundle.min.js"></script>
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <script src="{{static_url('js/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{static_url('js/bootstrap.bundle.min.js')}}"></script>
+    <link href="{{static_url('css/bootstrap.min.css')}}" rel="stylesheet">
 
 
     <!--自定义Blockly样式-->
-    <script src="static/WidgetCraft/custom_category.js"></script>
-    <link href="static/css/blockly_style.css" rel="stylesheet" />
+    <script src="{{static_url('WidgetCraft/custom_category.js')}}"></script>
+    <link href="{{static_url('css/blockly_style.css')}}" rel="stylesheet" />
     <!--包含toolbox和积木-->
 
     <!--自定义积木样式-->
-    <script src="static/WidgetCraft/custom_renderer.js"></script>
+    <script src="{{static_url('WidgetCraft/custom_renderer.js')}}"></script>
 
     <!--自定义网格样式-->
-    <script src="static/WidgetCraft/custom_grid.js"></script>
+    <script src="{{static_url('WidgetCraft/custom_grid.js')}}"></script>
 
     <!--引入WidgetCraft主题-->
-    <script src="static/WidgetCraft/core/theme/widgetCraftTheme.js"></script>
+    <script src="{{static_url('WidgetCraft/core/theme/widgetCraftTheme.js')}}"></script>
     <!--引入tools积木-->
-    <script src="static/WidgetCraft/blocks/tools.js"></script>
+    <script src="{{static_url('WidgetCraft/blocks/tools.js')}}"></script>
     <!--引入tools生成器-->
-    <script src="static/WidgetCraft/generators/javascript/tools.js"></script>
+    <script src="{{static_url('WidgetCraft/generators/javascript/tools.js')}}"></script>
 
     <!--JavaScript积木-->
-    <script src="static/blockly-master/blocks/js.js"></script>
-    <script src="static/blockly-master/generators/javascript/js.js"></script>
+    <script src="{{static_url('blockly-master/blocks/js.js')}}"></script>
+    <script src="{{static_url('blockly-master/generators/javascript/js.js')}}"></script>
 
     <!--不可见控件积木-->
-    <script src="static/WidgetCraft/blocks/invisibleWidget.js"></script>
+    <script src="{{static_url('WidgetCraft/blocks/invisibleWidget.js')}}"></script>
     <!-- <script src="static/blockly-master/generators/javascript/js.js"></script> -->
 
     <style>
@@ -92,7 +92,7 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6d50f0;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="static/img/widget.png"
+            <a class="navbar-brand" href="#"><img src="{{static_url('img/widget.png')}}"
                     style="height: 40px;padding-left: 15px;padding-bottom: 5px;" alt="WidgetCraft" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -178,7 +178,7 @@
             alert('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
         }
 
-        xmlhttp.open("GET", "static/WidgetCraft/toolBox.xml", false);
+        xmlhttp.open("GET", "{{static_url('WidgetCraft/toolBox.xml')}}", false);
 
         xmlhttp.send();
 
@@ -256,7 +256,7 @@
         let count = function () {
             get_num++;
             if (get_num >= 5) {
-                window.open("static/WidgetCraft/aiwidget.html")
+                window.open("{{static_url('WidgetCraft/aiwidget.html')}}")
                 get_num = -999;
             }
         }
