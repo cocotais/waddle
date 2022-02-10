@@ -1,4 +1,4 @@
-# Widget 工匠
+# Widget 工匠 [![star](https://gitee.com/coco-ag/coco-widgetcraft/badge/star.svg?theme=white)](https://gitee.com/coco-ag/coco-widgetcraft/stargazers) [![fork](https://gitee.com/coco-ag/coco-widgetcraft/badge/fork.svg?theme=white)](https://gitee.com/coco-ag/coco-widgetcraft/members)
 
 ## 介绍
 由中控台制作的 CoCo 控件制作工具
