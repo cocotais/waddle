@@ -1,6 +1,35 @@
 <html lang="zh">
-
 <head>
+    <script>
+    var a = `
+                                                                                       
+                    ::::::::::::::               :               ffffffffffffff              
+                    :::::::::;;;;;              ::              ffffffffffffff               
+                    ,;;;;;;;;;;;;;             ::::            ffffffffffffff                
+                    ;;;;;;;;;;;;;;           :::::           .ttttttttfffff,                 
+                        ;;;;;;;;;;;;;:         ::::::;          tttttttttttttt               
+                        ;;;;;;;;;;;;;;         ::::;;;;        1ttttttttttttt                
+                        ;;;;;;;;;;;;;;       ::::;;;;;i       tttttttttttttt                 
+                        ;;;;;;;;;;;;;;      ::::;;;;;ii      tttttttttttttt                  
+                        ;;;;;;;;;;;;;;    ::::;;;;;iiii     11111111tttttt                   
+                        :;;;;;;;;;;;;;    ::;;;;;;iiiii1   11111111111111                    
+                        ;;;;;;;;iiiiii  ::;;;;;;iiiii111  1111111111111:                     
+                            iiiiiiiiiiiii ::;;;;;iiiiii1111,11111111111111                
+                            iiiiiiiiiiiii::;;;;;iiiii111111t1111111111111                    
+                            iiiiiiiiiiii:;;;;;iiiii111111tiiiiiiii111111                     
+                            iiiiiiiiiii;;;;;;iiiii11111tttiiiiiiiiiiiii                      
+                            iiiiiiiii;;;;;iiiiii11111tttiiiiiiiiiiiiii                       
+                            iiiiiiii;;;;;iiiiii11111ttttiiiiiiiiiiiii                        
+                            iiiiiii;;;;iiiii111111ttttiiiiiiiiiiiii;                         
+                                iiiii;;;;iiiii1111 ttttti;;;;;;iiiiiii                       
+                                iiii;;;;iiiii1111   tttt;;;;;;;;;;;;;                        
+                                ii;;;iiiiii11111    tt;;;;;;;;;;;;;;                        
+                                ii;;iiiii111111      t;;;;;;;;;;;;;                          
+        `
+        console.log(a)
+        console.log("嘿，欢迎使用 WidgetCraft!\n本工具基于Blockly开发，由 中子星000（QQ：2422481178）主理制作、MathCalculus（QQ：2504556268）协助制作、Epeiuss（QQ：2822603942）与海藻酸钠（QQ：3409473369）监制\n\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-widgetcraft/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec")
+    </script>
+
     <!--引入Blockly必要文件-->
     <script src="static/blockly-master/blockly_compressed.js"></script>
     <script src="static/blockly-master/javascript_compressed.js"></script>
@@ -8,15 +37,16 @@
     <script src="static/blockly-master/msg/js/zh-hans.js"></script>
 
     <meta charset="utf-8">
-    <title>Widget 工匠</title>
+    <link rel="shortcut icon" href="favicon.ico" >
+    <title>Widget - 让CoCo没有难做的控件</title>
     <!--定义Blocks-->
-    <!-- <script src="static/blockly-master/blocks/invisibleWidget.js"></script> -->
-    <!-- <script src="static/blockly-master/blocks/coco.js"></script> -->
+    <script src="static/blockly-master/blocks/invisibleWidget.js"></script>
+    <script src="static/blockly-master/blocks/coco.js"></script>
     <script src="static/blockly-master/blocks/js.js"></script>
 
-    <!--Blocks生成代码-->
-    <!-- <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script> -->
-    <!-- <script src="static/blockly-master/generators/javascript/coco.js"></script> -->
+    <!--Blocks 对应代码-->
+    <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script>
+    <script src="static/blockly-master/generators/javascript/coco.js"></script>
     <script src="static/blockly-master/generators/javascript/js.js"></script>
 
     <!--引入框架-->
@@ -48,33 +78,35 @@
 
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6d50f0;">
-        <!--导航栏-->
-        <!-- Brand -->
-        <a class="navbar-brand" href="#"><img src="static/img/widget.png"
-                style="height: 40px;padding-left: 15px;padding-bottom: 5px;" alt="WidgetCraft" /></a>
-        <!-- Links -->
-        <ul class="navbar-nav">
-            <!-- Dropdown -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    文件
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a></li>
-                  <li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存</a></li>
-                  <li><a class="dropdown-item" href="javascript:void(0)"><input type="file" id="read" name="打开" style="width: 167;"></input></a></li>
-                </ul>
-              </li>
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)" onclick="switch_table()">工作台</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)" onclick="switch_code()">代码生成</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft/about" target="_blank">关于</a>
-            </li>
-        </ul>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="static/img/widget.png" style="height: 40px;padding-left: 15px;padding-bottom: 5px;" alt="WidgetCraft" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      文件
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)"><input type="file" id="read" name="打开" style="width: 167;"></input></a></li>
+                    </ul>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="javascript:void(0)" onclick="switch_table()">工作台</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" onclick="switch_code()">代码生成</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft" target="_blank">关于</a>
+                </li>
+              </ul>
+            </div>
+        </div>
     </nav>
     <div id="table">
         <div id="blocklyDiv" style="width:100%;height: 94%;"></div>
@@ -290,8 +322,8 @@
             </category>
             <category name="函数" colour="#F88767" custom="PROCEDURE"></category>
             <!-- </category> -->
-            <!-- <sep></sep>
-            <category name="不可见控件" colour="114">
+            <sep></sep>
+            <category name="不可见控件" colour="#a55b5c">
                 <block type="ivw_invisiblewidget">
                     <field name="type">MY_WIDGET</field>
                     <field name="icon">链接</field>
@@ -378,7 +410,7 @@
                     <field name="valueType">string</field>
                 </block>
                 <block type="coco_return"></block>
-            </category> -->
+            </category>
             <category name="JavaScript" colour="180">
                 <label text="鸡肋积木"></label>
                 <block type="js_usestrict"></block>
