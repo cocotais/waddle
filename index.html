@@ -74,6 +74,14 @@
     <!--引入tools生成器-->
     <script src="static/WidgetCraft/generators/javascript/tools.js"></script>
 
+    <!--JavaScript积木-->
+    <script src="static/blockly-master/blocks/js.js"></script>
+    <script src="static/blockly-master/generators/javascript/js.js"></script>
+
+    <!--不可见控件积木-->
+    <script src="static/WidgetCraft/blocks/invisibleWidget.js"></script>
+    <!-- <script src="static/blockly-master/generators/javascript/js.js"></script> -->
+
     <style>
         .nav-item {
             font-size: 20px;
@@ -126,7 +134,7 @@
                             </svg></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft" target="_blank"><svg
+                        <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft" target="_blank" onclick="count()"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                                 class="bi bi-question-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -242,7 +250,18 @@
             }
         });
     </script>
-    <a href="" download="CocoWidget.cw" style="display: none;" id="downa"></a>
+    <script>
+        //彩蛋
+        var get_num = 0;
+        let count = function () {
+            get_num++;
+            if (get_num >= 5) {
+                window.open("static/WidgetCraft/aiwidget.html")
+                get_num = -999;
+            }
+        }
+    </script>
+    <a href="" download="CocoWidget.cw" style="display: none;" id="downa" aria-label="下载"></a>
     <style>
         .js_button {
             padding: 10px;

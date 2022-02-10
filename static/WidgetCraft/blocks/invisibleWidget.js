@@ -9,5 +9,6 @@ Blockly.Blocks['ivw_defTypes'] = {
         this.setNextStatement(true, null);
         this.setTooltip("定义不可见控件类型");
         this.setHelpUrl("https://www.yuque.com/appcraft/widget/widgetguide");
+        this.setColour("#5574F8");
     }
 };
