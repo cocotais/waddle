@@ -1,7 +1,8 @@
 <html lang="zh">
+
 <head>
     <script>
-    var a = `
+        var a = `
                                                                                        
                     ::::::::::::::               :               ffffffffffffff              
                     :::::::::;;;;;              ::              ffffffffffffff               
@@ -37,16 +38,16 @@
     <script src="static/blockly-master/msg/js/zh-hans.js"></script>
 
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="favicon.ico" >
+    <link rel="shortcut icon" href="favicon.ico">
     <title>Widget - 让CoCo没有难做的控件</title>
     <!--定义Blocks-->
-    <script src="static/blockly-master/blocks/invisibleWidget.js"></script>
-    <script src="static/blockly-master/blocks/coco.js"></script>
+    <!-- <script src="static/blockly-master/blocks/invisibleWidget.js"></script> -->
+    <!-- <script src="static/blockly-master/blocks/coco.js"></script> -->
     <script src="static/blockly-master/blocks/js.js"></script>
 
     <!--Blocks 对应代码-->
-    <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script>
-    <script src="static/blockly-master/generators/javascript/coco.js"></script>
+    <!-- <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script> -->
+    <!-- <script src="static/blockly-master/generators/javascript/coco.js"></script> -->
     <script src="static/blockly-master/generators/javascript/js.js"></script>
 
     <!--引入框架-->
@@ -57,7 +58,8 @@
 
     <!--自定义Blockly样式-->
     <script src="static/WidgetCraft/custom_category.js"></script>
-    <link href="static/css/blockly_style.css" rel="stylesheet" /><!--包含toolbox和积木-->
+    <link href="static/css/blockly_style.css" rel="stylesheet" />
+    <!--包含toolbox和积木-->
 
     <!--自定义积木样式-->
     <script src="static/WidgetCraft/custom_renderer.js"></script>
@@ -82,41 +84,57 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6d50f0;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="static/img/widget.png" style="height: 40px;padding-left: 15px;padding-bottom: 5px;" alt="WidgetCraft" /></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand" href="#"><img src="static/img/widget.png"
+                    style="height: 40px;padding-left: 15px;padding-bottom: 5px;" alt="WidgetCraft" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-folder" viewBox="0 0 16 16">
-                            <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z"/>
-                        </svg>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a></li>
-                        <li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存</a></li>
-                        <li><a class="dropdown-item" href="javascript:void(0)"><input type="file" id="read" name="打开" style="width: 167;"></input></a></li>
-                    </ul>
-                  </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="javascript:void(0)" onclick="switch_table()"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">
-                    <path d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5h11zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z"/>
-                  </svg></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" onclick="switch_code()"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-save2" viewBox="0 0 16 16">
-                        <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.5h2a.5.5 0 0 1 .354.854l-2.5 2.5a.5.5 0 0 1-.708 0l-2.5-2.5A.5.5 0 0 1 5.5 6.5h2V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
-                      </svg></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-                      </svg></a>
-                </li>
-                <!--
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-folder" viewBox="0 0 16 16">
+                                <path
+                                    d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0)"><input type="file" id="read"
+                                        name="打开" style="width: 167;"></input></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="javascript:void(0)" onclick="switch_table()"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-laptop" viewBox="0 0 16 16">
+                                <path
+                                    d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5h11zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z" />
+                            </svg></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)" onclick="switch_code()"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-save2" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.5h2a.5.5 0 0 1 .354.854l-2.5 2.5a.5.5 0 0 1-.708 0l-2.5-2.5A.5.5 0 0 1 5.5 6.5h2V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z" />
+                            </svg></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft" target="_blank"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-question-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                            </svg></a>
+                    </li>
+                    <!--
                     文件：
                     https://icons.bootcss.com/icons/folder/
                     https://icons.bootcss.com/icons/folder-fill/
@@ -128,7 +146,7 @@
                     关于icon：https://icons.bootcss.com/icons/question-circle/
                     https://icons.bootcss.com/icons/question-circle-fill/
                 -->
-              </ul>
+                </ul>
             </div>
         </div>
     </nav>
@@ -136,353 +154,29 @@
         <div id="blocklyDiv" style="width:100%;height: 94%;"></div>
         <!--ToolBox积木-->
         <xml id="toolbox" style="display: none">
-            <!-- <category name="基本积木" colour="#9429FF"> --><!--样式不对，暂时不用文件夹-->
-            <category name="控制" colour="#68CDFF">
-                <block type="controls_whileUntil"></block>
-                <block type="controls_repeat_ext">
-                    <value name="TIMES">
-                        <block type="math_number">
-                            <field name="NUM">10</field>
-                        </block>
-                    </value>
-                </block>
-                <block type="controls_whileUntil"></block>
-                <block type="controls_for">
-                    <field name="VAR">i</field>
-                    <value name="FROM">
-                        <block type="math_number">
-                            <field name="NUM">1</field>
-                        </block>
-                    </value>
-                    <value name="TO">
-                        <block type="math_number">
-                            <field name="NUM">10</field>
-                        </block>
-                    </value>
-                    <value name="BY">
-                        <block type="math_number">
-                            <field name="NUM">1</field>
-                        </block>
-                    </value>
-                </block>
-                <block type="controls_forEach"></block>
-                <block type="controls_flow_statements"></block>
-                <!--控制和逻辑合并-->
-                <!-- </category>
-            <category name="逻辑" colour="#AE8964"> -->
-                <block type="controls_if"></block>
-                <block type="logic_compare"></block>
-                <block type="logic_operation"></block>
-                <block type="logic_boolean"></block>
-                <block type="logic_negate"></block>
-                <block type="logic_null"></block>
-                <block type="logic_ternary"></block>
-            </category>
-            <category name="数学" colour="#FEAE8A">
-                <block type="math_number">
-                    <field name="NUM">114514</field>
-                </block>
-                <block type="math_arithmetic"></block>
-                <block type="math_single"></block>
-                <block type="math_trig"></block>
-                <block type="math_constant"></block>
-                <block type="math_number_property"></block>
-                <block type="math_round"></block>
-                <block type="math_on_list"></block>
-                <block type="math_modulo"></block>
-                <block type="math_constrain">
-                    <value name="LOW">
-                        <block type="math_number">
-                            <field name="NUM">114</field>
-                        </block>
-                    </value>
-                    <value name="HIGH">
-                        <block type="math_number">
-                            <field name="NUM">514</field>
-                        </block>
-                    </value>
-                </block>
-                <block type="math_random_int">
-                    <value name="FROM">
-                        <block type="math_number">
-                            <field name="NUM">191</field>
-                        </block>
-                    </value>
-                    <value name="TO">
-                        <block type="math_number">
-                            <field name="NUM">9810</field>
-                        </block>
-                    </value>
-                </block>
-                <block type="math_random_float"></block>
-                <block type="math_atan2"></block>
-            </category>
-            <category name="文本" colour="#1ab293">
-                <block type="text"></block>
-                <block type="text_length"></block>
-                <block type="text_print"></block>
-                <block type="text_join"></block>
-                <block type="text_append">
-                    <value name="TEXT">
-                        <block type="text"></block>
-                    </value>
-                </block>
-                <block type="text_length"></block>
-                <block type="text_isEmpty"></block>
-                <block type="text_indexOf"></block>
-                <block type="text_getSubstring">
-                    <value name="STRING">
-                        <block type="variables_get">
-                            <field name="VAR">{textVariable}</field>
-                        </block>
-                    </value>
-                </block>
-                <block type="text_charAt"></block>
-                <block type="text_changeCase"></block>
-                <block type="text_trim"></block>
-                <block type="text_prompt_ext">
-                    <value name="TEXT">
-                        <shadow type="text">
-                            <field name="TEXT">abc</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="text_prompt_ext">
-                    <value name="TEXT">
-                        <block type="text"></block>
-                    </value>
-                </block>
-            </category>
-            <category name="颜色" colour="20">
-                <block type="colour_picker"></block>
-                <block type="colour_random"></block>
-                <block type="colour_rgb">
-                    <value name="RED">
-                        <shadow type="math_number">
-                            <field name="NUM">100</field>
-                        </shadow>
-                    </value>
-                    <value name="GREEN">
-                        <shadow type="math_number">
-                            <field name="NUM">50</field>
-                        </shadow>
-                    </value>
-                    <value name="BLUE">
-                        <shadow type="math_number">
-                            <field name="NUM">0</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="colour_blend">
-                    <value name="COLOUR1">
-                        <shadow type="colour_picker">
-                            <field name="COLOUR">#ff0000</field>
-                        </shadow>
-                    </value>
-                    <value name="COLOUR2">
-                        <shadow type="colour_picker">
-                            <field name="COLOUR">#3333ff</field>
-                        </shadow>
-                    </value>
-                    <value name="RATIO">
-                        <shadow type="math_number">
-                            <field name="NUM">0.5</field>
-                        </shadow>
-                    </value>
-                </block>
-            </category>
-            <sep></sep>
-            <category name="变量" colour="#FFBB55" custom="VARIABLE"></category>
-            <category name="列表" colour="#F9CC37">
-                <block type="lists_create_with">
-                    <mutation items="0"></mutation>
-                </block>
-                <block type="lists_create_with"></block>
-                <block type="lists_repeat">
-                    <value name="NUM">
-                        <shadow type="math_number">
-                            <field name="NUM">5</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="lists_length"></block>
-                <block type="lists_isEmpty"></block>
-                <block type="lists_indexOf">
-                    <value name="VALUE">
-                        <block type="variables_get">
-                            <field name="VAR">{listVariable}</field>
-                        </block>
-                    </value>
-                </block>
-                <block type="lists_getIndex">
-                    <value name="VALUE">
-                        <block type="variables_get">
-                            <field name="VAR">{listVariable}</field>
-                        </block>
-                    </value>
-                </block>
-                <block type="lists_setIndex">
-                    <value name="LIST">
-                        <block type="variables_get">
-                            <field name="VAR">{listVariable}</field>
-                        </block>
-                    </value>
-                </block>
-                <block type="lists_getSublist">
-                    <value name="LIST">
-                        <block type="variables_get">
-                            <field name="VAR">{listVariable}</field>
-                        </block>
-                    </value>
-                </block>
-                <block type="lists_split">
-                    <value name="DELIM">
-                        <shadow type="text">
-                            <field name="TEXT">,</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="lists_sort"></block>
-            </category>
-            <category name="函数" colour="#F88767" custom="PROCEDURE"></category>
-            <!-- </category> -->
-            <sep></sep>
-            <category name="不可见控件" colour="#a55b5c">
-                <block type="ivw_invisiblewidget">
-                    <field name="type">MY_WIDGET</field>
-                    <field name="icon">链接</field>
-                    <field name="title">我的控件</field>
-                    <field name="isGlobalWidget">TRUE</field>
-                    <value name="properties">
-                        <shadow type="lists_create_with">
-                            <mutation items="0" />
-                        </shadow>
-                    </value>
-                    <value name="methods">
-                        <shadow type="lists_create_with">
-                            <mutation items="0" />
-                        </shadow>
-                    </value>
-                    <value name="event">
-                        <shadow type="lists_create_with">
-                            <mutation items="0" />
-                        </shadow>
-                    </value>
-                    <value name="functionsList">
-                        <shadow type="lists_create_with">
-                            <mutation items="0" />
-                        </shadow>
-                    </value>
-                </block>
-            </category>
-            <category name='CoCo' colour="114">
-                <block type="coco_emit">
-                    <field name="eventName">事件名称</field>
-                    <value name="parameters">
-                        <block type="lists_create_with">
-                            <mutation items="0"></mutation>
-                        </block>
-                    </value>
-                </block>
-                <block type="coco_property">
-                    <field name="key">属性名</field>
-                    <field name="label">标签</field>
-                    <field name="valueType">string</field>
-                    <field name="default">默认值</field>
-                </block>
-                <block type="coco_method">
-                    <field name="key">方法名</field>
-                    <field name="label">标签</field>
-                    <value name="params">
-                        <block type="lists_create_with">
-                            <mutation items="0"></mutation>
-                        </block>
-                    </value>
-                </block>
-                <block type="coco_method_return">
-                    <field name="key">方法名</field>
-                    <field name="label">标签</field>
-                    <field name="valueType">string</field>
-                    <value name="params">
-                        <block type="lists_create_with">
-                            <mutation items="0"></mutation>
-                        </block>
-                    </value>
-                    <statement name="function_1">
-                        <block type="coco_return"></block>
-                    </statement>
-                </block>
-                <block type="coco_method_parameter">
-                    <field name="key">参数名</field>
-                    <field name="label">标签</field>
-                    <field name="labelAfter">尾标签</field>
-                    <field name="valueType">string</field>
-                    <field name="default">默认值</field>
-                </block>
-                <block type="coco_event">
-                    <field name="key">事件名</field>
-                    <field name="label">标签</field>
-                    <value name="params">
-                        <block type="lists_create_with">
-                            <mutation items="0"></mutation>
-                        </block>
-                    </value>
-                </block>
-                <block type="coco_event_parameter">
-                    <field name="key">参数名</field>
-                    <field name="label">标签</field>
-                    <field name="valueType">string</field>
-                </block>
-                <block type="coco_return"></block>
-            </category>
-            <category name="JavaScript" colour="180">
-                <label text="鸡肋积木"></label>
-                <block type="js_usestrict"></block>
-                <block type="js_bitwise"></block>
-                <block type="js_comparisons"></block>
-                <block type="js_time"></block>
-                <block type="js_popup_alert"></block>
-                <block type="js_popup_confirm"></block>
-                <block type="js_popup_prompt"></block>
-                <block type="js_json_parse"></block>
-                <block type="js_json_stringify"></block>
-                <block type="js_json_access"></block>
-                <block type="js_window_screen"></block>
-                <block type="js_window_avail_screen"></block>
-                <block type="js_window_depth"></block>
-                <block type="js_window_pixeldepth"></block>
-                <block type="js_navigator_online"></block>
-                <block type="js_navigator_language"></block>
-                <block type="js_navigator_platform"></block>
-                <block type="js_math_constant"></block>
-                <block type="js_console_clean"></block>
-                <block type="js_console_count"></block>
-                <block type="js_console_error"></block>
-                <block type="js_console_warn"></block>
-                <block type="js_console_log"></block>
-                <block type="js_console_time"></block>
-                <block type="js_console_timeend"></block>
-                <block type="js_base64"></block>
-            </category>
-            <category name="工具" colour="#9429FF">
-                <label text="工具.积木夹子"></label>
-                <label text="方便积木分段，折叠；顶部注释积木夹子标签"></label>
-                <block type="tools_blocks_clip"></block>
 
-                <label text="工具.仅运行"></label>
-                <label text="用于运行有返回值的积木"></label>
-                <block type="tools_only_run"></block>
-
-                <label text="工具.注释"></label>
-                <label text="用于插入单行注释"></label>
-                <block type="tools_exegesis"></block>
-            </category>
         </xml>
     </div>
     <div id="code" style="display: none;height: 95%;width: 100%;padding: 5px">
         <textarea id="codeArea" style="height: 100%;width: 100%;padding: 5px"></textarea>
     </div>
     <script>
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
+
+            xmlhttp = new XMLHttpRequest();
+
+        }
+        else {
+            alert('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
+        }
+
+        xmlhttp.open("GET", "static/WidgetCraft/toolBox.xml", false);
+
+        xmlhttp.send();
+
+        xmlDoc = xmlhttp.responseXML;
+        toolbox = document.getElementById('toolbox');
+        toolbox.innerHTML = xmlDoc.getElementsByTagName('toolbox')[0].innerHTML;
         //定义主题
         var theme = widgetCraftTheme;
         //工作区
