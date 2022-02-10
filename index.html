@@ -62,6 +62,9 @@
     <!--自定义积木样式-->
     <script src="static/WidgetCraft/custom_renderer.js"></script>
 
+    <!--自定义网格样式-->
+    <script src="static/WidgetCraft/custom_grid.js"></script>
+
     <!--引入WidgetCraft主题-->
     <script src="static/WidgetCraft/core/theme/widgetCraftTheme.js"></script>
     <!--引入tools积木-->
@@ -465,14 +468,7 @@
         var workspace = Blockly.inject('blocklyDiv',
             {
                 toolbox: document.getElementById('toolbox'),
-                // grid:
-                // {
-                //     spacing: 13,
-                //     length: 13,
-                //     colour: '#E8E8E8',
-                //     snap: true,
-                //     trashcan: true
-                // },
+                grid: CustomGrid,
                 zoom:
                 {
                     controls: true,

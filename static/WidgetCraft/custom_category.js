@@ -39,14 +39,3 @@ Blockly.registry.register(
     Blockly.registry.Type.TOOLBOX_ITEM,
     Blockly.ToolboxCategory.registrationName,
     CustomCategory, true);
-
-pattern = new SVGPathElement()
-
-options = {
-    spacing: 20,
-    length: 3,
-    colour: '#ccc',
-    snap: true
-}
-
-CustomGrid = new Blockly.Grid(pattern, options)
