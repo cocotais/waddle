@@ -1,5 +1,4 @@
-# <center> [![Fork me on Gitee](https://gitee.com/coco-ag/coco-widgetcraft/widgets/widget_6.svg)](https://gitee.com/coco-ag/coco-widgetcraft)
-
+[![Fork me on Gitee](https://gitee.com/coco-ag/coco-widgetcraft/widgets/widget_6.svg)](https://gitee.com/coco-ag/coco-widgetcraft)
 <br>
 
 # Widget 工匠 [![star](https://gitee.com/coco-ag/coco-widgetcraft/badge/star.svg?theme=white)](https://gitee.com/coco-ag/coco-widgetcraft/stargazers) [![fork](https://gitee.com/coco-ag/coco-widgetcraft/badge/fork.svg?theme=white)](https://gitee.com/coco-ag/coco-widgetcraft/members)
