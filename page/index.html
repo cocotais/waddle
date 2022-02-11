@@ -123,7 +123,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="javascript:void(0)" onclick="switch_table()" title="工作区"><svg
+                        <a id="switch_table" class="nav-link active" href="javascript:void(0)" onclick="switch_table()" title="工作区"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                                 class="bi bi-laptop" viewBox="0 0 16 16">
                                 <path
@@ -131,7 +131,7 @@
                             </svg></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)" onclick="switch_code()" title="转换代码"><svg
+                        <a id="switch_code" class="nav-link" href="javascript:void(0)" onclick="switch_code()" title="转换代码"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                                 class="bi bi-save2" viewBox="0 0 16 16">
                                 <path
@@ -249,6 +249,8 @@
             var table = document.getElementById("table")
             table.style.display = "inline";
 
+            $('.switch_table').addClass('active');
+            $('.switch_code').removeClass('active');
         }
         let switch_code = function () {
             var code = document.getElementById("code")
@@ -257,6 +259,10 @@
             table.style.display = "none";
             var codeArea = document.getElementById("codeArea")
             codeArea.innerHTML = Blockly.JavaScript.workspaceToCode(workspace);
+
+            $('.switch_table').removeClass('active');
+            $('.switch_code').addClass('active');
+            
         }
         window.onbeforeunload = function () {
             return "离开后，你的控件就没啦！";
