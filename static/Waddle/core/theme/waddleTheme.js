@@ -1,5 +1,5 @@
 
-widgetCraftTheme = Blockly.Theme.defineTheme('widgetCraftTheme', {
+WaddleTheme = Blockly.Theme.defineTheme('WaddleTheme', {
     'base': Blockly.Themes.Classic,
     'blockStyles': {
         colour_blocks: { colourPrimary: "20" },
