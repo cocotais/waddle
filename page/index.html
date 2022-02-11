@@ -123,7 +123,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="javascript:void(0)" onclick="switch_table()"><svg
+                        <a class="nav-link active" href="javascript:void(0)" onclick="switch_table()" title="工作区"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                                 class="bi bi-laptop" viewBox="0 0 16 16">
                                 <path
@@ -131,7 +131,7 @@
                             </svg></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)" onclick="switch_code()"><svg
+                        <a class="nav-link" href="javascript:void(0)" onclick="switch_code()" title="转换代码"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                                 class="bi bi-save2" viewBox="0 0 16 16">
                                 <path
@@ -139,8 +139,8 @@
                             </svg></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft" target="_blank"
-                            onclick="count()"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                        <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft" title="关于" target="_blank" onclick="count()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                 fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                 <path
@@ -248,6 +248,7 @@
             code.style.display = "none";
             var table = document.getElementById("table")
             table.style.display = "inline";
+
         }
         let switch_code = function () {
             var code = document.getElementById("code")
@@ -275,8 +276,8 @@
         let craft = function () {
             workspace.clear();
             /* 加载初始积木 */
-        Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
-        alert('这里放一个向导');
+            Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
+            alert('这里放一个向导');
         }
 
 
