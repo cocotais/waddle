@@ -1,4 +1,4 @@
-# Widget 工匠 [![star](https://gitee.com/coco-ag/coco-widgetcraft/badge/star.svg?theme=white)](https://gitee.com/coco-ag/coco-widgetcraft/stargazers) [![fork](https://gitee.com/coco-ag/coco-widgetcraft/badge/fork.svg?theme=white)](https://gitee.com/coco-ag/coco-widgetcraft/members)
+# Widget 工匠 [![star](https://gitee.com/coco-ag/coco-waddle/badge/star.svg?theme=white)](https://gitee.com/coco-ag/coco-waddle/stargazers) [![fork](https://gitee.com/coco-ag/coco-waddle/badge/fork.svg?theme=white)](https://gitee.com/coco-ag/coco-waddle/members)
 
 ## 介绍
 由中控台制作的 CoCo 控件制作工具
@@ -16,7 +16,7 @@
 5.  浏览器打开 [http://localhost:8080](http://localhost:8080)
 
 ## 遇到Bug/有好建议
-如果你遇到了Bug或者有了好建议，可以选择在 [Issues页（仅提Bug）](https://gitee.com/coco-ag/coco-widgetcraft/issues) 反馈，可以在 [反馈表单（Bug与建议均可填）](https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec) 内填写！我们会尽快处理！
+如果你遇到了Bug或者有了好建议，可以选择在 [Issues页（仅提Bug）](https://gitee.com/coco-ag/coco-waddle/issues) 反馈，可以在 [反馈表单（Bug与建议均可填）](https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec) 内填写！我们会尽快处理！
 
 ## 参与贡献（欢迎）
-如果你想要参与贡献，可以参考 [这份文档](https://www.yuque.com/appcraft/widget-craft/stc36x) 来参与！
+如果你想要参与贡献，可以参考 [这份文档](https://www.yuque.com/appcraft/waddle/stc36x) 来参与！
