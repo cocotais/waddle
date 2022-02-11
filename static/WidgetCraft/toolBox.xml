@@ -312,23 +312,39 @@
 		</label>
 		<block type="ivw_defTypes">
 		</block>
-		<label text="控件类型定义必选参数">
+		<label text="控件类型定义参数">
 		</label>
 		<block type="ivw_itemType">
 		</block>
-		<block type="ivw_itemType">
+		<block type="ivw_itemIcon">
 		</block>
-		<block type="ivw_itemType">
+		<block type="ivw_itemTitle">
 		</block>
-		<block type="ivw_itemType">
+		<block type="ivw_itemVersion">
 		</block>
-		<block type="ivw_itemType">
+		<block type="ivw_itemIsGlobalWidget">
 		</block>
 		<label text="模板">
 		</label>
 		<block type="ivw_defTypes">
 			<value name="types">
 				<block type="ivw_itemType">
+					<next>
+						<block type="ivw_itemIcon">
+							<next>
+								<block type="ivw_itemTitle">
+									<next>
+										<block type="ivw_itemVersion">
+											<next>
+												<block type="ivw_itemIsGlobalWidget">
+												</block>
+											</next>
+										</block>
+									</next>
+								</block>
+							</next>
+						</block>
+					</next>
 				</block>
 			</value>
 		</block>
