@@ -270,9 +270,16 @@
             downa.click();
             URL.revokeObjectURL(url);
         }
+
+
         let craft = function () {
-            workspace.clear()
+            workspace.clear();
+            /* 加载初始积木 */
+        Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
+        alert('这里放一个向导');
         }
+
+
         document.getElementById('read').addEventListener('change', function selectedFileChanged() {
             if (this.files.length !== 0) {
                 workspace.clear()
