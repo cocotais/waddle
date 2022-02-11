@@ -8,7 +8,7 @@
 2.  接下来请在终端执行 `pip install tornado`（unix环境下运行`pip3 install tornado`）
 
 ## 运行
-2.  打开本文件夹
+2.  打开项目文件夹
 3.  在命令行
     - <b>Windows：</b>运行命令 `python server.py 8080` 或运行 runserver(win).cmd
     - <b>unix：</b>运行命令 `python3 server.py 8080`
