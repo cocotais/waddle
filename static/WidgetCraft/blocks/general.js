@@ -7,6 +7,7 @@ Blockly.Blocks['ivw_defTypes'] = {
             .appendField("不可见控件");
         this.appendStatementInput("types")
             .setCheck(null);
+        this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour("#5574F8");
         this.setTooltip("定义不可见控件类型");
