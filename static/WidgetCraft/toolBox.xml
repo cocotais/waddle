@@ -513,6 +513,12 @@
 		<block type="js_base64">
 		</block>
 	</category>
+    <category name="HTML" colour="100">
+        <block type="html_element">
+        </block>
+        <block type="html_element_ich">
+        </block>
+    </category>
 	<category name="工具" colour="#9429FF">
 		<label text="工具.积木夹子">
 		</label>
