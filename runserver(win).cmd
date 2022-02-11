@@ -1,1 +1,2 @@
-python server.py 8089
+start http://localhost:8080/
+python server.py 8080
