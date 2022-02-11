@@ -330,6 +330,16 @@
 		</block>
 		<block type="ivw_events">
 		</block>
+		<block type="ivw_emit">
+			<value name="event">
+			  <block type="text">
+				<field name="TEXT">事件名</field>
+			  </block>
+			</value>
+		  </block>
+		<block type="ivw_emitParameter">
+		</block>
+
 		<label text="模板">
 		</label>
 		<block type="ivw_defTypes">

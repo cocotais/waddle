@@ -15,7 +15,7 @@
 										<field name="version">1.0.0</field>
 										<next>
 											<block type="ivw_itemIsGlobalWidget" id="DS(9RHPwztx:A.8!Tp3n">
-												<field name="isGlobalWidget">TRUE</field>
+												<field name="isGlobalWidget">true</field>
 												<next>
 													<block type="ivw_properties" id="$7dQ-7^PHC*Wk7?GIU]}">
 														<next>

@@ -69,8 +69,8 @@ Blockly.Blocks['ivw_itemVersion'] = {
 Blockly.Blocks['ivw_itemIsGlobalWidget'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("是全局控件")
-            .appendField(new Blockly.FieldCheckbox("TRUE"), "isGlobalWidget");
+            .appendField("全局控件")
+            .appendField(new Blockly.FieldDropdown([["全局控件", "true"], ["屏幕控件", "false"]]), "isGlobalWidget");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour("#5574F8");
@@ -118,5 +118,33 @@ Blockly.Blocks['ivw_events'] = {
         this.setColour("#5574F8");
         this.setTooltip("定义事件方法");
         this.setHelpUrl(HELP_URL);
+    }
+};
+
+Blockly.Blocks['ivw_emit'] = {
+    init: function () {
+        this.appendValueInput("event")
+            .setCheck(null)
+            .appendField("触发事件");
+        this.appendStatementInput("parameters")
+            .setCheck(null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour("5574F8");
+        this.setTooltip(HELP_URL);
+        this.setHelpUrl("触发事件并传参（可选，请用事件传参积木）");
+    }
+};
+
+Blockly.Blocks['ivw_emitParameter'] = {
+    init: function () {
+        this.appendValueInput("parameter")
+            .setCheck(null)
+            .appendField("事件传参");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour("5574F8");
+        this.setTooltip(HELP_URL);
+        this.setHelpUrl("传参（可选）");
     }
 };
