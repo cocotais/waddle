@@ -4,12 +4,14 @@
 由中控台制作的 CoCo 控件制作工具
 
 ## 安装
-1.  你需要确定你本地是否已安装了python(3.5)以及pip
+1.  你需要确定你本地是否已安装了python(3.5+)以及pip
 2.  接下来请在终端执行 `pip install tornado`（unix环境下运行`pip3 install tornado`）
 
 ## 运行
 2.  打开本文件夹
-3.  在命令行运行命令 `python server.py 8080`（unix环境下运行`python3 server.py 8080`）
+3.  在命令行
+    - <b>Windows：</b>运行命令 `python server.py 8080` 或运行 runserver(win).cmd
+    - <b>unix：</b>运行命令 `python3 server.py 8080`
 4.  确认8080端口没有占用（占用了请回到第二步自定义端口）
 5.  浏览器打开 [http://localhost:8080](http://localhost:8080)
 
