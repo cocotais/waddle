@@ -1,10 +1,10 @@
 
 Blockly.JavaScript['ivw_defTypes'] = function (block) {
-    var statements_name = Blockly.JavaScript.statementToCode(block, 'types');
+    var statements_types = Blockly.JavaScript.statementToCode(block, 'types');
     var code = `
 
 const types = {
-    ${statements_name}
+    ${statements_types}
 }
 
 `;
@@ -38,5 +38,41 @@ Blockly.JavaScript['ivw_itemVersion'] = function (block) {
 Blockly.JavaScript['ivw_itemIsGlobalWidget'] = function (block) {
     var checkbox_name = block.getFieldValue('isGlobalWidget') === 'TRUE';
     var code = `isGlobalWidget: ${checkbox_name},\n`;
+    return code;
+};
+
+Blockly.JavaScript['ivw_properties'] = function (block) {
+    var statements_properties = Blockly.JavaScript.statementToCode(block, 'properties');
+    var code = `
+
+    properties: [
+    ${statements_properties}
+]
+
+`;
+    return code;
+};
+
+Blockly.JavaScript['ivw_methods'] = function (block) {
+    var statements_methods = Blockly.JavaScript.statementToCode(block, 'methods');
+    var code = `
+
+methods: [
+    ${statements_methods}
+]
+
+`;
+    return code;
+};
+
+Blockly.JavaScript['ivw_events'] = function (block) {
+    var statements_events = Blockly.JavaScript.statementToCode(block, 'events');
+    var code = `
+
+events: [
+    ${statements_events}
+]
+
+`;
     return code;
 };

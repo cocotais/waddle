@@ -79,3 +79,45 @@ Blockly.Blocks['ivw_itemIsGlobalWidget'] = {
         this.setHelpUrl("https://www.yuque.com/appcraft/widget/widgetguide");
     }
 };
+
+Blockly.Blocks['ivw_properties'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("属性");
+        this.appendStatementInput("properties")
+            .setCheck(null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour("#5574F8");
+        this.setTooltip("定义控件属性");
+        this.setHelpUrl(HELP_URL);
+    }
+};
+
+Blockly.Blocks['ivw_methods'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("方法");
+        this.appendStatementInput("methods")
+            .setCheck(null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour("#5574F8");
+        this.setTooltip("定义控件方法");
+        this.setHelpUrl(HELP_URL);
+    }
+};
+
+Blockly.Blocks['ivw_events'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("事件");
+        this.appendStatementInput("events")
+            .setCheck(null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour("#5574F8");
+        this.setTooltip("定义事件方法");
+        this.setHelpUrl(HELP_URL);
+    }
+};

@@ -324,6 +324,12 @@
 		</block>
 		<block type="ivw_itemIsGlobalWidget">
 		</block>
+		<block type="ivw_properties">
+		</block>
+		<block type="ivw_methods">
+		</block>
+		<block type="ivw_events">
+		</block>
 		<label text="模板">
 		</label>
 		<block type="ivw_defTypes">
@@ -337,6 +343,18 @@
 										<block type="ivw_itemVersion">
 											<next>
 												<block type="ivw_itemIsGlobalWidget">
+													<next>
+														<block type="ivw_properties">
+															<next>
+																<block type="ivw_methods">
+																	<next>
+																		<block type="ivw_events">
+																		</block>
+																	</next>
+																</block>
+															</next>
+														</block>
+													</next>
 												</block>
 											</next>
 										</block>

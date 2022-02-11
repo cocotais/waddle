@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceblocks>
+	<block type="ivw_defTypes" id=":r]E*f?@x/2s.Wh+r]q%" x="0" y="0">
+		<statement name="types">
+			<block type="ivw_itemType" id="4_i`AAk1#X[t8B8K.O4/">
+				<field name="type">MY_WIDGET</field>
+				<next>
+					<block type="ivw_itemIcon" id="L+.b:^y/|NdLHee97wYD">
+						<field name="icon">https://gitee.com/coco-ag/coco-widgetcraft/raw/dev/static/img/logo.png</field>
+						<next>
+							<block type="ivw_itemTitle" id="(Zvd6Sf5p?Up7F54gd!9">
+								<field name="title">我的控件</field>
+								<next>
+									<block type="ivw_itemVersion" id="FGH.;N[[=H1BB)$@J4w9">
+										<field name="version">1.0.0</field>
+										<next>
+											<block type="ivw_itemIsGlobalWidget" id="DS(9RHPwztx:A.8!Tp3n">
+												<field name="isGlobalWidget">TRUE</field>
+												<next>
+													<block type="ivw_properties" id="$7dQ-7^PHC*Wk7?GIU]}">
+														<next>
+															<block type="ivw_methods" id="qSm5AR#N|S0Ys)dwxE:X">
+																<next>
+																	<block type="ivw_events" id="/rkWl$EXK)ia-?Wv1ct(">
+																	</block>
+																</next>
+															</block>
+														</next>
+													</block>
+												</next>
+											</block>
+										</next>
+									</block>
+								</next>
+							</block>
+						</next>
+					</block>
+				</next>
+			</block>
+		</statement>
+	</block>
+</workspaceblocks>
