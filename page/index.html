@@ -35,7 +35,7 @@
                                 ii;;iiiii111111      t;;;;;;;;;;;;;                          
         `
         console.log(a)
-        console.log("嘿，欢迎使用 WidgetCraft!\n本工具基于Blockly开发，由 中子星000（QQ：2422481178）主理制作、MathCalculus（QQ：2504556268）协助制作、Epeiuss（QQ：2822603942）与海藻酸钠（QQ：3409473369）监制\n\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-widgetcraft/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec")
+        console.log("嘿，欢迎使用 Waddle!\n本工具基于Blockly开发，由 中子星000（QQ：2422481178）主理制作、MathCalculus（QQ：2504556268）协助制作、Epeiuss（QQ：2822603942）与海藻酸钠（QQ：3409473369）监制\n\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec")
     </script>
 
     <!--引入Blockly必要文件-->
@@ -46,7 +46,7 @@
 
     <meta charset="utf-8">
     <link rel="shortcut icon" href="{{static_url('img/favicon.ico')}}">
-    <title>Widget - 让CoCo没有难做的控件</title>
+    <title>Waddle - 让CoCo没有难做的控件</title>
     <!--定义Blocks-->
     <!-- <script src="static/blockly-master/blocks/invisibleWidget.js"></script> -->
     <!-- <script src="static/blockly-master/blocks/coco.js"></script> -->
@@ -64,22 +64,22 @@
 
 
     <!--自定义Blockly样式-->
-    <script src="{{static_url('WidgetCraft/custom_category.js')}}"></script>
+    <script src="{{static_url('Waddle/custom_category.js')}}"></script>
     <link href="{{static_url('css/blockly_style.css')}}" rel="stylesheet" />
     <!--包含toolbox和积木-->
 
     <!--自定义积木样式-->
-    <script src="{{static_url('WidgetCraft/custom_renderer.js')}}"></script>
+    <script src="{{static_url('Waddle/custom_renderer.js')}}"></script>
 
     <!--自定义网格样式-->
-    <script src="{{static_url('WidgetCraft/custom_grid.js')}}"></script>
+    <script src="{{static_url('Waddle/custom_grid.js')}}"></script>
 
-    <!--引入WidgetCraft主题-->
-    <script src="{{static_url('WidgetCraft/core/theme/widgetCraftTheme.js')}}"></script>
+    <!--引入Waddle主题-->
+    <script src="{{static_url('Waddle/core/theme/WaddleTheme.js')}}"></script>
 
     <!--引入tools积木-->
-    <script src="{{static_url('WidgetCraft/blocks/tools.js')}}"></script>
-    <script src="{{static_url('WidgetCraft/generators/javascript/tools.js')}}"></script>
+    <script src="{{static_url('Waddle/blocks/tools.js')}}"></script>
+    <script src="{{static_url('Waddle/generators/javascript/tools.js')}}"></script>
 
     <!--JavaScript积木-->
     <script src="{{static_url('blockly-master/blocks/js.js')}}"></script>
@@ -91,8 +91,8 @@
 
 
     <!--不可见控件积木-->
-    <script src="{{static_url('WidgetCraft/blocks/invisibleWidget.js')}}"></script>
-    <script src="{{static_url('WidgetCraft/generators/javascript/invisibleWidget.js')}}"></script>
+    <script src="{{static_url('Waddle/blocks/invisibleWidget.js')}}"></script>
+    <script src="{{static_url('Waddle/generators/javascript/invisibleWidget.js')}}"></script>
 
     <style>
         .nav-item {
@@ -105,7 +105,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6d50f0;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="{{static_url('img/widget.png')}}"
-                    style="height: 40px;padding-left: 15px;padding-bottom: 5px;" alt="WidgetCraft" /></a>
+                    style="height: 40px;padding-left: 15px;padding-bottom: 5px;" alt="Waddle" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -193,7 +193,7 @@
             alert('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
         }
 
-        xmlhttp.open("GET", "{{static_url('WidgetCraft/toolBox.xml')}}", false);
+        xmlhttp.open("GET", "{{static_url('Waddle/toolBox.xml')}}", false);
 
         xmlhttp.send();
 
@@ -210,7 +210,7 @@
         else {
             alert('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
         }
-        xmlhttp.open("GET", "{{static_url('WidgetCraft/workspace.xml')}}", false);
+        xmlhttp.open("GET", "{{static_url('Waddle/workspace.xml')}}", false);
 
         xmlhttp.send();
 
@@ -221,7 +221,7 @@
         var workspaceBlocks = document.getElementById("workspaceblocks");
 
         //定义主题
-        var theme = widgetCraftTheme;
+        var theme = WaddleTheme;
         //工作区
         var workspace = Blockly.inject('blocklyDiv',
             {
@@ -312,7 +312,7 @@
         let count = function () {
             get_num++;
             if (get_num >= 5) {
-                window.open("{{static_url('WidgetCraft/aiwidget.html')}}")
+                window.open("{{static_url('Waddle/aiwidget.html')}}")
                 get_num = -999;
             }
         }
