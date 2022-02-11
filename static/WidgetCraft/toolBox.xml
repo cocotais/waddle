@@ -308,7 +308,29 @@
 	<sep>
 	</sep>
 	<category name="不可见控件2.0" colour="#5574F8">
+		<label text="控件类型定义">
+		</label>
 		<block type="ivw_defTypes">
+		</block>
+		<label text="控件类型定义必选参数">
+		</label>
+		<block type="ivw_itemType">
+		</block>
+		<block type="ivw_itemType">
+		</block>
+		<block type="ivw_itemType">
+		</block>
+		<block type="ivw_itemType">
+		</block>
+		<block type="ivw_itemType">
+		</block>
+		<label text="模板">
+		</label>
+		<block type="ivw_defTypes">
+			<value name="types">
+				<block type="ivw_itemType">
+				</block>
+			</value>
 		</block>
 		<label text="不可见控件1.0已弃用">
 		</label>
@@ -513,12 +535,12 @@
 		<block type="js_base64">
 		</block>
 	</category>
-    <category name="HTML" colour="100">
-        <block type="html_element">
-        </block>
-        <block type="html_element_ich">
-        </block>
-    </category>
+	<category name="HTML" colour="100">
+		<block type="html_element">
+		</block>
+		<block type="html_element_ich">
+		</block>
+	</category>
 	<category name="工具" colour="#9429FF">
 		<label text="工具.积木夹子">
 		</label>
