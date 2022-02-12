@@ -103,6 +103,19 @@
     <!--导入导航栏按钮函数-->
     <script src="{{static_url('js/navFuncs.js')}}"></script>
     
+    <!--彩蛋定义-->
+    <script>
+        function estchk(){
+            if(document.cookie.includes("easter")){
+                alert("恭喜，你貌似触发了彩蛋！");
+                alert("马上去彩蛋！")
+                window.location.href="/static/Waddle/eastegg/index.html";
+            }else{
+                document.cookie="easter=1";
+            }
+        }
+    </script>
+
     <style>
         .nav-item {
             font-size: 22px;
@@ -114,7 +127,8 @@
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6d50f0;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="{{static_url('img/waddle.png')}}"
-                    style="height: 40px;padding-left: 15px;padding-bottom: 5px;" alt="Waddle" /></a>
+                    style="height: 40px;padding-left: 15px;padding-bottom: 5px;" alt="Waddle" 
+                    onClick="estchk()"/></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
