@@ -8,7 +8,7 @@ Blockly.Blocks['ivw_defTypes'] = {
         this.appendStatementInput("types")
             .setCheck(null);
         this.setNextStatement(true, null);
-        this.setColour("#5574F8");
+        this.setColour("#8647F3");
         this.setTooltip("定义不可见控件类型");
         this.setHelpUrl(HELP_URL);
     }

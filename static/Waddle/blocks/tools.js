@@ -36,3 +36,19 @@ Blockly.Blocks['tools_exegesis'] = {
         this.setColour("#9429FF");
     }
 };
+
+Blockly.Blocks['tools_blocks_dict'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("{");
+        this.appendStatementInput("items")
+            .setCheck(null);
+        this.appendDummyInput()
+            .appendField("{");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setTooltip("工具.字典：创建字典");
+        this.setHelpUrl("");
+        this.setColour("#9429FF");
+    }
+};

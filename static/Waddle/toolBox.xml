@@ -308,6 +308,10 @@
 	<sep>
 	</sep>
 	<category name="不可见控件2.0" colour="#5574F8">
+		<label text="蓝色属于自定义控件通用" colour="#5574F8">
+		</label>
+		<label text="紫色属于不可见控件专属" colour="#8647F3">
+		</label>
 		<label text="控件类型定义">
 		</label>
 		<block type="ivw_defTypes">
