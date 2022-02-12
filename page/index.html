@@ -310,17 +310,17 @@
         }
 
 
-        document.getElementById('read').addEventListener('change', function selectedFileChanged() {
-            if (this.files.length !== 0) {
-                workspace.clear()
-                const reader = new FileReader();
-                reader.onload = function fileReadCompleted() {
-                    const xml = Blockly.Xml.textToDom(reader.result);
-                    Blockly.Xml.domToWorkspace(xml, workspace);
-                };
-                reader.readAsText(this.files[0]);
-            }
-        });
+        // document.getElementById('read').addEventListener('change', function selectedFileChanged() {
+        //     if (this.files.length !== 0) {
+        //         workspace.clear()
+        //         const reader = new FileReader();
+        //         reader.onload = function fileReadCompleted() {
+        //             const xml = Blockly.Xml.textToDom(reader.result);
+        //             Blockly.Xml.domToWorkspace(xml, workspace);
+        //         };
+        //         reader.readAsText(this.files[0]);
+        //     }
+        // });
     </script>
     <script>
         //彩蛋

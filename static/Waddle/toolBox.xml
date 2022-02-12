@@ -602,5 +602,11 @@
 		</label>
 		<block type="tools_exegesis">
 		</block>
+		<label text="工具.字典">
+		</label>
+		<label text="创建字典">
+		</label>
+		<block type="tools_blocks_dict">
+		</block>
 	</category>
 </toolbox>
