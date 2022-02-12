@@ -578,12 +578,12 @@
 		<block type="js_base64">
 		</block>
 	</category>
-	<category name="工具" colour="#9429FF">
+	<category name="工具" colour="#0E7D65">
 		<label text="工具.积木夹子">
 		</label>
 		<label text="方便积木分段，折叠；顶部注释积木夹子标签">
 		</label>
-		<block type="tools_blocks_clip">
+		<block type="tools_clip">
 		</block>
 		<label text="工具.仅运行">
 		</label>
@@ -601,7 +601,25 @@
 		</label>
 		<label text="创建字典">
 		</label>
-		<block type="tools_blocks_dict">
+		<block type="tools_dict">
+		</block>
+		<label text="工具.列表">
+		</label>
+		<label text="创建列表">
+		</label>
+		<block type="tools_list">
+		</block>
+		<label text="工具.字典值">
+		</label>
+		<label text="为字典添加项，自行添加字符串框">
+		</label>
+		<block type="tools_dictItem">
+		</block>
+		<label text="工具.列表值">
+		</label>
+		<label text="为列表添加项，自行添加字符串框">
+		</label>
+		<block type="tools_listItem">
 		</block>
 	</category>
 	<category name="框架与示例" colour="#6d50f0">
