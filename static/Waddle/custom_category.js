@@ -8,28 +8,28 @@ class CustomCategory extends Blockly.ToolboxCategory {
         super(categoryDef, toolbox, opt_parent);
     }
     // 覆盖原方法
-    addColourBorder_(colour){
+    addColourBorder_(colour) {
         this.rowDiv_.style.backgroundColor = 'white';
         var labelDom = this.rowDiv_.getElementsByClassName('blocklyTreeLabel')[0];
         labelDom.style.color = colour;
     }
     // 覆盖原方法
-    setSelected(isSelected){
+    setSelected(isSelected) {
         // 使用getElementsByClassName选中类别对应的span元素
         var labelDom = this.rowDiv_.getElementsByClassName('blocklyTreeLabel')[0];
         if (isSelected) {
-        // 选中的类别背景色设置为原本的颜色
-        this.rowDiv_.style.backgroundColor = this.colour_;
-        // 选中的类别文本设置为白色
-        labelDom.style.color = 'white';
+            // 选中的类别背景色设置为原本的颜色
+            this.rowDiv_.style.backgroundColor = this.colour_;
+            // 选中的类别文本设置为白色
+            labelDom.style.color = 'white';
         } else {
-        // 未选中的类别背景色设置为白色
-        this.rowDiv_.style.backgroundColor = 'white';
-        // 未选中的类别文本设置为原本的颜色
-        labelDom.style.color = this.colour_;
+            // 未选中的类别背景色设置为白色
+            this.rowDiv_.style.backgroundColor = 'white';
+            // 未选中的类别文本设置为原本的颜色
+            labelDom.style.color = this.colour_;
         }
         // This is used for accessibility purposes.
-        Blockly.utils.aria.setState(/** @type {!Element} */ (this.htmlDiv_),
+        Blockly.utils.aria.setState(/** @type {!Element} */(this.htmlDiv_),
             Blockly.utils.aria.State.SELECTED, isSelected);
     }
 }

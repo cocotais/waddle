@@ -1,0 +1,356 @@
+<html lang="zh">
+<!--
+    BUG1:高亮未处理
+    TODO1:新建窗口
+    TODO2:自定义控件及附属功能
+    TODO3:代码窗
+-->
+
+
+<head>
+    <script>
+        /*var a = `
+                                                                                       
+                    ::::::::::::::               :               ffffffffffffff              
+                    :::::::::;;;;;              ::              ffffffffffffff               
+                    ,;;;;;;;;;;;;;             ::::            ffffffffffffff                
+                    ;;;;;;;;;;;;;;           :::::           .ttttttttfffff,                 
+                        ;;;;;;;;;;;;;:         ::::::;          tttttttttttttt               
+                        ;;;;;;;;;;;;;;         ::::;;;;        1ttttttttttttt                
+                        ;;;;;;;;;;;;;;       ::::;;;;;i       tttttttttttttt                 
+                        ;;;;;;;;;;;;;;      ::::;;;;;ii      tttttttttttttt                  
+                        ;;;;;;;;;;;;;;    ::::;;;;;iiii     11111111tttttt                   
+                        :;;;;;;;;;;;;;    ::;;;;;;iiiii1   11111111111111                    
+                        ;;;;;;;;iiiiii  ::;;;;;;iiiii111  1111111111111:                     
+                            iiiiiiiiiiiii ::;;;;;iiiiii1111,11111111111111                
+                            iiiiiiiiiiiii::;;;;;iiiii111111t1111111111111                    
+                            iiiiiiiiiiii:;;;;;iiiii111111tiiiiiiii111111                     
+                            iiiiiiiiiii;;;;;;iiiii11111tttiiiiiiiiiiiii                      
+                            iiiiiiiii;;;;;iiiiii11111tttiiiiiiiiiiiiii                       
+                            iiiiiiii;;;;;iiiiii11111ttttiiiiiiiiiiiii                        
+                            iiiiiii;;;;iiiii111111ttttiiiiiiiiiiiii;                         
+                                iiiii;;;;iiiii1111 ttttti;;;;;;iiiiiii                       
+                                iiii;;;;iiiii1111   tttt;;;;;;;;;;;;;                        
+                                ii;;;iiiiii11111    tt;;;;;;;;;;;;;;                        
+                                ii;;iiiii111111      t;;;;;;;;;;;;;                          
+        `
+        console.log(a)*/
+        //暂时按照小王的意，移除了W
+        console.log("嘿，欢迎使用 Waddle!\n本工具基于Blockly开发，由 中子星000（QQ：2422481178）主理制作、MathCalculus（QQ：2504556268）协助制作、Epeiuss（QQ：2822603942）与海藻酸钠（QQ：3409473369）监制\n\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec")
+        console.log("V1.1-dev\n©️ 2022 CoCo Central, All rights reserved.")
+    </script>
+
+    <!--引入Blockly必要文件-->
+    <script src="{{static_url('blockly-master/blockly_compressed.js')}}"></script>
+    <script src="{{static_url('blockly-master/javascript_compressed.js')}}"></script>
+    <script src="{{static_url('blockly-master/blocks_compressed.js')}}"></script>
+    <script src="{{static_url('blockly-master/msg/js/zh-hans.js')}}"></script>
+
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="{{static_url('img/favicon.ico')}}">
+    <title>Waddle - 让CoCo没有难做的控件</title>
+
+    <!--图标库-->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0-beta3/css/all.css" rel="stylesheet">
+
+    <!--定义Blocks-->
+    <!-- <script src="static/blockly-master/blocks/invisibleWidget.js"></script> -->
+    <!-- <script src="static/blockly-master/blocks/coco.js"></script> -->
+    <script src="{{static_url('blockly-master/blocks/js.js')}}"></script>
+
+    <!--Blocks 对应代码-->
+    <!-- <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script> -->
+    <!-- <script src="static/blockly-master/generators/javascript/coco.js"></script> -->
+    <script src="{{static_url('blockly-master/generators/javascript/js.js')}}"></script>
+
+    <!--引入框架-->
+    <script src="{{static_url('js/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{static_url('js/bootstrap.bundle.min.js')}}"></script>
+    <link href="{{static_url('css/bootstrap.min.css')}}" rel="stylesheet">
+
+
+    <!--自定义Blockly样式-->
+    <script src="{{static_url('Waddle/custom_category.js')}}"></script>
+    <link href="{{static_url('css/blockly_style.css')}}" rel="stylesheet" />
+    <!--包含toolbox和积木-->
+
+    <!--自定义积木样式-->
+    <script src="{{static_url('Waddle/custom_renderer.js')}}"></script>
+
+    <!--自定义网格样式-->
+    <script src="{{static_url('Waddle/custom_grid.js')}}"></script>
+
+    <!--引入Waddle主题-->
+    <script src="{{static_url('Waddle/core/theme/waddleTheme.js')}}"></script>
+
+    <!--引入tools积木-->
+    <script src="{{static_url('Waddle/blocks/tools.js')}}"></script>
+    <script src="{{static_url('Waddle/generators/javascript/tools.js')}}"></script>
+
+    <!--JavaScript积木-->
+    <script src="{{static_url('blockly-master/blocks/js.js')}}"></script>
+    <script src="{{static_url('blockly-master/generators/javascript/js.js')}}"></script>
+
+    <!--JavaScript积木-->
+    <script src="{{static_url('blockly-master/blocks/html.js')}}"></script>
+    <script src="{{static_url('blockly-master/generators/javascript/html.js')}}"></script>
+
+
+    <!--不可见控件积木-->
+    <script src="{{static_url('Waddle/blocks/invisibleWidget.js')}}"></script>
+    <script src="{{static_url('Waddle/generators/javascript/invisibleWidget.js')}}"></script>
+
+    <style>
+        .nav-item {
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6d50f0;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="{{static_url('img/waddle.png')}}"
+                    style="height: 40px;padding-left: 15px;padding-bottom: 5px;" alt="Waddle" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            title="" data-bs-toggle="dropdown"><i class="fa-solid fa-folder"></i></a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0)" onClick="openfile()">打开</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a id="switch_table" class="nav-link active" href="javascript:void(0)" 
+                        onclick="switch_table()" title="工作区">
+                            <i class="fa-solid fa-laptop"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="switch_code" class="nav-link" href="javascript:void(0)" 
+                        onclick="switch_code()" title="转换代码">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft" title="关于"
+                            target="_blank" onclick="count()">
+                            <i class="fa-solid fa-circle-question"></i>
+                        </a>
+                    </li>
+                    <!--
+                        文件
+                            https://icons.bootcss.com/icons/folder/
+                            https://icons.bootcss.com/icons/folder-fill/
+                        工作台
+                            https://icons.bootcss.com/icons/laptop/
+                            https://icons.bootcss.com/icons/laptop-fill/
+                        代码icon
+                            https://icons.bootcss.com/icons/save2/
+                            https://icons.bootcss.com/icons/save2-fill/
+                        关于icon  
+                            https://icons.bootcss.com/icons/question-circle/
+                            https://icons.bootcss.com/icons/question-circle-fill/
+                    -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="table">
+        <div id="blocklyDiv" style="width:100%;height: 94%;"></div>
+        <!--ToolBox积木-->
+        <xml id="toolbox" style="display: none">
+        </xml>
+        <!--工作区积木-->
+        <xml id="workspaceblocks" style="display: none">
+        </xml>
+    </div>
+    <div id="code" style="display: none;height: 95%;width: 100%;padding: 5px">
+        <textarea id="codeArea" style="height: 100%;width: 100%;padding: 5px"></textarea>
+    </div>
+    <script>
+        //加载工作区
+        //积木盒
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
+
+            xmlhttp = new XMLHttpRequest();
+
+        }
+        else {
+            alert('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
+        }
+
+        xmlhttp.open("GET", "{{static_url('Waddle/toolBox.xml')}}", false);
+
+        xmlhttp.send();
+
+        xmlDoc = xmlhttp.responseXML;
+        toolbox = document.getElementById('toolbox');
+        toolbox.innerHTML = xmlDoc.getElementsByTagName('toolbox')[0].innerHTML;
+
+        //工作区
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
+
+            xmlhttp = new XMLHttpRequest();
+
+        }
+        else {
+            alert('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
+        }
+        xmlhttp.open("GET", "{{static_url('Waddle/workspace.xml')}}", false);
+
+        xmlhttp.send();
+
+        xmlDoc = xmlhttp.responseXML;
+        workspaceblocks = document.getElementById('workspaceblocks');
+        workspaceblocks.innerHTML = xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML;
+
+        var workspaceBlocks = document.getElementById("workspaceblocks");
+
+        //定义主题
+        var theme = WaddleTheme;
+        //工作区
+        var workspace = Blockly.inject('blocklyDiv',
+            {
+                toolbox: document.getElementById('toolbox'),
+                grid: CustomGrid,
+                zoom:
+                {
+                    controls: true,
+                    wheel: true,
+                    startScale: 0.8,
+                    maxScale: 3,
+                    minScale: 0.3,
+                    scaleSpeed: 1.2
+                },
+                theme: theme,
+                renderer: 'zelos' //scratch风格，自定义的是custom_renderer
+            });
+
+        /* 加载初始积木 */
+        Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
+
+    </script>
+    <script>
+        //各种函数
+        let openfile = function () {
+            var input=document.createElement('input')
+            input.setAttribute('id','file');
+            input.setAttribute('type','file');
+            input.setAttribute('name','file');
+            input.setAttribute("style",'visibility:hidden');
+            input.setAttribute("accept",'.js,.jsx,.waddle');
+            document.body.appendChild(input);
+            input.value;
+            input.click();
+            input.onchange = event => {
+                let file = event.target.files[0];
+                let file_reader = new FileReader();
+                file_reader.onload = () => {
+                    let fc = file_reader.result;
+                    console.log(fc); // 打印文件文本内容
+                };
+                file_reader.readAsText(file, 'UTF-8');
+            }
+        }
+        
+        let getjscode = function () {
+            var code = Blockly.JavaScript.workspaceToCode(workspace);
+            alert(code);
+        };
+        let switch_table = function () {
+            var code = document.getElementById("code")
+            code.style.display = "none";
+            var table = document.getElementById("table")
+            table.style.display = "inline";
+
+            $('.switch_table').addClass('active');
+            $('.switch_code').removeClass('active');
+        }
+        let switch_code = function () {
+            var code = document.getElementById("code")
+            code.style.display = "inline";
+            var table = document.getElementById("table")
+            table.style.display = "none";
+            var codeArea = document.getElementById("codeArea")
+            codeArea.innerHTML = Blockly.JavaScript.workspaceToCode(workspace);
+
+            $('.switch_table').removeClass('active');
+            $('.switch_code').addClass('active');
+
+        }
+        window.onbeforeunload = function () {
+            return "离开后，你的控件就没啦！";
+        }
+        let save = function () {
+            let code_xml = Blockly.Xml.workspaceToDom(workspace);
+            let code_data = Blockly.Xml.domToText(code_xml);
+            let blob = new Blob([code_data], { type: "text/plain;charset=utf-8" });
+            let url = URL.createObjectURL(blob);
+            let downa = document.getElementById("downa");
+            downa.href = url;
+            downa.click();
+            URL.revokeObjectURL(url);
+        }
+
+
+        let craft = function () {
+            workspace.clear();
+            /* 加载初始积木 */
+            Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
+            alert('这里放一个向导');
+        }
+
+
+        document.getElementById('read').addEventListener('change', function selectedFileChanged() {
+            if (this.files.length !== 0) {
+                workspace.clear()
+                const reader = new FileReader();
+                reader.onload = function fileReadCompleted() {
+                    const xml = Blockly.Xml.textToDom(reader.result);
+                    Blockly.Xml.domToWorkspace(xml, workspace);
+                };
+                reader.readAsText(this.files[0]);
+            }
+        });
+    </script>
+    <script>
+        //彩蛋
+        var get_num = 0;
+        let count = function () {
+            get_num++;
+            if (get_num >= 5) {
+                window.open("{{static_url('Waddle/aiwidget.html')}}")
+                get_num = -999;
+            }
+        }
+    </script>
+    <a href="" download="CocoWidget.waddle" style="display: none;" id="downa" aria-label="下载"></a>
+    <style>
+        .js_button {
+            padding: 10px;
+        }
+
+        .nav {
+            height: 5%;
+        }
+
+        .nav-item {
+            height: 5%;
+        }
+
+        .nav-link {
+            height: 5%;
+        }
+    </style>
+</body>
+
+</html>

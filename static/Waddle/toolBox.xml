@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <category name="基本积木" colour="#9429FF"> -->
+<!-- 样式不对，暂时不用文件夹 -->
+<!-- TIP：请使用VSCode扩展里的XML Formatter进行格式化，保证开始和闭合不在标签同一行 -->
+<toolbox>
+	<category name="控制" colour="#68CDFF">
+		<block type="controls_whileUntil">
+		</block>
+		<block type="controls_repeat_ext">
+			<value name="TIMES">
+				<block type="math_number">
+					<field name="NUM">
+						10
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="controls_whileUntil">
+		</block>
+		<block type="controls_for">
+			<field name="VAR">
+				i
+			</field>
+			<value name="FROM">
+				<block type="math_number">
+					<field name="NUM">
+						1
+					</field>
+				</block>
+			</value>
+			<value name="TO">
+				<block type="math_number">
+					<field name="NUM">
+						10
+					</field>
+				</block>
+			</value>
+			<value name="BY">
+				<block type="math_number">
+					<field name="NUM">
+						1
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="controls_forEach">
+		</block>
+		<block type="controls_flow_statements">
+		</block>
+		<!-- 控制和逻辑合并 -->
+		<!--
+		</category>
+		<category name="逻辑" colour="#AE8964">
+		-->
+		<block type="controls_if">
+		</block>
+		<block type="logic_compare">
+		</block>
+		<block type="logic_operation">
+		</block>
+		<block type="logic_boolean">
+		</block>
+		<block type="logic_negate">
+		</block>
+		<block type="logic_null">
+		</block>
+		<block type="logic_ternary">
+		</block>
+	</category>
+	<category name="数学" colour="#FEAE8A">
+		<block type="math_number">
+			<field name="NUM">
+				114514
+			</field>
+		</block>
+		<block type="math_arithmetic">
+		</block>
+		<block type="math_single">
+		</block>
+		<block type="math_trig">
+		</block>
+		<block type="math_constant">
+		</block>
+		<block type="math_number_property">
+		</block>
+		<block type="math_round">
+		</block>
+		<block type="math_on_list">
+		</block>
+		<block type="math_modulo">
+		</block>
+		<block type="math_constrain">
+			<value name="LOW">
+				<block type="math_number">
+					<field name="NUM">
+						114
+					</field>
+				</block>
+			</value>
+			<value name="HIGH">
+				<block type="math_number">
+					<field name="NUM">
+						514
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="math_random_int">
+			<value name="FROM">
+				<block type="math_number">
+					<field name="NUM">
+						191
+					</field>
+				</block>
+			</value>
+			<value name="TO">
+				<block type="math_number">
+					<field name="NUM">
+						9810
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="math_random_float">
+		</block>
+		<block type="math_atan2">
+		</block>
+	</category>
+	<category name="文本" colour="#1ab293">
+		<block type="text">
+		</block>
+		<block type="text_length">
+		</block>
+		<block type="text_print">
+		</block>
+		<block type="text_join">
+		</block>
+		<block type="text_append">
+			<value name="TEXT">
+				<block type="text">
+				</block>
+			</value>
+		</block>
+		<block type="text_length">
+		</block>
+		<block type="text_isEmpty">
+		</block>
+		<block type="text_indexOf">
+		</block>
+		<block type="text_getSubstring">
+			<value name="STRING">
+				<block type="variables_get">
+					<field name="VAR">
+						{textVariable}
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="text_charAt">
+		</block>
+		<block type="text_changeCase">
+		</block>
+		<block type="text_trim">
+		</block>
+		<block type="text_prompt_ext">
+			<value name="TEXT">
+				<shadow type="text">
+					<field name="TEXT">
+						abc
+					</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="text_prompt_ext">
+			<value name="TEXT">
+				<block type="text">
+				</block>
+			</value>
+		</block>
+	</category>
+	<category name="颜色" colour="20">
+		<block type="colour_picker">
+		</block>
+		<block type="colour_random">
+		</block>
+		<block type="colour_rgb">
+			<value name="RED">
+				<shadow type="math_number">
+					<field name="NUM">
+						100
+					</field>
+				</shadow>
+			</value>
+			<value name="GREEN">
+				<shadow type="math_number">
+					<field name="NUM">
+						50
+					</field>
+				</shadow>
+			</value>
+			<value name="BLUE">
+				<shadow type="math_number">
+					<field name="NUM">
+						0
+					</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="colour_blend">
+			<value name="COLOUR1">
+				<shadow type="colour_picker">
+					<field name="COLOUR">
+						#ff0000
+					</field>
+				</shadow>
+			</value>
+			<value name="COLOUR2">
+				<shadow type="colour_picker">
+					<field name="COLOUR">
+						#3333ff
+					</field>
+				</shadow>
+			</value>
+			<value name="RATIO">
+				<shadow type="math_number">
+					<field name="NUM">
+						0.5
+					</field>
+				</shadow>
+			</value>
+		</block>
+	</category>
+	<sep>
+	</sep>
+	<category name="变量" colour="#FFBB55" custom="VARIABLE">
+	</category>
+	<category name="列表" colour="#F9CC37">
+		<block type="lists_create_with">
+			<mutation items="0">
+			</mutation>
+		</block>
+		<block type="lists_create_with">
+		</block>
+		<block type="lists_repeat">
+			<value name="NUM">
+				<shadow type="math_number">
+					<field name="NUM">
+						5
+					</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="lists_length">
+		</block>
+		<block type="lists_isEmpty">
+		</block>
+		<block type="lists_indexOf">
+			<value name="VALUE">
+				<block type="variables_get">
+					<field name="VAR">
+						{listVariable}
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="lists_getIndex">
+			<value name="VALUE">
+				<block type="variables_get">
+					<field name="VAR">
+						{listVariable}
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="lists_setIndex">
+			<value name="LIST">
+				<block type="variables_get">
+					<field name="VAR">
+						{listVariable}
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="lists_getSublist">
+			<value name="LIST">
+				<block type="variables_get">
+					<field name="VAR">
+						{listVariable}
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="lists_split">
+			<value name="DELIM">
+				<shadow type="text">
+					<field name="TEXT">
+						,
+					</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="lists_sort">
+		</block>
+	</category>
+	<category name="函数" colour="#F88767" custom="PROCEDURE">
+	</category>
+	<!-- </category> -->
+	<sep>
+	</sep>
+	<category name="不可见控件2.0" colour="#5574F8">
+		<label text="控件类型定义">
+		</label>
+		<block type="ivw_defTypes">
+		</block>
+		<label text="控件类型定义参数">
+		</label>
+		<block type="ivw_itemType">
+		</block>
+		<block type="ivw_itemIcon">
+		</block>
+		<block type="ivw_itemTitle">
+		</block>
+		<block type="ivw_itemVersion">
+		</block>
+		<block type="ivw_itemIsGlobalWidget">
+		</block>
+		<block type="ivw_properties">
+		</block>
+		<block type="ivw_methods">
+		</block>
+		<block type="ivw_events">
+		</block>
+		<block type="ivw_emit">
+			<value name="event">
+			  <block type="text">
+				<field name="TEXT">事件名</field>
+			  </block>
+			</value>
+		  </block>
+		<block type="ivw_emitParameter">
+		</block>
+
+		<label text="模板">
+		</label>
+		<block type="ivw_defTypes">
+			<value name="types">
+				<block type="ivw_itemType">
+					<next>
+						<block type="ivw_itemIcon">
+							<next>
+								<block type="ivw_itemTitle">
+									<next>
+										<block type="ivw_itemVersion">
+											<next>
+												<block type="ivw_itemIsGlobalWidget">
+													<next>
+														<block type="ivw_properties">
+															<next>
+																<block type="ivw_methods">
+																	<next>
+																		<block type="ivw_events">
+																		</block>
+																	</next>
+																</block>
+															</next>
+														</block>
+													</next>
+												</block>
+											</next>
+										</block>
+									</next>
+								</block>
+							</next>
+						</block>
+					</next>
+				</block>
+			</value>
+		</block>
+		<label text="不可见控件1.0已弃用">
+		</label>
+	</category>
+	<!--
+	<category name="不可见控件" colour="#a55b5c">
+	<block type="ivw_invisiblewidget">
+	<field name="type">
+	MY_WIDGET
+	</field>
+	<field name="icon">
+	链接
+	</field>
+	<field name="title">
+	我的控件
+	</field>
+	<field name="isGlobalWidget">
+	TRUE
+	</field>
+	<value name="properties">
+	<shadow type="lists_create_with">
+	<mutation items="0" />
+	</shadow>
+	</value>
+	<value name="methods">
+	<shadow type="lists_create_with">
+	<mutation items="0" />
+	</shadow>
+	</value>
+	<value name="event">
+	<shadow type="lists_create_with">
+	<mutation items="0" />
+	</shadow>
+	</value>
+	<value name="functionsList">
+	<shadow type="lists_create_with">
+	<mutation items="0" />
+	</shadow>
+	</value>
+	</block>
+	</category>
+	<category name="CoCo" colour="114">
+	<block type="coco_emit">
+	<field name="eventName">
+	事件名称
+	</field>
+	<value name="parameters">
+	<block type="lists_create_with">
+	<mutation items="0">
+	</mutation>
+	</block>
+	</value>
+	</block>
+	<block type="coco_property">
+	<field name="key">
+	属性名
+	</field>
+	<field name="label">
+	标签
+	</field>
+	<field name="valueType">
+	string
+	</field>
+	<field name="default">
+	默认值
+	</field>
+	</block>
+	<block type="coco_method">
+	<field name="key">
+	方法名
+	</field>
+	<field name="label">
+	标签
+	</field>
+	<value name="params">
+	<block type="lists_create_with">
+	<mutation items="0">
+	</mutation>
+	</block>
+	</value>
+	</block>
+	<block type="coco_method_return">
+	<field name="key">
+	方法名
+	</field>
+	<field name="label">
+	标签
+	</field>
+	<field name="valueType">
+	string
+	</field>
+	<value name="params">
+	<block type="lists_create_with">
+	<mutation items="0">
+	</mutation>
+	</block>
+	</value>
+	<statement name="function_1">
+	<block type="coco_return">
+	</block>
+	</statement>
+	</block>
+	<block type="coco_method_parameter">
+	<field name="key">
+	参数名
+	</field>
+	<field name="label">
+	标签
+	</field>
+	<field name="labelAfter">
+	尾标签
+	</field>
+	<field name="valueType">
+	string
+	</field>
+	<field name="default">
+	默认值
+	</field>
+	</block>
+	<block type="coco_event">
+	<field name="key">
+	事件名
+	</field>
+	<field name="label">
+	标签
+	</field>
+	<value name="params">
+	<block type="lists_create_with">
+	<mutation items="0">
+	</mutation>
+	</block>
+	</value>
+	</block>
+	<block type="coco_event_parameter">
+	<field name="key">
+	参数名
+	</field>
+	<field name="label">
+	标签
+	</field>
+	<field name="valueType">
+	string
+	</field>
+	</block>
+	<block type="coco_return">
+	</block>
+	</category>
+	-->
+	<category name="JavaScript" colour="180">
+		<label text="鸡肋积木">
+		</label>
+		<block type="js_usestrict">
+		</block>
+		<block type="js_bitwise">
+		</block>
+		<block type="js_comparisons">
+		</block>
+		<block type="js_time">
+		</block>
+		<block type="js_popup_alert">
+		</block>
+		<block type="js_popup_confirm">
+		</block>
+		<block type="js_popup_prompt">
+		</block>
+		<block type="js_json_parse">
+		</block>
+		<block type="js_json_stringify">
+		</block>
+		<block type="js_json_access">
+		</block>
+		<block type="js_window_screen">
+		</block>
+		<block type="js_window_avail_screen">
+		</block>
+		<block type="js_window_depth">
+		</block>
+		<block type="js_window_pixeldepth">
+		</block>
+		<block type="js_navigator_online">
+		</block>
+		<block type="js_navigator_language">
+		</block>
+		<block type="js_navigator_platform">
+		</block>
+		<block type="js_math_constant">
+		</block>
+		<block type="js_console_clean">
+		</block>
+		<block type="js_console_count">
+		</block>
+		<block type="js_console_error">
+		</block>
+		<block type="js_console_warn">
+		</block>
+		<block type="js_console_log">
+		</block>
+		<block type="js_console_time">
+		</block>
+		<block type="js_console_timeend">
+		</block>
+		<block type="js_base64">
+		</block>
+	</category>
+	<category name="HTML" colour="100">
+		<block type="html_element">
+		</block>
+		<block type="html_element_ich">
+		</block>
+	</category>
+	<category name="工具" colour="#9429FF">
+		<label text="工具.积木夹子">
+		</label>
+		<label text="方便积木分段，折叠；顶部注释积木夹子标签">
+		</label>
+		<block type="tools_blocks_clip">
+		</block>
+		<label text="工具.仅运行">
+		</label>
+		<label text="用于运行有返回值的积木">
+		</label>
+		<block type="tools_only_run">
+		</block>
+		<label text="工具.注释">
+		</label>
+		<label text="用于插入单行注释">
+		</label>
+		<block type="tools_exegesis">
+		</block>
+	</category>
+</toolbox>

@@ -22,7 +22,3 @@ goog.require('Blockly.JavaScript.procedures');
 goog.require('Blockly.JavaScript.texts');
 goog.require('Blockly.JavaScript.variables');
 goog.require('Blockly.JavaScript.variablesDynamic');
-goog.require('Blockly.JavaScript.control');
-
-goog.require('Blockly.JavaScript.invisibleWidget');
-goog.require('Blockly.JavaScript.coco');

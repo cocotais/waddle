@@ -38,13 +38,13 @@ Blockly.JavaScript["js_popup_alert"] = function(block){
 Blockly.JavaScript["js_popup_confirm"] = function(block){
     var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE) || "null";
     var code = `confirm(${text});`;
-    return code;
+    return [code, Blockly.JavaScript.ORDER_NONE];
 }
 
 Blockly.JavaScript["js_popup_prompt"] = function(block){
     var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE) || "null";
     var code = `prompt(${text})\n`;
-    return code;
+    return [code, Blockly.JavaScript.ORDER_NONE];
 }
 
 Blockly.JavaScript["js_json_parse"] = function(block){
@@ -76,7 +76,7 @@ Blockly.JavaScript['js_window_avail_screen'] = function(block){
     return [code,Blockly.JavaScript.ORDER_NONE]
 }
 
-Blockly.JavaScript['js_window_colordepth'] = function(block){
+Blockly.JavaScript['js_window_depth'] = function(block){
     var code = `screen.colorDepth`;
     return [code,Blockly.JavaScript.ORDER_NONE]
 }
