@@ -249,14 +249,17 @@
             input.setAttribute("style",'visibility:hidden');
             input.setAttribute("accept",'.js,.jsx,.waddle');
             document.body.appendChild(input);
-            input.value;
             input.click();
             input.onchange = event => {
                 let file = event.target.files[0];
                 let file_reader = new FileReader();
                 file_reader.onload = () => {
                     let fc = file_reader.result;
-                    console.log(fc); // 打印文件文本内容
+                    let parser = new DOMParser();
+                    let xml = parser.parseFromString(fc,'text/xml');
+                    let blocks = xml.getElementsByTagName('xml')[0];
+                    workspace.clear();
+                    Blockly.Xml.domToWorkspace(blocks, workspace);
                 };
                 file_reader.readAsText(file, 'UTF-8');
             }
