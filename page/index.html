@@ -127,8 +127,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a></li>
                             <li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0)"><input type="file" id="read"
-                                        name="打开" style="width: 167;"></input></a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0)" onClick="openfile()">打开</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -252,6 +251,27 @@
     </script>
     <script>
         //各种函数
+        let openfile = function () {
+            var input=document.createElement('input')
+            input.setAttribute('id','file');
+            input.setAttribute('type','file');
+            input.setAttribute('name','file');
+            input.setAttribute("style",'visibility:hidden');
+            input.setAttribute("accept",'.js,.jsx,.waddle');
+            document.body.appendChild(input);
+            input.value;
+            input.click();
+            input.onchange = event => {
+                let file = event.target.files[0];
+                let file_reader = new FileReader();
+                file_reader.onload = () => {
+                    let fc = file_reader.result;
+                    console.log(fc); // 打印文件文本内容
+                };
+                file_reader.readAsText(file, 'UTF-8');
+            }
+        }
+        
         let getjscode = function () {
             var code = Blockly.JavaScript.workspaceToCode(workspace);
             alert(code);
