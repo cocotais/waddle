@@ -580,8 +580,9 @@
 		</block>
 	</category>
 	<category name="HTML" colour="100">
-		        <category name="HTML-无属性">
-            <category name="按字母标签分类">
+        <label text="这玩意给可视控件用的，现在还没弄好，别用！">
+		<category name="HTML-无属性" colour="100">
+            <category name="按字母标签分类" colour="100">
                 <block type="html_noa_tag_comment">
                 </block>
                 <block type="html_text">
