@@ -82,7 +82,7 @@ Blockly.Blocks['ivw_itemIsGlobalWidget'] = {
 Blockly.Blocks['ivw_properties'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("属性");
+            .appendField("属性列表");
         this.appendStatementInput("properties")
             .setCheck(null);
         this.setPreviousStatement(true, null);
@@ -96,7 +96,7 @@ Blockly.Blocks['ivw_properties'] = {
 Blockly.Blocks['ivw_methods'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("方法");
+            .appendField("方法列表");
         this.appendStatementInput("methods")
             .setCheck(null);
         this.setPreviousStatement(true, null);
@@ -110,13 +110,55 @@ Blockly.Blocks['ivw_methods'] = {
 Blockly.Blocks['ivw_events'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("事件");
+            .appendField("事件列表");
         this.appendStatementInput("events")
             .setCheck(null);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour("#5574F8");
         this.setTooltip("定义事件方法");
+        this.setHelpUrl(HELP_URL);
+    }
+};
+
+Blockly.Blocks['ivw_propertieItem'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("定义属性");
+        this.appendStatementInput("propertieItem")
+            .setCheck(null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour("#5574F8");
+        this.setTooltip("定义一个属性，放在属性列表里");
+        this.setHelpUrl(HELP_URL);
+    }
+};
+
+Blockly.Blocks['ivw_methodItem'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("定义方法");
+        this.appendStatementInput("methodItem")
+            .setCheck(null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour("#5574F8");
+        this.setTooltip("定义一个方法，放在方法列表里");
+        this.setHelpUrl(HELP_URL);
+    }
+};
+
+Blockly.Blocks['ivw_eventItem'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("事件列表");
+        this.appendStatementInput("eventItem")
+            .setCheck(null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour("#5574F8");
+        this.setTooltip("定义一个事件，放在事件列表里");
         this.setHelpUrl(HELP_URL);
     }
 };

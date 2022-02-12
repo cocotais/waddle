@@ -45,10 +45,9 @@ Blockly.JavaScript['ivw_itemIsGlobalWidget'] = function (block) {
 Blockly.JavaScript['ivw_properties'] = function (block) {
     var statements_properties = Blockly.JavaScript.statementToCode(block, 'properties');
     var code = `
-
-    properties: [
+properties: [
     ${statements_properties}
-]
+],
 
 `;
     return code;
@@ -57,10 +56,9 @@ Blockly.JavaScript['ivw_properties'] = function (block) {
 Blockly.JavaScript['ivw_methods'] = function (block) {
     var statements_methods = Blockly.JavaScript.statementToCode(block, 'methods');
     var code = `
-
 methods: [
     ${statements_methods}
-]
+],
 
 `;
     return code;
@@ -69,10 +67,42 @@ methods: [
 Blockly.JavaScript['ivw_events'] = function (block) {
     var statements_events = Blockly.JavaScript.statementToCode(block, 'events');
     var code = `
-
 events: [
     ${statements_events}
-]
+],
+
+`;
+    return code;
+};
+
+Blockly.JavaScript['ivw_propertieItem'] = function (block) {
+    var statements_propertieItem = Blockly.JavaScript.statementToCode(block, 'propertieItem');
+    var code = `
+{
+    ${statements_propertieItem}
+},
+
+`;
+    return code;
+};
+
+Blockly.JavaScript['ivw_methodItem'] = function (block) {
+    var statements_methodItem = Blockly.JavaScript.statementToCode(block, 'methodItem');
+    var code = `
+{
+    ${statements_methodItem}
+},
+
+`;
+    return code;
+};
+
+Blockly.JavaScript['ivw_eventItem'] = function (block) {
+    var statements_eventItem = Blockly.JavaScript.statementToCode(block, 'eventItem');
+    var code = `
+{
+    ${statements_eventItem}
+},
 
 `;
     return code;

@@ -334,6 +334,12 @@
 		</block>
 		<block type="ivw_events">
 		</block>
+		<block type="ivw_propertieItem">
+		</block>
+		<block type="ivw_methodItem">
+		</block>
+		<block type="ivw_eventItem">
+		</block>
 		<block type="ivw_emit">
 			<value name="event">
 			  <block type="text">
@@ -343,43 +349,8 @@
 		  </block>
 		<block type="ivw_emitParameter">
 		</block>
-
-		<label text="模板">
+		<label text="模板见 框架与示例">
 		</label>
-		<block type="ivw_defTypes">
-			<value name="types">
-				<block type="ivw_itemType">
-					<next>
-						<block type="ivw_itemIcon">
-							<next>
-								<block type="ivw_itemTitle">
-									<next>
-										<block type="ivw_itemVersion">
-											<next>
-												<block type="ivw_itemIsGlobalWidget">
-													<next>
-														<block type="ivw_properties">
-															<next>
-																<block type="ivw_methods">
-																	<next>
-																		<block type="ivw_events">
-																		</block>
-																	</next>
-																</block>
-															</next>
-														</block>
-													</next>
-												</block>
-											</next>
-										</block>
-									</next>
-								</block>
-							</next>
-						</block>
-					</next>
-				</block>
-			</value>
-		</block>
 		<label text="不可见控件1.0已弃用">
 		</label>
 	</category>
@@ -608,5 +579,45 @@
 		</label>
 		<block type="tools_blocks_dict">
 		</block>
+	</category>
+	<category name="框架与示例" colour="6d50f0">
+		<category name="基本框架" colour="6d50f0">
+			<label text="基本空框架">
+			</label>
+			<block type="ivw_defTypes">
+				<value name="types">
+					<block type="ivw_itemType">
+						<next>
+							<block type="ivw_itemIcon">
+								<next>
+									<block type="ivw_itemTitle">
+										<next>
+											<block type="ivw_itemVersion">
+												<next>
+													<block type="ivw_itemIsGlobalWidget">
+														<next>
+															<block type="ivw_properties">
+																<next>
+																	<block type="ivw_methods">
+																		<next>
+																			<block type="ivw_events">
+																			</block>
+																		</next>
+																	</block>
+																</next>
+															</block>
+														</next>
+													</block>
+												</next>
+											</block>
+										</next>
+									</block>
+								</next>
+							</block>
+						</next>
+					</block>
+				</value>
+			</block>
+		</category>
 	</category>
 </toolbox>
