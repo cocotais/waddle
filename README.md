@@ -1,4 +1,4 @@
-# ![https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/purple-logo.png](https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/purple-logo.pngg) [![star](https://gitee.com/coco-ag/coco-waddle/badge/star.svg?theme=white)](https://gitee.com/coco-ag/coco-waddle/stargazers) [![fork](https://gitee.com/coco-ag/coco-waddle/badge/fork.svg?theme=white)](https://gitee.com/coco-ag/coco-waddle/members)
+# ![https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/purple-logo.png](https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/purple-logo.png) [![star](https://gitee.com/coco-ag/coco-waddle/badge/star.svg?theme=white)](https://gitee.com/coco-ag/coco-waddle/stargazers) [![fork](https://gitee.com/coco-ag/coco-waddle/badge/fork.svg?theme=white)](https://gitee.com/coco-ag/coco-waddle/members)
 
 ## 介绍
 由中控台制作的 CoCo 控件制作工具
