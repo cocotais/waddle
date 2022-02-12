@@ -814,8 +814,8 @@
                 <block type="html_noa_tag_wbr">
                 </block>
             </category>
-            <category name="按用途分类">
-                <category name="基础">
+            <category name="按用途分类" colour="100">
+                <category name="基础" colour="100">
                     <block type="html_noa_tag_comment">
                     </block>
                     <block type="html_text">
@@ -847,13 +847,13 @@
                     <block type="html_noa_tag_div">
                     </block>
                 </category>
-                <category name="链接">
+                <category name="链接" colour="100">
                     <block type="html_noa_tag_link">
                     </block>
                     <block type="html_noa_tag_main">
                     </block>
                 </category>
-                <category name="格式">
+                <category name="格式" colour="100">
                     <block type="html_noa_tag_address">
                     </block>
                     <block type="html_noa_tag_b">
@@ -935,7 +935,7 @@
                     <block type="html_noa_tag_wbr">
                     </block>
                 </category>
-                <category name="列表">
+                <category name="列表" colour="100">
                     <block type="html_noa_tag_ul">
                     </block>
                     <block type="html_noa_tag_ol">
@@ -951,7 +951,7 @@
                     <block type="html_noa_tag_menu">
                     </block>
                 </category>
-                <category name="表单">
+                <category name="表单" colour="100">
                     <block type="html_noa_tag_form">
                     </block>
                     <block type="html_noa_tag_input">
@@ -971,7 +971,7 @@
                     <block type="html_noa_tag_output">
                     </block>
                 </category>
-                <category name="表格">
+                <category name="表格" colour="100">
                     <block type="html_noa_tag_table">
                     </block>
                     <block type="html_noa_tag_caption">
@@ -993,7 +993,7 @@
                     <block type="html_noa_tag_colgroup">
                     </block>
                 </category>
-                <category name="程序">
+                <category name="程序" colour="100">
                     <block type="html_noa_tag_code">
                     </block>
                     <block type="html_noa_tag_noscript">
@@ -1001,7 +1001,7 @@
                     <block type="html_noa_tag_script">
                     </block>
                 </category>
-                <category name="样式/节">
+                <category name="样式/节" colour="100">
                     <block type="html_noa_tag_span">
                     </block>
                     <block type="html_noa_tag_footer">
@@ -1021,7 +1021,7 @@
                     <block type="html_noa_tag_summary">
                     </block>
                 </category>
-                <category name="无属性无法正常使用">
+                <category name="无属性无法正常使用" colour="100">
                     <block type="html_noa_tag_a">
                     </block>
                     <block type="html_noa_tag_abbr">
