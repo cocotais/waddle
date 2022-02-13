@@ -1,4 +1,3 @@
-
 let craft = function () {
     workspace.clear();
     /* 加载初始积木 */
@@ -46,9 +45,10 @@ let switch_table = function () {
     code.style.display = "none";
     var table = document.getElementById("table")
     table.style.display = "inline";
-
-    $('.switch_table').addClass('active');
-    $('.switch_code').removeClass('active');
+    var switch_table = document.getElementById('switch_table');
+    switch_table.className += ' active';
+    var switch_code = document.getElementById('switch_code');
+    switch_code.classList.remove("active");
 }
 
 let switch_code = function () {
@@ -58,10 +58,10 @@ let switch_code = function () {
     table.style.display = "none";
     var codeArea = document.getElementById("codeArea")
     codeArea.innerHTML = Blockly.JavaScript.workspaceToCode(workspace);
-
-    $('.switch_table').removeClass('active');
-    $('.switch_code').addClass('active');
-
+    var switch_code = document.getElementById('switch_code');
+    switch_code.className += ' active';
+    var switch_table = document.getElementById('switch_table');
+    switch_table.classList.remove("active");
 }
 
 var get_num = 0;
@@ -72,3 +72,4 @@ let count = function () {
         get_num = -999;
     }
 }
+

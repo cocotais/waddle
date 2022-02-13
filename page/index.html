@@ -47,7 +47,7 @@
     <script src="{{static_url('blockly-master/msg/js/zh-hans.js')}}"></script>
 
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="{{static_url('img/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{static_url('img/logo.png')}}">
     <title>Waddle - 让CoCo没有难做的控件</title>
 
     <!--图标库-->
@@ -102,7 +102,7 @@
 
     <!--导入导航栏按钮函数-->
     <script src="{{static_url('js/navFuncs.js')}}"></script>
-    
+
     <!--彩蛋定义-->
     <script>
         function estchk(){
@@ -118,7 +118,7 @@
 
     <style>
         .nav-item {
-            font-size: 22px;
+            font-size: 25px;
         }
     </style>
 </head>
@@ -126,9 +126,8 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6d50f0;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="{{static_url('img/waddle.png')}}"
-                    style="height: 40px;padding-left: 15px;padding-bottom: 5px;" alt="Waddle" 
-                    onClick="estchk()"/></a>
+            <a class="navbar-brand" href="#"><img src="{{static_url('img/waddle.svg')}}"
+                    style="height: 28px;padding-left: 15px;padding-bottom: 5px;" alt="Waddle" onClick="estchk()"/></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -137,8 +136,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" title=""
-                            data-bs-toggle="dropdown"><i class="fa-solid fa-folder"></i></a>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" title="" 
+                        data-bs-toggle="dropdown" one-link-mark="yes"><i class="fa-solid fa-folder"></i></a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a></li>
                             <li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存</a></li>
@@ -148,13 +147,14 @@
                     <li class="nav-item">
                         <a id="switch_table" class="nav-link active" href="javascript:void(0)" onclick="switch_table()"
                             title="工作区">
-                            <i class="fa-solid fa-laptop"></i>
+                            <svg t="1644662826288"
+                             width="25" height="25" fill="currentColor" viewBox="0 0 1417 1024"><path d="M1416.996109 905.971466a38.910506 38.910506 0 0 1-38.910506 39.559014H566.801556a36.964981 36.964981 0 0 0-27.885862 11.673152l-55.123217 54.474708a37.613489 37.613489 0 0 1-27.885862 11.673152H252.274968a37.613489 37.613489 0 0 1-27.885863-11.673152l-55.123217-54.474708a36.316472 36.316472 0 0 0-27.237354-11.673152H38.915694a38.910506 38.910506 0 0 1-38.910506-39.559014V590.14786a38.910506 38.910506 0 0 1 38.910506-38.910506h101.815824a39.559014 39.559014 0 0 1 27.885862 11.024643l55.771725 55.771725a37.613489 37.613489 0 0 0 27.885863 11.673152h203.631647a37.613489 37.613489 0 0 0 27.885862-11.673152l55.771725-55.771725a39.559014 39.559014 0 0 1 27.885863-11.024643h810.635538a38.910506 38.910506 0 0 1 38.910506 38.910506zM1023.351492 354.7393a39.559014 39.559014 0 0 1-39.559015 39.559014H566.801556a36.964981 36.964981 0 0 0-27.885862 11.673152l-55.123217 54.474708a37.613489 37.613489 0 0 1-27.885862 11.673152H252.274968a37.613489 37.613489 0 0 1-27.885863-11.673152l-55.123217-54.474708a36.316472 36.316472 0 0 0-27.237354-11.673152H38.915694a38.910506 38.910506 0 0 1-38.910506-39.559014V38.915694A38.910506 38.910506 0 0 1 38.915694 0.005188h101.815824a39.559014 39.559014 0 0 1 27.885862 11.024643l55.771725 55.771725a37.613489 37.613489 0 0 0 27.885863 11.673152h203.631647a37.613489 37.613489 0 0 0 27.885862-11.673152l55.771725-55.771725A39.559014 39.559014 0 0 1 567.450065 0.005188h416.342412a38.910506 38.910506 0 0 1 39.559015 38.910506z" p-id="6649"></path></svg>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a id="switch_code" class="nav-link" href="javascript:void(0)" onclick="switch_code()"
                             title="转换代码">
-                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-code"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -296,10 +296,16 @@
 
         .nav-item {
             height: 5%;
+            margin-left: 20px;
         }
 
         .nav-link {
             height: 5%;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            scrollbar-width: none;
         }
     </style>
 </body>

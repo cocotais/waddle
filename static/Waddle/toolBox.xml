@@ -307,90 +307,114 @@
 	<!-- </category> -->
 	<sep>
 	</sep>
-	<category name="不可见控件2.0" colour="#5574F8">
+	<category name="自定义控件" colour="#6d50f0">
 		<label text="蓝色属于自定义控件通用" colour="#5574F8">
 		</label>
 		<label text="紫色属于不可见控件专属" colour="#8647F3">
 		</label>
-		<label text="控件类型定义">
-		</label>
-		<block type="ivw_defTypes">
-		</block>
-		<label text="控件类型定义参数">
-		</label>
-		<block type="ivw_itemType">
-		</block>
-		<block type="ivw_itemIcon">
-		</block>
-		<block type="ivw_itemTitle">
-		</block>
-		<block type="ivw_itemVersion">
-		</block>
-		<block type="ivw_itemIsGlobalWidget">
-		</block>
-		<block type="ivw_properties">
-		</block>
-		<block type="ivw_methods">
-		</block>
-		<block type="ivw_events">
-		</block>
-		<block type="ivw_propertieItem">
-		</block>
-		<block type="ivw_methodItem">
-		</block>
-		<block type="ivw_eventItem">
-		</block>
-		<block type="ivw_emit">
-			<value name="event">
-			  <block type="text">
-				<field name="TEXT">事件名</field>
-			  </block>
-			</value>
-		  </block>
-		<block type="ivw_emitParameter">
-		</block>
-		<label text="模板见 框架与示例">
+		<label text="模板见框架与示例">
 		</label>
 		<label text="不可见控件1.0已弃用">
 		</label>
+		<category name="不可见控件1.0" colour="#a55b5c">
+			<label text="不可见控件1.0已弃用">
+			</label>
+			<!-- <block type="ivw_invisiblewidget" Deletable="false">
+				<field name="type">
+					MY_WIDGET
+				</field>
+				<field name="icon">
+					链接
+				</field>
+				<field name="title">
+					我的控件
+				</field>
+				<field name="isGlobalWidget">
+					TRUE
+				</field>
+				<value name="properties">
+					<shadow type="lists_create_with">
+						<mutation items="0" />
+					</shadow>
+				</value>
+				<value name="methods">
+					<shadow type="lists_create_with">
+						<mutation items="0" />
+					</shadow>
+				</value>
+				<value name="event">
+					<shadow type="lists_create_with">
+						<mutation items="0" />
+					</shadow>
+				</value>
+				<value name="functionsList">
+					<shadow type="lists_create_with">
+						<mutation items="0" />
+					</shadow>
+				</value>
+			</block> -->
+		</category>
+		<category name="不可见控件2.0" colour="#8647F3">
+			<label text="控件类型定义">
+			</label>
+			<block type="ivw_defTypes">
+			</block>
+			<label text="模板见框架与示例">
+			</label>
+		</category>
+		<category name="通用类型定义" colour="#5574F8">
+			<label text="控件类型定义参数">
+			</label>
+			<block type="ivw_itemType">
+			</block>
+			<block type="ivw_itemIcon">
+			</block>
+			<block type="ivw_itemTitle">
+			</block>
+			<block type="ivw_itemVersion">
+			</block>
+			<block type="ivw_itemIsGlobalWidget">
+			</block>
+			<label text="模板见框架与示例">
+			</label>
+			<category name="通用属性定义" colour="#5574F8">
+				<block type="ivw_properties">
+				</block>
+				<block type="ivw_propertieItem">
+				</block>
+				<label text="模板见框架与示例">
+				</label>
+			</category>
+			<category name="通用方法定义" colour="#5574F8">
+				<block type="ivw_methods">
+				</block>
+				<block type="ivw_methodItem">
+				</block>
+				<label text="模板见框架与示例">
+				</label>
+			</category>
+			<category name="通用事件定义" colour="#5574F8">
+				<block type="ivw_events">
+				</block>
+				<block type="ivw_eventItem">
+				</block>
+				<label text="模板见框架与示例">
+				</label>
+			</category>
+			<block type="ivw_emit">
+				<value name="event">
+					<block type="text">
+						<field name="TEXT">
+							事件名
+						</field>
+					</block>
+				</value>
+			</block>
+			<block type="ivw_emitParameter">
+			</block>
+		</category>
 	</category>
 	<!--
-	<category name="不可见控件" colour="#a55b5c">
-	<block type="ivw_invisiblewidget">
-	<field name="type">
-	MY_WIDGET
-	</field>
-	<field name="icon">
-	链接
-	</field>
-	<field name="title">
-	我的控件
-	</field>
-	<field name="isGlobalWidget">
-	TRUE
-	</field>
-	<value name="properties">
-	<shadow type="lists_create_with">
-	<mutation items="0" />
-	</shadow>
-	</value>
-	<value name="methods">
-	<shadow type="lists_create_with">
-	<mutation items="0" />
-	</shadow>
-	</value>
-	<value name="event">
-	<shadow type="lists_create_with">
-	<mutation items="0" />
-	</shadow>
-	</value>
-	<value name="functionsList">
-	<shadow type="lists_create_with">
-	<mutation items="0" />
-	</shadow>
-	</value>
-	</block>
-	</category>
 	<category name="CoCo" colour="114">
 	<block type="coco_emit">
 	<field name="eventName">
@@ -554,12 +578,12 @@
 		<block type="js_base64">
 		</block>
 	</category>
-	<category name="工具" colour="#9429FF">
+	<category name="工具" colour="#0E7D65">
 		<label text="工具.积木夹子">
 		</label>
 		<label text="方便积木分段，折叠；顶部注释积木夹子标签">
 		</label>
-		<block type="tools_blocks_clip">
+		<block type="tools_clip">
 		</block>
 		<label text="工具.仅运行">
 		</label>
@@ -577,11 +601,29 @@
 		</label>
 		<label text="创建字典">
 		</label>
-		<block type="tools_blocks_dict">
+		<block type="tools_dict">
+		</block>
+		<label text="工具.列表">
+		</label>
+		<label text="创建列表">
+		</label>
+		<block type="tools_list">
+		</block>
+		<label text="工具.字典值">
+		</label>
+		<label text="为字典添加项，自行添加字符串框">
+		</label>
+		<block type="tools_dictItem">
+		</block>
+		<label text="工具.列表值">
+		</label>
+		<label text="为列表添加项，自行添加字符串框">
+		</label>
+		<block type="tools_listItem">
 		</block>
 	</category>
-	<category name="框架与示例" colour="6d50f0">
-		<category name="基本框架" colour="6d50f0">
+	<category name="框架与示例" colour="#6d50f0">
+		<category name="基本框架" colour="#6d50f0">
 			<label text="基本空框架">
 			</label>
 			<block type="ivw_defTypes">

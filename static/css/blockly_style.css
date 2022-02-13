@@ -1,6 +1,7 @@
 /* Makes our label white. */
+/* 算是临时解决方案吧，至少能区分了！ */
 .blocklyTreeLabel {
-    color: white;
+    color: #6d50f0; 
 }
 /* Adds padding around the group of categories and separators. */
 .blocklyToolboxContents {
