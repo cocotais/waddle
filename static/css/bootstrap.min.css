@@ -3909,21 +3909,21 @@ fieldset:disabled .btn {
     position: absolute;
     z-index: 1000;
     display: none;
-    min-width: 10rem;
+    min-width: 124px;
     padding: .5rem 0;
     margin: 0;
-    font-size: 1rem;
-    color: #212529;
+    font-size: 14px;
+    color: rgba(0,0,0,.65);
     text-align: left;
     list-style: none;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, .15);
-    border-radius: .25rem
+    border-radius: 6px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
 }
 
 .dropdown-menu[data-bs-popper] {
-    top: 100%;
+    top: 115%;
     left: 0;
     margin-top: .125rem
 }
@@ -4141,11 +4141,10 @@ fieldset:disabled .btn {
 
 .dropdown-item {
     display: block;
-    width: 100%;
-    padding: .25rem 1rem;
+    padding: .5rem 1rem;
     clear: both;
     font-weight: 400;
-    color: #212529;
+    color: rgba(0,0,0,.65);
     text-align: inherit;
     text-decoration: none;
     white-space: nowrap;

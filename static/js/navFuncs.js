@@ -5,6 +5,17 @@ let craft = function () {
     alert('这里放一个向导');
 }
 
+let js_save = function () {
+    let code_data = Blockly.JavaScript.workspaceToCode(workspace);
+    let blob = new Blob([code_data], { type: "text/plain;charset=utf-8" });
+    let url = URL.createObjectURL(blob);
+    let downa = document.getElementById("downa");
+    downa.href = url;
+    downa.download = "CocoWidget.js";
+    downa.click();
+    URL.revokeObjectURL(url);
+}
+
 let save = function () {
     let code_xml = Blockly.Xml.workspaceToDom(workspace);
     let code_data = Blockly.Xml.domToText(code_xml);
@@ -12,6 +23,7 @@ let save = function () {
     let url = URL.createObjectURL(blob);
     let downa = document.getElementById("downa");
     downa.href = url;
+    downa.download = "CocoWidget.waddle";
     downa.click();
     URL.revokeObjectURL(url);
 }
@@ -22,7 +34,7 @@ let openfile = function () {
     input.setAttribute('type', 'file');
     input.setAttribute('name', 'file');
     input.setAttribute("style", 'visibility:hidden');
-    input.setAttribute("accept", '.js,.jsx,.waddle');
+    input.setAttribute("accept", '.waddle');
     document.body.appendChild(input);
     input.click();
     input.onchange = event => {
