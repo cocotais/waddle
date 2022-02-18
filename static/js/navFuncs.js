@@ -57,11 +57,7 @@ let switch_code = function () {
     var table = document.getElementById("table")
     table.style.display = "none";
     var codeArea = document.getElementById("codeArea")
-    //codeArea.innerHTML 
-    var text= Blockly.JavaScript.workspaceToCode(workspace);
-    myWindow=window.open('','','width=600,height=700');
-    myWindow.document.write(text);
-    myWindow.focus();
+    codeArea.innerHTML = Blockly.JavaScript.workspaceToCode(workspace);
     var switch_code = document.getElementById('switch_code');
     switch_code.className += ' active';
     var switch_table = document.getElementById('switch_table');
