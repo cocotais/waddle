@@ -127,7 +127,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6d50f0;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="{{static_url('img/waddle.svg')}}"
-                    style="height: 28px;padding-left: 15px;padding-bottom: 5px;" alt="Waddle" onClick="estchk()"/></a>
+                    style="height: 28px;padding-left: 15px;padding-bottom: 3px;" alt="Waddle" onClick="estchk()"/></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -137,7 +137,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" title="" 
-                        data-bs-toggle="dropdown" one-link-mark="yes"><i class="fa-solid fa-folder"></i></a>
+                        data-bs-toggle="dropdown" one-link-mark="yes"><i id="folder" class="fa-solid fa-folder"></i></a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a></li>
                             <li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存</a></li>
@@ -303,9 +303,24 @@
             height: 5%;
         }
 
-        ::-webkit-scrollbar {
-            display: none;
-            scrollbar-width: none;
+        *::-webkit-scrollbar {
+	        display: none;
+        }
+        
+        * {
+	        scrollbar-width: none;
+	        -ms-overflow-style: none;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            font-size: 14px;
+            min-width: 124px;
+            color: rgba(0,0,0,.65);
+            box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+            padding: 10px 0;
+            border-radius:6px;
+            top:120%;
         }
     </style>
 </body>
