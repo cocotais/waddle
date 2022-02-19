@@ -325,6 +325,7 @@
                 var sty = document.createElement('style');
                 sty.innerText = '.nav-item:hover{background-color: #666666;}';
                 document.body.appendChild(sty);
+                document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
                 to_dark()
                 theme = "dark"
             }else{
@@ -332,6 +333,7 @@
                 var sty = document.createElement('style');
                 sty.innerText = '.nav-item:hover{background-color: #5439ce;}';
                 document.body.appendChild(sty);
+                document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
                 to_light()
                 theme = "light"
             }
