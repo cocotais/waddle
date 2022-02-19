@@ -286,6 +286,53 @@
             Blockly.svgResize(workspace);
         }
     </script>
+    <script>
+        document.getElementById("table").style.height = (document.body.clientHeight - 57)
+        document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
+        Blockly.svgResize(workspace);
+        var dark_url = "{{static_url('Waddle/custom_category_dark.js')}}"
+        var light_url = "{{static_url('Waddle/custom_category.js')}}"
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {
+            alert('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
+        }
+        xmlhttp.open("GET", dark_url, false);
+        xmlhttp.send();
+        dark = xmlhttp.responseText;
+        xmlhttp.open("GET", light_url, false);
+        xmlhttp.send();
+        light = xmlhttp.responseText;
+        var to_dark = function () {
+            document.getElementsByTagName("nav")[0].style.backgroundColor = "#525252"
+            workspace.setTheme(DarkTheme);
+            eval(dark)
+            //有bug，哪位大好人修一下
+        }
+        var to_light = function () {
+            document.getElementsByTagName("nav")[0].style.backgroundColor = "#6d50f0"
+            workspace.setTheme(WaddleTheme);
+            eval(light)
+        }
+        var theme = "light"
+        var switch_theme = function(){
+            if (theme == "light"){
+                document.getElementById("theme").className = "fa-solid fa-moon"
+                to_dark()
+                theme = "dark"
+            }else{
+                document.getElementById("theme").className = "fa-solid fa-sun"
+                to_light()
+                theme = "light"
+            }
+        }
+        window.onresize = function () {
+            document.getElementById("table").style.height = (document.body.clientHeight - 57)
+            document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
+            Blockly.svgResize(workspace);
+        }
+    </script>
     <a href="" download="" style="display: none;" id="downa" aria-label="下载"></a>
     <style>
         .js_button {
