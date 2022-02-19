@@ -656,7 +656,7 @@ TIP
 		<block type="tools_listItem">
 		</block>
 	</category>
-	<category name="框架与示例" colour="#6d50f0">
+	<category name="框架与示例" colour="#6d50f0" css-icon="iconfont waddle-block">
 		<category name="基本框架" colour="#6d50f0">
 			<label text="不可见控件基本框架">
 			</label>
