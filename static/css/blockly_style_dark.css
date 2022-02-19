@@ -1,0 +1,38 @@
+/* Makes our label white. */
+/* 算是临时解决方案吧，至少能区分了！ */
+.blocklyTreeLabel {
+    color: #6d50f0; 
+}
+/* Adds padding around the group of categories and separators. */
+.blocklyToolboxContents {
+    padding: .3em;
+    background-color: #525252;
+}
+/* Adds space between the categories, rounds the corners and adds space around the label. */
+.blocklyTreeRow {
+    display: flex;
+    height: 32px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px 0 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #525252;
+    margin: 0 6px 4px;
+    font-size: 12px;
+
+}
+
+.custom_renderer-renderer.WaddleTheme-theme .blocklySelected>.blocklyPath {
+    stroke: #2e2e2e;
+    stroke-width: 3px;
+}
+
+.mask{
+    position: absolute;
+    top: 0;
+    background: #333;/* 黑色背景 */
+    z-index: -2;/* 使遮罩层位于背景容器层下方，背景容器模糊带消失 */
+}
+
+.mbl{ background:#000; filter:alpha(Opacity=60);-moz-opacity:0.5;opacity:0.5} 

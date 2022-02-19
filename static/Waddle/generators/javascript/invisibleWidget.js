@@ -4,8 +4,8 @@ Blockly.JavaScript['ivw_defTypes'] = function (block) {
     var code = `
 
 const types = {
-    isInvisibleWidget: true,
-    ${statements_types}
+  isInvisibleWidget: true,
+${statements_types}
 }
 
 `;
@@ -44,11 +44,11 @@ Blockly.JavaScript['ivw_itemIsGlobalWidget'] = function (block) {
 
 Blockly.JavaScript['ivw_properties'] = function (block) {
     var statements_properties = Blockly.JavaScript.statementToCode(block, 'properties');
+    console.log(statements_properties)
     var code = `
 properties: [
     ${statements_properties}
 ],
-
 `;
     return code;
 };
@@ -79,7 +79,7 @@ Blockly.JavaScript['ivw_propertieItem'] = function (block) {
     var statements_propertieItem = Blockly.JavaScript.statementToCode(block, 'propertieItem');
     var code = `
 {
-    ${statements_propertieItem}
+${statements_propertieItem}
 },
 
 `;
@@ -90,7 +90,7 @@ Blockly.JavaScript['ivw_methodItem'] = function (block) {
     var statements_methodItem = Blockly.JavaScript.statementToCode(block, 'methodItem');
     var code = `
 {
-    ${statements_methodItem}
+${statements_methodItem}
 },
 
 `;
@@ -101,7 +101,7 @@ Blockly.JavaScript['ivw_eventItem'] = function (block) {
     var statements_eventItem = Blockly.JavaScript.statementToCode(block, 'eventItem');
     var code = `
 {
-    ${statements_eventItem}
+${statements_eventItem}
 },
 
 `;
