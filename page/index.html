@@ -50,9 +50,6 @@
     <link rel="shortcut icon" href="{{static_url('img/logo.png')}}">
     <title>Waddle - 让CoCo没有难做的控件</title>
 
-    <!--图标库-->
-    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0-beta3/css/all.css" rel="stylesheet">
-
     <!--定义Blocks-->
     <!-- <script src="static/blockly-master/blocks/invisibleWidget.js"></script> -->
     <!-- <script src="static/blockly-master/blocks/coco.js"></script> -->
@@ -127,73 +124,71 @@
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6d50f0;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="{{static_url('img/waddle.svg')}}"
-                    style="height: 28px;padding-left: 15px;padding-bottom: 5px;" alt="Waddle" onClick="estchk()"/></a>
+                    style="height: 28px;padding-left: 15px;padding-bottom: 3px;" alt="Waddle" onClick="estchk()"/></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" title="" 
-                        data-bs-toggle="dropdown" one-link-mark="yes"><i class="fa-solid fa-folder"></i></a>
+                        <a id="navbarDropdown" class="nav-link" href="#" role="button" title="" 
+                        data-bs-toggle="dropdown" one-link-mark="yes"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" fill="currentColor" viewBox="0 0 130 125">
+                            <path id="联合_1" data-name="联合 1" d="M7,125a7,7,0,0,1-7-7V57a7,7,0,0,1,7-7H123a7,7,0,0,1,7,7v61a7,7,0,0,1-7,7ZM4.667,35A4.667,4.667,0,0,1,0,30.334V7A7,7,0,0,1,7,0H48.823A20,20,0,0,1,68.6,17h48.067A13.334,13.334,0,0,1,130,30.334,4.667,4.667,0,0,1,125.333,35Z"/>
+                          </svg></a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0)" onClick="openfile()">打开</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存到电脑</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0)" onClick="openfile()">打开Waddle文件</a></li>
+                            <div style="height: 1px;background-color: #f2f2f2;margin: 0 10px;"></div>
+                            <li><a class="dropdown-item" href="javascript:void(0)" onClick="js_save()">另存为js文件</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a id="switch_table" class="nav-link active" href="javascript:void(0)" onclick="switch_table()"
                             title="工作区">
-                            <svg t="1644662826288"
-                             width="25" height="25" fill="currentColor" viewBox="0 0 1417 1024"><path d="M1416.996109 905.971466a38.910506 38.910506 0 0 1-38.910506 39.559014H566.801556a36.964981 36.964981 0 0 0-27.885862 11.673152l-55.123217 54.474708a37.613489 37.613489 0 0 1-27.885862 11.673152H252.274968a37.613489 37.613489 0 0 1-27.885863-11.673152l-55.123217-54.474708a36.316472 36.316472 0 0 0-27.237354-11.673152H38.915694a38.910506 38.910506 0 0 1-38.910506-39.559014V590.14786a38.910506 38.910506 0 0 1 38.910506-38.910506h101.815824a39.559014 39.559014 0 0 1 27.885862 11.024643l55.771725 55.771725a37.613489 37.613489 0 0 0 27.885863 11.673152h203.631647a37.613489 37.613489 0 0 0 27.885862-11.673152l55.771725-55.771725a39.559014 39.559014 0 0 1 27.885863-11.024643h810.635538a38.910506 38.910506 0 0 1 38.910506 38.910506zM1023.351492 354.7393a39.559014 39.559014 0 0 1-39.559015 39.559014H566.801556a36.964981 36.964981 0 0 0-27.885862 11.673152l-55.123217 54.474708a37.613489 37.613489 0 0 1-27.885862 11.673152H252.274968a37.613489 37.613489 0 0 1-27.885863-11.673152l-55.123217-54.474708a36.316472 36.316472 0 0 0-27.237354-11.673152H38.915694a38.910506 38.910506 0 0 1-38.910506-39.559014V38.915694A38.910506 38.910506 0 0 1 38.915694 0.005188h101.815824a39.559014 39.559014 0 0 1 27.885862 11.024643l55.771725 55.771725a37.613489 37.613489 0 0 0 27.885863 11.673152h203.631647a37.613489 37.613489 0 0 0 27.885862-11.673152l55.771725-55.771725A39.559014 39.559014 0 0 1 567.450065 0.005188h416.342412a38.910506 38.910506 0 0 1 39.559015 38.910506z" p-id="6649"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 130 130">
+                                <path id="积木" d="M130,114.534a5.122,5.122,0,0,1-5.117,5.212H58.948a4.857,4.857,0,0,0-3.667,1.538l-7.249,7.177A4.942,4.942,0,0,1,44.364,130H33.176a4.942,4.942,0,0,1-3.667-1.538l-7.249-7.177a4.772,4.772,0,0,0-3.582-1.538H5.118A5.122,5.122,0,0,1,0,114.534V72.923A5.122,5.122,0,0,1,5.118,67.8h13.39a5.2,5.2,0,0,1,3.667,1.453L29.509,76.6a4.942,4.942,0,0,0,3.667,1.538H44.364A4.942,4.942,0,0,0,48.031,76.6l7.334-7.348A5.2,5.2,0,0,1,59.033,67.8h65.849A5.122,5.122,0,0,1,130,72.923Zm-13.008-67.8a5.207,5.207,0,0,1-5.2,5.212H58.948a4.857,4.857,0,0,0-3.667,1.538l-7.249,7.177A4.942,4.942,0,0,1,44.364,62.2H33.176a4.942,4.942,0,0,1-3.667-1.538l-7.249-7.177a4.772,4.772,0,0,0-3.582-1.538H5.118A5.122,5.122,0,0,1,0,46.738V5.127A5.122,5.122,0,0,1,5.118,0h13.39a5.2,5.2,0,0,1,3.667,1.453L29.509,8.8a4.942,4.942,0,0,0,3.667,1.538H44.364A4.942,4.942,0,0,0,48.031,8.8l7.334-7.348A5.2,5.2,0,0,1,59.033,0h52.755a5.122,5.122,0,0,1,5.2,5.127Z" transform="translate(0 0)"/>
+                              </svg>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a id="switch_code" class="nav-link" href="javascript:void(0)" onclick="switch_code()"
                             title="转换代码">
-                            <i class="fa-solid fa-code"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" fill="currentColor" viewBox="0 0 130 125">
+                                <path id="减去_1" data-name="减去 1" d="M123,125H7a7.008,7.008,0,0,1-7-7V7A7.008,7.008,0,0,1,7,0H123a7.008,7.008,0,0,1,7,7V118A7.008,7.008,0,0,1,123,125ZM69.814,69.944a7.008,7.008,0,0,0-7,7v1a7.008,7.008,0,0,0,7,7h36a7.008,7.008,0,0,0,7-7v-1a7.008,7.008,0,0,0-7-7ZM27.793,19.565a6.954,6.954,0,0,0-4.95,2.05l-.707.707a7,7,0,0,0,0,9.9L42.207,52.293,22.43,72.071a7.008,7.008,0,0,0,0,9.9l.706.707a7,7,0,0,0,9.9,0L58.492,57.222a7.008,7.008,0,0,0,0-9.9l-.707-.707c-.155-.155-.315-.3-.476-.435L32.743,21.615A6.954,6.954,0,0,0,27.793,19.565Z"/>
+                              </svg>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://www.yuque.com/appcraft/widget-craft" title="关于"
                             target="_blank" onclick="count()">
-                            <i class="fa-solid fa-circle-question"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" viewBox="0 0 135 135">
+                                <path id="circle-question-solid" d="M67.5,0A67.5,67.5,0,1,0,135,67.5,67.495,67.495,0,0,0,67.5,0Zm0,103.469a8.33,8.33,0,0,1-8.437-8.437A8.188,8.188,0,0,1,67.5,86.594a8.438,8.438,0,0,1,0,16.875ZM85.72,66.027,73.828,73.41v.527a6.328,6.328,0,0,1-12.656,0V69.719a6.5,6.5,0,0,1,3.164-5.537l15.029-8.965a5.653,5.653,0,0,0,2.9-5.01,6.062,6.062,0,0,0-6.038-5.8H62.754a5.7,5.7,0,0,0-5.8,5.8,6.328,6.328,0,0,1-12.656,0A18.293,18.293,0,0,1,62.517,31.75H75.99c10.758,0,18.932,8.174,18.932,18.457A18.517,18.517,0,0,1,85.72,66.027Z"/>
+                              </svg>
+                              
                         </a>
                     </li>
-                    <!--
-                        文件
-                            https://icons.bootcss.com/icons/folder/
-                            https://icons.bootcss.com/icons/folder-fill/
-                        工作台
-                            https://icons.bootcss.com/icons/laptop/
-                            https://icons.bootcss.com/icons/laptop-fill/
-                        代码icon
-                            https://icons.bootcss.com/icons/save2/
-                            https://icons.bootcss.com/icons/save2-fill/
-                        关于icon  
-                            https://icons.bootcss.com/icons/question-circle/
-                            https://icons.bootcss.com/icons/question-circle-fill/
-                    -->
+                    <!--菜单栏图标全由海藻酸钠绘制-->
                 </ul>
             </div>
         </div>
     </nav>
 
     <div id="table">
-        <div id="blocklyDiv" style="width:100%;height: 94%;"></div>
+        <div id="blocklyDiv" style="width:calc(100vw);"></div>
         <!--ToolBox积木-->
-        <xml id="toolbox" style="display: none">
+        <xml id="toolbox" style="display: none;width:calc(100vw);">
         </xml>
         <!--工作区积木-->
         <xml id="workspaceblocks" style="display: none">
         </xml>
     </div>
-    <div id="code" style="display: none;height: 95%;width: 100%;padding: 5px">
-        <textarea id="codeArea" style="height: 100%;width: 100%;padding: 5px"></textarea>
+    <div id="code" style="display: none;">
+        <textarea readonly id="codeArea" style="height: 100%;width: 100%;padding: 5px"></textarea>
     </div>
+    <script>document.body.style.overflow='hidden' //禁止页面滑动</script>
     <script>
         //加载工作区
         //积木盒
@@ -284,7 +279,14 @@
         //彩蛋
         /* 搬迁了，在static/js/navFuncs.js */
     </script>
-    <a href="" download="CocoWidget.waddle" style="display: none;" id="downa" aria-label="下载"></a>
+    <script>
+        window.onresize = function(){
+            document.getElementById("table").style.height = (document.body.clientHeight-57)
+            document.getElementById("toolbox").style.height = (document.body.clientHeight-57)
+            Blockly.svgResize(workspace);
+        }
+    </script>
+    <a href="" download="" style="display: none;" id="downa" aria-label="下载"></a>
     <style>
         .js_button {
             padding: 10px;
@@ -303,9 +305,13 @@
             height: 5%;
         }
 
-        ::-webkit-scrollbar {
-            display: none;
-            scrollbar-width: none;
+        *::-webkit-scrollbar {
+	        display: none;
+        }
+        
+        * {
+	        scrollbar-width: none;
+	        -ms-overflow-style: none;  
         }
     </style>
 </body>
