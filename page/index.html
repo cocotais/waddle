@@ -289,61 +289,6 @@
             Blockly.svgResize(workspace);
         }
     </script>
-    <script>
-        document.getElementById("table").style.height = (document.body.clientHeight - 57)
-        document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
-        Blockly.svgResize(workspace);
-        var dark_url = "{{static_url('Waddle/custom_category_dark.js')}}"
-        var light_url = "{{static_url('Waddle/custom_category.js')}}"
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
-            xmlhttp = new XMLHttpRequest();
-        }
-        else {
-            alert('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
-        }
-        xmlhttp.open("GET", dark_url, false);
-        xmlhttp.send();
-        dark = xmlhttp.responseText;
-        xmlhttp.open("GET", light_url, false);
-        xmlhttp.send();
-        light = xmlhttp.responseText;
-        var to_dark = function () {
-            document.getElementsByTagName("nav")[0].style.backgroundColor = "#525252"
-            workspace.setTheme(DarkTheme);
-            eval(dark)
-            //有bug，哪位大好人修一下
-        }
-        var to_light = function () {
-            document.getElementsByTagName("nav")[0].style.backgroundColor = "#6d50f0"
-            workspace.setTheme(WaddleTheme);
-            eval(light)
-        }
-        var theme = "light"
-        var switch_theme = function(){
-            if (theme == "light"){
-                document.getElementById("theme").className = "fa-solid fa-moon"
-                var sty = document.createElement('style');
-                sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}';
-                document.body.appendChild(sty);
-                document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
-                to_dark()
-                theme = "dark"
-            }else{
-                document.getElementById("theme").className = "fa-solid fa-sun"
-                var sty = document.createElement('style');
-                sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
-                document.body.appendChild(sty);
-                document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
-                to_light()
-                theme = "light"
-            }
-        }
-        window.onresize = function () {
-            document.getElementById("table").style.height = (document.body.clientHeight - 57)
-            document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
-            Blockly.svgResize(workspace);
-        }
-    </script>
     <a href="" download="" style="display: none;" id="downa" aria-label="下载"></a>
     <style>
         .js_button {
@@ -488,6 +433,75 @@ btn.onclick = function() {
 span.onclick = function() {
     modal.style.display = "none";
 }
+</script>
+<script>
+
+    document.getElementById("table").style.height = (document.body.clientHeight - 57)
+    document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
+    Blockly.svgResize(workspace);
+    var dark_url = "{{static_url('Waddle/custom_category_dark.js')}}"
+    var light_url = "{{static_url('Waddle/custom_category.js')}}"
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {
+        alert('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
+    }
+    xmlhttp.open("GET", dark_url, false);
+    xmlhttp.send();
+    dark = xmlhttp.responseText;
+    xmlhttp.open("GET", light_url, false);
+    xmlhttp.send();
+    light = xmlhttp.responseText;
+    var to_dark = function () {
+        document.getElementsByTagName("nav")[0].style.backgroundColor = "#525252"
+        workspace.setTheme(DarkTheme);
+        document.getElementById("theme").className = "fa-solid fa-moon"
+        var sty = document.createElement('style');
+        sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}';
+        document.body.appendChild(sty);
+        document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
+        eval(dark)
+        document.cookie = '{"mode":"dark"}';
+        //有bug，哪位大好人修一下
+    }
+    var to_light = function () {
+        document.getElementsByTagName("nav")[0].style.backgroundColor = "#6d50f0"
+        workspace.setTheme(WaddleTheme);
+        document.getElementById("theme").className = "fa-solid fa-sun"
+        var sty = document.createElement('style');
+        sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
+        document.body.appendChild(sty);
+        document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
+        eval(light)
+        document.cookie = '{"mode":"light"}';
+    }
+    var theme = "light"
+    var switch_theme = function(){
+        if (theme == "light"){
+            to_dark()
+            theme = "dark"
+        }else{
+            to_light()
+            theme = "light"
+        }
+    }
+    window.onresize = function () {
+        document.getElementById("table").style.height = (document.body.clientHeight - 57)
+        document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
+        Blockly.svgResize(workspace);
+    }
+    if (JSON.parse(document.cookie)["mode"] == "dark"){
+        to_dark()
+    }else{
+        if (JSON.parse(document.cookie)["mode"] == "light"){
+            to_light()
+        }else{
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+                to_dark()
+            }
+        }
+    }
 </script>
 </body>
 </html>
