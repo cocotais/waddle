@@ -67,16 +67,16 @@ Blockly.Blocks['ivw_itemVersion'] = {
 };
 
 Blockly.Blocks['ivw_itemIsGlobalWidget'] = {
-	init: function () {
-		this.appendDummyInput()
-			.appendField("全局控件")
-			.appendField(new Blockly.FieldDropdown([["全局控件", "true"], ["屏幕控件", "false"]]), "isGlobalWidget");
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
-		this.setColour("#5574F8");
-		this.setTooltip("isGlobalWidget属性，是否为全局控件");
-		this.setHelpUrl("https://www.yuque.com/appcraft/widget/widgetguide");
-	}
+    init: function () {
+        this.appendDummyInput()
+            .appendField("控件类型")
+            .appendField(new Blockly.FieldDropdown([["全局控件", "true"], ["屏幕控件", "false"]]), "isGlobalWidget");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour("#5574F8");
+        this.setTooltip("isGlobalWidget属性，是否为全局控件");
+        this.setHelpUrl("https://www.yuque.com/appcraft/widget/widgetguide");
+    }
 };
 
 Blockly.Blocks['ivw_properties'] = {
