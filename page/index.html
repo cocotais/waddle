@@ -264,8 +264,18 @@
 		// });
 	</script>
 	<script>
-		//彩蛋
-		/* 搬迁了，在static/js/navFuncs.js */
+		//获取cookie
+        function getCookie(cname)
+        {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) 
+            {
+                var c = ca[i].trim();
+                if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+            }
+            return "";
+        }
 	</script>
 	<script>
 		window.onresize = function () {
@@ -434,8 +444,11 @@
 			modal.style.display = "none";
 		}
 	</script>
+    <script>
+        var theme = getCookie('mode')
+    </script>
 	<script>
-
+        
 		document.getElementById("table").style.height = (document.body.clientHeight - 57)
 		document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
 		Blockly.svgResize(workspace);
@@ -465,7 +478,7 @@
 			document.body.appendChild(sty);
 			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
 			eval(dark)
-			document.cookie = '{"mode":"dark"}';
+			document.cookie = "mode=dark";
 			//有bug，哪位大好人修一下
 		}
 		var to_light = function () {
@@ -480,9 +493,8 @@
 			document.body.appendChild(sty);
 			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
 			eval(light)
-			document.cookie = '{"mode":"light"}';
+			document.cookie = "mode=light";
 		}
-		var theme = "light"
 		var switch_theme = function () {
 			if (theme == "light") {
 				to_dark()
@@ -497,10 +509,10 @@
 			document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
 			Blockly.svgResize(workspace);
 		}
-		if (JSON.parse(document.cookie)["mode"] == "dark") {
+		if (theme == "dark") {
 			to_dark()
 		} else {
-			if (JSON.parse(document.cookie)["mode"] == "light") {
+			if (theme == "light") {
 				to_light()
 			} else {
 				if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
