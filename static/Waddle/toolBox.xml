@@ -23,8 +23,7 @@ TIP
 			<value name="TIMES">
 				<block type="math_number">
 					<field name="NUM">
-						10
-					</field>
+						10</field>
 				</block>
 			</value>
 		</block>
@@ -32,27 +31,23 @@ TIP
 		</block>
 		<block type="controls_for">
 			<field name="VAR">
-				i
-			</field>
+				i</field>
 			<value name="FROM">
 				<block type="math_number">
 					<field name="NUM">
-						1
-					</field>
+						1</field>
 				</block>
 			</value>
 			<value name="TO">
 				<block type="math_number">
 					<field name="NUM">
-						10
-					</field>
+						10</field>
 				</block>
 			</value>
 			<value name="BY">
 				<block type="math_number">
 					<field name="NUM">
-						1
-					</field>
+						1</field>
 				</block>
 			</value>
 		</block>
@@ -83,8 +78,7 @@ TIP
 	<category name="数学" colour="#FEAE8A">
 		<block type="math_number">
 			<field name="NUM">
-				114514
-			</field>
+				114514</field>
 		</block>
 		<block type="math_arithmetic">
 		</block>
@@ -106,15 +100,13 @@ TIP
 			<value name="LOW">
 				<block type="math_number">
 					<field name="NUM">
-						114
-					</field>
+						114</field>
 				</block>
 			</value>
 			<value name="HIGH">
 				<block type="math_number">
 					<field name="NUM">
-						514
-					</field>
+						514</field>
 				</block>
 			</value>
 		</block>
@@ -122,15 +114,13 @@ TIP
 			<value name="FROM">
 				<block type="math_number">
 					<field name="NUM">
-						191
-					</field>
+						191</field>
 				</block>
 			</value>
 			<value name="TO">
 				<block type="math_number">
 					<field name="NUM">
-						9810
-					</field>
+						9810</field>
 				</block>
 			</value>
 		</block>
@@ -164,8 +154,7 @@ TIP
 			<value name="STRING">
 				<block type="variables_get">
 					<field name="VAR">
-						{textVariable}
-					</field>
+						{textVariable}</field>
 				</block>
 			</value>
 		</block>
@@ -178,9 +167,7 @@ TIP
 		<block type="text_prompt_ext">
 			<value name="TEXT">
 				<shadow type="text">
-					<field name="TEXT">
-						abc
-					</field>
+					<field name="TEXT">abc</field>
 				</shadow>
 			</value>
 		</block>
@@ -200,22 +187,19 @@ TIP
 			<value name="RED">
 				<shadow type="math_number">
 					<field name="NUM">
-						100
-					</field>
+						100</field>
 				</shadow>
 			</value>
 			<value name="GREEN">
 				<shadow type="math_number">
 					<field name="NUM">
-						50
-					</field>
+						50</field>
 				</shadow>
 			</value>
 			<value name="BLUE">
 				<shadow type="math_number">
 					<field name="NUM">
-						0
-					</field>
+						0</field>
 				</shadow>
 			</value>
 		</block>
@@ -223,22 +207,19 @@ TIP
 			<value name="COLOUR1">
 				<shadow type="colour_picker">
 					<field name="COLOUR">
-						#ff0000
-					</field>
+						#ff0000</field>
 				</shadow>
 			</value>
 			<value name="COLOUR2">
 				<shadow type="colour_picker">
 					<field name="COLOUR">
-						#3333ff
-					</field>
+						#3333ff</field>
 				</shadow>
 			</value>
 			<value name="RATIO">
 				<shadow type="math_number">
 					<field name="NUM">
-						0.5
-					</field>
+						0.5</field>
 				</shadow>
 			</value>
 		</block>
@@ -258,8 +239,7 @@ TIP
 			<value name="NUM">
 				<shadow type="math_number">
 					<field name="NUM">
-						5
-					</field>
+						5</field>
 				</shadow>
 			</value>
 		</block>
@@ -271,8 +251,7 @@ TIP
 			<value name="VALUE">
 				<block type="variables_get">
 					<field name="VAR">
-						{listVariable}
-					</field>
+						{listVariable}</field>
 				</block>
 			</value>
 		</block>
@@ -280,8 +259,7 @@ TIP
 			<value name="VALUE">
 				<block type="variables_get">
 					<field name="VAR">
-						{listVariable}
-					</field>
+						{listVariable}</field>
 				</block>
 			</value>
 		</block>
@@ -289,8 +267,7 @@ TIP
 			<value name="LIST">
 				<block type="variables_get">
 					<field name="VAR">
-						{listVariable}
-					</field>
+						{listVariable}</field>
 				</block>
 			</value>
 		</block>
@@ -298,17 +275,14 @@ TIP
 			<value name="LIST">
 				<block type="variables_get">
 					<field name="VAR">
-						{listVariable}
-					</field>
+						{listVariable}</field>
 				</block>
 			</value>
 		</block>
 		<block type="lists_split">
 			<value name="DELIM">
 				<shadow type="text">
-					<field name="TEXT">
-						,
-					</field>
+					<field name="TEXT">,</field>
 				</shadow>
 			</value>
 		</block>
@@ -386,6 +360,13 @@ TIP
 			</block>
 			<block type="ivw_itemIsGlobalWidget">
 			</block>
+			<block type="ivwAttri_custom">
+				<value name="value">
+					<block type="text">
+						<field name="TEXT">标签</field>
+					</block>
+				</value>
+			</block>
 			<label text="模板见框架与示例">
 			</label>
 			<category name="通用属性定义" colour="#5574F8">
@@ -396,36 +377,28 @@ TIP
 				<block type="ivwAttri_key">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">
-								方法名
-							</field>
+							<field name="TEXT">属性名</field>
 						</block>
 					</value>
 				</block>
 				<block type="ivwAttri_valueType">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">
-								值类型
-							</field>
+							<field name="TEXT">值类型</field>
 						</block>
 					</value>
 				</block>
 				<block type="ivwAttri_label">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">
-								标签
-							</field>
+							<field name="TEXT">标签</field>
 						</block>
 					</value>
 				</block>
 				<block type="ivwAttri_defaultValue">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">
-								默认值
-							</field>
+							<field name="TEXT">默认值</field>
 						</block>
 					</value>
 				</block>
@@ -440,36 +413,28 @@ TIP
 				<block type="ivwAttri_key">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">
-								方法名
-							</field>
+							<field name="TEXT">方法名</field>
 						</block>
 					</value>
 				</block>
 				<block type="ivwAttri_valueType">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">
-								返回值类型（可选，不填则不返回）
-							</field>
+							<field name="TEXT">返回值类型（可选，不填则不返回）</field>
 						</block>
 					</value>
 				</block>
 				<block type="ivwAttri_label">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">
-								标签
-							</field>
+							<field name="TEXT">标签</field>
 						</block>
 					</value>
 				</block>
 				<block type="ivwAttri_labelAfter">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">
-								尾标签
-							</field>
+							<field name="TEXT">尾标签</field>
 						</block>
 					</value>
 				</block>
@@ -489,9 +454,7 @@ TIP
 			<block type="ivw_emit">
 				<value name="event">
 					<block type="text">
-						<field name="TEXT">
-							事件名
-						</field>
+						<field name="TEXT">事件名</field>
 					</block>
 				</value>
 			</block>
@@ -732,36 +695,28 @@ TIP
 					<block type="ivwAttri_key">
 						<value name="value">
 							<block type="text">
-								<field name="TEXT">
-									方法名
-								</field>
+								<field name="TEXT">方法名</field>
 							</block>
 						</value>
 						<next>
 							<block type="ivwAttri_valueType">
 								<value name="value">
 									<block type="text">
-										<field name="TEXT">
-											值类型
-										</field>
+										<field name="TEXT">值类型</field>
 									</block>
 								</value>
 								<next>
 									<block type="ivwAttri_label">
 										<value name="value">
 											<block type="text">
-												<field name="TEXT">
-													标签
-												</field>
+												<field name="TEXT">标签</field>
 											</block>
 										</value>
 										<next>
 											<block type="ivwAttri_labelAfter">
 												<value name="value">
 													<block type="text">
-														<field name="TEXT">
-															尾标签
-														</field>
+														<field name="TEXT">尾标签</field>
 													</block>
 												</value>
 											</block>

@@ -140,3 +140,10 @@ for (const key in attris) {
 		};
 	}
 }
+
+Blockly.JavaScript['ivwAttri_custom'] = function (block) {
+	var text_key = block.getFieldValue('key');
+	var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
+	var code = `${text_key}: ${value_value},\n`;
+	return code;
+};

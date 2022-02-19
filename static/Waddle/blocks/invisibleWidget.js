@@ -217,3 +217,17 @@ for (const key in attris) {
 		};
 	}
 }
+
+Blockly.Blocks['ivwAttri_custom'] = {
+	init: function () {
+		this.appendValueInput("value")
+			.setCheck(null)
+			.appendField("自定义属性")
+			.appendField(new Blockly.FieldTextInput("label"), "key");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour("#5574F8");
+		this.setTooltip("自定义属性");
+		this.setHelpUrl(HELP_URL);
+	}
+};
