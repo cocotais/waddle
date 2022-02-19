@@ -53,28 +53,6 @@ properties: [
 	return code;
 };
 
-Blockly.JavaScript['ivw_methods'] = function (block) {
-	var statements_methods = Blockly.JavaScript.statementToCode(block, 'methods');
-	var code = `
-methods: [
-	${statements_methods}
-],
-
-`;
-	return code;
-};
-
-Blockly.JavaScript['ivw_events'] = function (block) {
-	var statements_events = Blockly.JavaScript.statementToCode(block, 'events');
-	var code = `
-events: [
-	${statements_events}
-],
-
-`;
-	return code;
-};
-
 Blockly.JavaScript['ivw_propertieItem'] = function (block) {
 	var statements_propertieItem = Blockly.JavaScript.statementToCode(block, 'propertieItem');
 	var code = `
@@ -86,12 +64,56 @@ ${statements_propertieItem}
 	return code;
 };
 
+Blockly.JavaScript['ivw_methods'] = function (block) {
+	var statements_methods = Blockly.JavaScript.statementToCode(block, 'methods');
+	var code = `
+methods: [
+	${statements_methods}
+],
+
+`;
+	return code;
+};
+
 Blockly.JavaScript['ivw_methodItem'] = function (block) {
 	var statements_methodItem = Blockly.JavaScript.statementToCode(block, 'methodItem');
 	var code = `
 {
 ${statements_methodItem}
 },
+
+`;
+	return code;
+};
+
+Blockly.JavaScript['ivw_parameters'] = function (block) {
+	var statements_parameters = Blockly.JavaScript.statementToCode(block, 'parameters');
+	console.log(statements_parameters)
+	var code = `
+params: [
+	${statements_parameters}
+],
+`;
+	return code;
+};
+
+Blockly.JavaScript['ivw_parameteItem'] = function (block) {
+	var statements_parameteItem = Blockly.JavaScript.statementToCode(block, 'parameteItem');
+	var code = `
+{
+${statements_parameteItem}
+},
+
+`;
+	return code;
+};
+
+Blockly.JavaScript['ivw_events'] = function (block) {
+	var statements_events = Blockly.JavaScript.statementToCode(block, 'events');
+	var code = `
+events: [
+	${statements_events}
+],
 
 `;
 	return code;
@@ -145,5 +167,14 @@ Blockly.JavaScript['ivwAttri_custom'] = function (block) {
 	var text_key = block.getFieldValue('key');
 	var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
 	var code = `${text_key}: ${value_value},\n`;
+	return code;
+};
+
+Blockly.JavaScript['ivw_export'] = function (block) {
+	var code = `
+exports.types = types;
+exports.widget = Widget;
+
+`;
 	return code;
 };

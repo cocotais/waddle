@@ -93,34 +93,6 @@ Blockly.Blocks['ivw_properties'] = {
 	}
 };
 
-Blockly.Blocks['ivw_methods'] = {
-	init: function () {
-		this.appendDummyInput()
-			.appendField("方法列表");
-		this.appendStatementInput("methods")
-			.setCheck(null);
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
-		this.setColour("#5574F8");
-		this.setTooltip("定义控件方法");
-		this.setHelpUrl(HELP_URL);
-	}
-};
-
-Blockly.Blocks['ivw_events'] = {
-	init: function () {
-		this.appendDummyInput()
-			.appendField("事件列表");
-		this.appendStatementInput("events")
-			.setCheck(null);
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
-		this.setColour("#5574F8");
-		this.setTooltip("定义事件方法");
-		this.setHelpUrl(HELP_URL);
-	}
-};
-
 Blockly.Blocks['ivw_propertieItem'] = {
 	init: function () {
 		this.appendDummyInput()
@@ -135,6 +107,20 @@ Blockly.Blocks['ivw_propertieItem'] = {
 	}
 };
 
+Blockly.Blocks['ivw_methods'] = {
+	init: function () {
+		this.appendDummyInput()
+			.appendField("方法列表");
+		this.appendStatementInput("methods")
+			.setCheck(null);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour("#5574F8");
+		this.setTooltip("定义控件方法");
+		this.setHelpUrl(HELP_URL);
+	}
+};
+
 Blockly.Blocks['ivw_methodItem'] = {
 	init: function () {
 		this.appendDummyInput()
@@ -145,6 +131,48 @@ Blockly.Blocks['ivw_methodItem'] = {
 		this.setNextStatement(true, null);
 		this.setColour("#5574F8");
 		this.setTooltip("定义一个方法，放在方法列表里");
+		this.setHelpUrl(HELP_URL);
+	}
+};
+
+Blockly.Blocks['ivw_parameters'] = {
+	init: function () {
+		this.appendDummyInput()
+			.appendField("参数列表");
+		this.appendStatementInput("parameters")
+			.setCheck(null);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour("#5574F8");
+		this.setTooltip("定义控件方法参数");
+		this.setHelpUrl(HELP_URL);
+	}
+};
+
+Blockly.Blocks['ivw_parameteItem'] = {
+	init: function () {
+		this.appendDummyInput()
+			.appendField("定义参数");
+		this.appendStatementInput("parameteItem")
+			.setCheck(null);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour("#5574F8");
+		this.setTooltip("定义一个参数，放在参数列表里");
+		this.setHelpUrl(HELP_URL);
+	}
+};
+
+Blockly.Blocks['ivw_events'] = {
+	init: function () {
+		this.appendDummyInput()
+			.appendField("事件列表");
+		this.appendStatementInput("events")
+			.setCheck(null);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour("#5574F8");
+		this.setTooltip("定义事件方法");
 		this.setHelpUrl(HELP_URL);
 	}
 };
@@ -228,6 +256,18 @@ Blockly.Blocks['ivwAttri_custom'] = {
 		this.setNextStatement(true, null);
 		this.setColour("#5574F8");
 		this.setTooltip("自定义属性");
+		this.setHelpUrl(HELP_URL);
+	}
+};
+
+Blockly.Blocks['ivw_export'] = {
+	init: function () {
+		this.appendDummyInput()
+			.appendField("导出控件");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(false, null);
+		this.setColour("#5574F8");
+		this.setTooltip("导出控件，一般为最后一行代码，这是必要的，不然没法在coco中使用");
 		this.setHelpUrl(HELP_URL);
 	}
 };

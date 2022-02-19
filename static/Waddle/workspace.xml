@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <workspaceblocks>
-	<block type="ivw_defTypes" id=":r]E*f?@x/2s.Wh+r]q%" x="0" y="0">
+	<block type="ivw_defTypes" id="mathcalculusnbnbnbnb" x="0" y="0">
 		<statement name="types">
-			<block type="ivw_itemType" id="4_i`AAk1#X[t8B8K.O4/">
+			<block type="ivw_itemType" id="yzfnbyzfnbyzfnbyzfnb">
 				<field name="type">MY_WIDGET</field>
 				<next>
-					<block type="ivw_itemIcon" id="L+.b:^y/|NdLHee97wYD">
+					<block type="ivw_itemIcon" id="ffxwnbffxwnbffxwnbnb">
 						<field name="icon">https://gitee.com/coco-ag/coco-waddle/raw/dev/static/img/logo.png</field>
 						<next>
-							<block type="ivw_itemTitle" id="(Zvd6Sf5p?Up7F54gd!9">
+							<block type="ivw_itemTitle" id="hzsnnbhzsnnbhzsnnbnb">
 								<field name="title">我的控件</field>
 								<next>
-									<block type="ivw_itemVersion" id="FGH.;N[[=H1BB)$@J4w9">
+									<block type="ivw_itemVersion" id="lyxnblyxnblyxnblyxnb">
 										<field name="version">1.0.0</field>
 										<next>
 											<block type="ivw_itemIsGlobalWidget" id="DS(9RHPwztx:A.8!Tp3n">
@@ -38,5 +38,9 @@
 				</next>
 			</block>
 		</statement>
+		<next>
+			<block type="ivw_export" id="zzxnbzzxnbzzxnbzzxnb">
+			</block>
+		</next>
 	</block>
 </workspaceblocks>

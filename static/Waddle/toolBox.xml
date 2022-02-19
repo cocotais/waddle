@@ -344,6 +344,8 @@ TIP
 			</label>
 			<block type="ivw_defTypes">
 			</block>
+			<block type="ivw_export">
+			</block>
 			<label text="模板见框架与示例">
 			</label>
 		</category>
@@ -437,6 +439,10 @@ TIP
 							<field name="TEXT">尾标签</field>
 						</block>
 					</value>
+				</block>
+				<block type="ivw_parameters">
+				</block>
+				<block type="ivw_parameteItem">
 				</block>
 				<label text="模板见框架与示例">
 				</label>
@@ -687,6 +693,10 @@ TIP
 						</next>
 					</block>
 				</value>
+				<next>
+					<block type="ivw_export" id="zzxnbzzxnbzzxnbzzxnb">
+					</block>
+				</next>
 			</block>
 			<label text="属性定义基本框架">
 			</label>
@@ -695,7 +705,7 @@ TIP
 					<block type="ivwAttri_key">
 						<value name="value">
 							<block type="text">
-								<field name="TEXT">方法名</field>
+								<field name="TEXT">属性名</field>
 							</block>
 						</value>
 						<next>
@@ -713,10 +723,10 @@ TIP
 											</block>
 										</value>
 										<next>
-											<block type="ivwAttri_labelAfter">
+											<block type="ivwAttri_defaultValue">
 												<value name="value">
 													<block type="text">
-														<field name="TEXT">尾标签</field>
+														<field name="TEXT">默认值</field>
 													</block>
 												</value>
 											</block>
