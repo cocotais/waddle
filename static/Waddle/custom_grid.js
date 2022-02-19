@@ -6,10 +6,10 @@ path.setAttribute('stroke','#DBEAFF');
 path.setAttribute('stroke-opacity','0.8');
 
 options = {
-    spacing: 20,
-    length: 3,
-    colour: '#ccc',
-    snap: true
+	spacing: 20,
+	length: 3,
+	colour: '#ccc',
+	snap: true
 }
 
 CustomGrid = new Blockly.Grid(path, options);
