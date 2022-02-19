@@ -322,10 +322,16 @@
         var switch_theme = function(){
             if (theme == "light"){
                 document.getElementById("theme").className = "fa-solid fa-moon"
+                var sty = document.createElement('style');
+                sty.innerText = '.nav-item:hover{background-color: #666666;}';
+                document.body.appendChild(sty);
                 to_dark()
                 theme = "dark"
             }else{
                 document.getElementById("theme").className = "fa-solid fa-sun"
+                var sty = document.createElement('style');
+                sty.innerText = '.nav-item:hover{background-color: #5439ce;}';
+                document.body.appendChild(sty);
                 to_light()
                 theme = "light"
             }
@@ -362,6 +368,11 @@
         * {
 	        scrollbar-width: none;
 	        -ms-overflow-style: none;  
+        }
+
+        .nav-item:hover {
+            background-color: #5439ce;
+            border-radius: 10%;
         }
     </style>
 <!-- 代码框 -->
