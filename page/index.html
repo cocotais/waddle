@@ -323,7 +323,7 @@
             if (theme == "light"){
                 document.getElementById("theme").className = "fa-solid fa-moon"
                 var sty = document.createElement('style');
-                sty.innerText = '.nav-item:hover{background-color: #666666;}';
+                sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}';
                 document.body.appendChild(sty);
                 document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
                 to_dark()
@@ -331,7 +331,7 @@
             }else{
                 document.getElementById("theme").className = "fa-solid fa-sun"
                 var sty = document.createElement('style');
-                sty.innerText = '.nav-item:hover{background-color: #5439ce;}';
+                sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
                 document.body.appendChild(sty);
                 document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
                 to_light()
