@@ -1,6 +1,6 @@
 <html lang="zh">
 <!--
-	BUG1:高亮未处理
+	【完成】BUG1:高亮未处理
 	TODO1:新建窗口
 	TODO2:自定义控件及附属功能
 	【完成】TODO3:代码窗
@@ -24,7 +24,7 @@
 	<title>Waddle - 让CoCo没有难做的控件</title>
 
 	<!--图标库-->
-	<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0-beta3/css/all.css" rel="stylesheet">
+	<!--现在都自己画的，没有！-->
 
 	<!--定义Blocks-->
 	<!-- <script src="static/blockly-master/blocks/invisibleWidget.js"></script> -->
@@ -156,7 +156,9 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="javascript:void(0)" title="主题" onclick="switch_theme()">
-							<i class="fa-solid fa-sun" id="theme"></i>
+							<svg id="theme" xmlns="http://www.w3.org/2000/svg" width="23.5706" height="26.4" fill="currentColor" viewBox="0 0 135 135">
+                                <path id="moon-solid_3_" data-name="moon-solid (3)" d="M32,98A65.973,65.973,0,0,1,97.941,32a79.615,79.615,0,0,1,12.051,1.1,3.1,3.1,0,0,1,.966,5.728,51.7,51.7,0,0,0,35.216,95.734,3.1,3.1,0,0,1,2.979,4.994A65.919,65.919,0,0,1,32,98Z" transform="translate(-32 -32)"/>
+                            </svg>
 						</a>
 					</li>
 					<!--菜单栏图标全由海藻酸钠绘制-->
@@ -454,7 +456,10 @@
 		var to_dark = function () {
 			document.getElementsByTagName("nav")[0].style.backgroundColor = "#525252"
 			workspace.setTheme(DarkTheme);
-			document.getElementById("theme").className = "fa-solid fa-moon"
+			document.getElementById("moon-solid_3_").setAttribute('d','M37.246,131.693,32.052,103,3.313,97.817a4.016,4.016,0,0,1-2.59-6.243l16.65-23.955L.722,43.429a3.85,3.85,0,0,1,2.59-6l28.75-5.185,4.951-28.7A4.026,4.026,0,0,1,43.267.955L67.5,17.578,91.491.721a4.025,4.025,0,0,1,6.254,2.586L102.94,32l28.739,5.185a4.016,4.016,0,0,1,2.59,6.243l-16.65,23.955,16.663,24.19a4.02,4.02,0,0,1-2.6,6.245L102.941,103l-5.194,28.69a4.025,4.025,0,0,1-6.254,2.586l-24-16.622-24,16.623a4.021,4.021,0,0,1-6.254-2.586Zm-3.26-64.075A33.512,33.512,0,1,0,67.5,34.164,33.468,33.468,0,0,0,33.986,67.619ZM47,67.5A20.5,20.5,0,1,1,67.5,88,20.5,20.5,0,0,1,47,67.5Z');
+            document.getElementById("moon-solid_3_").setAttribute('transform','translate(0 0)')
+            document.getElementById("theme").setAttribute('width','27')
+            document.getElementById("theme").setAttribute('height','27')
 			var sty = document.createElement('style');
 			sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}';
 			document.body.appendChild(sty);
@@ -466,7 +471,10 @@
 		var to_light = function () {
 			document.getElementsByTagName("nav")[0].style.backgroundColor = "#6d50f0"
 			workspace.setTheme(WaddleTheme);
-			document.getElementById("theme").className = "fa-solid fa-sun"
+			document.getElementById("moon-solid_3_").setAttribute('d',"M32,98A65.973,65.973,0,0,1,97.941,32a79.615,79.615,0,0,1,12.051,1.1,3.1,3.1,0,0,1,.966,5.728,51.7,51.7,0,0,0,35.216,95.734,3.1,3.1,0,0,1,2.979,4.994A65.919,65.919,0,0,1,32,98Z");
+            document.getElementById("moon-solid_3_").setAttribute('transform','translate(-32 -32)')
+            document.getElementById("theme").setAttribute('width','23.5706')
+            document.getElementById("theme").setAttribute('height','26.4')
 			var sty = document.createElement('style');
 			sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
 			document.body.appendChild(sty);
