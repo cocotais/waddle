@@ -279,6 +279,13 @@
         //彩蛋
         /* 搬迁了，在static/js/navFuncs.js */
     </script>
+    <script>
+        window.onresize = function(){
+            document.getElementById("table").style.height = (document.body.clientHeight-57)
+            document.getElementById("toolbox").style.height = (document.body.clientHeight-57)
+            Blockly.svgResize(workspace);
+        }
+    </script>
     <a href="" download="" style="display: none;" id="downa" aria-label="下载"></a>
     <style>
         .js_button {
