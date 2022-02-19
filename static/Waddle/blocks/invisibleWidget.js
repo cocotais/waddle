@@ -69,7 +69,7 @@ Blockly.Blocks['ivw_itemVersion'] = {
 Blockly.Blocks['ivw_itemIsGlobalWidget'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("全局控件")
+            .appendField("控件类型")
             .appendField(new Blockly.FieldDropdown([["全局控件", "true"], ["屏幕控件", "false"]]), "isGlobalWidget");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
