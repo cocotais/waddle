@@ -162,3 +162,49 @@ Blockly.JavaScript['js_ln'] = function (block) {
     var code = `Math.log(${value_name})`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript["js_uri"] = function (block) {
+    var mode = block.getFieldValue("MODE")
+    var str = Blockly.JavaScript.valueToCode(block,"URI", Blockly.JavaScript.ORDER_NONE) || '""'
+    var code = `${mode}(${str})`
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+Blockly.JavaScript["js_replace"] = function (block) {
+    var str = Blockly.JavaScript.valueToCode(block,"STR", Blockly.JavaScript.ORDER_NONE) || '""'
+    var str1 = Blockly.JavaScript.valueToCode(block,"STR1", Blockly.JavaScript.ORDER_NONE) || '""'
+    var str2 = Blockly.JavaScript.valueToCode(block,"STR2", Blockly.JavaScript.ORDER_NONE) || '""'
+    var code = `(${str}).replace(${str1},${str2})`
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+Blockly.JavaScript["js_powerandlower"] = function (block) {
+    var mode = block.getFieldValue("MODE")
+    var str = Blockly.JavaScript.valueToCode(block,"STR", Blockly.JavaScript.ORDER_NONE) || '""'
+    var code = `(${str}).${mode}`
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+Blockly.JavaScript['js_with'] = function(block) {
+    var str1 = Blockly.JavaScript.valueToCode(block, 'STR1', Blockly.JavaScript.ORDER_ATOMIC) || '""';
+    var str2 = Blockly.JavaScript.valueToCode(block, 'STR2', Blockly.JavaScript.ORDER_ATOMIC) || '""';
+    var mode = block.getFieldValue('MODE');
+    var code = `${str1}.${mode}(${str2})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["js_pad"] = function(block){
+    var str1 = Blockly.JavaScript.valueToCode(block, 'STR1', Blockly.JavaScript.ORDER_ATOMIC) || '""';
+    var str2 = Blockly.JavaScript.valueToCode(block, 'STR2', Blockly.JavaScript.ORDER_ATOMIC) || '""';
+    var length = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC) || '""';
+    var mode = block.getFieldValue('MODE');
+    var code = `${str1}.${mode}(${length},${str2})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+Blockly.JavaScript["js_escape"] = function(block){
+    var str = Blockly.JavaScript.valueToCode(block, 'STR', Blockly.JavaScript.ORDER_ATOMIC) || '""';
+    var mode = block.getFieldValue('MODE');
+    var code = `${mode}(${str})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
