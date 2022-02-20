@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <workspaceblocks>
-	<block type="ivw_defTypes" id="mathcalculusnbnbnbnb" x="0" y="0">
+	<block type="ivw_defTypes" id="yzfnbyzfnbyzfnbyzfnb" x="0" y="0">
 		<statement name="types">
-			<block type="ivw_itemType" id="yzfnbyzfnbyzfnbyzfnb">
+			<block type="ivw_itemType" id="welcometowaddle!!!!!">
 				<field name="type">MY_WIDGET</field>
 				<next>
 					<block type="ivw_itemIcon" id="ffxwnbffxwnbffxwnbnb">
@@ -39,7 +39,11 @@
 			</block>
 		</statement>
 		<next>
-			<block type="ivw_export" id="zzxnbzzxnbzzxnbzzxnb">
+			<block type="ivw_defWidget" id="mathcalculusnbnbnbnb">
+				<next>
+					<block type="ivw_export" id="zzxnbzzxnbzzxnbzzxnb">
+					</block>
+				</next>
 			</block>
 		</next>
 	</block>

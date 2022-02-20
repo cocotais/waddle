@@ -271,3 +271,18 @@ Blockly.Blocks['ivw_export'] = {
 		this.setHelpUrl(HELP_URL);
 	}
 };
+
+Blockly.Blocks['ivw_defWidget'] = {
+	init: function () {
+		this.appendDummyInput()
+			.appendField("不可见控件实体");
+		this.appendStatementInput("constructor")
+			.setCheck(null);
+		this.appendStatementInput("functions")
+			.setCheck(null);
+		this.setNextStatement(true, null);
+		this.setColour("#8647F3");
+		this.setTooltip("定义不可见控件实体");
+		this.setHelpUrl(HELP_URL);
+	}
+};

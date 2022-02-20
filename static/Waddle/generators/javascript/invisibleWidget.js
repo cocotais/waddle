@@ -178,3 +178,20 @@ exports.widget = Widget;
 `;
 	return code;
 };
+
+Blockly.JavaScript['ivw_defWidget'] = function (block) {
+	var statements_constructor = Blockly.JavaScript.statementToCode(block, 'constructor');
+	var statements_functions = Blockly.JavaScript.statementToCode(block, 'functions');
+	var code = `
+
+class Widget extends InvisibleWidget {
+	constructor(props) {
+		super(props);
+		${statements_constructor}
+	}
+	${statements_functions}
+}
+
+`;
+	return code;
+};
