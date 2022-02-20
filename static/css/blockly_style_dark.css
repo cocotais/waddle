@@ -35,4 +35,8 @@
 	z-index: -2;/* 使遮罩层位于背景容器层下方，背景容器模糊带消失 */
 }
 
-.mbl{ background:#000; filter:alpha(Opacity=60);-moz-opacity:0.5;opacity:0.5} 
+.mbl{ background:#000; filter:alpha(Opacity=60);-moz-opacity:0.5;opacity:0.5}
+
+.blocklyTreeSeparator {
+	border-bottom: #00000000;
+}
