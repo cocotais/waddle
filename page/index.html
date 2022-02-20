@@ -1,11 +1,4 @@
 <html lang="zh">
-<!--
-	【完成】BUG1:高亮未处理
-	TODO1:新建窗口
-	TODO2:自定义控件及附属功能
-	【完成】TODO3:代码窗
--->
-
 
 <head>
 	<script>
@@ -119,7 +112,7 @@
 									d="M7,125a7,7,0,0,1-7-7V57a7,7,0,0,1,7-7H123a7,7,0,0,1,7,7v61a7,7,0,0,1-7,7ZM4.667,35A4.667,4.667,0,0,1,0,30.334V7A7,7,0,0,1,7,0H48.823A20,20,0,0,1,68.6,17h48.067A13.334,13.334,0,0,1,130,30.334,4.667,4.667,0,0,1,125.333,35Z" />
 							</svg></a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="javascript:void(0)" onClick="craft()">新建</a></li>
+							<li><a class="dropdown-item" href="javascript:void(0)" onClick='newsth.style.display = "block"'>新建</a></li>
 							<li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存到电脑</a></li>
 							<li><a class="dropdown-item" href="javascript:void(0)" onClick="openfile()">打开Waddle文件</a>
 							</li>
@@ -363,14 +356,14 @@
 			border: 1px solid #888;
 			width: 100%;
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			-webkit-animation-name: animatetop;
+			-webkit-animation-name: animateright;
 			-webkit-animation-duration: 0.4s;
-			animation-name: animatetop;
+			animation-name: animateright;
 			animation-duration: 0.4s
 		}
 
 		/* 添加动画 */
-		@-webkit-keyframes animatetop {
+		@-webkit-keyframes animateright {
 			from {
 				right: -300px;
 				opacity: 0
@@ -382,7 +375,7 @@
 			}
 		}
 
-		@keyframes animatetop {
+		@keyframes animateright {
 			from {
 				right: -300px;
 				opacity: 0
@@ -445,6 +438,145 @@
 		// 点击 <span> (x), 关闭代码框
 		span.onclick = function () {
 			modal.style.display = "none";
+		}
+	</script>
+    
+	<!-- 新建浮窗 -->
+	<div id="mynewsth" class="newsth">
+		<!-- 新建浮窗内容 -->
+		<div class="newsth-content">
+			<div class="newsth-header">
+				<img width="150" src="{{static_url('img/waddle.svg')}}"></img>
+				<span class="newsth-close">&times;</span>
+			</div>
+			<div class="newsth-body">
+				<div class="card" onclick='newsth.style.display = "none";workspace.clear();'><span style="color: #6d50f0;line-height: 250px;font-weight: bold;
+					font-size: 30px;">空白作品</span></div>
+				<div class="card" onclick='alert("还没有呢～")'><span style="color: #6d50f0;line-height: 250px;font-weight: bold;
+					font-size: 30px;">可见控件模版</span></div>
+				<div class="card" onclick='newsth.style.display = "none";workspace.clear();Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);'><span style="color: #6d50f0;line-height: 250px;font-weight: bold;
+					font-size: 30px;">不可见控件模版</span></div>
+			</div>
+		</div>
+	</div>
+	<style>
+		/* 代码框 (background) */
+		.newsth {
+			display: none;
+			/* 默认隐藏 */
+			position: fixed;
+			z-index: 1000;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			float: right;
+			background-color: rgba(255, 255, 255, 0.25);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.18);
+			box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+			-webkit-box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+			color: rgba(255, 255, 255, 0.75);
+		}
+
+		/* 代码框内容 */
+		.newsth-content {
+			position: relative;
+			border-radius: 18px;
+			background-color: #fefefe;
+			margin: 0 auto;
+			border: 1px solid #888;
+			width: 50%;
+			height: 75vh;
+			top: 12.5vh;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-animation-name: animatetop;
+			-webkit-animation-duration: 0.4s;
+			animation-name: animatetop;
+			animation-duration: 0.4s
+		}
+		
+		.card {					
+			display:inline-block;
+			margin: 10px;
+			width: 250px;
+ 			height: 250px;
+ 			background: rgb(255, 255, 255);
+ 			border-radius: 0.4em;
+ 			transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ 			border: rgb(250, 250, 250) 0.2em solid;
+		}	
+
+		.card:hover {
+ 			border: #006fff 0.2em solid;
+		}
+
+
+		/* 添加动画 */
+		@-webkit-keyframes animatetop {
+			from {
+				top: -300px;
+				opacity: 0
+			}
+
+			to {
+				top: 12.5vh;
+				opacity: 1
+			}
+		}
+
+		@keyframes animatetop {
+			from {
+				top: -300px;
+				opacity: 0
+			}
+
+			to {
+				top: 12.5vh;
+				opacity: 1
+			}
+		}
+
+		/* 关闭按钮 */
+		.newsth-close {
+			color: white;
+			font-weight: bold;
+			font-size: 40px;
+			float: right;
+			line-height:28px; 
+		}
+
+		.newsth-close:hover,
+		.newsth-close:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.newsth-header {
+			padding: 20px 16px;
+			border-radius: 18px 18px 0 0;
+			background-color: #6d50f0;
+			color: white;
+		}
+
+		.newsth-body {
+			padding: 2px 16px;
+			overflow-y: auto;
+			height: 84%;
+			text-align: center;
+		}
+	</style>
+	<script>
+		var newsth = document.getElementById('mynewsth');
+
+		// 获取 <span> 元素，用于关闭弹窗 that closes the newsth
+		var newsthspan = document.getElementsByClassName("newsth-close")[0];
+
+		// 点击 <span> (x), 关闭代码框
+        newsthspan.onclick = function () {
+			newsth.style.display = "none";
 		}
 	</script>
     <script>
