@@ -224,8 +224,6 @@ TIP
 			</value>
 		</block>
 	</category>
-	<sep>
-	</sep>
 	<category name="变量" colour="#FFBB55" custom="VARIABLE">
 	</category>
 	<category name="列表" colour="#F9CC37">
@@ -292,270 +290,6 @@ TIP
 	<category name="函数" colour="#F88767" custom="PROCEDURE">
 	</category>
 	<!-- </category> -->
-	<sep>
-	</sep>
-	<category name="自定义控件" colour="#6d50f0">
-		<label text="蓝色属于自定义控件通用" colour="#5574F8">
-		</label>
-		<label text="紫色属于不可见控件专属" colour="#8647F3">
-		</label>
-		<label text="模板见框架与示例">
-		</label>
-		<label text="不可见控件1.0已弃用">
-		</label>
-		<category name="不可见控件1.0" colour="#a55b5c">
-			<label text="不可见控件1.0已弃用">
-			</label>
-			<!--
-			<block type="ivw_invisiblewidget" Deletable="false">
-			<field name="type">
-			MY_WIDGET</field>
-			<field name="icon">
-			链接</field>
-			<field name="title">
-			我的控件</field>
-			<field name="isGlobalWidget">
-			TRUE</field>
-			<value name="properties">
-			<shadow type="lists_create_with">
-			<mutation items="0" />
-			</shadow>
-			</value>
-			<value name="methods">
-			<shadow type="lists_create_with">
-			<mutation items="0" />
-			</shadow>
-			</value>
-			<value name="event">
-			<shadow type="lists_create_with">
-			<mutation items="0" />
-			</shadow>
-			</value>
-			<value name="functionsList">
-			<shadow type="lists_create_with">
-			<mutation items="0" />
-			</shadow>
-			</value>
-			</block>
-			-->
-		</category>
-		<category name="不可见控件2.0" colour="#8647F3">
-			<label text="控件类型定义">
-			</label>
-			<block type="ivw_defTypes">
-			</block>
-			<block type="ivw_export">
-			</block>
-			<label text="模板见框架与示例">
-			</label>
-		</category>
-		<category name="通用类型定义" colour="#5574F8">
-			<label text="控件类型定义参数">
-			</label>
-			<block type="ivw_itemType">
-			</block>
-			<block type="ivw_itemIcon">
-			</block>
-			<block type="ivw_itemTitle">
-			</block>
-			<block type="ivw_itemVersion">
-			</block>
-			<block type="ivw_itemIsGlobalWidget">
-			</block>
-			<block type="ivwAttri_custom">
-				<value name="value">
-					<block type="text">
-						<field name="TEXT">标签</field>
-					</block>
-				</value>
-			</block>
-			<label text="模板见框架与示例">
-			</label>
-			<category name="通用属性定义" colour="#5574F8">
-				<block type="ivw_properties">
-				</block>
-				<block type="ivw_propertieItem">
-				</block>
-				<block type="ivwAttri_key">
-					<value name="value">
-						<block type="text">
-							<field name="TEXT">属性名</field>
-						</block>
-					</value>
-				</block>
-				<block type="ivwAttri_valueType">
-					<value name="value">
-						<block type="text">
-							<field name="TEXT">值类型</field>
-						</block>
-					</value>
-				</block>
-				<block type="ivwAttri_label">
-					<value name="value">
-						<block type="text">
-							<field name="TEXT">标签</field>
-						</block>
-					</value>
-				</block>
-				<block type="ivwAttri_defaultValue">
-					<value name="value">
-						<block type="text">
-							<field name="TEXT">默认值</field>
-						</block>
-					</value>
-				</block>
-				<label text="模板见框架与示例">
-				</label>
-			</category>
-			<category name="通用方法定义" colour="#5574F8">
-				<block type="ivw_methods">
-				</block>
-				<block type="ivw_methodItem">
-				</block>
-				<block type="ivwAttri_key">
-					<value name="value">
-						<block type="text">
-							<field name="TEXT">方法名</field>
-						</block>
-					</value>
-				</block>
-				<block type="ivwAttri_valueType">
-					<value name="value">
-						<block type="text">
-							<field name="TEXT">返回值类型（可选，不填则不返回）</field>
-						</block>
-					</value>
-				</block>
-				<block type="ivwAttri_label">
-					<value name="value">
-						<block type="text">
-							<field name="TEXT">标签</field>
-						</block>
-					</value>
-				</block>
-				<block type="ivwAttri_labelAfter">
-					<value name="value">
-						<block type="text">
-							<field name="TEXT">尾标签</field>
-						</block>
-					</value>
-				</block>
-				<block type="ivw_parameters">
-				</block>
-				<block type="ivw_parameteItem">
-				</block>
-				<label text="模板见框架与示例">
-				</label>
-			</category>
-			<category name="通用事件定义" colour="#5574F8">
-				<block type="ivw_events">
-				</block>
-				<block type="ivw_eventItem">
-				</block>
-				<label text="模板见框架与示例">
-				</label>
-			</category>
-		</category>
-		<category name="通用实体定义" colour="#5574F8">
-			<block type="ivw_emit">
-				<value name="event">
-					<block type="text">
-						<field name="TEXT">事件名</field>
-					</block>
-				</value>
-			</block>
-			<block type="ivw_emitParameter">
-			</block>
-		</category>
-	</category>
-	<!--
-	<category name="CoCo" colour="114">
-	<block type="coco_emit">
-	<field name="eventName">
-	事件名称</field>
-	<value name="parameters">
-	<block type="lists_create_with">
-	<mutation items="0">
-	</mutation>
-	</block>
-	</value>
-	</block>
-	<block type="coco_property">
-	<field name="key">
-	属性名</field>
-	<field name="label">
-	标签</field>
-	<field name="valueType">
-	string</field>
-	<field name="default">
-	默认值</field>
-	</block>
-	<block type="coco_method">
-	<field name="key">
-	方法名</field>
-	<field name="label">
-	标签</field>
-	<value name="params">
-	<block type="lists_create_with">
-	<mutation items="0">
-	</mutation>
-	</block>
-	</value>
-	</block>
-	<block type="coco_method_return">
-	<field name="key">
-	方法名</field>
-	<field name="label">
-	标签</field>
-	<field name="valueType">
-	string</field>
-	<value name="params">
-	<block type="lists_create_with">
-	<mutation items="0">
-	</mutation>
-	</block>
-	</value>
-	<statement name="function_1">
-	<block type="coco_return">
-	</block>
-	</statement>
-	</block>
-	<block type="coco_method_parameter">
-	<field name="key">
-	参数名</field>
-	<field name="label">
-	标签</field>
-	<field name="labelAfter">
-	尾标签</field>
-	<field name="valueType">
-	string</field>
-	<field name="default">
-	默认值</field>
-	</block>
-	<block type="coco_event">
-	<field name="key">
-	事件名</field>
-	<field name="label">
-	标签</field>
-	<value name="params">
-	<block type="lists_create_with">
-	<mutation items="0">
-	</mutation>
-	</block>
-	</value>
-	</block>
-	<block type="coco_event_parameter">
-	<field name="key">
-	参数名</field>
-	<field name="label">
-	标签</field>
-	<field name="valueType">
-	string</field>
-	</block>
-	<block type="coco_return">
-	</block>
-	</category>
-	-->
 	<category name="JavaScript" colour="180">
 		<label text="鸡肋积木">
 		</label>
@@ -656,8 +390,140 @@ TIP
 		<block type="tools_listItem">
 		</block>
 	</category>
-	<category name="框架与示例" colour="#6d50f0" css-icon="iconfont waddle-block">
-		<category name="基本框架" colour="#6d50f0">
+	<sep>
+	</sep>
+	<category name="自定义控件" colour="#6d50f0">
+		<label text="蓝色属于自定义控件通用" colour="#5574F8">
+		</label>
+		<label text="紫色属于不可见控件专属" colour="#8647F3">
+		</label>
+		<label text="模板见框架与示例">
+		</label>
+		<label text="控件类型定义">
+		</label>
+		<block type="ivw_defTypes">
+		</block>
+		<block type="ivw_export">
+		</block>
+		<label text="模板见框架与示例">
+		</label>
+	</category>
+	<category name="通用控件类型定义" colour="#5574F8">
+		<label text="模板见框架与示例">
+		</label>
+		<label text="通用类型定义">
+		</label>
+		<block type="ivw_itemType">
+		</block>
+		<block type="ivw_itemIcon">
+		</block>
+		<block type="ivw_itemTitle">
+		</block>
+		<block type="ivw_itemVersion">
+		</block>
+		<block type="ivw_itemIsGlobalWidget">
+		</block>
+		<block type="ivwAttri_custom">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">标签</field>
+				</block>
+			</value>
+		</block>
+		<label text="通用属性定义">
+		</label>
+		<block type="ivw_properties">
+		</block>
+		<block type="ivw_propertieItem">
+		</block>
+		<block type="ivwAttri_key">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">属性名</field>
+				</block>
+			</value>
+		</block>
+		<block type="ivwAttri_valueType">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">值类型</field>
+				</block>
+			</value>
+		</block>
+		<block type="ivwAttri_label">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">标签</field>
+				</block>
+			</value>
+		</block>
+		<block type="ivwAttri_defaultValue">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">默认值</field>
+				</block>
+			</value>
+		</block>
+		<label text="通用方法定义">
+		</label>
+		<block type="ivw_methods">
+		</block>
+		<block type="ivw_methodItem">
+		</block>
+		<block type="ivwAttri_key">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">方法名</field>
+				</block>
+			</value>
+		</block>
+		<block type="ivwAttri_valueType">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">返回值类型（可选，不填则不返回）</field>
+				</block>
+			</value>
+		</block>
+		<block type="ivwAttri_label">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">标签</field>
+				</block>
+			</value>
+		</block>
+		<block type="ivwAttri_labelAfter">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">尾标签</field>
+				</block>
+			</value>
+		</block>
+		<block type="ivw_parameters">
+		</block>
+		<block type="ivw_parameteItem">
+		</block>
+		<label text="通用事件定义">
+		</label>
+		<block type="ivw_events">
+		</block>
+		<block type="ivw_eventItem">
+		</block>
+		<label text="模板见框架与示例">
+		</label>
+	</category>
+	<category name="通用控件实体定义" colour="#5574F8">
+		<block type="ivw_emit">
+			<value name="event">
+				<block type="text">
+					<field name="TEXT">事件名</field>
+				</block>
+			</value>
+		</block>
+		<block type="ivw_emitParameter">
+		</block>
+	</category>
+	<category name="框架与示例" colour="#6d50f0">
+		<!-- <category name="基本框架" colour="#6d50f0"> -->
 			<label text="不可见控件基本框架">
 			</label>
 			<block type="ivw_defTypes">
@@ -738,6 +604,6 @@ TIP
 					</block>
 				</statement>
 			</block>
-		</category>
+		<!-- </category> -->
 	</category>
 </toolbox>
