@@ -284,6 +284,7 @@ Blockly.Blocks['ivw_defWidget'] = {
 			.appendField("方法函数");
 		this.appendStatementInput("functions")
 			.setCheck(null);
+		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour("#8647F3");
 		this.setTooltip("定义不可见控件实体，构造器里放初始化属性（懂js的随意），方法函数里放定义控件方法");
