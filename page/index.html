@@ -35,6 +35,10 @@
 	<script src="{{static_url('js/bootstrap.bundle.min.js')}}"></script>
 	<link href="{{static_url('css/bootstrap.min.css')}}" rel="stylesheet">
 
+    <!--引入高亮-->
+	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/styles/googlecode.min.css" rel="stylesheet">
 
 	<!--自定义Blockly样式-->
 	<script src="{{static_url('Waddle/custom_category.js')}}"></script>
@@ -323,7 +327,7 @@
 				<span class="close">&times;</span>
 			</div>
 			<div class="modal-body">
-				<textarea readonly id="codeArea"></textarea>
+				<pre readonly id="codeArea"></pre>
 			</div>
 		</div>
 	</div>
@@ -420,6 +424,7 @@
 		function myUpdateFunction(event) {
 			var code = Blockly.JavaScript.workspaceToCode(workspace);
 			document.getElementById("codeArea").innerHTML = code;
+            hljs.highlightBlock(document.getElementById("codeArea"))
 		}
 		workspace.addChangeListener(myUpdateFunction);
 
@@ -656,6 +661,7 @@
 				}
 			}
 		}
+        hljs.initHighlightingOnLoad();
 	</script>
 </body>
 
