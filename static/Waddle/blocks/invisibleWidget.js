@@ -180,7 +180,7 @@ Blockly.Blocks['ivw_events'] = {
 Blockly.Blocks['ivw_eventItem'] = {
 	init: function () {
 		this.appendDummyInput()
-			.appendField("事件列表");
+			.appendField("定义事件");
 		this.appendStatementInput("eventItem")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
