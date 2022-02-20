@@ -5,10 +5,20 @@
 此刻你可以使用任意静态服务器运行该工具（就是说你能用某些静态托管工具托管）
 '''
 
-import re
-import os
-import builtins
 from typing import IO
+import builtins
+import os
+import re
+
+
+header = '''
+<!--
+这个index.html是由.\\tools\\转换为静态页面.py自动生成的，需要修改index.html请到.\\pages\\index.html
+这个index.html是由.\\tools\\转换为静态页面.py自动生成的，需要修改index.html请到.\\pages\\index.html
+这个index.html是由.\\tools\\转换为静态页面.py自动生成的，需要修改index.html请到.\\pages\\index.html
+-->
+'''
+
 
 files = []
 
@@ -41,6 +51,8 @@ def repl(matched):
 new_html = re.sub(pattern, repl, html)
 new_path = '.\\index.html' if inRoot else '..\\index.html'
 new_index = open(new_path, 'w', encoding='UTF-8')
-new_index.write(new_html)
+new_index.write(header + new_html)
 
 closeAllFiles()
+
+print('转换完毕！！！')
