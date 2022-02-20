@@ -366,3 +366,158 @@ Blockly.Blocks['js_ln'] = {
         this.setHelpUrl("https://www.w3cschool.cn/wkjavascript/8ct21o9o.html");
     }
 };
+
+Blockly.Blocks['js_uri'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("URI")
+            .appendField(new Blockly.FieldDropdown([["编码", "encodeURI"], ["解码", "decodeURI"]]), "MODE");
+        this.appendValueInput("URI")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE);
+        this.setInputsInline(true);
+        this.setOutput(true, "String");
+        this.setColour("#66ccff");
+        this.setTooltip("对uri进行编解码。");
+        this.setHelpUrl("https://www.w3school.com.cn/jsref/jsref_encodeuri.asp");
+    }
+};
+
+Blockly.Blocks['js_replace'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("字符串替换");
+        this.appendValueInput("STR")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("原字符串");
+        this.appendValueInput("STR1")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("要替换字符串");
+        this.appendValueInput("STR2")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("替换替换为");
+        this.setInputsInline(true);
+        this.setOutput(true, "String");
+        this.setColour("#66ccff");
+        this.setTooltip("替换原字符串里的所有关键词内容。");
+        this.setHelpUrl("https://www.w3school.com.cn/jsref/jsref_replace.asp");
+    }
+};
+
+Blockly.Blocks['js_powerandlower'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("字母")
+            .appendField(new Blockly.FieldDropdown([["转大写", "toUpperCase()"], ["转小写", "toLowerCase()"]]), "MODE");
+        this.appendValueInput("STR")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE);
+        this.setInputsInline(true);
+        this.setOutput(true, "String");
+        this.setColour("66ccff");
+        this.setTooltip("将字符串里的字母转为大写或小写");
+        this.setHelpUrl("https://www.w3school.com.cn/jsref/jsref_toLowerCase.asp");
+    }
+}
+
+Blockly.Blocks['js_with'] = {
+    init: function () {
+        this.appendValueInput("STR1")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE);
+        this.appendDummyInput()
+            .appendField("是否以");
+        this.appendValueInput("STR2")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([["开头", "startsWith"], ["结束", "endsWith"]]), "MODE");
+        this.setInputsInline(true);
+        this.setOutput(true, "Boolean");
+        this.setColour("#66ccff");
+        this.setTooltip("判断字符串是否以子字符串开头/结尾");
+        this.setHelpUrl("https://www.runoob.com/jsref/jsref-startswith.html");
+    }
+};
+
+
+Blockly.Blocks['js_trim'] = {
+    init: function () {
+        this.appendValueInput("STR")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([["去掉首尾空格", "trim()"], ["去掉开头空格", "trimStart()"], ["去掉结尾空格", "trimEnd()"]]), "MODE");
+        this.setInputsInline(true);
+        this.setOutput(true, "String");
+        this.setColour("#66ccff");
+        this.setTooltip("去掉字符串首尾空格");
+        this.setHelpUrl("https://www.runoob.com/jsref/jsref-trim.html");
+    }
+};
+
+Blockly.Blocks['js_repeat'] = {
+    init: function () {
+        this.appendValueInput("STR")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE);
+        this.appendDummyInput()
+            .appendField("重复");
+        this.appendValueInput("NUM")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_CENTRE);
+        this.appendDummyInput()
+            .appendField("次");
+        this.setInputsInline(true);
+        this.setOutput(true, "String");
+        this.setColour("#66ccff");
+        this.setTooltip("将字符串重复");
+        this.setHelpUrl("https://www.runoob.com/jsref/jsref-repeat.html");
+    }
+};
+
+
+Blockly.Blocks['js_pad'] = {
+    init: function () {
+        this.appendValueInput("STR1")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE);
+        this.appendDummyInput()
+            .appendField("补全")
+            .appendField(new Blockly.FieldDropdown([["开头", "padStart"], ["结尾", "padEnd"]]), "MODE");
+        this.appendValueInput("NUM")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("到长度为");
+        this.appendDummyInput()
+            .appendField("，补全符为");
+        this.appendValueInput("STR2")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE);
+        this.setInputsInline(true);
+        this.setOutput(true, "String");
+        this.setColour("#66ccff");
+        this.setTooltip("将字符串重复");
+        this.setHelpUrl("https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/padStart");
+    }
+};
+
+Blockly.Blocks['js_escape'] = {
+    init: function () {
+        this.appendValueInput("STR")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("非ASCII字符");
+        this.appendDummyInput()
+            .appendField("Unicode")
+            .appendField(new Blockly.FieldDropdown([["编码", "escape"], ["解码", "unescape"]]), "MODE");
+        this.setInputsInline(true);
+        this.setOutput(true, "String");
+        this.setColour("#66ccff");
+        this.setTooltip("ASCII之外的所有字符编解码");
+        this.setHelpUrl("https://www.w3school.com.cn/jsref/jsref_escape.asp");
+    }
+};
