@@ -9,7 +9,7 @@
 
 <a name="QbcGo"></a>
 #   简介
-Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形化编辑器<br />Waddle 主理人：[@中子星000(中子星000)(feynman-xsorz)](https://www.yuque.com/feynman-xsorz)
+Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形化编辑器
 <a name="LXKn6"></a>
 #   使用
 <a name="tK39W"></a>
