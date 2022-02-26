@@ -1,4 +1,11 @@
-# ![https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/cs.png](https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/cs.png) [![star](https://gitee.com/coco-ag/coco-waddle/badge/star.svg?theme=white)](https://gitee.com/coco-ag/coco-waddle/stargazers) [![fork](https://gitee.com/coco-ag/coco-waddle/badge/fork.svg?theme=white)](https://gitee.com/coco-ag/coco-waddle/members)
+<p align="center">
+    <a href="https://www.yuque.com/appcraft/waddle/index">
+        <img alt="Waddle-Logo-Purple" src="https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/purple-logo.png" height="75" width="303"/>
+    </a>
+    <br>
+    <a href='https://gitee.com/coco-ag/coco-waddle/stargazers'><img src='https://gitee.com/coco-ag/coco-waddle/badge/star.svg?theme=white' alt='star'></img></a>
+    <a href='https://gitee.com/coco-ag/coco-waddle/members'><img src='https://gitee.com/coco-ag/coco-waddle/badge/fork.svg?theme=white' alt='fork'></img></a>
+</p>
 
 ## 介绍
 Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形化编辑器
