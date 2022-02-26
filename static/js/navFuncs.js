@@ -16,16 +16,57 @@ let js_save = function () {
     URL.revokeObjectURL(url);
 }
 
+let format_data = function (text, js) {
+    return `<root><head><waddleversion>0</waddleversion><dataversion>0</dataversion></head><body><blocks>${text}</blocks><js>${js}</js></body></root>`
+}
+
 let save = function () {
     let code_xml = Blockly.Xml.workspaceToDom(workspace);
     let code_data = Blockly.Xml.domToText(code_xml);
-    let blob = new Blob([code_data], { type: "text/plain;charset=utf-8" });
+    let js_data = Blockly.JavaScript.workspaceToCode(workspace);
+    let xml_data = format_data(code_data, js_data)
+    let blob = new Blob([xml_data], { type: "text/plain;charset=utf-8" });
     let url = URL.createObjectURL(blob);
     let downa = document.getElementById("downa");
     downa.href = url;
     downa.download = "CocoWidget.waddle";
     downa.click();
     URL.revokeObjectURL(url);
+}
+
+let loadXML = function (xmlString) {
+    var xmlDoc = null;
+    //判断浏览器的类型
+    //支持IE浏览器 
+    if (!window.DOMParser && window.ActiveXObject) { //window.DOMParser 判断是否是非ie浏览器
+        var xmlDomVersions = ['MSXML.2.DOMDocument.6.0', 'MSXML.2.DOMDocument.3.0', 'Microsoft.XMLDOM'];
+        for (var i = 0; i < xmlDomVersions.length; i++) {
+            try {
+                xmlDoc = new ActiveXObject(xmlDomVersions[i]);
+                xmlDoc.async = false;
+                xmlDoc.loadXML(xmlString); //loadXML方法载入xml字符串
+                break;
+            } catch (e) {
+            }
+        }
+    }
+    //支持Mozilla浏览器
+    else if (window.DOMParser && document.implementation && document.implementation.createDocument) {
+        try {
+            /* DOMParser 对象解析 XML 文本并返回一个 XML Document 对象。
+             * 要使用 DOMParser，使用不带参数的构造函数来实例化它，然后调用其 parseFromString() 方法
+             * parseFromString(text, contentType) 参数text:要解析的 XML 标记 参数contentType文本的内容类型
+             * 可能是 "text/xml" 、"application/xml" 或 "application/xhtml+xml" 中的一个。注意，不支持 "text/html"。
+             */
+            domParser = new DOMParser();
+            xmlDoc = domParser.parseFromString(xmlString, 'text/xml');
+        } catch (e) {
+        }
+    }
+    else {
+        return null;
+    }
+    return xmlDoc;
 }
 
 let openfile = function () {
@@ -41,10 +82,10 @@ let openfile = function () {
         let file = event.target.files[0];
         let file_reader = new FileReader();
         file_reader.onload = () => {
-            let fc = file_reader.result;
+            var fc = file_reader.result;
             let parser = new DOMParser();
             let xml = parser.parseFromString(fc, 'text/xml');
-            let blocks = xml.getElementsByTagName('xml')[0];
+            let blocks = xml.getElementsByTagName("body")[0].getElementsByTagName("blocks")[0].getElementsByTagName("xml")[0]
             workspace.clear();
             Blockly.Xml.domToWorkspace(blocks, workspace);
         };
@@ -52,7 +93,7 @@ let openfile = function () {
     }
 }
 
-let switch_table = function () {
+/* let switch_table = function () {
     var code = document.getElementById("code")
     code.style.display = "none";
     var table = document.getElementById("table")
@@ -74,7 +115,7 @@ let switch_code = function () {
     switch_code.className += ' active';
     var switch_table = document.getElementById('switch_table');
     switch_table.classList.remove("active");
-}
+} */
 
 var get_num = 0;
 let count = function () {
