@@ -31,8 +31,8 @@ Blockly.JavaScript['ivw_itemTitle'] = function (block) {
 };
 
 Blockly.JavaScript['ivw_itemVersion'] = function (block) {
-	var text_title = block.getFieldValue('version');
-	var code = `version: "${text_title}",\n`;
+	var text_version = block.getFieldValue('version');
+	var code = `version: "${text_version}",\n`;
 	return code;
 };
 
@@ -43,10 +43,12 @@ Blockly.JavaScript['ivw_itemIsGlobalWidget'] = function (block) {
 };
 
 Blockly.JavaScript['ivw_properties'] = function (block) {
+	// var text_title = block.getFieldValue('version');
 	var statements_properties = Blockly.JavaScript.statementToCode(block, 'properties');
 	console.log(statements_properties)
 	var code = `
 properties: [
+	// key: ${1},
 	${statements_properties}
 ],
 `;
