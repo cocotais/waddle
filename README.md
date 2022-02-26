@@ -1,10 +1,13 @@
 <p align="center">
+    <br>
     <a href="https://www.yuque.com/appcraft/waddle/index">
         <img alt="Waddle-Logo-Purple" src="https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/cs.png" height="73" width="346"/>
     </a>
     <br>
+    <br>
     <a href='https://gitee.com/coco-ag/coco-waddle/stargazers'><img src='https://gitee.com/coco-ag/coco-waddle/badge/star.svg?theme=white' alt='star'></img></a>
     <a href='https://gitee.com/coco-ag/coco-waddle/members'><img src='https://gitee.com/coco-ag/coco-waddle/badge/fork.svg?theme=white' alt='fork'></img></a>
+    <br>
 </p>
 
 <a name="QbcGo"></a>
