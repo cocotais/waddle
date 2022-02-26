@@ -634,45 +634,23 @@ TIP
 		</label>
 		<block type="ivw_propertieItem">
 			<statement name="propertieItem">
-				<block type="ivwAttri_key">
+				<block type="ivwAttri_valueType">
 					<value name="value">
 						<block type="text">
 							<field name="TEXT">
-								属性名
+								值类型
 							</field>
 						</block>
 					</value>
 					<next>
-						<block type="ivwAttri_valueType">
+						<block type="ivwAttri_defaultValue">
 							<value name="value">
 								<block type="text">
 									<field name="TEXT">
-										值类型
+										默认值
 									</field>
 								</block>
 							</value>
-							<next>
-								<block type="ivwAttri_label">
-									<value name="value">
-										<block type="text">
-											<field name="TEXT">
-												标签
-											</field>
-										</block>
-									</value>
-									<next>
-										<block type="ivwAttri_defaultValue">
-											<value name="value">
-												<block type="text">
-													<field name="TEXT">
-														默认值
-													</field>
-												</block>
-											</value>
-										</block>
-									</next>
-								</block>
-							</next>
 						</block>
 					</next>
 				</block>

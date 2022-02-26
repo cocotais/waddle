@@ -4,7 +4,7 @@ const HELP_URL = "https://www.yuque.com/appcraft/widget/widgetguide";
 Blockly.Blocks['ivw_defTypes'] = {
 	init: function () {
 		this.appendDummyInput()
-			.appendField("不可见控件");
+			.appendField("创建不可见控件");
 		this.appendStatementInput("types")
 			.setCheck(null);
 		this.setNextStatement(true, null);
@@ -96,13 +96,17 @@ Blockly.Blocks['ivw_properties'] = {
 Blockly.Blocks['ivw_propertieItem'] = {
 	init: function () {
 		this.appendDummyInput()
-			.appendField("新建属性积木");
+			.appendField("新建属性积木")
+			.appendField("变量名")
+			.appendField(new Blockly.FieldTextInput("propName"), "key")
+			.appendField("标签")
+			.appendField(new Blockly.FieldTextInput("属性名"), "label");
 		this.appendStatementInput("propertieItem")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour("#5574F8");
-		this.setTooltip("定义一个属性，放在属性列表里");
+		this.setTooltip("定义一个属性，放在属性列表里，变量名是内部代码调用的名称（建议英文），标签是CoCo积木上显示的名称");
 		this.setHelpUrl(HELP_URL);
 	}
 };
@@ -275,7 +279,7 @@ Blockly.Blocks['ivw_export'] = {
 Blockly.Blocks['ivw_defWidget'] = {
 	init: function () {
 		this.appendDummyInput()
-			.appendField("不可见控件实体");
+			.appendField("不可见控件积木代码");
 		this.appendDummyInput()
 			.appendField("构造器");
 		this.appendStatementInput("constructor")

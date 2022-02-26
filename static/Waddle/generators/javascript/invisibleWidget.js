@@ -43,12 +43,14 @@ Blockly.JavaScript['ivw_itemIsGlobalWidget'] = function (block) {
 };
 
 Blockly.JavaScript['ivw_properties'] = function (block) {
-	// var text_title = block.getFieldValue('version');
+	var text_key = block.getFieldValue('key');
+	var text_label = block.getFieldValue('label');
 	var statements_properties = Blockly.JavaScript.statementToCode(block, 'properties');
 	console.log(statements_properties)
 	var code = `
 properties: [
-	// key: ${1},
+	key: ${text_key},
+	label: ${text_label},
 	${statements_properties}
 ],
 `;
