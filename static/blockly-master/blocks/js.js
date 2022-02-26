@@ -449,9 +449,6 @@ Blockly.Blocks['js_trim'] = {
         this.appendValueInput("STR")
             .setCheck("String")
             .setAlign(Blockly.ALIGN_CENTRE);
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown([["去掉首尾空格", "trim()"], ["去掉开头空格", "trimStart()"], ["去掉结尾空格", "trimEnd()"]]), "MODE");
-        this.setInputsInline(true);
         this.setOutput(true, "String");
         this.setColour("#66ccff");
         this.setTooltip("去掉字符串首尾空格");
@@ -519,5 +516,22 @@ Blockly.Blocks['js_escape'] = {
         this.setColour("#66ccff");
         this.setTooltip("ASCII之外的所有字符编解码");
         this.setHelpUrl("https://www.w3school.com.cn/jsref/jsref_escape.asp");
+    }
+};
+
+Blockly.Blocks['js_base'] = {
+    init: function () {
+        this.appendValueInput("NUM")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("数字");
+        this.appendDummyInput()
+            .appendField("转进制")
+            .appendField(new Blockly.FieldNumber(2, 2, 32), "BASE");
+        this.setInputsInline(true);
+        this.setOutput(true, "String");
+        this.setColour("#66ccff");
+        this.setTooltip("将数字转为2~32位的数字。");
+        this.setHelpUrl("https://www.runoob.com/jsref/jsref-tostring-number.html");
     }
 };

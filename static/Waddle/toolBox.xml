@@ -383,6 +383,8 @@ TIP
 		</block>
 		<block type="js_escape">
 		</block>
+		<block type="js_base">
+		</block>
 	</category>
 	<category name="工具" colour="#0E7D65">
 		<label text="工具.积木夹子">

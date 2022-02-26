@@ -208,3 +208,12 @@ Blockly.JavaScript["js_escape"] = function(block){
     var code = `${mode}(${str})`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 }
+
+Blockly.JavaScript['js_base'] = function(block) {
+    var value_num = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC);
+    var number_base = block.getFieldValue('BASE');
+    // TODO: Assemble JavaScript into code variable.
+    var code = `(${value_num}).toString(${number_base})`;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
