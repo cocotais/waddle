@@ -1,7 +1,7 @@
 # ![https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/cs.png](https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/cs.png) [![star](https://gitee.com/coco-ag/coco-waddle/badge/star.svg?theme=white)](https://gitee.com/coco-ag/coco-waddle/stargazers) [![fork](https://gitee.com/coco-ag/coco-waddle/badge/fork.svg?theme=white)](https://gitee.com/coco-ag/coco-waddle/members)
 
 ## 介绍
-由 CoCo 编辑器中控台基于Blockly制作的 CoCo 控件制作工具
+Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo 控件图形化编辑器
 
 ## 安装
 1.  你需要确定你本地是否已安装了python(3.5+)以及pip
