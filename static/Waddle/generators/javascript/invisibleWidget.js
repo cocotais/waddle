@@ -8,6 +8,7 @@ types = {
 	isInvisibleWidget: true,
 	properties: [],
 	methods: [],
+	events: [],
 	${statements_types}
 };
 
@@ -79,28 +80,6 @@ types['methods'].push({
 	return code;
 };
 
-Blockly.JavaScript['ivw_methods'] = function (block) {
-	var statements_methods = Blockly.JavaScript.statementToCode(block, 'methods');
-	var code = `
-methods: [
-	${statements_methods}
-],
-
-`;
-	return code;
-};
-
-Blockly.JavaScript['ivw_methodItem'] = function (block) {
-	var statements_methodItem = Blockly.JavaScript.statementToCode(block, 'methodItem');
-	var code = `
-{
-	${statements_methodItem}
-},
-
-`;
-	return code;
-};
-
 Blockly.JavaScript['ivw_addParams'] = function (block) {
 	var text_key = block.getFieldValue('key');
 	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
@@ -110,6 +89,24 @@ Blockly.JavaScript['ivw_addParams'] = function (block) {
 	${statements_other}
 },
 
+`;
+	return code;
+};
+
+Blockly.JavaScript['ivw_addEvent'] = function (block) {
+	var text_key = block.getFieldValue('key');
+	var text_label = block.getFieldValue('label');
+	var statements_params = Blockly.JavaScript.statementToCode(block, 'params');
+	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
+	var code = `
+types['events'].push({
+	key: '${text_key}',
+	label: '${text_label}',
+	params: [
+		${statements_params}
+	],
+	${statements_other}
+})
 `;
 	return code;
 };

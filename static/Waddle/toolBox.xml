@@ -514,9 +514,7 @@ TIP
 		</block>
 		<label text="通用事件定义">
 		</label>
-		<block type="ivw_events">
-		</block>
-		<block type="ivw_eventItem">
+		<block type="ivw_addEvent">
 		</block>
 		<label text="模板见框架与示例">
 		</label>
@@ -545,8 +543,6 @@ TIP
 								<block type="ivw_itemTitle">
 									<next>
 										<block type="ivw_itemVersion">
-											<next>
-											</next>
 										</block>
 									</next>
 								</block>
@@ -564,7 +560,7 @@ TIP
 				</block>
 			</next>
 		</block>
-		<label text="属性定义基本框架">
+		<label text="属性积木基本框架">
 		</label>
 		<block type="ivw_addProperty">
 			<statement name="other">
@@ -586,7 +582,7 @@ TIP
 				</block>
 			</statement>
 		</block>
-		<label text="方法定义基本框架">
+		<label text="方法积木基本框架">
 		</label>
 		<label text="不返回">
 		</label>
@@ -642,6 +638,32 @@ TIP
 							</value>
 						</block>
 					</next>
+				</block>
+			</statement>
+		</block>
+		<label text="事件积木基本框架">
+		</label>
+		<block type="ivw_addEvent">
+			<statement name="other">
+				<block type="ivwAttri_valueType">
+					<value name="value">
+						<block type="text">
+							<field name="TEXT">参数类型</field>
+						</block>
+					</value>
+				</block>
+			</statement>
+		</block>
+		<label text="事件参数基本框架">
+		</label>
+		<block type="ivw_addParams">
+			<statement name="other">
+				<block type="ivwAttri_valueType">
+					<value name="value">
+						<block type="text">
+							<field name="TEXT">值类型</field>
+						</block>
+					</value>
 				</block>
 			</statement>
 		</block>

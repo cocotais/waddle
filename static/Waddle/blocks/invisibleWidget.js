@@ -125,34 +125,6 @@ Blockly.Blocks['ivw_addMethod'] = {
 	}
 };
 
-Blockly.Blocks['ivw_methods'] = {
-	init: function () {
-		this.appendDummyInput()
-			.appendField("方法列表");
-		this.appendStatementInput("methods")
-			.setCheck(null);
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
-		this.setColour("#5574F8");
-		this.setTooltip("定义控件方法");
-		this.setHelpUrl(HELP_URL);
-	}
-};
-
-Blockly.Blocks['ivw_methodItem'] = {
-	init: function () {
-		this.appendDummyInput()
-			.appendField("新建方法积木");
-		this.appendStatementInput("methodItem")
-			.setCheck(null);
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
-		this.setColour("#5574F8");
-		this.setTooltip("定义一个方法，放在方法列表里");
-		this.setHelpUrl(HELP_URL);
-	}
-};
-
 Blockly.Blocks['ivw_addParams'] = {
 	init: function () {
 		this.appendDummyInput()
@@ -165,8 +137,32 @@ Blockly.Blocks['ivw_addParams'] = {
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setColour("#5574F8");
+		this.setColour("#3CA9FF");
 		this.setTooltip("定义控件用于方法的参数");
+		this.setHelpUrl(HELP_URL);
+	}
+};
+
+Blockly.Blocks['ivw_addEvent'] = {
+	init: function () {
+		this.appendDummyInput()
+			.appendField("新建事件积木")
+			.appendField("函数名")
+			.appendField(new Blockly.FieldTextInput("eventName"), "key")
+			.appendField("标签")
+			.appendField(new Blockly.FieldTextInput("事件标签"), "label");
+		this.appendDummyInput()
+			.appendField("参数")
+		this.appendStatementInput("params")
+			.setCheck(null);
+		this.appendDummyInput()
+			.appendField("自定义字段")
+		this.appendStatementInput("other")
+			.setCheck(null);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour("#496eb8");
+		this.setTooltip("定义一个事件积木\n事件名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！");
 		this.setHelpUrl(HELP_URL);
 	}
 };
