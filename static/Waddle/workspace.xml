@@ -17,15 +17,7 @@
 											<block type="ivw_itemIsGlobalWidget" id="DS(9RHPwztx:A.8!Tp3n">
 												<field name="isGlobalWidget">true</field>
 												<next>
-													<block type="ivw_properties" id="$7dQ-7^PHC*Wk7?GIU]}">
-														<next>
-															<block type="ivw_methods" id="qSm5AR#N|S0Ys)dwxE:X">
-																<next>
-																	<block type="ivw_events" id="/rkWl$EXK)ia-?Wv1ct(">
-																	</block>
-																</next>
-															</block>
-														</next>
+													<block type="ivw_events" id="/rkWl$EXK)ia-?Wv1ct(">
 													</block>
 												</next>
 											</block>

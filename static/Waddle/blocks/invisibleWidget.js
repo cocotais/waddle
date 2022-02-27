@@ -7,9 +7,13 @@ Blockly.Blocks['ivw_defTypes'] = {
 			.appendField("创建不可见控件");
 		this.appendStatementInput("types")
 			.setCheck(null);
+		this.appendDummyInput()
+			.appendField("添加积木");
+		this.appendStatementInput("addBlocks")
+			.setCheck(null);
 		this.setNextStatement(true, null);
 		this.setColour("#8647F3");
-		this.setTooltip("定义不可见控件类型");
+		this.setTooltip("定义不可见控件类型，在添加积木中添加积木");
 		this.setHelpUrl(HELP_URL);
 	}
 };
@@ -79,34 +83,44 @@ Blockly.Blocks['ivw_itemIsGlobalWidget'] = {
 	}
 };
 
-Blockly.Blocks['ivw_properties'] = {
-	init: function () {
-		this.appendDummyInput()
-			.appendField("属性列表");
-		this.appendStatementInput("properties")
-			.setCheck(null);
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
-		this.setColour("#5574F8");
-		this.setTooltip("定义控件属性");
-		this.setHelpUrl(HELP_URL);
-	}
-};
-
-Blockly.Blocks['ivw_propertieItem'] = {
+Blockly.Blocks['ivw_addProperty'] = {
 	init: function () {
 		this.appendDummyInput()
 			.appendField("新建属性积木")
 			.appendField("变量名")
-			.appendField(new Blockly.FieldTextInput("propName"), "key")
+			.appendField(new Blockly.FieldTextInput("propertyName"), "key")
 			.appendField("标签")
-			.appendField(new Blockly.FieldTextInput("属性名"), "label");
-		this.appendStatementInput("propertieItem")
+			.appendField(new Blockly.FieldTextInput("属性标签"), "label");
+		this.appendStatementInput("other")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour("#5574F8");
-		this.setTooltip("定义一个属性，放在属性列表里，变量名是内部代码调用的名称（建议英文），标签是CoCo积木上显示的名称");
+		this.setTooltip("定义一个属性积木\n变量名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！");
+		this.setHelpUrl(HELP_URL);
+	}
+};
+
+Blockly.Blocks['ivw_addMethod'] = {
+	init: function () {
+		this.appendDummyInput()
+			.appendField("新建方法积木")
+			.appendField("函数名")
+			.appendField(new Blockly.FieldTextInput("methodName"), "key")
+			.appendField("标签")
+			.appendField(new Blockly.FieldTextInput("方法标签"), "label");
+		this.appendDummyInput()
+			.appendField("参数")
+		this.appendStatementInput("params")
+			.setCheck(null);
+		this.appendDummyInput()
+			.appendField("自定义字段")
+		this.appendStatementInput("other")
+			.setCheck(null);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour("#5574F8");
+		this.setTooltip("定义一个方法积木\n函数名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！");
 		this.setHelpUrl(HELP_URL);
 	}
 };
@@ -139,30 +153,20 @@ Blockly.Blocks['ivw_methodItem'] = {
 	}
 };
 
-Blockly.Blocks['ivw_parameters'] = {
+Blockly.Blocks['ivw_addParams'] = {
 	init: function () {
 		this.appendDummyInput()
-			.appendField("参数列表");
-		this.appendStatementInput("parameters")
+			.appendField("添加参数")
+			.appendField("参数")
+			.appendField(new Blockly.FieldTextInput("paramName"), "key")
+		this.appendDummyInput()
+			.appendField("自定义字段")
+		this.appendStatementInput("other")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour("#5574F8");
 		this.setTooltip("定义控件用于方法的参数");
-		this.setHelpUrl(HELP_URL);
-	}
-};
-
-Blockly.Blocks['ivw_parameteItem'] = {
-	init: function () {
-		this.appendDummyInput()
-			.appendField("定义参数");
-		this.appendStatementInput("parameteItem")
-			.setCheck(null);
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
-		this.setColour("#5574F8");
-		this.setTooltip("定义一个参数，放在参数列表里");
 		this.setHelpUrl(HELP_URL);
 	}
 };

@@ -1,12 +1,17 @@
 
 Blockly.JavaScript['ivw_defTypes'] = function (block) {
 	var statements_types = Blockly.JavaScript.statementToCode(block, 'types');
+	var statements_addBlocks = Blockly.JavaScript.statementToCode(block, 'addBlocks');
 	var code = `
 
-const types = {
-  isInvisibleWidget: true,
-${statements_types}
-}
+types = {
+	isInvisibleWidget: true,
+	properties: [],
+	methods: [],
+	${statements_types}
+};
+
+${statements_addBlocks}
 
 `;
 	return code;
@@ -42,28 +47,34 @@ Blockly.JavaScript['ivw_itemIsGlobalWidget'] = function (block) {
 	return code;
 };
 
-Blockly.JavaScript['ivw_properties'] = function (block) {
+Blockly.JavaScript['ivw_addProperty'] = function (block) {
 	var text_key = block.getFieldValue('key');
 	var text_label = block.getFieldValue('label');
-	var statements_properties = Blockly.JavaScript.statementToCode(block, 'properties');
-	console.log(statements_properties)
+	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var code = `
-properties: [
-	key: ${text_key},
-	label: ${text_label},
-	${statements_properties}
-],
+types['properties'].push({
+	key: '${text_key}',
+	label: '${text_label}',
+	${statements_other}
+})
 `;
 	return code;
 };
 
-Blockly.JavaScript['ivw_propertieItem'] = function (block) {
-	var statements_propertieItem = Blockly.JavaScript.statementToCode(block, 'propertieItem');
+Blockly.JavaScript['ivw_addMethod'] = function (block) {
+	var text_key = block.getFieldValue('key');
+	var text_label = block.getFieldValue('label');
+	var statements_params = Blockly.JavaScript.statementToCode(block, 'params');
+	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var code = `
-{
-${statements_propertieItem}
-},
-
+types['methods'].push({
+	key: '${text_key}',
+	label: '${text_label}',
+	params: [
+		${statements_params}
+	],
+	${statements_other}
+})
 `;
 	return code;
 };
@@ -83,29 +94,20 @@ Blockly.JavaScript['ivw_methodItem'] = function (block) {
 	var statements_methodItem = Blockly.JavaScript.statementToCode(block, 'methodItem');
 	var code = `
 {
-${statements_methodItem}
+	${statements_methodItem}
 },
 
 `;
 	return code;
 };
 
-Blockly.JavaScript['ivw_parameters'] = function (block) {
-	var statements_parameters = Blockly.JavaScript.statementToCode(block, 'parameters');
-	console.log(statements_parameters)
-	var code = `
-params: [
-	${statements_parameters}
-],
-`;
-	return code;
-};
-
-Blockly.JavaScript['ivw_parameteItem'] = function (block) {
-	var statements_parameteItem = Blockly.JavaScript.statementToCode(block, 'parameteItem');
+Blockly.JavaScript['ivw_addParams'] = function (block) {
+	var text_key = block.getFieldValue('key');
+	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var code = `
 {
-${statements_parameteItem}
+	key: '${text_key}',
+	${statements_other}
 },
 
 `;
@@ -127,7 +129,7 @@ Blockly.JavaScript['ivw_eventItem'] = function (block) {
 	var statements_eventItem = Blockly.JavaScript.statementToCode(block, 'eventItem');
 	var code = `
 {
-${statements_eventItem}
+	${statements_eventItem}
 },
 
 `;
@@ -148,11 +150,11 @@ Blockly.JavaScript['ivw_emitParameter'] = function (block) {
 };
 
 attris = {
-	'key':'名称',
-	'valueType':'值类型',
-	'label':'标签',
-	'labelAfter':'尾标签',
-	'defaultValue':'默认值',
+	'key': '名称',
+	'valueType': '值类型',
+	'label': '标签',
+	'labelAfter': '尾标签',
+	'defaultValue': '默认值',
 }
 
 
