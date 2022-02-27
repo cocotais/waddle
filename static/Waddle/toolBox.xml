@@ -607,15 +607,6 @@ TIP
 							<field name="TEXT">返回值类型</field>
 						</block>
 					</value>
-					<next>
-						<block type="ivwAttri_defaultValue">
-							<value name="value">
-								<block type="text">
-									<field name="TEXT">默认值</field>
-								</block>
-							</value>
-						</block>
-					</next>
 				</block>
 			</statement>
 		</block>

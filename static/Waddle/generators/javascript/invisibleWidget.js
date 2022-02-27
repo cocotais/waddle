@@ -82,10 +82,12 @@ types['methods'].push({
 
 Blockly.JavaScript['ivw_addParams'] = function (block) {
 	var text_key = block.getFieldValue('key');
+	var text_label = block.getFieldValue('label');
 	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var code = `
 {
 	key: '${text_key}',
+	label: '${text_label}',
 	${statements_other}
 },
 
@@ -107,28 +109,6 @@ types['events'].push({
 	],
 	${statements_other}
 })
-`;
-	return code;
-};
-
-Blockly.JavaScript['ivw_events'] = function (block) {
-	var statements_events = Blockly.JavaScript.statementToCode(block, 'events');
-	var code = `
-events: [
-	${statements_events}
-],
-
-`;
-	return code;
-};
-
-Blockly.JavaScript['ivw_eventItem'] = function (block) {
-	var statements_eventItem = Blockly.JavaScript.statementToCode(block, 'eventItem');
-	var code = `
-{
-	${statements_eventItem}
-},
-
 `;
 	return code;
 };
