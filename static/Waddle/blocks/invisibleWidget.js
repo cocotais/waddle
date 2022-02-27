@@ -95,7 +95,7 @@ Blockly.Blocks['ivw_addProperty'] = {
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setColour("#5574F8");
+		this.setColour("#b353b5");
 		this.setTooltip("定义一个属性积木\n变量名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！");
 		this.setHelpUrl(HELP_URL);
 	}
@@ -119,7 +119,7 @@ Blockly.Blocks['ivw_addMethod'] = {
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setColour("#5574F8");
+		this.setColour("#c99342");
 		this.setTooltip("定义一个方法积木\n函数名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！");
 		this.setHelpUrl(HELP_URL);
 	}
@@ -179,7 +179,7 @@ Blockly.Blocks['ivw_events'] = {
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setColour("#5574F8");
+		this.setColour("#496eb8");
 		this.setTooltip("定义事件方法");
 		this.setHelpUrl(HELP_URL);
 	}
@@ -193,7 +193,7 @@ Blockly.Blocks['ivw_eventItem'] = {
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setColour("#5574F8");
+		this.setColour("#496eb8");
 		this.setTooltip("定义一个事件，放在事件列表里");
 		this.setHelpUrl(HELP_URL);
 	}
