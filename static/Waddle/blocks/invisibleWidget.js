@@ -114,7 +114,7 @@ Blockly.Blocks['ivw_addMethod'] = {
 		this.appendStatementInput("params")
 			.setCheck(null);
 		this.appendDummyInput()
-			.appendField("自定义字段")
+			.appendField("高级选项")
 		this.appendStatementInput("other")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
@@ -134,7 +134,7 @@ Blockly.Blocks['ivw_addParams'] = {
 			.appendField("标签")
 			.appendField(new Blockly.FieldTextInput("标签"), "label");
 		this.appendDummyInput()
-			.appendField("自定义字段")
+			.appendField("高级选项")
 		this.appendStatementInput("other")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
@@ -151,14 +151,15 @@ Blockly.Blocks['ivw_addEvent'] = {
 			.appendField("新建事件积木")
 			.appendField("函数名")
 			.appendField(new Blockly.FieldTextInput("eventName"), "key")
-			.appendField("标签")
-			.appendField(new Blockly.FieldTextInput("事件标签"), "label");
+			.appendField("当")
+			.appendField(new Blockly.FieldTextInput("发生什么"), "label")
+			.appendField("时");
 		this.appendDummyInput()
 			.appendField("参数")
 		this.appendStatementInput("params")
 			.setCheck(null);
 		this.appendDummyInput()
-			.appendField("自定义字段")
+			.appendField("高级选项")
 		this.appendStatementInput("other")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);

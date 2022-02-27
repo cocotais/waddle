@@ -649,13 +649,6 @@ TIP
 		</label>
 		<block type="ivw_addParams">
 			<statement name="other">
-				<block type="ivwAttri_valueType">
-					<value name="value">
-						<block type="text">
-							<field name="TEXT">值类型</field>
-						</block>
-					</value>
-				</block>
 			</statement>
 		</block>
 		<!-- </category> -->
