@@ -102,13 +102,9 @@
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"><img src="{{static_url('img/waddle.svg')}}"
 					style="height: 28px;padding-left: 15px;padding-bottom: 3px;" alt="Waddle" onClick="estchk()" /></a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-
-			</button>
+			
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<ul class="navbar-nav">
 					<li class="nav-item dropdown">
 						<a id="navbarDropdown" class="nav-link" href="#" role="button" title=""
 							data-bs-toggle="dropdown" one-link-mark="yes"><svg xmlns="http://www.w3.org/2000/svg"
@@ -317,6 +313,22 @@
 			background-color: #5439ce;
 			border-radius: 10%;
 		}
+        .navbar-collapse{
+            display: block!important;
+        }
+
+        .navbar-nav>li, .navbar-nav {
+            float: left !important;
+            text-decoration:none;
+        }
+
+        .navbar-nav.navbar-right:last-child {
+            margin-right: -15px !important;
+        }
+
+        .navbar-right {
+            float: right!important;
+        }
 	</style>
 	<!-- 代码框 -->
 	<div id="myModal" class="modal">
