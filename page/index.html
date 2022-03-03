@@ -173,7 +173,35 @@
 		<xml id="workspaceblocks" style="display: none">
 		</xml>
 	</div>
-	<script>document.body.style.overflow = 'hidden' //禁止页面滑动</script>
+	<script>
+	
+	document.body.style.overflow = 'hidden' //禁止页面滑动
+	function createjscssfile(filename, filetype){undefined
+        if (filetype=="js"){undefined
+            var fileref=document.createElement('script')
+            fileref.setAttribute("type","text/javascript")
+            fileref.setAttribute("src", filename)
+        }
+        else if (filetype=="css"){undefined
+            var fileref=document.createElement("link")
+            fileref.setAttribute("rel", "stylesheet")
+            fileref.setAttribute("type", "text/css")
+            fileref.setAttribute("href", filename)
+        }
+        return fileref
+    }
+    function replacejscssfile(oldfilename, newfilename, filetype){undefined
+        var targetelement=(filetype=="js")? "script" : (filetype=="css")? "link" : "none"
+        var targetattr=(filetype=="js")? "src" : (filetype=="css")? "href" : "none"
+        var allsuspects=document.getElementsByTagName(targetelement)
+        for (var i=allsuspects.length; i>=0; i--){undefined
+            if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(oldfilename)!=-1){undefined
+                var newelement=createjscssfile(newfilename, filetype)
+                allsuspects[i].parentNode.replaceChild(newelement, allsuspects[i])
+            }
+        }
+    }
+	</script>
 	<script>
 		//加载工作区
 		//积木盒
@@ -633,6 +661,8 @@
 			eval(dark)
 			document.cookie = "mode=dark";
 			//有bug，哪位大好人修一下
+            //回：ok?
+			replacejscssfile("{{static_url('css/blockly_style.css')}}", "{{static_url('css/blockly_style_dark.css')}}", "css");
 		}
 		var to_light = function () {
 			document.getElementsByTagName("nav")[0].style.backgroundColor = "#6d50f0"
@@ -647,6 +677,8 @@
 			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
 			eval(light)
 			document.cookie = "mode=light";
+			
+			replacejscssfile("{{static_url('css/blockly_style_dark.css')}}", "{{static_url('css/blockly_style.css')}}", "css");
 		}
 		var switch_theme = function () {
 			if (theme == "light") {
