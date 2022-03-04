@@ -9,7 +9,6 @@ class CustomCategory extends Blockly.ToolboxCategory {
 	}
 	// 覆盖原方法
 	addColourBorder_(colour) {
-		this.rowDiv_.style.backgroundColor = 'white';
 		var labelDom = this.rowDiv_.getElementsByClassName('blocklyTreeLabel')[0];
 		labelDom.style.color = colour;
 	}
@@ -24,7 +23,7 @@ class CustomCategory extends Blockly.ToolboxCategory {
 			labelDom.style.color = 'white';
 		} else {
 			// 未选中的类别背景色设置为白色
-			this.rowDiv_.style.backgroundColor = 'white';
+			this.rowDiv_.style.backgroundColor = '';
 			// 未选中的类别文本设置为原本的颜色
 			labelDom.style.color = this.colour_;
 		}

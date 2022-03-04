@@ -16,7 +16,7 @@
 	padding: 0 6px 0 12px;
 	cursor: pointer;
 	border-radius: 8px;
-	background-color: #525252!important;
+	background-color: #525252;
 	margin: 0 6px 4px;
 	font-size: 12px;
 
@@ -39,3 +39,12 @@
 .blocklyTreeSeparator {
 	border-bottom: #00000000;
 }
+/* Stacks the icon on top of the label. */
+/*.blocklyTreeRowContentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.blocklyTreeRow {
+    height: initial;
+}*/

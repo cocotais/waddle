@@ -3,7 +3,7 @@
 <head>
 	<script>
 		console.log("嘿，欢迎使用 Waddle!\n本工具基于Blockly开发，由 中子星000（QQ：2422481178）主理制作、MathCalculus（QQ：2504556268）与小鱼yuzifu（QQ：1906929246），刘lyxAndy（QQ：3449556207）协助制作、Epeiuss（QQ：2822603942）与海藻酸钠（QQ：3409473369）监制\n\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec")
-		console.log("V1.1-dev\n©️ 2022 CoCo Central, All rights reserved.")
+		console.log("V1.1.45.14-dev\n©️ 2022 CoCo Central, All rights reserved.")
 	</script>
 
 	<!--引入Blockly必要文件-->
@@ -74,6 +74,7 @@
 	<!--导入导航栏按钮函数-->
 	<script src="{{static_url('js/navFuncs.js')}}"></script>
 
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_3193112_h5i3zpicvcg.css">
 	<!--彩蛋定义-->
 	<script>
 		function estchk() {
@@ -98,7 +99,7 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6d50f0;">
+	<nav class="navbar navbar-expand navbar-dark" style="background-color: #6d50f0;">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"><img src="{{static_url('img/waddle.svg')}}"
 					style="height: 28px;padding-left: 15px;padding-bottom: 3px;" alt="Waddle" onClick="estchk()" /></a>
@@ -341,22 +342,13 @@
 			background-color: #5439ce;
 			border-radius: 10%;
 		}
-        .navbar-collapse{
-            display: block!important;
-        }
-
-        .navbar-nav>li, .navbar-nav {
-            float: left !important;
-            text-decoration:none;
-        }
-
-        .navbar-nav.navbar-right:last-child {
-            margin-right: -15px !important;
-        }
-
-        .navbar-right {
-            float: right!important;
-        }
+		.iconfont {
+			font-family: "iconfont" !important;
+			font-size: 18px;
+			font-style: normal;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+  		}
 	</style>
 	<!-- 代码框 -->
 	<div id="myModal" class="modal">
@@ -658,10 +650,9 @@
 			sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}';
 			document.body.appendChild(sty);
 			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
+			document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#525252"
 			eval(dark)
 			document.cookie = "mode=dark";
-			//有bug，哪位大好人修一下
-            //回：ok?
 			replacejscssfile("{{static_url('css/blockly_style.css')}}", "{{static_url('css/blockly_style_dark.css')}}", "css");
 		}
 		var to_light = function () {
@@ -675,9 +666,9 @@
 			sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
 			document.body.appendChild(sty);
 			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
+			document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#6d50f0"
 			eval(light)
 			document.cookie = "mode=light";
-			
 			replacejscssfile("{{static_url('css/blockly_style_dark.css')}}", "{{static_url('css/blockly_style.css')}}", "css");
 		}
 		var switch_theme = function () {

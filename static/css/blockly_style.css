@@ -1,4 +1,3 @@
-/* 算是临时解决方案吧，至少能区分了！ */
 .blocklyTreeLabel {
 	color: #6d50f0; 
 }
@@ -17,7 +16,6 @@
 	border-radius: 8px;
 	margin: 0 6px 4px;
 	font-size: 12px;
-	/* 算是临时解决方案吧，至少有了！ */
 	background-color: white;
 }
 
@@ -38,3 +36,13 @@
 .blocklyTreeSeparator {
 	border-bottom: #00000000;
 }
+
+/* Stacks the icon on top of the label. */
+/*.blocklyTreeRowContentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.blocklyTreeRow {
+    height: initial;
+}*/
