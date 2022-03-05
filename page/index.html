@@ -560,7 +560,6 @@
 			border-radius: 10px;
 			background-color: #fefefe;
 			margin: 0 auto;
-			border: 1px solid;
 			width: 60vw;
 			overflow: hidden;
 			height: 75vh;
@@ -569,7 +568,8 @@
 			-webkit-animation-name: animatetop;
 			-webkit-animation-duration: 0.4s;
 			animation-name: animatetop;
-			animation-duration: 0.4s
+			animation-duration: 0.4s;
+			background-color: #666666;
 		}
 		
 		.card {					
@@ -695,6 +695,7 @@
 			document.body.appendChild(sty);
 			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
 			document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#525252"
+			document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#666666"
 			eval(dark)
 			document.cookie = "mode=dark";
 			replacejscssfile("{{static_url('css/blockly_style.css')}}", "{{static_url('css/blockly_style_dark.css')}}", "css");
@@ -709,7 +710,8 @@
 			sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
 			document.body.appendChild(sty);
 			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
-			document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "rgb(245, 248, 250);"
+			document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#F5F8FA"
+			document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#fff"
 			eval(light)
 			document.cookie = "mode=light";
 			replacejscssfile("{{static_url('css/blockly_style_dark.css')}}", "{{static_url('css/blockly_style.css')}}", "css");
