@@ -10,7 +10,7 @@ class CustomCategory extends Blockly.ToolboxCategory {
 	// 覆盖原方法
 	addColourBorder_(colour) {
 		var labelDom = this.rowDiv_.getElementsByClassName('blocklyTreeLabel')[0];
-		labelDom.style.color = colour;
+		labelDom.style.color = '';
 	}
 	// 覆盖原方法
 	setSelected(isSelected) {
@@ -18,14 +18,14 @@ class CustomCategory extends Blockly.ToolboxCategory {
 		var labelDom = this.rowDiv_.getElementsByClassName('blocklyTreeLabel')[0];
 		if (isSelected) {
 			// 选中的类别背景色设置为原本的颜色
-			this.rowDiv_.style.backgroundColor = this.colour_;
+			this.rowDiv_.style.backgroundColor = "#E9EEF2";
 			// 选中的类别文本设置为白色
-			labelDom.style.color = 'white';
+			labelDom.style.color = '#525252';
 		} else {
 			// 未选中的类别背景色设置为白色
 			this.rowDiv_.style.backgroundColor = '';
 			// 未选中的类别文本设置为原本的颜色
-			labelDom.style.color = this.colour_;
+			labelDom.style.color = '';
 		}
 		// This is used for accessibility purposes.
 		Blockly.utils.aria.setState(/** @type {!Element} */(this.htmlDiv_),

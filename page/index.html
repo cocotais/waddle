@@ -74,7 +74,7 @@
 	<!--导入导航栏按钮函数-->
 	<script src="{{static_url('js/navFuncs.js')}}"></script>
 
-	<link rel="stylesheet" href="//at.alicdn.com/t/font_3193112_h5i3zpicvcg.css">
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_3193112_l62ftr4pl4h.css">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<!--彩蛋定义-->
 	<script>
@@ -520,7 +520,7 @@
 		<!-- 新建浮窗内容 -->
 		<div class="newsth-content">
 			<div class="newsth-header">
-				<img width="150" src="{{static_url('img/waddle.svg')}}"></img>
+				<img class="newsth-logo" width="40" src="{{static_url('img/files.svg')}}"></img>
 				<span class="newsth-close">&times;</span>
 			</div>
 			<div class="newsth-body">
@@ -557,10 +557,10 @@
 		/* 代码框内容 */
 		.newsth-content {
 			position: relative;
-			border-radius: 18px;
+			border-radius: 10px;
 			background-color: #fefefe;
 			margin: 0 auto;
-			border: 1px solid #888;
+			border: 1px solid;
 			width: 60vw;
 			overflow: hidden;
 			height: 75vh;
@@ -615,11 +615,17 @@
 
 		/* 关闭按钮 */
 		.newsth-close {
-			color: white;
+			color: #6d50f0;
 			font-weight: bold;
-			font-size: 40px;
+			font-size: 50px;
 			float: right;
-			line-height:28px; 
+			position: relative;
+			right: 4px;
+			line-height:32px; 
+		}
+		.newsth-logo {
+			position: relative;
+			left: 10px;
 		}
 
 		.newsth-close:hover,
@@ -631,9 +637,9 @@
 
 		.newsth-header {
 			padding: 20px 16px;
-			border-radius: 18px 18px 0 0;
-			background-color: #6d50f0;
-			color: white;
+			border-radius: 10px 10px 0 0;
+			background-color: rgb(245, 248, 250);
+			color: rgb(245, 248, 250);
 		}
 
 		.newsth-body {
@@ -703,7 +709,7 @@
 			sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
 			document.body.appendChild(sty);
 			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
-			document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#6d50f0"
+			document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "rgb(245, 248, 250);"
 			eval(light)
 			document.cookie = "mode=light";
 			replacejscssfile("{{static_url('css/blockly_style_dark.css')}}", "{{static_url('css/blockly_style.css')}}", "css");

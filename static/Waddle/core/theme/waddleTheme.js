@@ -26,8 +26,8 @@ WaddleTheme = Blockly.Theme.defineTheme('WaddleTheme', {
 	},
 	'componentStyles': {
 		workspaceBackgroundColour: "#F0EFF0",
-		toolboxBackgroundColour: "#F2F2F2",
-		flyoutBackgroundColour: "#F2F2F2CC",
+		toolboxBackgroundColour: "#FFFFFA",
+		flyoutBackgroundColour: "#FFFFFACC",
 	},
 });
 

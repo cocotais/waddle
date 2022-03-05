@@ -16,7 +16,7 @@ TIP 避免字符串积木出现空白字符
 TIP
 -->
 <toolbox>
-	<category name="控制" colour="#68CDFF">
+	<category name="控制" css-icon="iconfont waddle-control" colour="#68CDFF">
 		<block type="controls_whileUntil">
 		</block>
 		<block type="controls_repeat_ext">
@@ -75,7 +75,7 @@ TIP
 		<block type="logic_ternary">
 		</block>
 	</category>
-	<category name="数学" colour="#FEAE8A">
+	<category name="数学" css-icon="iconfont waddle-math" colour="#FEAE8A">
 		<block type="math_number">
 			<field name="NUM">
 				114514</field>
@@ -129,7 +129,7 @@ TIP
 		<block type="math_atan2">
 		</block>
 	</category>
-	<category name="文本" colour="#1ab293">
+	<category name="文本" css-icon="iconfont waddle-font" colour="#1ab293">
 		<block type="text">
 		</block>
 		<block type="text_length">
@@ -178,7 +178,7 @@ TIP
 			</value>
 		</block>
 	</category>
-	<category name="颜色" colour="20">
+	<category name="颜色" css-icon="iconfont waddle-colour" colour="20">
 		<block type="colour_picker">
 		</block>
 		<block type="colour_random">
@@ -224,9 +224,9 @@ TIP
 			</value>
 		</block>
 	</category>
-	<category name="变量" colour="#FFBB55" custom="VARIABLE">
+	<category name="变量" css-icon="iconfont waddle-variable" colour="#FFBB55" custom="VARIABLE">
 	</category>
-	<category name="列表" colour="#F9CC37">
+	<category css-icon="iconfont waddle-list" name="列表" colour="#F9CC37">
 		<block type="lists_create_with">
 			<mutation items="0">
 			</mutation>
@@ -287,10 +287,10 @@ TIP
 		<block type="lists_sort">
 		</block>
 	</category>
-	<category name="函数" colour="#F88767" custom="PROCEDURE">
+	<category name="函数" css-icon="iconfont waddle-fx" colour="#F88767" custom="PROCEDURE">
 	</category>
 	<!-- </category> -->
-	<category name="JavaScript" colour="180">
+	<category name="JS" css-icon="iconfont waddle-js" colour="180">
 		<label text="鸡肋积木">
 		</label>
 		<block type="js_usestrict">
@@ -360,7 +360,7 @@ TIP
 		<block type="js_base">
 		</block>
 	</category>
-	<category name="工具" colour="#0E7D65">
+	<category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">
 		<label text="工具.积木夹子">
 		</label>
 		<label text="方便积木分段，折叠；顶部注释积木夹子标签">
@@ -406,7 +406,7 @@ TIP
 	</category>
 	<sep>
 	</sep>
-	<category name="自定义控件" colour="#6d50f0">
+	<category name="自定义" css-icon="iconfont waddle-invisiblewidget" colour="#6d50f0">
 		<label text="蓝色属于自定义控件通用" colour="#5574F8">
 		</label>
 		<label text="紫色属于不可见控件专属" colour="#8647F3">
@@ -424,7 +424,7 @@ TIP
 		<label text="模板见框架与示例">
 		</label>
 	</category>
-	<category name="通用控件类型定义" colour="#5574F8">
+	<category name="类型定义" css-icon="iconfont waddle-visiblewidget" colour="#A15B5D">
 		<label text="模板见框架与示例">
 		</label>
 		<label text="通用类型定义">
@@ -519,7 +519,7 @@ TIP
 		<label text="模板见框架与示例">
 		</label>
 	</category>
-	<category name="通用控件实体定义" colour="#5574F8">
+	<category css-icon="iconfont waddle-visiblewidget" name="实体定义" colour="#A15B5D">
 		<block type="ivw_emit">
 			<value name="event">
 				<block type="text">
@@ -530,7 +530,7 @@ TIP
 		<block type="ivw_emitParameter">
 		</block>
 	</category>
-	<category name="框架与示例" colour="#6d50f0">
+	<category css-icon="iconfont waddle-example" name="框架" colour="#6d50f0">
 		<!-- <category name="基本框架" colour="#6d50f0"> -->
 		<label text="不可见控件基本框架">
 		</label>
