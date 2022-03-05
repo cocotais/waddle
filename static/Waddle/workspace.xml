@@ -6,7 +6,7 @@
 				<field name="type">MY_WIDGET</field>
 				<next>
 					<block type="ivw_itemIcon" id="ffxwnbffxwnbffxwnbnb">
-						<field name="icon">https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/purple-logo.png</field>
+						<field name="icon">https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/logo.png</field>
 						<next>
 							<block type="ivw_itemTitle" id="hzsnnbhzsnnbhzsnnbnb">
 								<field name="title">我的控件</field>

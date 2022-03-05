@@ -46,3 +46,11 @@
 .blocklyTreeRow {
     height: initial;
 }*/
+
+.blocklyFlyoutButton{
+	fill: #6d50f0;
+}
+
+.blocklyFlyoutButton:hover{
+	fill: #5439ce;
+}

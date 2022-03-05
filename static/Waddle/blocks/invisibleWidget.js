@@ -35,7 +35,7 @@ Blockly.Blocks['ivw_itemIcon'] = {
 	init: function () {
 		this.appendDummyInput()
 			.appendField("控件图标")
-			.appendField(new Blockly.FieldTextInput("https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/purple-logo.png"), "icon");
+			.appendField(new Blockly.FieldTextInput("https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/logo.png"), "icon");
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour("#5574F8");

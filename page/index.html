@@ -13,7 +13,7 @@
 	<script src="{{static_url('blockly-master/msg/js/zh-hans.js')}}"></script>
 
 	<meta charset="utf-8">
-	<link rel="shortcut icon" href="{{static_url('img/logo.png')}}">
+	<link rel="shortcut icon" href="{{static_url('img/logo.svg')}}">
 	<title>Waddle - 让CoCo没有难做的控件</title>
 
 	<!--图标库-->
@@ -75,13 +75,21 @@
 	<script src="{{static_url('js/navFuncs.js')}}"></script>
 
 	<link rel="stylesheet" href="//at.alicdn.com/t/font_3193112_h5i3zpicvcg.css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<!--彩蛋定义-->
 	<script>
 		function estchk() {
 			if (document.cookie.includes("easter")) {
-				alert("恭喜，你貌似触发了彩蛋！");
-				alert("马上去彩蛋！")
-				window.location.href = "/static/Waddle/eastegg/index.html";
+				swal("恭喜，你貌似触发了彩蛋！")
+				.then((value) => {
+					swal("马上去彩蛋！", {buttons: ["取 消", "确 认"],})
+					.then((value) => {
+						if (value){
+							window.location.href = "/static/Waddle/eastegg/index.html";
+						}
+					})
+				})
+				
 			} else {
 				document.cookie = "easter=1";
 			}
@@ -101,8 +109,8 @@
 <body>
 	<nav class="navbar navbar-expand navbar-dark" style="background-color: #6d50f0;">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><img src="{{static_url('img/waddle.svg')}}"
-					style="height: 28px;padding-left: 15px;padding-bottom: 3px;" alt="Waddle" onClick="estchk()" /></a>
+			<a class="navbar-brand" href="#"><img id="logo" src="{{static_url('img/waddle.svg')}}"
+					style="height: 30px;padding-left: 15px;padding-bottom: 3px;" alt="Waddle" onClick="estchk()" /></a>
 			
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav">
@@ -175,7 +183,12 @@
 		</xml>
 	</div>
 	<script>
-	
+	if ($(window).width() < 576){
+				logo.src = "{{static_url('img/logo.svg')}}";
+			}
+			else{
+				logo.src = "{{static_url('img/waddle.svg')}}";
+			}
 	document.body.style.overflow = 'hidden' //禁止页面滑动
 	function createjscssfile(filename, filetype){undefined
         if (filetype=="js"){undefined
@@ -212,7 +225,7 @@
 
 		}
 		else {
-			alert('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
+			swal('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
 		}
 
 		xmlhttp.open("GET", "{{static_url('Waddle/toolBox.xml')}}", false);
@@ -230,7 +243,7 @@
 
 		}
 		else {
-			alert('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
+			swal('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
 		}
 		xmlhttp.open("GET", "{{static_url('Waddle/workspace.xml')}}", false);
 
@@ -269,10 +282,6 @@
 	<script>
 		//各种函数
 		/* 搬迁了，在static/js/navFuncs.js */
-		let getjscode = function () {
-			var code = Blockly.JavaScript.workspaceToCode(workspace);
-			alert(code);
-		};
 
 		window.onbeforeunload = function () {
 			return "离开后，你的控件就没啦！";
@@ -304,11 +313,20 @@
         }
 	</script>
 	<script>
-		window.onresize = function () {
-			document.getElementById("table").style.height = (document.body.clientHeight - 57)
-			document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
+		let logo = document.getElementById("logo");
+		$(window).resize(function () {
+			if ($(window).width() < 576){
+				logo.src = "{{static_url('img/logo.svg')}}";
+			}
+			else{
+				logo.src = "{{static_url('img/waddle.svg')}}";
+			}
+		});
+		$(window).resize(function () {
+			document.getElementById("table").style.height = (document.body.clientHeight - 57);
+			document.getElementById("toolbox").style.height = (document.body.clientHeight - 57);
 			Blockly.svgResize(workspace);
-		}
+		});
 	</script>
 	<a href="" download="" style="display: none;" id="downa" aria-label="下载"></a>
 	<style>
@@ -339,7 +357,6 @@
 		}
 
 		.nav-item:hover {
-			background-color: #5439ce;
 			border-radius: 10%;
 		}
 		.iconfont {
@@ -349,6 +366,25 @@
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
   		}
+		.swal-footer {
+  			background-color: rgb(245, 248, 250);
+  			margin-top: 32px;
+			text-align: center;
+  			border-top: 1px solid #E9EEF1;
+  			overflow: hidden;
+		}
+		.swal-modal {
+			border-radius: 10px;
+			width:400px;
+		}
+		.swal-button--confirm {
+  			background-color: #6d50f0;
+		}
+		.swal-button--confirm:not([disabled]):hover{
+			background-color:#5439ce;
+		}
+		.swal-content__input:focus{outline:none;border-color:#6d50f0;}
+		.swal-content__input{border-radius: 10px;}
 	</style>
 	<!-- 代码框 -->
 	<div id="myModal" class="modal">
@@ -490,7 +526,7 @@
 			<div class="newsth-body">
 				<div class="card" onclick='newsth.style.display = "none";workspace.clear();'><span style="color: #6d50f0;line-height: 250px;font-weight: bold;
 					font-size: 30px;">空白作品</span></div>
-				<div class="card" onclick='alert("还没有呢～")'><span style="color: #6d50f0;line-height: 250px;font-weight: bold;
+				<div class="card" onclick='swal("还没有呢～")'><span style="color: #6d50f0;line-height: 250px;font-weight: bold;
 					font-size: 30px;">可见控件模版</span></div>
 				<div class="card" onclick='newsth.style.display = "none";workspace.clear();Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);'><span style="color: #6d50f0;line-height: 250px;font-weight: bold;
 					font-size: 30px;">不可见控件模版</span></div>
@@ -525,7 +561,8 @@
 			background-color: #fefefe;
 			margin: 0 auto;
 			border: 1px solid #888;
-			width: 50%;
+			width: 60vw;
+			overflow: hidden;
 			height: 75vh;
 			top: 12.5vh;
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -602,7 +639,8 @@
 		.newsth-body {
 			padding: 2px 16px;
 			overflow-y: auto;
-			height: 84%;
+			overflow-x: hidden;
+			height: 65vh;
 			text-align: center;
 		}
 	</style>
@@ -631,7 +669,7 @@
 			xmlhttp = new XMLHttpRequest();
 		}
 		else {
-			alert('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
+			swal('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
 		}
 		xmlhttp.open("GET", dark_url, false);
 		xmlhttp.send();
@@ -639,6 +677,7 @@
 		xmlhttp.open("GET", light_url, false);
 		xmlhttp.send();
 		light = xmlhttp.responseText;
+		var sty = document.createElement('style');
 		var to_dark = function () {
 			document.getElementsByTagName("nav")[0].style.backgroundColor = "#525252"
 			workspace.setTheme(DarkTheme);
@@ -646,7 +685,6 @@
             document.getElementById("moon-solid_3_").setAttribute('transform','translate(0 0)')
             document.getElementById("theme").setAttribute('width','27')
             document.getElementById("theme").setAttribute('height','27')
-			var sty = document.createElement('style');
 			sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}';
 			document.body.appendChild(sty);
 			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
@@ -662,7 +700,6 @@
             document.getElementById("moon-solid_3_").setAttribute('transform','translate(-32 -32)')
             document.getElementById("theme").setAttribute('width','23.5706')
             document.getElementById("theme").setAttribute('height','26.4')
-			var sty = document.createElement('style');
 			sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
 			document.body.appendChild(sty);
 			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
