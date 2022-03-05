@@ -13,9 +13,9 @@ import re
 
 header = '''
 <!--
-这个index.html是由.\\tools\\转换为静态页面.py自动生成的，需要修改index.html请到.\\pages\\index.html
-这个index.html是由.\\tools\\转换为静态页面.py自动生成的，需要修改index.html请到.\\pages\\index.html
-这个index.html是由.\\tools\\转换为静态页面.py自动生成的，需要修改index.html请到.\\pages\\index.html
+这个index.html是由./tools/转换为静态页面.py自动生成的，需要修改index.html请到./pages/index.html
+这个index.html是由./tools/转换为静态页面.py自动生成的，需要修改index.html请到./pages/index.html
+这个index.html是由./tools/转换为静态页面.py自动生成的，需要修改index.html请到./pages/index.html
 -->
 '''
 
@@ -34,9 +34,9 @@ def closeAllFiles():
         print(f, '未关闭') if not f.closed else 0
 
 
-inRoot = os.path.exists('.\\page\\index.html')
+inRoot = os.path.exists('./page/index.html')
 
-path = '.\\page\\index.html' if inRoot else '..\\page\\index.html'
+path = './page/index.html' if inRoot else '../page/index.html'
 index = open(path, 'r', encoding='UTF-8')
 html = index.read()
 
@@ -49,7 +49,7 @@ def repl(matched):
 
 
 new_html = re.sub(pattern, repl, html)
-new_path = '.\\index.html' if inRoot else '..\\index.html'
+new_path = './index.html' if inRoot else '../index.html'
 new_index = open(new_path, 'w', encoding='UTF-8')
 new_index.write(header + new_html)
 
