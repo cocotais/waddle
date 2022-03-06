@@ -2,8 +2,11 @@
 
 <head>
 	<script>
-		console.log("嘿，欢迎使用 Waddle!\n本工具基于Blockly开发，由 中子星000（QQ：2422481178）主理制作、MathCalculus（QQ：2504556268）与小鱼yuzifu（QQ：1906929246），刘lyxAndy（QQ：3449556207）协助制作、Epeiuss（QQ：2822603942）与海藻酸钠（QQ：3409473369）监制\n\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec")
-		console.log("V1.1.45.14-dev\n©️ 2022 CoCo Central, All rights reserved.")
+		console.log("%c ", "background: url(https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/cs.png);padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
+		console.log("%c嘿，欢迎使用 Waddle!","font-size:13px;color:rgb(222,154,81)")
+		console.log("%c\n本工具基于Blockly开发，由 中子星000（QQ：2422481178）主理制作、\nEpeiuss（Mail：ffxw0720@163.com）与海藻酸钠（QQ：3409473369）监制\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master","font-size:15px;color:rgb(179,222,255)")
+		console.log("%c\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec","font-size:14px;color:rgb(42,125,255)")
+		console.log("%cV1.1.45.14-dev  ©️ 2022 CoCo Central, All rights reserved.","color:red;")
 	</script>
 
 	<!--引入Blockly必要文件-->
@@ -85,7 +88,7 @@
 					swal("马上去彩蛋！", {buttons: ["取 消", "确 认"],})
 					.then((value) => {
 						if (value){
-							window.location.href = "/static/Waddle/eastegg/index.html";
+							window.location.href = "./static/Waddle/eastegg/index.html";
 						}
 					})
 				})
@@ -432,7 +435,7 @@
 			-webkit-animation-name: animateright;
 			-webkit-animation-duration: 0.4s;
 			animation-name: animateright;
-			animation-duration: 0.4s
+			animation-duration: 0.4s	
 		}
 
 		/* 添加动画 */
@@ -565,10 +568,8 @@
 			height: 75vh;
 			top: 12.5vh;
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			-webkit-animation-name: animatetop;
-			-webkit-animation-duration: 0.4s;
-			animation-name: animatetop;
-			animation-duration: 0.4s;
+			-webkit-animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 			background-color: #666666;
 		}
 		
@@ -588,30 +589,26 @@
 		}
 
 
-		/* 添加动画 */
-		@-webkit-keyframes animatetop {
-			from {
-				top: -300px;
-				opacity: 0
-			}
-
-			to {
-				top: 12.5vh;
-				opacity: 1
-			}
-		}
-
-		@keyframes animatetop {
-			from {
-				top: -300px;
-				opacity: 0
-			}
-
-			to {
-				top: 12.5vh;
-				opacity: 1
-			}
-		}
+		@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
 
 		/* 关闭按钮 */
 		.newsth-close {

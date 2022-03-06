@@ -86,7 +86,7 @@ var get_num = 0;
 let count = function () {
     get_num++;
     if (get_num >= 5) {
-        window.open("/static/Waddle/eastegg/aiwidget.html")
+        window.open("./static/Waddle/eastegg/aiwidget.html")
         get_num = -999;
     }
 }
