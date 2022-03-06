@@ -1,9 +1,9 @@
-let craft = function () {
+`let craft = function () {
     workspace.clear();
     /* 加载初始积木 */
     Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
     alert('这里放一个向导');
-}
+}`
 
 let js_save = function () {
     let code_data = Blockly.JavaScript.workspaceToCode(workspace);

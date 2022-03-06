@@ -61,3 +61,6 @@
 .blocklyFlyoutButton:hover{
 	fill: #5439ce;
 }
+.blocklyTreeRow:not(.blocklyTreeSelected):hover{
+	background-color: #DCDCDC;
+}
