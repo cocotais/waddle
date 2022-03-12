@@ -320,7 +320,7 @@ ZoomControls.prototype.createZoomOutSvg_ = function(rnd) {
       <rect width="32" height="32></rect>
     </clipPath>
     <image width="96" height="124" x="-64" y="-92"
-  xlink:href="media/sprites.png"
+  xlink:href="media/sprites.svg"
         clip-path="url(#blocklyZoomoutClipPath837493)"></image>
   </g>
   */
@@ -366,7 +366,7 @@ ZoomControls.prototype.createZoomInSvg_ = function(rnd) {
       <rect width="32" height="32"></rect>
     </clipPath>
     <image width="96" height="124" x="-32" y="-92"
-  xlink:href="media/sprites.png"
+  xlink:href="media/sprites.svg"
         clip-path="url(#blocklyZoominClipPath837493)"></image>
   </g>
   */
@@ -429,7 +429,7 @@ ZoomControls.prototype.createZoomResetSvg_ = function(rnd) {
       <rect width="32" height="32"></rect>
     </clipPath>
     <image width="96" height="124" x="-32" y="-92"
-  xlink:href="media/sprites.png"
+  xlink:href="media/sprites.svg"
         clip-path="url(#blocklyZoomresetClipPath837493)"></image>
   </g>
   */
