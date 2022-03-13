@@ -89,8 +89,8 @@ Blockly.Blocks['ivw_addProperty'] = {
 			.appendField("新建属性积木")
 			.appendField("变量名")
 			.appendField(new Blockly.FieldTextInput("propertyName"), "key")
-			.appendField("标签")
-			.appendField(new Blockly.FieldTextInput("属性标签"), "label");
+			.appendField("属性名")
+			.appendField(new Blockly.FieldTextInput("属性1"), "label");
 		this.appendStatementInput("other")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
@@ -107,8 +107,8 @@ Blockly.Blocks['ivw_addMethod'] = {
 			.appendField("新建方法积木")
 			.appendField("函数名")
 			.appendField(new Blockly.FieldTextInput("methodName"), "key")
-			.appendField("标签")
-			.appendField(new Blockly.FieldTextInput("方法标签"), "label");
+			.appendField("方法名")
+			.appendField(new Blockly.FieldTextInput("方法1"), "label");
 		this.appendDummyInput()
 			.appendField("参数")
 		this.appendStatementInput("params")
@@ -132,7 +132,7 @@ Blockly.Blocks['ivw_addParams'] = {
 			.appendField("参数")
 			.appendField(new Blockly.FieldTextInput("paramName"), "key")
 			.appendField("标签")
-			.appendField(new Blockly.FieldTextInput("标签"), "label");
+			.appendField(new Blockly.FieldTextInput("参数名"), "label");
 		this.appendDummyInput()
 			.appendField("高级选项")
 		this.appendStatementInput("other")
@@ -152,7 +152,7 @@ Blockly.Blocks['ivw_addEvent'] = {
 			.appendField("函数名")
 			.appendField(new Blockly.FieldTextInput("eventName"), "key")
 			.appendField("当")
-			.appendField(new Blockly.FieldTextInput("发生什么"), "label")
+			.appendField(new Blockly.FieldTextInput("事件1"), "label")
 			.appendField("时");
 		this.appendDummyInput()
 			.appendField("参数")
