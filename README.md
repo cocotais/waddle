@@ -32,15 +32,13 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 #### 安装
 
 1. 进入并clone仓库（[https://gitee.com/coco-ag/coco-waddle](https://gitee.com/coco-ag/coco-waddle)）
-1. 确定你本地是否已安装了python(3.5+)以及pip
-1. 接下来请在终端执行 `pip install tornado`（unix环境下运行`pip3 install tornado`）
 <a name="CWe8n"></a>
 #### 运行
 
 1. 打开项目文件夹
-1. 在命令行<br />Windows：运行命令 `python server.py 8080` 或双击运行 runserver(win).cmd<br />unix：运行命令 `python3 server.py 8080`
-1. 确认8080端口没有占用（占用了请回到第二步自定义端口）
-1. 浏览器打开 [http://localhost:8080](http://localhost:8080)
+2. 在命令行运行命令 `python -m http.server 8000` 或双击运行 runserver(win).cmd
+3. 确认8000端口没有占用（占用了请回到第二步自定义端口）
+4. 浏览器打开 [http://localhost:8000](http://localhost:8000)
 <a name="y31wE"></a>
 #   遇到Bug/有好建议
 如果你遇到了Bug或者有了好建议，可以选择在 [Issues页（优先处理）](https://gitee.com/coco-ag/coco-waddle/issues) 反馈，可以在 [反馈表单](https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec) 内填写！我们会尽快处理！

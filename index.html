@@ -1,18 +1,12 @@
-
-<!--
-这个index.html是由./tools/转换为静态页面.py自动生成的，需要修改index.html请到./pages/index.html
-这个index.html是由./tools/转换为静态页面.py自动生成的，需要修改index.html请到./pages/index.html
-这个index.html是由./tools/转换为静态页面.py自动生成的，需要修改index.html请到./pages/index.html
--->
 <html lang="zh">
 
 <head>
 	<script>
 		console.log("%c ", "background: url(https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/cs.png);padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
-		console.log("%c嘿，欢迎使用 Waddle!","font-size:13px;color:rgb(222,154,81)")
-		console.log("%c\n本工具基于Blockly开发，由 中子星000（QQ：2422481178）主理制作、\nEpeiuss（Mail：ffxw0720@163.com）与海藻酸钠（QQ：3409473369）监制\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master","font-size:15px;color:rgb(179,222,255)")
-		console.log("%c\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec","font-size:14px;color:rgb(42,125,255)")
-		console.log("%cV1.1.45.14-dev  ©️ 2022 CoCo Central, All rights reserved.","color:red;")
+		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
+		console.log("%c\n本工具基于Blockly开发，由 中子星000（QQ：2422481178）主理制作、\nEpeiuss（Mail：ffxw0720@163.com）与海藻酸钠（QQ：3409473369）监制\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
+		console.log("%c\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec", "font-size:14px;color:rgb(42,125,255)")
+		console.log("%cV1.1.45.14-dev  ©️ 2022 CoCo Central, All rights reserved.", "color:red;")
 	</script>
 
 	<!--引入Blockly必要文件-->
@@ -44,7 +38,7 @@
 	<script src="./static/js/bootstrap.bundle.min.js"></script>
 	<link href="./static/css/bootstrap.min.css" rel="stylesheet">
 
-    <!--引入高亮-->
+	<!--引入高亮-->
 	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
 	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/styles/googlecode.min.css" rel="stylesheet">
@@ -90,15 +84,15 @@
 		function estchk() {
 			if (document.cookie.includes("easter")) {
 				swal("恭喜，你貌似触发了彩蛋！")
-				.then((value) => {
-					swal("马上去彩蛋！", {buttons: ["取 消", "确 认"],})
 					.then((value) => {
-						if (value){
-							window.location.href = "./static/Waddle/eastegg/index.html";
-						}
+						swal("马上去彩蛋！", { buttons: ["取 消", "确 认"], })
+							.then((value) => {
+								if (value) {
+									window.location.href = "./static/Waddle/eastegg/index.html";
+								}
+							})
 					})
-				})
-				
+
 			} else {
 				document.cookie = "easter=1";
 			}
@@ -120,7 +114,7 @@
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"><img id="logo" src="./static/img/waddle.svg"
 					style="height: 30px;padding-left: 15px;padding-bottom: 3px;" alt="Waddle" onClick="estchk()" /></a>
-			
+
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav">
 					<li class="nav-item dropdown">
@@ -131,7 +125,8 @@
 									d="M7,125a7,7,0,0,1-7-7V57a7,7,0,0,1,7-7H123a7,7,0,0,1,7,7v61a7,7,0,0,1-7,7ZM4.667,35A4.667,4.667,0,0,1,0,30.334V7A7,7,0,0,1,7,0H48.823A20,20,0,0,1,68.6,17h48.067A13.334,13.334,0,0,1,130,30.334,4.667,4.667,0,0,1,125.333,35Z" />
 							</svg></a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="javascript:void(0)" onClick='newsth.style.display = "block"'>新建</a></li>
+							<li><a class="dropdown-item" href="javascript:void(0)"
+									onClick='newsth.style.display = "block"'>新建</a></li>
 							<li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存到电脑</a></li>
 							<li><a class="dropdown-item" href="javascript:void(0)" onClick="openfile()">打开Waddle文件</a>
 							</li>
@@ -160,8 +155,8 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="https://www.yuque.com/appcraft/waddle" title="关于"
-							target="_blank" onclick="count()">
+						<a class="nav-link" href="https://www.yuque.com/appcraft/waddle" title="关于" target="_blank"
+							onclick="count()">
 							<svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor"
 								viewBox="0 0 135 135">
 								<path id="circle-question-solid"
@@ -171,9 +166,12 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="javascript:void(0)" title="主题" onclick="switch_theme()">
-							<svg id="theme" xmlns="http://www.w3.org/2000/svg" width="23.5706" height="26.4" fill="currentColor" viewBox="0 0 135 135">
-                                <path id="moon-solid_3_" data-name="moon-solid (3)" d="M32,98A65.973,65.973,0,0,1,97.941,32a79.615,79.615,0,0,1,12.051,1.1,3.1,3.1,0,0,1,.966,5.728,51.7,51.7,0,0,0,35.216,95.734,3.1,3.1,0,0,1,2.979,4.994A65.919,65.919,0,0,1,32,98Z" transform="translate(-32 -32)"/>
-                            </svg>
+							<svg id="theme" xmlns="http://www.w3.org/2000/svg" width="23.5706" height="26.4"
+								fill="currentColor" viewBox="0 0 135 135">
+								<path id="moon-solid_3_" data-name="moon-solid (3)"
+									d="M32,98A65.973,65.973,0,0,1,97.941,32a79.615,79.615,0,0,1,12.051,1.1,3.1,3.1,0,0,1,.966,5.728,51.7,51.7,0,0,0,35.216,95.734,3.1,3.1,0,0,1,2.979,4.994A65.919,65.919,0,0,1,32,98Z"
+									transform="translate(-32 -32)" />
+							</svg>
 						</a>
 					</li>
 					<!--菜单栏图标全由海藻酸钠绘制-->
@@ -192,38 +190,44 @@
 		</xml>
 	</div>
 	<script>
-	if ($(window).width() < 576){
-				logo.src = "./static/img/logo.svg";
+		if ($(window).width() < 576) {
+			logo.src = "./static/img/logo.svg";
+		}
+		else {
+			logo.src = "./static/img/waddle.svg";
+		}
+		document.body.style.overflow = 'hidden' //禁止页面滑动
+		function createjscssfile(filename, filetype) {
+			undefined
+			if (filetype == "js") {
+				undefined
+				var fileref = document.createElement('script')
+				fileref.setAttribute("type", "text/javascript")
+				fileref.setAttribute("src", filename)
 			}
-			else{
-				logo.src = "./static/img/waddle.svg";
+			else if (filetype == "css") {
+				undefined
+				var fileref = document.createElement("link")
+				fileref.setAttribute("rel", "stylesheet")
+				fileref.setAttribute("type", "text/css")
+				fileref.setAttribute("href", filename)
 			}
-	document.body.style.overflow = 'hidden' //禁止页面滑动
-	function createjscssfile(filename, filetype){undefined
-        if (filetype=="js"){undefined
-            var fileref=document.createElement('script')
-            fileref.setAttribute("type","text/javascript")
-            fileref.setAttribute("src", filename)
-        }
-        else if (filetype=="css"){undefined
-            var fileref=document.createElement("link")
-            fileref.setAttribute("rel", "stylesheet")
-            fileref.setAttribute("type", "text/css")
-            fileref.setAttribute("href", filename)
-        }
-        return fileref
-    }
-    function replacejscssfile(oldfilename, newfilename, filetype){undefined
-        var targetelement=(filetype=="js")? "script" : (filetype=="css")? "link" : "none"
-        var targetattr=(filetype=="js")? "src" : (filetype=="css")? "href" : "none"
-        var allsuspects=document.getElementsByTagName(targetelement)
-        for (var i=allsuspects.length; i>=0; i--){undefined
-            if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(oldfilename)!=-1){undefined
-                var newelement=createjscssfile(newfilename, filetype)
-                allsuspects[i].parentNode.replaceChild(newelement, allsuspects[i])
-            }
-        }
-    }
+			return fileref
+		}
+		function replacejscssfile(oldfilename, newfilename, filetype) {
+			undefined
+			var targetelement = (filetype == "js") ? "script" : (filetype == "css") ? "link" : "none"
+			var targetattr = (filetype == "js") ? "src" : (filetype == "css") ? "href" : "none"
+			var allsuspects = document.getElementsByTagName(targetelement)
+			for (var i = allsuspects.length; i >= 0; i--) {
+				undefined
+				if (allsuspects[i] && allsuspects[i].getAttribute(targetattr) != null && allsuspects[i].getAttribute(targetattr).indexOf(oldfilename) != -1) {
+					undefined
+					var newelement = createjscssfile(newfilename, filetype)
+					allsuspects[i].parentNode.replaceChild(newelement, allsuspects[i])
+				}
+			}
+		}
 	</script>
 	<script>
 		//加载工作区
@@ -309,25 +313,23 @@
 	</script>
 	<script>
 		//获取cookie
-        function getCookie(cname)
-        {
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for(var i=0; i<ca.length; i++) 
-            {
-                var c = ca[i].trim();
-                if (c.indexOf(name)==0) return c.substring(name.length,c.length);
-            }
-            return "";
-        }
+		function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i].trim();
+				if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+			}
+			return "";
+		}
 	</script>
 	<script>
 		let logo = document.getElementById("logo");
 		$(window).resize(function () {
-			if ($(window).width() < 576){
+			if ($(window).width() < 576) {
 				logo.src = "./static/img/logo.svg";
 			}
-			else{
+			else {
 				logo.src = "./static/img/waddle.svg";
 			}
 		});
@@ -368,32 +370,44 @@
 		.nav-item:hover {
 			border-radius: 10%;
 		}
+
 		.iconfont {
 			font-family: "iconfont" !important;
 			font-size: 18px;
 			font-style: normal;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
-  		}
-		.swal-footer {
-  			background-color: rgb(245, 248, 250);
-  			margin-top: 32px;
-			text-align: center;
-  			border-top: 1px solid #E9EEF1;
-  			overflow: hidden;
 		}
+
+		.swal-footer {
+			background-color: rgb(245, 248, 250);
+			margin-top: 32px;
+			text-align: center;
+			border-top: 1px solid #E9EEF1;
+			overflow: hidden;
+		}
+
 		.swal-modal {
 			border-radius: 10px;
-			width:400px;
+			width: 400px;
 		}
+
 		.swal-button--confirm {
-  			background-color: #6d50f0;
+			background-color: #6d50f0;
 		}
-		.swal-button--confirm:not([disabled]):hover{
-			background-color:#5439ce;
+
+		.swal-button--confirm:not([disabled]):hover {
+			background-color: #5439ce;
 		}
-		.swal-content__input:focus{outline:none;border-color:#6d50f0;}
-		.swal-content__input{border-radius: 10px;}
+
+		.swal-content__input:focus {
+			outline: none;
+			border-color: #6d50f0;
+		}
+
+		.swal-content__input {
+			border-radius: 10px;
+		}
 	</style>
 	<!-- 代码框 -->
 	<div id="myModal" class="modal">
@@ -441,7 +455,7 @@
 			-webkit-animation-name: animateright;
 			-webkit-animation-duration: 0.4s;
 			animation-name: animateright;
-			animation-duration: 0.4s	
+			animation-duration: 0.4s
 		}
 
 		/* 添加动画 */
@@ -501,7 +515,7 @@
 		function myUpdateFunction(event) {
 			var code = Blockly.JavaScript.workspaceToCode(workspace);
 			document.getElementById("codeArea").innerHTML = code;
-            hljs.highlightBlock(document.getElementById("codeArea"))
+			hljs.highlightBlock(document.getElementById("codeArea"))
 		}
 		workspace.addChangeListener(myUpdateFunction);
 
@@ -523,7 +537,7 @@
 			modal.style.display = "none";
 		}
 	</script>
-    
+
 	<!-- 新建浮窗 -->
 	<div id="mynewsth" class="newsth">
 		<!-- 新建浮窗内容 -->
@@ -537,7 +551,9 @@
 					font-size: 30px;">空白作品</span></div>
 				<div class="card" onclick='swal("还没有呢～")'><span style="color: #6d50f0;line-height: 250px;font-weight: bold;
 					font-size: 30px;">可见控件模版</span></div>
-				<div class="card" onclick='newsth.style.display = "none";workspace.clear();Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);'><span style="color: #6d50f0;line-height: 250px;font-weight: bold;
+				<div class="card"
+					onclick='newsth.style.display = "none";workspace.clear();Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);'>
+					<span style="color: #6d50f0;line-height: 250px;font-weight: bold;
 					font-size: 30px;">不可见控件模版</span></div>
 			</div>
 		</div>
@@ -575,46 +591,49 @@
 			top: 12.5vh;
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			-webkit-animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+			animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 			background-color: #666666;
 		}
-		
-		.card {					
-			display:inline-block;
+
+		.card {
+			display: inline-block;
 			margin: 10px;
 			width: 250px;
- 			height: 250px;
- 			background: rgb(255, 255, 255);
- 			border-radius: 0.4em;
- 			transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
- 			border: rgb(250, 250, 250) 0.2em solid;
-		}	
+			height: 250px;
+			background: rgb(255, 255, 255);
+			border-radius: 0.4em;
+			transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			border: rgb(250, 250, 250) 0.2em solid;
+		}
 
 		.card:hover {
- 			border: #006fff 0.2em solid;
+			border: #006fff 0.2em solid;
 		}
 
 
 		@-webkit-keyframes scale-up-center {
-  0% {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-@keyframes scale-up-center {
-  0% {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
+			0% {
+				-webkit-transform: scale(0.5);
+				transform: scale(0.5);
+			}
+
+			100% {
+				-webkit-transform: scale(1);
+				transform: scale(1);
+			}
+		}
+
+		@keyframes scale-up-center {
+			0% {
+				-webkit-transform: scale(0.5);
+				transform: scale(0.5);
+			}
+
+			100% {
+				-webkit-transform: scale(1);
+				transform: scale(1);
+			}
+		}
 
 		/* 关闭按钮 */
 		.newsth-close {
@@ -624,8 +643,9 @@
 			float: right;
 			position: relative;
 			right: 4px;
-			line-height:32px; 
+			line-height: 32px;
 		}
+
 		.newsth-logo {
 			position: relative;
 			left: 10px;
@@ -660,15 +680,15 @@
 		var newsthspan = document.getElementsByClassName("newsth-close")[0];
 
 		// 点击 <span> (x), 关闭代码框
-        newsthspan.onclick = function () {
+		newsthspan.onclick = function () {
 			newsth.style.display = "none";
 		}
 	</script>
-    <script>
-        var theme = getCookie('mode')
-    </script>
 	<script>
-        
+		var theme = getCookie('mode')
+	</script>
+	<script>
+
 		document.getElementById("table").style.height = (document.body.clientHeight - 57)
 		document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
 		Blockly.svgResize(workspace);
@@ -690,10 +710,10 @@
 		var to_dark = function () {
 			document.getElementsByTagName("nav")[0].style.backgroundColor = "#525252"
 			workspace.setTheme(DarkTheme);
-			document.getElementById("moon-solid_3_").setAttribute('d','M37.246,131.693,32.052,103,3.313,97.817a4.016,4.016,0,0,1-2.59-6.243l16.65-23.955L.722,43.429a3.85,3.85,0,0,1,2.59-6l28.75-5.185,4.951-28.7A4.026,4.026,0,0,1,43.267.955L67.5,17.578,91.491.721a4.025,4.025,0,0,1,6.254,2.586L102.94,32l28.739,5.185a4.016,4.016,0,0,1,2.59,6.243l-16.65,23.955,16.663,24.19a4.02,4.02,0,0,1-2.6,6.245L102.941,103l-5.194,28.69a4.025,4.025,0,0,1-6.254,2.586l-24-16.622-24,16.623a4.021,4.021,0,0,1-6.254-2.586Zm-3.26-64.075A33.512,33.512,0,1,0,67.5,34.164,33.468,33.468,0,0,0,33.986,67.619ZM47,67.5A20.5,20.5,0,1,1,67.5,88,20.5,20.5,0,0,1,47,67.5Z');
-            document.getElementById("moon-solid_3_").setAttribute('transform','translate(0 0)')
-            document.getElementById("theme").setAttribute('width','27')
-            document.getElementById("theme").setAttribute('height','27')
+			document.getElementById("moon-solid_3_").setAttribute('d', 'M37.246,131.693,32.052,103,3.313,97.817a4.016,4.016,0,0,1-2.59-6.243l16.65-23.955L.722,43.429a3.85,3.85,0,0,1,2.59-6l28.75-5.185,4.951-28.7A4.026,4.026,0,0,1,43.267.955L67.5,17.578,91.491.721a4.025,4.025,0,0,1,6.254,2.586L102.94,32l28.739,5.185a4.016,4.016,0,0,1,2.59,6.243l-16.65,23.955,16.663,24.19a4.02,4.02,0,0,1-2.6,6.245L102.941,103l-5.194,28.69a4.025,4.025,0,0,1-6.254,2.586l-24-16.622-24,16.623a4.021,4.021,0,0,1-6.254-2.586Zm-3.26-64.075A33.512,33.512,0,1,0,67.5,34.164,33.468,33.468,0,0,0,33.986,67.619ZM47,67.5A20.5,20.5,0,1,1,67.5,88,20.5,20.5,0,0,1,47,67.5Z');
+			document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(0 0)')
+			document.getElementById("theme").setAttribute('width', '27')
+			document.getElementById("theme").setAttribute('height', '27')
 			sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}';
 			document.body.appendChild(sty);
 			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
@@ -706,10 +726,10 @@
 		var to_light = function () {
 			document.getElementsByTagName("nav")[0].style.backgroundColor = "#6d50f0"
 			workspace.setTheme(WaddleTheme);
-			document.getElementById("moon-solid_3_").setAttribute('d',"M32,98A65.973,65.973,0,0,1,97.941,32a79.615,79.615,0,0,1,12.051,1.1,3.1,3.1,0,0,1,.966,5.728,51.7,51.7,0,0,0,35.216,95.734,3.1,3.1,0,0,1,2.979,4.994A65.919,65.919,0,0,1,32,98Z");
-            document.getElementById("moon-solid_3_").setAttribute('transform','translate(-32 -32)')
-            document.getElementById("theme").setAttribute('width','23.5706')
-            document.getElementById("theme").setAttribute('height','26.4')
+			document.getElementById("moon-solid_3_").setAttribute('d', "M32,98A65.973,65.973,0,0,1,97.941,32a79.615,79.615,0,0,1,12.051,1.1,3.1,3.1,0,0,1,.966,5.728,51.7,51.7,0,0,0,35.216,95.734,3.1,3.1,0,0,1,2.979,4.994A65.919,65.919,0,0,1,32,98Z");
+			document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(-32 -32)')
+			document.getElementById("theme").setAttribute('width', '23.5706')
+			document.getElementById("theme").setAttribute('height', '26.4')
 			sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
 			document.body.appendChild(sty);
 			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
@@ -744,7 +764,7 @@
 				}
 			}
 		}
-        hljs.initHighlightingOnLoad();
+		hljs.initHighlightingOnLoad();
 	</script>
 </body>
 
