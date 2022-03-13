@@ -420,6 +420,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<span>转换代码浏览</span>
+				<span class="copy">复制</span>
 				<span class="close">&times;</span>
 			</div>
 			<div class="modal-body">
@@ -489,15 +490,15 @@
 		}
 
 		/* 关闭按钮 */
-		.close {
+		.close .copy {
 			color: white;
 			float: right;
 			font-size: 28px;
 			font-weight: bold;
 		}
 
-		.close:hover,
-		.close:focus {
+		.close:hover .copy:hover,
+		.close:focus .copy:focus {
 			color: #000;
 			text-decoration: none;
 			cursor: pointer;
@@ -532,6 +533,9 @@
 		// 获取 <span> 元素，用于关闭弹窗 that closes the modal
 		var span = document.getElementsByClassName("close")[0];
 
+		// 复制代码
+		var copy = document.getElementsByClassName("copy")[0];
+
 		// 点击按钮打开代码框
 		btn.onclick = function () {
 			modal.style.display = "block";
@@ -540,6 +544,13 @@
 		// 点击 <span> (x), 关闭代码框
 		span.onclick = function () {
 			modal.style.display = "none";
+		}
+
+		// 点击复制，复制代码
+		copy.onclick = function () {
+			var code = Blockly.JavaScript.workspaceToCode(workspace);
+			navigator.clipboard.writeText(code);
+			alert("复制成功！");
 		}
 	</script>
 
