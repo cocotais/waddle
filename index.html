@@ -84,7 +84,7 @@
 	<script>
 		function estchk() {
 			if (document.cookie.includes("easter")) {
-				swal("恭喜，你貌似触发了彩蛋！")
+				swal("彩蛋","恭喜，你貌似触发了彩蛋！","success")
 					.then((value) => {
 						swal("马上去彩蛋！", { buttons: ["取 消", "确 认"], })
 							.then((value) => {
