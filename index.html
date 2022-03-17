@@ -1,6 +1,8 @@
 <html lang="zh">
 
 <head>
+	<meta charset="utf-8">
+
 	<script>
 		console.log("%c ", "background: url(https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/cs.png);padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
@@ -10,98 +12,7 @@
 	</script>
 
 	<!--引入Blockly必要文件-->
-	<script src="./static/blockly-master/blockly_compressed.js"></script>
-	<script src="./static/blockly-master/javascript_compressed.js"></script>
-	<script src="./static/blockly-master/blocks_compressed.js"></script>
-	<script src="./static/blockly-master/msg/js/zh-hans.js"></script>
-
-	<meta charset="utf-8">
-	<link rel="shortcut icon" href="./static/img/logo.svg">
-	<title>Waddle - 让CoCo没有难做的控件</title>
-
-	<!--图标库-->
-	<script src="./static/icons/waddle/iconfont.js"></script>
-
-
-	<!--定义Blocks-->
-	<!-- <script src="static/blockly-master/blocks/invisibleWidget.js"></script> -->
-	<!-- <script src="static/blockly-master/blocks/coco.js"></script> -->
-	<script src="./static/blockly-master/blocks/js.js"></script>
-	<script src="./static/Waddle/blocks/procedures.js"></script>
-
-	<!--Blocks 对应代码-->
-	<!-- <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script> -->
-	<!-- <script src="static/blockly-master/generators/javascript/coco.js"></script> -->
-	<script src="./static/blockly-master/generators/javascript/js.js"></script>
-
-	<!--引入框架-->
-	<script src="./static/js/jquery-3.4.1.min.js"></script>
-	<script src="./static/js/bootstrap.bundle.min.js"></script>
-	<link href="./static/css/bootstrap.min.css" rel="stylesheet">
-
-	<!--引入高亮-->
-	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
-	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/styles/googlecode.min.css" rel="stylesheet">
-
-	<!--自定义Blockly样式-->
-	<script src="./static/Waddle/custom_category.js"></script>
-	<link href="./static/css/blockly_style.css" rel="stylesheet" />
-	<!--包含toolbox和积木-->
-
-	<!--自定义积木样式-->
-	<script src="./static/Waddle/custom_renderer.js"></script>
-
-	<!--自定义网格样式-->
-	<script src="./static/Waddle/custom_grid.js"></script>
-
-	<!--引入Waddle主题-->
-	<script src="./static/Waddle/core/theme/waddleTheme.js"></script>
-
-	<!--引入tools积木-->
-	<script src="./static/Waddle/blocks/tools.js"></script>
-	<script src="./static/Waddle/generators/javascript/tools.js"></script>
-
-	<!--JavaScript积木-->
-	<script src="./static/blockly-master/blocks/js.js"></script>
-	<script src="./static/blockly-master/generators/javascript/js.js"></script>
-
-	<!--JavaScript积木-->
-	<script src="./static/blockly-master/blocks/html.js"></script>
-	<script src="./static/blockly-master/generators/javascript/html.js"></script>
-
-
-	<!--不可见控件积木-->
-	<script src="./static/Waddle/blocks/invisibleWidget.js"></script>
-	<script src="./static/Waddle/generators/javascript/invisibleWidget.js"></script>
-
-	<!--导入导航栏按钮函数-->
-	<script src="./static/js/navFuncs.js"></script>
-
-	<link rel="stylesheet" href="//at.alicdn.com/t/font_3193112_l62ftr4pl4h.css">
-	<!--sweetalert-->
-	<!--<script src="./static/js/sweetalert.min.js"></script>-->
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-	<!--彩蛋定义-->
-	<script>
-		function estchk() {
-			if (document.cookie.includes("easter")) {
-				swal("彩蛋","恭喜，你貌似触发了彩蛋！","success")
-					.then((value) => {
-						swal("马上去彩蛋！", { buttons: ["取 消", "确 认"], })
-							.then((value) => {
-								if (value) {
-									window.location.href = "./static/Waddle/eastegg/index.html";
-								}
-							})
-					})
-
-			} else {
-				document.cookie = "easter=1";
-			}
-		}
-	</script>
-
+	
 	<style>
 		.nav-item {
 			font-size: 25px;
@@ -192,160 +103,7 @@
 		<xml id="workspaceblocks" style="display: none">
 		</xml>
 	</div>
-	<script>
-		if ($(window).width() < 576) {
-			logo.src = "./static/img/logo.svg";
-		}
-		else {
-			logo.src = "./static/img/waddle.svg";
-		}
-		document.body.style.overflow = 'hidden' //禁止页面滑动
-		function createjscssfile(filename, filetype) {
-			undefined
-			if (filetype == "js") {
-				undefined
-				var fileref = document.createElement('script')
-				fileref.setAttribute("type", "text/javascript")
-				fileref.setAttribute("src", filename)
-			}
-			else if (filetype == "css") {
-				undefined
-				var fileref = document.createElement("link")
-				fileref.setAttribute("rel", "stylesheet")
-				fileref.setAttribute("type", "text/css")
-				fileref.setAttribute("href", filename)
-			}
-			return fileref
-		}
-		function replacejscssfile(oldfilename, newfilename, filetype) {
-			undefined
-			var targetelement = (filetype == "js") ? "script" : (filetype == "css") ? "link" : "none"
-			var targetattr = (filetype == "js") ? "src" : (filetype == "css") ? "href" : "none"
-			var allsuspects = document.getElementsByTagName(targetelement)
-			for (var i = allsuspects.length; i >= 0; i--) {
-				undefined
-				if (allsuspects[i] && allsuspects[i].getAttribute(targetattr) != null && allsuspects[i].getAttribute(targetattr).indexOf(oldfilename) != -1) {
-					undefined
-					var newelement = createjscssfile(newfilename, filetype)
-					allsuspects[i].parentNode.replaceChild(newelement, allsuspects[i])
-				}
-			}
-		}
-	</script>
-	<script>
-		//加载工作区
-		//积木盒
-		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
 
-			xmlhttp = new XMLHttpRequest();
-
-		}
-		else {
-			swal('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
-		}
-
-		xmlhttp.open("GET", "./static/Waddle/toolBox.xml", false);
-
-		xmlhttp.send();
-
-		xmlDoc = xmlhttp.responseXML;
-		toolbox = document.getElementById('toolbox');
-		toolbox.innerHTML = xmlDoc.getElementsByTagName('toolbox')[0].innerHTML;
-
-		//工作区
-		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
-
-			xmlhttp = new XMLHttpRequest();
-
-		}
-		else {
-			swal('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
-		}
-		xmlhttp.open("GET", "./static/Waddle/workspace.xml", false);
-
-		xmlhttp.send();
-
-		xmlDoc = xmlhttp.responseXML;
-		workspaceblocks = document.getElementById('workspaceblocks');
-		workspaceblocks.innerHTML = xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML;
-
-		var workspaceBlocks = document.getElementById("workspaceblocks");
-
-		//定义主题
-		var theme = WaddleTheme;
-		//工作区
-		var workspace = Blockly.inject('blocklyDiv',
-			{
-				toolbox: document.getElementById('toolbox'),
-				grid: CustomGrid,
-				zoom:
-				{
-					controls: true,
-					wheel: false,
-					startScale: 0.8,
-					maxScale: 3,
-					minScale: 0.3,
-					scaleSpeed: 1.2
-				},
-				move:
-				{
-					wheel:true,
-				},
-				theme: theme,
-				renderer: 'zelos' //scratch风格，自定义的是custom_renderer
-			});
-
-		/* 加载初始积木 */
-		Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
-
-	</script>
-	<script>
-		//各种函数
-		/* 搬迁了，在static/js/navFuncs.js */
-
-		window.onbeforeunload = function () {
-			return "离开后，你的控件就没啦！";
-		}
-		// document.getElementById('read').addEventListener('change', function selectedFileChanged() {
-		//     if (this.files.length !== 0) {
-		//         workspace.clear()
-		//         const reader = new FileReader();
-		//         reader.onload = function fileReadCompleted() {
-		//             const xml = Blockly.Xml.textToDom(reader.result);
-		//             Blockly.Xml.domToWorkspace(xml, workspace);
-		//         };
-		//         reader.readAsText(this.files[0]);
-		//     }
-		// });
-	</script>
-	<script>
-		//获取cookie
-		function getCookie(cname) {
-			var name = cname + "=";
-			var ca = document.cookie.split(';');
-			for (var i = 0; i < ca.length; i++) {
-				var c = ca[i].trim();
-				if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-			}
-			return "";
-		}
-	</script>
-	<script>
-		let logo = document.getElementById("logo");
-		$(window).resize(function () {
-			if ($(window).width() < 576) {
-				logo.src = "./static/img/logo.svg";
-			}
-			else {
-				logo.src = "./static/img/waddle.svg";
-			}
-		});
-		$(window).resize(function () {
-			document.getElementById("table").style.height = (document.body.clientHeight - 57);
-			document.getElementById("toolbox").style.height = (document.body.clientHeight - 57);
-			Blockly.svgResize(workspace);
-		});
-	</script>
 	<a href="" download="" style="display: none;" id="downa" aria-label="下载"></a>
 	<style>
 		.js_button {
@@ -518,50 +276,7 @@
 			height: 75%;
 		}
 	</style>
-	<script>
-
-		function myUpdateFunction(event) {
-			var code = Blockly.JavaScript.workspaceToCode(workspace);
-			document.getElementById("codeArea").innerHTML = code;
-			hljs.highlightBlock(document.getElementById("codeArea"))
-		}
-		workspace.addChangeListener(myUpdateFunction);
-
-		var modal = document.getElementById('myModal');
-
-		// 打开代码框的按钮对象
-		var btn = document.getElementById("switch_code");
-
-		// 获取 <span> 元素，用于关闭弹窗 that closes the modal
-		var span = document.getElementsByClassName("close")[0];
-
-		// 复制代码
-		var copy = document.getElementsByClassName("copy")[0];
-
-		// 点击按钮打开代码框
-		btn.onclick = function () {
-			modal.style.display = "block";
-		}
-
-		// 点击 <span> (x), 关闭代码框
-		span.onclick = function () {
-			modal.style.display = "none";
-		}
-
-		// 点击复制，复制代码
-		copy.onclick = function () {
-			//window.Swal = swal;
-			var code = Blockly.JavaScript.workspaceToCode(workspace);
-			navigator.clipboard.writeText(code);
-			Swal.fire({
-  				position: 'top',
-  				type: 'info',
-  				title: '已复制!',
-  				showConfirmButton: false,
-  				timer: 500
-			})
-		}
-	</script>
+	
 
 	<!-- 新建浮窗 -->
 	<div id="mynewsth" class="newsth">
@@ -712,85 +427,376 @@
 	<script>
 		var theme = getCookie('mode')
 	</script>
+	
+</body>
+
+
+<script src="./static/blockly-master/blockly_compressed.js"></script>
+	<script src="./static/blockly-master/javascript_compressed.js"></script>
+	<script src="./static/blockly-master/blocks_compressed.js"></script>
+	<script src="./static/blockly-master/msg/js/zh-hans.js"></script>
+
+	<link rel="shortcut icon" href="./static/img/logo.svg">
+	<title>Waddle - 让CoCo没有难做的控件</title>
+
+	<!--图标库-->
+	<script src="./static/icons/waddle/iconfont.js"></script>
+
+
+	<!--定义Blocks-->
+	<!-- <script src="static/blockly-master/blocks/invisibleWidget.js"></script> -->
+	<!-- <script src="static/blockly-master/blocks/coco.js"></script> -->
+	<script src="./static/blockly-master/blocks/js.js"></script>
+	<script src="./static/Waddle/blocks/procedures.js"></script>
+
+	<!--Blocks 对应代码-->
+	<!-- <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script> -->
+	<!-- <script src="static/blockly-master/generators/javascript/coco.js"></script> -->
+	<script src="./static/blockly-master/generators/javascript/js.js"></script>
+
+	<!--引入框架-->
+	<script src="./static/js/jquery-3.4.1.min.js"></script>
+	<script src="./static/js/bootstrap.bundle.min.js"></script>
+	<link href="./static/css/bootstrap.min.css" rel="stylesheet">
+
+	<!--引入高亮-->
+	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/styles/googlecode.min.css" rel="stylesheet">
+
+	<!--自定义Blockly样式-->
+	<script src="./static/Waddle/custom_category.js"></script>
+	<link href="./static/css/blockly_style.css" rel="stylesheet" />
+	<!--包含toolbox和积木-->
+
+	<!--自定义积木样式-->
+	<script src="./static/Waddle/custom_renderer.js"></script>
+
+	<!--自定义网格样式-->
+	<script src="./static/Waddle/custom_grid.js"></script>
+
+	<!--引入Waddle主题-->
+	<script src="./static/Waddle/core/theme/waddleTheme.js"></script>
+
+	<!--引入tools积木-->
+	<script src="./static/Waddle/blocks/tools.js"></script>
+	<script src="./static/Waddle/generators/javascript/tools.js"></script>
+
+	<!--JavaScript积木-->
+	<script src="./static/blockly-master/blocks/js.js"></script>
+	<script src="./static/blockly-master/generators/javascript/js.js"></script>
+
+	<!--JavaScript积木-->
+	<script src="./static/blockly-master/blocks/html.js"></script>
+	<script src="./static/blockly-master/generators/javascript/html.js"></script>
+
+
+	<!--不可见控件积木-->
+	<script src="./static/Waddle/blocks/invisibleWidget.js"></script>
+	<script src="./static/Waddle/generators/javascript/invisibleWidget.js"></script>
+
+	<!--导入导航栏按钮函数-->
+	<script src="./static/js/navFuncs.js"></script>
+
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_3193112_l62ftr4pl4h.css">
+	<!--sweetalert-->
+	<!--<script src="./static/js/sweetalert.min.js"></script>-->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+	<!--彩蛋定义-->
+	<script>
+		function estchk() {
+			if (document.cookie.includes("easter")) {
+				swal("彩蛋","恭喜，你貌似触发了彩蛋！","success")
+					.then((value) => {
+						swal("马上去彩蛋！", { buttons: ["取 消", "确 认"], })
+							.then((value) => {
+								if (value) {
+									window.location.href = "./static/Waddle/eastegg/index.html";
+								}
+							})
+					})
+
+			} else {
+				document.cookie = "easter=1";
+			}
+		}
+	</script>
 	<script>
 
-		document.getElementById("table").style.height = (document.body.clientHeight - 57)
-		document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
-		Blockly.svgResize(workspace);
-		var dark_url = "./static/Waddle/custom_category_dark.js"
-		var light_url = "./static/Waddle/custom_category.js"
+		function myUpdateFunction(event) {
+			var code = Blockly.JavaScript.workspaceToCode(workspace);
+			document.getElementById("codeArea").innerHTML = code;
+			hljs.highlightBlock(document.getElementById("codeArea"))
+		}
+		workspace.addChangeListener(myUpdateFunction);
+
+		var modal = document.getElementById('myModal');
+
+		// 打开代码框的按钮对象
+		var btn = document.getElementById("switch_code");
+
+		// 获取 <span> 元素，用于关闭弹窗 that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// 复制代码
+		var copy = document.getElementsByClassName("copy")[0];
+
+		// 点击按钮打开代码框
+		btn.onclick = function () {
+			modal.style.display = "block";
+		}
+
+		// 点击 <span> (x), 关闭代码框
+		span.onclick = function () {
+			modal.style.display = "none";
+		}
+
+		// 点击复制，复制代码
+		copy.onclick = function () {
+			//window.Swal = swal;
+			var code = Blockly.JavaScript.workspaceToCode(workspace);
+			navigator.clipboard.writeText(code);
+			Swal.fire({
+  				position: 'top',
+  				type: 'info',
+  				title: '已复制!',
+  				showConfirmButton: false,
+  				timer: 500
+			})
+		}
+	</script>
+	<script>
+		if ($(window).width() < 576) {
+			logo.src = "./static/img/logo.svg";
+		}
+		else {
+			logo.src = "./static/img/waddle.svg";
+		}
+		document.body.style.overflow = 'hidden' //禁止页面滑动
+		function createjscssfile(filename, filetype) {
+			undefined
+			if (filetype == "js") {
+				undefined
+				var fileref = document.createElement('script')
+				fileref.setAttribute("type", "text/javascript")
+				fileref.setAttribute("src", filename)
+			}
+			else if (filetype == "css") {
+				undefined
+				var fileref = document.createElement("link")
+				fileref.setAttribute("rel", "stylesheet")
+				fileref.setAttribute("type", "text/css")
+				fileref.setAttribute("href", filename)
+			}
+			return fileref
+		}
+		function replacejscssfile(oldfilename, newfilename, filetype) {
+			undefined
+			var targetelement = (filetype == "js") ? "script" : (filetype == "css") ? "link" : "none"
+			var targetattr = (filetype == "js") ? "src" : (filetype == "css") ? "href" : "none"
+			var allsuspects = document.getElementsByTagName(targetelement)
+			for (var i = allsuspects.length; i >= 0; i--) {
+				undefined
+				if (allsuspects[i] && allsuspects[i].getAttribute(targetattr) != null && allsuspects[i].getAttribute(targetattr).indexOf(oldfilename) != -1) {
+					undefined
+					var newelement = createjscssfile(newfilename, filetype)
+					allsuspects[i].parentNode.replaceChild(newelement, allsuspects[i])
+				}
+			}
+		}
+	</script>
+	<script>
+		//加载工作区
+		//积木盒
 		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
+
 			xmlhttp = new XMLHttpRequest();
+
 		}
 		else {
 			swal('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
 		}
-		xmlhttp.open("GET", dark_url, false);
-		xmlhttp.send();
-		dark = xmlhttp.responseText;
-		xmlhttp.open("GET", light_url, false);
-		xmlhttp.send();
-		light = xmlhttp.responseText;
-		var sty = document.createElement('style');
-		var to_dark = function () {
-			document.getElementsByTagName("nav")[0].style.backgroundColor = "#525252"
-			workspace.setTheme(DarkTheme);
-			document.getElementById("moon-solid_3_").setAttribute('d', 'M37.246,131.693,32.052,103,3.313,97.817a4.016,4.016,0,0,1-2.59-6.243l16.65-23.955L.722,43.429a3.85,3.85,0,0,1,2.59-6l28.75-5.185,4.951-28.7A4.026,4.026,0,0,1,43.267.955L67.5,17.578,91.491.721a4.025,4.025,0,0,1,6.254,2.586L102.94,32l28.739,5.185a4.016,4.016,0,0,1,2.59,6.243l-16.65,23.955,16.663,24.19a4.02,4.02,0,0,1-2.6,6.245L102.941,103l-5.194,28.69a4.025,4.025,0,0,1-6.254,2.586l-24-16.622-24,16.623a4.021,4.021,0,0,1-6.254-2.586Zm-3.26-64.075A33.512,33.512,0,1,0,67.5,34.164,33.468,33.468,0,0,0,33.986,67.619ZM47,67.5A20.5,20.5,0,1,1,67.5,88,20.5,20.5,0,0,1,47,67.5Z');
-			document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(0 0)')
-			document.getElementById("theme").setAttribute('width', '27')
-			document.getElementById("theme").setAttribute('height', '27')
-			sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}';
-			document.body.appendChild(sty);
-			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
-			document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#525252"
-			document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#666666"
-			eval(dark)
-			document.cookie = "mode=dark";
-			replacejscssfile("./static/css/blockly_style.css", "./static/css/blockly_style_dark.css", "css");
-		}
-		var to_light = function () {
-			document.getElementsByTagName("nav")[0].style.backgroundColor = "#6d50f0"
-			workspace.setTheme(WaddleTheme);
-			document.getElementById("moon-solid_3_").setAttribute('d', "M32,98A65.973,65.973,0,0,1,97.941,32a79.615,79.615,0,0,1,12.051,1.1,3.1,3.1,0,0,1,.966,5.728,51.7,51.7,0,0,0,35.216,95.734,3.1,3.1,0,0,1,2.979,4.994A65.919,65.919,0,0,1,32,98Z");
-			document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(-32 -32)')
-			document.getElementById("theme").setAttribute('width', '23.5706')
-			document.getElementById("theme").setAttribute('height', '26.4')
-			sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
-			document.body.appendChild(sty);
-			document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
-			document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#F5F8FA"
-			document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#fff"
-			eval(light)
-			document.cookie = "mode=light";
-			replacejscssfile("./static/css/blockly_style_dark.css", "./static/css/blockly_style.css", "css");
-		}
-		var switch_theme = function () {
-			if (theme == "light") {
-				to_dark()
-				theme = "dark"
-			} else {
-				to_light()
-				theme = "light"
-			}
-		}
-		window.onresize = function () {
-			document.getElementById("table").style.height = (document.body.clientHeight - 57)
-			document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
-			Blockly.svgResize(workspace);
-		}
-		if (theme == "dark") {
-			to_dark()
-		} else {
-			if (theme == "light") {
-				to_light()
-			} else {
-				if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-					to_dark()
-				}
-			}
-		}
-		hljs.initHighlightingOnLoad();
-	</script>
-</body>
 
+		xmlhttp.open("GET", "./static/Waddle/toolBox.xml", false);
+
+		xmlhttp.send();
+
+		xmlDoc = xmlhttp.responseXML;
+		toolbox = document.getElementById('toolbox');
+		toolbox.innerHTML = xmlDoc.getElementsByTagName('toolbox')[0].innerHTML;
+
+		//工作区
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
+
+			xmlhttp = new XMLHttpRequest();
+
+		}
+		else {
+			swal('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
+		}
+		xmlhttp.open("GET", "./static/Waddle/workspace.xml", false);
+
+		xmlhttp.send();
+
+		xmlDoc = xmlhttp.responseXML;
+		workspaceblocks = document.getElementById('workspaceblocks');
+		workspaceblocks.innerHTML = xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML;
+
+		var workspaceBlocks = document.getElementById("workspaceblocks");
+
+		//定义主题
+		var theme = WaddleTheme;
+		//工作区
+		var workspace = Blockly.inject('blocklyDiv',
+			{
+				toolbox: document.getElementById('toolbox'),
+				grid: CustomGrid,
+				zoom:
+				{
+					controls: true,
+					wheel: false,
+					startScale: 0.8,
+					maxScale: 3,
+					minScale: 0.3,
+					scaleSpeed: 1.2
+				},
+				move:
+				{
+					wheel:true,
+				},
+				theme: theme,
+				renderer: 'zelos' //scratch风格，自定义的是custom_renderer
+			});
+
+		/* 加载初始积木 */
+		Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
+
+	</script>
+	<script>
+		//各种函数
+		/* 搬迁了，在static/js/navFuncs.js */
+
+		window.onbeforeunload = function () {
+			return "离开后，你的控件就没啦！";
+		}
+		// document.getElementById('read').addEventListener('change', function selectedFileChanged() {
+		//     if (this.files.length !== 0) {
+		//         workspace.clear()
+		//         const reader = new FileReader();
+		//         reader.onload = function fileReadCompleted() {
+		//             const xml = Blockly.Xml.textToDom(reader.result);
+		//             Blockly.Xml.domToWorkspace(xml, workspace);
+		//         };
+		//         reader.readAsText(this.files[0]);
+		//     }
+		// });
+	</script>
+	<script>
+		//获取cookie
+		function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i].trim();
+				if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+			}
+			return "";
+		}
+	</script>
+	<script>
+		let logo = document.getElementById("logo");
+		$(window).resize(function () {
+			if ($(window).width() < 576) {
+				logo.src = "./static/img/logo.svg";
+			}
+			else {
+				logo.src = "./static/img/waddle.svg";
+			}
+		});
+		$(window).resize(function () {
+			document.getElementById("table").style.height = (document.body.clientHeight - 57);
+			document.getElementById("toolbox").style.height = (document.body.clientHeight - 57);
+			Blockly.svgResize(workspace);
+		});
+	</script>
+
+<script>
+
+	document.getElementById("table").style.height = (document.body.clientHeight - 57)
+	document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
+	Blockly.svgResize(workspace);
+	var dark_url = "./static/Waddle/custom_category_dark.js"
+	var light_url = "./static/Waddle/custom_category.js"
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {
+		swal('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
+	}
+	xmlhttp.open("GET", dark_url, false);
+	xmlhttp.send();
+	dark = xmlhttp.responseText;
+	xmlhttp.open("GET", light_url, false);
+	xmlhttp.send();
+	light = xmlhttp.responseText;
+	var sty = document.createElement('style');
+	var to_dark = function () {
+		document.getElementsByTagName("nav")[0].style.backgroundColor = "#525252"
+		workspace.setTheme(DarkTheme);
+		document.getElementById("moon-solid_3_").setAttribute('d', 'M37.246,131.693,32.052,103,3.313,97.817a4.016,4.016,0,0,1-2.59-6.243l16.65-23.955L.722,43.429a3.85,3.85,0,0,1,2.59-6l28.75-5.185,4.951-28.7A4.026,4.026,0,0,1,43.267.955L67.5,17.578,91.491.721a4.025,4.025,0,0,1,6.254,2.586L102.94,32l28.739,5.185a4.016,4.016,0,0,1,2.59,6.243l-16.65,23.955,16.663,24.19a4.02,4.02,0,0,1-2.6,6.245L102.941,103l-5.194,28.69a4.025,4.025,0,0,1-6.254,2.586l-24-16.622-24,16.623a4.021,4.021,0,0,1-6.254-2.586Zm-3.26-64.075A33.512,33.512,0,1,0,67.5,34.164,33.468,33.468,0,0,0,33.986,67.619ZM47,67.5A20.5,20.5,0,1,1,67.5,88,20.5,20.5,0,0,1,47,67.5Z');
+		document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(0 0)')
+		document.getElementById("theme").setAttribute('width', '27')
+		document.getElementById("theme").setAttribute('height', '27')
+		sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}';
+		document.body.appendChild(sty);
+		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
+		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#525252"
+		document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#666666"
+		eval(dark)
+		document.cookie = "mode=dark";
+		replacejscssfile("./static/css/blockly_style.css", "./static/css/blockly_style_dark.css", "css");
+	}
+	var to_light = function () {
+		document.getElementsByTagName("nav")[0].style.backgroundColor = "#6d50f0"
+		workspace.setTheme(WaddleTheme);
+		document.getElementById("moon-solid_3_").setAttribute('d', "M32,98A65.973,65.973,0,0,1,97.941,32a79.615,79.615,0,0,1,12.051,1.1,3.1,3.1,0,0,1,.966,5.728,51.7,51.7,0,0,0,35.216,95.734,3.1,3.1,0,0,1,2.979,4.994A65.919,65.919,0,0,1,32,98Z");
+		document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(-32 -32)')
+		document.getElementById("theme").setAttribute('width', '23.5706')
+		document.getElementById("theme").setAttribute('height', '26.4')
+		sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
+		document.body.appendChild(sty);
+		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
+		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#F5F8FA"
+		document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#fff"
+		eval(light)
+		document.cookie = "mode=light";
+		replacejscssfile("./static/css/blockly_style_dark.css", "./static/css/blockly_style.css", "css");
+	}
+	var switch_theme = function () {
+		if (theme == "light") {
+			to_dark()
+			theme = "dark"
+		} else {
+			to_light()
+			theme = "light"
+		}
+	}
+	window.onresize = function () {
+		document.getElementById("table").style.height = (document.body.clientHeight - 57)
+		document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
+		Blockly.svgResize(workspace);
+	}
+	if (theme == "dark") {
+		to_dark()
+	} else {
+		if (theme == "light") {
+			to_light()
+		} else {
+			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				to_dark()
+			}
+		}
+	}
+	hljs.initHighlightingOnLoad();
+</script>
 </html>
