@@ -550,12 +550,7 @@
 		copy.onclick = function () {
 			var code = Blockly.JavaScript.workspaceToCode(workspace);
 			navigator.clipboard.writeText(code);
-			swal.fire({
-  				position: 'top-end',
-  				type: 'success',
-  				title: '已复制',
-  				showConfirmButton: false
-			})
+			swal("复制", "复制成功！", "success");
 		}
 	</script>
 
