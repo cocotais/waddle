@@ -79,7 +79,8 @@
 
 	<link rel="stylesheet" href="//at.alicdn.com/t/font_3193112_l62ftr4pl4h.css">
 	<!--sweetalert-->
-	<script src="./static/js/sweetalert.min.js"></script>
+	<!--<script src="./static/js/sweetalert.min.js"></script>-->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	<!--彩蛋定义-->
 	<script>
 		function estchk() {
@@ -548,9 +549,16 @@
 
 		// 点击复制，复制代码
 		copy.onclick = function () {
+			//window.Swal = swal;
 			var code = Blockly.JavaScript.workspaceToCode(workspace);
 			navigator.clipboard.writeText(code);
-			swal("复制", "复制成功！", "success");
+			Swal.fire({
+  				position: 'top',
+  				type: 'info',
+  				title: '已复制!',
+  				showConfirmButton: false,
+  				timer: 500
+			})
 		}
 	</script>
 
