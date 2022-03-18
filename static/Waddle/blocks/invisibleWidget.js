@@ -180,8 +180,8 @@ Blockly.Blocks['ivw_emit'] = {
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour("5574F8");
-		this.setTooltip(HELP_URL);
-		this.setHelpUrl("触发事件并传参（可选，请用事件传参积木）");
+		this.setTooltip("触发事件并传参（可选，请用事件传参积木）");
+		this.setHelpUrl(HELP_URL);
 	}
 };
 
@@ -193,8 +193,8 @@ Blockly.Blocks['ivw_emitParameter'] = {
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour("5574F8");
-		this.setTooltip(HELP_URL);
-		this.setHelpUrl("传参（可选）");
+		this.setTooltip("传参（可选）");
+		this.setHelpUrl(HELP_URL);
 	}
 };
 
