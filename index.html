@@ -25,10 +25,12 @@
 <body>
 	<div class="loading">
 		<div class="loading-pair">
-			<img class="loading-logo" src="./static/img/waddle.svg" style="height: 50px;">
-			<h1 class="loading-title" style="color: #ffffff;margin-top: 5;margin-bottom: 5;">加载中...</h1>
+			<img id="loading-logo" src="./static/img/waddle.svg" style="height: 50px;margin-bottom: 5rem;">
+			<div class="loader" style="margin-bottom: 5rem;">
+				<span>loading...</span>
+			</div>
 			<noscript>请打开javascript获得最佳体验</noscript>
-			<p class="loading-text" style="color: rgb(199, 199, 199);">让CoCo没有难做的控件</p>
+			<p id="loading-text" style="color: rgb(199, 199, 199);" style="margin-bottom: 5rem;">让CoCo没有难做的控件</p>
 		</div>
 	</div>
 	<script>
@@ -41,10 +43,89 @@
 			"不会操作？看看模板！",
 			"Waddle由CoCo编辑器中控台制作！"
 		]
-		const item = tipList[Math.floor(Math.random()*tipList.length)];
-		document.getElementById("loading-text").innerText=item;
+		document.getElementById("loading-text").innerText=tipList[Math.floor(Math.random()*tipList.length)]
 	</script>
 	<style>
+		:root {
+    --border-color: #7591AD;
+    --text-color: #34495e;
+    --color1: #EC3E27;
+    --color2: #fd79a8;
+    --color3: #0984e3;
+    --color4: #00b894;
+    --color5: #fdcb6e;
+    --color6: #e056fd;
+    --color7: #F97F51;
+    --color8: #BDC581;
+}
+
+.loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+	margin:0 auto;
+    color: #fff;
+    /* 圆角形成圆形 */
+    border-radius: 50%;
+    /* 实现顶部圆弧 */
+    border-top: 5px solid var(--color2);
+    /* 解决loading转动时上下浮动问题
+    主要原因是旋转的不是一个圆形，上方多了边框
+    下方也增加边框让形状成为一个对称，转动时就不会浮动了
+    如果使用box-sizing: border-box;应该也可以解决。
+    好像不行，回头在研究，原理就是让旋转的元素成为一个对称的形状即可。
+    */
+    border-bottom: 5px solid transparent;
+    /* background-color: turquoise; */
+    /* 内容左右、上下居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 增加动画 */
+    animation: animate .5s linear infinite;
+}
+
+.loader::after, .loader::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: -5px;
+    border-radius: 50%;
+    border-bottom: 5px solid transparent;
+    /* background-color: wheat; */
+}
+
+.loader::after {
+    /* 实现顶部圆弧 */
+    border-top: 5px solid var(--color3);
+    /* 旋转3分之一圈 */
+    transform: rotate(120deg);
+}
+
+.loader::before {
+    /* 实现顶部圆弧 */
+    border-top: 5px solid var(--color6);
+    /* 旋转3分之一圈 */
+    transform: rotate(-120deg);
+}
+
+/* 创建动画关键帧，实现旋转 */
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader span{
+    /* reverse的作用：还是同一个动画但是动画的方向是反着的 */
+    animation: animate .5s linear infinite reverse;
+}
 		.loading {
 			background-color: #6d50f0;
 			position: absolute;
@@ -53,11 +134,16 @@
 			left: 0%;
 			width: 100%;
 			height: 100%;
+			text-align: center;
 		}
 
 		.loading-pair {
-			margin-top: 15%;
-			margin-left: 25%;
+			position: absolute;
+			left: 0;
+         	top: 22%;
+        	right: 0;
+            bottom: 0;
+            margin:auto;
 		}
 	</style>
 	<div id="body" style="visibility:hidden;">
