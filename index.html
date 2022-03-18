@@ -303,7 +303,7 @@
 		<!-- 代码框 -->
 		<div id="myModal" class="modal">
 			<!-- 代码框内容 -->
-			<div class="modal-content">
+			<div class="modal-content" id="content">
 				<div class="modal-header">
 					<span>转换代码浏览</span>
 					<span class="copy">复制</span>
@@ -341,12 +341,21 @@
 				border: 1px solid #888;
 				float: right;
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			}
+			
+			.modal-content {
+				-webkit-animation-name: animateleft;
+				-webkit-animation-duration: 0.4s;
+				animation-name: animateleft;
+				animation-duration: 0.4s
+			}
+
+			.show.modal-content {
 				-webkit-animation-name: animateright;
 				-webkit-animation-duration: 0.4s;
 				animation-name: animateright;
 				animation-duration: 0.4s
 			}
-
 			/* 添加动画 */
 			@-webkit-keyframes animateright {
 				from {
@@ -369,6 +378,31 @@
 				to {
 					right: 0;
 					opacity: 1
+				}
+			}
+
+			/* 添加动画 */
+			@-webkit-keyframes animateleft {
+				from {
+					right: 0;
+					opacity: 1
+				}
+
+				to {
+					right: -300px;
+					opacity: 0
+				}
+			}
+
+			@keyframes animateleft {
+				from {
+					right: 0;
+					opacity: 1
+				}
+
+				to {
+					right: -300px;
+					opacity: 0
 				}
 			}
 
@@ -647,12 +681,14 @@
 
 	// 点击按钮打开代码框
 	btn.onclick = function () {
+		document.getElementById("content").className = "modal-content show";
 		modal.style.display = "block";
 	}
 
 	// 点击 <span> (x), 关闭代码框
 	span.onclick = function () {
-		modal.style.display = "none";
+	    document.getElementById("content").className = "modal-content";
+		setTimeout(() => {modal.style.display = "none";}, 400)
 	}
 
 	// 点击复制，复制代码
@@ -934,7 +970,7 @@
 </script>
 <script>
 	// 等待加载完毕
-	setTimeout(() => { document.getElementById("body").style = "visibility: visible" }, 1000)
+	setTimeout(() => { document.getElementById("body").style = "visibility: visible" }, 3000)
 </script>
 
 </html>
