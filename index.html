@@ -164,7 +164,7 @@
 								</svg></a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="javascript:void(0)"
-										onClick='newsth.style.display = "block"'>新建</a></li>
+										onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show"'>新建</a></li>
 								<li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存到电脑</a></li>
 								<li><a class="dropdown-item" href="javascript:void(0)"
 										onClick="openfile()">打开Waddle文件</a>
@@ -681,13 +681,13 @@
 
 	// 点击按钮打开代码框
 	btn.onclick = function () {
-		document.getElementById("content").className = "modal-content show";
+		document.getElementsByClassName("modal-content")[0].className = "modal-content show";
 		modal.style.display = "block";
 	}
 
 	// 点击 <span> (x), 关闭代码框
 	span.onclick = function () {
-	    document.getElementById("content").className = "modal-content";
+	    document.getElementsByClassName("modal-content")[0].className = "modal-content";
 		setTimeout(() => {modal.style.display = "none";}, 400)
 	}
 
@@ -767,9 +767,15 @@
 		height: 75vh;
 		top: 12.5vh;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		background-color: #ffffff;
+	}
+	.show.newsth-content {
 		-webkit-animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 		animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-		background-color: #ffffff;
+	}
+	.newsth-content {
+		-webkit-animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+		animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	}
 
 	.card {
@@ -809,6 +815,29 @@
 		100% {
 			-webkit-transform: scale(1);
 			transform: scale(1);
+		}
+	}
+	@-webkit-keyframes scale-hide {
+		0% {
+			-webkit-transform: scale(0.5);
+			transform: scale(0.5);
+		}
+
+		100% {
+			-webkit-transform: scale(1);
+			transform: scale(1);
+		}
+	}
+
+	@keyframes scale-hide {
+		0% {
+			-webkit-transform: scale(1);
+			transform: scale(1);
+		}
+
+		100% {
+			-webkit-transform: scale(0);
+			transform: scale(0);
 		}
 	}
 
@@ -866,7 +895,8 @@
 
 	// 点击 <span> (x), 关闭代码框
 	newsthspan.onclick = function () {
-		newsth.style.display = "none";
+		document.getElementsByClassName("newsth-content")[0].className = "newsth-content"
+		setTimeout(() => {newsth.style.display = "none";}, 400)
 	}
 </script>
 <script>
