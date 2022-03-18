@@ -32,6 +32,19 @@
 			<p class="loading-text" style="color: rgb(199, 199, 199);">让CoCo没有难做的控件</p>
 		</div>
 	</div>
+	<script>
+		var tipList = [
+			"让CoCo没有难做的控件",
+			"你知道吗？在Waddle中有两个彩蛋！",
+			"点击2次Waddle图标有惊喜！",
+			"试一试夜间模式！",
+			"工具是给开发者调试的利器！",
+			"不会操作？看看模板！",
+			"Waddle由CoCo编辑器中控台制作！"
+		]
+		const item = tipList[Math.floor(Math.random()*tipList.length)];
+		document.getElementById("loading-text").innerText=item;
+	</script>
 	<style>
 		.loading {
 			background-color: #6d50f0;
