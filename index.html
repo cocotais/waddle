@@ -19,8 +19,7 @@
 		}
 	</style>
 
-	<!--修复Issue-->
-	<link href="./static/css/index.css" rel="stylesheet">
+	<link rel="shortcut icon" href="./static/img/logo.svg" type="image/x-icon">
 </head>
 
 <body>
@@ -230,24 +229,20 @@
 			</div>
 		</div>
 		<style>
-			#codeArea {
-				height: 92vh;
-				width: 100%;
-				resize: none;
-			}
+
 
 			/* 代码框 (background) */
 			.modal {
 				display: none;
 				/* 默认隐藏 */
 				position: fixed;
-				z-index: 1000;
+				z-index: 1000!important;
 				top: 0;
-				left: 75vw;
-				width: 25%;
+				right: 0;
+				width: 25%!important;
 				height: 100%;
-				overflow: hidden;
-				float: right;
+				overflow: hidden!important;
+				margin-left: auto;
 			}
 
 			/* 代码框内容 */
@@ -256,8 +251,9 @@
 				background-color: #fefefe;
 				margin: 0 auto;
 				padding: 0;
+				height: 100%;
 				border: 1px solid #888;
-				width: 100%;
+				float: right;
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 				-webkit-animation-name: animateright;
 				-webkit-animation-duration: 0.4s;
@@ -291,22 +287,22 @@
 			}
 
 			/* 关闭按钮 */
-			.close .copy {
+			.close {
 				color: white;
 				float: right;
 				font-size: 28px;
 				font-weight: bold;
 			}
 
-			.close:hover .copy:hover,
-			.close:focus .copy:focus {
+			.close:hover,.copy:hover,
+			.close:focus,.copy:focus {
 				color: #000;
 				text-decoration: none;
 				cursor: pointer;
 			}
 
 			.modal-header {
-				padding: 17px 16px;
+				padding: 8px 16px!important;
 				background-color: #6d50f0;
 				color: white;
 			}
@@ -314,6 +310,7 @@
 			.modal-body {
 				padding: 2px 16px;
 				overflow-y: auto;
+				overflow-x: auto;
 				height: 75%;
 			}
 		</style>
@@ -414,8 +411,7 @@
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_3193112_l62ftr4pl4h.css">
 <!--sweetalert-->
-<!--<script src="./static/js/sweetalert.min.js"></script>-->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="./static/js/sweetalert.min.js"></script>
 <!--彩蛋定义-->
 <script>
 	function estchk() {
@@ -578,11 +574,10 @@
 		//window.Swal = swal;
 		var code = Blockly.JavaScript.workspaceToCode(workspace);
 		navigator.clipboard.writeText(code);
-		Swal.fire({
-			position: 'top',
-			type: 'info',
+		swal({
+			icon: 'info',
 			title: '已复制!',
-			showConfirmButton: false,
+			buttons: false,
 			timer: 500
 		})
 	}
@@ -652,7 +647,7 @@
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		-webkit-animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 		animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-		background-color: #666666;
+		background-color: #ffffff;
 	}
 
 	.card {
@@ -731,6 +726,14 @@
 		overflow-x: hidden;
 		height: 65vh;
 		text-align: center;
+	}
+	.dropdown-item:hover {
+    	background: #f5f3fe;
+	}
+
+	.dropdown-item:active {
+    	background: #ddd8f3;
+    	color: black;
 	}
 </style>
 <script>
