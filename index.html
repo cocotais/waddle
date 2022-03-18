@@ -24,6 +24,32 @@
 </head>
 
 <body>
+	<div class="loading">
+		<div class="loading-pair">
+		<img class="loading-logo" src="./static/img/waddle.svg" style="height: 50px;">
+		<h1 class="loading-title" style="color: #ffffff;margin-top: 5;margin-bottom: 5;">加载中...</h1>
+		<noscript>请打开javascript获得最佳体验</noscript>
+		<p class="loading-text" style="color: rgb(199, 199, 199);">让CoCo没有难做的控件</p>
+		</div>
+	</div>
+	<style>
+		.loading
+		{
+			background-color: #6d50f0;
+			position: absolute;
+			display: block;
+			top: 0%;
+			left: 0%;
+			width: 100%;
+			height: 100%;
+		}
+		.loading-pair
+		{
+			margin-top: 15%;
+			margin-left: 25%;
+		}
+	</style>
+	<div id="body" style="visibility:hidden;">
 	<nav class="navbar navbar-expand navbar-dark" style="background-color: #6d50f0;">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"><img id="logo" src="./static/img/waddle.svg"
@@ -427,7 +453,7 @@
 	<script>
 		var theme = getCookie('mode')
 	</script>
-	
+	</div>
 </body>
 
 
@@ -798,5 +824,8 @@
 		}
 	}
 	hljs.initHighlightingOnLoad();
+</script>
+<script>
+	setTimeout(()=>{document.getElementById("body").style="visibility: visible"},1000)
 </script>
 </html>
