@@ -24,9 +24,9 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 
 ## 本地部署
 如果你有本地部署访问的需求，请按照以下步骤进行
-#### 安装
+### 安装
 1. 进入并clone仓库（[https://gitee.com/coco-ag/coco-waddle](https://gitee.com/coco-ag/coco-waddle)）
-#### 运行
+### 运行
 1. 打开项目文件夹
 2. 在命令行运行命令 `python -m http.server 8000` 或双击运行 runserver(win).cmd
 3. 确认8000端口没有占用（占用了请回到第二步自定义端口）
