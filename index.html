@@ -944,6 +944,7 @@
 		document.cookie = "mode=light";
 		replacejscssfile("./static/css/blockly_style_dark.css", "./static/css/blockly_style.css", "css");
 	}
+	var theme_conut = 0;
 	var switch_theme = function () {
 		if (theme == "light") {
 			to_dark()
@@ -951,6 +952,12 @@
 		} else {
 			to_light()
 			theme = "light"
+		}
+		theme_conut++;
+		setTimeout(1000,function(){theme_conut=0;});
+		if (theme_conut>=4){
+			window.open("/static/Waddle/eastegg/vscode/index.html")
+			swal("获得成就：主题爱好者")
 		}
 	}
 	window.onresize = function () {
