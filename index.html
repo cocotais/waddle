@@ -82,6 +82,9 @@
 				if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 					document.getElementsByClassName("loading")[0].style.backgroundColor = "#525252"
 				}
+				else{
+					document.getElementsByClassName("loading")[0].style.backgroundColor = "#6d50f0"
+				}
 			}
 		}
 	</script>
@@ -117,6 +120,7 @@
 		}
 
 		.loading {
+			background-color: #ffffff;
 			position: absolute;
 			display: block;
 			top: 0%;
