@@ -21,7 +21,19 @@
 
 	<link rel="shortcut icon" href="./static/img/logo.svg" type="image/x-icon">
 </head>
-
+<script>
+	//获取cookie
+	function getCookie(cname) {
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i].trim();
+			if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+		}
+		return "";
+	}
+	var theme = getCookie('mode')
+</script>
 <body>
 	<div class="loading">
 		<div class="loading-pair">
@@ -61,6 +73,17 @@
 			"Waddle由CoCo编辑器中控台制作！"
 		]
 		document.getElementById("loading-text").innerText=tipList[Math.floor(Math.random()*tipList.length)]
+		if (theme == "dark") {
+			document.getElementsByClassName("loading")[0].style.backgroundColor = "#525252"
+		} else {
+			if (theme == "light") {
+				document.getElementsByClassName("loading")[0].style.backgroundColor = "#6d50f0"
+			} else {
+				if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					document.getElementsByClassName("loading")[0].style.backgroundColor = "#525252"
+				}
+			}
+		}
 	</script>
 	<style>
 		.container {
@@ -94,7 +117,7 @@
 		}
 
 		.loading {
-			background-color: #6d50f0;
+			background-color: #ffffff;
 			position: absolute;
 			display: block;
 			top: 0%;
@@ -685,18 +708,6 @@
 	//     }
 	// });
 </script>
-<script>
-	//获取cookie
-	function getCookie(cname) {
-		var name = cname + "=";
-		var ca = document.cookie.split(';');
-		for (var i = 0; i < ca.length; i++) {
-			var c = ca[i].trim();
-			if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-		}
-		return "";
-	}
-</script>
 <style>
 	/* 代码框 (background) */
 	.newsth {
@@ -862,9 +873,6 @@
 	}
 </script>
 <script>
-	var theme = getCookie('mode')
-</script>
-<script>
 	let logo = document.getElementById("logo");
 	$(window).resize(function () {
 		if ($(window).width() < 576) {
@@ -911,7 +919,6 @@
 		sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
-		document.getElementsByClassName("loading")[0].style.backgroundColor = "#525252"
 		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#525252"
 		document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#666666"
 		eval(dark)
@@ -927,7 +934,6 @@
 		document.getElementById("theme").setAttribute('height', '26.4')
 		sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
 		document.body.appendChild(sty);
-		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
 		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#F5F8FA"
 		document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#fff"
