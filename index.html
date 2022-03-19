@@ -126,7 +126,8 @@
 								</svg></a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="javascript:void(0)"
-										onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show"'>新建</a></li>
+										onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show"'>新建</a>
+								</li>
 								<li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存到电脑</a></li>
 								<li><a class="dropdown-item" href="javascript:void(0)"
 										onClick="openfile()">打开Waddle文件</a>
@@ -277,19 +278,17 @@
 			</div>
 		</div>
 		<style>
-
-
 			/* 代码框 (background) */
 			.modal {
 				display: none;
 				/* 默认隐藏 */
 				position: fixed;
-				z-index: 1000!important;
+				z-index: 1000 !important;
 				top: 0;
 				right: 0;
-				width: 25%!important;
+				width: 25% !important;
 				height: 100%;
-				overflow: hidden!important;
+				overflow: hidden !important;
 				margin-left: auto;
 			}
 
@@ -304,7 +303,7 @@
 				float: right;
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			}
-			
+
 			.modal-content {
 				-webkit-animation-name: animateleft;
 				-webkit-animation-duration: 0.4s;
@@ -318,6 +317,7 @@
 				animation-name: animateright;
 				animation-duration: 0.4s
 			}
+
 			/* 添加动画 */
 			@-webkit-keyframes animateright {
 				from {
@@ -376,15 +376,17 @@
 				font-weight: bold;
 			}
 
-			.close:hover,.copy:hover,
-			.close:focus,.copy:focus {
+			.close:hover,
+			.copy:hover,
+			.close:focus,
+			.copy:focus {
 				color: #000;
 				text-decoration: none;
 				cursor: pointer;
 			}
 
 			.modal-header {
-				padding: 8px 16px!important;
+				padding: 8px 16px !important;
 				background-color: #6d50f0;
 				color: white;
 			}
@@ -649,8 +651,8 @@
 
 	// 点击 <span> (x), 关闭代码框
 	span.onclick = function () {
-	    document.getElementsByClassName("modal-content")[0].className = "modal-content";
-		setTimeout(() => {modal.style.display = "none";}, 400)
+		document.getElementsByClassName("modal-content")[0].className = "modal-content";
+		setTimeout(() => { modal.style.display = "none"; }, 400)
 	}
 
 	// 点击复制，复制代码
@@ -731,10 +733,12 @@
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		background-color: #ffffff;
 	}
+
 	.show.newsth-content {
 		-webkit-animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 		animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	}
+
 	.newsth-content {
 		-webkit-animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 		animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -779,6 +783,7 @@
 			transform: scale(1);
 		}
 	}
+
 	@-webkit-keyframes scale-hide {
 		0% {
 			-webkit-transform: scale(0.5);
@@ -840,13 +845,14 @@
 		height: 65vh;
 		text-align: center;
 	}
+
 	.dropdown-item:hover {
-    	background: #f5f3fe;
+		background: #f5f3fe;
 	}
 
 	.dropdown-item:active {
-    	background: #ddd8f3;
-    	color: black;
+		background: #ddd8f3;
+		color: black;
 	}
 </style>
 <script>
@@ -858,7 +864,7 @@
 	// 点击 <span> (x), 关闭代码框
 	newsthspan.onclick = function () {
 		document.getElementsByClassName("newsth-content")[0].className = "newsth-content"
-		setTimeout(() => {newsth.style.display = "none";}, 400)
+		setTimeout(() => { newsth.style.display = "none"; }, 400)
 	}
 </script>
 <script>
