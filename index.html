@@ -25,12 +25,29 @@
 <body>
 	<div class="loading">
 		<div class="loading-pair">
-			<img id="loading-logo" src="./static/img/waddle.svg" style="height: 50px;margin-bottom: 5rem;">
-			<div class="loader" style="margin-bottom: 5rem;">
-				<span>loading...</span>
-			</div>
+			<div class="container">
+				<svg xmlns="http://www.w3.org/2000/svg" height="100" viewBox="0 0 817.192 606.339">
+				<defs>
+				  <style>
+					.cls-1 {
+					  fill: none;
+					  stroke: rgb(255, 255, 255);
+					  stroke-width: 17px;
+					  fill-rule: evenodd;
+					}
+				  </style>
+				</defs>
+				<g id="组_41" data-name="组 41" transform="translate(-15658.403 -6102.205)">
+				  <path id="lu1" data-name="路径 1" class="cls-1" d="M908.359,2160a18.415,18.415,0,0,1,17.867,22.883c-23.091,92.37-109.4,437.594-134.638,538.555a36.832,36.832,0,0,1-35.734,27.9H624.033a18.415,18.415,0,0,1-17.867-22.883L740.8,2187.9a36.832,36.832,0,0,1,35.734-27.9Z" transform="translate(15540.223 3950.705)"/>
+				  <path id="lu2" data-name="路径 2" class="cls-1" d="M86.166,2182.883A18.414,18.414,0,0,1,104.033,2160H235.854a36.832,36.832,0,0,1,35.734,27.9L315.4,2363.138a73.641,73.641,0,0,1,0,35.729c-14.336,57.35-59.375,237.5-78.684,314.735a9.206,9.206,0,0,1-17.866,0Z" transform="translate(15581.385 3950.705)"/>
+				  <path id="lu3" data-name="路径 3" class="cls-1" d="M328.065,2749.34a36.831,36.831,0,0,1-35.734-45.766c29.128-116.514,105.44-421.764,128.918-515.672a36.832,36.832,0,0,1,35.734-27.9H546.8a36.832,36.832,0,0,1,35.734,27.9c11.52,46.079,34.2,136.81,43.808,175.236a73.642,73.642,0,0,1,0,35.729c-14.336,57.35-59.374,237.5-78.683,314.735a9.207,9.207,0,0,1-17.867,0c-3.038-12.146-6.549-26.2-10.033-40.13a18.417,18.417,0,0,0-35.734,0c-4.263,17.054-8.566,34.265-11.993,47.967a36.831,36.831,0,0,1-35.733,27.9Z" transform="translate(15565.109 3950.705)"/>
+				</g>
+			  </svg>
+			  
+			  </div>
+			  
 			<noscript>请打开javascript获得最佳体验</noscript>
-			<p id="loading-text" style="color: rgb(199, 199, 199);" style="margin-bottom: 5rem;">让CoCo没有难做的控件</p>
+			<p id="loading-text" style="color: rgb(255,255,255);">让CoCo没有难做的控件</p>
 		</div>
 	</div>
 	<script>
@@ -46,88 +63,38 @@
 		document.getElementById("loading-text").innerText=tipList[Math.floor(Math.random()*tipList.length)]
 	</script>
 	<style>
-		:root {
-    --border-color: #7591AD;
-    --text-color: #34495e;
-    --color1: #EC3E27;
-    --color2: #fd79a8;
-    --color3: #0984e3;
-    --color4: #00b894;
-    --color5: #fdcb6e;
-    --color6: #e056fd;
-    --color7: #F97F51;
-    --color8: #BDC581;
-}
+		.container {
+  			width: 40%;
+  			margin: 4em auto;
+		}
 
-.loader {
-    position: relative;
-    width: 100px;
-    height: 100px;
-	margin:0 auto;
-    color: #fff;
-    /* 圆角形成圆形 */
-    border-radius: 50%;
-    /* 实现顶部圆弧 */
-    border-top: 5px solid var(--color2);
-    /* 解决loading转动时上下浮动问题
-    主要原因是旋转的不是一个圆形，上方多了边框
-    下方也增加边框让形状成为一个对称，转动时就不会浮动了
-    如果使用box-sizing: border-box;应该也可以解决。
-    好像不行，回头在研究，原理就是让旋转的元素成为一个对称的形状即可。
-    */
-    border-bottom: 5px solid transparent;
-    /* background-color: turquoise; */
-    /* 内容左右、上下居中 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* 增加动画 */
-    animation: animate .5s linear infinite;
-}
+		@keyframes offset {
+  			to {
+    			stroke-dashoffset: 1919810px;
+  			}
+		}
 
-.loader::after, .loader::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: -5px;
-    border-radius: 50%;
-    border-bottom: 5px solid transparent;
-    /* background-color: wheat; */
-}
+		.cls-1 {
+  			animation: offset 1145s linear forwards;
+		}
 
-.loader::after {
-    /* 实现顶部圆弧 */
-    border-top: 5px solid var(--color3);
-    /* 旋转3分之一圈 */
-    transform: rotate(120deg);
-}
+		#lu1 {
+  			stroke-dasharray: 1600px;
+  			stroke-dashoffset: 1600px;
+		}
 
-.loader::before {
-    /* 实现顶部圆弧 */
-    border-top: 5px solid var(--color6);
-    /* 旋转3分之一圈 */
-    transform: rotate(-120deg);
-}
+		#lu2 {
+  			stroke-dasharray: 1350px;
+  			stroke-dashoffset: 1350px;
+		}
 
-/* 创建动画关键帧，实现旋转 */
+		#lu3 {
+  			stroke-dasharray: 1650px;
+  			stroke-dashoffset: 1650px;
+		}
 
-@keyframes animate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.loader span{
-    /* reverse的作用：还是同一个动画但是动画的方向是反着的 */
-    animation: animate .5s linear infinite reverse;
-}
 		.loading {
-			background-color: #6d50f0;
+			background-color: #ffffff;
 			position: absolute;
 			display: block;
 			top: 0%;
@@ -138,12 +105,7 @@
 		}
 
 		.loading-pair {
-			position: absolute;
-			left: 0;
-         	top: 22%;
-        	right: 0;
-            bottom: 0;
-            margin:auto;
+            margin-top: 22vh;
 		}
 	</style>
 	<div id="body" style="visibility:hidden;">
@@ -949,6 +911,7 @@
 		sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
+		document.getElementsByClassName("loading")[0].style.backgroundColor = "#525252"
 		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#525252"
 		document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#666666"
 		eval(dark)
@@ -964,6 +927,7 @@
 		document.getElementById("theme").setAttribute('height', '26.4')
 		sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
 		document.body.appendChild(sty);
+		document.getElementsByClassName("loading")[0].style.backgroundColor = "#6d50f0"
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
 		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#F5F8FA"
 		document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#fff"
@@ -1000,7 +964,7 @@
 </script>
 <script>
 	// 等待加载完毕
-	setTimeout(() => { document.getElementById("body").style = "visibility: visible" }, 3000)
+	setTimeout(() => { document.getElementById("body").style = "visibility: visible" }, 1000)
 </script>
 
 </html>
