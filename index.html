@@ -65,7 +65,7 @@
 	<script>
 		var tipList = [
 			"让CoCo没有难做的控件",
-			"你知道吗？在Waddle中有两个彩蛋！",
+			"你知道吗？在Waddle中有三个彩蛋！",
 			"点击2次Waddle图标有惊喜！",
 			"试一试夜间模式！",
 			"工具是给开发者调试的利器！",
@@ -955,9 +955,10 @@
 		}
 		theme_conut++;
 		setTimeout(1000,function(){theme_conut=0;});
-		if (theme_conut>=4){
+		if (theme_conut>=5){
 			window.open("/static/Waddle/eastegg/vscode/index.html")
 			swal("获得成就：主题爱好者")
+			theme_conut=0
 		}
 	}
 	window.onresize = function () {
