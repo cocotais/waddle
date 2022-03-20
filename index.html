@@ -462,7 +462,7 @@
 <title>Waddle - 让CoCo没有难做的控件</title>
 
 <!--图标库-->
-<script src="./static/icons/waddle/iconfont.js"></script>
+<link rel="stylesheet" href="//at.alicdn.com/t/font_3193112_l62ftr4pl4h.css">
 
 
 <!--定义Blocks-->
@@ -520,7 +520,6 @@
 <!--导入导航栏按钮函数-->
 <script src="./static/js/navFuncs.js"></script>
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_3193112_l62ftr4pl4h.css">
 <!--sweetalert-->
 <script src="./static/js/sweetalert.min.js"></script>
 <!--彩蛋定义-->
@@ -959,7 +958,7 @@
 		theme_conut++;
 		setTimeout(1000,function(){theme_conut=0;});
 		if (theme_conut>=5){
-			window.open("/static/Waddle/eastegg/vscode/index.html")
+			window.open("./static/Waddle/eastegg/vscode/index.html")
 			swal("获得成就：主题爱好者")
 			theme_conut=0
 		}
