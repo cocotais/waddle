@@ -316,7 +316,6 @@
 				z-index: 1000!important;
 				top: 0;
 				right: 0;
-				width: 25%!important;
 				height: 100%;
 				overflow: hidden!important;
 				margin-left: auto;
@@ -543,12 +542,6 @@
 </script>
 
 <script>
-	if ($(window).width() < 576) {
-		logo.src = "./static/img/logo.svg";
-	}
-	else {
-		logo.src = "./static/img/waddle.svg";
-	}
 	document.body.style.overflow = 'hidden' //禁止页面滑动
 	function createjscssfile(filename, filetype) {
 		undefined
@@ -937,11 +930,13 @@
 <script>
 	let logo = document.getElementById("logo");
 	$(window).resize(function () {
-		if ($(window).width() < 576) {
+		if ($(window).width() < 754) {
 			logo.src = "./static/img/logo.svg";
+			document.getElementsByClassName("modal")[0].style.width = "100%"
 		}
 		else {
 			logo.src = "./static/img/waddle.svg";
+			document.getElementsByClassName("modal")[0].style.width = "30%"
 		}
 	});
 	$(window).resize(function () {
@@ -1037,6 +1032,14 @@
 		}
 	}
 	hljs.initHighlightingOnLoad();
+	if ($(window).width() < 754) {
+			logo.src = "./static/img/logo.svg";
+			document.getElementsByClassName("modal")[0].style.width = "100%"
+		}
+		else {
+			logo.src = "./static/img/waddle.svg";
+			document.getElementsByClassName("modal")[0].style.width = "30%"
+		}
 </script>
 <script>
 	// 等待加载完毕
