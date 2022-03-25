@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 
 	<script>
-		console.log("%c ", "background: url(https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/cs.png);padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
+		console.log("%c ", "background: url(./static/img/logo.svg);padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，由 中子星000（QQ：2422481178）主理制作、\nEpeiuss（Mail：ffxw0720@163.com）与海藻酸钠（QQ：3409473369）监制\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
 		console.log("%c\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec", "font-size:14px;color:rgb(42,125,255)")
@@ -187,7 +187,7 @@
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="javascript:void(0)" title="关于" 
-								onclick='aboutus.style.display = "block";document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";document.getElementsByClassName("aboutus")[0].className = "aboutus show"'>
+								onclick='count();aboutus.style.display = "block";document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";document.getElementsByClassName("aboutus")[0].className = "aboutus show"'>
 								<svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor"
 									viewBox="0 0 135 135">
 									<path id="circle-question-solid"
@@ -435,7 +435,11 @@
 			<!-- 新建浮窗内容 -->
 			<div class="newsth-content">
 				<div class="newsth-header">
-					<img class="newsth-logo" style="left: -80px;" width="40" src="./static/img/files.svg"></img>
+					<svg class="newsth-logo" xmlns="http://www.w3.org/2000/svg"
+									width="40" height="38.16" fill="currentColor" viewBox="0 0 130 125">
+									<path id="联合_1" data-name="联合 1"
+										d="M7,125a7,7,0,0,1-7-7V57a7,7,0,0,1,7-7H123a7,7,0,0,1,7,7v61a7,7,0,0,1-7,7ZM4.667,35A4.667,4.667,0,0,1,0,30.334V7A7,7,0,0,1,7,0H48.823A20,20,0,0,1,68.6,17h48.067A13.334,13.334,0,0,1,130,30.334,4.667,4.667,0,0,1,125.333,35Z" />
+								</svg>
 					<span class="newsth-close">&times;</span>
 				</div>
 				<div class="newsth-body">
@@ -494,7 +498,7 @@
 <!-- <script src="static/blockly-master/blocks/invisibleWidget.js"></script> -->
 <!-- <script src="static/blockly-master/blocks/coco.js"></script> -->
 <script src="./static/blockly-master/blocks/js.js"></script>
-<script src="./static/Waddle/blocks/procedures.js"></script>
+<!--<script src="./static/Waddle/blocks/procedures.js"></script>-->
 
 <!--Blocks 对应代码-->
 <!-- <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script> -->
@@ -910,7 +914,8 @@
 
 	.newsth-logo {
 		position: relative;
-		filter: drop-shadow(#6d50f0 90px 0);
+		left: 10px;
+		color: #6d50f0;
 	}
 
 	.newsth-close:hover,
@@ -1198,13 +1203,14 @@
 		document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(0 0)')
 		document.getElementById("theme").setAttribute('width', '27')
 		document.getElementById("theme").setAttribute('height', '27')
-		sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}.newsth-logo{filter: drop-shadow(#fff 90px 0);}.card{background:#666666;}.aboutus-close{color:#fff;}.newsth-close{color:#fff;}.sord{color:#fff;}';
+		sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}.card{background:#666666;}.aboutus-close{color:#fff;}.newsth-close{color:#fff;}.sord{color:#fff;}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
 		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#525252"
 		document.getElementsByClassName("aboutus-header")[0].style.backgroundColor = "#525252"
 		document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#666666"
 		document.getElementsByClassName("aboutus-logo")[0].style.color = "#fff"
+		document.getElementsByClassName("newsth-logo")[0].style.color = "#fff"
 		eval(dark)
 		document.cookie = "mode=dark";
 		replacejscssfile("./static/css/blockly_style.css", "./static/css/blockly_style_dark.css", "css");
@@ -1216,13 +1222,14 @@
 		document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(-32 -32)')
 		document.getElementById("theme").setAttribute('width', '23.5706')
 		document.getElementById("theme").setAttribute('height', '26.4')
-		sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}.newsth-logo{filter: drop-shadow(#6d50f0 90px 0);.card{background:#fff;}.aboutus-close{color:#6d50f0;}.newsth-close{color:#6d50f0;}.sord{color:#6d50f0;}';
+		sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}.card{background:#fff;}.aboutus-close{color:#6d50f0;}.newsth-close{color:#6d50f0;}.sord{color:#6d50f0;}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
 		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#F5F8FA"
 		document.getElementsByClassName("aboutus-header")[0].style.backgroundColor = "#F5F8FA"
 		document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#fff"
 		document.getElementsByClassName("aboutus-logo")[0].style.color = "#6d50f0"
+		document.getElementsByClassName("newsth-logo")[0].style.color = "#6d50f0"
 		eval(light)
 		document.cookie = "mode=light";
 		replacejscssfile("./static/css/blockly_style_dark.css", "./static/css/blockly_style.css", "css");
