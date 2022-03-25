@@ -186,8 +186,8 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="https://www.yuque.com/appcraft/waddle" title="关于" target="_blank"
-								onclick="count()">
+							<a class="nav-link" href="javascript:void(0)" title="关于" 
+								onclick='aboutus.style.display = "block";document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";document.getElementsByClassName("aboutus")[0].className = "aboutus show"'>
 								<svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor"
 									viewBox="0 0 135 135">
 									<path id="circle-question-solid"
@@ -289,6 +289,10 @@
 
 			.swal-content__input {
 				border-radius: 10px;
+			}
+
+			.swal-overlay {
+				backdrop-filter: blur(10px);
 			}
 		</style>
 		<!-- 代码框 -->
@@ -431,19 +435,41 @@
 			<!-- 新建浮窗内容 -->
 			<div class="newsth-content">
 				<div class="newsth-header">
-					<img class="newsth-logo" width="40" src="./static/img/files.svg"></img>
+					<img class="newsth-logo" style="left: -80px;" width="40" src="./static/img/files.svg"></img>
 					<span class="newsth-close">&times;</span>
 				</div>
 				<div class="newsth-body">
-					<div class="card" onclick='newsth.style.display = "none";workspace.clear();'><span style="color: #6d50f0;line-height: 250px;font-weight: bold;
+					<div class="card" id="card" onclick='newsth.style.display = "none";workspace.clear();'><span class="sord" style="line-height: 250px;font-weight: bold;
 					font-size: 30px;">空白作品</span></div>
-					<div class="card" onclick='swal("还没有呢～")'><span style="color: #6d50f0;line-height: 250px;font-weight: bold;
+					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord" style="line-height: 250px;font-weight: bold;
 					font-size: 30px;">可见控件模版</span></div>
 					<div class="card"
-						onclick='newsth.style.display = "none";workspace.clear();Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);'>
-						<span style="color: #6d50f0;line-height: 250px;font-weight: bold;
+					id="card" onclick='newsth.style.display = "none";workspace.clear();Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);'>
+						<span class="sord" style="line-height: 250px;font-weight: bold;
 					font-size: 30px;">不可见控件模版</span>
 					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 新建浮窗 -->
+		<div id="myaboutus" class="aboutus">
+			<!-- 新建浮窗内容 -->
+			<div class="aboutus-content" style="min-width: 305px;">
+				<div class="aboutus-header">
+					<span class="aboutus-logo" style="color: #6d50f0;font-weight: bold;
+					font-size: 25px;">关于我们</span>
+					<span class="aboutus-close">&times;</span>
+				</div>
+				<div class="aboutus-body">
+					<img width="240" src="./static/img/waddle.svg" style="margin: 30px 0;"></img>
+					<p style="color: #ffffff;font-size: 25px;font-weight: bold;">让CoCo没有难做的控件</p>
+					</br>
+					<p style="color: #ffffff;font-size: 15px;">帮助链接：<a href="https://www.yuque.com/appcraft/waddle" style="color: #ffffff;font-size: 15px;" target="_blank">https://www.yuque.com/appcraft/waddle</a></p>
+					<p style="color: #ffffff;font-size: 15px;">中子星000（QQ：2422481178）主理制作</br>Epeiuss（Mail：ffxw0720@163.com）</br>海藻酸钠（QQ：3409473369）监制</p>
+					</br>
+					<p style="color: #ffffff;font-size: 30px;font-weight: bold;">目前版本：V1.1.45.14-dev</p>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -733,10 +759,13 @@
 		-webkit-animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 		animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	}
-
+	.sord{
+		color: #6d50f0;
+	}
 	/* 代码框内容 */
 	.newsth-content {
 		position: relative;
+		min-width: 300px;
 		border-radius: 10px;
 		background-color: #fefefe;
 		margin: 0 auto;
@@ -881,7 +910,7 @@
 
 	.newsth-logo {
 		position: relative;
-		left: 10px;
+		filter: drop-shadow(#6d50f0 90px 0);
 	}
 
 	.newsth-close:hover,
@@ -902,7 +931,7 @@
 		padding: 2px 16px;
 		overflow-y: auto;
 		overflow-x: hidden;
-		height: 65vh;
+		height: calc(75vh - 78px);
 		text-align: center;
 	}
 	.dropdown-item:hover {
@@ -925,6 +954,202 @@
 		document.getElementsByClassName("newsth-content")[0].className = "newsth-content"
 		document.getElementsByClassName("newsth")[0].className = "newsth"
 		setTimeout(() => {newsth.style.display = "none";}, 400)
+	}
+</script>
+<style>
+	/* 代码框 (background) */
+	.aboutus {
+		display: none;
+		/* 默认隐藏 */
+		position: fixed;
+		z-index: 1000;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		float: right;
+		background-color: rgba(0, 0, 0, .4);
+		box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+		-webkit-box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+		color: rgba(255, 255, 255, 0.75);
+	}
+
+	.show.aboutus {
+		-webkit-animation: showaboutus 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+		animation: showaboutus 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	}
+
+	.aboutus {
+		-webkit-animation: hideaboutus 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+		animation: hideaboutus 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	}
+
+	/* 代码框内容 */
+	.aboutus-content {
+		position: relative;
+		border-radius: 10px;
+		margin: 0 auto;
+		width: 45vw;
+		overflow: hidden;
+		height: 60vh;
+		top: 20vh;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		background-color: #6d50f0;
+	}
+	.show.aboutus-content {
+		-webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+		animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+	}
+	.aboutus-content {
+		-webkit-animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+		animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	}
+
+	@-webkit-keyframes scale-up-center {
+		0% {
+			-webkit-transform: scale(0.9);
+			transform: scale(0.9);
+			opacity: 0
+		}
+
+		50% {
+			-webkit-transform: scale(1.2);
+			transform: scale(1.05);
+		}
+
+		90% {
+			-webkit-transform: scale(0.95);
+			transform: scale(0.95);
+		}
+
+		100% {
+			-webkit-transform: scale(1);
+			transform: scale(1);
+			opacity: 1
+		}
+	}
+
+	@keyframes scale-up-center {
+		0% {
+			-webkit-transform: scale(0.9);
+			transform: scale(0.9);
+			opacity: 0
+		}
+
+		50% {
+			-webkit-transform: scale(1.2);
+			transform: scale(1.05);
+		}
+
+		90% {
+			-webkit-transform: scale(0.95);
+			transform: scale(0.95);
+		}
+
+		100% {
+			-webkit-transform: scale(1);
+			transform: scale(1);
+			opacity: 1
+		}
+	}
+	@-webkit-keyframes scale-hide {
+		0% {
+			opacity: 1
+		}
+
+		100% {
+			opacity: 0
+		}
+	}
+
+	@keyframes scale-hide {
+		0% {
+			opacity: 1
+		}
+
+		100% {
+			opacity: 0
+		}
+	}
+
+	@keyframes showaboutus {
+		0% {
+			opacity: 0;
+			backdrop-filter: blur(0px);
+			-webkit-backdrop-filter: blur(0px);
+		}
+
+		100% {
+			opacity: 1;
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+		}
+	}
+
+	@keyframes hideaboutus {
+		0% {
+			opacity: 1;
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+		}
+
+		100% {
+			opacity: 0;
+			backdrop-filter: blur(0px);
+			-webkit-backdrop-filter: blur(0px);
+		}
+	}
+
+	/* 关闭按钮 */
+	.aboutus-close {
+		color: #6d50f0;
+		font-weight: bold;
+		font-size: 50px;
+		float: right;
+		position: relative;
+		right: 4px;
+		line-height: 32px;
+	}
+
+	.aboutus-logo {
+		position: relative;
+		left: 10px;
+	}
+
+	.aboutus-close:hover,
+	.aboutus-close:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	.aboutus-header {
+		padding: 20px 16px;
+		border-radius: 10px 10px 0 0;
+		background-color: rgb(245, 248, 250);
+		color: rgb(245, 248, 250);
+	}
+
+	.aboutus-body {
+		padding: 2px 16px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		height: calc(60vh - 77px);
+		text-align: center;
+	}
+</style>
+<script>
+	var aboutus = document.getElementById('myaboutus');
+
+	// 获取 <span> 元素，用于关闭弹窗 that closes the aboutus
+	var aboutusspan = document.getElementsByClassName("aboutus-close")[0];
+
+	// 点击 <span> (x), 关闭代码框
+	aboutusspan.onclick = function () {
+		document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content"
+		document.getElementsByClassName("aboutus")[0].className = "aboutus"
+		setTimeout(() => {aboutus.style.display = "none";}, 400)
 	}
 </script>
 <script>
@@ -973,11 +1198,13 @@
 		document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(0 0)')
 		document.getElementById("theme").setAttribute('width', '27')
 		document.getElementById("theme").setAttribute('height', '27')
-		sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}';
+		sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}.newsth-logo{filter: drop-shadow(#fff 90px 0);}.card{background:#666666;}.aboutus-close{color:#fff;}.newsth-close{color:#fff;}.sord{color:#fff;}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
 		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#525252"
+		document.getElementsByClassName("aboutus-header")[0].style.backgroundColor = "#525252"
 		document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#666666"
+		document.getElementsByClassName("aboutus-logo")[0].style.color = "#fff"
 		eval(dark)
 		document.cookie = "mode=dark";
 		replacejscssfile("./static/css/blockly_style.css", "./static/css/blockly_style_dark.css", "css");
@@ -989,11 +1216,13 @@
 		document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(-32 -32)')
 		document.getElementById("theme").setAttribute('width', '23.5706')
 		document.getElementById("theme").setAttribute('height', '26.4')
-		sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}';
+		sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}.newsth-logo{filter: drop-shadow(#6d50f0 90px 0);.card{background:#fff;}.aboutus-close{color:#6d50f0;}.newsth-close{color:#6d50f0;}.sord{color:#6d50f0;}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
 		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#F5F8FA"
+		document.getElementsByClassName("aboutus-header")[0].style.backgroundColor = "#F5F8FA"
 		document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#fff"
+		document.getElementsByClassName("aboutus-logo")[0].style.color = "#6d50f0"
 		eval(light)
 		document.cookie = "mode=light";
 		replacejscssfile("./static/css/blockly_style_dark.css", "./static/css/blockly_style.css", "css");
