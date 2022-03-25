@@ -155,7 +155,7 @@
 								</svg></a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="javascript:void(0)"
-										onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show"'>新建</a></li>
+										onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show";document.getElementsByClassName("newsth")[0].className = "newsth show"'>新建</a></li>
 								<li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存到电脑</a></li>
 								<li><a class="dropdown-item" href="javascript:void(0)"
 										onClick="openfile()">打开Waddle文件</a>
@@ -725,13 +725,20 @@
 		height: 100%;
 		overflow: hidden;
 		float: right;
-		background-color: rgba(0, 0, 0, 0.4);
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.18);
+		background-color: rgba(0, 0, 0, .4);
 		box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
 		-webkit-box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
 		color: rgba(255, 255, 255, 0.75);
+	}
+
+	.show.newsth {
+		-webkit-animation: shownewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+		animation: shownewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	}
+
+	.newsth {
+		-webkit-animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+		animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	}
 
 	/* 代码框内容 */
@@ -748,8 +755,9 @@
 		background-color: #ffffff;
 	}
 	.show.newsth-content {
-		-webkit-animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-		animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+		-webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+		animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
 	}
 	.newsth-content {
 		-webkit-animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -774,48 +782,96 @@
 
 	@-webkit-keyframes scale-up-center {
 		0% {
-			-webkit-transform: scale(0.5);
-			transform: scale(0.5);
+			-webkit-transform: scale(0.9);
+			transform: scale(0.9);
+			opacity: 0
+		}
+
+		50% {
+			-webkit-transform: scale(1.2);
+			transform: scale(1.05);
+		}
+
+		90% {
+			-webkit-transform: scale(0.95);
+			transform: scale(0.95);
 		}
 
 		100% {
 			-webkit-transform: scale(1);
 			transform: scale(1);
+			opacity: 1
 		}
 	}
 
 	@keyframes scale-up-center {
 		0% {
-			-webkit-transform: scale(0.5);
-			transform: scale(0.5);
+			-webkit-transform: scale(0.9);
+			transform: scale(0.9);
+			opacity: 0
+		}
+
+		50% {
+			-webkit-transform: scale(1.2);
+			transform: scale(1.05);
+		}
+
+		90% {
+			-webkit-transform: scale(0.95);
+			transform: scale(0.95);
 		}
 
 		100% {
 			-webkit-transform: scale(1);
 			transform: scale(1);
+			opacity: 1
 		}
 	}
 	@-webkit-keyframes scale-hide {
 		0% {
-			-webkit-transform: scale(0.5);
-			transform: scale(0.5);
+			opacity: 1
 		}
 
 		100% {
-			-webkit-transform: scale(1);
-			transform: scale(1);
+			opacity: 0
 		}
 	}
 
 	@keyframes scale-hide {
 		0% {
-			-webkit-transform: scale(1);
-			transform: scale(1);
+			opacity: 1
 		}
 
 		100% {
-			-webkit-transform: scale(0);
-			transform: scale(0);
+			opacity: 0
+		}
+	}
+
+	@keyframes shownewsth {
+		0% {
+			opacity: 0;
+			backdrop-filter: blur(0px);
+			-webkit-backdrop-filter: blur(0px);
+		}
+
+		100% {
+			opacity: 1;
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+		}
+	}
+
+	@keyframes hidenewsth {
+		0% {
+			opacity: 1;
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+		}
+
+		100% {
+			opacity: 0;
+			backdrop-filter: blur(0px);
+			-webkit-backdrop-filter: blur(0px);
 		}
 	}
 
@@ -874,6 +930,7 @@
 	// 点击 <span> (x), 关闭代码框
 	newsthspan.onclick = function () {
 		document.getElementsByClassName("newsth-content")[0].className = "newsth-content"
+		document.getElementsByClassName("newsth")[0].className = "newsth"
 		setTimeout(() => {newsth.style.display = "none";}, 400)
 	}
 </script>
