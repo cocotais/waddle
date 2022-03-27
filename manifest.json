@@ -1,0 +1,19 @@
+{
+    "name": "Waddle",
+    "short_name": "Waddle",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#6d50f0",
+    "theme_color": "#6d50f0",
+    "mode": "fullscreen",
+    "scope": "/",
+    "description": "让CoCo没有难做的控件",
+    "icons": [
+        {
+            "src": "/static/img/logo.png",
+            "type": "image/png",
+            "sizes": "1300x1300",
+            "purpose": "any maskable"
+        }
+    ]
+}
