@@ -33,6 +33,12 @@
 		return "";
 	}
 	var theme = getCookie('mode')
+	var date = new Date();
+	if ((date.getMonth()==2 && date.getDate()==21) || (date.getFullYear()==2022 && date.getMonth()==2 && date.getDate()==27) || (date.getMonth()==11 && date.getDate()==13)){
+		var rip = document.createElement('style');
+		rip.innerText = 'html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
+		document.body.appendChild(rip);
+	}
 </script>
 <body>
 	<div class="loading">
@@ -1179,6 +1185,12 @@
 
 <script>
 	var theme = getCookie('mode')
+	var date = new Date();
+	if ((date.getMonth()==2 && date.getDate()==21) || (date.getFullYear()==2022 && date.getMonth()==2 && date.getDate()==27) || (date.getMonth()==11 && date.getDate()==13)){
+		var rip = document.createElement('style');
+		rip.innerText = 'html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
+		document.body.appendChild(rip);
+	}
 	document.getElementById("table").style.height = (document.body.clientHeight - 57)
 	document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
 	Blockly.svgResize(workspace);
