@@ -11,6 +11,25 @@
 		console.log("%cV1.1.4(424)-dev  ©️ 2022 CoCo Central, All rights reserved.", "color:red;")
 	</script>
 
+	<script>
+		// 判断浏览器是否支持 service worker
+		if ('serviceWorker' in navigator) {
+			// load 事件完成之后才注册 service worker
+			window.addEventListener('load', function () {
+				// 注册 sw.js
+				navigator.serviceWorker.register('/sw.js')
+					.then(function (registration) {
+						// 注册成功
+						console.log('sw.js 注册成功', registration.scope);
+					})
+					.catch(function (err) {
+						// 注册失败:(
+						console.log('sw.js 注册失败 ', err);
+					});
+			});
+		}
+	</script>
+
 	<!--引入Blockly必要文件-->
 
 	<style>
@@ -34,36 +53,43 @@
 	}
 	var theme = getCookie('mode')
 	var date = new Date();
-	if ((date.getMonth()==2 && date.getDate()==21) || (date.getFullYear()==2022 && date.getMonth()==2 && date.getDate()==27) || (date.getMonth()==11 && date.getDate()==13)){
+	if ((date.getMonth() == 2 && date.getDate() == 21) || (date.getFullYear() == 2022 && date.getMonth() == 2 && date.getDate() == 27) || (date.getMonth() == 11 && date.getDate() == 13)) {
 		var rip = document.createElement('style');
 		rip.innerText = 'html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
 		document.body.appendChild(rip);
 	}
 </script>
+
 <body>
 	<div class="loading">
 		<div class="loading-pair">
 			<div class="container">
 				<svg xmlns="http://www.w3.org/2000/svg" height="100" viewBox="0 0 817.192 606.339">
-				<defs>
-				  <style>
-					.cls-1 {
-					  fill: none;
-					  stroke: rgb(255, 255, 255);
-					  stroke-width: 17px;
-					  fill-rule: evenodd;
-					}
-				  </style>
-				</defs>
-				<g id="组_41" data-name="组 41" transform="translate(-15658.403 -6102.205)">
-				  <path id="lu1" data-name="路径 1" class="cls-1" d="M908.359,2160a18.415,18.415,0,0,1,17.867,22.883c-23.091,92.37-109.4,437.594-134.638,538.555a36.832,36.832,0,0,1-35.734,27.9H624.033a18.415,18.415,0,0,1-17.867-22.883L740.8,2187.9a36.832,36.832,0,0,1,35.734-27.9Z" transform="translate(15540.223 3950.705)"/>
-				  <path id="lu2" data-name="路径 2" class="cls-1" d="M86.166,2182.883A18.414,18.414,0,0,1,104.033,2160H235.854a36.832,36.832,0,0,1,35.734,27.9L315.4,2363.138a73.641,73.641,0,0,1,0,35.729c-14.336,57.35-59.375,237.5-78.684,314.735a9.206,9.206,0,0,1-17.866,0Z" transform="translate(15581.385 3950.705)"/>
-				  <path id="lu3" data-name="路径 3" class="cls-1" d="M328.065,2749.34a36.831,36.831,0,0,1-35.734-45.766c29.128-116.514,105.44-421.764,128.918-515.672a36.832,36.832,0,0,1,35.734-27.9H546.8a36.832,36.832,0,0,1,35.734,27.9c11.52,46.079,34.2,136.81,43.808,175.236a73.642,73.642,0,0,1,0,35.729c-14.336,57.35-59.374,237.5-78.683,314.735a9.207,9.207,0,0,1-17.867,0c-3.038-12.146-6.549-26.2-10.033-40.13a18.417,18.417,0,0,0-35.734,0c-4.263,17.054-8.566,34.265-11.993,47.967a36.831,36.831,0,0,1-35.733,27.9Z" transform="translate(15565.109 3950.705)"/>
-				</g>
-			  </svg>
-			  
-			  </div>
-			  
+					<defs>
+						<style>
+							.cls-1 {
+								fill: none;
+								stroke: rgb(255, 255, 255);
+								stroke-width: 17px;
+								fill-rule: evenodd;
+							}
+						</style>
+					</defs>
+					<g id="组_41" data-name="组 41" transform="translate(-15658.403 -6102.205)">
+						<path id="lu1" data-name="路径 1" class="cls-1"
+							d="M908.359,2160a18.415,18.415,0,0,1,17.867,22.883c-23.091,92.37-109.4,437.594-134.638,538.555a36.832,36.832,0,0,1-35.734,27.9H624.033a18.415,18.415,0,0,1-17.867-22.883L740.8,2187.9a36.832,36.832,0,0,1,35.734-27.9Z"
+							transform="translate(15540.223 3950.705)" />
+						<path id="lu2" data-name="路径 2" class="cls-1"
+							d="M86.166,2182.883A18.414,18.414,0,0,1,104.033,2160H235.854a36.832,36.832,0,0,1,35.734,27.9L315.4,2363.138a73.641,73.641,0,0,1,0,35.729c-14.336,57.35-59.375,237.5-78.684,314.735a9.206,9.206,0,0,1-17.866,0Z"
+							transform="translate(15581.385 3950.705)" />
+						<path id="lu3" data-name="路径 3" class="cls-1"
+							d="M328.065,2749.34a36.831,36.831,0,0,1-35.734-45.766c29.128-116.514,105.44-421.764,128.918-515.672a36.832,36.832,0,0,1,35.734-27.9H546.8a36.832,36.832,0,0,1,35.734,27.9c11.52,46.079,34.2,136.81,43.808,175.236a73.642,73.642,0,0,1,0,35.729c-14.336,57.35-59.374,237.5-78.683,314.735a9.207,9.207,0,0,1-17.867,0c-3.038-12.146-6.549-26.2-10.033-40.13a18.417,18.417,0,0,0-35.734,0c-4.263,17.054-8.566,34.265-11.993,47.967a36.831,36.831,0,0,1-35.733,27.9Z"
+							transform="translate(15565.109 3950.705)" />
+					</g>
+				</svg>
+
+			</div>
+
 			<noscript>请打开javascript获得最佳体验</noscript>
 			<p id="loading-text" style="color: rgb(255,255,255);">让CoCo没有难做的控件</p>
 		</div>
@@ -77,11 +103,11 @@
 			"工具是给开发者调试的利器！",
 			"不会操作？看看模板！",
 			"Waddle由CoCo编辑器中控台制作！",
-            "试试在f12中搜搜所有贡献者？",
-            "听说Waddle有VSCode主题了？",
-            "咕咕咕~"
+			"试试在f12中搜搜所有贡献者？",
+			"听说Waddle有VSCode主题了？",
+			"咕咕咕~"
 		]
-		document.getElementById("loading-text").innerText=tipList[Math.floor(Math.random()*tipList.length)]
+		document.getElementById("loading-text").innerText = tipList[Math.floor(Math.random() * tipList.length)]
 		if (theme == "dark") {
 			document.getElementsByClassName("loading")[0].style.backgroundColor = "#525252"
 		} else {
@@ -91,7 +117,7 @@
 				if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 					document.getElementsByClassName("loading")[0].style.backgroundColor = "#525252"
 				}
-				else{
+				else {
 					document.getElementsByClassName("loading")[0].style.backgroundColor = "#6d50f0"
 				}
 			}
@@ -99,33 +125,33 @@
 	</script>
 	<style>
 		.container {
-  			width: 40%;
-  			margin: 4em auto;
+			width: 40%;
+			margin: 4em auto;
 		}
 
 		@keyframes offset {
-  			to {
-    			stroke-dashoffset: 1919810px;
-  			}
+			to {
+				stroke-dashoffset: 1919810px;
+			}
 		}
 
 		.cls-1 {
-  			animation: offset 1145s linear forwards;
+			animation: offset 1145s linear forwards;
 		}
 
 		#lu1 {
-  			stroke-dasharray: 1600px;
-  			stroke-dashoffset: 1600px;
+			stroke-dasharray: 1600px;
+			stroke-dashoffset: 1600px;
 		}
 
 		#lu2 {
-  			stroke-dasharray: 1350px;
-  			stroke-dashoffset: 1350px;
+			stroke-dasharray: 1350px;
+			stroke-dashoffset: 1350px;
 		}
 
 		#lu3 {
-  			stroke-dasharray: 1650px;
-  			stroke-dashoffset: 1650px;
+			stroke-dasharray: 1650px;
+			stroke-dashoffset: 1650px;
 		}
 
 		.loading {
@@ -140,7 +166,7 @@
 		}
 
 		.loading-pair {
-            margin-top: 22vh;
+			margin-top: 22vh;
 		}
 	</style>
 	<div id="body" style="visibility:hidden;">
@@ -161,7 +187,8 @@
 								</svg></a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="javascript:void(0)"
-										onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show";document.getElementsByClassName("newsth")[0].className = "newsth show"'>新建</a></li>
+										onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show";document.getElementsByClassName("newsth")[0].className = "newsth show"'>新建</a>
+								</li>
 								<li><a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存到电脑</a></li>
 								<li><a class="dropdown-item" href="javascript:void(0)"
 										onClick="openfile()">打开Waddle文件</a>
@@ -192,7 +219,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="javascript:void(0)" title="关于" 
+							<a class="nav-link" href="javascript:void(0)" title="关于"
 								onclick='count();aboutus.style.display = "block";document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";document.getElementsByClassName("aboutus")[0].className = "aboutus show"'>
 								<svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor"
 									viewBox="0 0 135 135">
@@ -316,18 +343,16 @@
 			</div>
 		</div>
 		<style>
-
-
 			/* 代码框 (background) */
 			.modal {
 				display: none;
 				/* 默认隐藏 */
 				position: fixed;
-				z-index: 1000!important;
+				z-index: 1000 !important;
 				top: 0;
 				right: 0;
 				height: 100%;
-				overflow: hidden!important;
+				overflow: hidden !important;
 				margin-left: auto;
 			}
 
@@ -342,7 +367,7 @@
 				float: right;
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			}
-			
+
 			.modal-content {
 				-webkit-animation-name: animateleft;
 				-webkit-animation-duration: 0.4s;
@@ -356,6 +381,7 @@
 				animation-name: animateright;
 				animation-duration: 0.4s
 			}
+
 			/* 添加动画 */
 			@-webkit-keyframes animateright {
 				from {
@@ -414,15 +440,17 @@
 				font-weight: bold;
 			}
 
-			.close:hover,.copy:hover,
-			.close:focus,.copy:focus {
+			.close:hover,
+			.copy:hover,
+			.close:focus,
+			.copy:focus {
 				color: #000;
 				text-decoration: none;
 				cursor: pointer;
 			}
 
 			.modal-header {
-				padding: 8px 16px!important;
+				padding: 8px 16px !important;
 				background-color: #6d50f0;
 				color: white;
 			}
@@ -441,20 +469,21 @@
 			<!-- 新建浮窗内容 -->
 			<div class="newsth-content">
 				<div class="newsth-header">
-					<svg class="newsth-logo" xmlns="http://www.w3.org/2000/svg"
-									width="40" height="38.16" fill="currentColor" viewBox="0 0 130 125">
-									<path id="联合_1" data-name="联合 1"
-										d="M7,125a7,7,0,0,1-7-7V57a7,7,0,0,1,7-7H123a7,7,0,0,1,7,7v61a7,7,0,0,1-7,7ZM4.667,35A4.667,4.667,0,0,1,0,30.334V7A7,7,0,0,1,7,0H48.823A20,20,0,0,1,68.6,17h48.067A13.334,13.334,0,0,1,130,30.334,4.667,4.667,0,0,1,125.333,35Z" />
-								</svg>
+					<svg class="newsth-logo" xmlns="http://www.w3.org/2000/svg" width="40" height="38.16"
+						fill="currentColor" viewBox="0 0 130 125">
+						<path id="联合_1" data-name="联合 1"
+							d="M7,125a7,7,0,0,1-7-7V57a7,7,0,0,1,7-7H123a7,7,0,0,1,7,7v61a7,7,0,0,1-7,7ZM4.667,35A4.667,4.667,0,0,1,0,30.334V7A7,7,0,0,1,7,0H48.823A20,20,0,0,1,68.6,17h48.067A13.334,13.334,0,0,1,130,30.334,4.667,4.667,0,0,1,125.333,35Z" />
+					</svg>
 					<span class="newsth-close">&times;</span>
 				</div>
 				<div class="newsth-body">
-					<div class="card" id="card" onclick='newsth.style.display = "none";workspace.clear();'><span class="sord" style="line-height: 250px;font-weight: bold;
+					<div class="card" id="card" onclick='newsth.style.display = "none";workspace.clear();'><span
+							class="sord" style="line-height: 250px;font-weight: bold;
 					font-size: 30px;">空白作品</span></div>
 					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord" style="line-height: 250px;font-weight: bold;
 					font-size: 30px;">可见控件模版</span></div>
-					<div class="card"
-					id="card" onclick='newsth.style.display = "none";workspace.clear();Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);'>
+					<div class="card" id="card"
+						onclick='newsth.style.display = "none";workspace.clear();Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);'>
 						<span class="sord" style="line-height: 250px;font-weight: bold;
 					font-size: 30px;">不可见控件模版</span>
 					</div>
@@ -477,13 +506,16 @@
 					</br></br>
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由CoCo中控台所有成员共同开发！</p>
 					<!----<p style="color: #ffffff;font-size: 17px;">中子星000（QQ：2422481178）主理制作</br>MathCalculus（QQ：2504556268）主理制作</br>Epeiuss（Mail：ffxw0720@163.com）监制</br>海藻酸钠（QQ：3409473369）美术/UI/监制</br>小鱼yuzifu（QQ：1906929246）前端设计</br>刘lyxAndy（QQ：3449556207）细节处理</p>--->
-					<p style="color: #ffffff;font-size: 15px;">帮助链接：<a href="https://www.yuque.com/coco-central/waddle/index" style="color: #ffffff;font-size: 15px;" target="_blank">https://www.yuque.com/coco-central/waddle/index</a></p>
+					<p style="color: #ffffff;font-size: 15px;">帮助链接：<a
+							href="https://www.yuque.com/coco-central/waddle/index"
+							style="color: #ffffff;font-size: 15px;"
+							target="_blank">https://www.yuque.com/coco-central/waddle/index</a></p>
 					</br></br>
 					<p style="color: #ffffff;font-size: 25px;font-weight: bold;">目前版本：V1.1.4(424)-dev</p>
 				</div>
-				</div>
 			</div>
 		</div>
+	</div>
 
 	</div>
 </body>
@@ -707,8 +739,8 @@
 
 	// 点击 <span> (x), 关闭代码框
 	span.onclick = function () {
-	    document.getElementsByClassName("modal-content")[0].className = "modal-content";
-		setTimeout(() => {modal.style.display = "none";}, 400)
+		document.getElementsByClassName("modal-content")[0].className = "modal-content";
+		setTimeout(() => { modal.style.display = "none"; }, 400)
 	}
 
 	// 点击复制，复制代码
@@ -770,9 +802,11 @@
 		-webkit-animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 		animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	}
-	.sord{
+
+	.sord {
 		color: #6d50f0;
 	}
+
 	/* 代码框内容 */
 	.newsth-content {
 		position: relative;
@@ -787,11 +821,13 @@
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		background-color: #ffffff;
 	}
+
 	.show.newsth-content {
 		-webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 		animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 
 	}
+
 	.newsth-content {
 		-webkit-animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 		animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -860,6 +896,7 @@
 			opacity: 1
 		}
 	}
+
 	@-webkit-keyframes scale-hide {
 		0% {
 			opacity: 1
@@ -946,13 +983,14 @@
 		height: calc(75vh - 78px);
 		text-align: center;
 	}
+
 	.dropdown-item:hover {
-    	background: #f5f3fe;
+		background: #f5f3fe;
 	}
 
 	.dropdown-item:active {
-    	background: #ddd8f3;
-    	color: black;
+		background: #ddd8f3;
+		color: black;
 	}
 </style>
 <script>
@@ -965,7 +1003,7 @@
 	newsthspan.onclick = function () {
 		document.getElementsByClassName("newsth-content")[0].className = "newsth-content"
 		document.getElementsByClassName("newsth")[0].className = "newsth"
-		setTimeout(() => {newsth.style.display = "none";}, 400)
+		setTimeout(() => { newsth.style.display = "none"; }, 400)
 	}
 </script>
 <style>
@@ -1010,11 +1048,13 @@
 		background: url(./static/img/background.svg);
 		background-size: cover;
 	}
+
 	.show.aboutus-content {
 		-webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 		animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 
 	}
+
 	.aboutus-content {
 		-webkit-animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 		animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -1067,6 +1107,7 @@
 			opacity: 1
 		}
 	}
+
 	@-webkit-keyframes scale-hide {
 		0% {
 			opacity: 1
@@ -1163,7 +1204,7 @@
 	aboutusspan.onclick = function () {
 		document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content"
 		document.getElementsByClassName("aboutus")[0].className = "aboutus"
-		setTimeout(() => {aboutus.style.display = "none";}, 400)
+		setTimeout(() => { aboutus.style.display = "none"; }, 400)
 	}
 </script>
 <script>
@@ -1188,7 +1229,7 @@
 <script>
 	var theme = getCookie('mode')
 	var date = new Date();
-	if ((date.getMonth()==2 && date.getDate()==21) || (date.getFullYear()==2022 && date.getMonth()==2 && date.getDate()==27) || (date.getMonth()==11 && date.getDate()==13)){
+	if ((date.getMonth() == 2 && date.getDate() == 21) || (date.getFullYear() == 2022 && date.getMonth() == 2 && date.getDate() == 27) || (date.getMonth() == 11 && date.getDate() == 13)) {
 		var rip = document.createElement('style');
 		rip.innerText = 'html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
 		document.body.appendChild(rip);
@@ -1259,11 +1300,11 @@
 			theme = "light"
 		}
 		theme_conut++;
-		setTimeout(1000,function(){theme_conut=0;});
-		if (theme_conut>=5){
+		setTimeout(1000, function () { theme_conut = 0; });
+		if (theme_conut >= 5) {
 			window.open("./static/Waddle/eastegg/vscode/index.html")
 			swal("获得成就：主题爱好者")
-			theme_conut=0
+			theme_conut = 0
 		}
 	}
 	window.onresize = function () {
@@ -1284,13 +1325,13 @@
 	}
 	hljs.initHighlightingOnLoad();
 	if ($(window).width() < 754) {
-			logo.src = "./static/img/logo.svg";
-			document.getElementsByClassName("modal")[0].style.width = "100%"
-		}
-		else {
-			logo.src = "./static/img/waddle.svg";
-			document.getElementsByClassName("modal")[0].style.width = "30%"
-		}
+		logo.src = "./static/img/logo.svg";
+		document.getElementsByClassName("modal")[0].style.width = "100%"
+	}
+	else {
+		logo.src = "./static/img/waddle.svg";
+		document.getElementsByClassName("modal")[0].style.width = "30%"
+	}
 </script>
 <script>
 	// 等待加载完毕
