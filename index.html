@@ -1337,15 +1337,6 @@
 	// 等待加载完毕
 	setTimeout(() => { document.getElementById("body").style = "visibility: visible" }, 1000)
 </script>
-<script>
-	if ((date.getMonth() == 4 && date.getDate() == 1)) {
-		swal("重大更新!", "Waddle有离线版了!", "success", { buttons: ["取 消", "确 认"], })
-			.then((value) => {
-				if (value) {
-					window.location.href = "./static/Waddle/waddle_offline_download.html";
-				}
-			})
-	}
-</script>
+
 
 </html>
