@@ -2,6 +2,7 @@
 
 <head>
 	<meta charset="utf-8">
+	<meta name="theme-color" id="pwa-color" content="">
 	<link rel="manifest" href="/manifest.json">
 	<script>
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
@@ -363,7 +364,8 @@
 				margin: 0 auto;
 				padding: 0;
 				height: 100%;
-				border: 1px solid #888;
+				border: 1px solid rgb(0,0,0,.0);
+				border-radius: 8px;
 				float: right;
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			}
@@ -841,11 +843,11 @@
 		background: rgb(255, 255, 255);
 		border-radius: 0.4em;
 		transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-		border: rgb(250, 250, 250) 0.2em solid;
+		border: rgb(202, 202, 202) 0.2em solid;
 	}
 
 	.card:hover {
-		border: #006fff 0.2em solid;
+		border: #6d50f0 0.2em solid;
 	}
 
 
@@ -1259,7 +1261,7 @@
 		document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(0 0)')
 		document.getElementById("theme").setAttribute('width', '27')
 		document.getElementById("theme").setAttribute('height', '27')
-		sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}.card{background:#666666;}.aboutus-close{color:#fff;}.newsth-close{color:#fff;}.sord{color:#fff;}';
+		sty.innerText = '.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}.card{background:#666666;border: rgb(255, 255, 255) 0.2em solid;}.aboutus-close{color:#fff;}.newsth-close{color:#fff;}.sord{color:#fff;}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
 		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#525252"
@@ -1269,6 +1271,7 @@
 		document.getElementsByClassName("newsth-logo")[0].style.color = "#fff"
 		eval(dark)
 		document.cookie = "mode=dark";
+		document.getElementById("pwa-color").setAttribute('content', '#525252')
 		replacejscssfile("./static/css/blockly_style.css", "./static/css/blockly_style_dark.css", "css");
 	}
 	var to_light = function () {
@@ -1278,7 +1281,7 @@
 		document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(-32 -32)')
 		document.getElementById("theme").setAttribute('width', '23.5706')
 		document.getElementById("theme").setAttribute('height', '26.4')
-		sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}.card{background:#fff;}.aboutus-close{color:#6d50f0;}.newsth-close{color:#6d50f0;}.sord{color:#6d50f0;}';
+		sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}.card{background:#fff;border: rgb(180, 180, 180) 0.2em solid;}.aboutus-close{color:#6d50f0;}.newsth-close{color:#6d50f0;}.sord{color:#6d50f0;}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
 		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#F5F8FA"
@@ -1286,6 +1289,7 @@
 		document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#fff"
 		document.getElementsByClassName("aboutus-logo")[0].style.color = "#6d50f0"
 		document.getElementsByClassName("newsth-logo")[0].style.color = "#6d50f0"
+		document.getElementById("pwa-color").setAttribute('content', '#6d50f0')
 		eval(light)
 		document.cookie = "mode=light";
 		replacejscssfile("./static/css/blockly_style_dark.css", "./static/css/blockly_style.css", "css");
