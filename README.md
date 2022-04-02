@@ -16,8 +16,6 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 ## 直接访问
 如果你想要直接访问：
 
-可以进入[podemao.cn](https://podemao.cn)，本链接将每周五更新
-
 可以进入[Gitee Pages](https://coco-ag.gitee.io/coco-waddle)，本链接将不定期更新
 
 可以进入[Waddle](https://waddle.coco-central.cn/)官方的链接，本链接将实时更新
