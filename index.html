@@ -184,8 +184,8 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav">
-						<li class="nav-item dropdown">
-							<a id="navbarDropdown" class="nav-link" href="#" role="button" title="文件"
+						<li class="nav-item dropdown" data-title="文件">
+							<a id="navbarDropdown" class="nav-link" href="#" role="button" 
 								data-bs-toggle="dropdown" one-link-mark="yes"><svg xmlns="http://www.w3.org/2000/svg"
 									width="26" height="25" fill="currentColor" viewBox="0 0 130 125">
 									<path id="联合_1" data-name="联合 1"
@@ -204,9 +204,9 @@
 								</li>
 							</ul>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item" data-title="积木">
 							<a id="switch_table" class="nav-link active" href="javascript:void(0)"
-								onclick="switch_table()" title="工作区">
+								onclick="return true" >
 								<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
 									viewBox="0 0 130 130">
 									<path id="积木"
@@ -215,8 +215,8 @@
 								</svg>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a id="switch_code" class="nav-link" href="javascript:void(0)" title="转换代码">
+						<li class="nav-item" data-title="代码">
+							<a id="switch_code" class="nav-link" href="javascript:void(0)" >
 								<svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" fill="currentColor"
 									viewBox="0 0 130 125">
 									<path id="减去_1" data-name="减去 1"
@@ -224,8 +224,8 @@
 								</svg>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="javascript:void(0)" title="关于"
+						<li class="nav-item" data-title="关于">
+							<a class="nav-link" href="javascript:void(0)" 
 								onclick='count();aboutus.style.display = "block";document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";document.getElementsByClassName("aboutus")[0].className = "aboutus show"'>
 								<svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor"
 									viewBox="0 0 135 135">
@@ -234,8 +234,8 @@
 								</svg>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="javascript:void(0)" title="主题" onclick="switch_theme()">
+						<li class="nav-item" data-title="主题">
+							<a class="nav-link" href="javascript:void(0)"  onclick="switch_theme()">
 								<svg id="theme" xmlns="http://www.w3.org/2000/svg" width="23.5706" height="26.4"
 									fill="currentColor" viewBox="0 0 135 135">
 									<path id="moon-solid_3_" data-name="moon-solid (3)"
@@ -262,6 +262,59 @@
 
 		<a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
 		<style>
+			.nav-item:hover:after{
+				content: attr(data-title);
+            	position: absolute;
+				border-radius: 8px;
+				height: max-content;
+				text-align: center;
+				width: 43px;
+				background-color:rgba(0, 0, 0, .4);
+            	border: 8px solid rgba(0, 0, 0, .0);
+				z-index: 600;
+				font-size: 12px;
+				color: #ffffff;
+				display: flex;
+				justify-content: center;
+            	align-items: center;
+				-webkit-animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+				animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+			}
+
+			@keyframes scale-up-top {
+  				0% {
+    				-webkit-transform: scale(0);
+            		transform: scale(0);
+					-webkit-transform-origin: 50% 0%;
+            		transform-origin: 50% 0%;
+					opacity: 0;
+  				}
+  				100% {
+    				-webkit-transform: scale(1);
+            		transform: scale(1);
+					-webkit-transform-origin: 50% 0%;
+            		transform-origin: 50% 0%;
+					opacity: 1;
+ 				}
+			}
+
+			@-webkit-keyframes scale-up-top {
+  				0% {
+    				-webkit-transform: scale(0);
+            		transform: scale(0);
+					-webkit-transform-origin: 50% 0%;
+            		transform-origin: 50% 0%;
+					opacity: 0;
+  				}
+  				100% {
+    				-webkit-transform: scale(1);
+            		transform: scale(1);
+					-webkit-transform-origin: 50% 0%;
+            		transform-origin: 50% 0%;
+					opacity: 1;
+ 				}
+			}
+
 			.js_button {
 				padding: 10px;
 			}
