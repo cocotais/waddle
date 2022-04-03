@@ -84,8 +84,12 @@ let switch_code = function () {
 
 var get_num = 0;
 let count = function () {
-    get_num++;
+    get_num += 1;
     if (get_num >= 5) {
+        if(getCookie('help-egg')==false){
+            document.cookie = "help-egg=true";
+            swal("获得成就：需要帮助的训练师")
+        }
         window.open("./static/Waddle/eastegg/aiwidget.html")
         get_num = -999;
     }
