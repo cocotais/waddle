@@ -2,8 +2,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="theme-color" id="pwa-color" content="">
-	<link rel="manifest" href="/manifest.json">
+	<meta name="theme-color" id="pwa-color" content="#6d50f0">
+	<link rel="manifest" href="./manifest.json">
+	<link rel="apple-touch-icon" href="./static/img/apple-touch-icon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="让CoCo没有难做的控件">
 	<script>
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
@@ -180,7 +183,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav">
 						<li class="nav-item dropdown">
-							<a id="navbarDropdown" class="nav-link" href="#" role="button" title=""
+							<a id="navbarDropdown" class="nav-link" href="#" role="button" title="文件"
 								data-bs-toggle="dropdown" one-link-mark="yes"><svg xmlns="http://www.w3.org/2000/svg"
 									width="26" height="25" fill="currentColor" viewBox="0 0 130 125">
 									<path id="联合_1" data-name="联合 1"
@@ -255,7 +258,7 @@
 			</xml>
 		</div>
 
-		<a href="" download="" style="display: none;" id="downa" aria-label="下载"></a>
+		<a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
 		<style>
 			.js_button {
 				padding: 10px;
@@ -511,7 +514,7 @@
 					<p style="color: #ffffff;font-size: 15px;">帮助链接：<a
 							href="https://www.yuque.com/coco-central/waddle/index"
 							style="color: #ffffff;font-size: 15px;"
-							target="_blank">https://www.yuque.com/coco-central/waddle/index</a></p>
+							target="_blank" rel="noopener">https://www.yuque.com/coco-central/waddle/index</a></p>
 					</br></br>
 					<p style="color: #ffffff;font-size: 25px;font-weight: bold;">目前版本：V1.1.4(424)-dev</p>
 				</div>
@@ -532,7 +535,7 @@
 <title>Waddle - 让CoCo没有难做的控件</title>
 
 <!--图标库-->
-<link rel="stylesheet" href="//at.alicdn.com/t/font_3193112_l62ftr4pl4h.css">
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_3193112_l62ftr4pl4h.css">
 
 
 <!--定义Blocks-->
@@ -547,14 +550,14 @@
 <script src="./static/blockly-master/generators/javascript/js.js"></script>
 
 <!--引入框架-->
-<script src="./static/js/jquery-3.4.1.min.js"></script>
+<script src="./static/js/jquery-3.6.0.min.js"></script>
 <script src="./static/js/bootstrap.bundle.min.js"></script>
 <link href="./static/css/bootstrap.min.css" rel="stylesheet">
 
 <!--引入高亮-->
-<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
-<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/styles/googlecode.min.css" rel="stylesheet">
+<script src="./static/js/highlight.min.js"></script>
+<script src="./static/js/javascript.min.js"></script>
+<link href="./static/css/googlecode.min.css" rel="stylesheet">
 
 <!--自定义Blockly样式-->
 <script src="./static/Waddle/custom_category.js"></script>
