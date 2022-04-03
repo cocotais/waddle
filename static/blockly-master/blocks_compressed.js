@@ -217,10 +217,10 @@ Blockly.Blocks["voxels_id"] = {
   init:function(){
     this.appendValueInput("NAME")
       .setCheck("string")
-      .appendField("方块名称转id")
+      .appendField("积木名称转id")
     this.setOutput(true,"Number");
     this.setColour(114);
-    this.setTooltip("将方块名称转换为方块id。");
+    this.setTooltip("将积木名称转换为积木id。");
     this.setHelpUrl("https://docs.box3.codemao.cn/box3voxels.html#voxelsid");
   },
 };

@@ -95,7 +95,7 @@
 			</div>
 
 			<noscript>请打开javascript获得最佳体验</noscript>
-			<p id="loading-text" style="color: rgb(255,255,255);">让CoCo没有难做的控件</p>
+			<p id="loading-text" onClick="document.getElementById('loading-text').style.color = 'rgba(255,255,255,100)'" style="color: rgb(255,255,255);">让CoCo没有难做的控件</p>
 		</div>
 	</div>
 	<script>
@@ -113,9 +113,16 @@
 			"听说Waddle有VSCode主题了？",
 			"咕咕咕~",
             "不会用怎么办？首先不要慌张，打开语雀看看。",
-            "不要问我实体定义怎么做，我会告诉你我们都没做~不要问我什么时候做出来，我会告诉你114514年后~"
+            "不要问我实体定义怎么做，我会告诉你我们都没做~不要问我什么时候做出来，我会告诉你114514年后~",
+			"我们抄的隔街Phigros的Tips～",
+			"Waddle缂栬緫鍣�",
+			"祝编程猫发展的越来越好！",
+			"你看不到我～"
 		]
 		document.getElementById("loading-text").innerText = tipList[Math.floor(Math.random() * tipList.length)]
+		if(document.getElementById("loading-text").innerText == "你看不到我～"){
+			document.getElementById("loading-text").style.color = 'rgba(255,255,255,0)'
+		}
 		if (theme == "dark") {
 			document.getElementsByClassName("loading")[0].style.backgroundColor = "#525252"
 		} else {
@@ -392,6 +399,20 @@
 			.swal-button--confirm:not([disabled]):focus{
 				background-color: #6d50f0;
 			}
+			
+			.blocklyMenuItem{
+				color:rgb(136,125,107);
+			}
+
+			.blocklyMenuItemDisabled{
+				color:#ccc;
+			}
+
+			.blocklyMenuItemHighlight{
+				background-color: #e3ddfc;
+				color:#000;
+			}
+
 		</style>
 		<!-- 代码框 -->
 		<div id="myModal" class="modal">
@@ -516,7 +537,7 @@
 			}
 
 			.modal-header {
-				padding: 8px 16px !important;
+				padding: 8px 16px 7px!important;
 				background-color: #6d50f0;
 				color: white;
 			}
@@ -800,12 +821,16 @@
 	// 点击按钮打开代码框
 	btn.onclick = function () {
 		document.getElementsByClassName("modal-content")[0].className = "modal-content show";
+		
+		setTimeout(() => { document.getElementById("blocklyDiv").style.width = 'calc(70vw + 1px)'; Blockly.svgResize(workspace); }, 400)
 		modal.style.display = "block";
 	}
 
 	// 点击 <span> (x), 关闭代码框
 	span.onclick = function () {
 		document.getElementsByClassName("modal-content")[0].className = "modal-content";
+		document.getElementById("blocklyDiv").style.width = 'calc(100vw)'; 
+		Blockly.svgResize(workspace);
 		setTimeout(() => { modal.style.display = "none"; }, 400)
 	}
 
