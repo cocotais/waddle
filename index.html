@@ -7,6 +7,7 @@
 	<link rel="apple-touch-icon" href="./static/img/apple-touch-icon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="让CoCo没有难做的控件">
+	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
@@ -14,7 +15,6 @@
 		console.log("%c\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec", "font-size:14px;color:rgb(42,125,255)")
 		console.log("%cV1.1.4(424)-dev  ©️ 2022 CoCo Central, All rights reserved.", "color:red;")
 	</script>
-
 	<script>
 		// 判断浏览器是否支持 service worker
 		if ('serviceWorker' in navigator) {
@@ -62,6 +62,7 @@
 		rip.innerText = 'html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
 		document.body.appendChild(rip);
 	}
+	
 </script>
 
 <body>
@@ -74,7 +75,7 @@
 							.cls-1 {
 								fill: none;
 								stroke: rgb(255, 255, 255);
-								stroke-width: 17px;
+								stroke-width: 20px;
 								fill-rule: evenodd;
 							}
 						</style>
@@ -137,6 +138,7 @@
 				}
 			}
 		}
+		$('.cls-1').css({'stroke-dashoffset':'1650px'});
 	</script>
 	<style>
 		.container {
@@ -144,31 +146,29 @@
 			margin: 4em auto;
 		}
 
-		@keyframes offset {
-			to {
-				stroke-dashoffset: 1919810px;
-			}
-		}
-
-		.cls-1 {
-			animation: offset 1145s linear forwards;
-		}
-
 		#lu1 {
-			stroke-dasharray: 1600px;
-			stroke-dashoffset: 1600px;
+			stroke-linecap:round;
+			stroke-linejoin:round;
+			stroke-dasharray: 1650px;
 		}
 
 		#lu2 {
-			stroke-dasharray: 1350px;
-			stroke-dashoffset: 1350px;
+			stroke-linecap:round;
+			stroke-linejoin:round;
+			stroke-dasharray: 1650px;
 		}
 
 		#lu3 {
+			stroke-linecap:round;
+			stroke-linejoin:round;
 			stroke-dasharray: 1650px;
-			stroke-dashoffset: 1650px;
 		}
 
+		.cls-1 {
+			stroke-linecap:round;
+			stroke-linejoin:round;
+			stroke-dashoffset: 0px;
+		}
 		.loading {
 			background-color: #ffffff;
 			position: absolute;
@@ -607,18 +607,18 @@
 	</div>
 </body>
 
-
+<script>$('.cls-1').css({'stroke-dashoffset':'1400px'});</script>
 <script src="./static/blockly-master/blockly_compressed.js"></script>
 <script src="./static/blockly-master/javascript_compressed.js"></script>
 <script src="./static/blockly-master/blocks_compressed.js"></script>
 <script src="./static/blockly-master/msg/js/zh-hans.js"></script>
-
+<script>$('.cls-1').css({'stroke-dashoffset':'1200px'});</script>
 <link rel="shortcut icon" href="./static/img/logo.svg">
 <title>Waddle - 让CoCo没有难做的控件</title>
 
 <!--图标库-->
 <link rel="stylesheet" href="https://at.alicdn.com/t/font_3193112_l62ftr4pl4h.css">
-
+<script>$('.cls-1').css({'stroke-dashoffset':'1100px'});</script>
 
 <!--定义Blocks-->
 <!-- <script src="static/blockly-master/blocks/invisibleWidget.js"></script> -->
@@ -632,10 +632,9 @@
 <script src="./static/blockly-master/generators/javascript/js.js"></script>
 
 <!--引入框架-->
-<script src="./static/js/jquery-3.6.0.min.js"></script>
 <script src="./static/js/bootstrap.bundle.min.js"></script>
 <link href="./static/css/bootstrap.min.css" rel="stylesheet">
-
+<script>$('.cls-1').css({'stroke-dashoffset':'900px'});</script>
 <!--引入高亮-->
 <script src="./static/js/highlight.min.js"></script>
 <script src="./static/js/javascript.min.js"></script>
@@ -645,7 +644,7 @@
 <script src="./static/Waddle/custom_category.js"></script>
 <link href="./static/css/blockly_style.css" rel="stylesheet" />
 <!--包含toolbox和积木-->
-
+<script>$('.cls-1').css({'stroke-dashoffset':'700px'});</script>
 <!--自定义积木样式-->
 <script src="./static/Waddle/custom_renderer.js"></script>
 
@@ -666,7 +665,7 @@
 <!--JavaScript积木-->
 <script src="./static/blockly-master/blocks/html.js"></script>
 <script src="./static/blockly-master/generators/javascript/html.js"></script>
-
+<script>$('.cls-1').css({'stroke-dashoffset':'500px'});</script>
 
 <!--不可见控件积木-->
 <script src="./static/Waddle/blocks/invisibleWidget.js"></script>
@@ -679,6 +678,7 @@
 <script src="./static/js/sweetalert.min.js"></script>
 <!--彩蛋定义-->
 <script>
+	$('.cls-1').css({'stroke-dashoffset':'300px'});
 	function estchk() {
 		if (document.cookie.includes("easter")) {
 			swal("彩蛋", "恭喜，你貌似触发了彩蛋！", "success")
@@ -749,7 +749,7 @@
 	xmlhttp.open("GET", "./static/Waddle/toolBox.xml", false);
 
 	xmlhttp.send();
-
+	$('.cls-1').css({'stroke-dashoffset':'200px'});
 	xmlDoc = xmlhttp.responseXML;
 	toolbox = document.getElementById('toolbox');
 	toolbox.innerHTML = xmlDoc.getElementsByTagName('toolbox')[0].innerHTML;
@@ -811,7 +811,7 @@
 	workspace.addChangeListener(myUpdateFunction);
 
 	var modal = document.getElementById('myModal');
-
+	$('.cls-1').css({'stroke-dashoffset':'100px'});
 	// 打开代码框的按钮对象
 	var btn = document.getElementById("switch_code");
 
@@ -1221,7 +1221,6 @@
 			opacity: 0
 		}
 	}
-
 	@keyframes showaboutus {
 		0% {
 			opacity: 0;
@@ -1410,6 +1409,7 @@
 		document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
 		Blockly.svgResize(workspace);
 	}
+	$('.cls-1').css({'stroke-dashoffset':'100px'});
 	if (theme == "dark") {
 		to_dark()
 	} else {
@@ -1433,6 +1433,7 @@
 </script>
 <script>
 	// 等待加载完毕
+	$('.cls-1').css({'stroke-dashoffset':'0px'});
 	setTimeout(() => { document.getElementById("body").style = "visibility: visible";if(getCookie('logo-egg')==1){ document.cookie = 'logo-egg=true';swal("获得成就：最简单的彩蛋");}}, 1000)
 </script>
 
