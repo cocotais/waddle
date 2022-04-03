@@ -359,6 +359,12 @@ TIP
 		</block>
 		<block type="js_base">
 		</block>
+		<block type="js_str_index">
+		</block>
+		<block type="js_array_sort">
+		</block>
+		<block type="js_array_reverse">
+		</block>
 	</category>
 	<category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">
 		<label text="工具.积木夹子">

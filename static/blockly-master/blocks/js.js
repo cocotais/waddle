@@ -535,3 +535,50 @@ Blockly.Blocks['js_base'] = {
         this.setHelpUrl("https://www.runoob.com/jsref/jsref-tostring-number.html");
     }
 };
+
+Blockly.Blocks['js_str_index'] = {
+    init: function () {
+        this.appendValueInput("STR1")
+            .setCheck("String")
+            .appendField("匹配字符串");
+        this.appendValueInput("STR2")
+            .setCheck("String")
+            .appendField("中的");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([["第一次", "indexOf("], ["最后一次", "lastIndexOf("]]), "TYPE")
+            .appendField("出现的位置");
+        this.setInputsInline(true);
+        this.setOutput(true, "Number");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['js_array_sort'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("排序列表");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['js_array_reverse'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("翻转列表");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
