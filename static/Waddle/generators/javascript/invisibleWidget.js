@@ -10,9 +10,6 @@ var del_indentation = function (code) {
 
 Blockly.JavaScript['ivw_defTypes'] = function (block) {
 	var statements_types = Blockly.JavaScript.statementToCode(block, 'types');
-	var statements_addBlocks = Blockly.JavaScript.statementToCode(block, 'addBlocks');
-
-	console.log(statements_addBlocks, del_indentation(statements_addBlocks))
 	var code = `
 types = {
   isInvisibleWidget: true,
@@ -20,7 +17,6 @@ types = {
   methods: [],
   events: [],
 ${statements_types}};
-${del_indentation(statements_addBlocks)}
 `;
 	return code;
 };
@@ -73,7 +69,14 @@ Blockly.JavaScript['ivw_addMethod'] = function (block) {
 	var text_key = block.getFieldValue('key');
 	var text_label = block.getFieldValue('label');
 	var statements_params = Blockly.JavaScript.statementToCode(block, 'params');
-	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
+	var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
+	// var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
+	var params = '';
+	if (statements_params) {
+		statements_params.forEach((value) => {
+			params = params.concat(value.key + ',');
+		});
+	};
 	var code = `
 types['methods'].push({
   key: '${text_key}',
@@ -81,8 +84,10 @@ types['methods'].push({
   params: [
   ${statements_params}
   ],
-${statements_other}
 })
+Widget.prototype.${text_key} = function (${params}) {
+  ${statements_code};
+}
 `;
 	return code;
 };
@@ -183,9 +188,9 @@ class Widget extends InvisibleWidget {
 	return code;
 };
 
-Blockly.JavaScript['ivw_propsinit'] = function(block) {
+Blockly.JavaScript['ivw_propsinit'] = function (block) {
 	var text_props_name = block.getFieldValue('props_name');
 	var text_this_name = block.getFieldValue('this_name');
 	var code = `this.${text_this_name}=props.${text_props_name}`;
 	return code;
-  };
+};
