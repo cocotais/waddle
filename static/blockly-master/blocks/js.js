@@ -1,13 +1,13 @@
 Blockly.Blocks['js_run'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("运行js")
+            .appendField("代码")
             .appendField(new Blockly.FieldTextInput("console.log(233);"), "CODE");
         this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour("#F86787");
-        this.setTooltip("运行js代码。需要加分号，不需要加换行符。(感谢青PG5p提出意见！)");
+        this.setTooltip("自己设定js代码。需要加分号，不需要加换行符。(感谢青PG5p提出意见！)");
         this.setHelpUrl("https://www.w3school.com.cn/js/index.asp");
     }
 };

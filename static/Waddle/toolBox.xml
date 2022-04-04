@@ -285,6 +285,8 @@ TIP
 		</label>
 		<block type="js_usestrict">
 		</block>
+		<block type="js_run">
+		</block>
 		<block type="js_bitwise">
 		</block>
 		<block type="js_comparisons">
