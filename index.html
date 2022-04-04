@@ -39,6 +39,7 @@
 	<style>
 		.nav-item {
 			font-size: 25px;
+			padding: 4px;
 		}
 	</style>
 
@@ -101,7 +102,7 @@
 	</div>
 	<script>
 		document.body.style.overflow = 'hidden' //禁止页面滑动
-		document.oncontextmenu=new Function("return false");
+		//document.oncontextmenu=new Function("return false");
 		var tipList = [
 			"让CoCo没有难做的控件",
 			"你知道吗？在Waddle中有三个彩蛋！",
@@ -193,7 +194,7 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav">
-						<li class="nav-item dropdown" data-title="文件">
+						<li class="nav-item dropdown" data-title="文件" onclick="if(getCookie('mode')=='light'){document.getElementsByClassName('dropdown')[0].style.backgroundColor = '#5439ce'}else{document.getElementsByClassName('dropdown')[0].style.backgroundColor = '#666666'}">
 							<a id="navbarDropdown" class="nav-link" href="#" role="button" 
 								data-bs-toggle="dropdown" one-link-mark="yes"><svg xmlns="http://www.w3.org/2000/svg"
 									width="26" height="25" fill="currentColor" viewBox="0 0 130 125">
@@ -278,6 +279,7 @@
 				height: max-content;
 				text-align: center;
 				width: 43px;
+				top:55px;
 				background-color:rgba(0, 0, 0, .4);
             	border: 8px solid rgba(0, 0, 0, .0);
 				z-index: 600;
@@ -289,7 +291,6 @@
 				-webkit-animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 				animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 			}
-
 			@keyframes scale-up-top {
   				0% {
     				-webkit-transform: scale(0);
@@ -334,7 +335,7 @@
 
 			.nav-item {
 				height: 5%;
-				margin-left: 20px;
+				margin-left: 12px;
 			}
 
 			.nav-link {
@@ -350,7 +351,7 @@
 				-ms-overflow-style: none;
 			}
 
-			.nav-item:hover {
+			.nav-item:not(.dropdown-menu):hover {
 				border-radius: 10%;
 			}
 
@@ -449,8 +450,10 @@
 				margin: 0 auto;
 				padding: 0;
 				height: 100%;
-				border: 1px solid rgb(0,0,0,.0);
-				border-radius: 8px;
+    			border-top-style: solid;
+    			border-top-width: 1px;
+				border-top-left-radius: 8px;
+    			border-top-right-radius: 8px;
 				float: right;
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			}
@@ -537,7 +540,7 @@
 			}
 
 			.modal-header {
-				padding: 8px 16px 7px!important;
+				padding: 4px 16px!important;
 				background-color: #6d50f0;
 				color: white;
 			}
@@ -825,7 +828,7 @@
 	btn.onclick = function () {
 		document.getElementsByClassName("modal-content")[0].className = "modal-content show";
 		
-		setTimeout(() => { document.getElementById("blocklyDiv").style.width = 'calc(70vw + 1px)'; Blockly.svgResize(workspace); }, 400)
+		setTimeout(() => { document.getElementById("blocklyDiv").style.width = 'calc(70vw + 1px)';document.getElementById("toolbox").style.width = 'calc(70vw)'; Blockly.svgResize(workspace); }, 400)
 		modal.style.display = "block";
 	}
 
@@ -833,6 +836,7 @@
 	span.onclick = function () {
 		document.getElementsByClassName("modal-content")[0].className = "modal-content";
 		document.getElementById("blocklyDiv").style.width = 'calc(100vw)'; 
+		document.getElementById("toolbox").style.width = 'calc(100vw)'; 
 		Blockly.svgResize(workspace);
 		setTimeout(() => { modal.style.display = "none"; }, 400)
 	}
@@ -1313,8 +1317,8 @@
 		}
 	});
 	$(window).resize(function () {
-		document.getElementById("table").style.height = (document.body.clientHeight - 57);
-		document.getElementById("toolbox").style.height = (document.body.clientHeight - 57);
+		document.getElementById("table").style.height = (document.body.clientHeight - 51);
+		document.getElementById("toolbox").style.height = (document.body.clientHeight - 51);
 		Blockly.svgResize(workspace);
 	});
 </script>
@@ -1327,8 +1331,8 @@
 		rip.innerText = 'html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
 		document.body.appendChild(rip);
 	}
-	document.getElementById("table").style.height = (document.body.clientHeight - 57)
-	document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
+	document.getElementById("table").style.height = (document.body.clientHeight - 51)
+	document.getElementById("toolbox").style.height = (document.body.clientHeight - 51)
 	Blockly.svgResize(workspace);
 	var dark_url = "./static/Waddle/custom_category_dark.js"
 	var light_url = "./static/Waddle/custom_category.js"
@@ -1355,6 +1359,7 @@
 		sty.innerText = '.swal-content__input,.swal-icon--success:after,.swal-icon--success::before,.swal-icon--success__hide-corners{background-color: #666666;}.swal-title,.swal-text{color:rgb(255,255,255)}.swal-footer{background-color: #525252;border-top: 1px solid #484848;}.swal-modal{background-color: #666666}.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}.card{background:#666666;border: rgb(255, 255, 255) 0.2em solid;}.aboutus-close{color:#fff;}.newsth-close{color:#fff;}.sord{color:#fff;}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
+		document.getElementsByClassName("modal-content")[0].style.borderTopColor = 'rgb(82, 82, 82)'
 		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#525252"
 		document.getElementsByClassName("aboutus-header")[0].style.backgroundColor = "#525252"
 		document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#666666"
@@ -1372,9 +1377,10 @@
 		document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(-32 -32)')
 		document.getElementById("theme").setAttribute('width', '23.5706')
 		document.getElementById("theme").setAttribute('height', '26.4')
-		sty.innerText = '.nav-item:hover{background-color: #5439ce;};.close:hover{color:#000000}.card{background:#fff;border: rgb(180, 180, 180) 0.2em solid;}.aboutus-close{color:#6d50f0;}.newsth-close{color:#6d50f0;}.sord{color:#6d50f0;}';
+		sty.innerText = '.nav-item:hover{background-color: #5439ce;}.close:hover{color:#000000}.card{background:#fff;border: rgb(180, 180, 180) 0.2em solid;}.aboutus-close{color:#6d50f0;}.newsth-close{color:#6d50f0;}.sord{color:#6d50f0;}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
+		document.getElementsByClassName("modal-content")[0].style.borderTopColor = 'rgb(109, 80, 240)'
 		document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#F5F8FA"
 		document.getElementsByClassName("aboutus-header")[0].style.backgroundColor = "#F5F8FA"
 		document.getElementsByClassName("newsth-content")[0].style.backgroundColor = "#fff"
@@ -1405,8 +1411,8 @@
 		}
 	}
 	window.onresize = function () {
-		document.getElementById("table").style.height = (document.body.clientHeight - 57)
-		document.getElementById("toolbox").style.height = (document.body.clientHeight - 57)
+		document.getElementById("table").style.height = (document.body.clientHeight - 51)
+		document.getElementById("toolbox").style.height = (document.body.clientHeight - 51)
 		Blockly.svgResize(workspace);
 	}
 	$('.cls-1').animate({'stroke-dashoffset':'100px'},50);
