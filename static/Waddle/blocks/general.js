@@ -1,5 +1,5 @@
 
-const HELP_URL = "https://www.yuque.com/appcraft/widget/widgetguide";
+const HELP_URL = "https://www.yuque.com/coco-central/widget/widgetguide";
 
 Blockly.Blocks['ivw_defTypes'] = {
 	init: function () {
@@ -76,7 +76,7 @@ Blockly.Blocks['ivw_itemIsGlobalWidget'] = {
 		this.setNextStatement(true, null);
 		this.setColour("#5574F8");
 		this.setTooltip("isGlobalWidget属性，是否为全局控件");
-		this.setHelpUrl("https://www.yuque.com/appcraft/widget/widgetguide");
+		this.setHelpUrl(HELP_URL);
 	}
 };
 

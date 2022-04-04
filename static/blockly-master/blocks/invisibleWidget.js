@@ -40,6 +40,6 @@ Blockly.Blocks['ivw_invisiblewidget'] = {
             .appendField("函数列表（方法的对应函数写到类型定义中）");
         this.setColour(0);
         this.setTooltip("定义不可见控件");
-        this.setHelpUrl("https://www.yuque.com/appcraft/widget/widgetguide#zrig2");
+        this.setHelpUrl("https://www.yuque.com/coco-central/widget/widgetguide#zrig2");
     }
 };
