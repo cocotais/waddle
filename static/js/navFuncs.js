@@ -58,6 +58,21 @@ let openfile = function () {
     }
 }
 
+let upload = function (waddle) {
+    var request = new XMLHttpRequest();
+    request.open("get", waddle);
+    request.send(null);
+    request.onload = function(){
+        if(request.status == 200) {
+            let parser = new DOMParser();
+            let xml = parser.parseFromString(request.responseText, 'text/xml');
+            let blocks = xml.getElementsByTagName("body")[0].getElementsByTagName("blocks")[0].getElementsByTagName("xml")[0]
+            workspace.clear();
+            Blockly.Xml.domToWorkspace(blocks, workspace);
+        }
+    }
+}
+
 /* let switch_table = function () {
     var code = document.getElementById("code")
     code.style.display = "none";

@@ -9,7 +9,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.3.1(492)-alpha' //以后版本号改我就行！
+		var version = 'V1.3.3(493)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，CoCo中控台所有成员共同开发！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -110,7 +110,7 @@
 			"工具是给开发者调试的利器！",
 			"不会操作？看看模板！",
 			"Waddle由CoCo编辑器中控台制作！",
-			"试试在f12中搜搜所有贡献者？",
+			"试试在f12中搜搜所有贡献者的名字？",
 			"听说Waddle有VSCode主题了？",
 			"咕咕咕~",
 			"不会用怎么办？首先不要慌张，打开语雀看看。",
@@ -118,7 +118,9 @@
 			"我们抄的隔街Phigros的Tips～",
 			"Waddle缂栬緫鍣�",
 			"祝编程猫发展的越来越好！",
-			"你看不到我～"
+			"你看不到我～",
+			"Waddle编辑器上gitee项目推荐了！",
+			"没啥能看的？"
 		]
 		document.getElementById("loading-text").innerText = tipList[Math.floor(Math.random() * tipList.length)]
 		if (document.getElementById("loading-text").innerText == "你看不到我～") {
@@ -634,7 +636,7 @@
 						onclick='newsth.style.display = "none";workspace.clear();Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);'>
 						<span class="sord">不可见控件模版</span>
 					</div>
-					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>Hello</span></div>
+					<div class="card" id="card" onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hello.waddle')"><span class="sord">[不可见控件]<br>Hello</span></div>
 					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>定时器</span></div>
 					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>Base编解码</span></div>
 					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[可见控件]<br>超链接</span></div>
