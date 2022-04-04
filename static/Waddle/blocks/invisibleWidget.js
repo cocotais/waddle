@@ -91,7 +91,7 @@ Blockly.Blocks['ivw_addProperty'] = {
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setColour("#b353b5");
+		this.setColour("#e76cea");
 		this.setTooltip("定义一个属性积木\n变量名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！");
 		this.setHelpUrl(HELP_URL);
 	}
@@ -100,7 +100,7 @@ Blockly.Blocks['ivw_addProperty'] = {
 Blockly.Blocks['ivw_addMethod'] = {
 	init: function () {
 		this.appendDummyInput()
-			.appendField("新建普通积木")
+			.appendField("新建方法积木")
 			.appendField("函数名")
 			.appendField(new Blockly.FieldTextInput("methodName"), "key")
 			.appendField("方法名")
@@ -119,7 +119,7 @@ Blockly.Blocks['ivw_addMethod'] = {
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setColour("#c99342");
+		this.setColour("#ffbb55");
 		this.setTooltip("定义一个方法积木\n函数名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没导入到CoCo理解就看一下效果\n不可以动态添加！！！");
 		this.setHelpUrl(HELP_URL);
 	}
@@ -164,7 +164,7 @@ Blockly.Blocks['ivw_addEvent'] = {
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
-		this.setColour("#496eb8");
+		this.setColour("#608fee");
 		this.setTooltip("定义一个事件积木\n事件名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！");
 		this.setHelpUrl(HELP_URL);
 	}
