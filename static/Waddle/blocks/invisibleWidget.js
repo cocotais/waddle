@@ -7,10 +7,6 @@ Blockly.Blocks['ivw_defTypes'] = {
 			.appendField("创建不可见控件");
 		this.appendStatementInput("types")
 			.setCheck(null);
-		this.appendDummyInput()
-			.appendField("添加积木");
-		this.appendStatementInput("addBlocks")
-			.setCheck(null);
 		this.setNextStatement(true, null);
 		this.setColour("#8647F3");
 		this.setTooltip("定义不可见控件类型，在添加积木中添加积木");
@@ -104,23 +100,27 @@ Blockly.Blocks['ivw_addProperty'] = {
 Blockly.Blocks['ivw_addMethod'] = {
 	init: function () {
 		this.appendDummyInput()
-			.appendField("新建方法积木")
+			.appendField("新建普通积木")
 			.appendField("函数名")
 			.appendField(new Blockly.FieldTextInput("methodName"), "key")
 			.appendField("方法名")
 			.appendField(new Blockly.FieldTextInput("方法1"), "label");
+		// this.appendDummyInput()
+		// 	.appendField("积木选项")
+		// this.appendStatementInput("other")
+		// 	.setCheck(null);
 		this.appendDummyInput()
-			.appendField("参数")
+			.appendField("代码参数")
 		this.appendStatementInput("params")
 			.setCheck(null);
 		this.appendDummyInput()
-			.appendField("高级选项")
-		this.appendStatementInput("other")
+			.appendField("执行代码")
+		this.appendStatementInput("code")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour("#c99342");
-		this.setTooltip("定义一个方法积木\n函数名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！");
+		this.setTooltip("定义一个方法积木\n函数名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没导入到CoCo理解就看一下效果\n不可以动态添加！！！");
 		this.setHelpUrl(HELP_URL);
 	}
 };
@@ -134,7 +134,7 @@ Blockly.Blocks['ivw_addParams'] = {
 			.appendField("标签")
 			.appendField(new Blockly.FieldTextInput("参数名"), "label");
 		this.appendDummyInput()
-			.appendField("高级选项")
+			.appendField("积木选项")
 		this.appendStatementInput("other")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
@@ -159,7 +159,7 @@ Blockly.Blocks['ivw_addEvent'] = {
 		this.appendStatementInput("params")
 			.setCheck(null);
 		this.appendDummyInput()
-			.appendField("高级选项")
+			.appendField("积木选项")
 		this.appendStatementInput("other")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
@@ -259,14 +259,10 @@ Blockly.Blocks['ivw_defWidget'] = {
 			.appendField("构造器");
 		this.appendStatementInput("constructor")
 			.setCheck(null);
-		this.appendDummyInput()
-			.appendField("方法函数");
-		this.appendStatementInput("functions")
-			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour("#8647F3");
-		this.setTooltip("定义不可见控件实体，构造器里放初始化属性（懂js的随意），方法函数里放定义控件方法");
+		this.setTooltip("定义不可见控件实体，构造器里放初始化属性（懂js的随意）");
 		this.setHelpUrl(HELP_URL);
 	}
 };
