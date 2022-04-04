@@ -13,7 +13,7 @@
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，CoCo中控台所有成员共同开发！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
 		console.log("%c\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec", "font-size:14px;color:rgb(42,125,255)")
-		console.log("%cV1.2.6(468)-dev  ©️ 2022 CoCo Central, All rights reserved.", "color:red;")
+		console.log("%cV1.2.6(475)-dev  ©️ 2022 CoCo Central, All rights reserved.", "color:red;")
 	</script>
 	<script>
 		// 判断浏览器是否支持 service worker
@@ -427,7 +427,10 @@
 				<div class="modal-body">
 					<pre readonly id="codeArea"></pre>
 				</div>
-				<button class="copy">复制</button>
+				<button class="copy">
+					<svg class='copyit' style="display: inline-block;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 123 123" fill="currentColor"><g opacity="1" transform="translate(0 0)  rotate(0 61.5 61.5)"><path id="减去顶层" fill-rule="evenodd" transform="translate(0 24.60000146529137)  rotate(0 49.209841973195466 49.199999267354315)" opacity="1" d="M0 9.22C0 4.13 4.13 0 9.23 0L89.19 0C94.29 0 98.42 4.13 98.42 9.22L98.42 89.17C98.42 94.27 94.29 98.4 89.19 98.4L9.23 98.4C4.13 98.4 0 94.27 0 89.17L0 9.22Z M12.3025 86.1L12.3025 12.3L86.1125 12.3L86.1125 86.1L12.3025 86.1Z " /><path id="路径 4" fill-rule="evenodd"  transform="translate(30.756151314342503 0)  rotate(0 46.121924342828734 46.100143921190345)" opacity="1" d="M79.98,86.78C80.37,90.01 83.2,92.38 86.45,92.19C89.7,92 92.24,89.31 92.24,86.06L92.24,9.23L92.21,8.34C91.75,3.61 87.77,0 83.02,0L6.15,0L5.43,0.04C2.33,0.41 0,3.03 0,6.15L0.04,6.87C0.41,9.97 3.03,12.3 6.15,12.3L79.94,12.3L79.94,86.06L79.98,86.78Z " /></g></svg>
+					<svg class='copyityes' style="display: none;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 123 123" fill="currentColor"><g opacity="1" transform="translate(0 0)  rotate(0 61.5 61.5)"><path id="减去顶层" fill-rule="evenodd" transform="translate(0 24.60000146529137)  rotate(0 49.209841973195466 49.199999267354315)" opacity="1" d="M0 9.22C0 4.13 4.13 0 9.23 0L89.19 0C94.29 0 98.42 4.13 98.42 9.22L98.42 89.17C98.42 94.27 94.29 98.4 89.19 98.4L9.23 98.4C4.13 98.4 0 94.27 0 89.17L0 9.22Z M43.4712 73.7855C41.7912 73.9055 40.1312 73.3255 38.8912 72.1855L38.3812 71.6355L22.7712 53.3255C20.6512 50.8555 20.8312 47.1655 23.1712 44.9055C25.5112 42.6355 29.2112 42.5955 31.6012 44.7955L32.1412 45.3455L43.0012 58.0955L66.4512 29.8655C68.6212 27.2555 72.5012 26.8955 75.1112 29.0655L75.1112 29.0555C77.5012 31.0355 78.0412 34.4855 76.3712 37.0955L75.9212 37.7255L47.7912 71.5755C46.7112 72.8755 45.1512 73.6755 43.4712 73.7855Z " /><path id="路径 4" fill-rule="evenodd" transform="translate(30.756151314342503 0)  rotate(0 46.121924342828734 46.100143921190345)" opacity="1" d="M92.24,86.06L92.24,9.23L92.21,8.34C91.75,3.61 87.77,0 83.02,0L6.15,0L5.43,0.04C2.33,0.41 0,3.03 0,6.15L0.04,6.87C0.41,9.97 3.03,12.3 6.15,12.3L79.94,12.3L79.94,86.06L79.98,86.78C80.37,90.01 83.2,92.38 86.45,92.19C89.7,92 92.24,89.31 92.24,86.06Z " /></g></svg>
+				</button>
 			</div>
 		</div>
 		<style>
@@ -496,7 +499,6 @@
 			/* 添加动画 */
 			@-webkit-keyframes animateright {
 				from {
-					right: -300px;
 					opacity: 0
 				}
 
@@ -508,12 +510,10 @@
 
 			@keyframes animateright {
 				from {
-					right: -300px;
 					opacity: 0
 				}
 
 				to {
-					right: 0;
 					opacity: 1
 				}
 			}
@@ -620,7 +620,7 @@
 							style="color: #ffffff;font-size: 15px;"
 							target="_blank" rel="noopener" >https://www.yuque.com/coco-central/waddle/index</a></p>
 					</br></br>
-					<p style="color: #ffffff;font-size: 25px;font-weight: bold;" onclick=count()>目前版本：V1.2.6(468)-dev</p>
+					<p style="color: #ffffff;font-size: 25px;font-weight: bold;" onclick=count()>目前版本：V1.2.6(475)-dev</p>
 				</div>
 			</div>
 		</div>
@@ -865,12 +865,12 @@
 		//window.Swal = swal;
 		var code = Blockly.JavaScript.workspaceToCode(workspace);
 		navigator.clipboard.writeText(code);
-		swal({
-			icon: 'info',
-			title: '已复制!',
-			buttons: false,
-			timer: 500
-		})
+		document.getElementsByClassName("copyit")[0].style.display = 'none'
+		document.getElementsByClassName("copyityes")[0].style.display = 'inline-block'
+		setTimeout(() => { 
+			document.getElementsByClassName("copyityes")[0].style.display = 'none'
+			document.getElementsByClassName("copyit")[0].style.display = 'inline-block'
+		 }, 400)
 	}
 </script>
 <script>
