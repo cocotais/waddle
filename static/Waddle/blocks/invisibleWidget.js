@@ -148,12 +148,12 @@ Blockly.Blocks['ivw_addParams'] = {
 Blockly.Blocks['ivw_addEvent'] = {
 	init: function () {
 		this.appendDummyInput()
-			.appendField("新建事件积木")
-			.appendField("函数名")
-			.appendField(new Blockly.FieldTextInput("eventName"), "key")
+			.appendField("新建积木")
 			.appendField("当")
-			.appendField(new Blockly.FieldTextInput("事件1"), "label")
-			.appendField("时");
+			.appendField(new Blockly.FieldTextInput("发生什么"), "label")
+			.appendField("时")
+			.appendField("事件内部名")
+			.appendField(new Blockly.FieldTextInput("eventName"), "key");
 		this.appendDummyInput()
 			.appendField("参数")
 		this.appendStatementInput("params")
@@ -268,17 +268,17 @@ Blockly.Blocks['ivw_defWidget'] = {
 };
 
 Blockly.Blocks['ivw_propsinit'] = {
-	init: function() {
-	  this.appendDummyInput()
-		  .appendField("传入属性")
-		  .appendField("从")
-		  .appendField(new Blockly.FieldTextInput("prop"), "props_name")
-		  .appendField("到")
-		  .appendField(new Blockly.FieldTextInput("default"), "this_name");
-	this.setPreviousStatement(true, null);
-	this.setNextStatement(true, null);
-	this.setColour("#5574F8");
-   	this.setTooltip("传入属性(this.xxx=props.xxx)");
-   	this.setHelpUrl(HELP_URL);
+	init: function () {
+		this.appendDummyInput()
+			.appendField("传入属性")
+			.appendField("从")
+			.appendField(new Blockly.FieldTextInput("prop"), "props_name")
+			.appendField("到")
+			.appendField(new Blockly.FieldTextInput("default"), "this_name");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour("#5574F8");
+		this.setTooltip("传入属性(this.xxx=props.xxx)");
+		this.setHelpUrl(HELP_URL);
 	}
-  };
+};
