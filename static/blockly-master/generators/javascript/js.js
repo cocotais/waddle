@@ -235,3 +235,9 @@ Blockly.JavaScript['js_array_reverse'] = function (block) {
     var value_array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC) || "[]";
     return `${value_array}.reverse();\n`;
 };
+
+Blockly.JavaScript['js_array_join'] = function (block) {
+    var value_array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_ATOMIC) || "[]";
+    var value_str = Blockly.JavaScript.valueToCode(block, 'STR', Blockly.JavaScript.ORDER_ATOMIC);
+    return `${value_array}.join(${value_str})`;
+};

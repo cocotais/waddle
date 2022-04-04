@@ -3,17 +3,13 @@ Blockly.JavaScript['ivw_defTypes'] = function (block) {
 	var statements_types = Blockly.JavaScript.statementToCode(block, 'types');
 	var statements_addBlocks = Blockly.JavaScript.statementToCode(block, 'addBlocks');
 	var code = `
-
 types = {
-	isInvisibleWidget: true,
-	properties: [],
-	methods: [],
-	events: [],
-	${statements_types}
-};
-
+  isInvisibleWidget: true,
+  properties: [],
+  methods: [],
+  events: [],
+${statements_types}};
 ${statements_addBlocks}
-
 `;
 	return code;
 };
@@ -54,9 +50,9 @@ Blockly.JavaScript['ivw_addProperty'] = function (block) {
 	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var code = `
 types['properties'].push({
-	key: '${text_key}',
-	label: '${text_label}',
-	${statements_other}
+  key: '${text_key}',
+  label: '${text_label}',
+  ${statements_other}
 })
 `;
 	return code;
@@ -69,12 +65,12 @@ Blockly.JavaScript['ivw_addMethod'] = function (block) {
 	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var code = `
 types['methods'].push({
-	key: '${text_key}',
-	label: '${text_label}',
-	params: [
-		${statements_params}
-	],
-	${statements_other}
+  key: '${text_key}',
+  label: '${text_label}',
+  params: [
+  ${statements_params}
+  ],
+  ${statements_other}
 })
 `;
 	return code;
@@ -86,9 +82,9 @@ Blockly.JavaScript['ivw_addParams'] = function (block) {
 	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var code = `
 {
-	key: '${text_key}',
-	label: '${text_label}',
-	${statements_other}
+  key: '${text_key}',
+  label: '${text_label}',
+  ${statements_other}
 },
 
 `;
@@ -102,12 +98,12 @@ Blockly.JavaScript['ivw_addEvent'] = function (block) {
 	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var code = `
 types['events'].push({
-	key: '${text_key}',
-	label: '${text_label}',
-	params: [
-		${statements_params}
-	],
-	${statements_other}
+  key: '${text_key}',
+  label: '${text_label}',
+  params: [
+    ${statements_params}
+  ],
+  ${statements_other}
 })
 `;
 	return code;
@@ -157,7 +153,6 @@ Blockly.JavaScript['ivw_export'] = function (block) {
 	var code = `
 exports.types = types;
 exports.widget = Widget;
-
 `;
 	return code;
 };
@@ -166,15 +161,13 @@ Blockly.JavaScript['ivw_defWidget'] = function (block) {
 	var statements_constructor = Blockly.JavaScript.statementToCode(block, 'constructor');
 	var statements_functions = Blockly.JavaScript.statementToCode(block, 'functions');
 	var code = `
-
 class Widget extends InvisibleWidget {
-	constructor(props) {
-		super(props);
-		${statements_constructor}
-	}
-	${statements_functions}
+  constructor(props) {
+    super(props);
+    ${statements_constructor}
+  }
+  ${statements_functions}
 }
-
 `;
 	return code;
 };

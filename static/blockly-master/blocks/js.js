@@ -582,3 +582,20 @@ Blockly.Blocks['js_array_reverse'] = {
         this.setHelpUrl("");
     }
 };
+
+Blockly.Blocks['js_array_join'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("连接列表为字符串");
+        this.appendValueInput("STR")
+            .setCheck("String")
+            .appendField("分隔符为");
+        this.setInputsInline(true);
+        this.setOutput(true, "String");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+

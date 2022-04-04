@@ -153,8 +153,6 @@ TIP
 		<block type="text_getSubstring">
 			<value name="STRING">
 				<block type="variables_get">
-					<field name="VAR">
-						{textVariable}</field>
 				</block>
 			</value>
 		</block>
@@ -248,32 +246,24 @@ TIP
 		<block type="lists_indexOf">
 			<value name="VALUE">
 				<block type="variables_get">
-					<field name="VAR">
-						{listVariable}</field>
 				</block>
 			</value>
 		</block>
 		<block type="lists_getIndex">
 			<value name="VALUE">
 				<block type="variables_get">
-					<field name="VAR">
-						{listVariable}</field>
 				</block>
 			</value>
 		</block>
 		<block type="lists_setIndex">
 			<value name="LIST">
 				<block type="variables_get">
-					<field name="VAR">
-						{listVariable}</field>
 				</block>
 			</value>
 		</block>
 		<block type="lists_getSublist">
 			<value name="LIST">
 				<block type="variables_get">
-					<field name="VAR">
-						{listVariable}</field>
 				</block>
 			</value>
 		</block>
@@ -364,6 +354,8 @@ TIP
 		<block type="js_array_sort">
 		</block>
 		<block type="js_array_reverse">
+		</block>
+		<block type="js_array_join">
 		</block>
 	</category>
 	<category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">
