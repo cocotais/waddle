@@ -123,7 +123,7 @@ ${statements_other}
 Blockly.JavaScript['ivw_emit'] = function (block) {
 	var value_event = Blockly.JavaScript.valueToCode(block, 'event', Blockly.JavaScript.ORDER_ATOMIC);
 	var statements_parameters = Blockly.JavaScript.statementToCode(block, 'parameters');
-	var code = `this.emit('${value_event}'${statements_parameters})`;
+	var code = `this.emit(${value_event}${statements_parameters})`;
 	return code;
 };
 
