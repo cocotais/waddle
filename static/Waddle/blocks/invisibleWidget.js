@@ -270,3 +270,19 @@ Blockly.Blocks['ivw_defWidget'] = {
 		this.setHelpUrl(HELP_URL);
 	}
 };
+
+Blockly.Blocks['ivw_propsinit'] = {
+	init: function() {
+	  this.appendDummyInput()
+		  .appendField("传入属性")
+		  .appendField("从")
+		  .appendField(new Blockly.FieldTextInput("prop"), "props_name")
+		  .appendField("到")
+		  .appendField(new Blockly.FieldTextInput("default"), "this_name");
+	this.setPreviousStatement(true, null);
+	this.setNextStatement(true, null);
+	this.setColour("#5574F8");
+   	this.setTooltip("传入属性(this.xxx=props.xxx)");
+   	this.setHelpUrl(HELP_URL);
+	}
+  };
