@@ -100,7 +100,7 @@
 	</div>
 	<script>
 		document.body.style.overflow = 'hidden' //禁止页面滑动
-		document.oncontextmenu = new Function("return false");
+		//document.oncontextmenu = new Function("return false");
 		var tipList = [
 			"让CoCo没有难做的控件",
 			"你知道吗？在Waddle中有三个彩蛋！",
@@ -196,8 +196,8 @@
 						<li class="nav-item dropdown" data-title="文件"
 							onclick="if(getCookie('mode')=='dark'){document.getElementsByClassName('dropdown')[0].style.backgroundColor = '#666666'}else{document.getElementsByClassName('dropdown')[0].style.backgroundColor = '#5439ce'}">
 							<a id="navbarDropdown" class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
-								one-link-mark="yes"><svg xmlns="http://www.w3.org/2000/svg" width="calc(26px * 0.96)"
-									height="calc(25 * 0.96)" fill="currentColor" viewBox="0 0 130 125">
+								one-link-mark="yes"><svg xmlns="http://www.w3.org/2000/svg" width="24.96"
+									height="24" fill="currentColor" viewBox="0 0 130 125">
 									<path id="联合_1" data-name="联合 1"
 										d="M7,125a7,7,0,0,1-7-7V57a7,7,0,0,1,7-7H123a7,7,0,0,1,7,7v61a7,7,0,0,1-7,7ZM4.667,35A4.667,4.667,0,0,1,0,30.334V7A7,7,0,0,1,7,0H48.823A20,20,0,0,1,68.6,17h48.067A13.334,13.334,0,0,1,130,30.334,4.667,4.667,0,0,1,125.333,35Z" />
 								</svg></a>
@@ -215,9 +215,9 @@
 							</ul>
 						</li>
 						<li class="nav-item" data-title="代码"
-							style="right: 0;top: auto;position: absolute;min-height: 50;">
+							style="right: 20;top: auto;position: absolute;min-height: 50;">
 							<a id="switch_code" class="nav-link" href="javascript:void(0)">
-								<svg xmlns="http://www.w3.org/2000/svg" width="calc(26 * 0.96)" height="calc(25 * 0.96)"
+								<svg xmlns="http://www.w3.org/2000/svg" width="24.96" height="24"
 									fill="currentColor" viewBox="0 0 130 125">
 									<path id="减去_1" data-name="减去 1"
 										d="M123,125H7a7.008,7.008,0,0,1-7-7V7A7.008,7.008,0,0,1,7,0H123a7.008,7.008,0,0,1,7,7V118A7.008,7.008,0,0,1,123,125ZM69.814,69.944a7.008,7.008,0,0,0-7,7v1a7.008,7.008,0,0,0,7,7h36a7.008,7.008,0,0,0,7-7v-1a7.008,7.008,0,0,0-7-7ZM27.793,19.565a6.954,6.954,0,0,0-4.95,2.05l-.707.707a7,7,0,0,0,0,9.9L42.207,52.293,22.43,72.071a7.008,7.008,0,0,0,0,9.9l.706.707a7,7,0,0,0,9.9,0L58.492,57.222a7.008,7.008,0,0,0,0-9.9l-.707-.707c-.155-.155-.315-.3-.476-.435L32.743,21.615A6.954,6.954,0,0,0,27.793,19.565Z" />
@@ -227,7 +227,7 @@
 						<li class="nav-item" data-title="关于">
 							<a class="nav-link" href="javascript:void(0)"
 								onclick='aboutus.style.display = "block";document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";document.getElementsByClassName("aboutus")[0].className = "aboutus show"'>
-								<svg xmlns="http://www.w3.org/2000/svg" width="calc(27 * 0.96)" height="calc(27 * 0.96)"
+								<svg xmlns="http://www.w3.org/2000/svg" width="25.92" height="25.92"
 									fill="currentColor" viewBox="0 0 135 135">
 									<path id="circle-question-solid"
 										d="M67.5,0A67.5,67.5,0,1,0,135,67.5,67.495,67.495,0,0,0,67.5,0Zm0,103.469a8.33,8.33,0,0,1-8.437-8.437A8.188,8.188,0,0,1,67.5,86.594a8.438,8.438,0,0,1,0,16.875ZM85.72,66.027,73.828,73.41v.527a6.328,6.328,0,0,1-12.656,0V69.719a6.5,6.5,0,0,1,3.164-5.537l15.029-8.965a5.653,5.653,0,0,0,2.9-5.01,6.062,6.062,0,0,0-6.038-5.8H62.754a5.7,5.7,0,0,0-5.8,5.8,6.328,6.328,0,0,1-12.656,0A18.293,18.293,0,0,1,62.517,31.75H75.99c10.758,0,18.932,8.174,18.932,18.457A18.517,18.517,0,0,1,85.72,66.027Z" />
@@ -236,8 +236,8 @@
 						</li>
 						<li class="nav-item" data-title="主题">
 							<a class="nav-link" href="javascript:void(0)" onclick="switch_theme()">
-								<svg id="theme" xmlns="http://www.w3.org/2000/svg" width="calc(23.5706 * 0.96)"
-									height="calc(26.4 * 0.96)" fill="currentColor" viewBox="0 0 135 135">
+								<svg id="theme" xmlns="http://www.w3.org/2000/svg" width="22.627776"
+									height="25.344" fill="currentColor" viewBox="0 0 135 135">
 									<path id="moon-solid_3_" data-name="moon-solid (3)"
 										d="M32,98A65.973,65.973,0,0,1,97.941,32a79.615,79.615,0,0,1,12.051,1.1,3.1,3.1,0,0,1,.966,5.728,51.7,51.7,0,0,0,35.216,95.734,3.1,3.1,0,0,1,2.979,4.994A65.919,65.919,0,0,1,32,98Z"
 										transform="translate(-32 -32)" />
@@ -251,9 +251,9 @@
 		</nav>
 
 		<div id="table">
-			<div id="blocklyDiv" style="width:calc(100vw);"></div>
+			<div id="blocklyDiv" style="width:100vw;"></div>
 			<!--ToolBox积木-->
-			<xml id="toolbox" style="display: none;width:calc(100vw);">
+			<xml id="toolbox" style="display: none;width:100vw;">
 			</xml>
 			<!--工作区积木-->
 			<xml id="workspaceblocks" style="display: none">
@@ -427,8 +427,8 @@
 			<div class="modal-content" id="content">
 				<div class="modal-header">
 					<span></span>
-					<span class="close" data-title="关闭"><svg xmlns="http://www.w3.org/2000/svg" width="calc(26 * 0.96)"
-							height="calc(25 * 0.96)" fill="currentColor" viewBox="0 0 130 125">
+					<span class="close" data-title="关闭"><svg xmlns="http://www.w3.org/2000/svg" width="24.96"
+							height="24" fill="currentColor" viewBox="0 0 130 125">
 							<path id="减去_1" data-name="减去 1"
 								d="M123,125H7a7.008,7.008,0,0,1-7-7V7A7.008,7.008,0,0,1,7,0H123a7.008,7.008,0,0,1,7,7V118A7.008,7.008,0,0,1,123,125ZM69.814,69.944a7.008,7.008,0,0,0-7,7v1a7.008,7.008,0,0,0,7,7h36a7.008,7.008,0,0,0,7-7v-1a7.008,7.008,0,0,0-7-7ZM27.793,19.565a6.954,6.954,0,0,0-4.95,2.05l-.707.707a7,7,0,0,0,0,9.9L42.207,52.293,22.43,72.071a7.008,7.008,0,0,0,0,9.9l.706.707a7,7,0,0,0,9.9,0L58.492,57.222a7.008,7.008,0,0,0,0-9.9l-.707-.707c-.155-.155-.315-.3-.476-.435L32.743,21.615A6.954,6.954,0,0,0,27.793,19.565Z" />
 						</svg></span>
@@ -513,7 +513,7 @@
 				background-color: #fefefe;
 				margin: 0 auto;
 				padding: 0;
-				height: calc(100vh);
+				height: 100vh;
 				border-top-left-radius: 8px;
 				border-top-right-radius: 8px;
 				float: right;
@@ -585,6 +585,8 @@
 				font-size: 28px;
 				font-weight: bold;
 				border-radius: 8px;
+				position: absolute;
+				right: 20;
 			}
 
 			.close:hover,
@@ -886,15 +888,15 @@
 	btn.onclick = function () {
 		document.getElementsByClassName("modal-content")[0].className = "modal-content show";
 
-		setTimeout(() => { document.getElementById("blocklyDiv").style.width = 'calc(70vw + 1px)'; document.getElementById("toolbox").style.width = 'calc(70vw)'; Blockly.svgResize(workspace); }, 400)
+		setTimeout(() => { document.getElementById("blocklyDiv").style.width = '70vw'; document.getElementById("toolbox").style.width = '70vw'; Blockly.svgResize(workspace); }, 400)
 		modal.style.display = "block";
 	}
 
 	// 点击 <span> (x), 关闭代码框
 	span.onclick = function () {
 		document.getElementsByClassName("modal-content")[0].className = "modal-content";
-		document.getElementById("blocklyDiv").style.width = 'calc(100vw)';
-		document.getElementById("toolbox").style.width = 'calc(100vw)';
+		document.getElementById("blocklyDiv").style.width = '100vw';
+		document.getElementById("toolbox").style.width = '100vw';
 		Blockly.svgResize(workspace);
 		setTimeout(() => { modal.style.display = "none"; }, 400)
 	}
@@ -1413,8 +1415,8 @@
 		workspace.setTheme(DarkTheme);
 		document.getElementById("moon-solid_3_").setAttribute('d', 'M37.246,131.693,32.052,103,3.313,97.817a4.016,4.016,0,0,1-2.59-6.243l16.65-23.955L.722,43.429a3.85,3.85,0,0,1,2.59-6l28.75-5.185,4.951-28.7A4.026,4.026,0,0,1,43.267.955L67.5,17.578,91.491.721a4.025,4.025,0,0,1,6.254,2.586L102.94,32l28.739,5.185a4.016,4.016,0,0,1,2.59,6.243l-16.65,23.955,16.663,24.19a4.02,4.02,0,0,1-2.6,6.245L102.941,103l-5.194,28.69a4.025,4.025,0,0,1-6.254,2.586l-24-16.622-24,16.623a4.021,4.021,0,0,1-6.254-2.586Zm-3.26-64.075A33.512,33.512,0,1,0,67.5,34.164,33.468,33.468,0,0,0,33.986,67.619ZM47,67.5A20.5,20.5,0,1,1,67.5,88,20.5,20.5,0,0,1,47,67.5Z');
 		document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(0 0)')
-		document.getElementById("theme").setAttribute('width', 'calc(27 * 0.96)')
-		document.getElementById("theme").setAttribute('height', 'calc(27 * 0.96)')
+		document.getElementById("theme").setAttribute('width', '25.92')
+		document.getElementById("theme").setAttribute('height', '25.92')
 		sty.innerText = '.copy{background: #525252;}.copy:hover{background: #666666;}.close{border: 13px solid #525252;}.close:hover,.clos:focus{border: 13px solid #666666;}.swal-content__input,.swal-icon--success:after,.swal-icon--success::before,.swal-icon--success__hide-corners{background-color: #666666;}.swal-title,.swal-text{color:rgb(255,255,255)}.swal-footer{background-color: #525252;border-top: 1px solid #484848;}.swal-modal{background-color: #666666}.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}.card{background:#666666;border: rgb(255, 255, 255) 0.2em solid;}.aboutus-close{color:#fff;}.newsth-close{color:#fff;}.sord{color:#fff;}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
@@ -1434,8 +1436,8 @@
 		workspace.setTheme(WaddleTheme);
 		document.getElementById("moon-solid_3_").setAttribute('d', "M32,98A65.973,65.973,0,0,1,97.941,32a79.615,79.615,0,0,1,12.051,1.1,3.1,3.1,0,0,1,.966,5.728,51.7,51.7,0,0,0,35.216,95.734,3.1,3.1,0,0,1,2.979,4.994A65.919,65.919,0,0,1,32,98Z");
 		document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(-32 -32)')
-		document.getElementById("theme").setAttribute('width', 'calc(23.5706 * 0.96)')
-		document.getElementById("theme").setAttribute('height', 'calc(26.4 * 0.96)')
+		document.getElementById("theme").setAttribute('width', '22.627776')
+		document.getElementById("theme").setAttribute('height', '25.344')
 		sty.innerText = '.close{border: 13px solid #6d50f0;}.close:hover,.clos:focus{border: 13px solid #5439ce;}.nav-item:hover{background-color: #5439ce;}.close:hover{color:#000000}.card{background:#fff;border: rgb(180, 180, 180) 0.2em solid;}.aboutus-close{color:#6d50f0;}.newsth-close{color:#6d50f0;}.sord{color:#6d50f0;}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
