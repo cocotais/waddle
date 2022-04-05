@@ -9,7 +9,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.3.3(493)-alpha' //以后版本号改我就行！
+		var version = 'V1.3.4(494)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，CoCo中控台所有成员共同开发！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -197,7 +197,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav">
 						<li class="nav-item dropdown" data-title="文件"
-							onclick="if(getCookie('mode')=='dark'){document.getElementsByClassName('dropdown')[0].style.backgroundColor = '#666666'}else{document.getElementsByClassName('dropdown')[0].style.backgroundColor = '#5439ce'}">
+							onclick=fix_bug()>
 							<a id="navbarDropdown" class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
 								one-link-mark="yes"><svg xmlns="http://www.w3.org/2000/svg" width="24.96"
 									height="24" fill="currentColor" viewBox="0 0 130 125">

@@ -110,3 +110,19 @@ let count = function () {
     }
 }
 
+let fix_bug = function(){
+    try{if(document.getElementsByClassName('dropdown-menu show')[0].dataBsToggle == 'none'){
+        document.getElementsByClassName('dropdown')[0].style.backgroundColor = '';
+    }
+    else{
+        if(getCookie('mode')=='dark'){
+            document.getElementsByClassName('dropdown')[0].style.backgroundColor = '#666666';
+        }
+        else{
+            document.getElementsByClassName('dropdown')[0].style.backgroundColor = '#5439ce';
+        }
+    }}
+    catch(err){
+        document.getElementsByClassName('dropdown')[0].style.backgroundColor = '';
+    }
+}
