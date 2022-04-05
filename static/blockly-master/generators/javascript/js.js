@@ -1,5 +1,5 @@
 Blockly.JavaScript["js_run"] = function (block) {
-    var code = block.getFieldValue("CODE");
+    var code = block.getFieldValue("CODE")+'\n';
     return code
 }
 

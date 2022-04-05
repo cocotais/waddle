@@ -11,7 +11,11 @@ let js_save = function () {
     let url = URL.createObjectURL(blob);
     let downa = document.getElementById("downa");
     downa.href = url;
-    downa.download = "CocoWidget.js";
+    let name = Blockly.JavaScript.workspaceToCode(workspace).substring(Blockly.JavaScript.workspaceToCode(workspace).indexOf('"',Blockly.JavaScript.workspaceToCode(workspace).indexOf('title'))+1,Blockly.JavaScript.workspaceToCode(workspace).indexOf('",',Blockly.JavaScript.workspaceToCode(workspace).indexOf('title')));
+    if (name == ''){
+        name = "我的控件"
+    }
+    downa.download = name+".js";
     downa.click();
     URL.revokeObjectURL(url);
 }
@@ -29,7 +33,11 @@ let save = function () {
     let url = URL.createObjectURL(blob);
     let downa = document.getElementById("downa");
     downa.href = url;
-    downa.download = "CocoWidget.waddle";
+    let name = Blockly.JavaScript.workspaceToCode(workspace).substring(Blockly.JavaScript.workspaceToCode(workspace).indexOf('"',Blockly.JavaScript.workspaceToCode(workspace).indexOf('title'))+1,Blockly.JavaScript.workspaceToCode(workspace).indexOf('",',Blockly.JavaScript.workspaceToCode(workspace).indexOf('title')));
+    if (name == ''){
+        name = "我的控件"
+    }
+    downa.download = name+".waddle";
     downa.click();
     URL.revokeObjectURL(url);
 }
