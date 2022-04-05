@@ -293,12 +293,13 @@ TIP
 		</block>
 		<block type="js_time">
 		</block>
-		<block type="js_popup_alert">
+		<!--<block type="js_popup_alert">
 		</block>
 		<block type="js_popup_confirm">
 		</block>
 		<block type="js_popup_prompt">
 		</block>
+		-->
 		<block type="js_json_parse">
 		</block>
 		<block type="js_json_stringify">

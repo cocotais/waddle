@@ -5,5 +5,6 @@ function customContextMenuFn(options) {
 	callback: function() {
 	console.log('Custom context menu option called');
 	}
+	}
 };
 
