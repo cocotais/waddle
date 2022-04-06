@@ -17,7 +17,6 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 
 <details>
 <summary><strong>直接访问</strong></summary>
-<br />
 如果你想要直接访问：
 
 可以进入[Gitee Pages](https://coco-ag.gitee.io/coco-waddle)，本链接将不定期更新
@@ -27,7 +26,6 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 
 <details>
 <summary><strong>本地部署</strong></summary>
-<br />
 如果你有本地部署访问的需求，请按照以下步骤进行
 
 ### 安装
