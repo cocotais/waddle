@@ -11,7 +11,7 @@ var del_indentation = function (code) {
 Blockly.JavaScript['ivw_defTypes'] = function (block) {
 	var statements_types = Blockly.JavaScript.statementToCode(block, 'types');
 	var code = `
-types = {
+const types = {
   isInvisibleWidget: true,
   properties: [],
   methods: [],
