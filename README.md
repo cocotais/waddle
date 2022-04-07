@@ -19,6 +19,7 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 <summary><strong>直接访问</strong></summary>
 如果你想要直接访问：
 
+
 - [Gitee Pages](https://waddle-beta.coco-central.cn/)（实时更新）【用于测试】
 - [Waddle 官网](https://waddle.coco-central.cn/)（不定时更新）【用于正式版本】
 
@@ -27,6 +28,8 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 <details>
 <summary><strong>本地部署</strong></summary>
 如果你有本地部署访问的需求，请按照以下步骤进行
+
+
 1. clone仓库（[https://gitee.com/coco-ag/coco-waddle](https://gitee.com/coco-ag/coco-waddle)）
 2. 打开项目文件夹
 3. 在命令行运行命令 `python -m http.server 8000` 或双击运行 runserver(win).cmd
