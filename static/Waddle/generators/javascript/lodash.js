@@ -147,9 +147,14 @@ Blockly.JavaScript['lodash_first'] = function (block) {
     return [code, Blockly.JavaScript.ORDER_NONE];
 }
 
-
 Blockly.JavaScript['lodash_flatten'] = function (block) {
     var array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_NONE) || "[]";
     let code = `lodash.flatten(${array})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+Blockly.JavaScript['lodash_flattendeep'] = function (block) {
+    var array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_NONE) || "[]";
+    let code = `lodash.flattenDeeth(${array})`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 }

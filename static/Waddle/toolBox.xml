@@ -392,6 +392,10 @@ TIP
 		</block>
 		<block type="lodash_first">
 		</block>
+		<block type="lodash_flatten">
+		</block>
+		<block type='lodash_flattendeep'>
+		</block>
 	</category>
 		<block type="lodash_flatten">
 		</block>

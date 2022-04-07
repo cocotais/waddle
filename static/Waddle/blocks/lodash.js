@@ -357,3 +357,18 @@ Blockly.Blocks['lodash_flatten'] = {
         this.setHelpUrl("");
     }
 };
+
+Blockly.Blocks['lodash_flattendeep'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用lodash将");
+        this.appendDummyInput()
+            .appendField("递归到一维数组");
+        this.setInputsInline(true);
+        this.setOutput(true, null);
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
