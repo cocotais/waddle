@@ -170,6 +170,19 @@ Blockly.Blocks['ivw_addEvent'] = {
 	}
 };
 
+Blockly.Blocks['ivw_methodReturn'] = {
+	init: function () {
+		this.appendValueInput("value")
+			.setCheck(null)
+			.appendField("返回");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(false, null);
+		this.setColour("5574F8");
+		this.setTooltip("触发事件并传参（可选，请用事件传参积木）");
+		this.setHelpUrl(HELP_URL);
+	}
+};
+
 Blockly.Blocks['ivw_emit'] = {
 	init: function () {
 		this.appendValueInput("event")

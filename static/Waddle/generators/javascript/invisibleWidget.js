@@ -125,10 +125,16 @@ ${statements_other}
 	return code;
 };
 
+Blockly.JavaScript['ivw_methodReturn'] = function (block) {
+	var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
+	var code = `return ${value_value};`;
+	return code;
+};
+
 Blockly.JavaScript['ivw_emit'] = function (block) {
 	var value_event = Blockly.JavaScript.valueToCode(block, 'event', Blockly.JavaScript.ORDER_ATOMIC);
 	var statements_parameters = Blockly.JavaScript.statementToCode(block, 'parameters');
-	var code = `this.emit(${value_event}${statements_parameters})`;
+	var code = `this.emit(${value_event}${statements_parameters});`;
 	return code;
 };
 
