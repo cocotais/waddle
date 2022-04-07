@@ -386,6 +386,8 @@ TIP
 		-->
 	</category>
 	<category name="lodash">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
 		<block type="lodash_import">
 		</block>
 		<block type="lodash_chunk">
@@ -397,6 +399,12 @@ TIP
 		<block type="lodash_difference">
 		</block>
 		<block type="lodash_differencebydropdown">
+		</block>
+		<block type="lodash_differenceby">
+		</block>
+		<block type="lodash_differencewithdropdown">
+		</block>
+		<block type="lodash_differencewith">
 		</block>
 	</category>
 	<category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">

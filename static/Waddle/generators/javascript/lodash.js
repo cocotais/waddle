@@ -37,3 +37,27 @@ Blockly.JavaScript['lodash_differencebydropdown'] = function (block) {
     let code = `lodash.differenceBy(${array}, ${value}, ${mode})`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 }
+
+Blockly.JavaScript['lodash_differenceby'] = function (block) {
+    var array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_NONE) || "[]";
+    var value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_NONE) || "[]";
+    var mode = block.getFieldValue("ITERATEE")
+    let code = `lodash.differenceBy(${array}, ${value}, ${mode})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+Blockly.JavaScript['lodash_differencewithdropdown'] = function (block) {
+    var array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_NONE) || "[]";
+    var value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_NONE) || "[]";
+    var mode = block.getFieldValue("COMPARATOR")
+    let code = `lodash.differenceWith(${array}, ${value}, ${mode})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+Blockly.JavaScript['lodash_differencewith'] = function (block) {
+    var array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_NONE) || "[]";
+    var value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_NONE) || "[]";
+    var mode = block.getFieldValue("COMPARATOR")
+    let code = `lodash.differenceWith(${array}, ${value}, ${mode})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}

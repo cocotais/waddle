@@ -883,6 +883,8 @@
 			renderer: 'zelos' //scratch风格，自定义的是custom_renderer
 		});
 
+		workspace.registerButtonCallback("betawarning", function(){swal("这是实验性功能，正在测试，将来可能会频繁改动，若有bug请向作者反馈！")})
+
 	/* 加载初始积木 */
 	Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
 

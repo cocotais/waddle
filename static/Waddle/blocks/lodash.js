@@ -92,3 +92,61 @@ Blockly.Blocks['lodash_differencebydropdown'] = {
         this.setHelpUrl("");
     }
 };
+
+Blockly.Blocks['lodash_differenceby'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用loadsh将数组");
+        this.appendDummyInput()
+            .appendField("中的每一个值调用")
+            .appendField(new Blockly.FieldTextInput("Math.abs"), "ITERATEE");
+        this.appendValueInput("VALUE")
+            .setCheck("Array")
+            .appendField("后，将转换后的结果中的");
+        this.appendDummyInput()
+            .appendField("过滤掉");
+        this.setOutput(true, "Array");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['lodash_differencewithdropdown'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用loadsh将数组");
+        this.appendValueInput("VALUE")
+            .setCheck("Array")
+            .appendField("与");
+        this.appendDummyInput()
+            .appendField("中的每一项依次对比，当")
+            .appendField(new Blockly.FieldDropdown([["相等", "lodash.isEqual"]]), "COMPARATOR")
+            .appendField("时过滤掉");
+        this.setOutput(true, "Array");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['lodash_differencewith'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用loadsh将数组");
+        this.appendValueInput("VALUE")
+            .setCheck("Array")
+            .appendField("与");
+        this.appendDummyInput()
+            .appendField("中的每一项依次对比，当运算符")
+            .appendField(new Blockly.FieldTextInput("lodash.isEqual"), "COMPARATOR")
+            .appendField("成立时过滤掉");
+        this.setOutput(true, "Array");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
