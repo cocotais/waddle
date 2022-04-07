@@ -103,3 +103,53 @@ Blockly.JavaScript['lodash_droprightwhile'] = function (block) {
     let code = `lodash.dropRightWhile(${array}, ${pre})`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 }
+
+Blockly.JavaScript['lodash_fill'] = function (block) {
+    var array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_NONE) || "[]";
+    var num1 = Blockly.JavaScript.valueToCode(block, 'NUM1', Blockly.JavaScript.ORDER_NONE) || "0";
+    var num2 = Blockly.JavaScript.valueToCode(block, 'NUM2', Blockly.JavaScript.ORDER_NONE) || "0";
+    var value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_NONE) || "numm";
+    let code = `lodash.fill(${array}, ${value}, ${num1}, ${num2})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+Blockly.JavaScript['lodash_findindex'] = function (block) {
+    var array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_NONE) || "[]";
+    var pre = block.getFieldValue('PRE');
+    let code = `lodash.findIndex(${array}, ${pre})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+Blockly.JavaScript['lodash_findlastindex'] = function (block) {
+    var array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_NONE) || "[]";
+    var pre = block.getFieldValue('PRE');
+    let code = `lodash.findLastIndex(${array}, ${pre})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+Blockly.JavaScript['lodash_findindexdropdown'] = function (block) {
+    var array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_NONE) || "[]";
+    var pre = block.getFieldValue('PRE');
+    let code = `lodash.findIndex(${array}, ${pre})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+Blockly.JavaScript['lodash_findlastindexdropdown'] = function (block) {
+    var array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_NONE) || "[]";
+    var pre = block.getFieldValue('PRE');
+    let code = `lodash.findLastIndex(${array}, ${pre})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+Blockly.JavaScript['lodash_first'] = function (block) {
+    var array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_NONE) || "[]";
+    let code = `lodash.first(${array})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+
+Blockly.JavaScript['lodash_flatten'] = function (block) {
+    var array = Blockly.JavaScript.valueToCode(block, 'ARRAY', Blockly.JavaScript.ORDER_NONE) || "[]";
+    let code = `lodash.flatten(${array})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+}

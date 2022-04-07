@@ -380,7 +380,21 @@ TIP
 		</block>
 		<block type="lodash_droprightwhile">
 		</block>
+		<block type="lodash_fill">
+		</block>
+		<block type="lodash_findindexdropdown">
+		</block>
+		<block type="lodash_findlastindexdropdown">
+		</block>
+		<block type="lodash_findindex">
+		</block>
+		<block type="lodash_findlastindex">
+		</block>
+		<block type="lodash_first">
+		</block>
 	</category>
+		<block type="lodash_flatten">
+		</block>
 	<category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">
 		<label text="工具.积木夹子">
 		</label>

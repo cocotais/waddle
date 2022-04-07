@@ -19,6 +19,7 @@ Blockly.Blocks['lodash_chunk'] = {
             .setCheck("Array")
             .appendField("转为二维数组，每组大小为");
         this.setOutput(true, "Array");
+        this.setInputsInline(true);
         this.setColour('#3492ff');
         this.setTooltip("");
         this.setHelpUrl("");
@@ -221,7 +222,7 @@ Blockly.Blocks['lodash_dropwhile'] = {
             .setCheck("Array")
             .appendField("使用lodash将数组从前向后寻找，当某项");
         this.appendDummyInput()
-            .appendField(new Blockly.FieldTextInput("function(value){return !!a}"), "PRE")
+            .appendField(new Blockly.FieldTextInput("function(value){return !!value}"), "PRE")
             .appendField("返回假值时将其和前面的元素删除");
         this.setOutput(true, "Array");
         this.setColour('#3492ff');
@@ -236,9 +237,121 @@ Blockly.Blocks['lodash_droprightwhile'] = {
             .setCheck("Array")
             .appendField("使用lodash将数组从后向前寻找，当某项");
         this.appendDummyInput()
-            .appendField(new Blockly.FieldTextInput("function(value){return !!a}"), "PRE")
+            .appendField(new Blockly.FieldTextInput("function(value){return !!value}"), "PRE")
             .appendField("返回假值时将其和后面的元素删除");
         this.setOutput(true, "Array");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['lodash_fill'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用lodash将数组");
+        this.appendValueInput("NUM1")
+            .setCheck("Number")
+            .appendField("的从");
+        this.appendValueInput("NUM2")
+            .setCheck("Number")
+            .appendField("到项的值");
+        this.appendValueInput("VALUE")
+            .setCheck(null)
+            .appendField("替换为");
+        this.setOutput(true, "Array");
+        this.setInputsInline(true);
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['lodash_findindexdropdown'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用lodash将数组从前向后寻找，当某项");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([["为假", "function(a){return !a}"], ["为真", "function(a){return !!a}"], ["大于0", "function(a){return a>0}"], ["小于0", "function(a){return a<0}"]]), "PRE")
+            .appendField("时的索引(获取找到的第一项)");
+        this.setOutput(true, "Number");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+}
+
+Blockly.Blocks['lodash_findlastindexdropdown'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用lodash将数组从前向后寻找，当某项");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([["为假", "function(a){return !a}"], ["为真", "function(a){return !!a}"], ["大于0", "function(a){return a>0}"], ["小于0", "function(a){return a<0}"]]), "PRE")
+            .appendField("时的索引(获取找到的最后一项)");
+        this.setOutput(true, "Number");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+}
+
+Blockly.Blocks['lodash_findindex'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用lodash将数组从前向后寻找，当某项");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("function(value){return !!value}"), "PRE")
+            .appendField("时的索引(获取找到的第一项)");
+        this.setOutput(true, "Number");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+}
+
+Blockly.Blocks['lodash_findlastindex'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用lodash将数组从前向后寻找，当某项");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("function(value){return !!value}"), "PRE")
+            .appendField("时的索引(获取找到的最后一项)");
+        this.setOutput(true, "Number");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+}
+
+Blockly.Blocks['lodash_first'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用lodash获取数组");
+        this.appendDummyInput()
+            .appendField("的第一个元素");
+        this.setInputsInline(true);
+        this.setOutput(true, null);
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['lodash_flatten'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用lodash将");
+        this.appendDummyInput()
+            .appendField("减少一层嵌套深度");
+        this.setInputsInline(true);
+        this.setOutput(true, null);
         this.setColour('#3492ff');
         this.setTooltip("");
         this.setHelpUrl("");
