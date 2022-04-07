@@ -609,13 +609,17 @@ TIP
 		<label text="返回">
 		</label>
 		<block type="ivw_addMethod">
-			<statement name="other">
+			<!-- <statement name="other">
 				<block type="ivwAttri_valueType">
 					<value name="value">
 						<block type="text">
 							<field name="TEXT">返回值类型</field>
 						</block>
 					</value>
+				</block>
+			</statement> -->
+			<statement name="code">
+				<block type="ivw_methodReturn">
 				</block>
 			</statement>
 		</block>
