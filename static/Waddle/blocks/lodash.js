@@ -150,3 +150,97 @@ Blockly.Blocks['lodash_differencewith'] = {
         this.setHelpUrl("");
     }
 };
+
+Blockly.Blocks['lodash_drop'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用loadsh将数组");
+        this.appendValueInput("VALUE")
+            .setCheck("Number")
+            .appendField("前");
+        this.appendDummyInput()
+            .appendField("位删除");
+        this.setOutput(true, "Array");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['lodash_dropright'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用loadsh将数组");
+        this.appendValueInput("VALUE")
+            .setCheck("Number")
+            .appendField("后");
+        this.appendDummyInput()
+            .appendField("位删除");
+        this.setOutput(true, "Array");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['lodash_dropwhiledropdown'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用lodash将数组从前向后寻找，当某项");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([["为假", "function(a){return !!a}"], ["为真", "function(a){return !a}"], ["大于0", "function(a){return a>0}"], ["小于0", "function(a){return a<0}"]]), "PRE")
+            .appendField("时将其和前面的元素删除");
+        this.setOutput(true, "Array");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['lodash_droprightwhiledropdown'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用lodash将数组从后向前寻找，当某项");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([["为假", "function(a){return !!a}"], ["为真", "function(a){return !a}"], ["大于0", "function(a){return a<=0}"], ["小于0", "function(a){return a>=0}"]]), "PRE")
+            .appendField("时将其和后面的元素删除");
+        this.setOutput(true, "Array");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['lodash_dropwhile'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用lodash将数组从前向后寻找，当某项");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("function(value){return !!a}"), "PRE")
+            .appendField("返回假值时将其和前面的元素删除");
+        this.setOutput(true, "Array");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['lodash_droprightwhile'] = {
+    init: function () {
+        this.appendValueInput("ARRAY")
+            .setCheck("Array")
+            .appendField("使用lodash将数组从后向前寻找，当某项");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("function(value){return !!a}"), "PRE")
+            .appendField("返回假值时将其和后面的元素删除");
+        this.setOutput(true, "Array");
+        this.setColour('#3492ff');
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};

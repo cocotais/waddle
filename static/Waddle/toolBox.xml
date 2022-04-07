@@ -368,6 +368,18 @@ TIP
 		</block>
 		<block type="lodash_differencewith">
 		</block>
+		<block type="lodash_drop">
+		</block>
+		<block type="lodash_dropright">
+		</block>
+		<block type="lodash_dropwhiledropdown">
+		</block>
+		<block type="lodash_droprightwhiledropdown">
+		</block>
+		<block type="lodash_dropwhile">
+		</block>
+		<block type="lodash_droprightwhile">
+		</block>
 	</category>
 	<category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">
 		<label text="工具.积木夹子">
