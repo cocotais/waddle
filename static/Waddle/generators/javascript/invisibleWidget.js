@@ -11,7 +11,7 @@ var del_indentation = function (code) {
 Blockly.JavaScript['ivw_defTypes'] = function (block) {
 	var statements_types = Blockly.JavaScript.statementToCode(block, 'types');
 	var code = `
-types = {
+const types = {
   isInvisibleWidget: true,
   properties: [],
   methods: [],
@@ -73,7 +73,7 @@ Blockly.JavaScript['ivw_addMethod'] = function (block) {
 	// var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var params = '';
 	if (statements_params) {
-		statements_params.forEach((value) => {
+		eval('['+statements_params+']').forEach((value) => {
 			params = params.concat(value.key + ',');
 		});
 	};
@@ -125,10 +125,16 @@ ${statements_other}
 	return code;
 };
 
+Blockly.JavaScript['ivw_methodReturn'] = function (block) {
+	var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
+	var code = `return ${value_value};`;
+	return code;
+};
+
 Blockly.JavaScript['ivw_emit'] = function (block) {
 	var value_event = Blockly.JavaScript.valueToCode(block, 'event', Blockly.JavaScript.ORDER_ATOMIC);
 	var statements_parameters = Blockly.JavaScript.statementToCode(block, 'parameters');
-	var code = `this.emit(${value_event}${statements_parameters})`;
+	var code = `this.emit(${value_event}${statements_parameters});`;
 	return code;
 };
 
