@@ -13,9 +13,9 @@ Blockly.Blocks['ivw_defTypes'] = {
 		// 五个参数分两行输入
 		this.appendDummyInput()
 			.appendField("名称")
-			.appendField(new Blockly.FieldTextInput("我的控件"), "type")
+			.appendField(new Blockly.FieldTextInput("我的控件"), "title")
 			.appendField("版本")
-			.appendField(new Blockly.FieldTextInput("1.0.0"), "type")
+			.appendField(new Blockly.FieldTextInput("1.0.0"), "version")
 			.appendField("类型")
 			.appendField(new Blockly.FieldDropdown([["全局控件", "true"], ["屏幕控件", "false"]]), "isGlobalWidget");
 		// this.appendStatementInput("types")
