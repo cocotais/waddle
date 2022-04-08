@@ -1,9 +1,9 @@
 
-var path=document.createElement("path");
-path.setAttribute('stroke-width','2px');
-path.setAttribute('d','M 120 0 L 0 0 0 120');
-path.setAttribute('stroke','#DBEAFF');
-path.setAttribute('stroke-opacity','0.8');
+var path = document.createElement("path");
+path.setAttribute('stroke-width', '2px');
+path.setAttribute('d', 'M 120 0 L 0 0 0 120');
+path.setAttribute('stroke', '#DBEAFF');
+path.setAttribute('stroke-opacity', '0.8');
 
 options = {
 	spacing: 20,

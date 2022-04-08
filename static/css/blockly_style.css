@@ -1,14 +1,17 @@
 .blocklyTreeLabel {
 	color: #525252;
-	padding: 3px 0 ;
+	padding: 3px 0;
 }
-.blocklyTreeRowContentContainer{
-	padding: 5px 0 ;
+
+.blocklyTreeRowContentContainer {
+	padding: 5px 0;
 }
+
 /* Adds padding around the group of categories and separators. */
 .blocklyToolboxContents {
 	padding: .3em;
 }
+
 /* Adds space between the categories, rounds the corners and adds space around the label. */
 .blocklyTreeRow {
 	/*display: flex;*/
@@ -23,22 +26,33 @@
 	/*background-color: white;*/
 
 }
-.blocklyToolboxDiv{
+
+.blocklyToolboxDiv {
 	background-color: rgb(255, 255, 255);
-};
+}
+
+;
+
 .custom_renderer-renderer.WaddleTheme-theme .blocklySelected>.blocklyPath {
 	stroke: #FFFFDD;
 	stroke-width: 3px;
 }
 
-.mask{
+.mask {
 	position: absolute;
 	top: 0;
-	background: #333;/* 黑色背景 */
-	z-index: -2;/* 使遮罩层位于背景容器层下方，背景容器模糊带消失 */
+	background: #333;
+	/* 黑色背景 */
+	z-index: -2;
+	/* 使遮罩层位于背景容器层下方，背景容器模糊带消失 */
 }
 
-.mbl{ background:#000; filter:alpha(Opacity=60);-moz-opacity:0.5;opacity:0.5}
+.mbl {
+	background: #000;
+	filter: alpha(Opacity=60);
+	-moz-opacity: 0.5;
+	opacity: 0.5
+}
 
 .blocklyTreeSeparator {
 	border-bottom: #00000000;
@@ -46,21 +60,23 @@
 
 /* Stacks the icon on top of the label. */
 .blocklyTreeRowContentContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.blocklyTreeRow {
-    height: initial;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.blocklyFlyoutButton{
+.blocklyTreeRow {
+	height: initial;
+}
+
+.blocklyFlyoutButton {
 	fill: #6d50f0;
 }
 
-.blocklyFlyoutButton:hover{
+.blocklyFlyoutButton:hover {
 	fill: #5439ce;
 }
-.blocklyTreeRow:not(.blocklyTreeSelected):hover{
+
+.blocklyTreeRow:not(.blocklyTreeSelected):hover {
 	background-color: #DCDCDC;
 }

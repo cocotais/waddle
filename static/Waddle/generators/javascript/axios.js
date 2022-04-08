@@ -7,7 +7,7 @@ Blockly.JavaScript['axios_getpost_simple'] = function (block) {
     var mode = block.getFieldValue('MODE');
     var ok = Blockly.JavaScript.statementToCode(block, 'OK');
     var error = Blockly.JavaScript.statementToCode(block, 'ERROR');
-    var url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC)||"''";
+    var url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
     var code = `axios.${mode}(${url})
   .then((response) => {
   ${ok}
@@ -35,9 +35,9 @@ Blockly.JavaScript['axios_error'] = function () {
     return ['error', Blockly.JavaScript.ORDER_NONE]
 }
 
-Blockly.JavaScript['axios_getpost'] = function(block) {
+Blockly.JavaScript['axios_getpost'] = function (block) {
     var dropdown_mode = block.getFieldValue('MODE');
-    var value_url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC)||"''";
+    var value_url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
     var statements_par = Blockly.JavaScript.statementToCode(block, 'PAR');
     var statements_ok = Blockly.JavaScript.statementToCode(block, 'OK');
     var statements_error = Blockly.JavaScript.statementToCode(block, 'error');
@@ -54,16 +54,16 @@ axios.${dropdown_mode}(${value_url},{
   });
 `;
     return code;
-  };
+};
 
 Blockly.JavaScript['axios_timeout'] = function (block) {
-    var value_num = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC)||'0';
+    var value_num = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC) || '0';
     var code = `timeout: ${value_num},\n`;
     return code;
 };
 
 Blockly.JavaScript['axios_maxcontentlength'] = function (block) {
-    var value_num = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC)||'0';
+    var value_num = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC) || '0';
     var code = `maxContentLength: ${value_num},\n`;
     return code;
 };

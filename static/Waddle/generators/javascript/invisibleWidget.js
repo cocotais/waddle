@@ -83,7 +83,7 @@ Blockly.JavaScript['ivw_addMethod'] = function (block) {
 	// var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var params = '';
 	if (statements_params) {
-		eval('['+statements_params+']').forEach((value) => {
+		eval('[' + statements_params + ']').forEach((value) => {
 			params = params.concat(value.key + ',');
 		});
 	};
