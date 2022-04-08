@@ -419,6 +419,14 @@ TIP
 		<block type="axios_maxcontentlength">
 		</block>
 	</category>
+	<category name="utils">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="utils_import">
+		</block>
+		<block type="utils_isnative">
+		</block>
+	</category>
 	<category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">
 		<label text="工具.积木夹子">
 		</label>
