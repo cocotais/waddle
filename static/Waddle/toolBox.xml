@@ -396,8 +396,6 @@ TIP
 		</block>
 		<block type='lodash_flattendeep'>
 		</block>
-		<block type="lodash_flatten">
-		</block>
 	</category>
 	<category name="axios">
 		<button text="实验性功能提示" callbackKey="betawarning">
