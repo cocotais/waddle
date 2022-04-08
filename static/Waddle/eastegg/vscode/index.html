@@ -7,7 +7,16 @@
 </head>
 
 <body>
-    <h1>你的VSCode</h1>
+    <script>
+        var count = 0
+        add=function(){
+            count++
+            if (count>10){
+                window.open("/static/Waddle/eastegg/eatwaddle/index.html")
+            }
+        }
+    </script>
+    <h1 onclick="add()">你的VSCode</h1>
     <h1>马上变得难看又瞎眼</h1>
     <h2>Coco紫</h2>
     <h2>插件文件地址:<a href="./coco-color-theme-0.0.1.vsix">点我下载！</a></h2>

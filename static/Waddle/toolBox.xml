@@ -348,7 +348,7 @@ TIP
 		-->
 	</category>
 	<category name="lodash">
-		<button text="实验性功能提示" callbackKey="betawarning">
+		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
 		</button>
 		<block type="lodash_import">
 		</block>
