@@ -347,7 +347,7 @@ TIP
 		</block>
 		-->
 	</category>
-	<category name="lodash">
+	<category name="lodash" css-icon="iconfont waddle-tool">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
 		</button>
 		<block type="lodash_import">
@@ -397,7 +397,7 @@ TIP
 		<block type='lodash_flattendeep'>
 		</block>
 	</category>
-	<category name="axios">
+	<category name="axios" css-icon="iconfont waddle-tool">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="axios_import">
@@ -417,7 +417,7 @@ TIP
 		<block type="axios_maxcontentlength">
 		</block>
 	</category>
-	<category name="utils">
+	<category name="utils" css-icon="iconfont waddle-tool">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="utils_import">
