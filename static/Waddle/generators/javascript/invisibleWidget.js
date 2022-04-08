@@ -9,47 +9,57 @@ var del_indentation = function (code) {
 }
 
 Blockly.JavaScript['ivw_defTypes'] = function (block) {
-	var statements_types = Blockly.JavaScript.statementToCode(block, 'types');
+	// var statements_types = Blockly.JavaScript.statementToCode(block, 'types');
+	var text_type = block.getFieldValue('type');
+	var text_icon = block.getFieldValue('icon');
+	var text_title = block.getFieldValue('title');
+	var text_version = block.getFieldValue('version');
+	var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
 	var code = `
 const types = {
   isInvisibleWidget: true,
+  type: "${text_type}",
+  icon: "${text_icon}",
+  title: "${text_title}",
+  version: "${text_version}",
+  isGlobalWidget: ${dropdown_isglobalwidget},
   properties: [],
   methods: [],
   events: [],
-${statements_types}};
+};
 `;
 	return code;
 };
 
-Blockly.JavaScript['ivw_itemType'] = function (block) {
-	var text_type = block.getFieldValue('type');
-	var code = `type: "${text_type}",\n`;
-	return code;
-};
+// Blockly.JavaScript['ivw_itemType'] = function (block) {
+// 	var text_type = block.getFieldValue('type');
+// 	var code = `type: "${text_type}",\n`;
+// 	return code;
+// };
 
-Blockly.JavaScript['ivw_itemIcon'] = function (block) {
-	var text_icon = block.getFieldValue('icon');
-	var code = `icon: "${text_icon}",\n`;
-	return code;
-};
+// Blockly.JavaScript['ivw_itemIcon'] = function (block) {
+// 	var text_icon = block.getFieldValue('icon');
+// 	var code = `icon: "${text_icon}",\n`;
+// 	return code;
+// };
 
-Blockly.JavaScript['ivw_itemTitle'] = function (block) {
-	var text_title = block.getFieldValue('title');
-	var code = `title: "${text_title}",\n`;
-	return code;
-};
+// Blockly.JavaScript['ivw_itemTitle'] = function (block) {
+// 	var text_title = block.getFieldValue('title');
+// 	var code = `title: "${text_title}",\n`;
+// 	return code;
+// };
 
-Blockly.JavaScript['ivw_itemVersion'] = function (block) {
-	var text_version = block.getFieldValue('version');
-	var code = `version: "${text_version}",\n`;
-	return code;
-};
+// Blockly.JavaScript['ivw_itemVersion'] = function (block) {
+// 	var text_version = block.getFieldValue('version');
+// 	var code = `version: "${text_version}",\n`;
+// 	return code;
+// };
 
-Blockly.JavaScript['ivw_itemIsGlobalWidget'] = function (block) {
-	var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
-	var code = `isGlobalWidget: ${dropdown_isglobalwidget},\n`;
-	return code;
-};
+// Blockly.JavaScript['ivw_itemIsGlobalWidget'] = function (block) {
+// 	var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
+// 	var code = `isGlobalWidget: ${dropdown_isglobalwidget},\n`;
+// 	return code;
+// };
 
 Blockly.JavaScript['ivw_addProperty'] = function (block) {
 	var text_key = block.getFieldValue('key');
