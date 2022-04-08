@@ -396,9 +396,29 @@ TIP
 		</block>
 		<block type='lodash_flattendeep'>
 		</block>
-	</category>
 		<block type="lodash_flatten">
 		</block>
+	</category>
+	<category name="axios">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="axios_import">
+		</block>
+		<block type="axios_getpost_simple">
+		</block>
+		<block type="axios_response">
+		</block>
+		<block type="axios_responsedropdown">
+		</block>
+		<block type="axios_error">
+		</block>
+		<block type="axios_getpost">
+		</block>
+		<block type="axios_timeout">
+		</block>
+		<block type="axios_maxcontentlength">
+		</block>
+	</category>
 	<category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">
 		<label text="工具.积木夹子">
 		</label>
