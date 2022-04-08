@@ -9,10 +9,10 @@ Blockly.JavaScript['axios_getpost_simple'] = function (block) {
     var error = Blockly.JavaScript.statementToCode(block, 'ERROR');
     var url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC)||"''";
     var code = `axios.${mode}(${url})
-  .then(function (response) {
+  .then((response) => {
   ${ok}
   })
-  .catch(function (error) {
+  .catch((error) => {
   ${error}
   });
 `
@@ -46,10 +46,10 @@ Blockly.JavaScript['axios_getpost'] = function(block) {
 axios.${dropdown_mode}(${value_url},{
   ${statements_par}
   })
-  .then(function (response) {
+  .then((response) => {
   ${statements_ok}
   })
-  .catch(function (error) {
+  .catch((error) => {
   ${statements_error}
   });
 `;
