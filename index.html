@@ -9,7 +9,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.4.11(541)-alpha' //以后版本号改我就行！
+		var version = 'V1.4.11(549)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，CoCo中控台所有成员共同开发！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -867,37 +867,7 @@
 </script>
 <script>
 	document.body.style.overflow = 'hidden' //禁止页面滑动
-	function createjscssfile(filename, filetype) {
-		undefined
-		if (filetype == "js") {
-			undefined
-			var fileref = document.createElement('script')
-			fileref.setAttribute("type", "text/javascript")
-			fileref.setAttribute("src", filename)
-		}
-		else if (filetype == "css") {
-			undefined
-			var fileref = document.createElement("link")
-			fileref.setAttribute("rel", "stylesheet")
-			fileref.setAttribute("type", "text/css")
-			fileref.setAttribute("href", filename)
-		}
-		return fileref
-	}
-	function replacejscssfile(oldfilename, newfilename, filetype) {
-		undefined
-		var targetelement = (filetype == "js") ? "script" : (filetype == "css") ? "link" : "none"
-		var targetattr = (filetype == "js") ? "src" : (filetype == "css") ? "href" : "none"
-		var allsuspects = document.getElementsByTagName(targetelement)
-		for (var i = allsuspects.length; i >= 0; i--) {
-			undefined
-			if (allsuspects[i] && allsuspects[i].getAttribute(targetattr) != null && allsuspects[i].getAttribute(targetattr).indexOf(oldfilename) != -1) {
-				undefined
-				var newelement = createjscssfile(newfilename, filetype)
-				allsuspects[i].parentNode.replaceChild(newelement, allsuspects[i])
-			}
-		}
-	}
+	
 
 </script>
 <script>
@@ -1558,7 +1528,7 @@
 		document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(0 0)')
 		document.getElementById("theme").setAttribute('width', '25.92')
 		document.getElementById("theme").setAttribute('height', '25.92')
-		sty.innerText = '.copy{background: #525252;}.copy:hover{background: #666666;}.close{border: 13px solid #525252;}.close:hover,.clos:focus{border: 13px solid #666666;}.swal-content__input,.swal-icon--success:after,.swal-icon--success::before,.swal-icon--success__hide-corners{background-color: #666666;}.swal-title,.swal-text{color:rgb(255,255,255)}.swal-footer{background-color: #525252;border-top: 1px solid #484848;}.swal-modal{background-color: #666666}.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}.card{background:#666666;border: rgb(255, 255, 255) 0.2em solid;}.aboutus-close{color:#fff;}.newsth-close{color:#fff;}.sord{color:#fff;}';
+		sty.innerText = '.blocklyTreeLabel { color: #fff; padding: 3px 0; } .blocklyTreeRowContentContainer { padding: 5px 0; } /* Adds padding around the group of categories and separators. */ .blocklyToolboxContents { padding: .3em; } /* Adds space between the categories, rounds the corners and adds space around the label. */ .blocklyTreeRow { /*display: flex;*/ height: 32px; align-items: center; justify-content: space-between; padding: 0; cursor: pointer; border-radius: 5px; /*background-color: #525252;*/ margin: 0 6px 4px; font-size: 12px; } .custom_renderer-renderer.WaddleTheme-theme .blocklySelected>.blocklyPath { stroke: #2e2e2e; stroke-width: 3px; } .mask { position: absolute; top: 0; background: #333; /* 黑色背景 */ z-index: -2; /* 使遮罩层位于背景容器层下方，背景容器模糊带消失 */ } .mbl { background: #000; filter: alpha(Opacity=60); -moz-opacity: 0.5; opacity: 0.5 } .blocklyTreeSeparator { border-bottom: #00000000; } /* Stacks the icon on top of the label. */ .blocklyTreeRowContentContainer { display: flex; flex-direction: column; align-items: center; } .blocklyTreeRow { height: initial; } ; .customIcon { padding: 10; }.copy{background: #525252;}.copy:hover{background: #666666;}.close{border: 13px solid #525252;}.close:hover,.clos:focus{border: 13px solid #666666;}.swal-content__input,.swal-icon--success:after,.swal-icon--success::before,.swal-icon--success__hide-corners{background-color: #666666;}.swal-title,.swal-text{color:rgb(255,255,255)}.swal-footer{background-color: #525252;border-top: 1px solid #484848;}.swal-modal{background-color: #666666}.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}.card{background:#666666;border: rgb(255, 255, 255) 0.2em solid;}.aboutus-close{color:#fff;}.newsth-close{color:#fff;}.sord{color:#fff;}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
 		document.getElementsByClassName("modal-content")[0].style.borderTopColor = 'rgb(82, 82, 82)'
@@ -1570,7 +1540,7 @@
 		eval(dark)
 		document.cookie = "mode=dark";
 		document.getElementById("pwa-color").setAttribute('content', '#525252')
-		replacejscssfile("./static/css/blockly_style.css", "./static/css/blockly_style_dark.css", "css");
+		
 	}
 	$('.cls-1').animate({ 'stroke-dashoffset': '150px' }, 10);
 	var to_light = function () {
@@ -1580,7 +1550,7 @@
 		document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(-32 -32)')
 		document.getElementById("theme").setAttribute('width', '22.627776')
 		document.getElementById("theme").setAttribute('height', '25.344')
-		sty.innerText = '.close{border: 13px solid #6d50f0;}.close:hover,.clos:focus{border: 13px solid #5439ce;}.nav-item:hover{background-color: #5439ce;}.close:hover{color:#000000}.card{background:#fff;border: rgb(180, 180, 180) 0.2em solid;}.aboutus-close{color:#6d50f0;}.newsth-close{color:#6d50f0;}.sord{color:#6d50f0;}';
+		sty.innerText = '.blocklyTreeLabel { color: #525252; padding: 3px 0; } .blocklyTreeRowContentContainer { padding: 5px 0; } /* Adds padding around the group of categories and separators. */ .blocklyToolboxContents { padding: .3em; } /* Adds space between the categories, rounds the corners and adds space around the label. */ .blocklyTreeRow { /*display: flex;*/ height: 32px; align-items: center; justify-content: space-between; padding: 0; cursor: pointer; border-radius: 5px; margin: 0 6px 4px; font-size: 12px; /*background-color: white;*/ } .blocklyToolboxDiv { background-color: rgb(255, 255, 255); } ; .custom_renderer-renderer.WaddleTheme-theme .blocklySelected>.blocklyPath { stroke: #FFFFDD; stroke-width: 3px; } .mask { position: absolute; top: 0; background: #333; /* 黑色背景 */ z-index: -2; /* 使遮罩层位于背景容器层下方，背景容器模糊带消失 */ } .mbl { background: #000; filter: alpha(Opacity=60); -moz-opacity: 0.5; opacity: 0.5 } .blocklyTreeSeparator { border-bottom: #00000000; } /* Stacks the icon on top of the label. */ .blocklyTreeRowContentContainer { display: flex; flex-direction: column; align-items: center; } .blocklyTreeRow { height: initial; } .blocklyFlyoutButton { fill: #6d50f0; } .blocklyFlyoutButton:hover { fill: #5439ce; } .blocklyTreeRow:not(.blocklyTreeSelected):hover { background-color: #DCDCDC; }.close{border: 13px solid #6d50f0;}.close:hover,.clos:focus{border: 13px solid #5439ce;}.nav-item:hover{background-color: #5439ce;}.close:hover{color:#000000}.card{background:#fff;border: rgb(180, 180, 180) 0.2em solid;}.aboutus-close{color:#6d50f0;}.newsth-close{color:#6d50f0;}.sord{color:#6d50f0;}';
 		document.body.appendChild(sty);
 		document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
 		document.getElementsByClassName("modal-content")[0].style.borderTopColor = 'rgb(109, 80, 240)'
