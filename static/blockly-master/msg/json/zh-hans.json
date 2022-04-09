@@ -214,7 +214,7 @@
 	"MATH_ATAN2_TOOLTIP": "返回点（X，Y）的反正切值，范围为-180到180度。",
 	"TEXT_TEXT_HELPURL": "https://zh.wikipedia.org/wiki/字符串",
 	"TEXT_TEXT_TOOLTIP": "一个字、词语或一行文本。",
-	"TEXT_JOIN_TITLE_CREATEWITH": "创建文本，内容：",
+	"TEXT_JOIN_TITLE_CREATEWITH": "拼接文本",
 	"TEXT_JOIN_TOOLTIP": "通过串起任意数量的项以建立一段文本。",
 	"TEXT_CREATE_JOIN_TITLE_JOIN": "拼接",
 	"TEXT_CREATE_JOIN_TOOLTIP": "添加、移除或重新排列各节来重新配置这个文本积木。",
