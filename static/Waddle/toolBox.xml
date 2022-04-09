@@ -494,7 +494,7 @@ TIP
 		</label>
 		<label text="通用类型定义">
 		</label>
-		<block type="ivw_itemType">
+		<!-- <block type="ivw_itemType">
 		</block>
 		<block type="ivw_itemIcon">
 		</block>
@@ -503,7 +503,7 @@ TIP
 		<block type="ivw_itemVersion">
 		</block>
 		<block type="ivw_itemIsGlobalWidget">
-		</block>
+		</block> -->
 		<block type="ivwAttri_custom">
 			<value name="value">
 				<block type="text">
