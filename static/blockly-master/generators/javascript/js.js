@@ -67,37 +67,37 @@ Blockly.JavaScript["js_json_access"] = function (block) {
 }
 
 Blockly.JavaScript["js_window_screen"] = function (block) {
-    var code = block.getFieldValue("TYPE");
+    var code = `this.${block.getFieldValue("TYPE")}`;
     return [code, Blockly.JavaScript.ORDER_NONE]
 }
 
 Blockly.JavaScript['js_window_avail_screen'] = function (block) {
-    var code = block.getFieldValue("TYPE");
+    var code = `this.${block.getFieldValue("TYPE")}`;
     return [code, Blockly.JavaScript.ORDER_NONE]
 }
 
 Blockly.JavaScript['js_window_depth'] = function (block) {
-    var code = `screen.colorDepth`;
+    var code = `this.screen.colorDepth`;
     return [code, Blockly.JavaScript.ORDER_NONE]
 }
 
 Blockly.JavaScript['js_window_pixeldepth'] = function (block) {
-    var code = `screen.pixelDepth`;
+    var code = `this.screen.pixelDepth`;
     return [code, Blockly.JavaScript.ORDER_NONE]
 }
 
 Blockly.JavaScript['js_navigator_online'] = function (block) {
-    var code = `navigator.onLine`;
+    var code = `this.navigator.onLine`;
     return [code, Blockly.JavaScript.ORDER_NONE]
 }
 
 Blockly.JavaScript['js_navigator_language'] = function (block) {
-    var code = `navigator.language`;
+    var code = `this.navigator.language`;
     return [code, Blockly.JavaScript.ORDER_NONE]
 }
 
 Blockly.JavaScript['js_navigator_platform'] = function (block) {
-    var code = `navigator.platform`;
+    var code = `this.navigator.platform`;
     return [code, Blockly.JavaScript.ORDER_NONE]
 }
 
