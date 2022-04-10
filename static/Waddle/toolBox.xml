@@ -266,9 +266,21 @@ TIP
 	<category name="JS" css-icon="iconfont waddle-js" colour="180">
 		<label text="鸡肋积木">
 		</label>
-		<block type="js_usestrict">
-		</block>
 		<block type="js_run">
+			<value name="CODE">
+				<shadow type="text">
+					<field name="TEXT">console.log(233);</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="js_run2">
+			<value name="CODE">
+				<shadow type="text">
+					<field name="TEXT">console.log(233);</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="js_usestrict">
 		</block>
 		<block type="js_bitwise">
 		</block>

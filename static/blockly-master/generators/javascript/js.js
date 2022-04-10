@@ -1,6 +1,11 @@
 Blockly.JavaScript["js_run"] = function (block) {
-    var code = block.getFieldValue("CODE")+'\n';
-    return code
+    var code = Blockly.JavaScript.valueToCode(block, 'CODE', Blockly.JavaScript.ORDER_NONE) || "console.log(233);";
+    return code.substring(1, code.length - 1);
+}
+
+Blockly.JavaScript["js_run2"] = function (block) {
+    var code = Blockly.JavaScript.valueToCode(block, 'CODE', Blockly.JavaScript.ORDER_NONE) || "console.log(233);";
+    return code.substring(1, code.length - 1);
 }
 
 Blockly.JavaScript["js_usestrict"] = function (block) {
