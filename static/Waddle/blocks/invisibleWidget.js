@@ -118,7 +118,9 @@ Blockly.Blocks['ivw_addMethod'] = {
 			.appendField("函数名")
 			.appendField(new Blockly.FieldTextInput("methodName"), "key")
 			.appendField("方法名")
-			.appendField(new Blockly.FieldTextInput("方法1"), "label");
+			.appendField(new Blockly.FieldTextInput("方法1"), "label")
+			.appendField("返回值类型")
+			.appendField(new Blockly.FieldDropdown([["不返回", 'noReturn'], ["字符串", "string"], ["数字", "number"]]), "valueType");;
 		// this.appendDummyInput()
 		// 	.appendField("积木选项")
 		// this.appendStatementInput("other")

@@ -78,6 +78,7 @@ ${statements_other}
 Blockly.JavaScript['ivw_addMethod'] = function (block) {
 	var text_key = block.getFieldValue('key');
 	var text_label = block.getFieldValue('label');
+	var text_valueType = block.getFieldValue('valueType');
 	var statements_params = Blockly.JavaScript.statementToCode(block, 'params');
 	var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
 	// var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
@@ -91,6 +92,7 @@ Blockly.JavaScript['ivw_addMethod'] = function (block) {
 types['methods'].push({
   key: '${text_key}',
   label: '${text_label}',
+  ${text_valueType === 'noReturn' ? '' : "valueType: '" + text_valueType + "'"}
   params: [
   ${statements_params}
   ],
