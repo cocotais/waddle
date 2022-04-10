@@ -120,7 +120,7 @@ Blockly.Blocks['ivw_addMethod'] = {
 			.appendField("方法名")
 			.appendField(new Blockly.FieldTextInput("方法1"), "label")
 			.appendField("返回值类型")
-			.appendField(new Blockly.FieldDropdown([["不返回", 'noReturn'], ["字符串", "string"], ["数字", "number"]]), "valueType");;
+			.appendField(new Blockly.FieldDropdown([["不返回", 'noReturn'], ["字符串", "'string'"], ["数字", "'number'"], ["列表", "'array'"], ["对象", "'object'"], ["任何类型", "['string','number','array','object',]"]]), "valueType");
 		// this.appendDummyInput()
 		// 	.appendField("积木选项")
 		// this.appendStatementInput("other")
@@ -149,6 +149,9 @@ Blockly.Blocks['ivw_addParams'] = {
 			.appendField(new Blockly.FieldTextInput("paramName"), "key")
 			.appendField("标签")
 			.appendField(new Blockly.FieldTextInput("参数名"), "label");
+		this.appendDummyInput()
+			.appendField("输入值类型")
+			.appendField(new Blockly.FieldDropdown([["字符串", "string"], ["数字", "number"], ["任何类型", "['string','number','array','object',]"]]), "valueType");
 		this.appendDummyInput()
 			.appendField("积木选项")
 		this.appendStatementInput("other")
