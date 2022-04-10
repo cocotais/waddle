@@ -9,7 +9,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.4.11(561)-alpha' //以后版本号改我就行！
+		var version = 'V1.4.11(562)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，CoCo中控台所有成员共同开发！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -278,32 +278,6 @@
 
 		<a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
 		<style>
-			.nav-item:hover:after,
-			.close:hover:after {
-				content: attr(data-title);
-				position: absolute;
-				border-radius: 8px;
-				height: max-content;
-				text-align: center;
-				width: 43px;
-				top: 55px;
-				background-color: rgba(0, 0, 0, .4);
-				border: 8px solid rgba(0, 0, 0, .0);
-				z-index: 600;
-				font-size: 12px;
-				color: #ffffff;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				-webkit-animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-			}
-
-			.close:hover:after {
-				top: 42px;
-				right: -10px;
-			}
-			
 			.nav-item:after,
 			.close:after {
 			    content: attr(data-title);
@@ -321,11 +295,22 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				-webkit-animation: scale-up-t 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				animation: scale-up-t 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+				-webkit-animation: hide-it 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+				animation: hide-it 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+			}
+			
+			.close:after {
+				top: 42px;
+				right: -10px;
+			}
+			
+			.nav-item:hover:after,
+			.close:hover:after {
+				-webkit-animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+				animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 			}
             
-            @keyframes scale-up-t {
+            @keyframes hide-it {
 				0% {
 					-webkit-transform: scale(1);
 					transform: scale(1);
@@ -343,7 +328,7 @@
 				}
 			}
 
-			@-webkit-keyframes scale-up-t {
+			@-webkit-keyframes hide-it {
 				0% {
 					-webkit-transform: scale(1);
 					transform: scale(1);
