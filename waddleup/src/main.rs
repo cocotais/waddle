@@ -5,7 +5,7 @@ use clap::{App, Arg};
 fn main() -> Result<()> {
     let waddleup = App::new("waddleup")
         .version(env!("CARGO_PKG_VERSION"))
-        .author("Cpointerz")
+        .author(" Coco Application Group")
         .about("waddleup是waddle的官方管理工具")
         .subcommand(
             //INSTALL
