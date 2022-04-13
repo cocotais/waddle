@@ -45,25 +45,52 @@ fn main() -> Result<()> {
     if status {
         matches.subcommand_matches("install").map(|_| {
             status = false;
-            Command::new("powershell")
-            .args(["git", "clone", "https://gitee.com/coco-ag/coco-waddle.git"]);
+            let output = if cfg!(target_os = "windows") {
+                Command::new("powershell")
+                        .args(["git clone https://gitee.com/coco-ag/coco-waddle.git"])
+                        .output()
+                        .expect("failed to execute process")
+            } else {
+                Command::new("sh")
+                        .args([ "git clone https://gitee.com/coco-ag/coco-waddle.git"])
+                        .output()
+                        .expect("failed to execute process")
+            };
         });
     }
     if status {
         matches.subcommand_matches("uninstall").map(|_| {
             status = false;
-            Command::new("rm")
-            .args(["-rf", "coco-waddle"]);
+            let output = if cfg!(target_os = "windows") {
+                Command::new("powershell")
+                        .args(["rm -rf coco-waddle"])
+                        .output()
+                        .expect("failed to execute process")
+            } else {
+                Command::new("sh")
+                        .args([ "rm -rf coco-waddle"])
+                        .output()
+                        .expect("failed to execute process")
+            };
         });
     }
     if status{
         matches.subcommand_matches("run").map(|_| {
             status = false;
-            Command::new("powershell")
-            .args(["start http://localhost:8000/"]);
-            Command::new("powershell")
-            .args(["cd", "coco-waddle"])
-            .args(["python -m http.server 8000"]);
+            let output = if cfg!(target_os = "windows") {
+                Command::new("powershell")
+                        .args(["start http://localhost:8000/"])
+                        .args(["cd coco-waddle"])
+                        .args(["python -m http.server 8000"])
+                        .output()
+                        .expect("failed to execute process")
+            } else {
+                Command::new("sh")
+                        .args([ "cd coco-waddle"])
+                        .args([ "python -m http.server 8000"])
+                        .output()
+                        .expect("failed to execute process")
+            };
         });
     }
     Ok(())
