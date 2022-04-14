@@ -39,18 +39,14 @@ fn main() -> Result<()> {
             if cfg!(target_os = "windows") {
                 Command::new("git")
                     .args(["clone", "https://gitee.com/coco-ag/coco-waddle.git", path])
-                    .output()
-                    .expect("failed to execute process");
+                    .output();
                 Command::new("SETX")
                     .args(["/M", "Path", &waddleup_path])
                     .output()
                     .expect("failed to execute process");
             } else {
-                Command::new("sh")
-                    .args([
-                        "git clone https://gitee.com/coco-ag/coco-waddle.git {}",
-                        &path,
-                    ])
+                Command::new("git")
+                    .args(["clone https://gitee.com/coco-ag/coco-waddle.git ",&path,])
                     .output()
                     .expect("failed to execute process");
             }
@@ -63,7 +59,7 @@ fn main() -> Result<()> {
             println!("卸载{}位置的waddle", path);
             if cfg!(target_os = "windows") {
                 Command::new("powershell")
-                    .args(["/C", "rm -rf ", path])
+                    .args(["/C", "rm -rf", path])
                     .output()
                     .expect("failed to execute process");
             } else {
@@ -97,6 +93,5 @@ fn main() -> Result<()> {
             }
         });
     }
-    println!("Done");
     Ok(())
 }
