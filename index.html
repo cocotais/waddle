@@ -109,7 +109,7 @@
 			"你看不到我～",
 			"Waddle编辑器上gitee项目推荐了！",
 			"没啥能看的？",
-            "Waddle被Gitee官方写文章了!!!!!!!"
+			"Waddle被Gitee官方写文章了!!!!!!!"
 		]
 		document.getElementById("loading-text").innerText = tipList[Math.floor(Math.random() * tipList.length)]
 		if (document.getElementById("loading-text").innerText == "你看不到我～") {
@@ -270,7 +270,7 @@
 		<style>
 			.nav-item:after,
 			.close:after {
-			    content: attr(data-title);
+				content: attr(data-title);
 				position: absolute;
 				border-radius: 8px;
 				height: max-content;
@@ -288,19 +288,19 @@
 				-webkit-animation: hide-it 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 				animation: hide-it 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 			}
-			
+
 			.close:after {
 				top: 42px;
 				right: -10px;
 			}
-			
+
 			.nav-item:hover:after,
 			.close:hover:after {
 				-webkit-animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 				animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 			}
-            
-            @keyframes hide-it {
+
+			@keyframes hide-it {
 				0% {
 					-webkit-transform: scale(1);
 					transform: scale(1);
@@ -328,14 +328,14 @@
 				}
 
 				100% {
-                    -webkit-transform: scale(0);
+					-webkit-transform: scale(0);
 					transform: scale(0);
 					-webkit-transform-origin: 50% 0%;
 					transform-origin: 50% 0%;
 					opacity: 0;
 				}
 			}
-            
+
 			@keyframes scale-up-top {
 				0% {
 					-webkit-transform: scale(0);

@@ -1,4 +1,4 @@
-Blockly.Blocks['html_noa_tag_comment'] = {
+/*Blockly.Blocks['html_noa_tag_comment'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("注释")
@@ -1492,5 +1492,20 @@ Blockly.Blocks['html_noa_tag_wbr'] = {
         this.setTooltip('定义可能的换行符');
         this.setHelpUrl('');
     }
+};*/
+Blockly.Blocks['html_h123456'] = {
+    init: function () {
+        this.appendValueInput("CON")
+            .setCheck(null)
+            .appendField("定义")
+            .appendField(new Blockly.FieldDropdown([["一", "h1"], ["二", "h2"], ["三", "h3"], ["四", "h4"], ["五", "h5"], ["六", "h6"]]), "TYPE")
+            .appendField("级标题,内容");
+        this.appendStatementInput("PRO")
+            .setCheck(null)
+            .appendField("属性");
+        this.setOutput(true, "html");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
 };
-

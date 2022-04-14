@@ -1,4 +1,4 @@
-Blockly.JavaScript['html_noa_tag_a'] = function(block){
+/*Blockly.JavaScript['html_noa_tag_a'] = function(block){
     var inner = Blockly.JavaScript.statementToCode(block, "INNER")
     let code = `<a>\n${inner}\n</a>`;
     return code;
@@ -650,5 +650,12 @@ Blockly.JavaScript['html_noa_tag_wbr'] = function(block){
     var inner = Blockly.JavaScript.statementToCode(block, "INNER")
     let code = `<wbr>\n${inner}\n</wbr>`;
     return code;
-};
+};*/
 
+Blockly.JavaScript['html_h123456'] = function(block){
+    var pro = Blockly.JavaScript.statementToCode(block, "PRO")
+    var inner = Blockly.JavaScript.valueToCode(block, 'CON', Blockly.JavaScript.ORDER_NONE) || "";
+    var mode = block.getFieldValue('TYPE')
+    let code = `<${mode}>\n${inner}\n</${mode}>`
+    return code;
+};
