@@ -401,11 +401,9 @@ TIP
 		</block>
 		-->
 	</category>
-	<category name="HTML">
-		<block type="html_attribute_id">
-		</block>
-		<block type="html_attribute_class">
-		</block>
+	<sep>
+	</sep>
+	<category name="HTML" css-icon="iconfont waddle-tool">
 		<block type="html_attribute_href">
 		</block>
 		<block type="html_attribute_target">
