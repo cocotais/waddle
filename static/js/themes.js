@@ -30,9 +30,9 @@ var to_dark = function () {
     document.getElementById("moon-solid_3_").setAttribute('transform', 'translate(0 0)')
     document.getElementById("theme").setAttribute('width', '25.92')
     document.getElementById("theme").setAttribute('height', '25.92')
-    sty.innerText = '.blocklyTreeLabel { color: #fff; padding: 3px 0; } .blocklyTreeRowContentContainer { padding: 5px 0; } /* Adds padding around the group of categories and separators. */ .blocklyToolboxContents { padding: .3em; } /* Adds space between the categories, rounds the corners and adds space around the label. */ .blocklyTreeRow { /*display: flex;*/ height: 32px; align-items: center; justify-content: space-between; padding: 0; cursor: pointer; border-radius: 5px; /*background-color: #525252;*/ margin: 0 6px 4px; font-size: 12px; } .custom_renderer-renderer.WaddleTheme-theme .blocklySelected>.blocklyPath { stroke: #2e2e2e; stroke-width: 3px; } .mask { position: absolute; top: 0; background: #333; /* 黑色背景 */ z-index: -2; /* 使遮罩层位于背景容器层下方，背景容器模糊带消失 */ } .mbl { background: #000; filter: alpha(Opacity=60); -moz-opacity: 0.5; opacity: 0.5 } .blocklyTreeSeparator { border-bottom: #00000000; } /* Stacks the icon on top of the label. */ .blocklyTreeRowContentContainer { display: flex; flex-direction: column; align-items: center; } .blocklyTreeRow { height: initial; } ; .customIcon { padding: 10; }.copy{background: #525252;}.copy:hover{background: #666666;}.close{border: 13px solid #525252;}.close:hover,.clos:focus{border: 13px solid #666666;}.swal-content__input,.swal-icon--success:after,.swal-icon--success::before,.swal-icon--success__hide-corners{background-color: #666666;}.swal-title,.swal-text{color:rgb(255,255,255)}.swal-footer{background-color: #525252;border-top: 1px solid #484848;}.swal-modal{background-color: #666666}.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}.card{background:#666666;border: rgb(255, 255, 255) 0.2em solid;}.aboutus-close{color:#fff;}.newsth-close{color:#fff;}.sord{color:#fff;}';
+    sty.innerText = '.blocklyTreeLabel { color: #fff; padding: 3px 0; } .blocklyTreeRowContentContainer { padding: 5px 0; } /* Adds padding around the group of categories and separators. */ .blocklyToolboxContents { padding: .3em; } /* Adds space between the categories, rounds the corners and adds space around the label. */ .blocklyTreeRow { /*display: flex;*/ height: 32px; align-items: center; justify-content: space-between; padding: 0; cursor: pointer; border-radius: 5px; /*background-color: #525252;*/ margin: 0 6px 4px; font-size: 12px; } .custom_renderer-renderer.WaddleTheme-theme .blocklySelected>.blocklyPath { stroke: #2e2e2e; stroke-width: 3px; } .mask { position: absolute; top: 0; background: #333; /* 黑色背景 */ z-index: -2; /* 使遮罩层位于背景容器层下方，背景容器模糊带消失 */ } .mbl { background: #000; filter: alpha(Opacity=60); -moz-opacity: 0.5; opacity: 0.5 } .blocklyTreeSeparator { border-bottom: #00000000; } /* Stacks the icon on top of the label. */ .blocklyTreeRowContentContainer { display: flex; flex-direction: column; align-items: center; } .blocklyTreeRow { height: initial; } ; .customIcon { padding: 10; }.copy{background: #525252;}.copy:hover{background: #666666;}.close{border: 13px solid #525252;}.close:hover,.clos:focus{border: 13px solid #666666;}.swal-content__input,.swal-icon--success:after,.swal-icon--success::before,.swal-icon--success__hide-corners{background-color: #666666;color: white;}.swal-title,.swal-text{color:rgb(255,255,255)}.swal-footer{background-color: #525252;border-top: 1px solid #484848;}.swal-modal{background-color: #666666}.nav-item:hover{background-color: #666666;}.close:hover{color:#d9d9d9}.card{background:#666666;border: rgb(255, 255, 255) 0.2em solid;}.aboutus-close{color:#fff;}.newsth-close{color:#fff;}.sord{color:#fff;}';
     document.body.appendChild(sty);
-    document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
+    //document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
     document.getElementsByClassName("modal-content")[0].style.borderTopColor = 'rgb(82, 82, 82)'
     document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#525252"
     document.getElementsByClassName("aboutus-header")[0].style.backgroundColor = "#525252"
@@ -68,7 +68,7 @@ var to_light = function () {
     document.getElementById("theme").setAttribute('height', '25.344')
     sty.innerText = '.blocklyTreeLabel { color: #525252; padding: 3px 0; } .blocklyTreeRowContentContainer { padding: 5px 0; } /* Adds padding around the group of categories and separators. */ .blocklyToolboxContents { padding: .3em; } /* Adds space between the categories, rounds the corners and adds space around the label. */ .blocklyTreeRow { /*display: flex;*/ height: 32px; align-items: center; justify-content: space-between; padding: 0; cursor: pointer; border-radius: 5px; margin: 0 6px 4px; font-size: 12px; /*background-color: white;*/ } .blocklyToolboxDiv { background-color: rgb(255, 255, 255); } ; .custom_renderer-renderer.WaddleTheme-theme .blocklySelected>.blocklyPath { stroke: #FFFFDD; stroke-width: 3px; } .mask { position: absolute; top: 0; background: #333; /* 黑色背景 */ z-index: -2; /* 使遮罩层位于背景容器层下方，背景容器模糊带消失 */ } .mbl { background: #000; filter: alpha(Opacity=60); -moz-opacity: 0.5; opacity: 0.5 } .blocklyTreeSeparator { border-bottom: #00000000; } /* Stacks the icon on top of the label. */ .blocklyTreeRowContentContainer { display: flex; flex-direction: column; align-items: center; } .blocklyTreeRow { height: initial; } .blocklyFlyoutButton { fill: #6d50f0; } .blocklyFlyoutButton:hover { fill: #5439ce; } .blocklyTreeRow:not(.blocklyTreeSelected):hover { background-color: #DCDCDC; }.close{border: 13px solid #6d50f0;}.close:hover,.clos:focus{border: 13px solid #5439ce;}.nav-item:hover{background-color: #5439ce;}.close:hover{color:#000000}.card{background:#fff;border: rgb(180, 180, 180) 0.2em solid;}.aboutus-close{color:#6d50f0;}.newsth-close{color:#6d50f0;}.sord{color:#6d50f0;}';
     document.body.appendChild(sty);
-    document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
+    //document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
     document.getElementsByClassName("modal-content")[0].style.borderTopColor = 'rgb(109, 80, 240)'
     document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#F5F8FA"
     document.getElementsByClassName("aboutus-header")[0].style.backgroundColor = "#F5F8FA"
@@ -128,15 +128,18 @@ if (theme == "dark") {
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             to_dark()
         }
+        else{
+            to_light()
+        }
     }
 }
 hljs.initHighlightingOnLoad();
-if ($(window).width() < 754) {
+if ($(window).width() < 818) {
     logo.src = "./static/img/logo.svg";
-    document.getElementsByClassName("modal")[0].style.width = "100%"
+    document.getElementsByClassName("modal")[0].style.width = "100vw"
 }
 else {
     logo.src = "./static/img/waddle.svg";
-    document.getElementsByClassName("modal")[0].style.width = "30%"
+    document.getElementsByClassName("modal")[0].style.width = "400px"
 }
 
