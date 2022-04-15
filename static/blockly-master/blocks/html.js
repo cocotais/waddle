@@ -1494,11 +1494,76 @@ Blockly.Blocks['html_noa_tag_wbr'] = {
     }
 };*/
 
+Blockly.Blocks['html_attribute_id'] = {
+    init: function () {
+        this.appendValueInput("URL")
+            .setCheck("String")
+            .appendField("定义属性 编号");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['html_attribute_class'] = {
+    init: function () {
+        this.appendValueInput("URL")
+            .setCheck("String")
+            .appendField("定义属性 类");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['html_js'] = {
+    init: function () {
+        this.appendValueInput("NAME")
+            .setCheck(null)
+            .appendField("新建表达式");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['html_attribute_href'] = {
     init: function () {
         this.appendValueInput("URL")
             .setCheck("String")
             .appendField("定义属性 跳转链接");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['html_attribute_target'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("定义属性 跳转链接时至")
+            .appendField(new Blockly.FieldDropdown([["新窗口", "_blank"], ["相同框架", "_self"], ["父框架", "_parent"], ["整个窗口", "_top"]]), "MODE");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['html_plaintext'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("新建纯文本")
+            .appendField(new Blockly.FieldTextInput("文本"), "TEXT");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);

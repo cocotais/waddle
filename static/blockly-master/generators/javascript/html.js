@@ -689,6 +689,34 @@ Blockly.JavaScript['html_attribute_href'] = function (block) {
     return html_escape(code);
 };
 
+Blockly.JavaScript['html_attribute_id'] = function (block) {
+    var value_name = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    // TODO: Assemble JavaScript into code variable.
+    var code = `id=${value_name}\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_attribute_class'] = function (block) {
+    var value_name = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    // TODO: Assemble JavaScript into code variable.
+    var code = `class=${value_name}\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_attribute_target'] = function (block) {
+    var dropdown_mode = block.getFieldValue('MODE');
+    // TODO: Assemble JavaScript into code variable.
+    var code = `target="${dropdown_mode}"\n`;
+    return code;
+};
+
+Blockly.JavaScript['html_plaintext'] = function (block) {
+    var text = block.getFieldValue('TEXT');
+    // TODO: Assemble JavaScript into code variable.
+    var code = `${text}\n`;
+    return code;
+};
+
 Blockly.JavaScript['html_h123456'] = function (block) {
     var dropdown_type = block.getFieldValue('TYPE');
     var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();

@@ -22,27 +22,37 @@ TIP
 		<block type="controls_repeat_ext">
 			<value name="TIMES">
 				<block type="math_number">
-					<field name="NUM">10</field>
+					<field name="NUM">
+						10
+					</field>
 				</block>
 			</value>
 		</block>
 		<block type="controls_whileUntil">
 		</block>
 		<block type="controls_for">
-			<field name="VAR">i</field>
+			<field name="VAR">
+				i
+			</field>
 			<value name="FROM">
 				<block type="math_number">
-					<field name="NUM">1</field>
+					<field name="NUM">
+						1
+					</field>
 				</block>
 			</value>
 			<value name="TO">
 				<block type="math_number">
-					<field name="NUM">10</field>
+					<field name="NUM">
+						10
+					</field>
 				</block>
 			</value>
 			<value name="BY">
 				<block type="math_number">
-					<field name="NUM">1</field>
+					<field name="NUM">
+						1
+					</field>
 				</block>
 			</value>
 		</block>
@@ -72,7 +82,9 @@ TIP
 	</category>
 	<category name="数学" css-icon="iconfont waddle-math" colour="#FEAE8A">
 		<block type="math_number">
-			<field name="NUM">114514</field>
+			<field name="NUM">
+				114514
+			</field>
 		</block>
 		<block type="math_arithmetic">
 		</block>
@@ -93,24 +105,32 @@ TIP
 		<block type="math_constrain">
 			<value name="LOW">
 				<block type="math_number">
-					<field name="NUM">114</field>
+					<field name="NUM">
+						114
+					</field>
 				</block>
 			</value>
 			<value name="HIGH">
 				<block type="math_number">
-					<field name="NUM">514</field>
+					<field name="NUM">
+						514
+					</field>
 				</block>
 			</value>
 		</block>
 		<block type="math_random_int">
 			<value name="FROM">
 				<block type="math_number">
-					<field name="NUM">191</field>
+					<field name="NUM">
+						191
+					</field>
 				</block>
 			</value>
 			<value name="TO">
 				<block type="math_number">
-					<field name="NUM">9810</field>
+					<field name="NUM">
+						9810
+					</field>
 				</block>
 			</value>
 		</block>
@@ -155,7 +175,9 @@ TIP
 		<block type="text_prompt_ext">
 			<value name="TEXT">
 				<shadow type="text">
-					<field name="TEXT">abc</field>
+					<field name="TEXT">
+						abc
+					</field>
 				</shadow>
 			</value>
 		</block>
@@ -174,34 +196,46 @@ TIP
 		<block type="colour_rgb">
 			<value name="RED">
 				<shadow type="math_number">
-					<field name="NUM">100</field>
+					<field name="NUM">
+						100
+					</field>
 				</shadow>
 			</value>
 			<value name="GREEN">
 				<shadow type="math_number">
-					<field name="NUM">50</field>
+					<field name="NUM">
+						50
+					</field>
 				</shadow>
 			</value>
 			<value name="BLUE">
 				<shadow type="math_number">
-					<field name="NUM">0</field>
+					<field name="NUM">
+						0
+					</field>
 				</shadow>
 			</value>
 		</block>
 		<block type="colour_blend">
 			<value name="COLOUR1">
 				<shadow type="colour_picker">
-					<field name="COLOUR">#ff0000</field>
+					<field name="COLOUR">
+						#ff0000
+					</field>
 				</shadow>
 			</value>
 			<value name="COLOUR2">
 				<shadow type="colour_picker">
-					<field name="COLOUR">#3333ff</field>
+					<field name="COLOUR">
+						#3333ff
+					</field>
 				</shadow>
 			</value>
 			<value name="RATIO">
 				<shadow type="math_number">
-					<field name="NUM">0.5</field>
+					<field name="NUM">
+						0.5
+					</field>
 				</shadow>
 			</value>
 		</block>
@@ -218,7 +252,9 @@ TIP
 		<block type="lists_repeat">
 			<value name="NUM">
 				<shadow type="math_number">
-					<field name="NUM">5</field>
+					<field name="NUM">
+						5
+					</field>
 				</shadow>
 			</value>
 		</block>
@@ -253,7 +289,9 @@ TIP
 		<block type="lists_split">
 			<value name="DELIM">
 				<shadow type="text">
-					<field name="TEXT">,</field>
+					<field name="TEXT">
+						,
+					</field>
 				</shadow>
 			</value>
 		</block>
@@ -269,14 +307,18 @@ TIP
 		<block type="js_run">
 			<value name="CODE">
 				<shadow type="text">
-					<field name="TEXT">console.log(233);</field>
+					<field name="TEXT">
+						console.log(233);
+					</field>
 				</shadow>
 			</value>
 		</block>
 		<block type="js_run2">
 			<value name="CODE">
 				<shadow type="text">
-					<field name="TEXT">console.log(233);</field>
+					<field name="TEXT">
+						console.log(233);
+					</field>
 				</shadow>
 			</value>
 		</block>
@@ -360,7 +402,15 @@ TIP
 		-->
 	</category>
 	<category name="HTML">
+		<block type="html_attribute_id">
+		</block>
+		<block type="html_attribute_class">
+		</block>
 		<block type="html_attribute_href">
+		</block>
+		<block type="html_attribute_target">
+		</block>
+		<block type="html_plaintext">
 		</block>
 		<block type="html_h123456">
 		</block>
@@ -494,7 +544,7 @@ TIP
 	<category name="自定义" css-icon="iconfont waddle-invisiblewidget" colour="#6d50f0">
 		<label text="蓝色属于自定义控件通用" colour="#5574F8">
 		</label>
-		<label text="紫色属于不可见控件专属" colour="#8647F3">
+		<label text="紫色属于不可见控件专属,青色属于可见控件专属" colour="#8647F3">
 		</label>
 		<label text="模板见框架与示例">
 		</label>
@@ -503,6 +553,12 @@ TIP
 		<block type="ivw_defTypes">
 		</block>
 		<block type="ivw_defWidget">
+		</block>
+		<block type="vw_defTypes">
+		</block>
+		<block type="vw_defWidget">
+		</block>
+		<block type="vw_returnrender">
 		</block>
 		<block type="ivw_export">
 		</block>
@@ -529,7 +585,9 @@ TIP
 		<block type="ivwAttri_custom">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">标签</field>
+					<field name="TEXT">
+						标签
+					</field>
 				</block>
 			</value>
 		</block>
@@ -549,21 +607,27 @@ TIP
 		<block type="ivwAttri_valueType">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">值类型</field>
+					<field name="TEXT">
+						值类型
+					</field>
 				</block>
 			</value>
 		</block>
 		<block type="ivwAttri_label">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">标签</field>
+					<field name="TEXT">
+						标签
+					</field>
 				</block>
 			</value>
 		</block>
 		<block type="ivwAttri_defaultValue">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">默认值</field>
+					<field name="TEXT">
+						默认值
+					</field>
 				</block>
 			</value>
 		</block>
@@ -574,28 +638,36 @@ TIP
 		<block type="ivwAttri_key">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">方法名</field>
+					<field name="TEXT">
+						方法名
+					</field>
 				</block>
 			</value>
 		</block>
 		<block type="ivwAttri_valueType">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">返回值类型（可选，不填则不返回）</field>
+					<field name="TEXT">
+						返回值类型（可选，不填则不返回）
+					</field>
 				</block>
 			</value>
 		</block>
 		<block type="ivwAttri_label">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">标签</field>
+					<field name="TEXT">
+						标签
+					</field>
 				</block>
 			</value>
 		</block>
 		<block type="ivwAttri_labelAfter">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">尾标签</field>
+					<field name="TEXT">
+						尾标签
+					</field>
 				</block>
 			</value>
 		</block>
@@ -614,15 +686,21 @@ TIP
 		<block type="ivw_emit">
 			<value name="event">
 				<block type="text">
-					<field name="TEXT">事件名</field>
+					<field name="TEXT">
+						事件名
+					</field>
 				</block>
 			</value>
 		</block>
 		<block type="ivw_emitParameter">
 		</block>
 		<block type="ivw_propsinit">
-			<field name="props_name">prop</field>
-			<field name="this_name">default</field>
+			<field name="props_name">
+				prop
+			</field>
+			<field name="this_name">
+				default
+			</field>
 		</block>
 	</category>
 	<category css-icon="iconfont waddle-example" name="框架" colour="#6d50f0">
@@ -662,14 +740,18 @@ TIP
 				<block type="ivwAttri_valueType">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">值类型</field>
+							<field name="TEXT">
+								值类型
+							</field>
 						</block>
 					</value>
 					<next>
 						<block type="ivwAttri_defaultValue">
 							<value name="value">
 								<block type="text">
-									<field name="TEXT">默认值</field>
+									<field name="TEXT">
+										默认值
+									</field>
 								</block>
 							</value>
 						</block>
@@ -686,7 +768,9 @@ TIP
 				<block type="ivwAttri_defaultValue">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">默认值</field>
+							<field name="TEXT">
+								默认值
+							</field>
 						</block>
 					</value>
 				</block>
@@ -718,14 +802,18 @@ TIP
 				<block type="ivwAttri_valueType">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">值类型</field>
+							<field name="TEXT">
+								值类型
+							</field>
 						</block>
 					</value>
 					<next>
 						<block type="ivwAttri_defaultValue">
 							<value name="value">
 								<block type="text">
-									<field name="TEXT">默认值</field>
+									<field name="TEXT">
+										默认值
+									</field>
 								</block>
 							</value>
 						</block>
@@ -740,7 +828,9 @@ TIP
 				<block type="ivwAttri_valueType">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">参数类型</field>
+							<field name="TEXT">
+								参数类型
+							</field>
 						</block>
 					</value>
 				</block>
