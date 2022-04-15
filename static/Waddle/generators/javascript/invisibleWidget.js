@@ -107,6 +107,7 @@ Widget.prototype.${text_key} = function (${params}) {
 Blockly.JavaScript['ivw_addParams'] = function (block) {
 	var text_key = block.getFieldValue('key');
 	var text_label = block.getFieldValue('label');
+	var text_valueType = block.getFieldValue('valueType');
 	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var code = `
 {
