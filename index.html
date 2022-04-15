@@ -12,7 +12,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.6.15(581)-alpha' //以后版本号改我就行！
+		var version = 'V1.7.16(582)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，CoCo中控台所有成员共同开发！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -242,7 +242,7 @@
 							</a>
 						</li>
 						<li class="nav-item" data-title="代码"
-							style="right: 20;top: auto;position: absolute;min-height: 50;">
+							style="right: 20;top: auto;position: absolute;">
 							<a id="switch_code" class="nav-link" href="javascript:void(0)">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24.96" height="24" fill="currentColor"
 									viewBox="0 0 130 125">
@@ -398,8 +398,10 @@
 				-ms-overflow-style: none;
 			}
 
-			.nav-item:not(.dropdown-menu):hover {
+			.nav-item {
 				border-radius: 10%;
+				min-height: 52px;
+				max-height: 52px;
 			}
 
 			.iconfont {
@@ -700,8 +702,7 @@
 				</div>
 				<div class="aboutus-body">
 					<img width="240" src="./static/img/waddle.svg" style="margin: 30px 0;" alt="Waddle"></img>
-					<p style="color: #ffffff;font-size: 25px;font-weight: bold;">让CoCo没有难做的控件</p>
-					</br>
+					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">让CoCo没有难做的控件</p>
 					</br>
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由CoCo中控台所有成员共同开发！</p>
 					<!----<p style="color: #ffffff;font-size: 17px;">中子星000（QQ：2422481178）主理制作</br>MathCalculus（QQ：2504556268）主理制作</br>Epeiuss（Mail：ffxw0720@163.com）监制</br>海藻酸钠（QQ：3409473369）美术/UI/监制</br>小鱼yuzifu（QQ：1906929246）前端设计</br>刘lyxAndy（QQ：3449556207）细节处理</p>--->
@@ -712,7 +713,7 @@
 					</p>
 					</br>
 					</br>
-					<p id="version" style="color: #ffffff;font-size: 25px;font-weight: bold;" onclick=count()></p>
+					<p id="version" style="color: #ffffff;font-size: 20px;font-weight: bold;" onclick=count()></p>
 					<script>
 						$("#version").text("目前版本：" + version);
 					</script>
@@ -957,7 +958,9 @@
 
 	/* 加载初始积木 */
 	Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
-
+	// 加载结束后，把积木栏文本整体调小一个像素，图标调大五个像素，这样不会喧宾夺主
+	$("span.blocklyTreeLabel").css("cssText", "font: 13px sans-serif !important");
+	$("span.iconfont").css("cssText","font-size: 21px !important");
 </script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '400px' }, 10);
@@ -1333,7 +1336,7 @@
 		top: 20vh;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		background-color: #6d50f0;
-		background: url(./static/img/background.svg);
+		background: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), url('./static/img/background.svg') no-repeat 0% 20%/ cover;
 		background-size: cover;
 	}
 
@@ -1539,7 +1542,7 @@
 <script>
 	// 等待加载完毕
 	$('.cls-1').animate({ 'stroke-dashoffset': '0px' }, 10);
-	setTimeout(() => { document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000)
+	setTimeout(() => {Blockly.svgResize(workspace);document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000)
 
 </script>
 
