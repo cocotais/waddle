@@ -34,7 +34,6 @@ var to_dark = function () {
     document.body.appendChild(sty);
     $('.aboutus-content').css("cssText","background: linear-gradient(rgba(82, 82, 82, 0.65), rgba(0, 0, 0, 0.45)), url('./static/img/background.svg') no-repeat 0% 20%/ cover");
     //document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#525252"
-    document.getElementsByClassName("modal")[0].style.backgroundColor = '#'
     document.getElementsByClassName("modal-content")[0].style.borderTopColor = 'rgb(82, 82, 82)'
     document.getElementsByClassName("newsth-header")[0].style.backgroundColor = "#525252"
     document.getElementsByClassName("aboutus-header")[0].style.backgroundColor = "#525252"
