@@ -401,6 +401,14 @@ TIP
 		</block>
 		-->
 	</category>
+	<category name="HTML">
+		<block type="html_attribute_href">
+		</block>
+		<block type="html_h123456">
+		</block>
+		<block type="html_a">
+		</block>
+	</category>
 	<category name="lodash" css-icon="iconfont waddle-tool">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
 		</button>
@@ -479,10 +487,6 @@ TIP
 		<block type="utils_isnative">
 		</block>
 	</category>
-	<!--<category name="HTML">
-		<block type="html_h123456">
-		</block>
-	</category>-->
 	<category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">
 		<label text="工具.积木夹子">
 		</label>

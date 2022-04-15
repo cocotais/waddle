@@ -651,11 +651,59 @@ Blockly.JavaScript['html_noa_tag_wbr'] = function(block){
     let code = `<wbr>\n${inner}\n</wbr>`;
     return code;
 };*/
+//trim()有助于身体健康
 
-Blockly.JavaScript['html_h123456'] = function(block){
-    var pro = Blockly.JavaScript.statementToCode(block, "PRO")
-    var inner = Blockly.JavaScript.valueToCode(block, 'CON', Blockly.JavaScript.ORDER_NONE) || "";
-    var mode = block.getFieldValue('TYPE')
-    let code = `<${mode}>\n${inner}\n</${mode}>`
-    return code;
+html_attribute_to_str = (code) => {
+    //属性格式一下
+    let list = code.split("\n")
+    let att = ""
+    list.forEach(element => {
+        att = att + element.trim() + " "
+    })
+    return att.trim()
+}
+html_escape_one = (char) => {
+    //HTML转义一下
+    switch (char) {
+        case "<":
+            return "&#60"
+        case ">":
+            return "&#62"
+        case '"':
+            return "&#34"
+    }
+    return char
+}
+html_escape = (str) => {
+    let newstr = ""
+    for (let i = 0; i < str.length; i++) {
+        newstr = newstr + html_escape_one(str[i]);
+    }
+    return newstr
+}
+
+Blockly.JavaScript['html_attribute_href'] = function (block) {
+    var value_name = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    // TODO: Assemble JavaScript into code variable.
+    var code = `href=${value_name}\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_h123456'] = function (block) {
+    var dropdown_type = block.getFieldValue('TYPE');
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
+    // TODO: Assemble JavaScript into code variable.
+    console.log(statements_pro, statements_pro == "")
+    var code = `<${dropdown_type}${(statements_pro == "") ? "" : " "}${statements_pro}>${statements_con}</${dropdown_type}>\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_a'] = function (block) {
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
+    // TODO: Assemble JavaScript into code variable.
+    console.log(statements_pro, statements_pro == "")
+    var code = `<a${(statements_pro == "") ? "" : " "}${statements_pro}>${statements_con}</a>\n`;
+    return html_escape(code);
 };

@@ -1493,17 +1493,48 @@ Blockly.Blocks['html_noa_tag_wbr'] = {
         this.setHelpUrl('');
     }
 };*/
+
+Blockly.Blocks['html_attribute_href'] = {
+    init: function () {
+        this.appendValueInput("URL")
+            .setCheck("String")
+            .appendField("定义属性 跳转链接");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['html_h123456'] = {
     init: function () {
-        this.appendValueInput("CON")
+        this.appendStatementInput("CON")
             .setCheck(null)
-            .appendField("定义")
-            .appendField(new Blockly.FieldDropdown([["一", "h1"], ["二", "h2"], ["三", "h3"], ["四", "h4"], ["五", "h5"], ["六", "h6"]]), "TYPE")
-            .appendField("级标题,内容");
+            .appendField("新建")
+            .appendField(new Blockly.FieldDropdown([["六", "h6"], ["五", "h5"], ["四", "h4"], ["三", "h3"], ["二", "h2"], ["一", "h1"]]), "TYPE")
+            .appendField("级文本，内容");
         this.appendStatementInput("PRO")
             .setCheck(null)
             .appendField("属性");
-        this.setOutput(true, "html");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
+};
+
+Blockly.Blocks['html_a'] = {
+    init: function () {
+        this.appendStatementInput("CON")
+            .setCheck(null)
+            .appendField("新建超文本链接，内容");
+        this.appendStatementInput("PRO")
+            .setCheck(null)
+            .appendField("属性");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
         this.setColour(230);
         this.setTooltip("");
         this.setHelpUrl("");
