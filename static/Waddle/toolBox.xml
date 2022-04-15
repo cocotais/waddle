@@ -552,6 +552,8 @@ TIP
 		</block>
 		<block type="ivw_defWidget">
 		</block>
+		<button text="实验性功能提示（可见控件）" callbackKey="betawarning">
+		</button>
 		<block type="vw_defTypes">
 		</block>
 		<block type="vw_defWidget">
