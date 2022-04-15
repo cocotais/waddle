@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="zh">
 
 <head>
@@ -12,7 +13,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.7.16(582)-alpha' //以后版本号改我就行！
+		var version = 'V1.8.20(588)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，CoCo中控台所有成员共同开发！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -105,14 +106,13 @@
 			"听说Waddle有VSCode主题了？",
 			"咕咕咕~",
 			"不会用怎么办？首先不要慌张，打开语雀看看。",
-			"不要问我为什么没有doctype~我会告诉你自己去逝世~",
 			"我们抄的隔街Phigros的Tips～",
 			"Waddle YYDS！",
 			"祝编程猫发展的越来越好！",
 			"你看不到我～",
 			"Waddle编辑器上gitee项目推荐了！",
 			"没啥能看的？",
-			"Waddle被Gitee官方写文章了!!!!!!!"
+			"Waddle被Gitee官方写文章了!!!"
 		]
 		document.getElementById("loading-text").innerText = tipList[Math.floor(Math.random() * tipList.length)]
 		if (document.getElementById("loading-text").innerText == "你看不到我～") {
@@ -192,7 +192,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav">
 						<li class="nav-item dropdown" data-title="文件" onclick=fix_bug()>
-							<a id="navbarDropdown" class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
+							<a id="navbarDropdown"  aria-label="文件" class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
 								one-link-mark="yes">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24.96" height="24" fill="currentColor"
 									viewBox="0 0 130 125">
@@ -222,7 +222,7 @@
 							$('.cls-1').animate({ 'stroke-dashoffset': '1550px' }, 10);
 						</script>
 						<li class="nav-item" data-title="关于">
-							<a class="nav-link" href="javascript:void(0)"
+							<a class="nav-link" aria-label="关于" href="javascript:void(0)"
 								onclick='aboutus.style.display = "block";document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";document.getElementsByClassName("aboutus")[0].className = "aboutus show"'>
 								<svg xmlns="http://www.w3.org/2000/svg" width="25.92" height="25.92" fill="currentColor"
 									viewBox="0 0 135 135">
@@ -232,7 +232,7 @@
 							</a>
 						</li>
 						<li class="nav-item" data-title="主题">
-							<a class="nav-link" href="javascript:void(0)" onclick="switch_theme()">
+							<a class="nav-link" aria-label="主题" href="javascript:void(0)" onclick="switch_theme()">
 								<svg id="theme" xmlns="http://www.w3.org/2000/svg" width="22.627776" height="25.344"
 									fill="currentColor" viewBox="0 0 135 135">
 									<path id="moon-solid_3_" data-name="moon-solid (3)"
@@ -242,8 +242,8 @@
 							</a>
 						</li>
 						<li class="nav-item" data-title="代码"
-							style="right: 20;top: auto;position: absolute;">
-							<a id="switch_code" class="nav-link" href="javascript:void(0)">
+							style="right: 20px;top: auto;position: absolute;">
+							<a id="switch_code" aria-label="代码" class="nav-link" href="javascript:void(0)">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24.96" height="24" fill="currentColor"
 									viewBox="0 0 130 125">
 									<path id="减去_1" data-name="减去 1"
@@ -522,16 +522,16 @@
 				background: #6d50f0;
 				border: none;
 				color: white;
-				width: 70;
-				height: 70;
+				width: 70px;
+				height: 70px;
 				text-align: center;
 				text-decoration: none;
 				display: inline-block;
 				font-size: 16px;
 				border-radius: 100px;
 				position: absolute;
-				right: 40;
-				bottom: 40;
+				right: 40px;
+				bottom: 40px;
 				box-shadow: 0 0 3px 1px rgba(0, 0, 0, .3);
 			}
 
@@ -632,7 +632,7 @@
 				font-weight: bold;
 				border-radius: 8px;
 				position: absolute;
-				right: 20;
+				right: 20px;
 			}
 
 			.close:hover,
@@ -886,8 +886,6 @@
 </script>
 <script>
 	document.body.style.overflow = 'hidden' //禁止页面滑动
-
-
 </script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '460px' }, 10);
@@ -1338,6 +1336,7 @@
 		background-color: #6d50f0;
 		background: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), url('./static/img/background.svg') no-repeat 0% 20%/ cover;
 		background-size: cover;
+		min-width: 284px;
 	}
 
 	.show.aboutus-content {
@@ -1542,7 +1541,7 @@
 <script>
 	// 等待加载完毕
 	$('.cls-1').animate({ 'stroke-dashoffset': '0px' }, 10);
-	setTimeout(() => {Blockly.svgResize(workspace);document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000)
+	setTimeout(() => {document.getElementById("table").style.height = "calc(100vh - 52px)";document.getElementById("toolbox").style.height = "calc(100vh - 52px)";document.getElementById("blocklyDiv").style.height = "calc(100vh - 52px)";document.getElementById("workspaceblocks").style.height = "calc(100vh - 52px)";Blockly.svgResize(workspace);document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000)
 
 </script>
 
