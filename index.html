@@ -3,13 +3,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="theme-color" id="pwa-color" content="#6d50f0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="manifest" href="./manifest.json">
+	<meta name="apple-touch-fullscreen" content="yes">
 	<link rel="apple-touch-icon" href="./static/img/apple-touch-icon.png">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<meta content="telephone=no" name="format-detection">
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.5.13(578)-alpha' //以后版本号改我就行！
+		var version = 'V1.6.14(579)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，CoCo中控台所有成员共同开发！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -268,8 +271,7 @@
 
 		<a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
 		<style>
-			.nav-item:after,
-			.close:after {
+			.nav-item:after {
 				content: attr(data-title);
 				position: absolute;
 				border-radius: 8px;
@@ -289,13 +291,7 @@
 				animation: hide-it 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 			}
 
-			.close:after {
-				top: 42px;
-				right: -10px;
-			}
-
-			.nav-item:hover:after,
-			.close:hover:after {
+			.nav-item:hover:after {
 				-webkit-animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 				animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 			}
@@ -984,8 +980,17 @@
 	btn.onclick = function () {
 		if(btn.id == "switch_code"){
 			document.getElementsByClassName("modal-content")[0].className = "modal-content show";
-			setTimeout(() => { document.getElementById("blocklyDiv").style.width = 'calc(100vw - 400px)'; document.getElementById("toolbox").style.width = 'calc(100vw - 400px)'; Blockly.svgResize(workspace); }, 0)
+			if ($(window).width() < 818) {
+				document.getElementById("blocklyDiv").style.width = '100vw';
+				document.getElementById("toolbox").style.width = '100vw';
+			}
+			else {
+				document.getElementById("blocklyDiv").style.width = 'calc(100vw - 400px)';
+				document.getElementById("toolbox").style.width = 'calc(100vw - 400px)';
+			}
+			Blockly.svgResize(workspace);
 			modal.style.display = "block";
+			document.getElementById("switch_code").className = "nav-link active";
 			document.getElementById("switch_code").id = "close";
 		}
 		else{
@@ -993,7 +998,8 @@
 			document.getElementById("blocklyDiv").style.width = '100vw';
 			document.getElementById("toolbox").style.width = '100vw';
 			Blockly.svgResize(workspace);
-			setTimeout(() => { modal.style.display = "none"; }, 0)
+			modal.style.display = "none";
+			document.getElementById("close").className = "nav-link";
 			document.getElementById("close").id = "switch_code";
 		}
 	}
@@ -1498,10 +1504,20 @@
 		if ($(window).width() < 818) {
 			logo.src = "./static/img/logo.svg";
 			document.getElementsByClassName("modal")[0].style.width = "100vw"
+			document.getElementById("blocklyDiv").style.width = '100vw';
+			document.getElementById("toolbox").style.width = '100vw';
 		}
 		else {
 			logo.src = "./static/img/waddle.svg";
 			document.getElementsByClassName("modal")[0].style.width = "400px"
+			if(modal.style.display == "none" || modal.style.display == ""){
+				document.getElementById("blocklyDiv").style.width = '100vw';
+				document.getElementById("toolbox").style.width = '100vw';
+			}
+			else{
+				document.getElementById("blocklyDiv").style.width = 'calc(100vw - 400px)';
+				document.getElementById("toolbox").style.width = 'calc(100vw - 400px)';
+			}
 		}
 	});
 	$(window).resize(function () {
