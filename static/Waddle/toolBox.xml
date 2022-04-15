@@ -359,7 +359,9 @@ TIP
 		</block>
 		-->
 	</category>
-	<category name="HTML">
+	<sep>
+	</sep>
+	<category name="HTML" css-icon="iconfont waddle-tool">
 		<block type="html_attribute_href">
 		</block>
 		<block type="html_h123456">
