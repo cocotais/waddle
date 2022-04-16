@@ -92,7 +92,7 @@ Blockly.JavaScript['ivw_addMethod'] = function (block) {
 types['methods'].push({
   key: '${text_key}',
   label: '${text_label}',
-  ${text_valueType === 'noReturn' ? '' : "valueType: " + text_valueType + ","}
+  ${text_valueType === 'noReturn' ? '' : "valueType: '" + text_valueType + "',"}
   params: [
   ${statements_params}
   ],
@@ -113,7 +113,7 @@ Blockly.JavaScript['ivw_addParams'] = function (block) {
 {
   key: '${text_key}',
   label: '${text_label}',
-  valueType: ${text_valueType},
+  valueType: '${text_valueType}',
 ${statements_other}
 },
 
