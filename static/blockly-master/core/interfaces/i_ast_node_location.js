@@ -1,3 +1,5 @@
+// 单纯的抽象语法树接口（？）
+
 /**
  * @license
  * Copyright 2020 Google LLC

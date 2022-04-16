@@ -1,3 +1,5 @@
+// 用于点击+ -图标后对显示区缩放
+
 /**
  * @license
  * Copyright 2015 Google LLC
