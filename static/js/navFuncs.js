@@ -15,7 +15,12 @@ let js_save = function () {
     if (name == '') {
         name = "我的控件"
     }
-    downa.download = name + ".js";
+    if (Blockly.JavaScript.workspaceToCode(workspace).indexOf("isInvisibleWidget: true") == -1){
+        downa.download = name + ".jsx";
+    }
+    else{
+        downa.download = name + ".js";
+    }
     downa.click();
     URL.revokeObjectURL(url);
 }
