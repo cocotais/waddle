@@ -1522,7 +1522,7 @@ Blockly.Blocks['html_attribute_class'] = {
 
 Blockly.Blocks['html_js'] = {
     init: function () {
-        this.appendValueInput("NAME")
+        this.appendValueInput("E")
             .setCheck(null)
             .appendField("新建表达式");
         this.setPreviousStatement(true, null);
