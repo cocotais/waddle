@@ -8,15 +8,15 @@
 	<link rel="manifest" href="./manifest.json">
 	<meta name="apple-touch-fullscreen" content="yes">
 	<link rel="apple-touch-icon" href="./static/img/apple-touch-icon.png">
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport">
 	<meta content="telephone=no" name="format-detection">
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.8.20(588)-alpha' //以后版本号改我就行！
+		var version = 'V1.11.26(600)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
-		console.log("%c\n本工具基于blockly开发，CoCo中控台所有成员共同开发！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
+		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
 		console.log("%c\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec", "font-size:14px;color:rgb(42,125,255)")
 		console.log("%c" + version + " ©️ 2022 CoCo Central, All rights reserved.", "color:red;")
 	</script>
@@ -186,7 +186,7 @@
 		<nav class="navbar navbar-expand navbar-dark" style="background-color: #6d50f0;min-width: 344px;">
 			<div class="container-fluid" style="min-height: 52px;">
 				<a class="navbar-brand" href="#"><img id="logo" src="./static/img/waddle.svg"
-						style="height: 30px;width: auto;padding-left: 15px;padding-bottom: 3px;" alt="Waddle"
+						style="height: 30px;width: 142px;padding-left: 15px;padding-bottom: 3px;" alt="Waddle"
 						onClick="estchk()" /></a>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -468,6 +468,15 @@
 				background-color: #e3ddfc;
 				color: #000;
 			}
+
+			.swal-button-container{
+				padding: 0 25px;
+			}
+			
+			.blocklyFlyout{
+				box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px, rgba(0, 0, 0, 0.19) 0px 6px 20px 0px;
+				background-color: #ffffff;
+			}
 		</style>
 		<script>
 			$('.cls-1').animate({ 'stroke-dashoffset': '1450px' }, 10);
@@ -674,9 +683,9 @@
 				<div class="newsth-body">
 					<div class="card" id="card" onclick='newsth.style.display = "none";workspace.clear();'><span
 							class="sord">空白作品</span></div>
-					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">可见控件模版</span></div>
+					<div class="card" id="card" onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/visiblewidget.waddle')"><span class="sord">可见控件模版</span></div>
 					<div class="card" id="card"
-						onclick='newsth.style.display = "none";workspace.clear();Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);'>
+						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/invisiblewidget.waddle')">
 						<span class="sord">不可见控件模版</span>
 					</div>
 					<div class="card" id="card"
@@ -704,7 +713,7 @@
 					<img width="240" src="./static/img/waddle.svg" style="margin: 30px 0;" alt="Waddle"></img>
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">让CoCo没有难做的控件</p>
 					</br>
-					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由CoCo中控台所有成员共同开发！</p>
+					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由所有Waddle的开源贡献者共同创造！</p>
 					<!----<p style="color: #ffffff;font-size: 17px;">中子星000（QQ：2422481178）主理制作</br>MathCalculus（QQ：2504556268）主理制作</br>Epeiuss（Mail：ffxw0720@163.com）监制</br>海藻酸钠（QQ：3409473369）美术/UI/监制</br>小鱼yuzifu（QQ：1906929246）前端设计</br>刘lyxAndy（QQ：3449556207）细节处理</p>--->
 					<p style="color: #ffffff;font-size: 15px;">帮助链接：
 						<a href="https://www.yuque.com/coco-central/waddle/index"
@@ -1510,12 +1519,14 @@
 	$(window).resize(function () {
 		if ($(window).width() < 818) {
 			logo.src = "./static/img/logo.svg";
+			logo.style.width = "42px";
 			document.getElementsByClassName("modal")[0].style.width = "100vw"
 			document.getElementById("blocklyDiv").style.width = '100vw';
 			document.getElementById("toolbox").style.width = '100vw';
 		}
 		else {
 			logo.src = "./static/img/waddle.svg";
+			logo.style.width = "140px";
 			document.getElementsByClassName("modal")[0].style.width = "400px"
 			if(modal.style.display == "none" || modal.style.display == ""){
 				document.getElementById("blocklyDiv").style.width = '100vw';
