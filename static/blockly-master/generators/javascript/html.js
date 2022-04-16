@@ -721,6 +721,12 @@ Blockly.JavaScript['html_js'] = function (block) {
     return html_escape(code);
 };
 
+Blockly.JavaScript['html_js2'] = function (block) {
+    var e = Blockly.JavaScript.valueToCode(block, 'E', Blockly.JavaScript.ORDER_ASSIGNMENT) || ''
+    var code = `{${e}}`;
+    return [html_escape(code), 0];
+};
+
 Blockly.JavaScript['html_h123456'] = function (block) {
     var dropdown_type = block.getFieldValue('TYPE');
     var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();

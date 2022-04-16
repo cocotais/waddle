@@ -1533,6 +1533,18 @@ Blockly.Blocks['html_js'] = {
     }
 };
 
+Blockly.Blocks['html_js2'] = {
+    init: function () {
+        this.appendValueInput("E")
+            .setCheck(null)
+            .appendField("新建表达式");
+        this.setOutput(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['html_attribute_href'] = {
     init: function () {
         this.appendValueInput("URL")
