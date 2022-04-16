@@ -1,3 +1,5 @@
+// 模块的抽象语法树
+
 /**
  * @license
  * Copyright 2020 Google LLC

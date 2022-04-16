@@ -1,3 +1,5 @@
+// 当WorkspaceSvg.hideChaff被调用时的自动隐藏接口
+
 /**
  * @license
  * Copyright 2021 Google LLC

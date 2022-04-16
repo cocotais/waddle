@@ -1,3 +1,6 @@
+// SVG的抽象语法树
+// AST：抽象语法树（用于语法的解析）
+
 /**
  * @license
  * Copyright 2020 Google LLC
