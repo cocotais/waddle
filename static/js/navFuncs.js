@@ -6,7 +6,7 @@
 }`
 
 let js_save = function () {
-    let code_data = Blockly.JavaScript.workspaceToCode(workspace);
+    let code_data = Blockly.JavaScript.workspaceToCode(workspace).replaceAll("&#60", "<").replaceAll("&#62", ">");
     let blob = new Blob([code_data], { type: "text/plain;charset=utf-8" });
     let url = URL.createObjectURL(blob);
     let downa = document.getElementById("downa");

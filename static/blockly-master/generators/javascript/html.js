@@ -669,8 +669,6 @@ html_escape_one = (char) => {
             return "&#60"
         case ">":
             return "&#62"
-        case '"':
-            return "&#34"
     }
     return char
 }
