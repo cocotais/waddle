@@ -13,7 +13,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.12.32(628)-alpha' //以后版本号改我就行！
+		var version = 'V1.13.33(631)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -434,7 +434,6 @@
 
 			.swal-modal {
 				border-radius: 10px;
-				width: 400px;
 			}
 
 			.swal-button--confirm {
@@ -963,11 +962,11 @@
 			grid: CustomGrid,
 			zoom:
 			{
-				controls: true,
+				controls: false,
 				wheel: false,
 				startScale: 0.8,
-				maxScale: 3,
-				minScale: 0.3,
+				maxScale: 1.6,
+				minScale: 0.6,
 				scaleSpeed: 1.2
 			},
 			move:
@@ -1569,7 +1568,7 @@
 <script>
 	// 等待加载完毕
 	$('.cls-1').animate({ 'stroke-dashoffset': '0px' }, 10);
-	setTimeout(() => {document.getElementById("table").style.height = "calc(100vh - 52px)";document.getElementById("toolbox").style.height = "calc(100vh - 52px)";document.getElementById("blocklyDiv").style.height = "calc(100vh - 52px)";document.getElementById("workspaceblocks").style.height = "calc(100vh - 52px)";Blockly.svgResize(workspace);document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000)
+	setTimeout(() => {document.querySelector('.blocklyTrash').remove();document.getElementById("table").style.height = "calc(100vh - 52px)";document.getElementById("toolbox").style.height = "calc(100vh - 52px)";document.getElementById("blocklyDiv").style.height = "calc(100vh - 52px)";document.getElementById("workspaceblocks").style.height = "calc(100vh - 52px)";Blockly.svgResize(workspace);document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000)
 
 </script>
 
