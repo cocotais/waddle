@@ -1494,6 +1494,22 @@ Blockly.Blocks['html_noa_tag_wbr'] = {
     }
 };*/
 
+Blockly.Blocks['html_attribute'] = {
+    init: function () {
+        this.appendValueInput("KEY")
+            .setCheck("String")
+            .appendField("定义属性");
+        this.appendValueInput("VALUE")
+            .setCheck(null)
+            .appendField("的值为");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['html_attribute_id'] = {
     init: function () {
         this.appendValueInput("URL")

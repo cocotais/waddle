@@ -680,6 +680,14 @@ html_escape = (str) => {
     return newstr
 }
 
+Blockly.JavaScript['html_attribute'] = function (block) {
+    var key = Blockly.JavaScript.valueToCode(block, 'KEY', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    // TODO: Assemble JavaScript into code variable.
+    var code = `${key}=${value}\n`;
+    return html_escape(code);
+};
+
 Blockly.JavaScript['html_attribute_href'] = function (block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
     // TODO: Assemble JavaScript into code variable.
