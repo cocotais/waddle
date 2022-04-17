@@ -65,5 +65,5 @@
 如果主仓库更新了，请一定要点击这个按钮同步<br />
 ![15.png](https://gitee.com/coco-ag/coco-waddle/raw/master/dev/photo/15.png)
 vscode本地也要同步
-![14.png](https://gitee.com/coco-ag/coco-waddle/raw/master/dev/photo/14.png)
+![14.png](https://gitee.com/coco-ag/coco-waddle/raw/master/dev/photo/14.jpg)
 这样才可以避免冲突哦
