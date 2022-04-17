@@ -1,6 +1,6 @@
 <p align="center">
     <br>
-    <img alt="Waddle-Logo-Dev" src="https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/dev.png" height="73" width="346"/>
+    <img alt="Waddle-Logo-Dev" src="https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/dev.png"/>
     <br>
 </p>
 
