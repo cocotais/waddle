@@ -451,9 +451,18 @@
 				border-radius: 10px;
 			}
 
-			.swal-overlay {
-				backdrop-filter: blur(10px);
-				-webkit-backdrop-filter: blur(10px);
+			@supports (backdrop-filter: blur(10px)) {
+				.swal-overlay {
+					backdrop-filter: blur(10px);
+					
+				}
+			}
+
+			@supports (-webkit-backdrop-filter: blur(10px)) {
+				.swal-overlay {
+					backdrop-filter: blur(10px);
+					-webkit-backdrop-filter: blur(10px);
+				}
 			}
 
 			.swal-button--confirm:not([disabled]):focus {
