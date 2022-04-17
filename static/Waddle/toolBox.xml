@@ -367,6 +367,8 @@ TIP
 		</block>
 		<block type="html_attribute_target">
 		</block>
+		<block type="html_attribute_disabled">
+		</block>
 		<block type="html_plaintext">
 		</block>
 		<block type="html_js">
@@ -376,6 +378,8 @@ TIP
 		<block type="html_h123456">
 		</block>
 		<block type="html_a">
+		</block>
+		<block type="html_button">
 		</block>
 	</category>
 	<category name="lodash" css-icon="iconfont waddle-tool">

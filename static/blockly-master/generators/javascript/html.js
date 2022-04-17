@@ -708,6 +708,12 @@ Blockly.JavaScript['html_attribute_target'] = function (block) {
     return code;
 };
 
+Blockly.JavaScript['html_attribute_disabled'] = function (block) {
+    var dropdown_mode = block.getFieldValue('MODE');
+    var code = `disabled="${dropdown_mode}"\n`;
+    return code;
+};
+
 Blockly.JavaScript['html_plaintext'] = function (block) {
     var text = block.getFieldValue('TEXT');
     // TODO: Assemble JavaScript into code variable.
@@ -740,8 +746,13 @@ Blockly.JavaScript['html_h123456'] = function (block) {
 Blockly.JavaScript['html_a'] = function (block) {
     var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();
     var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
-    // TODO: Assemble JavaScript into code variable.
-    console.log(statements_pro, statements_pro == "")
     var code = `<a${(statements_pro == "") ? "" : " "}${statements_pro}>${statements_con}</a>\n`;
     return html_escape(code);
 };
+
+Blockly.JavaScript["html_button"] = function (block) {
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
+    var code = `<button${(statements_pro == "") ? "" : " "}${statements_pro}>${statements_con}</button>\n`;
+    return html_escape(code);
+}

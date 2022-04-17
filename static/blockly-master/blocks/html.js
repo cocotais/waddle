@@ -1571,6 +1571,19 @@ Blockly.Blocks['html_attribute_target'] = {
     }
 };
 
+Blockly.Blocks['html_attribute_disabled'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("定义属性 是否禁用")
+            .appendField(new Blockly.FieldDropdown([["禁用", "disabled"], ["启用", " "]]), "MODE");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['html_plaintext'] = {
     init: function () {
         this.appendDummyInput()
@@ -1607,6 +1620,22 @@ Blockly.Blocks['html_a'] = {
         this.appendStatementInput("CON")
             .setCheck(null)
             .appendField("新建超文本链接，内容");
+        this.appendStatementInput("PRO")
+            .setCheck(null)
+            .appendField("属性");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['html_button'] = {
+    init: function () {
+        this.appendStatementInput("CON")
+            .setCheck(null)
+            .appendField("新建按钮");
         this.appendStatementInput("PRO")
             .setCheck(null)
             .appendField("属性");
