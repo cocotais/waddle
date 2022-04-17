@@ -393,7 +393,7 @@ label {
 	background-color: #fff;
 	background-clip: padding-box;
 	border-radius: 6px;
-	box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+	box-shadow: 0 0 3px 1px rgba(0,0,0,.3);
 }
 
 .dropdown-menu[data-bs-popper] {

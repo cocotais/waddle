@@ -472,7 +472,8 @@
 			}
 
 			.blocklyMenuItem {
-				color: rgb(136, 125, 107);
+				color: rgba(0,0,0,.65);
+				font-size: 14px;
 			}
 
 			.blocklyMenuItemDisabled {
@@ -497,6 +498,10 @@
 			.blocklyFlyout{
 				box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px, rgba(0, 0, 0, 0.19) 0px 6px 20px 0px;
 				background-color: #ffffff;
+			}
+
+			.blocklyWidgetDiv .blocklyMenu{
+				overflow: hidden;
 			}
 		</style>
 		<script>
@@ -1087,7 +1092,7 @@
 		display: none;
 		/* 默认隐藏 */
 		position: fixed;
-		z-index: 1000;
+		z-index: 100000;
 		top: 0;
 		width: 100%;
 		height: 100%;
@@ -1334,7 +1339,7 @@
 		display: none;
 		/* 默认隐藏 */
 		position: fixed;
-		z-index: 1000;
+		z-index: 100000;
 		top: 0;
 		width: 100%;
 		height: 100%;
