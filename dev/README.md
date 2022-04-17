@@ -9,9 +9,9 @@
 
 # 目录
 - docs
-  - [1-开发指南.md](https://gitee.com/coco-ag/coco-waddle/raw/master/dev/docs/1-开发指南.md)
-  - [2-开发模式.md](https://gitee.com/coco-ag/coco-waddle/raw/master/dev/docs/2-开发模式.md)
-  - [3-提交信息规范.md](https://gitee.com/coco-ag/coco-waddle/raw/master/dev/docs/1-开发指南.md)
-  - [4-提交PR指南.md](https://gitee.com/coco-ag/coco-waddle/raw/master/dev/docs/3-提交信息规范.md)
+  - [1-开发指南.md](https://gitee.com/coco-ag/coco-waddle/blob/master/dev/docs/1-开发指南.md)
+  - [2-开发模式.md](https://gitee.com/coco-ag/coco-waddle/blob/master/dev/docs/2-开发模式.md)
+  - [3-提交信息规范.md](https://gitee.com/coco-ag/coco-waddle/blob/master/dev/docs/1-开发指南.md)
+  - [4-提交PR指南.md](https://gitee.com/coco-ag/coco-waddle/blob/master/dev/docs/3-提交信息规范.md)
 - tools
-  - [__转换为静态页面.py](https://gitee.com/coco-ag/coco-waddle/raw/master/dev/tools/__转换为静态页面.py)
+  - [__转换为静态页面.py](https://gitee.com/coco-ag/coco-waddle/blob/master/dev/tools/__转换为静态页面.py)
