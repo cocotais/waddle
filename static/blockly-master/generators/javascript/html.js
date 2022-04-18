@@ -717,6 +717,13 @@ Blockly.JavaScript['html_attribute_href'] = function (block) {
     return html_escape(code);
 };
 
+Blockly.JavaScript['html_attribute_src'] = function (block) {
+    var value_name = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    // TODO: Assemble JavaScript into code variable.
+    var code = `src=${value_name}\n`;
+    return html_escape(code);
+};
+
 Blockly.JavaScript['html_attribute_id'] = function (block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
     // TODO: Assemble JavaScript into code variable.

@@ -1640,6 +1640,19 @@ Blockly.Blocks['html_attribute_target'] = {
     }
 };
 
+Blockly.Blocks['html_attribute_src'] = {
+    init: function () {
+        this.appendValueInput("URL")
+            .setCheck("String")
+            .appendField("定义属性 外部资源链接");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['html_attribute_disabled'] = {
     init: function () {
         this.appendDummyInput()
