@@ -673,12 +673,34 @@ html_escape_one = (char) => {
     return char
 }
 html_escape = (str) => {
+    //HTML转义下
     let newstr = ""
     for (let i = 0; i < str.length; i++) {
         newstr = newstr + html_escape_one(str[i]);
     }
     return newstr
 }
+js_to_one = (code) => {
+    //将js转为一行代码
+    let list = code.split("\n")
+    let newstr = ""
+    let thisline = ""
+    list.forEach(element => {
+        thisline = element.trim()
+        if ((!["{",":",";"].includes(thisline.charAt(thisline.length-1)))&thisline!=""){
+            //判断结尾是否为{ : ;
+            newstr=newstr+thisline+";"
+        }else{
+            newstr=newstr+thisline
+        }
+    });
+    return escape_quotes(newstr)
+}
+escape_quotes = (str) => {
+    //转义引号
+    return str.replaceAll('"',"\"")
+}
+
 
 Blockly.JavaScript['html_attribute'] = function (block) {
     var key = Blockly.JavaScript.valueToCode(block, 'KEY', Blockly.JavaScript.ORDER_ATOMIC) || "''";
@@ -719,6 +741,34 @@ Blockly.JavaScript['html_attribute_target'] = function (block) {
 Blockly.JavaScript['html_attribute_disabled'] = function (block) {
     var dropdown_mode = block.getFieldValue('MODE');
     var code = `disabled="${dropdown_mode}"\n`;
+    return code;
+};
+
+Blockly.JavaScript['html_attribute_onclick'] = function (block) {
+    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'))
+    // TODO: Assemble JavaScript into code variable.
+    var code = `onclick="${statements_fun}"\n`;
+    return code;
+};
+
+Blockly.JavaScript['html_attribute_ondblclick'] = function (block) {
+    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'))
+    // TODO: Assemble JavaScript into code variable.
+    var code = `ondblclick="${statements_fun}"\n`;
+    return code;
+};
+
+Blockly.JavaScript['html_attribute_onmousemove'] = function (block) {
+    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'))
+    // TODO: Assemble JavaScript into code variable.
+    var code = `onmousemove="${statements_fun}"\n`;
+    return code;
+};
+
+Blockly.JavaScript['html_attribute_onmouseout'] = function (block) {
+    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'))
+    // TODO: Assemble JavaScript into code variable.
+    var code = `onmouseout="${statements_fun}"\n`;
     return code;
 };
 

@@ -111,6 +111,32 @@ Blockly.Blocks['ivw_addProperty'] = {
 	}
 };
 
+Blockly.Blocks['ivw_getproperty'] = {
+	init: function () {
+		this.appendDummyInput()
+			.appendField("获取控件属性")
+			.appendField(new Blockly.FieldTextInput("key"), "KEY")
+			.appendField("的值");
+		this.setOutput(true, null);
+		this.setColour("#e76cea");
+		this.setTooltip("");
+		this.setHelpUrl("");
+	}
+};
+
+Blockly.Blocks['ivw_getparam'] = {
+	init: function () {
+		this.appendDummyInput()
+			.appendField("获取控件属性")
+			.appendField(new Blockly.FieldTextInput("key"), "KEY")
+			.appendField("的值");
+		this.setOutput(true, null);
+		this.setColour("#e76cea");
+		this.setTooltip("");
+		this.setHelpUrl("");
+	}
+};
+
 Blockly.Blocks['ivw_addMethod'] = {
 	init: function () {
 		this.appendDummyInput()

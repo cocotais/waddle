@@ -1536,6 +1536,59 @@ Blockly.Blocks['html_attribute_class'] = {
     }
 };
 
+Blockly.Blocks['html_attribute_onclick'] = {
+    init: function () {
+        this.appendStatementInput("FUN")
+            .setCheck(null)
+            .appendField("定义属性 当被点击时");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['html_attribute_ondblclick'] = {
+    init: function () {
+        this.appendStatementInput("FUN")
+            .setCheck(null)
+            .appendField("定义属性 当被双击时");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['html_attribute_onmousemove'] = {
+    init: function () {
+        this.appendStatementInput("FUN")
+            .setCheck(null)
+            .appendField("定义属性 当鼠标移到该元素上时");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['html_attribute_onmouseout'] = {
+    init: function () {
+        this.appendStatementInput("FUN")
+            .setCheck(null)
+            .appendField("定义属性 当鼠标移出该元素上时");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+
 Blockly.Blocks['html_js'] = {
     init: function () {
         this.appendValueInput("E")

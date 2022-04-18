@@ -410,6 +410,18 @@ TIP
 		</block>
 		<block type="html_attribute_disabled">
 		</block>
+		<block type="html_attribute_id">
+		</block>
+		<block type="html_attribute_class">
+		</block>
+		<block type="html_attribute_onclick">
+		</block>
+		<block type="html_attribute_ondblclick">
+		</block>
+		<block type="html_attribute_onmousemove">
+		</block>
+		<block type="html_attribute_onmouseout">
+		</block>
 		<block type="html_plaintext">
 		</block>
 		<block type="html_js">

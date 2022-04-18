@@ -75,6 +75,19 @@ ${statements_other}
 	return code;
 };
 
+Blockly.JavaScript['ivw_getproperty'] = function (block) {
+	var text_key = block.getFieldValue('KEY');
+	var code = `this.${text_key}`;
+	// TODO: Change ORDER_NONE to the correct strength.
+	return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['ivw_getparam'] = function (block) {
+	var code = block.getFieldValue('KEY');
+	// TODO: Change ORDER_NONE to the correct strength.
+	return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
 Blockly.JavaScript['ivw_addMethod'] = function (block) {
 	var text_key = block.getFieldValue('key');
 	var text_label = block.getFieldValue('label');
@@ -113,7 +126,7 @@ Blockly.JavaScript['ivw_addParams'] = function (block) {
 {
   key: '${text_key}',
   label: '${text_label}',
-  valueType: ${text_valueType=="['string','number','boolean','array','object',]"?text_valueType:("'"+text_valueType+"'")},
+  valueType: ${text_valueType == "['string','number','boolean','array','object',]" ? text_valueType : ("'" + text_valueType + "'")},
 ${statements_other}
 },
 
