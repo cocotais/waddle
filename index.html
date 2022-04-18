@@ -13,7 +13,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.13.34(637)-alpha' //以后版本号改我就行！
+		var version = 'V1.14.35(649)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -280,6 +280,14 @@
 		</div>
 
 		<a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
+		<svg width="0" height="0" style="position:absolute;">
+			<filter id="blur" color-interpolation-filters="sRGB">
+			  <feGaussianBlur stdDeviation="10" edgeMode="duplicate"/>
+			  <feComponentTransfer>
+				  <feFuncA type="discrete" tableValues="0 1"/>
+			  </feComponentTransfer>
+			</filter>
+		</svg>
 		<style>
 			.nav-item:after {
 				content: attr(data-title);
@@ -454,16 +462,34 @@
 			@supports (backdrop-filter: blur(10px)) {
 				.swal-overlay {
 					backdrop-filter: blur(10px);
+					background-color: rgba(0,0,0,.4);
 					
 				}
+				
 			}
 
 			@supports (-webkit-backdrop-filter: blur(10px)) {
 				.swal-overlay {
 					backdrop-filter: blur(10px);
 					-webkit-backdrop-filter: blur(10px);
+					background-color: rgba(0,0,0,.4);
 				}
 			}
+
+			@supports (background: -moz-element(#body)) and (not (backdrop-filter: blur(0))) {
+				.swal-overlay::after {
+					display: inline-block;
+					content: "";
+					width: 100%;
+					height: 100%;
+					background-image: -moz-element(#body);
+					filter: blur(10px) brightness(60%);
+					top: 0;
+					position: fixed;
+					left: 0;
+					z-index: -1;
+				}
+		    }
 
 			.swal-button--confirm:not([disabled]):focus {
 				background-color: #6d50f0;
@@ -593,7 +619,6 @@
 				position: relative;
 				background: var(--common-background);
 				margin: 0 auto;
-				padding: 0;
 				height: calc(100vh - 52px);
 				float: right;
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
