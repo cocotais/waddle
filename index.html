@@ -282,10 +282,10 @@
 		<a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
 		<svg width="0" height="0" style="position:absolute;">
 			<filter id="blur" color-interpolation-filters="sRGB">
-			  <feGaussianBlur stdDeviation="10" edgeMode="duplicate"/>
-			  <feComponentTransfer>
-				  <feFuncA type="discrete" tableValues="0 1"/>
-			  </feComponentTransfer>
+				<feGaussianBlur stdDeviation="10" edgeMode="duplicate" />
+				<feComponentTransfer>
+					<feFuncA type="discrete" tableValues="0 1" />
+				</feComponentTransfer>
 			</filter>
 		</svg>
 		<style>
@@ -462,17 +462,17 @@
 			@supports (backdrop-filter: blur(10px)) {
 				.swal-overlay {
 					backdrop-filter: blur(10px);
-					background-color: rgba(0,0,0,.4);
-					
+					background-color: rgba(0, 0, 0, .4);
+
 				}
-				
+
 			}
 
 			@supports (-webkit-backdrop-filter: blur(10px)) {
 				.swal-overlay {
 					backdrop-filter: blur(10px);
 					-webkit-backdrop-filter: blur(10px);
-					background-color: rgba(0,0,0,.4);
+					background-color: rgba(0, 0, 0, .4);
 				}
 			}
 
@@ -489,14 +489,14 @@
 					left: 0;
 					z-index: -1;
 				}
-		    }
+			}
 
 			.swal-button--confirm:not([disabled]):focus {
 				background-color: #6d50f0;
 			}
 
 			.blocklyMenuItem {
-				color: rgba(0,0,0,.65);
+				color: rgba(0, 0, 0, .65);
 				font-size: 14px;
 			}
 
@@ -524,7 +524,7 @@
 				background-color: #ffffff;
 			}
 
-			.blocklyWidgetDiv .blocklyMenu{
+			.blocklyWidgetDiv .blocklyMenu {
 				overflow: hidden;
 			}
 		</style>
@@ -730,25 +730,30 @@
 					<span class="newsth-close">&times;</span>
 				</div>
 				<div class="newsth-body">
-					<div class="card" id="card" onclick='newsth.style.display = "none";workspace.clear();'><span
-							class="sord">空白作品</span></div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/visiblewidget.waddle')">
-						<span class="sord">可见控件模版</span></div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/invisiblewidget.waddle')">
+					<div class="card" id="card" onclick='newsth.style.display = "none";workspace。clear();'>
+						<span class="sord">空白作品</span>
+					</div>
+					<div class="card" id="card" onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/visiblewidget.waddle')">
+						<span class="sord">可见控件模版</span>
+					</div>
+					<div class="card" id="card" onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/invisiblewidget.waddle')">
 						<span class="sord">不可见控件模版</span>
 					</div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hello.waddle')"><span
-							class="sord">[不可见控件]<br>Hello</span></div>
-					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>定时器</span></div>
-					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>Base编解码</span>
+					<div class="card" id="card" onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hello.waddle')">
+						<span class="sord">[不可见控件]<br>Hello</span>
 					</div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hyperlink.waddle')">
-						<span class="sord">[可见控件]<br>超链接</span></div>
-					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[可见控件]<br>闪烁的按钮</span></div>
+					<div class="card" id="card" onclick='swal("还没有呢～")'>
+						<span class="sord">[不可见控件]<br>定时器</span>
+					</div>
+					<div class="card" id="card" onclick='swal("还没有呢～")'>
+						<span class="sord">[不可见控件]<br>Base编解码</span>
+					</div>
+					<div class="card" id="card" onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hyperlink.waddle')">
+						<span class="sord">[可见控件]<br>超链接</span>
+					</div>
+					<div class="card" id="card" onclick='swal("还没有呢～")'>
+						<span class="sord">[可见控件]<br>闪烁的按钮</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -767,7 +772,9 @@
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">让CoCo没有难做的控件</p>
 					</br>
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由所有Waddle的开源贡献者共同创造！</p>
-					<!----<p style="color: #ffffff;font-size: 17px;">中子星000（QQ：2422481178）主理制作</br>MathCalculus（QQ：2504556268）主理制作</br>Epeiuss（Mail：ffxw0720@163.com）监制</br>海藻酸钠（QQ：3409473369）美术/UI/监制</br>小鱼yuzifu（QQ：1906929246）前端设计</br>刘lyxAndy（QQ：3449556207）细节处理</p>--->
+					<!----
+						<p style="color: #ffffff;font-size: 17px;">中子星000（QQ：2422481178）主理制作</br>MathCalculus（QQ：2504556268）主理制作</br>Epeiuss（Mail：ffxw0720@163.com）监制</br>海藻酸钠（QQ：3409473369）美术/UI/监制</br>小鱼yuzifu（QQ：1906929246）前端设计</br>刘lyxAndy（QQ：3449556207）细节处理</p>
+					--->
 					<p style="color: #ffffff;font-size: 15px;">帮助链接：
 						<a href="https://www.yuque.com/coco-central/waddle/index"
 							style="color: #ffffff;font-size: 15px;" target="_blank"
@@ -1023,7 +1030,7 @@
 	/* 加载初始积木 */
 	Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
 
-	
+
 	// 加载结束后，把积木栏文本整体调小一个像素，图标调大五个像素，这样不会喧宾夺主(这种方法直接硬改，很暴力)
 	$("span.blocklyTreeLabel").css("cssText", "font: 13px sans-serif !important");
 	$("span.iconfont").css("cssText", "font-size: 21px !important");
