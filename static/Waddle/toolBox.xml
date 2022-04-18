@@ -17,8 +17,6 @@ TIP
 -->
 <toolbox>
 	<category name="控制" css-icon="iconfont waddle-control" colour="#68CDFF">
-		<block type="controls_whileUntil">
-		</block>
 		<block type="controls_repeat_ext">
 			<value name="TIMES">
 				<block type="math_number">
@@ -27,8 +25,6 @@ TIP
 					</field>
 				</block>
 			</value>
-		</block>
-		<block type="controls_whileUntil">
 		</block>
 		<block type="controls_for">
 			<field name="VAR">
@@ -58,6 +54,8 @@ TIP
 		</block>
 		<block type="controls_forEach">
 		</block>
+		<block type="controls_whileUntil">
+		</block>
 		<block type="controls_flow_statements">
 		</block>
 		<!-- 控制和逻辑合并 -->
@@ -66,6 +64,15 @@ TIP
 		<category name="逻辑" colour="#AE8964">
 		-->
 		<block type="controls_if">
+		</block>
+		<block type="logic_ternary">
+		</block>
+	</category>
+	<category name="数学" css-icon="iconfont waddle-math" colour="#FEAE8A">
+		<block type="math_number">
+			<field name="NUM">
+				114514
+			</field>
 		</block>
 		<block type="logic_compare">
 		</block>
@@ -76,15 +83,6 @@ TIP
 		<block type="logic_negate">
 		</block>
 		<block type="logic_null">
-		</block>
-		<block type="logic_ternary">
-		</block>
-	</category>
-	<category name="数学" css-icon="iconfont waddle-math" colour="#FEAE8A">
-		<block type="math_number">
-			<field name="NUM">
-				114514
-			</field>
 		</block>
 		<block type="math_arithmetic">
 		</block>
