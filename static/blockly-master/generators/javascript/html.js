@@ -751,6 +751,12 @@ Blockly.JavaScript['html_attribute_disabled'] = function (block) {
     return code;
 };
 
+Blockly.JavaScript['html_attribute_loading'] = function (block) {
+    var dropdown_mode = block.getFieldValue('MODE');
+    var code = `loading="${dropdown_mode}"\n`;
+    return code;
+};
+
 Blockly.JavaScript['html_attribute_onclick'] = function (block) {
     var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'))
     // TODO: Assemble JavaScript into code variable.

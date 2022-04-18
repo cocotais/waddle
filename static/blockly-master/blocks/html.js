@@ -1653,6 +1653,32 @@ Blockly.Blocks['html_attribute_src'] = {
     }
 };
 
+Blockly.Blocks['html_attribute_alt'] = {
+    init: function () {
+        this.appendValueInput("URL")
+            .setCheck("String")
+            .appendField("定义属性 图片替代链接");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['html_attribute_loading'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("定义属性 加载方式")
+            .appendField(new Blockly.FieldDropdown([["立即加载", "eager"], ["懒加载", "lazy"]]), "MODE");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['html_attribute_disabled'] = {
     init: function () {
         this.appendDummyInput()
