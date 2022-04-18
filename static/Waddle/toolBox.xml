@@ -65,12 +65,6 @@ TIP
 		-->
 		<block type="controls_if">
 		</block>
-		<block type="controls_ifelse">
-		</block>
-		<!--
-		<block type="controls_ifelseif">
-		</block> 
-		-->
 		<block type="logic_ternary">
 		</block>
 	</category>
