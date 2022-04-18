@@ -821,3 +821,10 @@ Blockly.JavaScript["html_button"] = function (block) {
     var code = `<button${(statements_pro == "") ? "" : " "}${statements_pro}>${statements_con}</button>\n`;
     return html_escape(code);
 }
+
+Blockly.JavaScript["html_img"] = function (block) {
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
+    var code = `<img${(statements_pro == "") ? "" : " "}${statements_pro}>${statements_con}</img>\n`;
+    return html_escape(code);
+}

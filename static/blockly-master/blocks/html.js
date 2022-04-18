@@ -1728,3 +1728,19 @@ Blockly.Blocks['html_button'] = {
         this.setHelpUrl("");
     }
 };
+
+Blockly.Blocks['html_img'] = {
+    init: function () {
+        this.appendStatementInput("CON")
+            .setCheck(null)
+            .appendField("新建图片");
+        this.appendStatementInput("PRO")
+            .setCheck(null)
+            .appendField("属性");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
