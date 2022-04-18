@@ -698,6 +698,10 @@ TIP
 		</block>
 		<block type="ivw_propsinit">
 		</block>
+		<block type="ivw_getproperty">
+		</block>
+		<block type="ivw_getparam">
+		</block>
 	</category>
 	<category css-icon="iconfont waddle-example" name="框架" colour="#6d50f0">
 		<!-- <category name="基本框架" colour="#6d50f0"> -->

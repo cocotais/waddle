@@ -118,7 +118,7 @@ Blockly.Blocks['ivw_getproperty'] = {
 			.appendField(new Blockly.FieldTextInput("key"), "KEY")
 			.appendField("的值");
 		this.setOutput(true, null);
-		this.setColour("#e76cea");
+		this.setColour("5574F8");
 		this.setTooltip("");
 		this.setHelpUrl("");
 	}
@@ -127,11 +127,11 @@ Blockly.Blocks['ivw_getproperty'] = {
 Blockly.Blocks['ivw_getparam'] = {
 	init: function () {
 		this.appendDummyInput()
-			.appendField("获取控件属性")
+			.appendField("获取事件参数")
 			.appendField(new Blockly.FieldTextInput("key"), "KEY")
 			.appendField("的值");
 		this.setOutput(true, null);
-		this.setColour("#e76cea");
+		this.setColour("5574F8");
 		this.setTooltip("");
 		this.setHelpUrl("");
 	}
