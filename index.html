@@ -13,7 +13,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.14.35(649)-alpha' //以后版本号改我就行！
+		var version = 'V1.20.40(681)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -213,7 +213,7 @@
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<li>
 									<a class="dropdown-item" href="javascript:void(0)"
-										onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show";document.getElementsByClassName("newsth")[0].className = "newsth show"'>新建</a>
+										onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show";document.getElementsByClassName("newsth")[0].className = "newsth show";document.getElementsByClassName("maoboli")[0].style.display = "block";'>新建</a>
 								</li>
 								<li>
 									<a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存到电脑</a>
@@ -233,7 +233,7 @@
 						</script>
 						<li class="nav-item" data-title="关于">
 							<a class="nav-link" aria-label="关于" href="javascript:void(0)"
-								onclick='aboutus.style.display = "block";document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";document.getElementsByClassName("aboutus")[0].className = "aboutus show"'>
+								onclick='aboutus.style.display = "block";document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";document.getElementsByClassName("aboutus")[0].className = "aboutus show";document.getElementsByClassName("maoboli")[0].style.display = "block";'>
 								<svg xmlns="http://www.w3.org/2000/svg" width="25.92" height="25.92" fill="currentColor"
 									viewBox="0 0 135 135">
 									<path id="circle-question-solid"
@@ -281,10 +281,10 @@
 		<a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
 		<svg width="0" height="0" style="position:absolute;">
 			<filter id="blur" color-interpolation-filters="sRGB">
-				<feGaussianBlur stdDeviation="10" edgeMode="duplicate" />
-				<feComponentTransfer>
-					<feFuncA type="discrete" tableValues="0 1" />
-				</feComponentTransfer>
+			  <feGaussianBlur stdDeviation="10" edgeMode="duplicate"/>
+			  <feComponentTransfer>
+				  <feFuncA type="discrete" tableValues="0 1"/>
+			  </feComponentTransfer>
 			</filter>
 		</svg>
 		<style>
@@ -461,22 +461,22 @@
 			@supports (backdrop-filter: blur(10px)) {
 				.swal-overlay {
 					backdrop-filter: blur(10px);
-					background-color: rgba(0, 0, 0, .4);
-
+					background-color: rgba(0,0,0,.4);
+					
 				}
-
+				
 			}
 
 			@supports (-webkit-backdrop-filter: blur(10px)) {
 				.swal-overlay {
 					backdrop-filter: blur(10px);
 					-webkit-backdrop-filter: blur(10px);
-					background-color: rgba(0, 0, 0, .4);
+					background-color: rgba(0,0,0,.4);
 				}
 			}
 
 			@supports (background: -moz-element(#body)) and (not (backdrop-filter: blur(0))) {
-				.swal-overlay::after {
+				.swal-overlay::after{
 					display: inline-block;
 					content: "";
 					width: 100%;
@@ -488,14 +488,30 @@
 					left: 0;
 					z-index: -1;
 				}
-			}
+				
+                .maoboli {
+					content: "";
+					width: 100%;
+					height: 100%;
+					background-image: -moz-element(#body);
+					filter: blur(10px);
+					top: 0;
+					position: fixed;
+					left: 0;
+					z-index: 100;
+					display: none;
+					-webkit-transition-duration: 0.4s;
+				    /* Safari */
+				    transition-duration: 0.4s;
+				}
+		    }
 
 			.swal-button--confirm:not([disabled]):focus {
 				background-color: #6d50f0;
 			}
 
 			.blocklyMenuItem {
-				color: rgba(0, 0, 0, .65);
+				color: rgba(0,0,0,.65);
 				font-size: 14px;
 			}
 
@@ -523,7 +539,7 @@
 				background-color: #ffffff;
 			}
 
-			.blocklyWidgetDiv .blocklyMenu {
+			.blocklyWidgetDiv .blocklyMenu{
 				overflow: hidden;
 			}
 		</style>
@@ -623,18 +639,16 @@
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			}
 
-			/*.modal-content {
-					-webkit-animation-name: animateleft;
-					-webkit-animation-duration: 0.4s;
-					animation-name: animateleft;
-					animation-duration: 0.4s
+			
+
+			
+			@-webkit-keyframes animateright {
+				from {
+					opacity: 0
 				}
 
-				.show.modal-content {
-					-webkit-animation-name: animateright;
-					-webkit-animation-duration: 0.4s;
-					animation-name: animateright;
-					animation-duration: 0.4s
+				to {
+					opacity: 1
 				}
 
 				
@@ -669,16 +683,7 @@
 						opacity: 0
 					}
 				}
-
-				@keyframes animateleft {
-					from {
-						opacity: 1
-					}
-
-					to {
-						opacity: 0
-					}
-				} */
+			} 
 			/* 关闭按钮 */
 
 			.close {
@@ -729,34 +734,25 @@
 					<span class="newsth-close">&times;</span>
 				</div>
 				<div class="newsth-body">
-					<div class="card" id="card" onclick='newsth.style.display = "none";workspace。clear();'>
-						<span class="sord">空白作品</span>
-					</div>
+					<div class="card" id="card" onclick='newsth.style.display = "none";workspace.clear();'><span
+							class="sord">空白作品</span></div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/visiblewidget.waddle')">
-						<span class="sord">可见控件模版</span>
-					</div>
+						<span class="sord">可见控件模版</span></div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/invisiblewidget.waddle')">
 						<span class="sord">不可见控件模版</span>
 					</div>
 					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hello.waddle')">
-						<span class="sord">[不可见控件]<br>Hello</span>
-					</div>
-					<div class="card" id="card" onclick='swal("还没有呢～")'>
-						<span class="sord">[不可见控件]<br>定时器</span>
-					</div>
-					<div class="card" id="card" onclick='swal("还没有呢～")'>
-						<span class="sord">[不可见控件]<br>Base编解码</span>
+						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hello.waddle')"><span
+							class="sord">[不可见控件]<br>Hello</span></div>
+					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>定时器</span></div>
+					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>Base编解码</span>
 					</div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hyperlink.waddle')">
-						<span class="sord">[可见控件]<br>超链接</span>
-					</div>
-					<div class="card" id="card" onclick='swal("还没有呢～")'>
-						<span class="sord">[可见控件]<br>闪烁的按钮</span>
-					</div>
+						<span class="sord">[可见控件]<br>超链接</span></div>
+					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[可见控件]<br>闪烁的按钮</span></div>
 				</div>
 			</div>
 		</div>
@@ -775,9 +771,7 @@
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">让CoCo没有难做的控件</p>
 					</br>
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由所有Waddle的开源贡献者共同创造！</p>
-					<!----
-							<p style="color: #ffffff;font-size: 17px;">中子星000（QQ：2422481178）主理制作</br>MathCalculus（QQ：2504556268）主理制作</br>Epeiuss（Mail：ffxw0720@163.com）监制</br>海藻酸钠（QQ：3409473369）美术/UI/监制</br>小鱼yuzifu（QQ：1906929246）前端设计</br>刘lyxAndy（QQ：3449556207）细节处理</p>
-						--->
+					<!----<p style="color: #ffffff;font-size: 17px;">中子星000（QQ：2422481178）主理制作</br>MathCalculus（QQ：2504556268）主理制作</br>Epeiuss（Mail：ffxw0720@163.com）监制</br>海藻酸钠（QQ：3409473369）美术/UI/监制</br>小鱼yuzifu（QQ：1906929246）前端设计</br>刘lyxAndy（QQ：3449556207）细节处理</p>--->
 					<p style="color: #ffffff;font-size: 15px;">帮助链接：
 						<a href="https://www.yuque.com/coco-central/waddle/index"
 							style="color: #ffffff;font-size: 15px;" target="_blank"
@@ -1033,7 +1027,7 @@
 	/* 加载初始积木 */
 	Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
 
-
+	
 	// 加载结束后，把积木栏文本整体调小一个像素，图标调大五个像素，这样不会喧宾夺主(这种方法直接硬改，很暴力)
 	$("span.blocklyTreeLabel").css("cssText", "font: 13px sans-serif !important");
 	$("span.iconfont").css("cssText", "font-size: 21px !important");
@@ -1362,6 +1356,7 @@
 
 	// 点击 <span> (x), 关闭代码框
 	newsthspan.onclick = function () {
+	    document.getElementsByClassName("maoboli")[0].style.display = "none";
 		document.getElementsByClassName("newsth-content")[0].className = "newsth-content"
 		document.getElementsByClassName("newsth")[0].className = "newsth"
 		setTimeout(() => { newsth.style.display = "none"; }, 400)
@@ -1570,6 +1565,7 @@
 
 	// 点击 <span> (x), 关闭代码框
 	aboutusspan.onclick = function () {
+	    document.getElementsByClassName("maoboli")[0].style.display = "none";
 		document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content"
 		document.getElementsByClassName("aboutus")[0].className = "aboutus"
 		setTimeout(() => { aboutus.style.display = "none"; }, 400)
@@ -1619,7 +1615,9 @@
 <script>
 	// 等待加载完毕
 	$('.cls-1').animate({ 'stroke-dashoffset': '0px' }, 10);
-	setTimeout(() => { document.querySelector('.blocklyTrash').remove(); document.getElementById("table").style.height = "calc(100vh - 52px)"; document.getElementById("toolbox").style.height = "calc(100vh - 52px)"; document.getElementById("blocklyDiv").style.height = "calc(100vh - 52px)"; document.getElementById("workspaceblocks").style.height = "calc(100vh - 52px)"; Blockly.svgResize(workspace); document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000)
+	setTimeout(() => { document.getElementsByClassName("blocklyTrash")[0].style.display = "none";document.getElementById("table").style.height = "calc(100vh - 52px)"; document.getElementById("toolbox").style.height = "calc(100vh - 52px)"; document.getElementById("blocklyDiv").style.height = "calc(100vh - 52px)"; document.getElementById("workspaceblocks").style.height = "calc(100vh - 52px)"; Blockly.svgResize(workspace); document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000)
+
 </script>
+<div class="maoboli"></div>
 
 </html>
