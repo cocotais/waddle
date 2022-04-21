@@ -1,0 +1,29 @@
+{
+    // 每次保存的时候将代码按格式进行修复
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+    // 请使用eslint插件
+    "eslint.validate": ["javascript", "javascriptreact"],
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // 请使用prettier插件
+    "prettier.semi": false,
+    "prettier.useTabs": false,
+    "prettier.tabWidth": 4,
+    "prettier.printWidth": 100000,
+    "prettier.trailingComma": "none",
+    "prettier.singleQuote": true,
+    "prettier.arrowParens": "avoid"
+}

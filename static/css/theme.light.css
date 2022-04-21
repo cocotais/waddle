@@ -34,10 +34,8 @@
     background-color: rgb(255, 255, 255);
 }
 
-;
-
-.custom_renderer-renderer.WaddleTheme-theme .blocklySelected>.blocklyPath {
-    stroke: #FFFFDD;
+.custom_renderer-renderer.WaddleTheme-theme .blocklySelected > .blocklyPath {
+    stroke: #ffffdd;
     stroke-width: 3px;
 }
 
@@ -54,7 +52,7 @@
     background: #000;
     filter: alpha(Opacity=60);
     -moz-opacity: 0.5;
-    opacity: 0.5
+    opacity: 0.5;
 }
 
 .blocklyTreeSeparator {
@@ -81,7 +79,7 @@
 }
 
 .blocklyTreeRow:not(.blocklyTreeSelected):hover {
-    background-color: #DCDCDC;
+    background-color: #dcdcdc;
 }
 
 .close {
@@ -98,7 +96,7 @@
 }
 
 .close:hover {
-    color: #000000
+    color: #000000;
 }
 
 .card {

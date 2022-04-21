@@ -15,10 +15,10 @@ let js_save = function () {
     if (name == '') {
         name = "我的控件"
     }
-    if (Blockly.JavaScript.workspaceToCode(workspace).indexOf("isInvisibleWidget: true") == -1){
+    if (Blockly.JavaScript.workspaceToCode(workspace).indexOf("isInvisibleWidget: true") == -1) {
         downa.download = name + ".jsx";
     }
-    else{
+    else {
         downa.download = name + ".js";
     }
     downa.click();
