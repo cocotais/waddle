@@ -66,7 +66,6 @@
 		rip.innerText = 'html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
 		document.body.appendChild(rip);
 	}
-
 </script>
 
 <body>
@@ -651,36 +650,38 @@
 				to {
 					opacity: 1
 				}
-			}
 
-			@keyframes animateright {
-				from {
-					opacity: 0
+				
+				@-webkit-keyframes animateright {
+					from {
+						opacity: 0
+					}
+
+					to {
+						right: 0;
+						opacity: 1
+					}
 				}
 
-				to {
-					opacity: 1
-				}
-			}
+				@keyframes animateright {
+					from {
+						opacity: 0
+					}
 
-			
-			@-webkit-keyframes animateleft {
-				from {
-					opacity: 1
-				}
-
-				to {
-					opacity: 0
-				}
-			}
-
-			@keyframes animateleft {
-				from {
-					opacity: 1
+					to {
+						opacity: 1
+					}
 				}
 
-				to {
-					opacity: 0
+				
+				@-webkit-keyframes animateleft {
+					from {
+						opacity: 1
+					}
+
+					to {
+						opacity: 0
+					}
 				}
 			} 
 			/* 关闭按钮 */
@@ -762,7 +763,7 @@
 			<div class="aboutus-content" style="min-width: 305px;">
 				<div class="aboutus-header">
 					<span class="aboutus-logo" style="color: #6d50f0;font-weight: bold;
-					font-size: 25px;">关于我们</span>
+						font-size: 25px;">关于我们</span>
 					<span class="aboutus-close">&times;</span>
 				</div>
 				<div class="aboutus-body">
@@ -1101,17 +1102,17 @@
 	window.onbeforeunload = function () {
 		return "离开后，你的控件就没啦！";
 	}
-	// document.getElementById('read').addEventListener('change', function selectedFileChanged() {
-	//     if (this.files.length !== 0) {
-	//         workspace.clear()
-	//         const reader = new FileReader();
-	//         reader.onload = function fileReadCompleted() {
-	//             const xml = Blockly.Xml.textToDom(reader.result);
-	//             Blockly.Xml.domToWorkspace(xml, workspace);
-	//         };
-	//         reader.readAsText(this.files[0]);
-	//     }
-	// });
+		// document.getElementById('read').addEventListener('change', function selectedFileChanged() {
+		//     if (this.files.length !== 0) {
+		//         workspace.clear()
+		//         const reader = new FileReader();
+		//         reader.onload = function fileReadCompleted() {
+		//             const xml = Blockly.Xml.textToDom(reader.result);
+		//             Blockly.Xml.domToWorkspace(xml, workspace);
+		//         };
+		//         reader.readAsText(this.files[0]);
+		//     }
+		// });
 
 </script>
 <script>
@@ -1569,7 +1570,6 @@
 		document.getElementsByClassName("aboutus")[0].className = "aboutus"
 		setTimeout(() => { aboutus.style.display = "none"; }, 400)
 	}
-
 </script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '240px' }, 10);
@@ -1603,7 +1603,6 @@
 		document.getElementById("toolbox").style.height = (document.body.clientHeight - 52);
 		Blockly.svgResize(workspace);
 	});
-
 </script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '190px' }, 10);
