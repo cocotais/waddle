@@ -19,7 +19,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     // 请使用prettier插件
-    "prettier.semi": false,
+    "prettier.semi": true,
     "prettier.useTabs": false,
     "prettier.tabWidth": 4,
     "prettier.printWidth": 100000,
