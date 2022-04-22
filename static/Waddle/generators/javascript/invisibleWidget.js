@@ -121,13 +121,14 @@ Blockly.JavaScript['ivw_addParams'] = function (block) {
 	var text_key = block.getFieldValue('key');
 	var text_label = block.getFieldValue('label');
 	var text_valueType = block.getFieldValue('valueType');
-	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
+	var value_defaultValue = Blockly.JavaScript.valueToCode(block, 'defaultValue', Blockly.JavaScript.ORDER_ATOMIC);
+	// var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var code = `
 {
   key: '${text_key}',
   label: '${text_label}',
   valueType: ${text_valueType == "['string','number','boolean','array','object',]" ? text_valueType : ("'" + text_valueType + "'")},
-${statements_other}
+  defaultValue: ${value_defaultValue},
 },
 
 `;

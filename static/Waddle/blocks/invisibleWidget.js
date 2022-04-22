@@ -179,10 +179,13 @@ Blockly.Blocks['ivw_addParams'] = {
 		this.appendDummyInput()
 			.appendField("输入值类型")
 			.appendField(new Blockly.FieldDropdown([["字符串", "string"], ["数字", "number"], ["布尔", "boolean"], ["任何类型", "['string','number','boolean','array','object',]"]]), "valueType");
-		this.appendDummyInput()
-			.appendField("积木选项")
-		this.appendStatementInput("other")
-			.setCheck(null);
+		this.appendValueInput("defaultValue")
+			.appendField("默认值");
+		// 以下弃用
+		// this.appendDummyInput()
+		// 	.appendField("积木选项")
+		// this.appendStatementInput("other")
+		// 	.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour("#3CA9FF");
