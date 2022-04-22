@@ -653,58 +653,57 @@ Blockly.JavaScript['html_noa_tag_wbr'] = function(block){
 };*/
 //trim()有助于身体健康
 
-html_attribute_to_str = (code) => {
+html_attribute_to_str = code => {
     //属性格式一下
-    let list = code.split("\n")
-    let att = ""
+    let list = code.split('\n');
+    let att = '';
     list.forEach(element => {
-        att = att + element.trim() + " "
-    })
-    return att.trim()
-}
-html_escape_one = (char) => {
+        att = att + element.trim() + ' ';
+    });
+    return att.trim();
+};
+html_escape_one = char => {
     //HTML转义一下
     switch (char) {
-        case "<":
-            return "&#60"
-        case ">":
-            return "&#62"
+        case '<':
+            return '&#60';
+        case '>':
+            return '&#62';
     }
-    return char
-}
-html_escape = (str) => {
+    return char;
+};
+html_escape = str => {
     //HTML转义下
-    let newstr = ""
+    let newstr = '';
     for (let i = 0; i < str.length; i++) {
         newstr = newstr + html_escape_one(str[i]);
     }
-    return newstr
-}
-js_to_one = (code) => {
+    return newstr;
+};
+js_to_one = code => {
     //将js转为一行代码
-    let list = code.split("\n")
-    let newstr = ""
-    let thisline = ""
+    let list = code.split('\n');
+    let newstr = '';
+    let thisline = '';
     list.forEach(element => {
-        thisline = element.trim()
-        if ((!["{", ":", ";"].includes(thisline.charAt(thisline.length - 1))) & thisline != "") {
+        thisline = element.trim();
+        if (!['{', ':', ';'].includes(thisline.charAt(thisline.length - 1)) & (thisline != '')) {
             //判断结尾是否为{ : ;
-            newstr = newstr + thisline + ";"
+            newstr = newstr + thisline + ';';
         } else {
-            newstr = newstr + thisline
+            newstr = newstr + thisline;
         }
     });
-    return escape_quotes(newstr)
-}
-escape_quotes = (str) => {
+    return escape_quotes(newstr);
+};
+escape_quotes = str => {
     //转义引号
-    return str.replaceAll('"', "\"")
-}
-css_to_one = (css) => {
+    return str.replaceAll('"', '"');
+};
+css_to_one = css => {
     //css转一行
-    return escape_quotes(css.split("\n").join(""))
-}
-
+    return escape_quotes(css.split('\n').join(''));
+};
 
 Blockly.JavaScript['html_attribute'] = function (block) {
     var key = Blockly.JavaScript.valueToCode(block, 'KEY', Blockly.JavaScript.ORDER_ATOMIC) || "''";
@@ -768,35 +767,35 @@ Blockly.JavaScript['html_attribute_autoplay'] = function (block) {
 };
 
 Blockly.JavaScript['html_attribute_onclick'] = function (block) {
-    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'))
+    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'));
     // TODO: Assemble JavaScript into code variable.
     var code = `onclick="${statements_fun}"\n`;
     return code;
 };
 
 Blockly.JavaScript['html_attribute_ondblclick'] = function (block) {
-    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'))
+    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'));
     // TODO: Assemble JavaScript into code variable.
     var code = `ondblclick="${statements_fun}"\n`;
     return code;
 };
 
 Blockly.JavaScript['html_attribute_onmousemove'] = function (block) {
-    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'))
+    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'));
     // TODO: Assemble JavaScript into code variable.
     var code = `onmousemove="${statements_fun}"\n`;
     return code;
 };
 
 Blockly.JavaScript['html_attribute_onmouseout'] = function (block) {
-    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'))
+    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'));
     // TODO: Assemble JavaScript into code variable.
     var code = `onmouseout="${statements_fun}"\n`;
     return code;
 };
 
 Blockly.JavaScript['html_attribute_onemptied'] = function (block) {
-    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'))
+    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'));
     // TODO: Assemble JavaScript into code variable.
     var code = `onemptied="${statements_fun}"\n`;
     return code;
@@ -810,76 +809,88 @@ Blockly.JavaScript['html_plaintext'] = function (block) {
 };
 
 Blockly.JavaScript['html_js'] = function (block) {
-    var e = Blockly.JavaScript.valueToCode(block, 'E', Blockly.JavaScript.ORDER_ASSIGNMENT) || ''
+    var e = Blockly.JavaScript.valueToCode(block, 'E', Blockly.JavaScript.ORDER_ASSIGNMENT) || '';
     var code = `{${e}}\n`;
     return html_escape(code);
 };
 
 Blockly.JavaScript['html_js2'] = function (block) {
-    var e = Blockly.JavaScript.valueToCode(block, 'E', Blockly.JavaScript.ORDER_ASSIGNMENT) || ''
+    var e = Blockly.JavaScript.valueToCode(block, 'E', Blockly.JavaScript.ORDER_ASSIGNMENT) || '';
     var code = `{${e}}`;
     return [html_escape(code), 0];
 };
 
 Blockly.JavaScript['html_h123456'] = function (block) {
     var dropdown_type = block.getFieldValue('TYPE');
-    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();
-    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || '').trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || '');
     // TODO: Assemble JavaScript into code variable.
-    console.log(statements_pro, statements_pro == "")
-    var code = `<${dropdown_type}${(statements_pro == "") ? "" : " "}${statements_pro}>${statements_con}</${dropdown_type}>\n`;
+    console.log(statements_pro, statements_pro == '');
+    var code = `<${dropdown_type}${statements_pro == '' ? '' : ' '}${statements_pro}>${statements_con}</${dropdown_type}>\n`;
     return html_escape(code);
 };
 
 Blockly.JavaScript['html_a'] = function (block) {
-    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();
-    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
-    var code = `<a${(statements_pro == "") ? "" : " "}${statements_pro}>${statements_con}</a>\n`;
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || '').trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || '');
+    var code = `<a${statements_pro == '' ? '' : ' '}${statements_pro}>${statements_con}</a>\n`;
     return html_escape(code);
 };
 
-Blockly.JavaScript["html_button"] = function (block) {
-    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();
-    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
-    var code = `<button${(statements_pro == "") ? "" : " "}${statements_pro}>${statements_con}</button>\n`;
+Blockly.JavaScript['html_button'] = function (block) {
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || '').trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || '');
+    var code = `<button${statements_pro == '' ? '' : ' '}${statements_pro}>${statements_con}</button>\n`;
     return html_escape(code);
-}
+};
 
-Blockly.JavaScript["html_img"] = function (block) {
-    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();
-    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
-    var code = `<img${(statements_pro == "") ? "" : " "}${statements_pro}>${statements_con}</img>\n`;
+Blockly.JavaScript['html_img'] = function (block) {
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || '').trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || '');
+    var code = `<img${statements_pro == '' ? '' : ' '}${statements_pro}>${statements_con}</img>\n`;
     return html_escape(code);
-}
+};
 
-Blockly.JavaScript["html_video"] = function (block) {
-    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();
-    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
-    var code = `<video${(statements_pro == "") ? "" : " "}${statements_pro}>${statements_con}</video>\n`;
+Blockly.JavaScript['html_video'] = function (block) {
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || '').trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || '');
+    var code = `<video${statements_pro == '' ? '' : ' '}${statements_pro}>${statements_con}</video>\n`;
     return html_escape(code);
-}
+};
 
-Blockly.JavaScript["html_br"] = function (block) {
-    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
-    var code = `<br${(statements_pro == "") ? "" : " "}${statements_pro}></br>\n`;
+Blockly.JavaScript['html_br'] = function (block) {
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || '');
+    var code = `<br${statements_pro == '' ? '' : ' '}${statements_pro}></br>\n`;
     return html_escape(code);
-}
+};
 
-Blockly.JavaScript["html_attribute_style"] = function (block) {
-    var statements_con = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'CON') || "");
+Blockly.JavaScript['html_attribute_style'] = function (block) {
+    var statements_con = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'CON') || '');
     var code = `style="${statements_con}"\n`;
     return html_escape(code);
-}
+};
 
-Blockly.JavaScript["html_css_background_color"] = function (block) {
+Blockly.JavaScript['html_css_background_color'] = function (block) {
     var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
     var code = `background-color:${val};\n`;
     return html_escape(code);
-}
+};
 
-Blockly.JavaScript["html_css"] = function (block) {
+Blockly.JavaScript['html_css_font_size'] = function (block) {
     var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
-    var name = block.getFieldValue('NAME') || "attribute"
+    var code = `font-size:${val};\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_css_font_style'] = function (block) {
+    var mode = block.getFieldValue('MODE');
+    var code = `font-style:${mode};\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_css'] = function (block) {
+    var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var name = block.getFieldValue('NAME') || 'attribute';
     var code = `${name}:${val};\n`;
     return html_escape(code);
-}
+};

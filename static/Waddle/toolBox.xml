@@ -436,6 +436,10 @@ TIP
 		</block>
 		<block type="html_css_background_color">
 		</block>
+		<block type="html_css_font_size">
+		</block>
+		<block type="html_css_font_style">
+		</block>
 		<block type="html_plaintext">
 		</block>
 		<block type="html_js">
