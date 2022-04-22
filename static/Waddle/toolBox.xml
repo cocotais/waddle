@@ -703,6 +703,10 @@ TIP
 				</block>
 			</value>
 		</block>
+		<block type="ivw_addDropdownParams">
+		</block>
+		<block type="ivw_addDropdownItem">
+		</block>
 		<label text="通用事件定义">
 		</label>
 		<block type="ivw_addEvent">
@@ -847,10 +851,6 @@ TIP
 				</block>
 			</statement>
 		</block>
-		<label text="方法参数基本框架">
-		</label>
-		<block type="ivw_addParams">
-		</block>
 		<label text="事件积木基本框架">
 		</label>
 		<block type="ivw_addEvent">
@@ -864,9 +864,19 @@ TIP
 				</block>
 			</statement>
 		</block>
-		<label text="事件参数基本框架">
+		<label text="下拉参数基本框架">
 		</label>
-		<block type="ivw_addParams">
+		<block type="ivw_addDropdownParams">
+			<statement name="dropdownItems">
+				<block type="ivw_addDropdownItem">
+					<field name="label">真</field>
+					<next>
+						<block type="ivw_addDropdownItem">
+							<field name="label">假</field>
+						</block>
+					</next>
+				</block>
+			</statement>
 		</block>
 		<!-- </category> -->
 	</category>

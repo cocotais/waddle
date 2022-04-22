@@ -135,6 +135,31 @@ Blockly.JavaScript['ivw_addParams'] = function (block) {
 	return code;
 };
 
+Blockly.JavaScript['ivw_addDropdownParams'] = function (block) {
+	var text_key = block.getFieldValue('key');
+	var text_label = block.getFieldValue('label');
+	var statements_dropdownItems = Blockly.JavaScript.statementToCode(block, 'dropdownItems');
+	var code = `
+{
+  key: '${text_key}',
+  label: '${text_label}',
+  valueType: 'string',
+  dropdown: [
+	  ${statements_dropdownItems}],
+},
+
+`;
+	return code;
+};
+
+Blockly.JavaScript['ivw_addDropdownItem'] = function (block) {
+	var text_label = block.getFieldValue('label');
+	var code = `\
+{ label: '${text_label}', value: '${text_label}', },
+`;
+	return code;
+};
+
 Blockly.JavaScript['ivw_addEvent'] = function (block) {
 	var text_key = block.getFieldValue('key');
 	var text_label = block.getFieldValue('label');

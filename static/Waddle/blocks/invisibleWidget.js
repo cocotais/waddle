@@ -194,6 +194,39 @@ Blockly.Blocks['ivw_addParams'] = {
 	}
 };
 
+Blockly.Blocks['ivw_addDropdownParams'] = {
+	init: function () {
+		this.appendDummyInput()
+			.appendField("添加下拉参数")
+			.appendField("参数")
+			.appendField(new Blockly.FieldTextInput("paramName"), "key")
+			.appendField("标签")
+			.appendField(new Blockly.FieldTextInput("参数名"), "label");
+		this.appendDummyInput()
+			.appendField("下拉选项")
+		this.appendStatementInput("dropdownItems")
+			.setCheck(null);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour("#3CA9FF");
+		this.setTooltip("定义控件用于方法的参数");
+		this.setHelpUrl(HELP_URL);
+	}
+};
+
+Blockly.Blocks['ivw_addDropdownItem'] = {
+	init: function () {
+		this.appendDummyInput()
+			.appendField("下拉参数")
+			.appendField(new Blockly.FieldTextInput("paramName"), "label");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour("#3CA9FF");
+		this.setTooltip("放到“添加下拉参数”里");
+		this.setHelpUrl(HELP_URL);
+	}
+};
+
 Blockly.Blocks['ivw_addEvent'] = {
 	init: function () {
 		this.appendDummyInput()
