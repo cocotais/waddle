@@ -1494,6 +1494,29 @@ Blockly.Blocks['html_noa_tag_wbr'] = {
     }
 };*/
 
+Blockly.Blocks['html_code'] = {
+    init: function () {
+        this.appendDummyInput().appendField('新建HTML代码').appendField(new Blockly.FieldTextInput('<p>你好</p>'), 'CODE');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['html_tag'] = {
+    init: function () {
+        this.appendStatementInput('CON').setCheck(null).appendField('新建标签 标签名').appendField(new Blockly.FieldTextInput('p'), 'NAME');
+        this.appendStatementInput('PRO').setCheck(null).appendField('属性');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
 Blockly.Blocks['html_attribute'] = {
     init: function () {
         this.appendValueInput('KEY').setCheck('String').appendField('定义属性');
