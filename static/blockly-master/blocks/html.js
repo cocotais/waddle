@@ -1836,6 +1836,61 @@ Blockly.Blocks['html_other_mm'] = {
     }
 };
 
+Blockly.Blocks['html_other_in'] = {
+    init: function () {
+        this.appendValueInput('VAL').setCheck(null);
+        this.appendDummyInput().appendField('英寸');
+        this.setOutput(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['html_other_pt'] = {
+    init: function () {
+        this.appendValueInput('VAL').setCheck(null);
+        this.appendDummyInput().appendField('点');
+        this.setOutput(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['html_other_pc'] = {
+    init: function () {
+        this.appendValueInput('VAL').setCheck(null);
+        this.appendDummyInput().appendField('派卡');
+        this.setOutput(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['html_other_%'] = {
+    init: function () {
+        this.appendValueInput('VAL').appendField('父元素的').setCheck(null);
+        this.appendDummyInput().appendField('%');
+        this.setOutput(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['html_other_em'] = {
+    init: function () {
+        this.appendValueInput('VAL').setCheck(null);
+        this.appendDummyInput().appendField('个字体大小');
+        this.setOutput(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
 Blockly.Blocks['html_css_background_color'] = {
     init: function () {
         this.appendValueInput('VAL').setCheck(null).appendField('定义样式 背景颜色');

@@ -915,6 +915,38 @@ Blockly.JavaScript['html_other_cm'] = function (block) {
 
 Blockly.JavaScript['html_other_mm'] = function (block) {
     var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
-    var code = `${val},,\n`;
+    var code = `${val}mm\n`;
     return html_escape(code);
 };
+
+Blockly.JavaScript['html_other_in'] = function (block) {
+    var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var code = `${val}in\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_other_pt'] = function (block) {
+    var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var code = `${val}pt\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_other_pc'] = function (block) {
+    var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var code = `${val}pc\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_other_%'] = function (block) {
+    var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var code = `${val}%\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_other_em'] = function (block) {
+    var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var code = `${val}em\n`;
+    return html_escape(code);
+};
+
+//wssb
