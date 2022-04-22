@@ -1718,6 +1718,32 @@ Blockly.Blocks['html_attribute_autoplay'] = {
     }
 };
 
+Blockly.Blocks['html_attribute_style'] = {
+    init: function () {
+        this.appendStatementInput("CON")
+            .setCheck(null)
+            .appendField("定义属性 样式");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['html_css_background_color'] = {
+    init: function () {
+        this.appendValueInput("VAL")
+            .setCheck(null)
+            .appendField("定义样式 背景颜色");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['html_plaintext'] = {
     init: function () {
         this.appendDummyInput()

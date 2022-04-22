@@ -687,18 +687,22 @@ js_to_one = (code) => {
     let thisline = ""
     list.forEach(element => {
         thisline = element.trim()
-        if ((!["{",":",";"].includes(thisline.charAt(thisline.length-1)))&thisline!=""){
+        if ((!["{", ":", ";"].includes(thisline.charAt(thisline.length - 1))) & thisline != "") {
             //判断结尾是否为{ : ;
-            newstr=newstr+thisline+";"
-        }else{
-            newstr=newstr+thisline
+            newstr = newstr + thisline + ";"
+        } else {
+            newstr = newstr + thisline
         }
     });
     return escape_quotes(newstr)
 }
 escape_quotes = (str) => {
     //转义引号
-    return str.replaceAll('"',"\"")
+    return str.replaceAll('"', "\"")
+}
+css_to_one = (css) => {
+    //css转一行
+    return escape_quotes(css.split("\n").join(""))
 }
 
 
@@ -858,5 +862,17 @@ Blockly.JavaScript["html_video"] = function (block) {
 Blockly.JavaScript["html_br"] = function (block) {
     var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
     var code = `<br${(statements_pro == "") ? "" : " "}${statements_pro}></br>\n`;
+    return html_escape(code);
+}
+
+Blockly.JavaScript["html_attribute_style"] = function (block) {
+    var statements_con = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'CON') || "");
+    var code = `style="${statements_con}"\n`;
+    return html_escape(code);
+}
+
+Blockly.JavaScript["html_css_background_color"] = function (block) {
+    var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var code = `background-color:${val};\n`;
     return html_escape(code);
 }

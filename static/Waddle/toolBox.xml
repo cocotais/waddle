@@ -430,6 +430,10 @@ TIP
 		</block>
 		<block type="html_attribute_onemptied">
 		</block>
+		<block type="html_attribute_style">
+		</block>
+		<block type="html_css_background_color">
+		</block>
 		<block type="html_plaintext">
 		</block>
 		<block type="html_js">
@@ -619,7 +623,9 @@ TIP
 		<block type="ivwAttri_custom">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">标签</field>
+					<field name="TEXT">
+						标签
+					</field>
 				</block>
 			</value>
 		</block>
@@ -639,21 +645,27 @@ TIP
 		<block type="ivwAttri_valueType">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">值类型</field>
+					<field name="TEXT">
+						值类型
+					</field>
 				</block>
 			</value>
 		</block>
 		<block type="ivwAttri_label">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">标签</field>
+					<field name="TEXT">
+						标签
+					</field>
 				</block>
 			</value>
 		</block>
 		<block type="ivwAttri_defaultValue">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">默认值</field>
+					<field name="TEXT">
+						默认值
+					</field>
 				</block>
 			</value>
 		</block>
@@ -664,28 +676,36 @@ TIP
 		<block type="ivwAttri_key">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">方法名</field>
+					<field name="TEXT">
+						方法名
+					</field>
 				</block>
 			</value>
 		</block>
 		<block type="ivwAttri_valueType">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">返回值类型（可选，不填则不返回）</field>
+					<field name="TEXT">
+						返回值类型（可选，不填则不返回）
+					</field>
 				</block>
 			</value>
 		</block>
 		<block type="ivwAttri_label">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">标签</field>
+					<field name="TEXT">
+						标签
+					</field>
 				</block>
 			</value>
 		</block>
 		<block type="ivwAttri_labelAfter">
 			<value name="value">
 				<block type="text">
-					<field name="TEXT">尾标签</field>
+					<field name="TEXT">
+						尾标签
+					</field>
 				</block>
 			</value>
 		</block>
@@ -704,7 +724,9 @@ TIP
 		<block type="ivw_emit">
 			<value name="event">
 				<block type="text">
-					<field name="TEXT">事件名</field>
+					<field name="TEXT">
+						事件名
+					</field>
 				</block>
 			</value>
 		</block>
@@ -786,14 +808,18 @@ TIP
 				<block type="ivwAttri_valueType">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">值类型</field>
+							<field name="TEXT">
+								值类型
+							</field>
 						</block>
 					</value>
 					<next>
 						<block type="ivwAttri_defaultValue">
 							<value name="value">
 								<block type="text">
-									<field name="TEXT">默认值</field>
+									<field name="TEXT">
+										默认值
+									</field>
 								</block>
 							</value>
 						</block>
@@ -810,7 +836,9 @@ TIP
 				<block type="ivwAttri_defaultValue">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">默认值</field>
+							<field name="TEXT">
+								默认值
+							</field>
 						</block>
 					</value>
 				</block>
@@ -842,14 +870,18 @@ TIP
 				<block type="ivwAttri_valueType">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">值类型</field>
+							<field name="TEXT">
+								值类型
+							</field>
 						</block>
 					</value>
 					<next>
 						<block type="ivwAttri_defaultValue">
 							<value name="value">
 								<block type="text">
-									<field name="TEXT">默认值</field>
+									<field name="TEXT">
+										默认值
+									</field>
 								</block>
 							</value>
 						</block>
@@ -864,7 +896,9 @@ TIP
 				<block type="ivwAttri_valueType">
 					<value name="value">
 						<block type="text">
-							<field name="TEXT">参数类型</field>
+							<field name="TEXT">
+								参数类型
+							</field>
 						</block>
 					</value>
 				</block>
