@@ -633,6 +633,11 @@ TIP
 		<label text="通用属性定义">
 		</label>
 		<block type="ivw_addProperty">
+			<value name="defaultValue">
+				<block type="text">
+					<field name="TEXT">默认值</field>
+				</block>
+			</value>
 		</block>
 		<!--
 		<block type="ivwAttri_key">
@@ -798,24 +803,11 @@ TIP
 		<label text="属性积木基本框架">
 		</label>
 		<block type="ivw_addProperty">
-			<statement name="other">
-				<block type="ivwAttri_valueType">
-					<value name="value">
-						<block type="text">
-							<field name="TEXT">值类型</field>
-						</block>
-					</value>
-					<next>
-						<block type="ivwAttri_defaultValue">
-							<value name="value">
-								<block type="text">
-									<field name="TEXT">默认值</field>
-								</block>
-							</value>
-						</block>
-					</next>
+			<value name="defaultValue">
+				<block type="text">
+					<field name="TEXT">默认值</field>
 				</block>
-			</statement>
+			</value>
 		</block>
 		<label text="方法积木基本框架">
 		</label>
