@@ -440,6 +440,8 @@ TIP
 		</block>
 		<block type="html_css_font_style">
 		</block>
+		<block type="html_css_text_decoration">
+		</block>
 		<block type="html_plaintext">
 		</block>
 		<block type="html_js">

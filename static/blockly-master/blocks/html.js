@@ -1780,6 +1780,29 @@ Blockly.Blocks['html_css_font_style'] = {
     }
 };
 
+Blockly.Blocks['html_css_text_decoration'] = {
+    init: function () {
+        this.appendDummyInput('VAL')
+            .appendField('定义样式 字体修饰')
+            .appendField(
+                new Blockly.FieldDropdown([
+                    ['无', 'none'],
+                    ['下划线', 'underline'],
+                    ['上划线', 'overline'],
+                    ['删除线', 'line-through'],
+                    ['闪烁', 'blink'],
+                    ['继承父元素', 'inherit']
+                ]),
+                'MODE'
+            );
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
 Blockly.Blocks['html_css_background_color'] = {
     init: function () {
         this.appendValueInput('VAL').setCheck(null).appendField('定义样式 背景颜色');

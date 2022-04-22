@@ -888,6 +888,12 @@ Blockly.JavaScript['html_css_font_style'] = function (block) {
     return html_escape(code);
 };
 
+Blockly.JavaScript['html_css_text_decoration'] = function (block) {
+    var mode = block.getFieldValue('MODE');
+    var code = `text-decoration:${mode};\n`;
+    return html_escape(code);
+};
+
 Blockly.JavaScript['html_css'] = function (block) {
     var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
     var name = block.getFieldValue('NAME') || 'attribute';
