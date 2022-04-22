@@ -432,6 +432,8 @@ TIP
 		</block>
 		<block type="html_attribute_style">
 		</block>
+		<block type="html_css">
+		</block>
 		<block type="html_css_background_color">
 		</block>
 		<block type="html_plaintext">

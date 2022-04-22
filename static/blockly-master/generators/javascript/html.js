@@ -876,3 +876,10 @@ Blockly.JavaScript["html_css_background_color"] = function (block) {
     var code = `background-color:${val};\n`;
     return html_escape(code);
 }
+
+Blockly.JavaScript["html_css"] = function (block) {
+    var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var name = block.getFieldValue('NAME') || "attribute"
+    var code = `${name}:${val};\n`;
+    return html_escape(code);
+}

@@ -1731,6 +1731,21 @@ Blockly.Blocks['html_attribute_style'] = {
     }
 };
 
+Blockly.Blocks['html_css'] = {
+    init: function () {
+        this.appendValueInput("VAL")
+            .setCheck(null)
+            .appendField("定义样式 ")
+            .appendField(new Blockly.FieldTextInput("display"), "NAME")
+            .appendField("的值为");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['html_css_background_color'] = {
     init: function () {
         this.appendValueInput("VAL")
@@ -1743,6 +1758,7 @@ Blockly.Blocks['html_css_background_color'] = {
         this.setHelpUrl("");
     }
 };
+
 
 Blockly.Blocks['html_plaintext'] = {
     init: function () {
