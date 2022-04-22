@@ -402,6 +402,10 @@ TIP
 	<sep>
 	</sep>
 	<category name="HTML" css-icon="iconfont waddle-tool">
+		<block type="html_code">
+		</block>
+		<block type="html_tag">
+		</block>
 		<block type="html_attribute">
 		</block>
 		<block type="html_attribute_href">

@@ -830,6 +830,16 @@ Blockly.JavaScript['html_h123456'] = function (block) {
     return html_escape(code);
 };
 
+Blockly.JavaScript['html_tag'] = function (block) {
+    var name = block.getFieldValue('NAME');
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || '').trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || '');
+    // TODO: Assemble JavaScript into code variable.
+    console.log(statements_pro, statements_pro == '');
+    var code = `<${name}${statements_pro == '' ? '' : ' '}${statements_pro}>${statements_con}</${name}>\n`;
+    return html_escape(code);
+};
+
 Blockly.JavaScript['html_a'] = function (block) {
     var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || '').trim();
     var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || '');
@@ -945,6 +955,12 @@ Blockly.JavaScript['html_other_%'] = function (block) {
 
 Blockly.JavaScript['html_other_em'] = function (block) {
     var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var code = `${val}em\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_code'] = function (block) {
+    var val = block.getFieldValue('CODE');
     var code = `${val}em\n`;
     return html_escape(code);
 };
