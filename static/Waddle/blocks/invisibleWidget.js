@@ -111,6 +111,7 @@ Blockly.Blocks['ivw_addProperty'] = {
 	}
 };
 
+// 有点可怕（（，这大小写不对
 Blockly.Blocks['ivw_getproperty'] = {
 	init: function () {
 		this.appendDummyInput()
@@ -127,7 +128,7 @@ Blockly.Blocks['ivw_getproperty'] = {
 Blockly.Blocks['ivw_getparam'] = {
 	init: function () {
 		this.appendDummyInput()
-			.appendField("获取事件参数")
+			.appendField("获取参数")
 			.appendField(new Blockly.FieldTextInput("key"), "KEY")
 			.appendField("的值");
 		this.setOutput(true, null);
