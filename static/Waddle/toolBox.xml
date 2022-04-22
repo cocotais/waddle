@@ -426,6 +426,10 @@ TIP
 		</block>
 		<block type="html_attribute_onmouseout">
 		</block>
+		<block type="html_attribute_autoplay">
+		</block>
+		<block type="html_attribute_onemptied">
+		</block>
 		<block type="html_plaintext">
 		</block>
 		<block type="html_js">
@@ -439,6 +443,10 @@ TIP
 		<block type="html_button">
 		</block>
 		<block type="html_img">
+		</block>
+		<block type="html_video">
+		</block>
+		<block type="html_br">
 		</block>
 	</category>
 	<category name="lodash" css-icon="iconfont waddle-tool">

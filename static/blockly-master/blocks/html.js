@@ -1588,6 +1588,19 @@ Blockly.Blocks['html_attribute_onmouseout'] = {
     }
 };
 
+Blockly.Blocks['html_attribute_onemptied'] = {
+    init: function () {
+        this.appendStatementInput("FUN")
+            .setCheck(null)
+            .appendField("定义属性 当媒体文件不可用时");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 
 Blockly.Blocks['html_js'] = {
     init: function () {
@@ -1692,6 +1705,19 @@ Blockly.Blocks['html_attribute_disabled'] = {
     }
 };
 
+Blockly.Blocks['html_attribute_autoplay'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("定义属性 媒体文件加载后")
+            .appendField(new Blockly.FieldDropdown([["自动播放", "autoplay"], ["不自动播放", " "]]), "MODE");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['html_plaintext'] = {
     init: function () {
         this.appendDummyInput()
@@ -1760,6 +1786,37 @@ Blockly.Blocks['html_img'] = {
         this.appendStatementInput("CON")
             .setCheck(null)
             .appendField("新建图片");
+        this.appendStatementInput("PRO")
+            .setCheck(null)
+            .appendField("属性");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['html_video'] = {
+    init: function () {
+        this.appendStatementInput("CON")
+            .setCheck(null)
+            .appendField("新建视频");
+        this.appendStatementInput("PRO")
+            .setCheck(null)
+            .appendField("属性");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['html_br'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("新建换行");
         this.appendStatementInput("PRO")
             .setCheck(null)
             .appendField("属性");

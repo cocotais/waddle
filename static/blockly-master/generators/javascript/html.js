@@ -757,6 +757,12 @@ Blockly.JavaScript['html_attribute_loading'] = function (block) {
     return code;
 };
 
+Blockly.JavaScript['html_attribute_autoplay'] = function (block) {
+    var dropdown_mode = block.getFieldValue('MODE');
+    var code = `autoplay="${dropdown_mode}"\n`;
+    return code;
+};
+
 Blockly.JavaScript['html_attribute_onclick'] = function (block) {
     var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'))
     // TODO: Assemble JavaScript into code variable.
@@ -782,6 +788,13 @@ Blockly.JavaScript['html_attribute_onmouseout'] = function (block) {
     var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'))
     // TODO: Assemble JavaScript into code variable.
     var code = `onmouseout="${statements_fun}"\n`;
+    return code;
+};
+
+Blockly.JavaScript['html_attribute_onemptied'] = function (block) {
+    var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'))
+    // TODO: Assemble JavaScript into code variable.
+    var code = `onemptied="${statements_fun}"\n`;
     return code;
 };
 
@@ -832,5 +845,18 @@ Blockly.JavaScript["html_img"] = function (block) {
     var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();
     var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
     var code = `<img${(statements_pro == "") ? "" : " "}${statements_pro}>${statements_con}</img>\n`;
+    return html_escape(code);
+}
+
+Blockly.JavaScript["html_video"] = function (block) {
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || "").trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
+    var code = `<video${(statements_pro == "") ? "" : " "}${statements_pro}>${statements_con}</video>\n`;
+    return html_escape(code);
+}
+
+Blockly.JavaScript["html_br"] = function (block) {
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || "");
+    var code = `<br${(statements_pro == "") ? "" : " "}${statements_pro}></br>\n`;
     return html_escape(code);
 }
