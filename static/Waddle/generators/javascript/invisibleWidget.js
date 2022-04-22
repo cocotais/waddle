@@ -69,6 +69,8 @@ Blockly.JavaScript['ivw_addProperty'] = function (block) {
 types['properties'].push({
   key: '${text_key}',
   label: '${text_label}',
+  valueType: ${text_valueType == "['string','number','boolean','array','object',]" ? text_valueType : ("'" + text_valueType + "'")},
+  defaultValue: ${value_defaultValue},
 ${statements_other}
 })
 `;

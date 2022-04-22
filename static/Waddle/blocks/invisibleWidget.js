@@ -101,6 +101,11 @@ Blockly.Blocks['ivw_addProperty'] = {
 			.appendField(new Blockly.FieldTextInput("propertyName"), "key")
 			.appendField("属性名")
 			.appendField(new Blockly.FieldTextInput("属性1"), "label");
+		this.appendDummyInput()
+			.appendField("属性值类型")
+			.appendField(new Blockly.FieldDropdown([["字符串", "string"], ["数字", "number"], ["布尔", "boolean"], ["任何类型", "['string','number','boolean','array','object',]"]]), "valueType");
+		this.appendValueInput("defaultValue")
+			.appendField("默认值");
 		this.appendStatementInput("other")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
