@@ -460,6 +460,12 @@ TIP
 		</block>
 		<block type="html_br">
 		</block>
+		<block type="html_other_px">
+		</block>
+		<block type="html_other_cm">
+		</block>
+		<block type="html_other_mm">
+		</block>
 	</category>
 	<category name="lodash" css-icon="iconfont waddle-tool">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">

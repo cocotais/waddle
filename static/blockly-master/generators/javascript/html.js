@@ -900,3 +900,21 @@ Blockly.JavaScript['html_css'] = function (block) {
     var code = `${name}:${val};\n`;
     return html_escape(code);
 };
+
+Blockly.JavaScript['html_other_px'] = function (block) {
+    var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var code = `${val}px\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_other_cm'] = function (block) {
+    var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var code = `${val}cm\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_other_mm'] = function (block) {
+    var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var code = `${val},,\n`;
+    return html_escape(code);
+};

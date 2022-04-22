@@ -1803,6 +1803,39 @@ Blockly.Blocks['html_css_text_decoration'] = {
     }
 };
 
+Blockly.Blocks['html_other_px'] = {
+    init: function () {
+        this.appendValueInput('VAL').setCheck(null);
+        this.appendDummyInput().appendField('像素');
+        this.setOutput(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['html_other_cm'] = {
+    init: function () {
+        this.appendValueInput('VAL').setCheck(null);
+        this.appendDummyInput().appendField('厘米');
+        this.setOutput(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['html_other_mm'] = {
+    init: function () {
+        this.appendValueInput('VAL').setCheck(null);
+        this.appendDummyInput().appendField('毫米');
+        this.setOutput(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
 Blockly.Blocks['html_css_background_color'] = {
     init: function () {
         this.appendValueInput('VAL').setCheck(null).appendField('定义样式 背景颜色');
