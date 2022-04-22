@@ -961,7 +961,7 @@ Blockly.JavaScript['html_other_em'] = function (block) {
 
 Blockly.JavaScript['html_code'] = function (block) {
     var val = block.getFieldValue('CODE');
-    var code = `${val}em\n`;
+    var code = `${val}\n`;
     return html_escape(code);
 };
 
