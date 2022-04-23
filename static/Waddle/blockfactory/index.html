@@ -75,7 +75,7 @@
           <a id="dropdown_addAllUsed" title="Select all block library blocks used in workspace factory.">All Used in
             工作区工厂</a>
         </div>
-        <button id="clearSelectedButton" title="Clear selected blocks.">Clear Selected</button>
+        <button id="clearSelectedButton" title="Clear selected blocks.">关掉，一定要关掉</button>
       </div>
 
       <div id="blockSelector"></div>
@@ -88,10 +88,10 @@
       <form id="exportSettingsForm">
 
         <div id="selectedBlocksTextContainer">
-          <p>Currently Selected:</p>
+          <p>已经选了:</p>
           <p id="selectedBlocksText"></p>
         </div>
-        <label><input type="checkbox" id="blockDefCheck">Block Definition(s)</label><br>
+        <label><input type="checkbox" id="blockDefCheck">块定义</label><br>
         <div id="blockDefSettings" class="subsettings">
           <label>格式:
             <select id="exportFormat">
@@ -127,11 +127,11 @@
       <br>
       <h3>导出预览</h3>
       <div id="blockDefs" class="exportPreviewTextArea">
-        <p id="blockDefs_label">Block Definitions:</p>
+        <p id="blockDefs_label">块定义:</p>
         <pre id="blockDefs_textArea" class="prettyprint lang-js"></pre>
       </div>
       <div id="genStubs" class="exportPreviewTextArea">
-        <p id="genStubs_label">Generator Stubs:</p>
+        <p id="genStubs_label">生成器(需自己再修改):</p>
         <pre id="genStubs_textArea" class="prettyprint lang-js"></pre>
       </div>
     </div>
@@ -143,55 +143,55 @@
     <div id="factoryHeader">
       <p>
       <div class="dropdown">
-        <button id="button_importBlocks">Import Custom Blocks</button>
+        <button id="button_importBlocks">导入自定义块</button>
         <div id="dropdownDiv_importBlocks" class="dropdown-content">
           <input type="file" id="input_importBlocksJson" accept=".js, .json, .txt" class="inputfile">
-          <label for="input_importBlocksJson">From JSON</label>
+          <label for="input_importBlocksJson">从JSON</label>
           <input type="file" id="input_importBlocksJs" accept=".js, .txt" class="inputfile">
-          <label for="input_importBlocksJs">From Javascript</label>
+          <label for="input_importBlocksJs">从Javascript</label>
         </div>
       </div>
 
       <div class="dropdown">
-        <button id="button_load">Load to Edit</button>
+        <button id="button_load">上传编辑</button>
         <div id="dropdownDiv_load" class="dropdown-content">
           <input type="file" id="input_loadToolbox" accept=".xml" class="inputfile">
-          <label for="input_loadToolbox">Toolbox</label>
+          <label for="input_loadToolbox">工具箱</label>
           <input type="file" id="input_loadPreload" accept=".xml" class="inputfile">
-          <label for="input_loadPreload">Workspace Blocks</label>
+          <label for="input_loadPreload">工作区代码</label>
         </div>
       </div>
 
       <div class="dropdown">
-        <button id="button_export">Export</button>
+        <button id="button_export">导出</button>
         <div id="dropdownDiv_export" class="dropdown-content">
-          <a id="dropdown_exportOptions">Starter Code</a>
-          <a id="dropdown_exportToolbox">Toolbox</a>
-          <a id="dropdown_exportPreload">Workspace Blocks</a>
-          <a id="dropdown_exportAll">All</a>
+          <a id="dropdown_exportOptions">基础代码</a>
+          <a id="dropdown_exportToolbox">工具箱</a>
+          <a id="dropdown_exportPreload">工作区块</a>
+          <a id="dropdown_exportAll">我全都要</a>
         </div>
       </div>
 
-      <button id="button_clear">Clear</button>
+      <button id="button_clear">关掉，一定要关掉</button>
       </p>
     </div>
 
     <section id="createDiv">
       <div id="createHeader">
-        <h3>Edit</h3>
-        <p id="editHelpText">Drag blocks into the workspace to configure the toolbox in your custom workspace.</p>
+        <h3>编辑</h3>
+        <p id="editHelpText">拖块到工作区来配置工作箱在你的自定义工作区里。</p>
       </div>
       <table id="workspaceTabs" style="width:auto; height:auto">
         <tr>
-          <td id="tab_toolbox" class="tabon">Toolbox</td>
-          <td id="tab_preload" class="taboff">Workspace</td>
+          <td id="tab_toolbox" class="tabon">工具箱</td>
+          <td id="tab_preload" class="taboff">工作区</td>
         </tr>
       </table>
       <section id="toolbox_section">
         <div id="toolbox_blocks"></div>
       </section>
       <aside id="toolbox_div">
-        <p id="categoryHeader">You currently have no categories.</p>
+        <p id="categoryHeader">没建分类你</p>
         <table id="categoryTable" style="width:auto; height:auto">
         </table>
         <p>&nbsp;</p>
@@ -199,27 +199,27 @@
         <div class="dropdown">
           <button id="button_add" class="large">+</button>
           <div id="dropdownDiv_add" class="dropdown-content">
-            <a id="dropdown_newCategory">New Category</a>
-            <a id="dropdown_loadCategory">Standard Category</a>
-            <a id="dropdown_separator">Separator</a>
-            <a id="dropdown_loadStandardToolbox">Standard Toolbox</a>
+            <a id="dropdown_newCategory">新分类！！</a>
+            <a id="dropdown_loadCategory">标准分类</a>
+            <a id="dropdown_separator">分割符</a>
+            <a id="dropdown_loadStandardToolbox">标准工作箱</a>
           </div>
         </div>
 
-        <button id="button_remove" class="large">-</button>
+        <button id="button_remove" class="large">关掉，一定要关掉/button>
 
-        <button id="button_up" class="large">&#8593;</button>
-        <button id="button_down" class="large">&#8595;</button>
+          <button id="button_up" class="large">&#8593;</button>
+          <button id="button_down" class="large">&#8595;</button>
 
-        <br>
-        <div class="dropdown">
-          <button id="button_editCategory">Edit Category...</button>
-          <div id="dropdownDiv_editCategory" class="dropdown-content">
-            <input id="categoryName">
-            <input id="categoryColour" value="000000">
-            <button id="categorySave">Save</button>
+          <br>
+          <div class="dropdown">
+            <button id="button_editCategory">编辑分类</button>
+            <div id="dropdownDiv_editCategory" class="dropdown-content">
+              <input id="categoryName">
+              <input id="categoryColour" value="000000">
+              <button id="categorySave">保存！！！！！！！</button>
+            </div>
           </div>
-        </div>
 
       </aside>
 
