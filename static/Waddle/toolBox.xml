@@ -504,6 +504,8 @@ TIP
 		</block>
 		<block type="html_getelementbyclass">
 		</block>
+		<block type="htmldom_appendchild">
+		</block>
 	</category>
 	<category name="lodash" css-icon="iconfont waddle-tool">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">

@@ -43,3 +43,16 @@ Blockly.Blocks['html_getelementbytagname'] = {
         this.setHelpUrl('');
     }
 };
+
+Blockly.Blocks['htmldom_appendchild'] = {
+    init: function () {
+        this.appendValueInput('VAL1').setCheck(null).appendField('将');
+        this.appendValueInput('VAL2').setCheck(null).appendField('添加到');
+        this.appendDummyInput().appendField('的子元素的末尾');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};

@@ -23,3 +23,10 @@ Blockly.JavaScript['html_getelementbytagname'] = function (block) {
     var code = `${value_node}.getElementByTagName(${value_id})`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['htmldom_appendchild'] = function (block) {
+    var value_val1 = Blockly.JavaScript.valueToCode(block, 'VAL1', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_val2 = Blockly.JavaScript.valueToCode(block, 'VAL2', Blockly.JavaScript.ORDER_ATOMIC) || 'document';
+    var code = `${value_val2}.appendChild(${value_val1});\n`;
+    return code;
+};
