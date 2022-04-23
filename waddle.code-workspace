@@ -9,5 +9,10 @@
         "files.autoSaveDelay": 60000,
         "editor.tabSize": 4,
         "editor.wordWrap": "on"
+    },
+    "extensions": {
+        "recommendations": [
+            "esbenp.prettier-vscode"
+        ]
     }
 }
