@@ -452,6 +452,8 @@ TIP
 		</block>
 		<block type="html_js2">
 		</block>
+		<block type="html_div">
+		</block>
 		<block type="html_h123456">
 		</block>
 		<block type="html_a">
@@ -469,6 +471,10 @@ TIP
 		<block type="html_iframe">
 		</block>
 		<block type="html_b">
+		</block>
+		<block type="html_footer">
+		</block>
+		<block type="html_noscript">
 		</block>
 		<block type="html_other_px">
 		</block>
