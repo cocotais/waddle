@@ -101,6 +101,11 @@ Blockly.Blocks['ivw_addProperty'] = {
 			.appendField(new Blockly.FieldTextInput("propertyName"), "key")
 			.appendField("属性名")
 			.appendField(new Blockly.FieldTextInput("属性1"), "label");
+		this.appendDummyInput()
+			.appendField("属性值类型")
+			.appendField(new Blockly.FieldDropdown([["字符串", "string"], ["数字", "number"], ["布尔", "boolean"], ["任何类型", "['string','number','boolean','array','object',]"]]), "valueType");
+		this.appendValueInput("defaultValue")
+			.appendField("默认值");
 		this.appendStatementInput("other")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
@@ -111,6 +116,7 @@ Blockly.Blocks['ivw_addProperty'] = {
 	}
 };
 
+// 有点可怕（（，这大小写不对
 Blockly.Blocks['ivw_getproperty'] = {
 	init: function () {
 		this.appendDummyInput()
@@ -127,7 +133,7 @@ Blockly.Blocks['ivw_getproperty'] = {
 Blockly.Blocks['ivw_getparam'] = {
 	init: function () {
 		this.appendDummyInput()
-			.appendField("获取事件参数")
+			.appendField("获取参数")
 			.appendField(new Blockly.FieldTextInput("key"), "KEY")
 			.appendField("的值");
 		this.setOutput(true, null);
@@ -178,14 +184,50 @@ Blockly.Blocks['ivw_addParams'] = {
 		this.appendDummyInput()
 			.appendField("输入值类型")
 			.appendField(new Blockly.FieldDropdown([["字符串", "string"], ["数字", "number"], ["布尔", "boolean"], ["任何类型", "['string','number','boolean','array','object',]"]]), "valueType");
+		this.appendValueInput("defaultValue")
+			.appendField("默认值");
+		// 以下弃用
+		// this.appendDummyInput()
+		// 	.appendField("积木选项")
+		// this.appendStatementInput("other")
+		// 	.setCheck(null);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour("#3CA9FF");
+		this.setTooltip("定义控件用于方法的参数");
+		this.setHelpUrl(HELP_URL);
+	}
+};
+
+Blockly.Blocks['ivw_addDropdownParams'] = {
+	init: function () {
 		this.appendDummyInput()
-			.appendField("积木选项")
-		this.appendStatementInput("other")
+			.appendField("添加下拉参数")
+			.appendField("参数")
+			.appendField(new Blockly.FieldTextInput("paramName"), "key")
+			.appendField("标签")
+			.appendField(new Blockly.FieldTextInput("参数名"), "label");
+		this.appendDummyInput()
+			.appendField("下拉选项")
+		this.appendStatementInput("dropdownItems")
 			.setCheck(null);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour("#3CA9FF");
 		this.setTooltip("定义控件用于方法的参数");
+		this.setHelpUrl(HELP_URL);
+	}
+};
+
+Blockly.Blocks['ivw_addDropdownItem'] = {
+	init: function () {
+		this.appendDummyInput()
+			.appendField("下拉参数")
+			.appendField(new Blockly.FieldTextInput("paramName"), "label");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour("#3CA9FF");
+		this.setTooltip("放到“添加下拉参数”里");
 		this.setHelpUrl(HELP_URL);
 	}
 };
