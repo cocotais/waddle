@@ -11,7 +11,7 @@ Blockly.Blocks['htmldom_document'] = {
 Blockly.Blocks['html_getelementbyid'] = {
     init: function () {
         this.appendValueInput('NODE').setCheck('Node').appendField('从');
-        this.appendValueInput('ID').setCheck(null).appendField('获取id为');
+        this.appendValueInput('ID').setCheck(null).appendField('获取编号为');
         this.appendDummyInput().appendField('的元素');
         this.setOutput(true, 'Node');
         this.setColour(230);
@@ -23,7 +23,7 @@ Blockly.Blocks['html_getelementbyid'] = {
 Blockly.Blocks['html_getelementbyclass'] = {
     init: function () {
         this.appendValueInput('NODE').setCheck('Node').appendField('从');
-        this.appendValueInput('CLASS').setCheck(null).appendField('获取class为');
+        this.appendValueInput('CLASS').setCheck(null).appendField('获取类为');
         this.appendDummyInput().appendField('的元素列表');
         this.setOutput(true, 'Array');
         this.setColour(230);
