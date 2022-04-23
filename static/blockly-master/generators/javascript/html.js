@@ -988,4 +988,11 @@ Blockly.JavaScript['html_code'] = function (block) {
     return html_escape(code);
 };
 
+Blockly.JavaScript['html_div'] = function (block) {
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || '').trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || '');
+    var code = `<div${statements_pro == '' ? '' : ' '}${statements_pro}>${statements_con}</div>`;
+    return html_escape(code);
+};
+
 //wssb
