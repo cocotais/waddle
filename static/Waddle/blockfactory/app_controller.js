@@ -263,7 +263,7 @@ AppController.prototype.onTab = function() {
     var hasUnsavedChanges =
         !FactoryUtils.savedBlockChanges(this.blockLibraryController);
     if (hasUnsavedChanges) {
-      var msg = 'You have unsaved changes in Block Factory.';
+      var msg = '没保存更改你';
       var continueAnyway = confirm(msg);
       BlocklyDevTools.Analytics.onWarning(msg);
       if (!continueAnyway) {

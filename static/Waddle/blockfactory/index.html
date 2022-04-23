@@ -206,35 +206,35 @@
           </div>
         </div>
 
-        <button id="button_remove" class="large">关掉，一定要关掉/button>
+        <button id="button_remove" class="large">关掉，一定要关掉</button>
 
-          <button id="button_up" class="large">&#8593;</button>
-          <button id="button_down" class="large">&#8595;</button>
+        <button id="button_up" class="large">&#8593;</button>
+        <button id="button_down" class="large">&#8595;</button>
 
-          <br>
-          <div class="dropdown">
-            <button id="button_editCategory">编辑分类</button>
-            <div id="dropdownDiv_editCategory" class="dropdown-content">
-              <input id="categoryName">
-              <input id="categoryColour" value="000000">
-              <button id="categorySave">保存！！！！！！！</button>
-            </div>
+        <br>
+        <div class="dropdown">
+          <button id="button_editCategory">编辑分类</button>
+          <div id="dropdownDiv_editCategory" class="dropdown-content">
+            <input id="categoryName">
+            <input id="categoryColour" value="000000">
+            <button id="categorySave">保存！！！！！！！</button>
           </div>
+        </div>
 
       </aside>
 
-      <button id="button_addShadow" style="display: none">Make Shadow</button>
-      <button id="button_removeShadow" style="display: none">Remove Shadow</button>
+      <button id="button_addShadow" style="display: none">新建阴影块</button>
+      <button id="button_removeShadow" style="display: none">扔掉阴影块</button>
 
       <aside id="preload_div" style="display:none">
         <div id="preloadHelp">
-          <p>Configure the options for your Blockly inject call.</p>
-          <button id="button_optionsHelp">Help</button>
-          <button class="small" id="button_standardOptions">Reset to Default</button>
+          <p>配置Blockly注入调用的选项</p>
+          <button id="button_optionsHelp">帮我！！11</button>
+          <button class="small" id="button_standardOptions">恢复默认</button>
         </div>
         <div id="workspace_options">
-          <label><input type="checkbox" id="option_readOnly_checkbox">Read Only</label><br>
-          <label><input type="checkbox" id="option_grid_checkbox">Use Grid</label><br>
+          <label><input type="checkbox" id="option_readOnly_checkbox">只读</label><br>
+          <label><input type="checkbox" id="option_grid_checkbox">使用网格</label><br>
           <div id="grid_options" style="display: none">
             <label>Spacing <input type="number" id="gridOption_spacing_number" style="width: 3em"></label><br>
             <label>Length <input type="number" id="gridOption_length_number" style="width: 3em"></label><br>
@@ -278,7 +278,7 @@
     <aside id="previewDiv">
       <div id="previewBorder">
         <div id="previewHelp">
-          <h3>Preview</h3>
+          <h3>预览</h3>
           <p>This is what your custom workspace will look like.</p>
         </div>
         <div id="preview_blocks" class="content"></div>
@@ -319,10 +319,10 @@
         <table id="blockFactoryPreview">
           <tr>
             <td id="previewContainer">
-              <h3>Preview:
+              <h3>预览:
                 <select id="direction">
-                  <option value="ltr">LTR</option>
-                  <option value="rtl">RTL</option>
+                  <option value="ltr">左到右</option>
+                  <option value="rtl">右到左</option>
                 </select>
               </h3>
             </td>
@@ -331,14 +331,14 @@
                 <img src="link.png" height="21" width="21">
               </button>
               <button id="clearBlockLibraryButton" title="Clear Block Library.">
-                <span>Clear Library</span>
+                <span>关掉，一定要关掉</span>
               </button>
               <label for="files" class="buttonStyle">
-                <span class=>Import Block Library</span>
+                <span class=>导入块库</span>
               </label>
               <input id="files" type="file" name="files" accept="application/xml">
               <button id="localSaveButton" title="Save block library XML to a local file.">
-                <span>Download Block Library</span>
+                <span>下载块库</span>
               </button>
             </td>
           </tr>
@@ -359,7 +359,7 @@
           </tr>
           <tr>
             <td height="5%">
-              <h3>Block Definition:
+              <h3>块定义:
                 <!-- TODO(#1268): Separate concerns of format and editable.
                   -               Add "Editable" state toggle button? -->
                 <select id="format">
@@ -387,7 +387,7 @@
           </tr>
           <tr>
             <td height="5%">
-              <h3>Generator stub:
+              <h3>生成器(需要自己再改):
                 <select id="language">
                   <option value="JavaScript">JavaScript</option>
                   <option value="Python">Python</option>
