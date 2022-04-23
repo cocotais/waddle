@@ -875,6 +875,22 @@ Blockly.JavaScript['html_input'] = function (block) {
     return html_escape(code);
 };
 
+Blockly.JavaScript['html_iframe'] = function (block) {
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || '').trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || '');
+    var code = `<iframe${statements_pro == '' ? '' : ' '}${statements_pro}>${statements_con}</iframe>
+    `;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_b'] = function (block) {
+    var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || '').trim();
+    var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || '');
+    var code = `<b${statements_pro == '' ? '' : ' '}${statements_pro}>${statements_con}</b>
+    `;
+    return html_escape(code);
+};
+
 Blockly.JavaScript['html_br'] = function (block) {
     var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || '');
     var code = `<br${statements_pro == '' ? '' : ' '}${statements_pro}></br>\n`;
