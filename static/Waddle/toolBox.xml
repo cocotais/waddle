@@ -20,30 +20,25 @@ TIP
 		<block type="controls_repeat_ext">
 			<value name="TIMES">
 				<block type="math_number">
-					<field name="NUM">
-						10</field>
+					<field name="NUM">10</field>
 				</block>
 			</value>
 		</block>
 		<block type="controls_for">
-			<field name="VAR">
-				i</field>
+			<field name="VAR">i</field>
 			<value name="FROM">
 				<block type="math_number">
-					<field name="NUM">
-						1</field>
+					<field name="NUM">1</field>
 				</block>
 			</value>
 			<value name="TO">
 				<block type="math_number">
-					<field name="NUM">
-						10</field>
+					<field name="NUM">10</field>
 				</block>
 			</value>
 			<value name="BY">
 				<block type="math_number">
-					<field name="NUM">
-						1</field>
+					<field name="NUM">1</field>
 				</block>
 			</value>
 		</block>
@@ -65,8 +60,7 @@ TIP
 	</category>
 	<category name="数学" css-icon="iconfont waddle-math" colour="#FEAE8A">
 		<block type="math_number">
-			<field name="NUM">
-				114514</field>
+			<field name="NUM">114514</field>
 		</block>
 		<block type="logic_compare">
 		</block>
@@ -97,28 +91,24 @@ TIP
 		<block type="math_constrain">
 			<value name="LOW">
 				<block type="math_number">
-					<field name="NUM">
-						114</field>
+					<field name="NUM">114</field>
 				</block>
 			</value>
 			<value name="HIGH">
 				<block type="math_number">
-					<field name="NUM">
-						514</field>
+					<field name="NUM">514</field>
 				</block>
 			</value>
 		</block>
 		<block type="math_random_int">
 			<value name="FROM">
 				<block type="math_number">
-					<field name="NUM">
-						191</field>
+					<field name="NUM">191</field>
 				</block>
 			</value>
 			<value name="TO">
 				<block type="math_number">
-					<field name="NUM">
-						9810</field>
+					<field name="NUM">9810</field>
 				</block>
 			</value>
 		</block>
@@ -182,40 +172,34 @@ TIP
 		<block type="colour_rgb">
 			<value name="RED">
 				<shadow type="math_number">
-					<field name="NUM">
-						100</field>
+					<field name="NUM">100</field>
 				</shadow>
 			</value>
 			<value name="GREEN">
 				<shadow type="math_number">
-					<field name="NUM">
-						50</field>
+					<field name="NUM">50</field>
 				</shadow>
 			</value>
 			<value name="BLUE">
 				<shadow type="math_number">
-					<field name="NUM">
-						0</field>
+					<field name="NUM">0</field>
 				</shadow>
 			</value>
 		</block>
 		<block type="colour_blend">
 			<value name="COLOUR1">
 				<shadow type="colour_picker">
-					<field name="COLOUR">
-						#ff0000</field>
+					<field name="COLOUR">#ff0000</field>
 				</shadow>
 			</value>
 			<value name="COLOUR2">
 				<shadow type="colour_picker">
-					<field name="COLOUR">
-						#3333ff</field>
+					<field name="COLOUR">#3333ff</field>
 				</shadow>
 			</value>
 			<value name="RATIO">
 				<shadow type="math_number">
-					<field name="NUM">
-						0.5</field>
+					<field name="NUM">0.5</field>
 				</shadow>
 			</value>
 		</block>
@@ -232,8 +216,7 @@ TIP
 		<block type="lists_repeat">
 			<value name="NUM">
 				<shadow type="math_number">
-					<field name="NUM">
-						5</field>
+					<field name="NUM">5</field>
 				</shadow>
 			</value>
 		</block>
@@ -887,12 +870,10 @@ TIP
 		<block type="ivw_addDropdownParams">
 			<statement name="dropdownItems">
 				<block type="ivw_addDropdownItem">
-					<field name="label">
-						真</field>
+					<field name="label">真</field>
 					<next>
 						<block type="ivw_addDropdownItem">
-							<field name="label">
-								假</field>
+							<field name="label">假</field>
 						</block>
 					</next>
 				</block>
