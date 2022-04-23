@@ -88,7 +88,7 @@ BlockLibraryController.prototype.getSelectedBlockType = function() {
  * updating the dropdown and displaying the starter block (factory_base).
  */
 BlockLibraryController.prototype.clearBlockLibrary = function() {
-  var msg = 'Delete all blocks from library?';
+  var msg = '真删？';
   BlocklyDevTools.Analytics.onWarning(msg);
   if (confirm(msg)) {
     // Clear Block Library Storage.

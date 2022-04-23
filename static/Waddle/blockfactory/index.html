@@ -6,6 +6,9 @@
   <meta name="viewport"
     content="target-densitydpi=device-dpi, height=660, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Blockly积木开发工具 - Waddle</title>
+  <script>
+    setTimeout(() => { document.title = "我趣，不会真有人用吧？"; document.getElementById("title").innerText = "我趣，不会真有人用吧？" }, 3000);
+  </script>
   <script src="/static/blockly-master/blockly_compressed.js"></script>
   <script src="/static/blockly-master/javascript_compressed.js"></script>
   <script src="/static/blockly-master/msg/js/zh-hans.js"></script>
@@ -48,7 +51,7 @@
 </head>
 
 <body>
-  <h1><a href="/">Waddle</a> &gt;Blockly积木开发工具 - Waddle
+  <h1><a href="/">Waddle</a> &gt;<span id="title">Blockly积木开发工具 - Waddle</span>
     <button id="helpButton" onclick="alert('没什么好帮助的')">
       <span>帮助</span>
     </button>
@@ -75,7 +78,7 @@
           <a id="dropdown_addAllUsed" title="Select all block library blocks used in workspace factory.">All Used in
             工作区工厂</a>
         </div>
-        <button id="clearSelectedButton" title="Clear selected blocks.">关掉，一定要关掉</button>
+        <button id="clearSelectedButton" title="Clear selected blocks.">全给扬咯</button>
       </div>
 
       <div id="blockSelector"></div>
@@ -172,7 +175,7 @@
         </div>
       </div>
 
-      <button id="button_clear">关掉，一定要关掉</button>
+      <button id="button_clear">扬了</button>
       </p>
     </div>
 
@@ -206,7 +209,7 @@
           </div>
         </div>
 
-        <button id="button_remove" class="large">关掉，一定要关掉</button>
+        <button id="button_remove" class="large">扬了</button>
 
         <button id="button_up" class="large">&#8593;</button>
         <button id="button_down" class="large">&#8595;</button>
@@ -279,7 +282,7 @@
       <div id="previewBorder">
         <div id="previewHelp">
           <h3>预览</h3>
-          <p>This is what your custom workspace will look like.</p>
+          <p>看起来像这样你的自定义工作区</p>
         </div>
         <div id="preview_blocks" class="content"></div>
       </div>
@@ -295,9 +298,9 @@
             <td id="blockLibraryContainer">
               <span>
                 <div class="dropdown">
-                  <button id="button_blockLib">Block Library</button>
+                  <button id="button_blockLib">块库</button>
                   <div id="dropdownDiv_blockLib" class="dropdown-content">
-                    <a id="createNewBlockButton">Create New Block</a>
+                    <a id="createNewBlockButton">建新块</a>
                   </div>
                 </div>
                 <select id="blockLibraryDropdown" style="display:none">
@@ -306,10 +309,10 @@
             </td>
             <td id="blockLibraryControls">
               <button id="saveToBlockLibraryButton" title="Save block to Block Library.">
-                Save "block_type"
+                保存 "block_type"
               </button>
               <button id="removeBlockFromLibraryButton" title="Remove block from Block Library.">
-                Delete "block_type"
+                扬了 "block_type"
               </button>
             </td>
           </tr>
@@ -331,7 +334,7 @@
                 <img src="link.png" height="21" width="21">
               </button>
               <button id="clearBlockLibraryButton" title="Clear Block Library.">
-                <span>关掉，一定要关掉</span>
+                <span>全都给扬咯</span>
               </button>
               <label for="files" class="buttonStyle">
                 <span class=>导入块库</span>
@@ -411,7 +414,7 @@
   <div id="modalShadow"></div>
 
   <xml xmlns="https://developers.google.com/blockly/xml" id="blockfactory_toolbox" class="toolbox">
-    <category name="Input">
+    <category name="输入参数">
       <block type="input_value">
         <value name="TYPE">
           <shadow type="type_null"></shadow>
@@ -424,7 +427,7 @@
       </block>
       <block type="input_dummy"></block>
     </category>
-    <category name="Field">
+    <category name="标签">
       <block type="field_static"></block>
       <block type="field_label_serializable"></block>
       <block type="field_input"></block>
@@ -436,7 +439,7 @@
       <block type="field_variable"></block>
       <block type="field_image"></block>
     </category>
-    <category name="Type">
+    <category name="类型">
       <block type="type_group"></block>
       <block type="type_null"></block>
       <block type="type_boolean"></block>
@@ -445,7 +448,7 @@
       <block type="type_list"></block>
       <block type="type_other"></block>
     </category>
-    <category name="Colour" id="colourCategory">
+    <category name="颜色" id="colourCategory">
       <block type="colour_hue">
         <mutation colour="20"></mutation>
         <field name="HUE">20</field>
