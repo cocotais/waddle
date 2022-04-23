@@ -2081,3 +2081,15 @@ Blockly.Blocks['html_footer'] = {
         this.setHelpUrl('');
     }
 };
+
+Blockly.Blocks['html_noscript'] = {
+    init: function () {
+        this.appendStatementInput('CON').setCheck(null).appendField('新建脚本未被执行时显示');
+        this.appendStatementInput('PRO').setCheck(null).appendField('属性');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
