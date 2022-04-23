@@ -2069,3 +2069,15 @@ Blockly.Blocks['html_div'] = {
         this.setHelpUrl('');
     }
 };
+
+Blockly.Blocks['html_footer'] = {
+    init: function () {
+        this.appendStatementInput('CON').setCheck(null).appendField('新建页脚');
+        this.appendStatementInput('PRO').setCheck(null).appendField('属性');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};

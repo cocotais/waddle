@@ -472,6 +472,8 @@ TIP
 		</block>
 		<block type="html_b">
 		</block>
+		<block type="html_footer">
+		</block>
 		<block type="html_other_px">
 		</block>
 		<block type="html_other_cm">
