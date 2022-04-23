@@ -15,4 +15,9 @@ SUBCOMMANDS:
     install      安装waddleup
     run          运行waddleup
     uninstall    卸载waddleup
+
+EXAMPLE：
+waddleup install D:/
+waddleup run stable
+waddleup uninstall D:/waddleup_example
 ```
