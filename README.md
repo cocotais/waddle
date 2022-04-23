@@ -47,7 +47,7 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 如果你遇到了 Bug 或者有了好建议，可以选择在 [Issues页（优先处理）](https://gitee.com/coco-ag/coco-waddle/issues) 反馈，可以在 [反馈表单](https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec) 内填写！我们会尽快处理！
 
 # 参与贡献
-如果你想要参与贡献，可以参考 [这份文档](https://gitee.com/coco-ag/coco-waddle/blob/master/dev/README.md)
+如果你想要参与贡献，可以参考 [这份文档](https://gitee.com/coco-ag/coco-waddle/blob/master/docs/dev/README.md)
 
 # 联系
 目前我们制作团队的全部成员都在 Waddle 交流群中，若你想与我们面对面交流，欢迎加入！
