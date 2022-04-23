@@ -16,3 +16,8 @@
   * [提交信息规范](dev/3-提交信息规范.md)
   * [提交PR指南](dev/4-提交PR指南.md)
   
+<br>
+
+* [Waddle 手册](https://www.yuque.com/coco-central/waddle/index)
+* [Waddle 仓库](https://gitee.com/coco-ag/coco-waddle)
+* [Waddle 反馈](https://gitee.com/coco-ag/coco-waddle/issues)
