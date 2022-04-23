@@ -16,277 +16,319 @@ TIP 避免字符串积木出现空白字符
 TIP
 -->
 <toolbox>
-    <category name="控制" css-icon="iconfont waddle-control" colour="#68CDFF">
-        <block type="controls_repeat_ext">
-            <value name="TIMES">
-                <block type="math_number">
-                    <field name="NUM">10</field>
-                </block>
-            </value>
-        </block>
-        <block type="controls_for">
-            <field name="VAR">i</field>
-            <value name="FROM">
-                <block type="math_number">
-                    <field name="NUM">1</field>
-                </block>
-            </value>
-            <value name="TO">
-                <block type="math_number">
-                    <field name="NUM">10</field>
-                </block>
-            </value>
-            <value name="BY">
-                <block type="math_number">
-                    <field name="NUM">1</field>
-                </block>
-            </value>
-        </block>
-        <block type="controls_forEach">
+	<category name="控制" css-icon="iconfont waddle-control" colour="#68CDFF">
+		<block type="controls_repeat_ext">
+			<value name="TIMES">
+				<block type="math_number">
+					<field name="NUM">
+						10
+					</field>
+				</block>
+			</value>
 		</block>
-        <block type="controls_whileUntil">
+		<block type="controls_for">
+			<field name="VAR">
+				i
+			</field>
+			<value name="FROM">
+				<block type="math_number">
+					<field name="NUM">
+						1
+					</field>
+				</block>
+			</value>
+			<value name="TO">
+				<block type="math_number">
+					<field name="NUM">
+						10
+					</field>
+				</block>
+			</value>
+			<value name="BY">
+				<block type="math_number">
+					<field name="NUM">
+						1
+					</field>
+				</block>
+			</value>
 		</block>
-        <block type="controls_flow_statements">
+		<block type="controls_forEach">
 		</block>
-        <!-- 控制和逻辑合并 -->
-        <!--
+		<block type="controls_whileUntil">
+		</block>
+		<block type="controls_flow_statements">
+		</block>
+		<!-- 控制和逻辑合并 -->
+		<!--
 		</category>
 		<category name="逻辑" colour="#AE8964">
 		-->
-        <block type="controls_if">
+		<block type="controls_if">
 		</block>
-        <block type="logic_ternary">
+		<block type="logic_ternary">
 		</block>
-    </category>
-    <category name="数学" css-icon="iconfont waddle-math" colour="#FEAE8A">
-        <block type="math_number">
-            <field name="NUM">114514</field>
-        </block>
-        <block type="logic_compare">
-		</block>
-        <block type="logic_operation">
-		</block>
-        <block type="logic_boolean">
-		</block>
-        <block type="logic_negate">
-		</block>
-        <block type="logic_null">
-		</block>
-        <block type="math_arithmetic">
-		</block>
-        <block type="math_single">
-		</block>
-        <block type="math_trig">
-		</block>
-        <block type="math_constant">
-		</block>
-        <block type="math_number_property">
-		</block>
-        <block type="math_round">
-		</block>
-        <block type="math_on_list">
-		</block>
-        <block type="math_modulo">
-		</block>
-        <block type="math_constrain">
-            <value name="LOW">
-                <block type="math_number">
-                    <field name="NUM">114</field>
-                </block>
-            </value>
-            <value name="HIGH">
-                <block type="math_number">
-                    <field name="NUM">514</field>
-                </block>
-            </value>
-        </block>
-        <block type="math_random_int">
-            <value name="FROM">
-                <block type="math_number">
-                    <field name="NUM">191</field>
-                </block>
-            </value>
-            <value name="TO">
-                <block type="math_number">
-                    <field name="NUM">9810</field>
-                </block>
-            </value>
-        </block>
-        <block type="math_random_float">
-		</block>
-        <block type="math_atan2">
-		</block>
-    </category>
-    <category name="文本" css-icon="iconfont waddle-font" colour="#1ab293">
-        <block type="text">
-		</block>
-        <block type="text_length">
-		</block>
-        <block type="text_print">
-		</block>
-        <block type="text_join">
-		</block>
-        <block type="text_append">
-            <value name="TEXT">
-                <block type="text">
-				</block>
-            </value>
-        </block>
-        <block type="text_length">
-		</block>
-        <block type="text_isEmpty">
-		</block>
-        <block type="text_indexOf">
-		</block>
-        <block type="text_getSubstring">
-            <value name="STRING">
-                <block type="variables_get">
-				</block>
-            </value>
-        </block>
-        <block type="text_charAt">
-		</block>
-        <block type="text_changeCase">
-		</block>
-        <block type="text_trim">
-		</block>
-        <block type="text_prompt_ext">
-            <value name="TEXT">
-                <shadow type="text">
-                    <field name="TEXT">abc</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="text_prompt_ext">
-            <value name="TEXT">
-                <block type="text">
-				</block>
-            </value>
-        </block>
-    </category>
-    <category name="颜色" css-icon="iconfont waddle-colour" colour="20">
-        <block type="colour_picker">
-		</block>
-        <block type="colour_random">
-		</block>
-        <block type="colour_rgb">
-            <value name="RED">
-                <shadow type="math_number">
-                    <field name="NUM">100</field>
-                </shadow>
-            </value>
-            <value name="GREEN">
-                <shadow type="math_number">
-                    <field name="NUM">50</field>
-                </shadow>
-            </value>
-            <value name="BLUE">
-                <shadow type="math_number">
-                    <field name="NUM">0</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="colour_blend">
-            <value name="COLOUR1">
-                <shadow type="colour_picker">
-                    <field name="COLOUR">#ff0000</field>
-                </shadow>
-            </value>
-            <value name="COLOUR2">
-                <shadow type="colour_picker">
-                    <field name="COLOUR">#3333ff</field>
-                </shadow>
-            </value>
-            <value name="RATIO">
-                <shadow type="math_number">
-                    <field name="NUM">0.5</field>
-                </shadow>
-            </value>
-        </block>
-    </category>
-    <category name="变量" css-icon="iconfont waddle-variable" colour="#FFBB55" custom="VARIABLE">
 	</category>
-    <category css-icon="iconfont waddle-list" name="列表" colour="#F9CC37">
-        <block type="lists_create_with">
-            <mutation items="0">
+	<category name="数学" css-icon="iconfont waddle-math" colour="#FEAE8A">
+		<block type="math_number">
+			<field name="NUM">
+				114514
+			</field>
+		</block>
+		<block type="logic_compare">
+		</block>
+		<block type="logic_operation">
+		</block>
+		<block type="logic_boolean">
+		</block>
+		<block type="logic_negate">
+		</block>
+		<block type="logic_null">
+		</block>
+		<block type="math_arithmetic">
+		</block>
+		<block type="math_single">
+		</block>
+		<block type="math_trig">
+		</block>
+		<block type="math_constant">
+		</block>
+		<block type="math_number_property">
+		</block>
+		<block type="math_round">
+		</block>
+		<block type="math_on_list">
+		</block>
+		<block type="math_modulo">
+		</block>
+		<block type="math_constrain">
+			<value name="LOW">
+				<block type="math_number">
+					<field name="NUM">
+						114
+					</field>
+				</block>
+			</value>
+			<value name="HIGH">
+				<block type="math_number">
+					<field name="NUM">
+						514
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="math_random_int">
+			<value name="FROM">
+				<block type="math_number">
+					<field name="NUM">
+						191
+					</field>
+				</block>
+			</value>
+			<value name="TO">
+				<block type="math_number">
+					<field name="NUM">
+						9810
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="math_random_float">
+		</block>
+		<block type="math_atan2">
+		</block>
+	</category>
+	<category name="文本" css-icon="iconfont waddle-font" colour="#1ab293">
+		<block type="text">
+		</block>
+		<block type="text_length">
+		</block>
+		<block type="text_print">
+		</block>
+		<block type="text_join">
+		</block>
+		<block type="text_append">
+			<value name="TEXT">
+				<block type="text">
+				</block>
+			</value>
+		</block>
+		<block type="text_length">
+		</block>
+		<block type="text_isEmpty">
+		</block>
+		<block type="text_indexOf">
+		</block>
+		<block type="text_getSubstring">
+			<value name="STRING">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="text_charAt">
+		</block>
+		<block type="text_changeCase">
+		</block>
+		<block type="text_trim">
+		</block>
+		<block type="text_prompt_ext">
+			<value name="TEXT">
+				<shadow type="text">
+					<field name="TEXT">
+						abc
+					</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="text_prompt_ext">
+			<value name="TEXT">
+				<block type="text">
+				</block>
+			</value>
+		</block>
+	</category>
+	<category name="颜色" css-icon="iconfont waddle-colour" colour="20">
+		<block type="colour_picker">
+		</block>
+		<block type="colour_random">
+		</block>
+		<block type="colour_rgb">
+			<value name="RED">
+				<shadow type="math_number">
+					<field name="NUM">
+						100
+					</field>
+				</shadow>
+			</value>
+			<value name="GREEN">
+				<shadow type="math_number">
+					<field name="NUM">
+						50
+					</field>
+				</shadow>
+			</value>
+			<value name="BLUE">
+				<shadow type="math_number">
+					<field name="NUM">
+						0
+					</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="colour_blend">
+			<value name="COLOUR1">
+				<shadow type="colour_picker">
+					<field name="COLOUR">
+						#ff0000
+					</field>
+				</shadow>
+			</value>
+			<value name="COLOUR2">
+				<shadow type="colour_picker">
+					<field name="COLOUR">
+						#3333ff
+					</field>
+				</shadow>
+			</value>
+			<value name="RATIO">
+				<shadow type="math_number">
+					<field name="NUM">
+						0.5
+					</field>
+				</shadow>
+			</value>
+		</block>
+	</category>
+	<category name="变量" css-icon="iconfont waddle-variable" colour="#FFBB55" custom="VARIABLE">
+	</category>
+	<category css-icon="iconfont waddle-list" name="列表" colour="#F9CC37">
+		<block type="lists_create_with">
+			<mutation items="0">
 			</mutation>
-        </block>
-        <block type="lists_create_with">
 		</block>
-        <block type="lists_repeat">
-            <value name="NUM">
-                <shadow type="math_number">
-                    <field name="NUM">5</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="lists_length">
+		<block type="lists_create_with">
 		</block>
-        <block type="lists_isEmpty">
+		<block type="lists_repeat">
+			<value name="NUM">
+				<shadow type="math_number">
+					<field name="NUM">
+						5
+					</field>
+				</shadow>
+			</value>
 		</block>
-        <block type="lists_indexOf">
-            <value name="VALUE">
-                <block type="variables_get">
-				</block>
-            </value>
-        </block>
-        <block type="lists_getIndex">
-            <value name="VALUE">
-                <block type="variables_get">
-				</block>
-            </value>
-        </block>
-        <block type="lists_setIndex">
-            <value name="LIST">
-                <block type="variables_get">
-				</block>
-            </value>
-        </block>
-        <block type="lists_getSublist">
-            <value name="LIST">
-                <block type="variables_get">
-				</block>
-            </value>
-        </block>
-        <block type="lists_split">
-            <value name="DELIM">
-                <shadow type="text">
-                    <field name="TEXT">,</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="lists_sort">
+		<block type="lists_length">
 		</block>
-    </category>
-    <category name="函数" css-icon="iconfont waddle-fx" colour="#F88767" custom="PROCEDURE">
+		<block type="lists_isEmpty">
+		</block>
+		<block type="lists_indexOf">
+			<value name="VALUE">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="lists_getIndex">
+			<value name="VALUE">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="lists_setIndex">
+			<value name="LIST">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="lists_getSublist">
+			<value name="LIST">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="lists_split">
+			<value name="DELIM">
+				<shadow type="text">
+					<field name="TEXT">
+						,
+					</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="lists_sort">
+		</block>
 	</category>
-    <!-- </category> -->
-    <category name="JS" css-icon="iconfont waddle-js" colour="180">
-        <label text="鸡肋积木">
+	<category name="函数" css-icon="iconfont waddle-fx" colour="#F88767" custom="PROCEDURE">
+	</category>
+	<!-- </category> -->
+	<category name="JS" css-icon="iconfont waddle-js" colour="180">
+		<label text="鸡肋积木">
 		</label>
-        <block type="js_run">
-            <value name="CODE">
-                <shadow type="text">
-                    <field name="TEXT">console.log(233);</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="js_run2">
-            <value name="CODE">
-                <shadow type="text">
-                    <field name="TEXT">console.log(233);</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="js_usestrict">
+		<block type="js_run">
+			<value name="CODE">
+				<shadow type="text">
+					<field name="TEXT">
+						console.log(233);
+					</field>
+				</shadow>
+			</value>
 		</block>
-        <block type="js_bitwise">
+		<block type="js_run2">
+			<value name="CODE">
+				<shadow type="text">
+					<field name="TEXT">
+						console.log(233);
+					</field>
+				</shadow>
+			</value>
 		</block>
-        <block type="js_comparisons">
+		<block type="js_usestrict">
 		</block>
-        <block type="js_time">
+		<block type="js_bitwise">
 		</block>
-        <!--
+		<block type="js_comparisons">
+		</block>
+		<block type="js_time">
+		</block>
+		<!--
 		<block type="js_popup_alert">
 		</block>
 		<block type="js_popup_confirm">
@@ -294,59 +336,59 @@ TIP
 		<block type="js_popup_prompt">
 		</block>
 		-->
-        <block type="js_json_parse">
+		<block type="js_json_parse">
 		</block>
-        <block type="js_json_stringify">
+		<block type="js_json_stringify">
 		</block>
-        <block type="js_json_access">
+		<block type="js_json_access">
 		</block>
-        <block type="js_window_screen">
+		<block type="js_window_screen">
 		</block>
-        <block type="js_window_avail_screen">
+		<block type="js_window_avail_screen">
 		</block>
-        <block type="js_window_depth">
+		<block type="js_window_depth">
 		</block>
-        <block type="js_window_pixeldepth">
+		<block type="js_window_pixeldepth">
 		</block>
-        <block type="js_navigator_online">
+		<block type="js_navigator_online">
 		</block>
-        <block type="js_navigator_language">
+		<block type="js_navigator_language">
 		</block>
-        <block type="js_navigator_platform">
+		<block type="js_navigator_platform">
 		</block>
-        <block type="js_math_constant">
+		<block type="js_math_constant">
 		</block>
-        <block type="js_console_clean">
+		<block type="js_console_clean">
 		</block>
-        <block type="js_console_count">
+		<block type="js_console_count">
 		</block>
-        <block type="js_console_error">
+		<block type="js_console_error">
 		</block>
-        <block type="js_console_warn">
+		<block type="js_console_warn">
 		</block>
-        <block type="js_console_log">
+		<block type="js_console_log">
 		</block>
-        <block type="js_console_time">
+		<block type="js_console_time">
 		</block>
-        <block type="js_console_timeend">
+		<block type="js_console_timeend">
 		</block>
-        <block type="js_base64">
+		<block type="js_base64">
 		</block>
-        <block type="js_uri">
+		<block type="js_uri">
 		</block>
-        <block type="js_replace">
+		<block type="js_replace">
 		</block>
-        <block type="js_powerandlower">
+		<block type="js_powerandlower">
 		</block>
-        <block type="js_with">
+		<block type="js_with">
 		</block>
-        <block type="js_pad">
+		<block type="js_pad">
 		</block>
-        <block type="js_escape">
+		<block type="js_escape">
 		</block>
-        <block type="js_base">
+		<block type="js_base">
 		</block>
-        <!--
+		<!--
 		<block type="js_str_index">
 		</block>
 		<block type="js_array_sort">
@@ -356,271 +398,273 @@ TIP
 		<block type="js_array_join">
 		</block>
 		-->
-    </category>
-    <sep>
+	</category>
+	<sep>
 	</sep>
-    <category name="HTML" css-icon="iconfont waddle-tool">
-        <block type="html_code">
+	<category name="HTML" css-icon="iconfont waddle-tool">
+		<block type="html_code">
 		</block>
-        <block type="html_tag">
+		<block type="html_tag">
 		</block>
-        <block type="html_attribute">
+		<block type="html_attribute">
 		</block>
-        <block type="html_attribute_href">
+		<block type="html_attribute_href">
 		</block>
-        <block type="html_attribute_src">
+		<block type="html_attribute_src">
 		</block>
-        <block type="html_attribute_target">
+		<block type="html_attribute_target">
 		</block>
-        <block type="html_attribute_disabled">
+		<block type="html_attribute_disabled">
 		</block>
-        <block type="html_attribute_loading">
+		<block type="html_attribute_loading">
 		</block>
-        <block type="html_attribute_id">
+		<block type="html_attribute_id">
 		</block>
-        <block type="html_attribute_class">
+		<block type="html_attribute_class">
 		</block>
-        <block type="html_attribute_onclick">
+		<block type="html_attribute_onclick">
 		</block>
-        <block type="html_attribute_ondblclick">
+		<block type="html_attribute_ondblclick">
 		</block>
-        <block type="html_attribute_onmousemove">
+		<block type="html_attribute_onmousemove">
 		</block>
-        <block type="html_attribute_onmouseout">
+		<block type="html_attribute_onmouseout">
 		</block>
-        <block type="html_attribute_autoplay">
+		<block type="html_attribute_autoplay">
 		</block>
-        <block type="html_attribute_onemptied">
+		<block type="html_attribute_onemptied">
 		</block>
-        <block type="html_attribute_style">
+		<block type="html_attribute_style">
 		</block>
-        <block type="html_css">
+		<block type="html_css">
 		</block>
-        <block type="html_css_background_color">
+		<block type="html_css_background_color">
 		</block>
-        <block type="html_css_font_size">
+		<block type="html_css_font_size">
 		</block>
-        <block type="html_css_font_style">
+		<block type="html_css_font_style">
 		</block>
-        <block type="html_css_text_decoration">
+		<block type="html_css_text_decoration">
 		</block>
-        <block type="html_plaintext">
+		<block type="html_plaintext">
 		</block>
-        <block type="html_js">
+		<block type="html_js">
 		</block>
-        <block type="html_js2">
+		<block type="html_js2">
 		</block>
-        <block type="html_div">
+		<block type="html_div">
 		</block>
-        <block type="html_h123456">
+		<block type="html_h123456">
 		</block>
-        <block type="html_a">
+		<block type="html_a">
 		</block>
-        <block type="html_button">
+		<block type="html_button">
 		</block>
-        <block type="html_img">
+		<block type="html_img">
 		</block>
-        <block type="html_video">
+		<block type="html_video">
 		</block>
-        <block type="html_input">
+		<block type="html_input">
 		</block>
-        <block type="html_br">
+		<block type="html_br">
 		</block>
-        <block type="html_iframe">
+		<block type="html_iframe">
 		</block>
-        <block type="html_b">
+		<block type="html_b">
 		</block>
-        <block type="html_footer">
+		<block type="html_footer">
 		</block>
-        <block type="html_noscript">
+		<block type="html_noscript">
 		</block>
-        <block type="html_script">
+		<block type="html_script">
 		</block>
-        <block type="html_other_px">
+		<block type="html_other_px">
 		</block>
-        <block type="html_other_cm">
+		<block type="html_other_cm">
 		</block>
-        <block type="html_other_mm">
+		<block type="html_other_mm">
 		</block>
-        <block type="html_other_in">
+		<block type="html_other_in">
 		</block>
-        <block type="html_other_pt">
+		<block type="html_other_pt">
 		</block>
-        <block type="html_other_pc">
+		<block type="html_other_pc">
 		</block>
-        <block type="html_other_%">
+		<block type="html_other_%">
 		</block>
-        <block type="html_other_em">
+		<block type="html_other_em">
 		</block>
-    </category>
-    <category name="DOM" css-icon="iconfont waddle-tool">
-        <block type="htmldom_document">
+		<block type="what_waddle1">
 		</block>
-        <block type="html_getelementbytagname">
+	</category>
+	<category name="DOM" css-icon="iconfont waddle-tool">
+		<block type="htmldom_document">
 		</block>
-        <block type="html_getelementbyid">
+		<block type="html_getelementbytagname">
 		</block>
-        <block type="html_getelementbyclass">
+		<block type="html_getelementbyid">
 		</block>
-        <block type="htmldom_appendchild">
+		<block type="html_getelementbyclass">
 		</block>
-    </category>
-    <category name="lodash" css-icon="iconfont waddle-tool">
-        <button text="实验性功能提示，看我看我" callbackKey="betawarning">
+		<block type="htmldom_appendchild">
+		</block>
+	</category>
+	<category name="lodash" css-icon="iconfont waddle-tool">
+		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
 		</button>
-        <block type="lodash_import">
+		<block type="lodash_import">
 		</block>
-        <block type="lodash_chunk">
+		<block type="lodash_chunk">
 		</block>
-        <block type="lodash_compact">
+		<block type="lodash_compact">
 		</block>
-        <block type="lodash_concat">
+		<block type="lodash_concat">
 		</block>
-        <block type="lodash_difference">
+		<block type="lodash_difference">
 		</block>
-        <block type="lodash_differencebydropdown">
+		<block type="lodash_differencebydropdown">
 		</block>
-        <block type="lodash_differenceby">
+		<block type="lodash_differenceby">
 		</block>
-        <block type="lodash_differencewithdropdown">
+		<block type="lodash_differencewithdropdown">
 		</block>
-        <block type="lodash_differencewith">
+		<block type="lodash_differencewith">
 		</block>
-        <block type="lodash_drop">
+		<block type="lodash_drop">
 		</block>
-        <block type="lodash_dropright">
+		<block type="lodash_dropright">
 		</block>
-        <block type="lodash_dropwhiledropdown">
+		<block type="lodash_dropwhiledropdown">
 		</block>
-        <block type="lodash_droprightwhiledropdown">
+		<block type="lodash_droprightwhiledropdown">
 		</block>
-        <block type="lodash_dropwhile">
+		<block type="lodash_dropwhile">
 		</block>
-        <block type="lodash_droprightwhile">
+		<block type="lodash_droprightwhile">
 		</block>
-        <block type="lodash_fill">
+		<block type="lodash_fill">
 		</block>
-        <block type="lodash_findindexdropdown">
+		<block type="lodash_findindexdropdown">
 		</block>
-        <block type="lodash_findlastindexdropdown">
+		<block type="lodash_findlastindexdropdown">
 		</block>
-        <block type="lodash_findindex">
+		<block type="lodash_findindex">
 		</block>
-        <block type="lodash_findlastindex">
+		<block type="lodash_findlastindex">
 		</block>
-        <block type="lodash_first">
+		<block type="lodash_first">
 		</block>
-        <block type="lodash_flatten">
+		<block type="lodash_flatten">
 		</block>
-        <block type="lodash_flattendeep">
+		<block type="lodash_flattendeep">
 		</block>
-    </category>
-    <category name="axios" css-icon="iconfont waddle-tool">
-        <button text="实验性功能提示" callbackKey="betawarning">
+	</category>
+	<category name="axios" css-icon="iconfont waddle-tool">
+		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
-        <block type="axios_import">
+		<block type="axios_import">
 		</block>
-        <block type="axios_getpost_simple">
+		<block type="axios_getpost_simple">
 		</block>
-        <block type="axios_response">
+		<block type="axios_response">
 		</block>
-        <block type="axios_responsedropdown">
+		<block type="axios_responsedropdown">
 		</block>
-        <block type="axios_error">
+		<block type="axios_error">
 		</block>
-        <block type="axios_getpost">
+		<block type="axios_getpost">
 		</block>
-        <block type="axios_timeout">
+		<block type="axios_timeout">
 		</block>
-        <block type="axios_maxcontentlength">
+		<block type="axios_maxcontentlength">
 		</block>
-    </category>
-    <category name="utils" css-icon="iconfont waddle-tool">
-        <button text="实验性功能提示" callbackKey="betawarning">
+	</category>
+	<category name="utils" css-icon="iconfont waddle-tool">
+		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
-        <block type="utils_import">
+		<block type="utils_import">
 		</block>
-        <block type="utils_isnative">
+		<block type="utils_isnative">
 		</block>
-    </category>
-    <category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">
-        <label text="工具.积木夹子">
+	</category>
+	<category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">
+		<label text="工具.积木夹子">
 		</label>
-        <label text="方便积木分段，折叠；顶部注释积木夹子标签">
+		<label text="方便积木分段，折叠；顶部注释积木夹子标签">
 		</label>
-        <block type="tools_clip">
+		<block type="tools_clip">
 		</block>
-        <label text="工具.仅运行">
+		<label text="工具.仅运行">
 		</label>
-        <label text="用于运行有返回值的积木">
+		<label text="用于运行有返回值的积木">
 		</label>
-        <block type="tools_only_run">
+		<block type="tools_only_run">
 		</block>
-        <label text="工具.注释">
+		<label text="工具.注释">
 		</label>
-        <label text="用于插入单行注释">
+		<label text="用于插入单行注释">
 		</label>
-        <block type="tools_exegesis">
+		<block type="tools_exegesis">
 		</block>
-        <label text="工具.字典">
+		<label text="工具.字典">
 		</label>
-        <label text="创建字典">
+		<label text="创建字典">
 		</label>
-        <block type="tools_dict">
+		<block type="tools_dict">
 		</block>
-        <label text="工具.列表">
+		<label text="工具.列表">
 		</label>
-        <label text="创建列表">
+		<label text="创建列表">
 		</label>
-        <block type="tools_list">
+		<block type="tools_list">
 		</block>
-        <label text="工具.字典值">
+		<label text="工具.字典值">
 		</label>
-        <label text="为字典添加项，自行添加字符串框">
+		<label text="为字典添加项，自行添加字符串框">
 		</label>
-        <block type="tools_dictItem">
+		<block type="tools_dictItem">
 		</block>
-        <label text="工具.列表值">
+		<label text="工具.列表值">
 		</label>
-        <label text="为列表添加项，自行添加字符串框">
+		<label text="为列表添加项，自行添加字符串框">
 		</label>
-        <block type="tools_listItem">
+		<block type="tools_listItem">
 		</block>
-    </category>
-    <sep>
+	</category>
+	<sep>
 	</sep>
-    <category name="自定义" css-icon="iconfont waddle-invisiblewidget" colour="#6d50f0">
-        <label text="蓝色属于自定义控件通用" colour="#5574F8">
+	<category name="自定义" css-icon="iconfont waddle-invisiblewidget" colour="#6d50f0">
+		<label text="蓝色属于自定义控件通用" colour="#5574F8">
 		</label>
-        <label text="紫色属于不可见控件专属,青色属于可见控件专属" colour="#8647F3">
+		<label text="紫色属于不可见控件专属,青色属于可见控件专属" colour="#8647F3">
 		</label>
-        <label text="模板见框架与示例">
+		<label text="模板见框架与示例">
 		</label>
-        <label text="控件类型定义">
+		<label text="控件类型定义">
 		</label>
-        <block type="ivw_defTypes">
+		<block type="ivw_defTypes">
 		</block>
-        <block type="ivw_defWidget">
+		<block type="ivw_defWidget">
 		</block>
-        <button text="实验性功能提示（可见控件）" callbackKey="betawarning">
+		<button text="实验性功能提示（可见控件）" callbackKey="betawarning">
 		</button>
-        <block type="vw_defTypes">
+		<block type="vw_defTypes">
 		</block>
-        <block type="vw_defWidget">
+		<block type="vw_defWidget">
 		</block>
-        <block type="vw_returnrender">
+		<block type="vw_returnrender">
 		</block>
-        <block type="ivw_export">
+		<block type="ivw_export">
 		</block>
-        <label text="模板见框架与示例">
+		<label text="模板见框架与示例">
 		</label>
-    </category>
-    <category name="类型定义" css-icon="iconfont waddle-visiblewidget" colour="#A15B5D">
-        <label text="模板见框架与示例">
+	</category>
+	<category name="类型定义" css-icon="iconfont waddle-visiblewidget" colour="#A15B5D">
+		<label text="模板见框架与示例">
 		</label>
-        <label text="通用类型定义">
+		<label text="通用类型定义">
 		</label>
-        <!--
+		<!--
 		<block type="ivw_itemType">
 		</block>
 		<block type="ivw_itemIcon">
@@ -632,23 +676,27 @@ TIP
 		<block type="ivw_itemIsGlobalWidget">
 		</block>
 		-->
-        <block type="ivwAttri_custom">
-            <value name="value">
-                <block type="text">
-                    <field name="TEXT">标签</field>
-                </block>
-            </value>
-        </block>
-        <label text="通用属性定义">
+		<block type="ivwAttri_custom">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">
+						标签
+					</field>
+				</block>
+			</value>
+		</block>
+		<label text="通用属性定义">
 		</label>
-        <block type="ivw_addProperty">
-            <value name="defaultValue">
-                <block type="text">
-                    <field name="TEXT">默认值</field>
-                </block>
-            </value>
-        </block>
-        <!--
+		<block type="ivw_addProperty">
+			<value name="defaultValue">
+				<block type="text">
+					<field name="TEXT">
+						默认值
+					</field>
+				</block>
+			</value>
+		</block>
+		<!--
 		<block type="ivwAttri_key">
 		<value name="value">
 		<block type="text">
@@ -657,186 +705,208 @@ TIP
 		</value>
 		</block>
 		-->
-        <block type="ivwAttri_valueType">
-            <value name="value">
-                <block type="text">
-                    <field name="TEXT">值类型</field>
-                </block>
-            </value>
-        </block>
-        <block type="ivwAttri_label">
-            <value name="value">
-                <block type="text">
-                    <field name="TEXT">标签</field>
-                </block>
-            </value>
-        </block>
-        <block type="ivwAttri_defaultValue">
-            <value name="value">
-                <block type="text">
-                    <field name="TEXT">默认值</field>
-                </block>
-            </value>
-        </block>
-        <label text="通用方法定义">
+		<block type="ivwAttri_valueType">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">
+						值类型
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="ivwAttri_label">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">
+						标签
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="ivwAttri_defaultValue">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">
+						默认值
+					</field>
+				</block>
+			</value>
+		</block>
+		<label text="通用方法定义">
 		</label>
-        <block type="ivw_addMethod">
+		<block type="ivw_addMethod">
 		</block>
-        <block type="ivwAttri_key">
-            <value name="value">
-                <block type="text">
-                    <field name="TEXT">方法名</field>
-                </block>
-            </value>
-        </block>
-        <block type="ivwAttri_valueType">
-            <value name="value">
-                <block type="text">
-                    <field name="TEXT">返回值类型（可选，不填则不返回）</field>
-                </block>
-            </value>
-        </block>
-        <block type="ivwAttri_label">
-            <value name="value">
-                <block type="text">
-                    <field name="TEXT">标签</field>
-                </block>
-            </value>
-        </block>
-        <block type="ivwAttri_labelAfter">
-            <value name="value">
-                <block type="text">
-                    <field name="TEXT">尾标签</field>
-                </block>
-            </value>
-        </block>
-        <block type="ivw_addParams">
-            <value name="defaultValue">
-                <block type="text">
-                    <field name="TEXT">默认值</field>
-                </block>
-            </value>
-        </block>
-        <block type="ivw_addDropdownParams">
+		<block type="ivwAttri_key">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">
+						方法名
+					</field>
+				</block>
+			</value>
 		</block>
-        <block type="ivw_addDropdownItem">
+		<block type="ivwAttri_valueType">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">
+						返回值类型（可选，不填则不返回）
+					</field>
+				</block>
+			</value>
 		</block>
-        <label text="通用事件定义">
+		<block type="ivwAttri_label">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">
+						标签
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="ivwAttri_labelAfter">
+			<value name="value">
+				<block type="text">
+					<field name="TEXT">
+						尾标签
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="ivw_addParams">
+			<value name="defaultValue">
+				<block type="text">
+					<field name="TEXT">
+						默认值
+					</field>
+				</block>
+			</value>
+		</block>
+		<block type="ivw_addDropdownParams">
+		</block>
+		<block type="ivw_addDropdownItem">
+		</block>
+		<label text="通用事件定义">
 		</label>
-        <block type="ivw_addEvent">
+		<block type="ivw_addEvent">
 		</block>
-        <label text="模板见框架与示例">
+		<label text="模板见框架与示例">
 		</label>
-    </category>
-    <category css-icon="iconfont waddle-visiblewidget" name="实体定义" colour="#A15B5D">
-        <block type="ivw_methodReturn">
+	</category>
+	<category css-icon="iconfont waddle-visiblewidget" name="实体定义" colour="#A15B5D">
+		<block type="ivw_methodReturn">
 		</block>
-        <block type="ivw_emit">
-            <value name="event">
-                <block type="text">
-                    <field name="TEXT">事件名</field>
-                </block>
-            </value>
-        </block>
-        <block type="ivw_emitParameter">
+		<block type="ivw_emit">
+			<value name="event">
+				<block type="text">
+					<field name="TEXT">
+						事件名
+					</field>
+				</block>
+			</value>
 		</block>
-        <block type="ivw_propsinit">
+		<block type="ivw_emitParameter">
 		</block>
-        <block type="ivw_getproperty">
+		<block type="ivw_propsinit">
 		</block>
-        <block type="ivw_getparam">
+		<block type="ivw_getproperty">
 		</block>
-    </category>
-    <category css-icon="iconfont waddle-example" name="框架" colour="#6d50f0">
-        <!-- <category name="基本框架" colour="#6d50f0"> -->
-        <label text="不可见控件基本框架">
+		<block type="ivw_getparam">
+		</block>
+	</category>
+	<category css-icon="iconfont waddle-example" name="框架" colour="#6d50f0">
+		<!-- <category name="基本框架" colour="#6d50f0"> -->
+		<label text="不可见控件基本框架">
 		</label>
-        <block type="ivw_defTypes">
-            <value name="types">
-                <block type="ivw_itemType">
-                    <next>
-                        <block type="ivw_itemIcon">
-                            <next>
-                                <block type="ivw_itemTitle">
-                                    <next>
-                                        <block type="ivw_itemVersion">
+		<block type="ivw_defTypes">
+			<value name="types">
+				<block type="ivw_itemType">
+					<next>
+						<block type="ivw_itemIcon">
+							<next>
+								<block type="ivw_itemTitle">
+									<next>
+										<block type="ivw_itemVersion">
 										</block>
-                                    </next>
-                                </block>
-                            </next>
-                        </block>
-                    </next>
-                </block>
-            </value>
-            <next>
-                <block type="ivw_defWidget">
-                    <next>
-                        <block type="ivw_export">
+									</next>
+								</block>
+							</next>
 						</block>
-                    </next>
-                </block>
-            </next>
-        </block>
-        <label text="可见控件基本框架">
+					</next>
+				</block>
+			</value>
+			<next>
+				<block type="ivw_defWidget">
+					<next>
+						<block type="ivw_export">
+						</block>
+					</next>
+				</block>
+			</next>
+		</block>
+		<label text="可见控件基本框架">
 		</label>
-        <block type="vw_defTypes">
-            <value name="types">
-                <block type="ivw_itemType">
-                    <next>
-                        <block type="ivw_itemIcon">
-                            <next>
-                                <block type="ivw_itemTitle">
-                                    <next>
-                                        <block type="ivw_itemVersion">
+		<block type="vw_defTypes">
+			<value name="types">
+				<block type="ivw_itemType">
+					<next>
+						<block type="ivw_itemIcon">
+							<next>
+								<block type="ivw_itemTitle">
+									<next>
+										<block type="ivw_itemVersion">
 										</block>
-                                    </next>
-                                </block>
-                            </next>
-                        </block>
-                    </next>
-                </block>
-            </value>
-            <next>
-                <block type="vw_defWidget">
-                    <value name="render">
-                        <block type="vw_returnrender">
+									</next>
+								</block>
+							</next>
 						</block>
-                    </value>
-                    <next>
-                        <block type="ivw_export">
+					</next>
+				</block>
+			</value>
+			<next>
+				<block type="vw_defWidget">
+					<value name="render">
+						<block type="vw_returnrender">
 						</block>
-                    </next>
-                </block>
-            </next>
-        </block>
-        <label text="属性积木基本框架">
+					</value>
+					<next>
+						<block type="ivw_export">
+						</block>
+					</next>
+				</block>
+			</next>
+		</block>
+		<label text="属性积木基本框架">
 		</label>
-        <block type="ivw_addProperty">
-            <value name="defaultValue">
-                <block type="text">
-                    <field name="TEXT">默认值</field>
-                </block>
-            </value>
-        </block>
-        <label text="方法积木基本框架">
+		<block type="ivw_addProperty">
+			<value name="defaultValue">
+				<block type="text">
+					<field name="TEXT">
+						默认值
+					</field>
+				</block>
+			</value>
+		</block>
+		<label text="方法积木基本框架">
 		</label>
-        <label text="不返回">
+		<label text="不返回">
 		</label>
-        <block type="ivw_addMethod">
-            <statement name="other">
-                <block type="ivwAttri_defaultValue">
-                    <value name="value">
-                        <block type="text">
-                            <field name="TEXT">默认值</field>
-                        </block>
-                    </value>
-                </block>
-            </statement>
-        </block>
-        <label text="返回">
+		<block type="ivw_addMethod">
+			<statement name="other">
+				<block type="ivwAttri_defaultValue">
+					<value name="value">
+						<block type="text">
+							<field name="TEXT">
+								默认值
+							</field>
+						</block>
+					</value>
+				</block>
+			</statement>
+		</block>
+		<label text="返回">
 		</label>
-        <block type="ivw_addMethod">
-            <!--
+		<block type="ivw_addMethod">
+			<!--
 			<statement name="other">
 			<block type="ivwAttri_valueType">
 			<value name="value">
@@ -847,38 +917,44 @@ TIP
 			</block>
 			</statement>
 			-->
-            <statement name="code">
-                <block type="ivw_methodReturn">
+			<statement name="code">
+				<block type="ivw_methodReturn">
 				</block>
-            </statement>
-        </block>
-        <label text="事件积木基本框架">
+			</statement>
+		</block>
+		<label text="事件积木基本框架">
 		</label>
-        <block type="ivw_addEvent">
-            <statement name="other">
-                <block type="ivwAttri_valueType">
-                    <value name="value">
-                        <block type="text">
-                            <field name="TEXT">参数类型</field>
-                        </block>
-                    </value>
-                </block>
-            </statement>
-        </block>
-        <label text="下拉参数基本框架">
+		<block type="ivw_addEvent">
+			<statement name="other">
+				<block type="ivwAttri_valueType">
+					<value name="value">
+						<block type="text">
+							<field name="TEXT">
+								参数类型
+							</field>
+						</block>
+					</value>
+				</block>
+			</statement>
+		</block>
+		<label text="下拉参数基本框架">
 		</label>
-        <block type="ivw_addDropdownParams">
-            <statement name="dropdownItems">
-                <block type="ivw_addDropdownItem">
-                    <field name="label">真</field>
-                    <next>
-                        <block type="ivw_addDropdownItem">
-                            <field name="label">假</field>
-                        </block>
-                    </next>
-                </block>
-            </statement>
-        </block>
-        <!-- </category> -->
-    </category>
+		<block type="ivw_addDropdownParams">
+			<statement name="dropdownItems">
+				<block type="ivw_addDropdownItem">
+					<field name="label">
+						真
+					</field>
+					<next>
+						<block type="ivw_addDropdownItem">
+							<field name="label">
+								假
+							</field>
+						</block>
+					</next>
+				</block>
+			</statement>
+		</block>
+		<!-- </category> -->
+	</category>
 </toolbox>
