@@ -2010,6 +2010,18 @@ Blockly.Blocks['html_video'] = {
     }
 };
 
+Blockly.Blocks['html_input'] = {
+    init: function () {
+        this.appendStatementInput('CON').setCheck(null).appendField('新建输入');
+        this.appendStatementInput('PRO').setCheck(null).appendField('属性');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
 Blockly.Blocks['html_br'] = {
     init: function () {
         this.appendDummyInput().appendField('新建换行');
