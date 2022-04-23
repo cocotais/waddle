@@ -498,7 +498,11 @@ TIP
 	<category name="HTML DOM" css-icon="iconfont waddle-tool">
 		<block type="htmldom_document">
 		</block>
+		<block type="html_getelementbytagname">
+		</block>
 		<block type="html_getelementbyid">
+		</block>
+		<block type="html_getelementbyclass">
 		</block>
 	</category>
 	<category name="lodash" css-icon="iconfont waddle-tool">
