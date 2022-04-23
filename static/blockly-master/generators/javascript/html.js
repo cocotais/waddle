@@ -762,42 +762,42 @@ Blockly.JavaScript['html_attribute_loading'] = function (block) {
 
 Blockly.JavaScript['html_attribute_autoplay'] = function (block) {
     var dropdown_mode = block.getFieldValue('MODE');
-    var code = `autoplay="${dropdown_mode}"\n`;
+    var code = `autoPlay="${dropdown_mode}"\n`;
     return code;
 };
 
 Blockly.JavaScript['html_attribute_onclick'] = function (block) {
     var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'));
     // TODO: Assemble JavaScript into code variable.
-    var code = `onclick="${statements_fun}"\n`;
+    var code = `onClick="${statements_fun}"\n`;
     return code;
 };
 
 Blockly.JavaScript['html_attribute_ondblclick'] = function (block) {
     var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'));
     // TODO: Assemble JavaScript into code variable.
-    var code = `ondblclick="${statements_fun}"\n`;
+    var code = `onDblClick="${statements_fun}"\n`;
     return code;
 };
 
 Blockly.JavaScript['html_attribute_onmousemove'] = function (block) {
     var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'));
     // TODO: Assemble JavaScript into code variable.
-    var code = `onmousemove="${statements_fun}"\n`;
+    var code = `onMouseMove="${statements_fun}"\n`;
     return code;
 };
 
 Blockly.JavaScript['html_attribute_onmouseout'] = function (block) {
     var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'));
     // TODO: Assemble JavaScript into code variable.
-    var code = `onmouseout="${statements_fun}"\n`;
+    var code = `onMouseOut="${statements_fun}"\n`;
     return code;
 };
 
 Blockly.JavaScript['html_attribute_onemptied'] = function (block) {
     var statements_fun = js_to_one(Blockly.JavaScript.statementToCode(block, 'FUN'));
     // TODO: Assemble JavaScript into code variable.
-    var code = `onemptied="${statements_fun}"\n`;
+    var code = `onEmptied="${statements_fun}"\n`;
     return code;
 };
 
