@@ -921,6 +921,10 @@
 <script src="./static/Waddle/blocks/utils.js"></script>
 <script src="./static/Waddle/generators/javascript/utils.js"></script>
 
+<!--HTML DOM积木-->
+<script src="./static/Waddle/blocks/htmldom.js"></script>
+<script src="./static/Waddle/generators/javascript/htmldom.js"></script>
+
 <!--导入导航栏按钮函数-->
 <script src="./static/js/navFuncs.js"></script>
 <script>
@@ -1620,12 +1624,12 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '0px' }, 10);
 	setTimeout(() => { document.getElementsByClassName("blocklyTrash")[0].style.display = "none"; document.getElementById("table").style.height = "calc(100vh - 52px)"; document.getElementById("toolbox").style.height = "calc(100vh - 52px)"; document.getElementById("blocklyDiv").style.height = "calc(100vh - 52px)"; document.getElementById("workspaceblocks").style.height = "calc(100vh - 52px)"; Blockly.svgResize(workspace); document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000);
 
-	let to_center = function() {
+	let to_center = function () {
 		// 加载完成积木居中
 		const el = document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent("pointerdown"));
 		el.dispatchEvent(new PointerEvent("pointerdown"));
 	}
-	setTimeout(() => to_center(),1000) //加载完成1s后执行
+	setTimeout(() => to_center(), 1000) //加载完成1s后执行
 </script>
 <div class="maoboli"></div>
 
