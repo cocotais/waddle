@@ -453,7 +453,7 @@ TIP
         <block type="html_other_em">
 		</block>
     </category>
-    <category name="HTML DOM" css-icon="iconfont waddle-tool">
+    <category name="DOM" css-icon="iconfont waddle-tool">
         <block type="htmldom_document">
 		</block>
         <block type="html_getelementbytagname">
