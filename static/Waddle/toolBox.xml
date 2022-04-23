@@ -476,6 +476,8 @@ TIP
 		</block>
 		<block type="html_noscript">
 		</block>
+		<block type="html_script">
+		</block>
 		<block type="html_other_px">
 		</block>
 		<block type="html_other_cm">
