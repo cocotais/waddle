@@ -13,7 +13,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.20.40(681)-alpha' //以后版本号改我就行！
+		var version = 'V1.25.60(736)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -498,7 +498,7 @@
 					top: 0;
 					position: fixed;
 					left: 0;
-					z-index: 100;
+					z-index: 99999;
 					display: none;
 					-webkit-transition-duration: 0.4s;
 					/* Safari */
@@ -509,6 +509,61 @@
 			.swal-button--confirm:not([disabled]):focus {
 				background-color: #6d50f0;
 			}
+            
+            .blocklyTreeLabel {
+                padding: 3px 0;
+            }
+
+            .blocklyTreeRowContentContainer {
+                padding: 11px 0px 6px 0;
+            }
+
+            /* Adds padding around the group of categories and separators. */
+            .blocklyToolboxContents {
+                padding: 0em;
+            }
+
+            /* Adds space between the categories, rounds the corners and adds space around the label. */
+            .blocklyTreeRow {
+                height: 32px;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0;
+                cursor: pointer;
+                border-radius: 5px;
+                margin: 0px 4px;
+                font-size: 12px;
+            }
+
+
+            .mask {
+                position: absolute;
+                top: 0;
+                /* 黑色背景 */
+                z-index: -2;
+                /* 使遮罩层位于背景容器层下方，背景容器模糊带消失 */
+            }
+
+            .mbl {
+                filter: alpha(Opacity=60);
+                -moz-opacity: 0.5;
+                opacity: 0.5;
+            }
+    
+            .customIcon {
+                padding: 10;
+            }
+
+            /* Stacks the icon on top of the label. */
+            .blocklyTreeRowContentContainer {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .blocklyTreeRow {
+                height: initial;
+            }
 
 			.blocklyMenuItem {
 				color: rgba(0, 0, 0, .65);
@@ -1627,7 +1682,11 @@
 	let to_center = function () {
 		// 加载完成积木居中
 		const el = document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent("pointerdown"));
-		el.dispatchEvent(new PointerEvent("pointerdown"));
+		try {
+			el.dispatchEvent(new PointerEvent("pointerdown"));
+		} catch (err) {
+			// pass
+		}
 	}
 	setTimeout(() => to_center(), 1000) //加载完成1s后执行
 </script>
