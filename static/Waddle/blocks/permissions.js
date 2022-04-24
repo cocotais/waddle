@@ -60,3 +60,48 @@ Blockly.Blocks['permissions_history'] = {
         this.setHelpUrl('');
     }
 };
+
+Blockly.Blocks['permissions_call'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('调用')
+            .appendField(
+                new Blockly.FieldDropdown([
+                    ['文档(document)', 'document'],
+                    ['窗口(window)', 'window'],
+                    ['浏览器(navigator)', 'navigator'],
+                    ['历史记录(history)', 'history']
+                ]),
+                'TYPE'
+            )
+            .appendField('的')
+            .appendField(new Blockly.FieldTextInput('alert("233")'), 'CODE');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['permissions_call_return'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('调用')
+            .appendField(
+                new Blockly.FieldDropdown([
+                    ['文档(document)', 'document'],
+                    ['窗口(window)', 'window'],
+                    ['浏览器(navigator)', 'navigator'],
+                    ['历史记录(history)', 'history']
+                ]),
+                'TYPE'
+            )
+            .appendField('的')
+            .appendField(new Blockly.FieldTextInput('alert("233")'), 'CODE');
+        this.setOutput(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};

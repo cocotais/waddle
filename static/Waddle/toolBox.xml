@@ -520,6 +520,10 @@ TIP
 		</block>
 		<block type="permissions_history">
 		</block>
+		<block type="permissions_call">
+		</block>
+		<block type="permissions_call_return">
+		</block>
 	</category>
 	<category name="lodash" css-icon="iconfont waddle-tool">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
