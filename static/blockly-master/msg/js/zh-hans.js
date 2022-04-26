@@ -178,7 +178,6 @@ Blockly.Msg["LOGIC_NULL_TOOLTIP"] = "返回空值。";
 Blockly.Msg["LOGIC_OPERATION_AND"] = "且";
 Blockly.Msg["LOGIC_OPERATION_HELPURL"] = "https://github.com/google/blockly/wiki/Logic#logical-operations";  // untranslated
 Blockly.Msg["LOGIC_OPERATION_OR"] = "或";
-Blockly.Msg["LOGIC_OPERATION_XOR"] = "异或";
 Blockly.Msg["LOGIC_OPERATION_TOOLTIP_AND"] = "如果两个输入结果都为真，则返回真。";
 Blockly.Msg["LOGIC_OPERATION_TOOLTIP_OR"] = "如果至少有一个输入结果为真，则返回真。";
 Blockly.Msg["LOGIC_OPERATION_TOOLTIP_XOR"] = "如果有且只有一个输入结果为真，则返回真。";
