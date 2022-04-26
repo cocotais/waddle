@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Waddle开发文档</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/showdown/2.0.3/showdown.js"></script>
+</head>
+
+<body class="mdui-drawer-body-left" style="margin-left: 0%;">
+    <div class="mdui-toolbar mdui-color-theme mdui-appbar-inset">
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon" onclick="(new mdui.Drawer('#drawer')).toggle()">
+            <i class="mdui-icon material-icons">menu</i>
+        </a>
+        <span class="mdui-typo-title">Waddle文档阅读</span>
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </a>
+    </div>
+
+    <!--要自己手动做目录，非常不好用👎👎👎👎👎👎👎👎👎👎👎纯lj-->
+    <script>
+        var converter = new showdown.Converter()
+        opendoc = (url) => {
+            mdui.snackbar({
+                message: `正在加载 : ${url}`,
+                position: 'right-bottom',
+            });
+            const Http = new XMLHttpRequest();
+            Http.open("GET", url);
+            Http.send();
+            Http.onreadystatechange = (e) => {
+                document.getElementById("content").innerHTML = converter.makeHtml(Http.responseText)
+                mdui.snackbar({
+                    message: `加载成功`,
+                    position: 'right-bottom',
+                });
+            }
+        }
+    </script>
+    <div class="mdui-drawer" id="drawer">
+        <ul class="mdui-list" mdui-collapse="{accordion: true}" style="max-width: 360px;left:0;">
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                <div class="mdui-list-item-content">序言</div>
+            </li>
+            <li class="mdui-collapse-item mdui-collapse-item-open">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">people</i>
+                    <div class="mdui-list-item-content">开发</div>
+                    <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                </div>
+                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    <li class="mdui-list-item mdui-ripple" onclick="opendoc('/docs/dev/1-开发指南.md')">1 - 开发指南</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="opendoc('/docs/dev/2-开发模式.md')">2 - 开发模式</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="opendoc('/docs/dev/3-提交信息规范.md')">3 - 提交信息规范</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="opendoc('/docs/dev/4-提交PR指南.md')">4 - 提交PR指南</li>
+                </ul>
+                <!--该区学校了，晚上再改-->
+            </li>
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">device_hub</i>
+                    <div class="mdui-list-item-content">使用</div>
+                    <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                </div>
+                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    <li class="mdui-list-item mdui-ripple">无</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="content"></div>
+</body>
+
+</html>

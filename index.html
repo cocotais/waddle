@@ -877,19 +877,9 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '1180px' }, 10);
 </script>
 
-<!--定义Blocks-->
-<!-- <script src="static/blockly-master/blocks/invisibleWidget.js"></script> -->
-<!-- <script src="static/blockly-master/blocks/coco.js"></script> -->
-<script src="./static/blockly-master/blocks/js.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1170px' }, 10);
 </script>
-<!--<script src="./static/Waddle/blocks/procedures.js"></script>-->
-
-<!--Blocks 对应代码-->
-<!-- <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script> -->
-<!-- <script src="static/blockly-master/generators/javascript/coco.js"></script> -->
-<script src="./static/blockly-master/generators/javascript/js.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1160px' }, 10);
 </script>
@@ -963,6 +953,10 @@
 <!--可见控件积木（实验性）-->
 <script src="./static/Waddle/blocks/visibleWidget.js"></script>
 <script src="./static/Waddle/generators/javascript/visibleWidget.js"></script>
+
+<!--权限控件积木（实验性）-->
+<script src="./static/Waddle/blocks/permissions.js"></script>
+<script src="./static/Waddle/generators/javascript/permissions.js"></script>
 
 <!--lodash控件积木(实验性)-->
 <script src="./static/Waddle/blocks/lodash.js"></script>
@@ -1102,10 +1096,28 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '400px' }, 10);
 </script>
 <script>
+	setInterval(function () {
+		let code = Blockly.JavaScript.workspaceToCode(workspace);
+		code = code.replaceAll("\n", "")
+		if (code.match(/return\((.+?)\)/g) != null) {
+			//事一个可见控件！
+			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
+			let html_code = code.match(/return\((.+?)\)/g)[0].substring(8, code.match(/return\((.+?)\)/g)[0].length - 2).replaceAll('&#60', '<').replaceAll('&#62', '>')
+			document.getElementById("widgetPreview").innerHTML = html_code
+		}
+	}, 100)
 	function myUpdateFunction(event) {
 		var code = Blockly.JavaScript.workspaceToCode(workspace);
 		document.getElementById("codeArea").innerHTML = code;
 		hljs.highlightBlock(document.getElementById("codeArea"))
+		code = code.replaceAll("\n", "")
+		if (code.match(/return\((.+?)\)/g) != null) {
+			//事一个可见控件！
+			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
+			console.log(document.getElementById("myModal").style.display)
+			let html_code = code.match(/return\((.+?)\)/g)[0].substring(8, code.match(/return\((.+?)\)/g)[0].length - 2).replaceAll('&#60', '<').replaceAll('&#62', '>')
+			document.getElementById("widgetPreview").innerHTML = html_code
+		}
 	}
 	workspace.addChangeListener(myUpdateFunction);
 
@@ -1184,6 +1196,22 @@
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '360px' }, 10);
 </script>
+<div id="widgetPreview">
+</div>
+<style>
+	#widgetPreview {
+		height: 40vh;
+		width: 300px;
+		background-color: #ccc;
+		color: #ccc;
+		border-radius: 4px;
+		position: fixed;
+		top: 52px;
+		right: 400px;
+		display: none;
+		padding: 10px;
+	}
+</style>
 <style>
 	/* 代码框 (background) */
 

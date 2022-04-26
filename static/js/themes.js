@@ -30,6 +30,8 @@ var to_dark = function () {
     document.getElementById('moon-solid_3_').setAttribute('transform', 'translate(0 0)');
     document.getElementById('theme').setAttribute('width', '25.92');
     document.getElementById('theme').setAttribute('height', '25.92');
+    document.getElementById('widgetPreview').style.color = '#fff';
+    document.getElementById('widgetPreview').style.backgroundColor = '#333033';
     sty.innerText = '@import url(./static/css/theme.dark.css)';
     document.body.appendChild(sty);
     $('.aboutus-content').css('cssText', "background: linear-gradient(rgba(82, 82, 82, 0.65), rgba(0, 0, 0, 0.45)), url('./static/img/background.svg') no-repeat 0% 20%/ cover");
@@ -66,6 +68,8 @@ var to_light = function () {
     document.getElementById('moon-solid_3_').setAttribute('transform', 'translate(-32 -32)');
     document.getElementById('theme').setAttribute('width', '22.627776');
     document.getElementById('theme').setAttribute('height', '25.344');
+    document.getElementById('widgetPreview').style.backgroundColor = '#ffffff';
+    document.getElementById('widgetPreview').style.color = '#000';
     sty.innerText = '@import url(./static/css/theme.light.css)';
     document.body.appendChild(sty);
     //document.getElementsByClassName("modal-header")[0].style.backgroundColor = "#6d50f0"
