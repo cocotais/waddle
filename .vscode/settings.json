@@ -4,7 +4,7 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
-    // 请使用eslint插件
+    // 请使用eslint插件、prettier插件、xml format插件
     "eslint.validate": ["javascript", "javascriptreact"],
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -17,6 +17,12 @@
     },
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "vscode.markdown-language-features"
+    },
+    "[xml]": {
+        "editor.defaultFormatter":  "mikeburgh.xml-format"
     },
     // 请使用prettier插件
     "prettier.semi": true,
