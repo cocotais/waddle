@@ -3,7 +3,7 @@
 <p align="center">
     <br>
     <a href="https://www.yuque.com/coco-central/waddle/index">
-        <img alt="Waddle-Logo-Purple" src="static/cs.png" height="73" width="346"/>
+        <img alt="Waddle-Logo-Purple" src="static/cs.png"/>
     </a>
     <br>
 </p>
