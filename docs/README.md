@@ -60,7 +60,7 @@ CoCo中控台 由一群初中生创建，资金有限，域名与服务器完全
 
 <p align="center">
   <br>
-  <img alt="donate" src="https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/donate.png" height="250" width="250" />
+  <img alt="donate" src="static/donate.png" height="250" width="250" />
   <br>
   <a href="https://www.yuque.com/coco-central/waddle/donate">收入支出明细</a>
   <br>
