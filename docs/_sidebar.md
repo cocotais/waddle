@@ -18,6 +18,5 @@
   
 <br>
 
-* [Waddle 手册](https://www.yuque.com/coco-central/waddle/index)
 * [Waddle 仓库](https://gitee.com/coco-ag/coco-waddle)
 * [Waddle 反馈](https://gitee.com/coco-ag/coco-waddle/issues)
