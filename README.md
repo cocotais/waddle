@@ -11,7 +11,7 @@
 
 # 简介
 Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形化编辑器
-> Waddle 手册正在制作中，欢迎前往 [手册](https://waddle-beta.coco-central.cn/docs/#/) 查看，若要对手册献力，请查看 [参与贡献](https://gitee.com/coco-ag/coco-waddle#参与贡献)
+> Waddle 手册正在制作中，欢迎前往 [手册](https://waddle.coco-central.cn/docs/#/) 查看，若要对手册献力，请查看 [参与贡献](https://gitee.com/coco-ag/coco-waddle#参与贡献)
 # 使用
 
 <details>
@@ -44,7 +44,7 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 如果你遇到了 Bug 或者有了好建议，可以选择在 [Issues页（优先处理）](https://gitee.com/coco-ag/coco-waddle/issues) 反馈，可以在 [反馈表单](https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec) 内填写！我们会尽快处理！
 
 # 参与贡献
-如果你想要对代码进行贡献，可以参考 [这份文档](https://waddle-beta.coco-central.cn/docs/#/dev/)
+如果你想要对代码进行贡献，可以参考 [这份文档](https://waddle.coco-central.cn/docs/#/dev/)
 
 如果你想要对使用手册进行贡献，可以前往 [这里](https://gitee.com/coco-ag/coco-waddle/tree/master/docs) 直接编辑，我们将对您的内容进行审核
 
