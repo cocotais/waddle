@@ -835,7 +835,7 @@ Blockly.JavaScript['html_tag'] = function (block) {
     var statements_con = (Blockly.JavaScript.statementToCode(block, 'CON') || '').trim();
     var statements_pro = html_attribute_to_str(Blockly.JavaScript.statementToCode(block, 'PRO') || '');
     // TODO: Assemble JavaScript into code variable.
-    console.log(statements_pro, statements_pro == '');
+    //console.log(statements_pro, statements_pro == '');
     var code = `<${name}${statements_pro == '' ? '' : ' '}${statements_pro}>${statements_con}</${name}>\n`;
     return html_escape(code);
 };
