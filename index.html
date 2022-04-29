@@ -13,7 +13,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.25.60(736)-alpha' //以后版本号改我就行！
+		var version = 'V1.26.64(802)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -213,7 +213,7 @@
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<li>
 									<a class="dropdown-item" href="javascript:void(0)"
-										onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show";document.getElementsByClassName("newsth")[0].className = "newsth show";document.getElementsByClassName("maoboli")[0].style.display = "block";'>新建</a>
+										onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show";document.getElementsByClassName("newsth")[0].className = "newsth show";document.getElementsByClassName("maoboli")[0].className = "maoboli show";'>新建</a>
 								</li>
 								<li>
 									<a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存到电脑</a>
@@ -233,7 +233,7 @@
 						</script>
 						<li class="nav-item" data-title="关于">
 							<a class="nav-link" aria-label="关于" href="javascript:void(0)"
-								onclick='aboutus.style.display = "block";document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";document.getElementsByClassName("aboutus")[0].className = "aboutus show";document.getElementsByClassName("maoboli")[0].style.display = "block";'>
+								onclick='aboutus.style.display = "block";document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";document.getElementsByClassName("aboutus")[0].className = "aboutus show";document.getElementsByClassName("maoboli")[0].className = "maoboli show";'>
 								<svg xmlns="http://www.w3.org/2000/svg" width="25.92" height="25.92" fill="currentColor"
 									viewBox="0 0 135 135">
 									<path id="circle-question-solid"
@@ -458,30 +458,22 @@
 				border-radius: 10px;
 			}
 
-			@supports (backdrop-filter: blur(10px)) {
+			@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
 				.swal-overlay {
 					backdrop-filter: blur(10px);
 					background-color: rgba(0, 0, 0, .4);
-
-				}
-
-			}
-
-			@supports (-webkit-backdrop-filter: blur(10px)) {
-				.swal-overlay {
-					backdrop-filter: blur(10px);
 					-webkit-backdrop-filter: blur(10px);
-					background-color: rgba(0, 0, 0, .4);
 				}
+
 			}
 
 			@supports (background: -moz-element(#body)) and (not (backdrop-filter: blur(0))) {
 				.swal-overlay::after {
+					background: -moz-element(#body);
 					display: inline-block;
 					content: "";
 					width: 100%;
 					height: 100%;
-					background-image: -moz-element(#body);
 					filter: blur(10px) brightness(60%);
 					top: 0;
 					position: fixed;
@@ -490,19 +482,27 @@
 				}
 
 				.maoboli {
+					background: -moz-element(#body);
 					content: "";
 					width: 100%;
 					height: 100%;
-					background-image: -moz-element(#body);
 					filter: blur(10px);
 					top: 0;
 					position: fixed;
 					left: 0;
 					z-index: 99999;
 					display: none;
-					-webkit-transition-duration: 0.4s;
-					/* Safari */
-					transition-duration: 0.4s;
+				}
+
+				.show.maoboli{
+					display: block;
+					-webkit-animation: shownewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+					animation: shownewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+				}
+				
+				.maoboli{
+					-webkit-animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+					animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 				}
 			}
 
@@ -692,52 +692,6 @@
 				height: calc(100vh - 52px);
 				float: right;
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			}
-
-
-
-
-			@-webkit-keyframes animateright {
-				from {
-					opacity: 0
-				}
-
-				to {
-					opacity: 1
-				}
-
-
-				@-webkit-keyframes animateright {
-					from {
-						opacity: 0
-					}
-
-					to {
-						right: 0;
-						opacity: 1
-					}
-				}
-
-				@keyframes animateright {
-					from {
-						opacity: 0
-					}
-
-					to {
-						opacity: 1
-					}
-				}
-
-
-				@-webkit-keyframes animateleft {
-					from {
-						opacity: 1
-					}
-
-					to {
-						opacity: 0
-					}
-				}
 			}
 
 			/* 关闭按钮 */
@@ -1384,6 +1338,7 @@
 			opacity: 0;
 			backdrop-filter: blur(0px);
 			-webkit-backdrop-filter: blur(0px);
+			display: none;
 		}
 	}
 
@@ -1450,10 +1405,11 @@
 
 	// 点击 <span> (x), 关闭代码框
 	newsthspan.onclick = function () {
-		document.getElementsByClassName("maoboli")[0].style.display = "none";
+		document.getElementsByClassName("maoboli")[0].className = "maoboli"
+		document.getElementsByClassName("maoboli")[0].style.display = "block"
 		document.getElementsByClassName("newsth-content")[0].className = "newsth-content"
 		document.getElementsByClassName("newsth")[0].className = "newsth"
-		setTimeout(() => { newsth.style.display = "none"; }, 400)
+		setTimeout(() => { newsth.style.display = "none";document.getElementsByClassName("maoboli")[0].style.display = ""; }, 320)
 	}
 
 </script>
@@ -1659,10 +1615,11 @@
 
 	// 点击 <span> (x), 关闭代码框
 	aboutusspan.onclick = function () {
-		document.getElementsByClassName("maoboli")[0].style.display = "none";
+		document.getElementsByClassName("maoboli")[0].className = "maoboli"
+		document.getElementsByClassName("maoboli")[0].style.display = "block"
 		document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content"
 		document.getElementsByClassName("aboutus")[0].className = "aboutus"
-		setTimeout(() => { aboutus.style.display = "none"; }, 400)
+		setTimeout(() => { aboutus.style.display = "none";document.getElementsByClassName("maoboli")[0].style.display = ""; }, 320)
 	}
 </script>
 <script>
