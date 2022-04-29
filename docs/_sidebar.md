@@ -21,4 +21,5 @@
 <br>
 
 * [Waddle 仓库](https://gitee.com/coco-ag/coco-waddle)
+* [Waddle 小技巧](https://www.yuque.com/coco-central/waddle-tips)
 * [Waddle 反馈](https://gitee.com/coco-ag/coco-waddle/issues)
