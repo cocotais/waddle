@@ -103,7 +103,8 @@ Blockly.Blocks['ivw_addProperty'] = {
                     ['字符串', 'string'],
                     ['数字', 'number'],
                     ['布尔', 'boolean'],
-                    ['任何类型', "['string','number','boolean','array','object',]"]
+                    ['颜色','color'],
+                    ['任何类型', "['string','number','boolean','color','array','object',]"]
                 ]),
                 'valueType'
             );
@@ -186,7 +187,8 @@ Blockly.Blocks['ivw_addParams'] = {
                     ['字符串', 'string'],
                     ['数字', 'number'],
                     ['布尔', 'boolean'],
-                    ['任何类型', "['string','number','boolean','array','object',]"]
+                    ['颜色', 'color'],
+                    ['任何类型', "['string','number','boolean','color','array','object',]"]
                 ]),
                 'valueType'
             );
