@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="theme-color" id="pwa-color" content="#6d50f0">
+	<meta name="theme-color" id="pwa-color" content="var(--main-color)">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="manifest" href="./manifest.json">
 	<meta name="apple-touch-fullscreen" content="yes">
@@ -13,7 +13,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.27.65(813)-alpha' //以后版本号改我就行！
+		var version = 'V1.28.66(817)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -194,14 +194,14 @@
 		$('.cls-1').animate({ 'stroke-dashoffset': '1600px' }, 10);
 	</script>
 	<div id="body" style="visibility:hidden;">
-		<nav class="navbar navbar-expand navbar-dark" style="background-color: #6d50f0;min-width: 344px;">
+		<nav class="navbar navbar-expand navbar-dark" style="background-color: var(--main-color);min-width: 344px;">
 			<div class="container-fluid" style="min-height: 52px;">
 				<a class="navbar-brand" href="#"><img id="logo" src="./static/img/waddle.svg"
 						style="height: 30px;width: 142px;padding-bottom: 3px;user-select: none;" alt="Waddle" onClick="estchk()" /></a>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav">
-						<li class="nav-item dropdown" one-link-mark="yes"  role="button" data-title="文件" aria-label="文件" id="navbarDropdown" onclick='fix_bug()' data-bs-toggle="dropdown">
+						<li class="nav-item dropdown" one-link-mark="yes"  role="button" data-title="文件" aria-label="文件" id="navbarDropdown" onclick='dropdown_show()' data-bs-toggle="dropdown">
 							<div class="nav-link">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24.96" height="24" fill="currentColor"
 									viewBox="0 0 130 125">
@@ -210,7 +210,7 @@
 								</svg>
 							</div>
 						</li>
-						<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" onfocus="alert('?')">
 							<li>
 								<a class="dropdown-item" href="javascript:void(0)"
 									onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show";document.getElementsByClassName("newsth")[0].className = "newsth show";document.getElementsByClassName("maoboli")[0].className = "maoboli show";'>新建</a>
@@ -294,14 +294,6 @@
 		</div>
 
 		<a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
-		<svg width="0" height="0" style="position:absolute;">
-			<filter id="blur" color-interpolation-filters="sRGB">
-				<feGaussianBlur stdDeviation="10" edgeMode="duplicate" />
-				<feComponentTransfer>
-					<feFuncA type="discrete" tableValues="0 1" />
-				</feComponentTransfer>
-			</filter>
-		</svg>
 		<style>
 			.nav-item:after {
 				content: attr(data-title);
@@ -411,6 +403,7 @@
 
 			.nav-item {
 				height: 5%;
+				border-radius: 10%;
 				margin-left: 12px;
 				-webkit-transition-duration: 0.1s;
 				/* Safari */
@@ -471,54 +464,6 @@
 
 			.swal-content__input {
 				border-radius: 10px;
-			}
-
-			@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
-				.swal-overlay {
-					backdrop-filter: blur(10px);
-					background-color: rgba(0, 0, 0, .4);
-					-webkit-backdrop-filter: blur(10px);
-				}
-
-			}
-
-			@supports (background: -moz-element(#body)) and (not (backdrop-filter: blur(0))) {
-				.swal-overlay::after {
-					background: -moz-element(#body);
-					display: inline-block;
-					content: "";
-					width: 100%;
-					height: 100%;
-					filter: blur(10px) brightness(60%);
-					top: 0;
-					position: fixed;
-					left: 0;
-					z-index: -1;
-				}
-
-				.maoboli {
-					background: -moz-element(#body);
-					content: "";
-					width: 100%;
-					height: 100%;
-					filter: blur(10px);
-					top: 0;
-					position: fixed;
-					left: 0;
-					z-index: 99999;
-					display: none;
-				}
-
-				.show.maoboli{
-					display: block;
-					-webkit-animation: shownewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-					animation: shownewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				}
-				
-				.maoboli{
-					-webkit-animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-					animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				}
 			}
 
 			.swal-button--confirm:not([disabled]):focus {
@@ -663,7 +608,7 @@
 				-webkit-transition-duration: 0.1s;
 				/* Safari */
 				transition-duration: 0.1s;
-				background: #6d50f0;
+				background: var(--main-color);
 				border: none;
 				color: white;
 				width: 70px;
@@ -680,7 +625,7 @@
 			}
 
 			.copy:hover {
-				background: #5439ce;
+				background: var(--nd-main-color);
 				box-shadow: 0 0 6px 1px rgba(0, 0, 0, .6);
 			}
 
@@ -713,7 +658,7 @@
 
 			.close {
 				color: white;
-				border: 13px solid #6d50f0;
+				border: 13px solid var(--main-color);
 				float: right;
 				font-size: 28px;
 				font-weight: bold;
@@ -725,13 +670,13 @@
 			.close:hover,
 			.close:focus {
 				color: white !important;
-				border: 13px solid #5439ce;
+				border: 13px solid var(--nd-main-color);
 				text-decoration: none;
 				cursor: pointer;
 			}
 
 			.modal-header {
-				background-color: #6d50f0;
+				background-color: var(--main-color);
 				color: white;
 				min-height: 53px;
 				max-height: 53px;
@@ -789,7 +734,7 @@
 			<!-- 新建浮窗内容 -->
 			<div class="aboutus-content" style="min-width: 305px;">
 				<div class="aboutus-header">
-					<span class="aboutus-logo" style="color: #6d50f0;font-weight: bold;
+					<span class="aboutus-logo" style="color: var(--main-color);font-weight: bold;
 						font-size: 25px;">关于我们</span>
 					<span class="aboutus-close">&times;</span>
 				</div>
@@ -854,11 +799,11 @@
 </script>
 
 <!--引入框架-->
-<script src="./static/js/bootstrap.bundle.min.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1010px' }, 10);
 </script>
-<link href="./static/css/bootstrap.min.css" rel="stylesheet">
+<link href="./static/css/navbar.css" rel="stylesheet">
+<link href="./static/css/maoboli.css" rel="stylesheet">
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '910px' }, 10);
 </script>
@@ -943,7 +888,6 @@
 <script src="./static/Waddle/blocks/htmldom.js"></script>
 <script src="./static/Waddle/generators/javascript/htmldom.js"></script>
 
-<!--吲�f`叺 M��|L�A什�A庅.jsjjsjssx*fn��p�-->
 <script src="./static/Waddle/blocks/what.js"></script>
 <script src="./static/Waddle/generators/javascript/what.js"></script>
 
@@ -1207,7 +1151,7 @@
 	}
 
 	.sord {
-		color: #6d50f0;
+		color: var(--main-color);
 		font-weight: bold;
 		font-size: 30px;
 	}
@@ -1253,7 +1197,7 @@
 	}
 
 	.card:hover {
-		border: #6d50f0 0.2em solid;
+		border: var(--main-color) 0.2em solid;
 	}
 
 	@-webkit-keyframes scale-up-center {
@@ -1356,7 +1300,7 @@
 	/* 关闭按钮 */
 
 	.newsth-close {
-		color: #6d50f0;
+		color: var(--main-color);
 		font-weight: bold;
 		font-size: 50px;
 		float: right;
@@ -1368,7 +1312,7 @@
 	.newsth-logo {
 		position: relative;
 		left: 10px;
-		color: #6d50f0;
+		color: var(--main-color);
 	}
 
 	.newsth-close:hover,
@@ -1467,7 +1411,7 @@
 		height: 60vh;
 		top: 20vh;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-		background-color: #6d50f0;
+		background-color: var(--main-color);
 		background: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), url('./static/img/background.svg') no-repeat 0% 20%/ cover;
 		background-size: cover;
 		min-width: 284px;
@@ -1582,7 +1526,7 @@
 	/* 关闭按钮 */
 
 	.aboutus-close {
-		color: #6d50f0;
+		color: var(--main-color);
 		font-weight: bold;
 		font-size: 50px;
 		float: right;

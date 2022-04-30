@@ -3,7 +3,7 @@
 }
 
 .blocklyTreeLabel {
-    color: #525252;;
+    color: #525252;
 }
 
 .blocklyToolboxDiv {
@@ -38,11 +38,11 @@
 /* Stacks the icon on top of the label. */
 
 .blocklyFlyoutButton {
-    fill: #6d50f0;
+    fill: var(--main-color);
 }
 
 .blocklyFlyoutButton:hover {
-    fill: #5439ce;
+    fill: var(--nd-main-color);
 }
 
 .blocklyTreeRow:not(.blocklyTreeSelected):hover {
@@ -50,16 +50,16 @@
 }
 
 .close {
-    border: 13px solid #6d50f0;
+    border: 13px solid var(--main-color);
 }
 
 .close:hover,
 .clos:focus {
-    border: 13px solid #5439ce;
+    border: 13px solid var(--nd-main-color);
 }
 
 .nav-item:hover {
-    background-color: #5439ce;
+    background-color: var(--nd-main-color);
 }
 
 .close:hover {
@@ -72,13 +72,13 @@
 }
 
 .aboutus-close {
-    color: #6d50f0;
+    color: var(--main-color);
 }
 
 .newsth-close {
-    color: #6d50f0;
+    color: var(--main-color);
 }
 
 .sord {
-    color: #6d50f0;
+    color: var(--main-color);
 }

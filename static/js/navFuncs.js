@@ -122,25 +122,34 @@ let count = function () {
     }
 };
 
-let fix_bug = function () {
-    try {
-        /* 由于修复nav细节后菜单脱离了原本的“结构”
-            因此需要要获取navbar-nav菜单的水平距离
-            然后将距离添加到下拉menu的margin-left上*/
-        var navbar = document.getElementsByClassName('navbar-nav')[0];
-		var navbar_x = navbar.getBoundingClientRect().x;
-		document.getElementById('navmenu').style.marginLeft = navbar_x + 'px';
+var isclick = false;
 
-        if (document.getElementsByClassName('dropdown-menu show')[0].dataBsToggle == 'none') {
-            document.getElementsByClassName('dropdown')[0].style.backgroundColor = '';
-        } else {
-            if (getCookie('mode') == 'dark') {
-                document.getElementsByClassName('dropdown')[0].style.backgroundColor = '#666666';
-            } else {
-                document.getElementsByClassName('dropdown')[0].style.backgroundColor = '#5439ce';
-            }
-        }
-    } catch (err) {
-        document.getElementsByClassName('dropdown')[0].style.backgroundColor = '';
+
+let dropdown_show = function () {
+    document.getElementById('navmenu').style.top = '52px';
+	document.getElementById('navmenu').style.marginLeft = '12px';
+    if (document.getElementsByClassName('dropdown-menu')[0].className == 'dropdown-menu show') {
+        document.getElementsByClassName('dropdown')[0].style.backgroundColor = '';   
+        document.getElementsByClassName('dropdown-menu')[0].className = 'dropdown-menu';  
+        setTimeout(() => {
+			isclick = false;
+		}, 100)  
+        
+    } 
+    else {
+        document.getElementsByClassName('dropdown')[0].style.backgroundColor = 'var(--nd-main-color)';
+        document.getElementsByClassName('dropdown-menu')[0].className = 'dropdown-menu show';
+        setTimeout(() => {
+			isclick = true;
+		}, 100)
+        
     }
 };
+
+document.onclick = function () {
+    if (isclick == true) {
+        document.getElementsByClassName('dropdown')[0].style.backgroundColor = '';
+        document.getElementsByClassName('dropdown-menu')[0].className = 'dropdown-menu';   
+        isclick = false;   
+    }
+}
