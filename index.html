@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="theme-color" id="pwa-color" content="var(--main-color)">
+	<meta name="theme-color" id="pwa-color" content="#6d50f0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="manifest" href="./manifest.json">
 	<meta name="apple-touch-fullscreen" content="yes">
@@ -13,7 +13,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.28.66(817)-alpha' //以后版本号改我就行！
+		var version = 'V1.28.66(818)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -210,28 +210,18 @@
 								</svg>
 							</div>
 						</li>
-						<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" onfocus="alert('?')">
-							<li>
-								<a class="dropdown-item" href="javascript:void(0)"
-									onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show";document.getElementsByClassName("newsth")[0].className = "newsth show";document.getElementsByClassName("maoboli")[0].className = "maoboli show";'>新建</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存到电脑</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="javascript:void(0)"
-									onClick="openfile()">打开Waddle文件</a>
-							</li>
+						<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li class="dropdown-item" onClick="show_newsth()">新建</li>
+							<li class="dropdown-item" onClick="save()">保存到电脑</li>
+							<li class="dropdown-item" onClick="openfile()">打开Waddle文件</li>
 							<div style="height: 1px;background-color: #f2f2f2;margin: 0 10px;"></div>
-							<li>
-								<a class="dropdown-item" href="javascript:void(0)" onClick="js_save()">另存为js文件</a>
-							</li>
+							<li class="dropdown-item" href="javascript:void(0)" onClick="js_save()">另存为js文件</li>
 						</ul>
 						<script>
 							$('.cls-1').animate({ 'stroke-dashoffset': '1550px' }, 10);
 						</script>
-						<li class="nav-item" data-title="关于" onclick="show_about()">
-							<div class="nav-link" aria-label="关于">
+						<li class="nav-item" data-title="关于" aria-label="关于" onclick="show_about()">
+							<div class="nav-link">
 								<svg xmlns="http://www.w3.org/2000/svg" width="25.92" height="25.92" fill="currentColor"
 									viewBox="0 0 135 135">
 									<path id="circle-question-solid"
@@ -260,15 +250,6 @@
 						</li>
 						<!--菜单栏图标全由海藻酸钠绘制-->
 					</ul>
-					<script>
-						// 原本的“关于”对话框的显示分离到此
-						function show_about(){
-							aboutus.style.display = "block";
-							document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";
-							document.getElementsByClassName("aboutus")[0].className = "aboutus show";
-							document.getElementsByClassName("maoboli")[0].className = "maoboli show";
-						}
-					</script>
 					<style>
 						.nav-item:hover .nav-link {
 							color: rgba(255, 255, 255, 0.85) !important;

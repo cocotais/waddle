@@ -127,29 +127,44 @@ var isclick = false;
 
 let dropdown_show = function () {
     document.getElementById('navmenu').style.top = '52px';
-	document.getElementById('navmenu').style.marginLeft = '12px';
+    document.getElementById('navmenu').style.marginLeft = '12px';
     if (document.getElementsByClassName('dropdown-menu')[0].className == 'dropdown-menu show') {
-        document.getElementsByClassName('dropdown')[0].style.backgroundColor = '';   
-        document.getElementsByClassName('dropdown-menu')[0].className = 'dropdown-menu';  
+        document.getElementsByClassName('dropdown')[0].style.backgroundColor = '';
+        document.getElementsByClassName('dropdown-menu')[0].className = 'dropdown-menu';
         setTimeout(() => {
-			isclick = false;
-		}, 100)  
-        
-    } 
+            isclick = false;
+        }, 100)
+
+    }
     else {
         document.getElementsByClassName('dropdown')[0].style.backgroundColor = 'var(--nd-main-color)';
         document.getElementsByClassName('dropdown-menu')[0].className = 'dropdown-menu show';
         setTimeout(() => {
-			isclick = true;
-		}, 100)
-        
+            isclick = true;
+        }, 100)
+
     }
 };
 
 document.onclick = function () {
     if (isclick == true) {
         document.getElementsByClassName('dropdown')[0].style.backgroundColor = '';
-        document.getElementsByClassName('dropdown-menu')[0].className = 'dropdown-menu';   
-        isclick = false;   
+        document.getElementsByClassName('dropdown-menu')[0].className = 'dropdown-menu';
+        isclick = false;
     }
+}
+
+// 原本的“关于”对话框的显示分离到此
+function show_about(){
+    aboutus.style.display = "block";
+    document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";
+    document.getElementsByClassName("aboutus")[0].className = "aboutus show";
+    document.getElementsByClassName("maoboli")[0].className = "maoboli show";
+}
+
+function show_newsth(){
+    newsth.style.display = "block";
+    document.getElementsByClassName("newsth-content")[0].className = "newsth-content show";
+    document.getElementsByClassName("newsth")[0].className = "newsth show";
+    document.getElementsByClassName("maoboli")[0].className = "maoboli show";
 }

@@ -44,7 +44,7 @@ var to_dark = function () {
     document.getElementsByClassName('newsth-logo')[0].style.color = '#fff';
     eval(dark);
     document.cookie = 'mode=dark';
-    document.getElementById('pwa-color').setAttribute('content', 'var(--main-color)');
+    document.getElementById('pwa-color').setAttribute('content', '#525252');
 
     document.documentElement.style.setProperty('--common-background', '#333033');
     document.documentElement.style.setProperty('--common-color', '#d7dae0');
@@ -82,7 +82,7 @@ var to_light = function () {
     document.getElementsByClassName('newsth-content')[0].style.backgroundColor = '#fff';
     document.getElementsByClassName('aboutus-logo')[0].style.color = 'var(--main-color)';
     document.getElementsByClassName('newsth-logo')[0].style.color = 'var(--main-color)';
-    document.getElementById('pwa-color').setAttribute('content', 'var(--main-color)');
+    document.getElementById('pwa-color').setAttribute('content', '#6d50f0');
     eval(light);
     document.cookie = 'mode=light';
 
