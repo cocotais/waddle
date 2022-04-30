@@ -124,6 +124,13 @@ let count = function () {
 
 let fix_bug = function () {
     try {
+        /* 由于修复nav细节后菜单脱离了原本的“结构”
+            因此需要要获取navbar-nav菜单的水平距离
+            然后将距离添加到下拉menu的margin-left上*/
+        var navbar = document.getElementsByClassName('navbar-nav')[0];
+		var navbar_x = navbar.getBoundingClientRect().x;
+		document.getElementById('navmenu').style.marginLeft = navbar_x + 'px';
+
         if (document.getElementsByClassName('dropdown-menu show')[0].dataBsToggle == 'none') {
             document.getElementsByClassName('dropdown')[0].style.backgroundColor = '';
         } else {
