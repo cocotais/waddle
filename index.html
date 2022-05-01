@@ -47,6 +47,7 @@
 	</style>
 
 	<link rel="shortcut icon" href="./static/img/logo.svg" type="image/x-icon">
+	<link rel="stylesheet" href="./static/css/theme.css">
 </head>
 <script>
 	//获取cookie
@@ -784,7 +785,7 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '1010px' }, 10);
 </script>
 <link href="./static/css/navbar.css" rel="stylesheet">
-<link href="./static/css/maoboli.css" rel="stylesheet">
+<link href="./static/css/groundglass.css" rel="stylesheet">
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '910px' }, 10);
 </script>
@@ -1341,11 +1342,11 @@
 
 	// 点击 <span> (x), 关闭代码框
 	newsthspan.onclick = function () {
-		document.getElementsByClassName("maoboli")[0].className = "maoboli"
-		document.getElementsByClassName("maoboli")[0].style.display = "block"
+		document.getElementsByClassName("groundglass")[0].className = "groundglass"
+		document.getElementsByClassName("groundglass")[0].style.display = "block"
 		document.getElementsByClassName("newsth-content")[0].className = "newsth-content"
 		document.getElementsByClassName("newsth")[0].className = "newsth"
-		setTimeout(() => { newsth.style.display = "none";document.getElementsByClassName("maoboli")[0].style.display = ""; }, 320)
+		setTimeout(() => { newsth.style.display = "none";document.getElementsByClassName("groundglass")[0].style.display = ""; }, 320)
 	}
 
 </script>
@@ -1551,11 +1552,11 @@
 
 	// 点击 <span> (x), 关闭代码框
 	aboutusspan.onclick = function () {
-		document.getElementsByClassName("maoboli")[0].className = "maoboli"
-		document.getElementsByClassName("maoboli")[0].style.display = "block"
+		document.getElementsByClassName("groundglass")[0].className = "groundglass"
+		document.getElementsByClassName("groundglass")[0].style.display = "block"
 		document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content"
 		document.getElementsByClassName("aboutus")[0].className = "aboutus"
-		setTimeout(() => { aboutus.style.display = "none";document.getElementsByClassName("maoboli")[0].style.display = ""; }, 320)
+		setTimeout(() => { aboutus.style.display = "none";document.getElementsByClassName("groundglass")[0].style.display = ""; }, 320)
 	}
 </script>
 <script>
@@ -1615,6 +1616,6 @@
 	}
 	setTimeout(() => to_center(), 1000) //加载完成1s后执行
 </script>
-<div class="maoboli"></div>
+<div class="groundglass"></div>
 
 </html>

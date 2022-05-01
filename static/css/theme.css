@@ -1,14 +1,13 @@
 .blocklyFlyout {
-    background-color: rgb(32, 32, 32) !important;
+    background-color: var(--flyout-color) !important;
 }
 
 .blocklyTreeLabel {
-    color: #fff;
+    color: var(--tree-label-color);
 }
 
-/* Adds space between the categories, rounds the corners and adds space around the label. */
 .custom_renderer-renderer.WaddleTheme-theme .blocklySelected > .blocklyPath {
-    stroke: #2e2e2e;
+    stroke: var(--renderer-color);
     stroke-width: 3px;
 }
 
@@ -34,13 +33,12 @@
 
 /* Stacks the icon on top of the label. */
 
-
 .copy {
-    background: var(--main-color);
+    fill: var(--main-color);
 }
 
 .copy:hover {
-    background: var(--nd-main-color);
+    fill: var(--nd-main-color);
 }
 
 .close {
@@ -50,6 +48,10 @@
 .close:hover,
 .clos:focus {
     border: 13px solid var(--nd-main-color);
+}
+
+.blocklyTreeRow:not(.blocklyTreeSelected):hover {
+    background-color: #dcdcdc55;
 }
 
 .swal-content__input,
@@ -79,22 +81,22 @@
 }
 
 .close:hover {
-    color: #d9d9d9;
+    color: #000000;
 }
 
 .card {
-    background: var(--nd-main-color);
-    border: rgb(255, 255, 255) 0.2em solid;
+    background: #fff;
+    border: var(--card-border-color) 0.2em solid;
 }
 
 .aboutus-close {
-    color: #fff;
+    color: var(--close-color);
 }
 
 .newsth-close {
-    color: #fff;
+    color: var(--close-color);
 }
 
 .sord {
-    color: #fff;
+    color: var(--close-color);
 }
