@@ -126,10 +126,9 @@ var isclick = false;
 
 
 let dropdown_show = function () {
-    document.getElementById('navmenu').style.top = '52px';
-    document.getElementById('navmenu').style.marginLeft = '12px';
+    document.getElementById('navmenu').style.top = '15px';
+    document.getElementById('navmenu').style.marginLeft = '70px';
     if (document.getElementsByClassName('dropdown-menu')[0].className == 'dropdown-menu show') {
-        document.getElementsByClassName('dropdown')[0].style.backgroundColor = '';
         document.getElementsByClassName('dropdown-menu')[0].className = 'dropdown-menu';
         setTimeout(() => {
             isclick = false;
@@ -137,7 +136,6 @@ let dropdown_show = function () {
 
     }
     else {
-        document.getElementsByClassName('dropdown')[0].style.backgroundColor = 'var(--nd-main-color)';
         document.getElementsByClassName('dropdown-menu')[0].className = 'dropdown-menu show';
         setTimeout(() => {
             isclick = true;
@@ -148,7 +146,6 @@ let dropdown_show = function () {
 
 document.onclick = function () {
     if (isclick == true) {
-        document.getElementsByClassName('dropdown')[0].style.backgroundColor = '';
         document.getElementsByClassName('dropdown-menu')[0].className = 'dropdown-menu';
         isclick = false;
     }

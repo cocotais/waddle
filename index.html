@@ -47,6 +47,7 @@
 	</style>
 
 	<link rel="shortcut icon" href="./static/img/logo.svg" type="image/x-icon">
+	<link rel="stylesheet" href="./static/css/theme.css">
 </head>
 <script>
 	//获取cookie
@@ -194,70 +195,30 @@
 		$('.cls-1').animate({ 'stroke-dashoffset': '1600px' }, 10);
 	</script>
 	<div id="body" style="visibility:hidden;">
-		<nav class="navbar navbar-expand navbar-dark" style="background-color: var(--main-color);min-width: 344px;">
-			<div class="container-fluid" style="min-height: 52px;">
-				<a class="navbar-brand" href="#"><img id="logo" src="./static/img/waddle.svg"
-						style="height: 30px;width: 142px;padding-bottom: 3px;user-select: none;" alt="Waddle" onClick="estchk()" /></a>
-
+		<img onclick='dropdown_show()' alt="Waddle" id="logo1" src="./static/img/purple-logo.svg" style="height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 60; background-color: var(--toolbox-color);">
+		<nav class="navbar navbar-expand navbar-dark" style="height:0px;background-color: var(--main-color);">
+			<div class="container-fluid">
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav">
-						<li class="nav-item dropdown" one-link-mark="yes"  role="button" data-title="文件" aria-label="文件" id="navbarDropdown" onclick='dropdown_show()' data-bs-toggle="dropdown">
-							<div class="nav-link">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24.96" height="24" fill="currentColor"
-									viewBox="0 0 130 125">
-									<path id="联合_1" data-name="联合 1"
-										d="M7,125a7,7,0,0,1-7-7V57a7,7,0,0,1,7-7H123a7,7,0,0,1,7,7v61a7,7,0,0,1-7,7ZM4.667,35A4.667,4.667,0,0,1,0,30.334V7A7,7,0,0,1,7,0H48.823A20,20,0,0,1,68.6,17h48.067A13.334,13.334,0,0,1,130,30.334,4.667,4.667,0,0,1,125.333,35Z" />
-								</svg>
-							</div>
-						</li>
 						<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li class="dropdown-item" onClick="show_newsth()">新建</li>
+							<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="5" height="10" style="left: -5px;top: 15px;position: absolute;z-index: 10000000;">
+								<polygon points="0,5 5,0 5,10" fill="#fff"></polygon>
+							</svg>
+							<li class="dropdown-item" onClick="show_newsth()">新建控件</li>
 							<li class="dropdown-item" onClick="save()">保存到电脑</li>
-							<li class="dropdown-item" onClick="openfile()">打开Waddle文件</li>
+							<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
+							<li class="dropdown-item" onClick="js_save()">导出为CoCo文件</li>
 							<div style="height: 1px;background-color: #f2f2f2;margin: 0 10px;"></div>
-							<li class="dropdown-item" href="javascript:void(0)" onClick="js_save()">另存为js文件</li>
+							<li class="dropdown-item" onClick="openfile()">文档</li>
+							<li class="dropdown-item" onClick="show_about()">关于Waddle</li>
 						</ul>
 						<script>
 							$('.cls-1').animate({ 'stroke-dashoffset': '1550px' }, 10);
 						</script>
-						<li class="nav-item" data-title="关于" aria-label="关于" onclick="show_about()">
-							<div class="nav-link">
-								<svg xmlns="http://www.w3.org/2000/svg" width="25.92" height="25.92" fill="currentColor"
-									viewBox="0 0 135 135">
-									<path id="circle-question-solid"
-										d="M67.5,0A67.5,67.5,0,1,0,135,67.5,67.495,67.495,0,0,0,67.5,0Zm0,103.469a8.33,8.33,0,0,1-8.437-8.437A8.188,8.188,0,0,1,67.5,86.594a8.438,8.438,0,0,1,0,16.875ZM85.72,66.027,73.828,73.41v.527a6.328,6.328,0,0,1-12.656,0V69.719a6.5,6.5,0,0,1,3.164-5.537l15.029-8.965a5.653,5.653,0,0,0,2.9-5.01,6.062,6.062,0,0,0-6.038-5.8H62.754a5.7,5.7,0,0,0-5.8,5.8,6.328,6.328,0,0,1-12.656,0A18.293,18.293,0,0,1,62.517,31.75H75.99c10.758,0,18.932,8.174,18.932,18.457A18.517,18.517,0,0,1,85.72,66.027Z" />
-								</svg>
-							</div>
-						</li>
 						<li class="nav-item" data-title="主题" aria-label="主题" onclick="switch_theme()">
-							<div class="nav-link">
-								<svg id="theme" xmlns="http://www.w3.org/2000/svg" width="22.627776" height="25.344"
-									fill="currentColor" viewBox="0 0 135 135">
-									<path id="moon-solid_3_" data-name="moon-solid (3)"
-										d="M32,98A65.973,65.973,0,0,1,97.941,32a79.615,79.615,0,0,1,12.051,1.1,3.1,3.1,0,0,1,.966,5.728,51.7,51.7,0,0,0,35.216,95.734,3.1,3.1,0,0,1,2.979,4.994A65.919,65.919,0,0,1,32,98Z"
-										transform="translate(-32 -32)" />
-								</svg>
-							</a>
-						</li>
 						<li class="nav-item" id="switch_code" data-title="代码" aria-label="代码" style="right: 20px;top: auto;position: absolute;">
-							<div class="nav-link">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24.96" height="24" fill="currentColor"
-									viewBox="0 0 130 125">
-									<path id="减去_1" data-name="减去 1"
-										d="M123,125H7a7.008,7.008,0,0,1-7-7V7A7.008,7.008,0,0,1,7,0H123a7.008,7.008,0,0,1,7,7V118A7.008,7.008,0,0,1,123,125ZM69.814,69.944a7.008,7.008,0,0,0-7,7v1a7.008,7.008,0,0,0,7,7h36a7.008,7.008,0,0,0,7-7v-1a7.008,7.008,0,0,0-7-7ZM27.793,19.565a6.954,6.954,0,0,0-4.95,2.05l-.707.707a7,7,0,0,0,0,9.9L42.207,52.293,22.43,72.071a7.008,7.008,0,0,0,0,9.9l.706.707a7,7,0,0,0,9.9,0L58.492,57.222a7.008,7.008,0,0,0,0-9.9l-.707-.707c-.155-.155-.315-.3-.476-.435L32.743,21.615A6.954,6.954,0,0,0,27.793,19.565Z" />
-								</svg>
-							</div>
-						</li>
 						<!--菜单栏图标全由海藻酸钠绘制-->
 					</ul>
-					<style>
-						.nav-item:hover .nav-link {
-							color: rgba(255, 255, 255, 0.85) !important;
-						}
-						.active .nav-link {
-							color: #fff !important;
-						}
-					</style>
 				</div>
 			</div>
 		</nav>
@@ -276,126 +237,6 @@
 
 		<a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
 		<style>
-			.nav-item:after {
-				content: attr(data-title);
-				position: absolute;
-				border-radius: 8px;
-				height: max-content;
-				text-align: center;
-				width: 43px;
-				top: 55px;
-				background-color: rgba(0, 0, 0, .4);
-				border: 8px solid rgba(0, 0, 0, .0);
-				z-index: 1600;
-				font-size: 12px;
-				color: #ffffff;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				-webkit-animation: hide-it 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				animation: hide-it 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				opacity: 0;
-			}
-
-			.nav-item:hover:after {
-				-webkit-animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-			}
-
-			@keyframes hide-it {
-				0% {
-					-webkit-transform: scale(1);
-					transform: scale(1);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 1;
-				}
-
-				100% {
-					-webkit-transform: scale(0);
-					transform: scale(0);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 0;
-				}
-			}
-
-			@-webkit-keyframes hide-it {
-				0% {
-					-webkit-transform: scale(1);
-					transform: scale(1);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 1;
-				}
-
-				100% {
-					-webkit-transform: scale(0);
-					transform: scale(0);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 0;
-				}
-			}
-
-			@keyframes scale-up-top {
-				0% {
-					-webkit-transform: scale(0);
-					transform: scale(0);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 0;
-				}
-
-				100% {
-					-webkit-transform: scale(1);
-					transform: scale(1);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 1;
-				}
-			}
-
-			@-webkit-keyframes scale-up-top {
-				0% {
-					-webkit-transform: scale(0);
-					transform: scale(0);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 0;
-				}
-
-				100% {
-					-webkit-transform: scale(1);
-					transform: scale(1);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 1;
-				}
-			}
-
-			.js_button {
-				padding: 10px;
-			}
-
-			.nav {
-				height: 5%;
-			}
-
-			.nav-item {
-				height: 5%;
-				border-radius: 10%;
-				margin-left: 12px;
-				-webkit-transition-duration: 0.1s;
-				/* Safari */
-				transition-duration: 0.1s;
-				cursor: pointer;
-			}
-
-			.nav-link {
-				height: 5%;
-			}
-
 			*::-webkit-scrollbar {
 				display: none;
 			}
@@ -403,11 +244,6 @@
 			* {
 				scrollbar-width: none;
 				-ms-overflow-style: none;
-			}
-
-			.nav-item {
-				min-height: 52px;
-				max-height: 52px;
 			}
 
 			.iconfont {
@@ -619,7 +455,7 @@
 				z-index: 1000;
 				top: 52px;
 				right: 0;
-				height: calc(100vh - 52px);
+				height: 100vh;
 				overflow: hidden;
 				margin-left: auto;
 			}
@@ -630,11 +466,26 @@
 				position: relative;
 				background: var(--common-background);
 				margin: 0 auto;
-				height: calc(100vh - 52px);
+				height: 100vh;
 				float: right;
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			}
 
+			.modal-content {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				pointer-events: auto;
+				background-clip: padding-box;
+				outline: 0
+			}
+
+			.modal-body {
+				position: relative;
+				flex: 1 1 auto;
+				padding: 1rem
+			}
 			/* 关闭按钮 */
 
 			.close {
@@ -784,7 +635,7 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '1010px' }, 10);
 </script>
 <link href="./static/css/navbar.css" rel="stylesheet">
-<link href="./static/css/maoboli.css" rel="stylesheet">
+<link href="./static/css/groundglass.css" rel="stylesheet">
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '910px' }, 10);
 </script>
@@ -958,7 +809,7 @@
 			zoom:
 			{
 				controls: true,		// 控制按钮显示
-				wheel: false,		// Ctrl+鼠标滚轮可以控制大小
+				wheel: true,		// Ctrl+鼠标滚轮可以控制大小
 				startScale: 0.8,	// 初始大小
 				maxScale: 1.6565,		// 最大大小
 				minScale: 0.5565,		// 最小大小
@@ -1341,11 +1192,11 @@
 
 	// 点击 <span> (x), 关闭代码框
 	newsthspan.onclick = function () {
-		document.getElementsByClassName("maoboli")[0].className = "maoboli"
-		document.getElementsByClassName("maoboli")[0].style.display = "block"
+		document.getElementsByClassName("groundglass")[0].className = "groundglass"
+		document.getElementsByClassName("groundglass")[0].style.display = "block"
 		document.getElementsByClassName("newsth-content")[0].className = "newsth-content"
 		document.getElementsByClassName("newsth")[0].className = "newsth"
-		setTimeout(() => { newsth.style.display = "none";document.getElementsByClassName("maoboli")[0].style.display = ""; }, 320)
+		setTimeout(() => { newsth.style.display = "none";document.getElementsByClassName("groundglass")[0].style.display = ""; }, 320)
 	}
 
 </script>
@@ -1542,6 +1393,10 @@
 		height: calc(60vh - 77px);
 		text-align: center;
 	}
+
+	.brand{
+		color: #000;
+	}
 </style>
 <script>
 	var aboutus = document.getElementById('myaboutus');
@@ -1551,29 +1406,31 @@
 
 	// 点击 <span> (x), 关闭代码框
 	aboutusspan.onclick = function () {
-		document.getElementsByClassName("maoboli")[0].className = "maoboli"
-		document.getElementsByClassName("maoboli")[0].style.display = "block"
+		document.getElementsByClassName("groundglass")[0].className = "groundglass"
+		document.getElementsByClassName("groundglass")[0].style.display = "block"
 		document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content"
 		document.getElementsByClassName("aboutus")[0].className = "aboutus"
-		setTimeout(() => { aboutus.style.display = "none";document.getElementsByClassName("maoboli")[0].style.display = ""; }, 320)
+		setTimeout(() => { aboutus.style.display = "none";document.getElementsByClassName("groundglass")[0].style.display = ""; }, 320)
 	}
 </script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '240px' }, 10);
 </script>
 <script>
+	//var brand = document.createElement("img");
+	//brand.id = "logo";
+	//brand.src = "./static/img/logo.svg"
+	//brand.style = "height: 70px; width: 60px; border: 12px solid rgb(61,61,61); position: fixed; top: 0; background-color: rgb(61,61,61);"
+	//document.getElementsByClassName("blocklyToolboxDiv")[0].insertBefore(brand, document.getElementsByClassName("blocklyToolboxContents")[0])
+	
 	let logo = document.getElementById("logo");
 	$(window).resize(function () {
 		if ($(window).width() < 818) {
-			logo.src = "./static/img/logo.svg";
-			logo.style.width = "42px";
 			document.getElementsByClassName("modal")[0].style.width = "100vw"
 			document.getElementById("blocklyDiv").style.width = '100vw';
 			document.getElementById("toolbox").style.width = '100vw';
 		}
 		else {
-			logo.src = "./static/img/waddle.svg";
-			logo.style.width = "140px";
 			document.getElementsByClassName("modal")[0].style.width = "400px"
 			if (modal.style.display == "none" || modal.style.display == "") {
 				document.getElementById("blocklyDiv").style.width = '100vw';
@@ -1586,8 +1443,9 @@
 		}
 	});
 	$(window).resize(function () {
-		document.getElementById("table").style.height = (document.body.clientHeight - 52);
-		document.getElementById("toolbox").style.height = (document.body.clientHeight - 52);
+		document.getElementById("table").style.height = (window.innerHeight + 'px');
+		document.getElementById("toolbox").style.height = (window.innerHeight + 'px');
+		document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 		Blockly.svgResize(workspace);
 	});
 </script>
@@ -1602,7 +1460,10 @@
 <script>
 	// 等待加载完毕
 	$('.cls-1').animate({ 'stroke-dashoffset': '0px' }, 10);
-	setTimeout(() => { document.getElementsByClassName("blocklyTrash")[0].style.display = "none"; document.getElementById("table").style.height = "calc(100vh - 52px)"; document.getElementById("toolbox").style.height = "calc(100vh - 52px)"; document.getElementById("blocklyDiv").style.height = "calc(100vh - 52px)"; document.getElementById("workspaceblocks").style.height = "calc(100vh - 52px)"; Blockly.svgResize(workspace); document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000);
+	document.getElementById('table').style.height = window.innerHeight + 'px';
+	document.getElementById('toolbox').style.height = window.innerHeight + 'px';
+	document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
+	setTimeout(() => { document.getElementsByClassName("blocklyTrash")[0].style.display = "none";  Blockly.svgResize(workspace); document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000);
 
 	let to_center = function () {
 		// 加载完成积木居中
@@ -1615,6 +1476,6 @@
 	}
 	setTimeout(() => to_center(), 1000) //加载完成1s后执行
 </script>
-<div class="maoboli"></div>
+<div class="groundglass"></div>
 
 </html>
