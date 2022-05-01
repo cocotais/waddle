@@ -1,5 +1,7 @@
 * [主页](/)
 * [文档贡献指南](/文档贡献指南.md)
+* [打赏收入支出明细](/打赏收入支出明细.md)
+* [VI手册](/VI手册.md)
 
 
 **&emsp;使用文档**
@@ -18,6 +20,6 @@
   
 <br>
 
-* [Waddle 手册](https://www.yuque.com/coco-central/waddle/index)
 * [Waddle 仓库](https://gitee.com/coco-ag/coco-waddle)
+* [Waddle 小技巧](https://www.yuque.com/coco-central/waddle-tips)
 * [Waddle 反馈](https://gitee.com/coco-ag/coco-waddle/issues)

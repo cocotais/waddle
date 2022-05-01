@@ -36,27 +36,27 @@
 
 
 .copy {
-    background: #525252;
+    background: var(--main-color);
 }
 
 .copy:hover {
-    background: #666666;
+    background: var(--nd-main-color);
 }
 
 .close {
-    border: 13px solid #525252;
+    border: 13px solid var(--main-color);
 }
 
 .close:hover,
 .clos:focus {
-    border: 13px solid #666666;
+    border: 13px solid var(--nd-main-color);
 }
 
 .swal-content__input,
 .swal-icon--success:after,
 .swal-icon--success::before,
 .swal-icon--success__hide-corners {
-    background-color: #666666;
+    background-color: var(--nd-main-color);
     color: white;
 }
 
@@ -66,16 +66,16 @@
 }
 
 .swal-footer {
-    background-color: #525252;
+    background-color: var(--main-color);
     border-top: 1px solid #484848;
 }
 
 .swal-modal {
-    background-color: #666666;
+    background-color: var(--nd-main-color);
 }
 
 .nav-item:hover {
-    background-color: #666666;
+    background-color: var(--nd-main-color);
 }
 
 .close:hover {
@@ -83,7 +83,7 @@
 }
 
 .card {
-    background: #666666;
+    background: var(--nd-main-color);
     border: rgb(255, 255, 255) 0.2em solid;
 }
 
