@@ -21,7 +21,7 @@
         z-index: -1;
     }
 
-    .maoboli {
+    .groundglass {
         background: -moz-element(#body);
         content: "";
         width: 100%;
@@ -34,13 +34,13 @@
         display: none;
     }
 
-    .show.maoboli{
+    .show.groundglass{
         display: block;
         -webkit-animation: shownewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
         animation: shownewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     }
     
-    .maoboli{
+    .groundglass{
         -webkit-animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
         animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     }

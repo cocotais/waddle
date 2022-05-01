@@ -6,7 +6,6 @@
     color: #fff;
 }
 
-/* Adds space between the categories, rounds the corners and adds space around the label. */
 .custom_renderer-renderer.WaddleTheme-theme .blocklySelected > .blocklyPath {
     stroke: #2e2e2e;
     stroke-width: 3px;
