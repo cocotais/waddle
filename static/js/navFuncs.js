@@ -156,12 +156,12 @@ function show_about(){
     aboutus.style.display = "block";
     document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";
     document.getElementsByClassName("aboutus")[0].className = "aboutus show";
-    document.getElementsByClassName("maoboli")[0].className = "maoboli show";
+    document.getElementsByClassName("groundglass")[0].className = "groundglass show";
 }
 
 function show_newsth(){
     newsth.style.display = "block";
     document.getElementsByClassName("newsth-content")[0].className = "newsth-content show";
     document.getElementsByClassName("newsth")[0].className = "newsth show";
-    document.getElementsByClassName("maoboli")[0].className = "maoboli show";
+    document.getElementsByClassName("groundglass")[0].className = "groundglass show";
 }

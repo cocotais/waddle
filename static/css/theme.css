@@ -54,26 +54,33 @@
     background-color: #dcdcdc55;
 }
 
-.swal-content__input,
 .swal-icon--success:after,
 .swal-icon--success::before,
 .swal-icon--success__hide-corners {
-    background-color: var(--nd-main-color);
-    color: white;
+    background-color: var(--swal-color);
+    color: var(--swal-opposite-color);
 }
 
-.swal-title,
-.swal-text {
-    color: rgb(255, 255, 255);
+.swal-content__input {
+    background-color: var(--swal-color);
+    color: var(--swal-opposite-color);
+}
+
+.swal-title {
+    color: var(--swal-opposite-color);
+}
+
+.swal-text{
+    color: var(--swal-opposite-color);
 }
 
 .swal-footer {
-    background-color: var(--main-color);
-    border-top: 1px solid #484848;
+    background-color: var(--swal-color);
+    border-top: 1px solid var(--swal-color);
 }
 
 .swal-modal {
-    background-color: var(--nd-main-color);
+    background-color: var(--swal-color);
 }
 
 .nav-item:hover {
@@ -99,4 +106,12 @@
 
 .sord {
     color: var(--close-color);
+}
+
+.blocklyFlyoutButton{
+    fill: var(--main-color);
+}
+
+.blocklyFlyoutButton:hover{
+    fill: var(--nd-main-color);
 }

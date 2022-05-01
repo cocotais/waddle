@@ -13,7 +13,7 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
-		var version = 'V1.28.66(819)-alpha' //以后版本号改我就行！
+		var version = 'V1.30.70(829)-alpha' //以后版本号改我就行！
 		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -255,10 +255,8 @@
 			}
 
 			.swal-footer {
-				background-color: rgb(245, 248, 250);
 				margin-top: 32px;
 				text-align: center;
-				border-top: 1px solid #E9EEF1;
 				overflow: hidden;
 			}
 
@@ -453,7 +451,7 @@
 				/* 默认隐藏 */
 				position: fixed;
 				z-index: 1000;
-				top: 52px;
+				top: 0;
 				right: 0;
 				height: 100vh;
 				overflow: hidden;
@@ -528,11 +526,8 @@
 			<!-- 新建浮窗内容 -->
 			<div class="newsth-content">
 				<div class="newsth-header">
-					<svg class="newsth-logo" xmlns="http://www.w3.org/2000/svg" width="40" height="38.16"
-						fill="currentColor" viewBox="0 0 130 125">
-						<path id="联合_1" data-name="联合 1"
-							d="M7,125a7,7,0,0,1-7-7V57a7,7,0,0,1,7-7H123a7,7,0,0,1,7,7v61a7,7,0,0,1-7,7ZM4.667,35A4.667,4.667,0,0,1,0,30.334V7A7,7,0,0,1,7,0H48.823A20,20,0,0,1,68.6,17h48.067A13.334,13.334,0,0,1,130,30.334,4.667,4.667,0,0,1,125.333,35Z" />
-					</svg>
+					<span class="newsth-logo" style="color: var(--main-color);font-weight: bold;
+						font-size: 25px;">新建控件</span>
 					<span class="newsth-close">&times;</span>
 				</div>
 				<div class="newsth-body">
@@ -1446,6 +1441,7 @@
 		document.getElementById("table").style.height = (window.innerHeight + 'px');
 		document.getElementById("toolbox").style.height = (window.innerHeight + 'px');
 		document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
+		document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
 		Blockly.svgResize(workspace);
 	});
 </script>
@@ -1463,6 +1459,7 @@
 	document.getElementById('table').style.height = window.innerHeight + 'px';
 	document.getElementById('toolbox').style.height = window.innerHeight + 'px';
 	document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
+	document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
 	setTimeout(() => { document.getElementsByClassName("blocklyTrash")[0].style.display = "none";  Blockly.svgResize(workspace); document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000);
 
 	let to_center = function () {
