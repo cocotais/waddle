@@ -9,6 +9,7 @@ document.getElementById('table').style.height = window.innerHeight + 'px';
 document.getElementById('toolbox').style.height = window.innerHeight + 'px';
 document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
+document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
 Blockly.svgResize(workspace);
 var dark_url = './static/Waddle/custom_category_dark.js';
 var light_url = './static/Waddle/custom_category.js';
@@ -61,8 +62,8 @@ var to_dark = function () {
 	document.documentElement.style.setProperty('--flyout-color', '#202020');
 	document.documentElement.style.setProperty('--tree-label-color', '#ffffff');
 	document.documentElement.style.setProperty('--renderer-color', '#2e2e2e');
-	document.documentElement.style.setProperty('--card-border-color', '#b4b4b4');
 	document.documentElement.style.setProperty('--card-border-color', '#ffffff');
+	document.documentElement.style.setProperty('--close-color', '#fff');
 	document.documentElement.style.setProperty('--toolbox-color', 'rgb(61,61,61)');
 	document.documentElement.style.setProperty('--swal-color', '#525252');
 };
@@ -101,7 +102,7 @@ var to_light = function () {
 	document.documentElement.style.setProperty('--flyout-color', '#ffffff');
 	document.documentElement.style.setProperty('--tree-label-color', '#525252');
 	document.documentElement.style.setProperty('--renderer-color', '#ffffdd');
-	document.documentElement.style.setProperty('--card-border-color', '#ffffff');
+	document.documentElement.style.setProperty('--card-border-color', '#b4b4b4');
 	document.documentElement.style.setProperty('--close-color', '#6d50f0');
 	document.documentElement.style.setProperty('--toolbox-color', 'rgb(255,255,250)');
 	document.documentElement.style.setProperty('--swal-color', '#ffffff');
@@ -133,6 +134,7 @@ window.onresize = function () {
     document.getElementById('toolbox').style.height = window.innerHeight + 'px';
     document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 	document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
+	document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
     Blockly.svgResize(workspace);
 };
 $('.cls-1').animate({ 'stroke-dashoffset': '100px' }, 10);

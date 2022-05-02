@@ -958,7 +958,7 @@
 	}
 
 	.sord {
-		color: var(--main-color);
+		color: var(--close-color);;
 		font-weight: bold;
 		font-size: 30px;
 	}
@@ -993,10 +993,10 @@
 		margin: 10px;
 		width: 250px;
 		height: 250px;
-		background: rgb(255, 255, 255);
+		background: var(--swal-color);
 		border-radius: 0.4em;
 		transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-		border: rgb(202, 202, 202) 0.2em solid;
+		border: var(--card-border-color) 0.2em solid;
 		display: inline-flex;
 		flex-direction: column;
 		justify-content: center;
@@ -1107,7 +1107,7 @@
 	/* 关闭按钮 */
 
 	.newsth-close {
-		color: var(--main-color);
+		color: var(--close-color);
 		font-weight: bold;
 		font-size: 50px;
 		float: right;
@@ -1422,6 +1422,7 @@
 		document.getElementById("toolbox").style.height = (window.innerHeight + 'px');
 		document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 		document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
+		document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
 		Blockly.svgResize(workspace);
 	});
 </script>
@@ -1440,6 +1441,7 @@
 	document.getElementById('toolbox').style.height = window.innerHeight + 'px';
 	document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 	document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
+	document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
 	setTimeout(() => { document.getElementsByClassName("blocklyTrash")[0].style.display = "none";  Blockly.svgResize(workspace); document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000);
 
 	let to_center = function () {
