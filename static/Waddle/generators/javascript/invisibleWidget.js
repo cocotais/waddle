@@ -65,14 +65,31 @@ Blockly.JavaScript['ivw_addProperty'] = function (block) {
 	var text_key = block.getFieldValue('key');
 	var text_label = block.getFieldValue('label');
 	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
+	var text_valueType = block.getFieldValue('valueType');
+	var value_defaultValue = Blockly.JavaScript.valueToCode(block, 'defaultValue', Blockly.JavaScript.ORDER_ATOMIC);
 	var code = `
 types['properties'].push({
   key: '${text_key}',
   label: '${text_label}',
+  valueType: ${text_valueType == "['string','number','boolean','array','object',]" ? text_valueType : ("'" + text_valueType + "'")},
+  defaultValue: ${value_defaultValue},
 ${statements_other}
 })
 `;
 	return code;
+};
+
+Blockly.JavaScript['ivw_getproperty'] = function (block) {
+	var text_key = block.getFieldValue('KEY');
+	var code = `this.${text_key}`;
+	// TODO: Change ORDER_NONE to the correct strength.
+	return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['ivw_getparam'] = function (block) {
+	var code = block.getFieldValue('KEY');
+	// TODO: Change ORDER_NONE to the correct strength.
+	return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['ivw_addMethod'] = function (block) {
@@ -92,7 +109,7 @@ Blockly.JavaScript['ivw_addMethod'] = function (block) {
 types['methods'].push({
   key: '${text_key}',
   label: '${text_label}',
-  ${text_valueType === 'noReturn' ? '' : "valueType: '" + text_valueType + "',"}
+  ${text_valueType === 'noReturn' ? '' : "valueType: " + text_valueType + ","}
   params: [
   ${statements_params}
   ],
@@ -108,15 +125,41 @@ Blockly.JavaScript['ivw_addParams'] = function (block) {
 	var text_key = block.getFieldValue('key');
 	var text_label = block.getFieldValue('label');
 	var text_valueType = block.getFieldValue('valueType');
-	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
+	var value_defaultValue = Blockly.JavaScript.valueToCode(block, 'defaultValue', Blockly.JavaScript.ORDER_ATOMIC);
+	// var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var code = `
 {
   key: '${text_key}',
   label: '${text_label}',
-  valueType: '${text_valueType}',
-${statements_other}
+  valueType: ${text_valueType == "['string','number','boolean','array','object',]" ? text_valueType : ("'" + text_valueType + "'")},
+  defaultValue: ${value_defaultValue},
 },
 
+`;
+	return code;
+};
+
+Blockly.JavaScript['ivw_addDropdownParams'] = function (block) {
+	var text_key = block.getFieldValue('key');
+	var text_label = block.getFieldValue('label');
+	var statements_dropdownItems = Blockly.JavaScript.statementToCode(block, 'dropdownItems');
+	var code = `
+{
+  key: '${text_key}',
+  label: '${text_label}',
+  valueType: 'string',
+  dropdown: [
+	  ${statements_dropdownItems}],
+},
+
+`;
+	return code;
+};
+
+Blockly.JavaScript['ivw_addDropdownItem'] = function (block) {
+	var text_label = block.getFieldValue('label');
+	var code = `\
+{ label: '${text_label}', value: '${text_label}', },
 `;
 	return code;
 };

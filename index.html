@@ -29,6 +29,7 @@
 		}
 	</script>
 	<link rel="shortcut icon" href="./static/img/logo.svg" type="image/x-icon">
+	<link rel="stylesheet" href="./static/css/theme.css">
 </head>
 <script>
 	//获取cookie
@@ -48,7 +49,6 @@
 		rip.innerText = 'html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
 		document.body.appendChild(rip);
 	}
-
 </script>
 
 <body>
@@ -177,70 +177,26 @@
 		$('.cls-1').animate({ 'stroke-dashoffset': '1600px' }, 10);
 	</script>
 	<div id="body" style="visibility:hidden;">
-		<img onclick='dropdown_show();' alt="Waddle" id="logo1" src="./static/img/purple-logo.svg" style="cursor: pointer;-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 60; background-color: var(--toolbox-color);">
+		<img onclick='dropdown_show();' alt="Waddle" id="logo1" src="./static/img/purple-logo.svg" style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 60; background-color: var(--toolbox-color);">
 		<nav class="navbar navbar-expand navbar-dark" style="height:0px;background-color: var(--main-color);">
 			<div class="container-fluid">
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav">
-						<li class="nav-item dropdown" data-title="文件" onclick=fix_bug()>
-							<a id="navbarDropdown" aria-label="文件" class="nav-link" href="#" role="button"
-								data-bs-toggle="dropdown" one-link-mark="yes">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24.96" height="24" fill="currentColor"
-									viewBox="0 0 130 125">
-									<path id="联合_1" data-name="联合 1"
-										d="M7,125a7,7,0,0,1-7-7V57a7,7,0,0,1,7-7H123a7,7,0,0,1,7,7v61a7,7,0,0,1-7,7ZM4.667,35A4.667,4.667,0,0,1,0,30.334V7A7,7,0,0,1,7,0H48.823A20,20,0,0,1,68.6,17h48.067A13.334,13.334,0,0,1,130,30.334,4.667,4.667,0,0,1,125.333,35Z" />
-								</svg>
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<li>
-									<a class="dropdown-item" href="javascript:void(0)"
-										onClick='newsth.style.display = "block";document.getElementsByClassName("newsth-content")[0].className = "newsth-content show";document.getElementsByClassName("newsth")[0].className = "newsth show"'>新建</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="javascript:void(0)" onClick="save()">保存到电脑</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="javascript:void(0)"
-										onClick="openfile()">打开Waddle文件</a>
-								</li>
-								<div style="height: 1px;background-color: #f2f2f2;margin: 0 10px;"></div>
-								<li>
-									<a class="dropdown-item" href="javascript:void(0)" onClick="js_save()">另存为js文件</a>
-								</li>
-							</ul>
-						</li>
+						<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="5" height="10" style="left: -5px;top: 15px;position: absolute;z-index: 10000000;">
+								<polygon points="0,5 5,0 5,10" fill="#fff"></polygon>
+							</svg>
+							<li class="dropdown-item" onClick="show_newsth()">新建控件</li>
+							<li class="dropdown-item" onClick="save()">保存到电脑</li>
+							<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
+							<li class="dropdown-item" onClick="js_save()">导出为CoCo文件</li>
+							<div style="height: 1px;background-color: #f2f2f2;margin: 0 10px;"></div>
+							<li class="dropdown-item" onClick="window.open('https://waddle.coco-central.cn/docs/')">文档</li>
+							<li class="dropdown-item" onClick="show_about()">关于Waddle</li>
+						</ul>
 						<script>
 							$('.cls-1').animate({ 'stroke-dashoffset': '1550px' }, 10);
 						</script>
-						<li class="nav-item" data-title="关于">
-							<a class="nav-link" aria-label="关于" href="javascript:void(0)"
-								onclick='aboutus.style.display = "block";document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content show";document.getElementsByClassName("aboutus")[0].className = "aboutus show"'>
-								<svg xmlns="http://www.w3.org/2000/svg" width="25.92" height="25.92" fill="currentColor"
-									viewBox="0 0 135 135">
-									<path id="circle-question-solid"
-										d="M67.5,0A67.5,67.5,0,1,0,135,67.5,67.495,67.495,0,0,0,67.5,0Zm0,103.469a8.33,8.33,0,0,1-8.437-8.437A8.188,8.188,0,0,1,67.5,86.594a8.438,8.438,0,0,1,0,16.875ZM85.72,66.027,73.828,73.41v.527a6.328,6.328,0,0,1-12.656,0V69.719a6.5,6.5,0,0,1,3.164-5.537l15.029-8.965a5.653,5.653,0,0,0,2.9-5.01,6.062,6.062,0,0,0-6.038-5.8H62.754a5.7,5.7,0,0,0-5.8,5.8,6.328,6.328,0,0,1-12.656,0A18.293,18.293,0,0,1,62.517,31.75H75.99c10.758,0,18.932,8.174,18.932,18.457A18.517,18.517,0,0,1,85.72,66.027Z" />
-								</svg>
-							</a>
-						</li>
-						<li class="nav-item" data-title="主题">
-							<a class="nav-link" aria-label="主题" href="javascript:void(0)" onclick="switch_theme()">
-								<svg id="theme" xmlns="http://www.w3.org/2000/svg" width="22.627776" height="25.344"
-									fill="currentColor" viewBox="0 0 135 135">
-									<path id="moon-solid_3_" data-name="moon-solid (3)"
-										d="M32,98A65.973,65.973,0,0,1,97.941,32a79.615,79.615,0,0,1,12.051,1.1,3.1,3.1,0,0,1,.966,5.728,51.7,51.7,0,0,0,35.216,95.734,3.1,3.1,0,0,1,2.979,4.994A65.919,65.919,0,0,1,32,98Z"
-										transform="translate(-32 -32)" />
-								</svg>
-							</a>
-						</li>
-						<li class="nav-item" data-title="代码" style="right: 20px;top: auto;position: absolute;">
-							<a id="switch_code" aria-label="代码" class="nav-link" href="javascript:void(0)">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24.96" height="24" fill="currentColor"
-									viewBox="0 0 130 125">
-									<path id="减去_1" data-name="减去 1"
-										d="M123,125H7a7.008,7.008,0,0,1-7-7V7A7.008,7.008,0,0,1,7,0H123a7.008,7.008,0,0,1,7,7V118A7.008,7.008,0,0,1,123,125ZM69.814,69.944a7.008,7.008,0,0,0-7,7v1a7.008,7.008,0,0,0,7,7h36a7.008,7.008,0,0,0,7-7v-1a7.008,7.008,0,0,0-7-7ZM27.793,19.565a6.954,6.954,0,0,0-4.95,2.05l-.707.707a7,7,0,0,0,0,9.9L42.207,52.293,22.43,72.071a7.008,7.008,0,0,0,0,9.9l.706.707a7,7,0,0,0,9.9,0L58.492,57.222a7.008,7.008,0,0,0,0-9.9l-.707-.707c-.155-.155-.315-.3-.476-.435L32.743,21.615A6.954,6.954,0,0,0,27.793,19.565Z" />
-								</svg>
-							</a>
-						</li>
 						<!--菜单栏图标全由海藻酸钠绘制-->
 					</ul>
 				</div>
@@ -261,124 +217,6 @@
 
 		<a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
 		<style>
-			.nav-item:after {
-				content: attr(data-title);
-				position: absolute;
-				border-radius: 8px;
-				height: max-content;
-				text-align: center;
-				width: 43px;
-				top: 55px;
-				background-color: rgba(0, 0, 0, .4);
-				border: 8px solid rgba(0, 0, 0, .0);
-				z-index: 1600;
-				font-size: 12px;
-				color: #ffffff;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				-webkit-animation: hide-it 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				animation: hide-it 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				opacity: 0;
-			}
-
-			.nav-item:hover:after {
-				-webkit-animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-			}
-
-			@keyframes hide-it {
-				0% {
-					-webkit-transform: scale(1);
-					transform: scale(1);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 1;
-				}
-
-				100% {
-					-webkit-transform: scale(0);
-					transform: scale(0);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 0;
-				}
-			}
-
-			@-webkit-keyframes hide-it {
-				0% {
-					-webkit-transform: scale(1);
-					transform: scale(1);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 1;
-				}
-
-				100% {
-					-webkit-transform: scale(0);
-					transform: scale(0);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 0;
-				}
-			}
-
-			@keyframes scale-up-top {
-				0% {
-					-webkit-transform: scale(0);
-					transform: scale(0);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 0;
-				}
-
-				100% {
-					-webkit-transform: scale(1);
-					transform: scale(1);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 1;
-				}
-			}
-
-			@-webkit-keyframes scale-up-top {
-				0% {
-					-webkit-transform: scale(0);
-					transform: scale(0);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 0;
-				}
-
-				100% {
-					-webkit-transform: scale(1);
-					transform: scale(1);
-					-webkit-transform-origin: 50% 0%;
-					transform-origin: 50% 0%;
-					opacity: 1;
-				}
-			}
-
-			.js_button {
-				padding: 10px;
-			}
-
-			.nav {
-				height: 5%;
-			}
-
-			.nav-item {
-				height: 5%;
-				margin-left: 12px;
-				-webkit-transition-duration: 0.1s;
-				/* Safari */
-				transition-duration: 0.1s;
-			}
-
-			.nav-link {
-				height: 5%;
-			}
-
 			*::-webkit-scrollbar {
 				display: none;
 			}
@@ -386,12 +224,6 @@
 			* {
 				scrollbar-width: none;
 				-ms-overflow-style: none;
-			}
-
-			.nav-item {
-				border-radius: 10%;
-				min-height: 52px;
-				max-height: 52px;
 			}
 
 			.iconfont {
@@ -403,10 +235,8 @@
 			}
 
 			.swal-footer {
-				background-color: rgb(245, 248, 250);
 				margin-top: 32px;
 				text-align: center;
-				border-top: 1px solid #E9EEF1;
 				overflow: hidden;
 			}
 
@@ -431,26 +261,67 @@
 				border-radius: 10px;
 			}
 
-			@supports (backdrop-filter: blur(10px)) {
-				.swal-overlay {
-					backdrop-filter: blur(10px);
-					
-				}
-			}
-
-			@supports (-webkit-backdrop-filter: blur(10px)) {
-				.swal-overlay {
-					backdrop-filter: blur(10px);
-					-webkit-backdrop-filter: blur(10px);
-				}
-			}
-
 			.swal-button--confirm:not([disabled]):focus {
 				background-color: #6d50f0;
 			}
 
+			.blocklyTreeLabel {
+				padding: 3px 0;
+			}
+
+			.blocklyTreeRowContentContainer {
+				padding: 11px 0px 6px 0;
+			}
+
+			/* Adds padding around the group of categories and separators. */
+			.blocklyToolboxContents {
+				padding: 0em;
+			}
+
+			/* Adds space between the categories, rounds the corners and adds space around the label. */
+			.blocklyTreeRow {
+				height: 32px;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0;
+				cursor: pointer;
+				border-radius: 5px;
+				margin: 0px 4px;
+				font-size: 12px;
+			}
+
+
+			.mask {
+				position: absolute;
+				top: 0;
+				/* 黑色背景 */
+				z-index: -2;
+				/* 使遮罩层位于背景容器层下方，背景容器模糊带消失 */
+			}
+
+			.mbl {
+				filter: alpha(Opacity=60);
+				-moz-opacity: 0.5;
+				opacity: 0.5;
+			}
+
+			.customIcon {
+				padding: 10;
+			}
+
+			/* Stacks the icon on top of the label. */
+			.blocklyTreeRowContentContainer {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.blocklyTreeRow {
+				height: initial;
+			}
+
 			.blocklyMenuItem {
-				color: rgba(0,0,0,.65);
+				color: rgba(0, 0, 0, .65);
 				font-size: 14px;
 			}
 
@@ -478,7 +349,7 @@
 				background-color: #ffffff;
 			}
 
-			.blocklyWidgetDiv .blocklyMenu{
+			.blocklyWidgetDiv .blocklyMenu {
 				overflow: hidden;
 			}
 		</style>
@@ -533,7 +404,7 @@
 				-webkit-transition-duration: 0.1s;
 				/* Safari */
 				transition-duration: 0.1s;
-				background: #6d50f0;
+				background: var(--main-color);
 				border: none;
 				color: white;
 				width: 70px;
@@ -567,9 +438,9 @@
 				/* 默认隐藏 */
 				position: fixed;
 				z-index: 1000;
-				top: 52px;
+				top: 0;
 				right: 0;
-				height: calc(100vh - 52px);
+				height: 100vh;
 				overflow: hidden;
 				margin-left: auto;
 			}
@@ -580,73 +451,31 @@
 				position: relative;
 				background: var(--common-background);
 				margin: 0 auto;
-				padding: 0;
-				height: calc(100vh - 52px);
+				height: 100vh;
 				float: right;
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			}
 
-			/*.modal-content {
-				-webkit-animation-name: animateleft;
-				-webkit-animation-duration: 0.4s;
-				animation-name: animateleft;
-				animation-duration: 0.4s
+			.modal-content {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				pointer-events: auto;
+				background-clip: padding-box;
+				outline: 0
 			}
 
-			.show.modal-content {
-				-webkit-animation-name: animateright;
-				-webkit-animation-duration: 0.4s;
-				animation-name: animateright;
-				animation-duration: 0.4s
+			.modal-body {
+				position: relative;
+				flex: 1 1 auto;
+				padding: 1rem
 			}
-
-			
-			@-webkit-keyframes animateright {
-				from {
-					opacity: 0
-				}
-
-				to {
-					right: 0;
-					opacity: 1
-				}
-			}
-
-			@keyframes animateright {
-				from {
-					opacity: 0
-				}
-
-				to {
-					opacity: 1
-				}
-			}
-
-			
-			@-webkit-keyframes animateleft {
-				from {
-					opacity: 1
-				}
-
-				to {
-					opacity: 0
-				}
-			}
-
-			@keyframes animateleft {
-				from {
-					opacity: 1
-				}
-
-				to {
-					opacity: 0
-				}
-			} */
 			/* 关闭按钮 */
 
 			.close {
 				color: white;
-				border: 13px solid #6d50f0;
+				border: 13px solid var(--main-color);
 				float: right;
 				font-size: 28px;
 				font-weight: bold;
@@ -658,13 +487,13 @@
 			.close:hover,
 			.close:focus {
 				color: white !important;
-				border: 13px solid #5439ce;
+				border: 13px solid var(--nd-main-color);
 				text-decoration: none;
 				cursor: pointer;
 			}
 
 			.modal-header {
-				background-color: #6d50f0;
+				background-color: var(--main-color);
 				color: white;
 				min-height: 53px;
 				max-height: 53px;
@@ -684,11 +513,8 @@
 			<!-- 新建浮窗内容 -->
 			<div class="newsth-content">
 				<div class="newsth-header">
-					<svg class="newsth-logo" xmlns="http://www.w3.org/2000/svg" width="40" height="38.16"
-						fill="currentColor" viewBox="0 0 130 125">
-						<path id="联合_1" data-name="联合 1"
-							d="M7,125a7,7,0,0,1-7-7V57a7,7,0,0,1,7-7H123a7,7,0,0,1,7,7v61a7,7,0,0,1-7,7ZM4.667,35A4.667,4.667,0,0,1,0,30.334V7A7,7,0,0,1,7,0H48.823A20,20,0,0,1,68.6,17h48.067A13.334,13.334,0,0,1,130,30.334,4.667,4.667,0,0,1,125.333,35Z" />
-					</svg>
+					<span class="newsth-logo" style="color: var(--main-color);font-weight: bold;
+						font-size: 25px;">新建控件</span>
 					<span class="newsth-close">&times;</span>
 				</div>
 				<div class="newsth-body">
@@ -696,7 +522,8 @@
 							class="sord">空白作品</span></div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/visiblewidget.waddle')">
-						<span class="sord">可见控件模版</span></div>
+						<span class="sord">可见控件模版</span>
+					</div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/invisiblewidget.waddle')">
 						<span class="sord">不可见控件模版</span>
@@ -709,7 +536,8 @@
 					</div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hyperlink.waddle')">
-						<span class="sord">[可见控件]<br>超链接</span></div>
+						<span class="sord">[可见控件]<br>超链接</span>
+					</div>
 					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[可见控件]<br>闪烁的按钮</span></div>
 				</div>
 			</div>
@@ -720,20 +548,20 @@
 			<!-- 新建浮窗内容 -->
 			<div class="aboutus-content" style="min-width: 305px;">
 				<div class="aboutus-header">
-					<span class="aboutus-logo" style="color: #6d50f0;font-weight: bold;
-					font-size: 25px;">关于我们</span>
+					<span class="aboutus-logo" style="color: var(--main-color);font-weight: bold;
+						font-size: 25px;">关于我们</span>
 					<span class="aboutus-close">&times;</span>
 				</div>
 				<div class="aboutus-body">
-					<img width="240" src="./static/img/waddle.svg" style="margin: 30px 0;" alt="Waddle"></img>
+					<img width="240" src="./static/img/waddle.svg" style="margin: 30px 0;" alt="Waddle" onclick="east_chk()"></img>
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">让CoCo没有难做的控件</p>
 					</br>
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由所有Waddle的开源贡献者共同创造！</p>
 					<!----<p style="color: #ffffff;font-size: 17px;">中子星000（QQ：2422481178）主理制作</br>MathCalculus（QQ：2504556268）主理制作</br>Epeiuss（Mail：ffxw0720@163.com）监制</br>海藻酸钠（QQ：3409473369）美术/UI/监制</br>小鱼yuzifu（QQ：1906929246）前端设计</br>刘lyxAndy（QQ：3449556207）细节处理</p>--->
 					<p style="color: #ffffff;font-size: 15px;">帮助链接：
-						<a href="https://www.yuque.com/coco-central/waddle/index"
+						<a href="https://waddle.coco-central.cn/docs/"
 							style="color: #ffffff;font-size: 15px;" target="_blank"
-							rel="noopener">https://www.yuque.com/coco-central/waddle/index</a>
+							rel="noopener">https://waddle.coco-central.cn/docs/</a>
 					</p>
 					</br>
 					</br>
@@ -777,29 +605,19 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '1180px' }, 10);
 </script>
 
-<!--定义Blocks-->
-<!-- <script src="static/blockly-master/blocks/invisibleWidget.js"></script> -->
-<!-- <script src="static/blockly-master/blocks/coco.js"></script> -->
-<script src="./static/blockly-master/blocks/js.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1170px' }, 10);
 </script>
-<!--<script src="./static/Waddle/blocks/procedures.js"></script>-->
-
-<!--Blocks 对应代码-->
-<!-- <script src="static/blockly-master/generators/javascript/invisibleWidget.js"></script> -->
-<!-- <script src="static/blockly-master/generators/javascript/coco.js"></script> -->
-<script src="./static/blockly-master/generators/javascript/js.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1160px' }, 10);
 </script>
 
 <!--引入框架-->
-<script src="./static/js/bootstrap.bundle.min.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1010px' }, 10);
 </script>
-<link href="./static/css/bootstrap.min.css" rel="stylesheet">
+<link href="./static/css/navbar.css" rel="stylesheet">
+<link href="./static/css/groundglass.css" rel="stylesheet">
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '910px' }, 10);
 </script>
@@ -864,6 +682,10 @@
 <script src="./static/Waddle/blocks/visibleWidget.js"></script>
 <script src="./static/Waddle/generators/javascript/visibleWidget.js"></script>
 
+<!--权限控件积木（实验性）-->
+<script src="./static/Waddle/blocks/permissions.js"></script>
+<script src="./static/Waddle/generators/javascript/permissions.js"></script>
+
 <!--lodash控件积木(实验性)-->
 <script src="./static/Waddle/blocks/lodash.js"></script>
 <script src="./static/Waddle/generators/javascript/lodash.js"></script>
@@ -875,6 +697,13 @@
 <!--utils控件积木(实验性)-->
 <script src="./static/Waddle/blocks/utils.js"></script>
 <script src="./static/Waddle/generators/javascript/utils.js"></script>
+
+<!--HTML DOM积木-->
+<script src="./static/Waddle/blocks/htmldom.js"></script>
+<script src="./static/Waddle/generators/javascript/htmldom.js"></script>
+
+<script src="./static/Waddle/blocks/what.js"></script>
+<script src="./static/Waddle/generators/javascript/what.js"></script>
 
 <!--导入导航栏按钮函数-->
 <script src="./static/js/navFuncs.js"></script>
@@ -888,7 +717,7 @@
 </script>
 <!--彩蛋定义-->
 <script>
-	function estchk() {
+	function east_chk() {
 		if (document.cookie.includes("easter")) {
 			swal("彩蛋", "恭喜，你貌似触发了彩蛋！", "success")
 				.then((value) => {
@@ -918,13 +747,21 @@
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '460px' }, 10);
 </script>
+<script src="//at.alicdn.com/t/font_3372087_abgcbmzimyd.js"></script>
+<style>
+	.icon {
+	  width: 40px;
+	  height: 40px;
+	  vertical-align: -0.15em;
+	  fill: currentColor;
+	  overflow: hidden;
+	}
+</style>
 <script>
 	//加载工作区
 	//积木盒
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
-
 		xmlhttp = new XMLHttpRequest();
-
 	}
 	else {
 		swal('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
@@ -939,9 +776,7 @@
 
 	//工作区
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
-
 		xmlhttp = new XMLHttpRequest();
-
 	}
 	else {
 		swal('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
@@ -968,9 +803,8 @@
 				controls: true,		// 控制按钮显示
 				wheel: true,		// Ctrl+鼠标滚轮可以控制大小
 				startScale: 0.8,	// 初始大小
-				maxScale: 1.6,		// 最大大小
-				minScale: 0.6,		// 最小大小
-				scaleSpeed: 1.2		// 放大缩小速度
+				maxScale: 1.8,		// 最大大小
+				minScale: 0.3,		// 最小大小
 			},
 			move:
 			{
@@ -985,7 +819,7 @@
 	/* 加载初始积木 */
 	Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
 
-	
+
 	// 加载结束后，把积木栏文本整体调小一个像素，图标调大五个像素，这样不会喧宾夺主(这种方法直接硬改，很暴力)
 	$("span.blocklyTreeLabel").css("cssText", "font: 13px sans-serif !important");
 	$("span.iconfont").css("cssText", "font-size: 21px !important");
@@ -994,23 +828,42 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '400px' }, 10);
 </script>
 <script>
+	setInterval(function () {
+		let code = Blockly.JavaScript.workspaceToCode(workspace);
+		code = code.replaceAll("\n", "")
+		if (code.match(/return\((.+?)\)/g) != null) {
+			//事一个可见控件！
+			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
+			let html_code = code.match(/return\((.+?)\)/g)[0].substring(8, code.match(/return\((.+?)\)/g)[0].length - 2).replaceAll('&#60', '<').replaceAll('&#62', '>')
+			document.getElementById("widgetPreview").innerHTML = html_code
+		}
+	}, 100)
 	function myUpdateFunction(event) {
 		var code = Blockly.JavaScript.workspaceToCode(workspace);
 		document.getElementById("codeArea").innerHTML = code;
 		hljs.highlightBlock(document.getElementById("codeArea"))
+		code = code.replaceAll("\n", "")
+		if (code.match(/return\((.+?)\)/g) != null) {
+			//事一个可见控件！
+			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
+			console.log(document.getElementById("myModal").style.display)
+			let html_code = code.match(/return\((.+?)\)/g)[0].substring(8, code.match(/return\((.+?)\)/g)[0].length - 2).replaceAll('&#60', '<').replaceAll('&#62', '>')
+			document.getElementById("widgetPreview").innerHTML = html_code
+		}
 	}
 	workspace.addChangeListener(myUpdateFunction);
 
 	var modal = document.getElementById('myModal');
-	// 打开代码框的按钮对象
-	var btn = document.getElementById("switch_code");
+	
 
 	// 复制代码
 	var copy = document.getElementsByClassName("copy")[0];
 
 	// 点击按钮打开代码框
-	btn.onclick = function () {
-		if (btn.id == "switch_code") {
+	let switch_code = function () {
+		// 打开代码框的按钮对象
+		var btn = document.getElementsByClassName("switch_code")[0];
+		if (btn.className == "switch_code") {
 			document.getElementsByClassName("modal-content")[0].className = "modal-content show";
 			if ($(window).width() < 818) {
 				document.getElementById("blocklyDiv").style.width = '100vw';
@@ -1027,17 +880,16 @@
 			}
 			Blockly.svgResize(workspace);
 			modal.style.display = "block";
-			document.getElementById("switch_code").className = "nav-link active";
-			document.getElementById("switch_code").id = "close";
+			document.getElementsByClassName("switch_code")[0].className = "switch_code show";
 		}
 		else {
 			document.getElementsByClassName("modal-content")[0].className = "modal-content";
 			document.getElementById("blocklyDiv").style.width = '100vw';
 			document.getElementById("toolbox").style.width = '100vw';
+			document.getElementById("funcs").style.right = '40px';
 			Blockly.svgResize(workspace);
 			modal.style.display = "none";
-			document.getElementById("close").className = "nav-link";
-			document.getElementById("close").id = "switch_code";
+			document.getElementsByClassName("switch_code")[0].className = "switch_code";
 		}
 	}
 
@@ -1059,28 +911,24 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '380px' }, 10);
 </script>
 <script>
-	//各种函数
-	/* 搬迁了，在static/js/navFuncs.js */
-
-	window.onbeforeunload = function () {
-		return "离开后，你的控件就没啦！";
-	}
-	// document.getElementById('read').addEventListener('change', function selectedFileChanged() {
-	//     if (this.files.length !== 0) {
-	//         workspace.clear()
-	//         const reader = new FileReader();
-	//         reader.onload = function fileReadCompleted() {
-	//             const xml = Blockly.Xml.textToDom(reader.result);
-	//             Blockly.Xml.domToWorkspace(xml, workspace);
-	//         };
-	//         reader.readAsText(this.files[0]);
-	//     }
-	// });
-
-</script>
-<script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '360px' }, 10);
 </script>
+<div id="widgetPreview">
+</div>
+<style>
+	#widgetPreview {
+		height: 40vh;
+		width: 300px;
+		background-color: #ccc;
+		color: #ccc;
+		border-radius: 4px;
+		position: fixed;
+		top: 52px;
+		right: 400px;
+		display: none;
+		padding: 10px;
+	}
+</style>
 <style>
 	/* 代码框 (background) */
 
@@ -1111,7 +959,7 @@
 	}
 
 	.sord {
-		color: #6d50f0;
+		color: var(--close-color);;
 		font-weight: bold;
 		font-size: 30px;
 	}
@@ -1146,10 +994,10 @@
 		margin: 10px;
 		width: 250px;
 		height: 250px;
-		background: rgb(255, 255, 255);
+		background: var(--swal-color);
 		border-radius: 0.4em;
 		transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-		border: rgb(202, 202, 202) 0.2em solid;
+		border: var(--card-border-color) 0.2em solid;
 		display: inline-flex;
 		flex-direction: column;
 		justify-content: center;
@@ -1157,7 +1005,7 @@
 	}
 
 	.card:hover {
-		border: #6d50f0 0.2em solid;
+		border: var(--main-color) 0.2em solid;
 	}
 
 	@-webkit-keyframes scale-up-center {
@@ -1253,13 +1101,14 @@
 			opacity: 0;
 			backdrop-filter: blur(0px);
 			-webkit-backdrop-filter: blur(0px);
+			display: none;
 		}
 	}
 
 	/* 关闭按钮 */
 
 	.newsth-close {
-		color: #6d50f0;
+		color: var(--close-color);
 		font-weight: bold;
 		font-size: 50px;
 		float: right;
@@ -1271,7 +1120,7 @@
 	.newsth-logo {
 		position: relative;
 		left: 10px;
-		color: #6d50f0;
+		color: var(--main-color);
 	}
 
 	.newsth-close:hover,
@@ -1319,9 +1168,11 @@
 
 	// 点击 <span> (x), 关闭代码框
 	newsthspan.onclick = function () {
+		document.getElementsByClassName("groundglass")[0].className = "groundglass"
+		document.getElementsByClassName("groundglass")[0].style.display = "block"
 		document.getElementsByClassName("newsth-content")[0].className = "newsth-content"
 		document.getElementsByClassName("newsth")[0].className = "newsth"
-		setTimeout(() => { newsth.style.display = "none"; }, 400)
+		setTimeout(() => { newsth.style.display = "none";document.getElementsByClassName("groundglass")[0].style.display = ""; }, 320)
 	}
 
 </script>
@@ -1368,7 +1219,7 @@
 		height: 60vh;
 		top: 20vh;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-		background-color: #6d50f0;
+		background-color: var(--main-color);
 		background: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), url('./static/img/background.svg') no-repeat 0% 20%/ cover;
 		background-size: cover;
 		min-width: 284px;
@@ -1483,7 +1334,7 @@
 	/* 关闭按钮 */
 
 	.aboutus-close {
-		color: #6d50f0;
+		color: var(--close-color);
 		font-weight: bold;
 		font-size: 50px;
 		float: right;
@@ -1518,6 +1369,10 @@
 		height: calc(60vh - 77px);
 		text-align: center;
 	}
+
+	.brand{
+		color: #000;
+	}
 </style>
 <script>
 	var aboutus = document.getElementById('myaboutus');
@@ -1527,6 +1382,8 @@
 
 	// 点击 <span> (x), 关闭代码框
 	aboutusspan.onclick = function () {
+		document.getElementsByClassName("groundglass")[0].className = "groundglass"
+		document.getElementsByClassName("groundglass")[0].style.display = "block"
 		document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content"
 		document.getElementsByClassName("aboutus")[0].className = "aboutus"
 		setTimeout(() => { aboutus.style.display = "none";document.getElementsByClassName("groundglass")[0].style.display = ""; }, 320)
@@ -1608,11 +1465,8 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '240px' }, 10);
 </script>
 <script>
-	let logo = document.getElementById("logo");
 	$(window).resize(function () {
 		if ($(window).width() < 818) {
-			logo.src = "./static/img/logo.svg";
-			logo.style.width = "42px";
 			document.getElementsByClassName("modal")[0].style.width = "100vw"
 			document.getElementById("blocklyDiv").style.width = '100vw';
 			document.getElementById("toolbox").style.width = '100vw';
@@ -1634,11 +1488,13 @@
 		}
 	});
 	$(window).resize(function () {
-		document.getElementById("table").style.height = (document.body.clientHeight - 52);
-		document.getElementById("toolbox").style.height = (document.body.clientHeight - 52);
+		document.getElementById("table").style.height = (window.innerHeight + 'px');
+		document.getElementById("toolbox").style.height = (window.innerHeight + 'px');
+		document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
+		document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
+		document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
 		Blockly.svgResize(workspace);
 	});
-
 </script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '190px' }, 10);
@@ -1651,9 +1507,32 @@
 <script>
 	// 等待加载完毕
 	$('.cls-1').animate({ 'stroke-dashoffset': '0px' }, 10);
-	setTimeout(() => { document.querySelector('.blocklyTrash').remove(); document.getElementById("table").style.height = "calc(100vh - 52px)"; document.getElementById("toolbox").style.height = "calc(100vh - 52px)"; document.getElementById("blocklyDiv").style.height = "calc(100vh - 52px)"; document.getElementById("workspaceblocks").style.height = "calc(100vh - 52px)"; Blockly.svgResize(workspace); document.getElementById("body").style = "visibility: visible"; if (getCookie('logo-egg') == 1) { document.cookie = 'logo-egg=true'; swal("获得成就：最简单的彩蛋"); } }, 1000)
+	document.getElementById('table').style.height = window.innerHeight + 'px';
+	document.getElementById('toolbox').style.height = window.innerHeight + 'px';
+	document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
+	document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
+	document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
+	setTimeout(() => { document.getElementsByClassName("blocklyTrash")[0].style.display = "none";
+					   Blockly.svgResize(workspace); 
+					   document.getElementById("body").style = "visibility: visible";
+					   document.getElementsByClassName("funcs")[0].style.display = "inline-flex"; 
+						if (getCookie('logo-egg') == 1) { 
+							document.cookie = 'logo-egg=true'; 
+							swal("获得成就：最简单的彩蛋"); 
+						}
+					}, 1000);
 
+	let to_center = function () {
+		// 加载完成积木居中
+		const el = document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent("pointerdown"));
+		try {
+			el.dispatchEvent(new PointerEvent("pointerdown"));
+		} catch (err) {
+			// pass
+		}
+	}
+	setTimeout(() => to_center(), 1000) //加载完成1s后执行
 </script>
-
+<div class="groundglass"></div>
 
 </html>

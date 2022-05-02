@@ -1,5 +1,5 @@
 // This file was automatically generated.  Do not modify.
-
+// 官方块的汉字部分在这里
 'use strict';
 
 Blockly.Msg["ADD_COMMENT"] = "添加注释";
@@ -50,7 +50,7 @@ Blockly.Msg["CONTROLS_IF_TOOLTIP_2"] = "如果值为真，则执行第一积木�
 Blockly.Msg["CONTROLS_IF_TOOLTIP_3"] = "如果第一个值为真，则执行第一积木的语句。否则，如果第二个值为真，则执行第二积木的语句。";
 Blockly.Msg["CONTROLS_IF_TOOLTIP_4"] = "如果第一个值为真，则执行第一积木对语句。否则，如果第二个值为真，则执行语句的第二积木。如果没有值为真，则执行最后一积木的语句。";
 Blockly.Msg["CONTROLS_REPEAT_HELPURL"] = "https://zh.wikipedia.org/wiki/For循环";
-Blockly.Msg["CONTROLS_REPEAT_INPUT_DO"] = "执行";
+Blockly.Msg["CONTROLS_REPEAT_INPUT_DO"] = "";
 Blockly.Msg["CONTROLS_REPEAT_TITLE"] = "重复 %1 次";
 Blockly.Msg["CONTROLS_REPEAT_TOOLTIP"] = "多次执行一些语句。";
 Blockly.Msg["CONTROLS_WHILEUNTIL_HELPURL"] = "https://github.com/google/blockly/wiki/Loops#repeat";  // untranslated
@@ -175,16 +175,18 @@ Blockly.Msg["LOGIC_NEGATE_TOOLTIP"] = "如果输入结果为假，则返回真�
 Blockly.Msg["LOGIC_NULL"] = "空";
 Blockly.Msg["LOGIC_NULL_HELPURL"] = "https://en.wikipedia.org/wiki/Nullable_type";  // untranslated
 Blockly.Msg["LOGIC_NULL_TOOLTIP"] = "返回空值。";
-Blockly.Msg["LOGIC_OPERATION_AND"] = "并且";
+Blockly.Msg["LOGIC_OPERATION_AND"] = "且";
 Blockly.Msg["LOGIC_OPERATION_HELPURL"] = "https://github.com/google/blockly/wiki/Logic#logical-operations";  // untranslated
 Blockly.Msg["LOGIC_OPERATION_OR"] = "或";
+Blockly.Msg["LOGIC_OPERATION_XOR"] = "异或";
 Blockly.Msg["LOGIC_OPERATION_TOOLTIP_AND"] = "如果两个输入结果都为真，则返回真。";
 Blockly.Msg["LOGIC_OPERATION_TOOLTIP_OR"] = "如果至少有一个输入结果为真，则返回真。";
-Blockly.Msg["LOGIC_TERNARY_CONDITION"] = "断言";
+Blockly.Msg["LOGIC_OPERATION_TOOLTIP_XOR"] = "如果有且只有一个输入结果为真，则返回真。";
+Blockly.Msg["LOGIC_TERNARY_CONDITION"] = "条件";
 Blockly.Msg["LOGIC_TERNARY_HELPURL"] = "https://zh.wikipedia.org/wiki/条件运算符";
 Blockly.Msg["LOGIC_TERNARY_IF_FALSE"] = "如果为假";
 Blockly.Msg["LOGIC_TERNARY_IF_TRUE"] = "如果为真";
-Blockly.Msg["LOGIC_TERNARY_TOOLTIP"] = "检查“断言”里的条件语句。如果条件为真，则返回“如果为真”的值，否则，则返回“如果为假”的值。";
+Blockly.Msg["LOGIC_TERNARY_TOOLTIP"] = "检查“条件”里的条件语句。如果条件为真，则返回“如果为真”的值，否则，则返回“如果为假”的值。";
 Blockly.Msg["MATH_ADDITION_SYMBOL"] = "+";  // untranslated
 Blockly.Msg["MATH_ARITHMETIC_HELPURL"] = "https://zh.wikipedia.org/wiki/算术";
 Blockly.Msg["MATH_ARITHMETIC_TOOLTIP_ADD"] = "返回两个数值的和。";

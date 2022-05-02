@@ -4,7 +4,8 @@ Blockly.JavaScript['vw_defTypes'] = function (block) {
 	var text_icon = block.getFieldValue('icon');
 	var text_title = block.getFieldValue('title');
 	var text_version = block.getFieldValue('version');
-	var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
+	// var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
+  // 可见控件必须非全局
 	var code = `
 const types = {
   isInvisibleWidget: false,
@@ -12,7 +13,7 @@ const types = {
   icon: "${text_icon}",
   title: "${text_title}",
   version: "${text_version}",
-  isGlobalWidget: ${dropdown_isglobalwidget},
+  isGlobalWidget: false,
   properties: [],
   methods: [],
   events: [],
