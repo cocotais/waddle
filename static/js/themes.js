@@ -30,6 +30,8 @@ var to_dark = function () {
 	workspace.setTheme(DarkTheme);
 	document.getElementById('widgetPreview').style.color = '#fff';
 	document.getElementById('widgetPreview').style.backgroundColor = '#333033';
+	document.getElementsByClassName('theme-sun')[0].style.display = 'block';
+	document.getElementsByClassName('theme-moon')[0].style.display = 'none';
 	$('.aboutus-content').css('cssText', "background: linear-gradient(rgba(82, 82, 82, 0.65), rgba(0, 0, 0, 0.45)), url('./static/img/background.svg') no-repeat 0% 20%/ cover");
 	//document.getElementsByClassName("modal-header")[0].style.backgroundColor = "var(--main-color)"
 	document.getElementsByClassName('modal-content')[0].style.borderTopColor = 'rgb(82, 82, 82)';
@@ -66,12 +68,20 @@ var to_dark = function () {
 	document.documentElement.style.setProperty('--close-color', '#fff');
 	document.documentElement.style.setProperty('--toolbox-color', 'rgb(61,61,61)');
 	document.documentElement.style.setProperty('--swal-color', '#525252');
+
+	document.documentElement.style.setProperty('--funcs-bg-color', '#000000');
+	document.documentElement.style.setProperty('--funcs-color', '#FFFFFF');
+	document.documentElement.style.setProperty('--funcs-hover-color', '#aaaaaa');
+	document.documentElement.style.setProperty('--show-code-color', '#876CFF');
+	document.documentElement.style.setProperty('--show-hover-code-color', '#6d50f0');
 };
 $('.cls-1').animate({ 'stroke-dashoffset': '150px' }, 10);
 var to_light = function () {
 	workspace.setTheme(WaddleTheme);
 	document.getElementById('widgetPreview').style.backgroundColor = '#ffffff';
 	document.getElementById('widgetPreview').style.color = '#000';
+	document.getElementsByClassName('theme-sun')[0].style.display = 'none';
+	document.getElementsByClassName('theme-moon')[0].style.display = 'block';
 	$('.aboutus-content').css('cssText', "background: linear-gradient(rgba(245, 248, 250, 0.15), rgba(109, 80, 240, 0.95)), url('./static/img/background.svg') no-repeat 0% 20%/ cover");
 	document.getElementsByClassName('modal-content')[0].style.borderTopColor = 'rgb(109, 80, 240)';
 	document.getElementsByClassName('newsth-header')[0].style.backgroundColor = '#F5F8FA';
@@ -106,6 +116,13 @@ var to_light = function () {
 	document.documentElement.style.setProperty('--close-color', '#6d50f0');
 	document.documentElement.style.setProperty('--toolbox-color', 'rgb(255,255,250)');
 	document.documentElement.style.setProperty('--swal-color', '#ffffff');
+
+	document.documentElement.style.setProperty('--funcs-bg-color', '#fff');
+	document.documentElement.style.setProperty('--funcs-color', '#707070');
+	document.documentElement.style.setProperty('--funcs-hover-color', '#505050');
+	document.documentElement.style.setProperty('--show-code-color', '#876CFF');
+	document.documentElement.style.setProperty('--show-hover-code-color', '#6d50f0');
+	document.documentElement.style.setProperty('--line-color', '#9C89FF');
 };
 var theme_conut = 0;
 var switch_theme = function () {
