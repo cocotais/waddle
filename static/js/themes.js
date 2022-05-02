@@ -137,22 +137,18 @@ if (theme == "dark") {
 }
 hljs.initHighlightingOnLoad();
 if ($(window).width() < 818) {
-    logo.src = "./static/img/logo.svg";
-    logo.style.width = "42px";
-    document.getElementsByClassName("modal")[0].style.width = "100vw"
-    document.getElementById("blocklyDiv").style.width = '100vw';
-    document.getElementById("toolbox").style.width = '100vw';
-}
-else {
-    logo.src = "./static/img/waddle.svg";
-    logo.style.width = "140px";
-    document.getElementsByClassName("modal")[0].style.width = "400px"
-    if(modal.style.display == "none" || modal.style.display == ""){
-        document.getElementById("blocklyDiv").style.width = '100vw';
-        document.getElementById("toolbox").style.width = '100vw';
-    }
-    else{
-        document.getElementById("blocklyDiv").style.width = 'calc(100vw - 400px)';
-        document.getElementById("toolbox").style.width = 'calc(100vw - 400px)';
+    document.getElementsByClassName('modal')[0].style.width = '100vw';
+    document.getElementById('blocklyDiv').style.width = '100vw';
+    document.getElementById('toolbox').style.width = '100vw';
+	document.getElementsByClassName("modal-close")[0].style.display = "block"
+} else {
+    document.getElementsByClassName('modal')[0].style.width = '400px';
+	document.getElementsByClassName("modal-close")[0].style.display = "none"
+    if (modal.style.display == 'none' || modal.style.display == '') {
+        document.getElementById('blocklyDiv').style.width = '100vw';
+        document.getElementById('toolbox').style.width = '100vw';
+    } else {
+        document.getElementById('blocklyDiv').style.width = 'calc(100vw - 400px)';
+        document.getElementById('toolbox').style.width = 'calc(100vw - 400px)';
     }
 }
