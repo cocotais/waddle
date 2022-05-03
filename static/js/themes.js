@@ -66,10 +66,10 @@ var to_dark = function () {
 	document.documentElement.style.setProperty('--renderer-color', '#2e2e2e');
 	document.documentElement.style.setProperty('--card-border-color', '#ffffff');
 	document.documentElement.style.setProperty('--close-color', '#fff');
-	document.documentElement.style.setProperty('--toolbox-color', 'rgb(61,61,61)');
+	document.documentElement.style.setProperty('--toolbox-color', '#373737');
 	document.documentElement.style.setProperty('--swal-color', '#525252');
 
-	document.documentElement.style.setProperty('--funcs-bg-color', '#000000');
+	document.documentElement.style.setProperty('--funcs-bg-color', '#000000dd');
 	document.documentElement.style.setProperty('--funcs-color', '#FFFFFF');
 	document.documentElement.style.setProperty('--funcs-hover-color', '#aaaaaa');
 	document.documentElement.style.setProperty('--show-code-color', '#876CFF');
@@ -114,10 +114,10 @@ var to_light = function () {
 	document.documentElement.style.setProperty('--renderer-color', '#ffffdd');
 	document.documentElement.style.setProperty('--card-border-color', '#b4b4b4');
 	document.documentElement.style.setProperty('--close-color', '#6d50f0');
-	document.documentElement.style.setProperty('--toolbox-color', 'rgb(255,255,250)');
+	document.documentElement.style.setProperty('--toolbox-color', '#FFFFFF');
 	document.documentElement.style.setProperty('--swal-color', '#ffffff');
 
-	document.documentElement.style.setProperty('--funcs-bg-color', '#fff');
+	document.documentElement.style.setProperty('--funcs-bg-color', '#ffffffdd');
 	document.documentElement.style.setProperty('--funcs-color', '#707070');
 	document.documentElement.style.setProperty('--funcs-hover-color', '#505050');
 	document.documentElement.style.setProperty('--show-code-color', '#876CFF');

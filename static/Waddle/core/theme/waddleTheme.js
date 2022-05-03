@@ -25,9 +25,9 @@ WaddleTheme = Blockly.Theme.defineTheme('WaddleTheme', {
 		variable_dynamic_category: { colour: "#F9CC37" }
 	},
 	'componentStyles': {
-		workspaceBackgroundColour: "#F0EFF0",
-		toolboxBackgroundColour: "#FFFFFA",
-		flyoutBackgroundColour: "#FFFFFACC",
+		workspaceBackgroundColour: "#F4F4F4",
+		toolboxBackgroundColour: "var(--toolbox-color)",
+		flyoutBackgroundColour: "#FFFFFFCC",
 	},
 });
 
@@ -58,7 +58,7 @@ DarkTheme = Blockly.Theme.defineTheme('DarkTheme', {
 	},
 	'componentStyles': {
 		workspaceBackgroundColour: "#2e2e2e",
-		toolboxBackgroundColour: "#3d3d3d",
+		toolboxBackgroundColour: "var(--toolbox-color)",
 		flyoutBackgroundColour: "#F2F2F2CC",
 	},
 });

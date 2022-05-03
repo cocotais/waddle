@@ -15,6 +15,8 @@ Blockly.JavaScript['ivw_defTypes'] = function (block) {
 	var text_title = block.getFieldValue('title');
 	var text_version = block.getFieldValue('version');
 	var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
+	window.myicon = text_icon;
+	window.mytitle = text_title;
 	var code = `
 const types = {
   isInvisibleWidget: true,
