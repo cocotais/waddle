@@ -234,6 +234,7 @@
 				font-size: 12px;
 				color: #ffffff;
 				display: flex;
+				visibility: hidden;
 				justify-content: center;
 				align-items: center;
 				-webkit-animation: hide-it 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -246,7 +247,10 @@
 				animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 				font-weight: normal;
 			}
-
+			
+			.shown#funcs-bottons:after{
+				visibility: visible;
+			} 
 			@keyframes hide-it {
 				0% {
 					-webkit-transform: scale(1);
@@ -1001,8 +1005,8 @@
 	let switch_code = function () {
 		// 打开代码框的按钮对象
 		var btn = document.getElementsByClassName("switch_code")[0];
-		if (btn.className == "switch_code") {
-			document.getElementsByClassName("modal-content")[0].className = "modal-content show";
+		if (btn.className == "switch_code shown") {
+			document.getElementsByClassName("modal-content")[0].className = "modal-content show shown";
 			if ($(window).width() < 818) {
 				document.getElementById("blocklyDiv").style.width = '100vw';
 				document.getElementById("toolbox").style.width = '100vw';
@@ -1018,7 +1022,7 @@
 			}
 			Blockly.svgResize(workspace);
 			modal.style.display = "block";
-			document.getElementsByClassName("switch_code")[0].className = "switch_code show";
+			document.getElementsByClassName("switch_code")[0].className = "switch_code show shown";
 		}
 		else {
 			document.getElementsByClassName("modal-content")[0].className = "modal-content";
@@ -1027,7 +1031,7 @@
 			document.getElementById("funcs").style.right = '40px';
 			Blockly.svgResize(workspace);
 			modal.style.display = "none";
-			document.getElementsByClassName("switch_code")[0].className = "switch_code";
+			document.getElementsByClassName("switch_code")[0].className = "switch_code shown";
 		}
 	}
 
@@ -1794,6 +1798,12 @@
 		Blockly.svgResize(workspace);
 		document.getElementById("body").style = "visibility: visible";
 		document.getElementsByClassName("funcs")[0].style.display = "inline-flex";
+		setTimeout(() => {var box=document.querySelectorAll('#funcs-bottons');
+
+		for (var i = 0; i < box.length; i++) {
+    		box[i].classList.add('shown');
+		}},500);
+    	
 		if (getCookie('logo-egg') == 1) {
 			document.cookie = 'logo-egg=true';
 			swal("获得成就：最简单的彩蛋");

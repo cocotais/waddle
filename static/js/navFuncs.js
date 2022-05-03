@@ -85,30 +85,6 @@ let upload = function (waddle) {
     };
 };
 
-/* let switch_table = function () {
-    var code = document.getElementById('code')
-    code.style.display = 'none'
-    var table = document.getElementById('table')
-    table.style.display = 'inline'
-    var switch_table = document.getElementById('switch_table')
-    switch_table.className += ' active'
-    var switch_code = document.getElementById('switch_code')
-    switch_code.classList.remove('active')
-}
-
-let switch_code = function () {
-    var code = document.getElementById('code')
-    code.style.display = 'inline'
-    var table = document.getElementById('table')
-    table.style.display = 'none'
-    var codeArea = document.getElementById('codeArea')
-    codeArea.innerHTML = Blockly.JavaScript.workspaceToCode(workspace)
-    var switch_code = document.getElementById('switch_code')
-    switch_code.className += ' active'
-    var switch_table = document.getElementById('switch_table')
-    switch_table.classList.remove('active')
-} */
-
 var get_num = 0;
 let count = function () {
     get_num += 1;
