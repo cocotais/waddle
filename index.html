@@ -1786,6 +1786,14 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '50px' }, 10);
 </script>
 <script>
+	var size_changer = function () {
+		let x  = window.innerWidth;
+		let h = 47 + 1 / (1 + Math.E ^ (10 * x)) * 25000;
+		document.getElementById('funcs').style.height = h + 'px';
+		document.getElementById('funcs').style.width = h * 6 + 'px';
+	};
+	size_changer();
+	window.onresize = size_changer;
 	// 等待加载完毕
 	$('.cls-1').animate({ 'stroke-dashoffset': '0px' }, 10);
 	document.getElementById('table').style.height = window.innerHeight + 'px';
