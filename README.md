@@ -2,10 +2,6 @@
     <br>
     <img alt="Waddle-Logo-Purple" src="static/img/cs.png" height="73" width="346"/>
     <br>
-    <br>
-    <a href='https://gitee.com/coco-ag/coco-waddle/stargazers'><img src='https://gitee.com/coco-ag/coco-waddle/badge/star.svg?theme=white' alt='star'></img></a>
-    <a href='https://gitee.com/coco-ag/coco-waddle/members'><img src='https://gitee.com/coco-ag/coco-waddle/badge/fork.svg?theme=white' alt='fork'></img></a>
-    <br>
 </p>
 
 
