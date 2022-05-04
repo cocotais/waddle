@@ -690,15 +690,15 @@
 </body>
 <!--引入Blockly必要文件-->
 
-<script src="./static/blockly-master/blockly_compressed.js"></script>
+<script src="./static/blockly-master/blockly_compressed.min.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1280px' }, 10);
 </script>
-<script src="./static/blockly-master/javascript_compressed.js"></script>
+<script src="./static/blockly-master/javascript_compressed.min.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1260px' }, 10);
 </script>
-<script src="./static/blockly-master/blocks_compressed.js"></script>
+<script src="./static/blockly-master/blocks_compressed.min.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1240px' }, 10);
 </script>
@@ -1534,7 +1534,8 @@
 </script>
 <div id="funcs" class="funcs">
 	<div id="funcs-bottons" data-title="控件图标预览">
-		<img class="myicon" src="https://waddle.coco-central.cn/static/img/logo.svg"
+		<img class="myicon" alt="控件图标" 
+		src="https://waddle.coco-central.cn/static/img/logo.svg"
 			style="border: 3px solid var(--nd-main-color);-webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px;width: 30px;height: 30px;display: flex;">
 	</div>
 	<div id="funcs-bottons" data-title="切换主题" class="waddle-theme" onclick="switch_theme()">
@@ -1818,16 +1819,20 @@
 		}
 	}, 1000);
 
-	let to_center = function () {
+	let to_center = function (time) {
 		// 加载完成积木居中
-		const el = document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent("pointerdown"));
-		try {
-			el.dispatchEvent(new PointerEvent("pointerdown"));
-		} catch (err) {
-			// pass
+		if(time == 0) {
+			const el = document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent("pointerdown"));
+			try {
+				el.dispatchEvent(new PointerEvent("pointerdown"));
+			} catch (err) {
+				// pass
+			}
+		} else {
+			setTimeout(() => to_center(0), time);
 		}
 	}
-	setTimeout(() => to_center(), 1000) //加载完成1s后执行
+	to_center(1000); //加载完成1s后执行
 </script>
 <div class="groundglass"></div>
 
