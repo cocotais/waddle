@@ -178,7 +178,7 @@
 	</script>
 	<div id="body" style="visibility:hidden;">
 		<img onclick='dropdown_show();' alt="Waddle" id="logo1" src="./static/img/purple-logo.svg"
-			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 60; background-color: var(--toolbox-color);">
+			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 60; background-color: var(--toolbox-color);cursor: pointer;">
 		<nav class="navbar navbar-expand navbar-dark" style="height:0px;background-color: var(--main-color);">
 			<div class="container-fluid">
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -690,15 +690,15 @@
 </body>
 <!--引入Blockly必要文件-->
 
-<script src="./static/blockly-master/blockly_compressed.min.js"></script>
+<script src="./static/blockly-master/blockly_compressed.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1280px' }, 10);
 </script>
-<script src="./static/blockly-master/javascript_compressed.min.js"></script>
+<script src="./static/blockly-master/javascript_compressed.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1260px' }, 10);
 </script>
-<script src="./static/blockly-master/blocks_compressed.min.js"></script>
+<script src="./static/blockly-master/blocks_compressed.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1240px' }, 10);
 </script>
@@ -1534,8 +1534,7 @@
 </script>
 <div id="funcs" class="funcs">
 	<div id="funcs-bottons" data-title="控件图标预览">
-		<img class="myicon" alt="控件图标" 
-		src="https://waddle.coco-central.cn/static/img/logo.svg"
+		<img class="myicon" src="https://waddle.coco-central.cn/static/img/logo.svg"
 			style="border: 3px solid var(--nd-main-color);-webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px;width: 30px;height: 30px;display: flex;">
 	</div>
 	<div id="funcs-bottons" data-title="切换主题" class="waddle-theme" onclick="switch_theme()">
@@ -1819,20 +1818,16 @@
 		}
 	}, 1000);
 
-	let to_center = function (time) {
+	let to_center = function () {
 		// 加载完成积木居中
-		if(time == 0) {
-			const el = document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent("pointerdown"));
-			try {
-				el.dispatchEvent(new PointerEvent("pointerdown"));
-			} catch (err) {
-				// pass
-			}
-		} else {
-			setTimeout(() => to_center(0), time);
+		const el = document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent("pointerdown"));
+		try {
+			el.dispatchEvent(new PointerEvent("pointerdown"));
+		} catch (err) {
+			// pass
 		}
 	}
-	to_center(1000); //加载完成1s后执行
+	setTimeout(() => to_center(), 1000) //加载完成1s后执行
 </script>
 <div class="groundglass"></div>
 
