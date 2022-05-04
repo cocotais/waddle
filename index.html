@@ -1819,16 +1819,20 @@
 		}
 	}, 1000);
 
-	let to_center = function () {
+	let to_center = function (time) {
 		// 加载完成积木居中
-		const el = document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent("pointerdown"));
-		try {
-			el.dispatchEvent(new PointerEvent("pointerdown"));
-		} catch (err) {
-			// pass
+		if(time == 0) {
+			const el = document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent("pointerdown"));
+			try {
+				el.dispatchEvent(new PointerEvent("pointerdown"));
+			} catch (err) {
+				// pass
+			}
+		} else {
+			setTimeout(() => to_center(0), time);
 		}
 	}
-	setTimeout(() => to_center(), 1000) //加载完成1s后执行
+	to_center(1000); //加载完成1s后执行
 </script>
 <div class="groundglass"></div>
 
