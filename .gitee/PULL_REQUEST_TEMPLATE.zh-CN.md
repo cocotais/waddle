@@ -1,5 +1,5 @@
 > 请在提交PR前自行确认您的提交是否符合开发者计划文档中的规范：
-> https://waddle.coco-central.cn/docs/#/dev/
+> https://docs.coco-central.cn/waddle/#/dev/
 
 # 请简要描述你变更了什么内容？
 在这里写
