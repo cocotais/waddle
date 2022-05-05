@@ -220,7 +220,7 @@
 
 		<a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
 		<style>
-			#funcs-bottons:after {
+			#funcs-buttons:after {
 				content: attr(data-title);
 				position: absolute;
 				border-radius: 8px;
@@ -242,13 +242,13 @@
 				opacity: 0;
 			}
 
-			#funcs-bottons:hover:after {
+			#funcs-buttons:hover:after {
 				-webkit-animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 				animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 				font-weight: normal;
 			}
 			
-			.shown#funcs-bottons:after{
+			.shown#funcs-buttons:after{
 				visibility: visible;
 			} 
 			@keyframes hide-it {
@@ -1533,11 +1533,11 @@
 	}
 </script>
 <div id="funcs" class="funcs">
-	<div id="funcs-bottons" data-title="控件图标预览">
+	<div id="funcs-buttons" data-title="控件图标预览">
 		<img class="myicon" src="https://waddle.coco-central.cn/static/img/logo.svg"
 			style="border: 3px solid var(--nd-main-color);-webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px;width: 30px;height: 30px;display: flex;">
 	</div>
-	<div id="funcs-bottons" data-title="切换主题" class="waddle-theme" onclick="switch_theme()">
+	<div id="funcs-buttons" data-title="切换主题" class="waddle-theme" onclick="switch_theme()">
 		<svg class="theme-sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 			version="1.1" width="40" height="40" viewBox="0 0 74 74">
 			<g style="mix-blend-mode:passthrough">
@@ -1581,7 +1581,7 @@
 			</g>
 		</svg>
 	</div>
-	<div id="funcs-bottons" data-title="转换代码" class="switch_code" onclick="switch_code()">
+	<div id="funcs-buttons" data-title="转换代码" class="switch_code" onclick="switch_code()">
 		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="40"
 			height="40" viewBox="0 0 74 74">
 			<g style="mix-blend-mode:passthrough">
@@ -1620,7 +1620,7 @@
 		</svg>
 	</div>
 	<div style="height: 30px; width: 2px; background: rgba(156, 137, 255, 0.5);"></div>
-	<div id="funcs-bottons" data-title="缩小" class="zoom-minus"
+	<div id="funcs-buttons" data-title="缩小" class="zoom-minus"
 		onclick="window.reast = 'minus';document.getElementsByClassName('blocklyZoom')[0].dispatchEvent(new PointerEvent('pointerdown'));window.reast = false;document.getElementById('zoom-size-number').innerHTML = Math.ceil(myscale * 100)+'%'">
 		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="40"
 			height="40" viewBox="0 0 74 74">
@@ -1636,12 +1636,12 @@
 			</g>
 		</svg>
 	</div>
-	<div id="funcs-bottons" data-title="恢复为100%" class="zoom-size"
+	<div id="funcs-buttons" data-title="恢复为100%" class="zoom-size"
 		onclick="window.reast = 'reast';document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent('pointerdown'));window.reast = false;document.getElementById('zoom-size-number').innerHTML = Math.ceil(myscale * 100)+'%'">
 		<span id="zoom-size-number"
 			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;">100%</span>
 	</div>
-	<div id="funcs-bottons" data-title="放大" class="zoom-plus"
+	<div id="funcs-buttons" data-title="放大" class="zoom-plus"
 		onclick="window.reast = 'plus';document.getElementsByClassName('blocklyZoom')[1].dispatchEvent(new PointerEvent('pointerdown'));window.reast = false;document.getElementById('zoom-size-number').innerHTML = Math.ceil(myscale * 100)+'%'">
 		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="40"
 			height="40" viewBox="0 0 74 74">
@@ -1683,11 +1683,11 @@
 		box-shadow: 0px 3px 6px 2px rgb(0 0 0 / 30%);
 	}
 
-	#funcs-bottons:hover {
+	#funcs-buttons:hover {
 		cursor: pointer;
 	}
 
-	#funcs-bottons {
+	#funcs-buttons {
 		display: inline-flex;
 		width: 40px;
 		height: 40px;
@@ -1825,7 +1825,7 @@
 		Blockly.svgResize(workspace);
 		document.getElementById("body").style = "visibility: visible";
 		document.getElementsByClassName("funcs")[0].style.display = "inline-flex";
-		setTimeout(() => {var box=document.querySelectorAll('#funcs-bottons');
+		setTimeout(() => {var box=document.querySelectorAll('#funcs-buttons');
 
 		for (var i = 0; i < box.length; i++) {
     		box[i].classList.add('shown');
