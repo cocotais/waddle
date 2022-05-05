@@ -1786,11 +1786,30 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '50px' }, 10);
 </script>
 <script>
+	// 右下角响应式布局
 	var size_changer = function () {
-		let x  = window.innerWidth;
-		let h = 45 + 1 / (1 + Math.E ^ (10 * x)) * 35000;
+		x = window.innerWidth;
+		h = 45 + 1 / (1 + Math.E ^ (10 * x)) * 35000;
+		w = h * 6;
+		if ((x - 40 - w) <= $('.blocklyToolboxContents').width()) {
+			w = x - $('.blocklyToolboxContents').width() - 20;
+			h = w / 6;
+			$('#funcs').css('border-top-right-radius', '0px');
+			$('#funcs').css('border-bottom-right-radius', '0px');
+			$('#funcs').css('right', '0px');
+			if (w < 250) {
+				w = 250;
+			}
+			if (h < 50) {
+				h = 50;
+			}
+		} else {
+			$('#funcs').css('border-top-right-radius', '77px');
+			$('#funcs').css('border-bottom-right-radius', '77px');
+			$('#funcs').css('right', '40px');
+		}
 		document.getElementById('funcs').style.height = h + 'px';
-		document.getElementById('funcs').style.width = h * 6 + 'px';
+		document.getElementById('funcs').style.width = w + 'px';
 	};
 	size_changer();
 	window.onresize = size_changer;
