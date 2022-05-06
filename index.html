@@ -1034,7 +1034,13 @@
 			document.getElementsByClassName("switch_code")[0].className = "switch_code shown";
 		}
 		// 响应式适配
-		size_changer();
+		if ((x - 40 - w) <= $('.blocklyToolboxContents').width()) {
+			w = x - $('.blocklyToolboxContents').width() - 20;
+			h = w / 6;
+			$('#funcs').css('border-top-right-radius', '0px');
+			$('#funcs').css('border-bottom-right-radius', '0px');
+			$('#funcs').css('right', '0px');
+		}
 	}
 
 	// 点击复制，复制代码
@@ -1067,7 +1073,7 @@
 		color: #ccc;
 		border-radius: 4px;
 		position: fixed;
-		top: 52px;
+		top: 0px;
 		right: 400px;
 		display: none;
 		padding: 10px;
