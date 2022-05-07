@@ -117,7 +117,7 @@ types['methods'].push({
   ],
 })
 Widget.prototype.${text_key} = function (${params}) {
-  ${statements_code};
+  ${statements_code}
 }
 `;
 	return code;
