@@ -1,10 +1,6 @@
 <p align="center">
     <br>
-    <img alt="Waddle-Logo-Purple" src="https://gitee.com/coco-ag/coco-waddle/raw/master/static/img/cs.png" height="73" width="346"/>
-    <br>
-    <br>
-    <a href='https://gitee.com/coco-ag/coco-waddle/stargazers'><img src='https://gitee.com/coco-ag/coco-waddle/badge/star.svg?theme=white' alt='star'></img></a>
-    <a href='https://gitee.com/coco-ag/coco-waddle/members'><img src='https://gitee.com/coco-ag/coco-waddle/badge/fork.svg?theme=white' alt='fork'></img></a>
+    <img alt="Waddle-Logo-Purple" src="static/img/cs.png" height="73" width="346"/>
     <br>
 </p>
 
@@ -17,10 +13,15 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 <details>
   <summary>
     <strong>直接访问</strong>
-  </summary><br>如果你想要直接访问：
+  </summary><br>如果你想要直接访问稳定版：
   <ul>
     <li>
       请前往<a href="https://waddle.coco-central.cn">Waddle 官网</a>查看</li>
+  </ul>
+  </summary><br>如果你想要查看最新的开发版：
+  <ul>
+    <li>
+      请前往<a href="https://waddle-beta.coco-central.cn">Waddle 测试站</a>查看</li>
   </ul>
 </details>
 
@@ -46,7 +47,7 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 # 参与贡献
 如果你想要对代码进行贡献，可以参考 [这份文档](https://docs.coco-central.cn/waddle/#/dev/)
 
-如果你想要对使用手册进行贡献，可以前往 [这里](https://gitee.com/coco-ag/docs/tree/master/docs) 直接编辑，我们将对您的内容进行审核
+如果你想要对使用手册进行贡献，可以前往 [这里](https://gitee.com/coco-ag/docs/tree/master/waddle) 直接编辑，我们将对您的内容进行审核
 
 # 联系
 目前我们制作团队的全部成员都在 Waddle 交流群中，若你想与我们面对面交流，欢迎加入！
