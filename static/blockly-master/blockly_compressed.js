@@ -42,7 +42,7 @@
 		return b ? b.call(a) : $jscomp.arrayIterator(a);
 	};
 	$jscomp.arrayFromIterator = function (a) {
-		for (var b, c = []; !(b = a.next()).done; ) c.push(b.value);
+		for (var b, c = []; !(b = a.next()).done;) c.push(b.value);
 		return c;
 	};
 	$jscomp.arrayFromIterable = function (a) {
@@ -62,10 +62,10 @@
 		$jscomp.ASSUME_ES5 || 'function' == typeof Object.defineProperties
 			? Object.defineProperty
 			: function (a, b, c) {
-					if (a == Array.prototype || a == Object.prototype) return a;
-					a[b] = c.value;
-					return a;
-			  };
+				if (a == Array.prototype || a == Object.prototype) return a;
+				a[b] = c.value;
+				return a;
+			};
 	$jscomp.getGlobal = function (a) {
 		a = ['object' == typeof globalThis && globalThis, a, 'object' == typeof window && window, 'object' == typeof self && self, 'object' == typeof global && global];
 		for (var b = 0; b < a.length; ++b) {
@@ -121,12 +121,12 @@
 		$jscomp.TRUST_ES6_POLYFILLS && 'function' == typeof Object.assign
 			? Object.assign
 			: function (a, b) {
-					for (var c = 1; c < arguments.length; c++) {
-						var d = arguments[c];
-						if (d) for (var e in d) $jscomp.owns(d, e) && (a[e] = d[e]);
-					}
-					return a;
-			  };
+				for (var c = 1; c < arguments.length; c++) {
+					var d = arguments[c];
+					if (d) for (var e in d) $jscomp.owns(d, e) && (a[e] = d[e]);
+				}
+				return a;
+			};
 	$jscomp.polyfill(
 		'Object.assign',
 		function (a) {
@@ -139,15 +139,15 @@
 		$jscomp.ASSUME_ES5 || 'function' == typeof Object.create
 			? Object.create
 			: function (a) {
-					var b = function () {};
-					b.prototype = a;
-					return new b();
-			  };
+				var b = function () { };
+				b.prototype = a;
+				return new b();
+			};
 	$jscomp.getConstructImplementation = function () {
 		function a() {
-			function c() {}
+			function c() { }
 			new c();
-			Reflect.construct(c, [], function () {});
+			Reflect.construct(c, [], function () { });
 			return new c() instanceof c;
 		}
 		if ($jscomp.TRUST_ES6_POLYFILLS && 'undefined' != typeof Reflect && Reflect.construct) {
@@ -171,19 +171,19 @@
 			b = {};
 		try {
 			return (b.__proto__ = a), b.a;
-		} catch (c) {}
+		} catch (c) { }
 		return !1;
 	};
 	$jscomp.setPrototypeOf =
 		$jscomp.TRUST_ES6_POLYFILLS && 'function' == typeof Object.setPrototypeOf
 			? Object.setPrototypeOf
 			: $jscomp.underscoreProtoCanBeSet()
-			? function (a, b) {
+				? function (a, b) {
 					a.__proto__ = b;
 					if (a.__proto__ !== b) throw new TypeError(a + ' is not extensible');
 					return a;
-			  }
-			: null;
+				}
+				: null;
 	$jscomp.inherits = function (a, b) {
 		a.prototype = $jscomp.objectCreate(b.prototype);
 		a.prototype.constructor = a;
@@ -253,19 +253,19 @@
 			return a
 				? a
 				: function (b, c) {
-						var d = $jscomp.checkStringArgs(this, b, 'startsWith');
-						b += '';
-						var e = d.length,
-							f = b.length;
-						c = Math.max(0, Math.min(c | 0, d.length));
-						for (var g = 0; g < f && c < e; ) if (d[c++] != b[g++]) return !1;
-						return g >= f;
-				  };
+					var d = $jscomp.checkStringArgs(this, b, 'startsWith');
+					b += '';
+					var e = d.length,
+						f = b.length;
+					c = Math.max(0, Math.min(c | 0, d.length));
+					for (var g = 0; g < f && c < e;) if (d[c++] != b[g++]) return !1;
+					return g >= f;
+				};
 		},
 		'es6',
 		'es3'
 	);
-	$jscomp.initSymbol = function () {};
+	$jscomp.initSymbol = function () { };
 	$jscomp.polyfill(
 		'Symbol',
 		function (a) {
@@ -342,10 +342,10 @@
 			return a
 				? a
 				: function () {
-						return $jscomp.iteratorFromArray(this, function (b) {
-							return b;
-						});
-				  };
+					return $jscomp.iteratorFromArray(this, function (b) {
+						return b;
+					});
+				};
 		},
 		'es6',
 		'es3'
@@ -364,10 +364,10 @@
 			return a
 				? a
 				: function () {
-						return $jscomp.iteratorFromArray(this, function (b, c) {
-							return c;
-						});
-				  };
+					return $jscomp.iteratorFromArray(this, function (b, c) {
+						return c;
+					});
+				};
 		},
 		'es8',
 		'es3'
@@ -378,11 +378,11 @@
 			return a
 				? a
 				: function (b) {
-						var c = [],
-							d;
-						for (d in b) $jscomp.owns(b, d) && c.push([d, b[d]]);
-						return c;
-				  };
+					var c = [],
+						d;
+					for (d in b) $jscomp.owns(b, d) && c.push([d, b[d]]);
+					return c;
+				};
 		},
 		'es8',
 		'es3'
@@ -393,8 +393,8 @@
 			return a
 				? a
 				: function () {
-						return [];
-				  };
+					return [];
+				};
 		},
 		'es6',
 		'es5'
@@ -405,12 +405,12 @@
 			return a
 				? a
 				: function (b) {
-						var c = [],
-							d = Object.getOwnPropertyNames(b);
-						b = Object.getOwnPropertySymbols(b);
-						for (var e = 0; e < d.length; e++) ('jscomp_symbol_' == d[e].substring(0, 14) ? b : c).push(d[e]);
-						return c.concat(b);
-				  };
+					var c = [],
+						d = Object.getOwnPropertyNames(b);
+					b = Object.getOwnPropertySymbols(b);
+					for (var e = 0; e < d.length; e++) ('jscomp_symbol_' == d[e].substring(0, 14) ? b : c).push(d[e]);
+					return c.concat(b);
+				};
 		},
 		'es6',
 		'es5'
@@ -421,9 +421,9 @@
 			return a
 				? a
 				: function (b) {
-						for (var c = {}, d = Reflect.ownKeys(b), e = 0; e < d.length; e++) c[d[e]] = Object.getOwnPropertyDescriptor(b, d[e]);
-						return c;
-				  };
+					for (var c = {}, d = Reflect.ownKeys(b), e = 0; e < d.length; e++) c[d[e]] = Object.getOwnPropertyDescriptor(b, d[e]);
+					return c;
+				};
 		},
 		'es8',
 		'es5'
@@ -434,14 +434,14 @@
 			return a
 				? a
 				: function (b, c, d) {
-						var e = this.length || 0;
-						0 > c && (c = Math.max(0, e + c));
-						if (null == d || d > e) d = e;
-						d = Number(d);
-						0 > d && (d = Math.max(0, e + d));
-						for (c = Number(c || 0); c < d; c++) this[c] = b;
-						return this;
-				  };
+					var e = this.length || 0;
+					0 > c && (c = Math.max(0, e + c));
+					if (null == d || d > e) d = e;
+					d = Number(d);
+					0 > d && (d = Math.max(0, e + d));
+					for (c = Number(c || 0); c < d; c++) this[c] = b;
+					return this;
+				};
 		},
 		'es6',
 		'es3'
@@ -464,8 +464,8 @@
 			return a
 				? a
 				: function (b, c) {
-						return b === c ? 0 !== b || 1 / b === 1 / c : b !== b && c !== c;
-				  };
+					return b === c ? 0 !== b || 1 / b === 1 / c : b !== b && c !== c;
+				};
 		},
 		'es6',
 		'es3'
@@ -476,16 +476,16 @@
 			return a
 				? a
 				: function (b, c) {
-						var d = this;
-						d instanceof String && (d = String(d));
-						var e = d.length;
-						c = c || 0;
-						for (0 > c && (c = Math.max(c + e, 0)); c < e; c++) {
-							var f = d[c];
-							if (f === b || Object.is(f, b)) return !0;
-						}
-						return !1;
-				  };
+					var d = this;
+					d instanceof String && (d = String(d));
+					var e = d.length;
+					c = c || 0;
+					for (0 > c && (c = Math.max(c + e, 0)); c < e; c++) {
+						var f = d[c];
+						if (f === b || Object.is(f, b)) return !0;
+					}
+					return !1;
+				};
 		},
 		'es7',
 		'es3'
@@ -496,8 +496,8 @@
 			return a
 				? a
 				: function (b, c) {
-						return -1 !== $jscomp.checkStringArgs(this, b, 'includes').indexOf(b, c || 0);
-				  };
+					return -1 !== $jscomp.checkStringArgs(this, b, 'includes').indexOf(b, c || 0);
+				};
 		},
 		'es6',
 		'es3'
@@ -510,15 +510,15 @@
 	};
 	goog.DEBUG = !1;
 	goog.DISALLOW_TEST_ONLY_CODE = COMPILED && !goog.DEBUG;
-	goog.provide = function (a) {};
-	goog.module = function (a) {};
-	goog.module.get = function (a) {};
-	goog.module.declareLegacyNamespace = function () {};
+	goog.provide = function (a) { };
+	goog.module = function (a) { };
+	goog.module.get = function (a) { };
+	goog.module.declareLegacyNamespace = function () { };
 	goog.setTestOnly = function (a) {
 		if (goog.DISALLOW_TEST_ONLY_CODE) throw ((a = a || ''), Error('Importing test-only code into non-debug environment' + (a ? ': ' + a : '.')));
 	};
-	goog.require = function (a) {};
-	goog.requireType = function (a) {};
+	goog.require = function (a) { };
+	goog.requireType = function (a) { };
 	var module$exports$Blockly$utils$deprecation = {
 		warn: function (a, b, c, d) {
 			a = a + ' was deprecated on ' + b + ' and will be deleted on ' + c + '.';
@@ -535,7 +535,7 @@
 	module$exports$Blockly$Css.inject = function (a, b) {
 		module$contents$Blockly$Css_injected || ((module$contents$Blockly$Css_injected = !0), a && ((a = b.replace(/[\\/]$/, '')), (b = module$exports$Blockly$Css.content.replace(/<<<PATH>>>/g, a)), (module$exports$Blockly$Css.content = ''), (a = document.createElement('style')), (a.id = 'blockly-common-style'), (b = document.createTextNode(b)), a.appendChild(b), document.head.insertBefore(a, document.head.firstChild)));
 	};
-	module$exports$Blockly$Css.content = '\n  .blocklySvg {\n    background-color: #fff;\n    outline: none;\n    overflow: hidden;  /* IE overflows by default. */\n    position: absolute;\n    display: block;\n  }\n\n  .blocklyWidgetDiv {\n    display: none;\n    position: absolute;\n    z-index: 99999;  /* big value for bootstrap3 compatibility */\n  }\n\n  .injectionDiv {\n    height: 100%;\n    position: relative;\n    overflow: hidden;  /* So blocks in drag surface disappear at edges */\n    touch-action: none;\n  }\n\n  .blocklyNonSelectable {\n    user-select: none;\n    -ms-user-select: none;\n    -webkit-user-select: none;\n  }\n\n  .blocklyWsDragSurface {\n    display: none;\n    position: absolute;\n    top: 0;\n    left: 0;\n  }\n\n  /* Added as a separate rule with multiple classes to make it more specific\n     than a bootstrap rule that selects svg:root. See issue #1275 for context.\n  */\n  .blocklyWsDragSurface.blocklyOverflowVisible {\n    overflow: visible;\n  }\n\n  .blocklyBlockDragSurface {\n    display: none;\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    overflow: visible !important;\n    z-index: 50;  /* Display below toolbox, but above everything else. */\n  }\n\n  .blocklyBlockCanvas.blocklyCanvasTransitioning,\n  .blocklyBubbleCanvas.blocklyCanvasTransitioning {\n    transition: transform .5s;\n  }\n\n  .blocklyTooltipDiv {\n    background-color: #ffffc7;\n    border: 1px solid #ddc;\n    box-shadow: 4px 4px 20px 1px rgba(0,0,0,.15);\n    color: #000;\n    display: none;\n    font: 9pt sans-serif;\n    opacity: .9;\n    padding: 2px;\n    position: absolute;\n    z-index: 100000;  /* big value for bootstrap3 compatibility */\n  }\n\n  .blocklyDropDownDiv {\n    position: absolute;\n    left: 0;\n    top: 0;\n    z-index: 1000;\n    display: none;\n    border: 1px solid;\n    border-color: #dadce0;\n    background-color: #fff;\n    border-radius: 6px;\n    padding: 4px;\n    box-shadow: 0 0 3px 1px rgba(0,0,0,.3);\n  }\n\n  .blocklyDropDownDiv.blocklyFocused {\n    box-shadow: 0 0 6px 1px rgba(0,0,0,.3);\n  }\n\n  .blocklyDropDownContent {\n    max-height: 300px;  // @todo: spec for maximum height.\n    overflow: auto;\n    overflow-x: hidden;\n    position: relative;\n  }\n\n  .blocklyDropDownArrow {\n    position: absolute;\n    left: 0;\n    top: 0;\n    width: 16px;\n    height: 16px;\n    z-index: -1;\n    background-color: inherit;\n    border-color: inherit;\n  }\n\n  .blocklyDropDownButton {\n    display: inline-block;\n    float: left;\n    padding: 0;\n    margin: 4px;\n    border-radius: 6px;\n    outline: none;\n    border: 1px solid;\n    transition: box-shadow .1s;\n    cursor: pointer;\n  }\n\n  .blocklyArrowTop {\n    border-top: 1px solid;\n    border-left: 1px solid;\n    border-top-left-radius: 4px;\n    border-color: inherit;\n  }\n\n  .blocklyArrowBottom {\n    border-bottom: 1px solid;\n    border-right: 1px solid;\n    border-bottom-right-radius: 4px;\n    border-color: inherit;\n  }\n\n  .blocklyResizeSE {\n    cursor: se-resize;\n    fill: #aaa;\n  }\n\n  .blocklyResizeSW {\n    cursor: sw-resize;\n    fill: #aaa;\n  }\n\n  .blocklyResizeLine {\n    stroke: #515A5A;\n    stroke-width: 1;\n  }\n\n  .blocklyHighlightedConnectionPath {\n    fill: none;\n    stroke: #fc3;\n    stroke-width: 4px;\n  }\n\n  .blocklyPathLight {\n    fill: none;\n    stroke-linecap: round;\n    stroke-width: 1;\n  }\n\n  .blocklySelected>.blocklyPathLight {\n    display: none;\n  }\n\n  .blocklyDraggable {\n    /* backup for browsers (e.g. IE11) that don\'t support grab */\n    cursor: url("<<<PATH>>>/handopen.cur"), auto;\n    cursor: grab;\n    cursor: -webkit-grab;\n  }\n\n    /* backup for browsers (e.g. IE11) that don\'t support grabbing */\n  .blocklyDragging {\n    /* backup for browsers (e.g. IE11) that don\'t support grabbing */\n    cursor: url("<<<PATH>>>/handclosed.cur"), auto;\n    cursor: grabbing;\n    cursor: -webkit-grabbing;\n  }\n\n    /* Changes cursor on mouse down. Not effective in Firefox because of\n       https://bugzilla.mozilla.org/show_bug.cgi?id=771241 */\n  .blocklyDraggable:active {\n    /* backup for browsers (e.g. IE11) that don\'t support grabbing */\n    cursor: url("<<<PATH>>>/handclosed.cur"), auto;\n    cursor: grabbing;\n    cursor: -webkit-grabbing;\n  }\n\n  /* Change the cursor on the whole drag surface in case the mouse gets\n     ahead of block during a drag. This way the cursor is still a closed hand.\n    */\n  .blocklyBlockDragSurface .blocklyDraggable {\n    /* backup for browsers (e.g. IE11) that don\'t support grabbing */\n    cursor: url("<<<PATH>>>/handclosed.cur"), auto;\n    cursor: grabbing;\n    cursor: -webkit-grabbing;\n  }\n\n  .blocklyDragging.blocklyDraggingDelete {\n    cursor: url("<<<PATH>>>/handdelete.cur"), auto;\n  }\n\n  .blocklyDragging>.blocklyPath,\n  .blocklyDragging>.blocklyPathLight {\n    fill-opacity: .8;\n    stroke-opacity: .8;\n  }\n\n  .blocklyDragging>.blocklyPathDark {\n    display: none;\n  }\n\n  .blocklyDisabled>.blocklyPath {\n    fill-opacity: .5;\n    stroke-opacity: .5;\n  }\n\n  .blocklyDisabled>.blocklyPathLight,\n  .blocklyDisabled>.blocklyPathDark {\n    display: none;\n  }\n\n  .blocklyInsertionMarker>.blocklyPath,\n  .blocklyInsertionMarker>.blocklyPathLight,\n  .blocklyInsertionMarker>.blocklyPathDark {\n    fill-opacity: .2;\n    stroke: none;\n  }\n\n  .blocklyMultilineText {\n    font-family: monospace;\n  }\n\n  .blocklyNonEditableText>text {\n    pointer-events: none;\n  }\n\n  .blocklyFlyout {\n    position: absolute;\n    z-index: 20;\n  }\n\n  .blocklyText text {\n    cursor: default;\n  }\n\n  /*\n    Don\'t allow users to select text.  It gets annoying when trying to\n    drag a block and selected text moves instead.\n  */\n  .blocklySvg text,\n  .blocklyBlockDragSurface text {\n    user-select: none;\n    -ms-user-select: none;\n    -webkit-user-select: none;\n    cursor: inherit;\n  }\n\n  .blocklyHidden {\n    display: none;\n  }\n\n  .blocklyFieldDropdown:not(.blocklyHidden) {\n    display: block;\n  }\n\n  .blocklyIconGroup {\n    cursor: default;\n  }\n\n  .blocklyIconGroup:not(:hover),\n  .blocklyIconGroupReadonly {\n    opacity: .6;\n  }\n\n  .blocklyIconShape {\n    fill: #00f;\n    stroke: #fff;\n    stroke-width: 1px;\n  }\n\n  .blocklyIconSymbol {\n    fill: #fff;\n  }\n\n  .blocklyMinimalBody {\n    margin: 0;\n    padding: 0;\n  }\n\n  .blocklyHtmlInput {\n    border: none;\n    border-radius: 4px;\n    height: 100%;\n    margin: 0;\n    outline: none;\n    padding: 0;\n    width: 100%;\n    text-align: center;\n    display: block;\n    box-sizing: border-box;\n  }\n\n  /* Edge and IE introduce a close icon when the input value is longer than a\n     certain length. This affects our sizing calculations of the text input.\n     Hiding the close icon to avoid that. */\n  .blocklyHtmlInput::-ms-clear {\n    display: none;\n  }\n\n  .blocklyMainBackground {\n    stroke-width: 0;\n    stroke: #c6c6c6;  /* Equates to #ddd due to border being off-pixel. */\n  }\n\n  .blocklyMutatorBackground {\n    fill: #fff;\n    stroke: #ddd;\n    stroke-width: 1;\n  }\n\n  .blocklyFlyoutBackground {\n    fill: #ddd;\n    fill-opacity: 0;\n  }\n\n  .blocklyMainWorkspaceScrollbar {\n    z-index: 20;\n  }\n\n  .blocklyFlyoutScrollbar {\n    z-index: 30;\n  }\n\n  .blocklyScrollbarHorizontal,\n  .blocklyScrollbarVertical {\n    position: absolute;\n    outline: none;\n  }\n\n  .blocklyScrollbarBackground {\n    opacity: 0;\n  }\n\n  .blocklyScrollbarHandle {\n    fill: #ccc;\n  }\n\n  .blocklyScrollbarBackground:hover+.blocklyScrollbarHandle,\n  .blocklyScrollbarHandle:hover {\n    fill: #bbb;\n  }\n\n  /* Darken flyout scrollbars due to being on a grey background. */\n  /* By contrast, workspace scrollbars are on a white background. */\n  .blocklyFlyout .blocklyScrollbarHandle {\n    fill: #bbb;\n  }\n\n  .blocklyFlyout .blocklyScrollbarBackground:hover+.blocklyScrollbarHandle,\n  .blocklyFlyout .blocklyScrollbarHandle:hover {\n    fill: #aaa;\n  }\n\n  .blocklyInvalidInput {\n    background: #faa;\n  }\n\n  .blocklyVerticalMarker {\n    stroke-width: 3px;\n    fill: rgba(255,255,255,.5);\n    pointer-events: none;\n  }\n\n  .blocklyComputeCanvas {\n    position: absolute;\n    width: 0;\n    height: 0;\n  }\n\n  .blocklyNoPointerEvents {\n    pointer-events: none;\n  }\n\n  .blocklyContextMenu {\n    border-radius: 6px;\n    max-height: 100%;\n  }\n\n  .blocklyDropdownMenu {\n    border-radius: 2px;\n    padding: 0 !important;\n  }\n\n  .blocklyDropdownMenu .blocklyMenuItem {\n    /* 28px on the left for icon or checkbox. */\n    padding-left: 28px;\n  }\n\n  /* BiDi override for the resting state. */\n  .blocklyDropdownMenu .blocklyMenuItemRtl {\n    /* Flip left/right padding for BiDi. */\n    padding-left: 5px;\n    padding-right: 28px;\n  }\n\n  .blocklyWidgetDiv .blocklyMenu {\n    background: #fff;\n    border: 1px solid transparent;\n  \n overflow: hidden;  box-shadow: 0 0 3px 1px rgba(0,0,0,.3);\n    font: normal 13px Arial, sans-serif;\n    margin: 0;\n    outline: none;\n    padding: 4px 0;\n    position: absolute;\n    overflow-y: auto;\n    overflow-x: hidden;\n    max-height: 100%;\n    z-index: 20000;  /* Arbitrary, but some apps depend on it... */\n  }\n\n  .blocklyWidgetDiv .blocklyMenu.blocklyFocused {\n    box-shadow: 0 0 6px 1px rgba(0,0,0,.3);\n  }\n\n  .blocklyDropDownDiv .blocklyMenu {\n    background: inherit;  /* Compatibility with gapi, reset from goog-menu */\n    border: inherit; /* Compatibility with gapi, reset from goog-menu */\n    font: normal 13px "Helvetica Neue", Helvetica, sans-serif;\n    outline: none;\n    position: relative;  /* Compatibility with gapi, reset from goog-menu */\n    z-index: 20000;  /* Arbitrary, but some apps depend on it... */\n  }\n\n  /* State: resting. */\n  .blocklyMenuItem {\n    border: none;\n    border-radius: 6px;\n    color: #000;\n    cursor: pointer;\n    list-style: none;\n    margin: 0;\n    /* 7em on the right for shortcut. */\n    min-width: 7em;\n    padding: 6px 15px;\n    white-space: nowrap;\n  }\n\n  /* State: disabled. */\n  .blocklyMenuItemDisabled {\n    color: #ccc;\n    cursor: inherit;\n  }\n\n  /* State: hover. */\n  .blocklyMenuItemHighlight {\n    background-color: rgba(0,0,0,.1);\n  }\n\n  /* State: selected/checked. */\n  .blocklyMenuItemCheckbox {\n    height: 16px;\n    position: absolute;\n    width: 16px;\n  }\n\n  .blocklyMenuItemSelected .blocklyMenuItemCheckbox {\n    background: url(<<<PATH>>>/sprites.png) no-repeat -48px -16px;\n    float: left;\n    margin-left: -24px;\n    position: static;  /* Scroll with the menu. */\n  }\n\n  .blocklyMenuItemRtl .blocklyMenuItemCheckbox {\n    float: right;\n    margin-right: -24px;\n  }\n';
+	module$exports$Blockly$Css.content = '  .blocklySvg {    background-color: #fff;    outline: none;    overflow: hidden;  /* IE overflows by default. */    position: absolute;    display: block;  }  .blocklyWidgetDiv {    display: none;    position: absolute;    z-index: 99999;  /* big value for bootstrap3 compatibility */  }  .injectionDiv {    height: 100%;    position: relative;    overflow: hidden;  /* So blocks in drag surface disappear at edges */    touch-action: none;  }  .blocklyNonSelectable {    user-select: none;    -ms-user-select: none;    -webkit-user-select: none;  }  .blocklyWsDragSurface {    display: none;    position: absolute;    top: 0;    left: 0;  }  /* Added as a separate rule with multiple classes to make it more specific     than a bootstrap rule that selects svg:root. See issue #1275 for context.  */  .blocklyWsDragSurface.blocklyOverflowVisible {    overflow: visible;  }  .blocklyBlockDragSurface {    display: none;    position: absolute;    top: 0;    left: 0;    right: 0;    bottom: 0;    overflow: visible !important;    z-index: 50;  /* Display below toolbox, but above everything else. */  }  .blocklyBlockCanvas.blocklyCanvasTransitioning,  .blocklyBubbleCanvas.blocklyCanvasTransitioning {    transition: transform .5s;  }  .blocklyTooltipDiv {    background-color: #ffffc7;    border: 1px solid #ddc;    box-shadow: 4px 4px 20px 1px rgba(0,0,0,.15);    color: #000;    display: none;    font: 9pt sans-serif;    opacity: .9;    padding: 2px;    position: absolute;    z-index: 100000;  /* big value for bootstrap3 compatibility */  }  .blocklyDropDownDiv {    position: absolute;    left: 0;    top: 0;    z-index: 1000;    display: none;    border: 1px solid;    border-color: #dadce0;    background-color: #fff;    border-radius: 6px;    padding: 4px;    box-shadow: 0 0 3px 1px rgba(0,0,0,.3);  }  .blocklyDropDownDiv.blocklyFocused {    box-shadow: 0 0 6px 1px rgba(0,0,0,.3);  }  .blocklyDropDownContent {    max-height: 300px;  // @todo: spec for maximum height.    overflow: auto;    overflow-x: hidden;    position: relative;  }  .blocklyDropDownArrow {    position: absolute;    left: 0;    top: 0;    width: 16px;    height: 16px;    z-index: -1;    background-color: inherit;    border-color: inherit;  }  .blocklyDropDownButton {    display: inline-block;    float: left;    padding: 0;    margin: 4px;    border-radius: 6px;    outline: none;    border: 1px solid;    transition: box-shadow .1s;    cursor: pointer;  }  .blocklyArrowTop {    border-top: 1px solid;    border-left: 1px solid;    border-top-left-radius: 4px;    border-color: inherit;  }  .blocklyArrowBottom {    border-bottom: 1px solid;    border-right: 1px solid;    border-bottom-right-radius: 4px;    border-color: inherit;  }  .blocklyResizeSE {    cursor: se-resize;    fill: #aaa;  }  .blocklyResizeSW {    cursor: sw-resize;    fill: #aaa;  }  .blocklyResizeLine {    stroke: #515A5A;    stroke-width: 1;  }  .blocklyHighlightedConnectionPath {    fill: none;    stroke: #fc3;    stroke-width: 4px;  }  .blocklyPathLight {    fill: none;    stroke-linecap: round;    stroke-width: 1;  }  .blocklySelected>.blocklyPathLight {    display: none;  }  .blocklyDraggable {    /* backup for browsers (e.g. IE11) that don\'t support grab */    cursor: url("<<<PATH>>>/handopen.cur"), auto;    cursor: grab;    cursor: -webkit-grab;  }    /* backup for browsers (e.g. IE11) that don\'t support grabbing */  .blocklyDragging {    /* backup for browsers (e.g. IE11) that don\'t support grabbing */    cursor: url("<<<PATH>>>/handclosed.cur"), auto;    cursor: grabbing;    cursor: -webkit-grabbing;  }    /* Changes cursor on mouse down. Not effective in Firefox because of       https://bugzilla.mozilla.org/show_bug.cgi?id=771241 */  .blocklyDraggable:active {    /* backup for browsers (e.g. IE11) that don\'t support grabbing */    cursor: url("<<<PATH>>>/handclosed.cur"), auto;    cursor: grabbing;    cursor: -webkit-grabbing;  }  /* Change the cursor on the whole drag surface in case the mouse gets     ahead of block during a drag. This way the cursor is still a closed hand.    */  .blocklyBlockDragSurface .blocklyDraggable {    /* backup for browsers (e.g. IE11) that don\'t support grabbing */    cursor: url("<<<PATH>>>/handclosed.cur"), auto;    cursor: grabbing;    cursor: -webkit-grabbing;  }  .blocklyDragging.blocklyDraggingDelete {    cursor: url("<<<PATH>>>/handdelete.cur"), auto;  }  .blocklyDragging>.blocklyPath,  .blocklyDragging>.blocklyPathLight {    fill-opacity: .8;    stroke-opacity: .8;  }  .blocklyDragging>.blocklyPathDark {    display: none;  }  .blocklyDisabled>.blocklyPath {    fill-opacity: .5;    stroke-opacity: .5;  }  .blocklyDisabled>.blocklyPathLight,  .blocklyDisabled>.blocklyPathDark {    display: none;  }  .blocklyInsertionMarker>.blocklyPath,  .blocklyInsertionMarker>.blocklyPathLight,  .blocklyInsertionMarker>.blocklyPathDark {    fill-opacity: .2;    stroke: none;  }  .blocklyMultilineText {    font-family: monospace;  }  .blocklyNonEditableText>text {    pointer-events: none;  }  .blocklyFlyout {    position: absolute;    z-index: 20;  }  .blocklyText text {    cursor: default;  }  /*    Don\'t allow users to select text.  It gets annoying when trying to    drag a block and selected text moves instead.  */  .blocklySvg text,  .blocklyBlockDragSurface text {    user-select: none;    -ms-user-select: none;    -webkit-user-select: none;    cursor: inherit;  }  .blocklyHidden {    display: none;  }  .blocklyFieldDropdown:not(.blocklyHidden) {    display: block;  }  .blocklyIconGroup {    cursor: default;  }  .blocklyIconGroup:not(:hover),  .blocklyIconGroupReadonly {    opacity: .6;  }  .blocklyIconShape {    fill: #00f;    stroke: #fff;    stroke-width: 1px;  }  .blocklyIconSymbol {    fill: #fff;  }  .blocklyMinimalBody {    margin: 0;    padding: 0;  }  .blocklyHtmlInput {    border: none;    border-radius: 4px;    height: 100%;    margin: 0;    outline: none;    padding: 0;    width: 100%;    text-align: center;    display: block;    box-sizing: border-box;  }  /* Edge and IE introduce a close icon when the input value is longer than a     certain length. This affects our sizing calculations of the text input.     Hiding the close icon to avoid that. */  .blocklyHtmlInput::-ms-clear {    display: none;  }  .blocklyMainBackground {    stroke-width: 0;    stroke: #c6c6c6;  /* Equates to #ddd due to border being off-pixel. */  }  .blocklyMutatorBackground {    fill: #fff;    stroke: #ddd;    stroke-width: 1;  }  .blocklyFlyoutBackground {    fill: #ddd;    fill-opacity: 0;  }  .blocklyMainWorkspaceScrollbar {    z-index: 20;  }  .blocklyFlyoutScrollbar {    z-index: 30;  }  .blocklyScrollbarHorizontal,  .blocklyScrollbarVertical {    position: absolute;    outline: none;  }  .blocklyScrollbarBackground {    opacity: 0;  }  .blocklyScrollbarHandle {    fill: #ccc;  }  .blocklyScrollbarBackground:hover+.blocklyScrollbarHandle,  .blocklyScrollbarHandle:hover {    fill: #bbb;  }  /* Darken flyout scrollbars due to being on a grey background. */  /* By contrast, workspace scrollbars are on a white background. */  .blocklyFlyout .blocklyScrollbarHandle {    fill: #bbb;  }  .blocklyFlyout .blocklyScrollbarBackground:hover+.blocklyScrollbarHandle,  .blocklyFlyout .blocklyScrollbarHandle:hover {    fill: #aaa;  }  .blocklyInvalidInput {    background: #faa;  }  .blocklyVerticalMarker {    stroke-width: 3px;    fill: rgba(255,255,255,.5);    pointer-events: none;  }  .blocklyComputeCanvas {    position: absolute;    width: 0;    height: 0;  }  .blocklyNoPointerEvents {    pointer-events: none;  }  .blocklyContextMenu {    border-radius: 6px;    max-height: 100%;  }  .blocklyDropdownMenu {    border-radius: 2px;    padding: 0 !important;  }  .blocklyDropdownMenu .blocklyMenuItem {    /* 28px on the left for icon or checkbox. */    padding-left: 28px;  }  /* BiDi override for the resting state. */  .blocklyDropdownMenu .blocklyMenuItemRtl {    /* Flip left/right padding for BiDi. */    padding-left: 5px;    padding-right: 28px;  }  .blocklyWidgetDiv .blocklyMenu {    background: #fff;    border: 1px solid transparent;   overflow: hidden;  box-shadow: 0 0 3px 1px rgba(0,0,0,.3);    font: normal 13px Arial, sans-serif;    margin: 0;    outline: none;    padding: 4px 0;    position: absolute;    overflow-y: auto;    overflow-x: hidden;    max-height: 100%;    z-index: 20000;  /* Arbitrary, but some apps depend on it... */  }  .blocklyWidgetDiv .blocklyMenu.blocklyFocused {    box-shadow: 0 0 6px 1px rgba(0,0,0,.3);  }  .blocklyDropDownDiv .blocklyMenu {    background: inherit;  /* Compatibility with gapi, reset from goog-menu */    border: inherit; /* Compatibility with gapi, reset from goog-menu */    font: normal 13px "Helvetica Neue", Helvetica, sans-serif;    outline: none;    position: relative;  /* Compatibility with gapi, reset from goog-menu */    z-index: 20000;  /* Arbitrary, but some apps depend on it... */  }  /* State: resting. */  .blocklyMenuItem {    border: none;    border-radius: 6px;    color: #000;    cursor: pointer;    list-style: none;    margin: 0;    /* 7em on the right for shortcut. */    min-width: 7em;    padding: 6px 15px;    white-space: nowrap;  }  /* State: disabled. */  .blocklyMenuItemDisabled {    color: #ccc;    cursor: inherit;  }  /* State: hover. */  .blocklyMenuItemHighlight {    background-color: rgba(0,0,0,.1);  }  /* State: selected/checked. */  .blocklyMenuItemCheckbox {    height: 16px;    position: absolute;    width: 16px;  }  .blocklyMenuItemSelected .blocklyMenuItemCheckbox {    background: url(<<<PATH>>>/sprites.png) no-repeat -48px -16px;    float: left;    margin-left: -24px;    position: static;  /* Scroll with the menu. */  }  .blocklyMenuItemRtl .blocklyMenuItemCheckbox {    float: right;    margin-right: -24px;  }';
 	var module$contents$Blockly$utils$string_wrapLine, module$contents$Blockly$utils$string_wrapScore, module$contents$Blockly$utils$string_wrapMutate, module$contents$Blockly$utils$string_wrapToText;
 	$.module$exports$Blockly$utils$string = {
 		startsWith: function (a, b) {
@@ -544,8 +544,8 @@
 		shortestStringLength: function (a) {
 			return a.length
 				? a.reduce(function (b, c) {
-						return b.length < c.length ? b : c;
-				  }).length
+					return b.length < c.length ? b : c;
+				}).length
 				: 0;
 		},
 		commonWordPrefix: function (a, b) {
@@ -757,7 +757,7 @@
 						var q = !f;
 						g && q && p.preventDefault();
 					},
-						m = 0;
+					m = 0;
 					m < module$exports$Blockly$Touch.TOUCH_MAP[b].length;
 					m++
 				) {
@@ -769,8 +769,8 @@
 		},
 		bind: function (a, b, c, d) {
 			var e = function (l) {
-					c ? d.call(c, l) : d(l);
-				},
+				c ? d.call(c, l) : d(l);
+			},
 				f = [];
 			if ($.module$exports$Blockly$utils$global.globalThis.PointerEvent && b in module$exports$Blockly$Touch.TOUCH_MAP)
 				for (var g = 0; g < module$exports$Blockly$Touch.TOUCH_MAP[b].length; g++) {
@@ -789,7 +789,7 @@
 						e(l);
 						l.preventDefault();
 					},
-						h = 0;
+					h = 0;
 					h < module$exports$Blockly$Touch.TOUCH_MAP[b].length;
 					h++
 				) {
@@ -800,7 +800,7 @@
 			return f;
 		},
 		unbind: function (a) {
-			for (var b; a.length; ) {
+			for (var b; a.length;) {
 				b = a.pop();
 				var c = b[0],
 					d = b[1];
@@ -858,7 +858,7 @@
 		module$contents$Blockly$common_parentContainer = a;
 	};
 	$.module$exports$Blockly$common.svgResize = function (a) {
-		for (; a.options.parentWorkspace; ) a = a.options.parentWorkspace;
+		for (; a.options.parentWorkspace;) a = a.options.parentWorkspace;
 		var b = a.getParentSvg(),
 			c = a.getCachedParentSvgSize(),
 			d = b.parentNode;
@@ -932,14 +932,14 @@
 	});
 	module$exports$Blockly$Tooltip.getTooltipOfObject = function (a) {
 		if ((a = module$contents$Blockly$Tooltip_getTargetObject(a))) {
-			for (a = a.tooltip; 'function' === typeof a; ) a = a();
+			for (a = a.tooltip; 'function' === typeof a;) a = a();
 			if ('string' !== typeof a) throw Error('Tooltip function must return a string.');
 			return a;
 		}
 		return '';
 	};
 	var module$contents$Blockly$Tooltip_getTargetObject = function (a) {
-		for (; a && a.tooltip; ) {
+		for (; a && a.tooltip;) {
 			if ('string' === typeof a.tooltip || 'function' === typeof a.tooltip) return a;
 			a = a.tooltip;
 		}
@@ -957,15 +957,15 @@
 		a && ((0, module$exports$Blockly$browserEvents.unbind)(a.mouseOverWrapper_), (0, module$exports$Blockly$browserEvents.unbind)(a.mouseOutWrapper_), a.removeEventListener('mousemove', module$contents$Blockly$Tooltip_onMouseMove));
 	};
 	var module$contents$Blockly$Tooltip_onMouseOver = function (a) {
-			module$contents$Blockly$Tooltip_blocked || ((a = module$contents$Blockly$Tooltip_getTargetObject(a.currentTarget)), module$contents$Blockly$Tooltip_element !== a && ((0, module$exports$Blockly$Tooltip.hide)(), (module$contents$Blockly$Tooltip_poisonedElement = null), (module$contents$Blockly$Tooltip_element = a)), clearTimeout(module$contents$Blockly$Tooltip_mouseOutPid));
-		},
+		module$contents$Blockly$Tooltip_blocked || ((a = module$contents$Blockly$Tooltip_getTargetObject(a.currentTarget)), module$contents$Blockly$Tooltip_element !== a && ((0, module$exports$Blockly$Tooltip.hide)(), (module$contents$Blockly$Tooltip_poisonedElement = null), (module$contents$Blockly$Tooltip_element = a)), clearTimeout(module$contents$Blockly$Tooltip_mouseOutPid));
+	},
 		module$contents$Blockly$Tooltip_onMouseOut = function (a) {
 			module$contents$Blockly$Tooltip_blocked ||
 				((module$contents$Blockly$Tooltip_mouseOutPid = setTimeout(function () {
 					module$contents$Blockly$Tooltip_poisonedElement = module$contents$Blockly$Tooltip_element = null;
 					(0, module$exports$Blockly$Tooltip.hide)();
 				}, 1)),
-				clearTimeout(module$contents$Blockly$Tooltip_showPid));
+					clearTimeout(module$contents$Blockly$Tooltip_showPid));
 		},
 		module$contents$Blockly$Tooltip_onMouseMove = function (a) {
 			if (module$contents$Blockly$Tooltip_element && module$contents$Blockly$Tooltip_element.tooltip && !module$contents$Blockly$Tooltip_blocked)
@@ -1187,8 +1187,8 @@
 		0 > e ? module$contents$Blockly$WidgetDiv_positionInternal(a, 0, c.height + e) : module$contents$Blockly$WidgetDiv_positionInternal(a, e, c.height);
 	};
 	var module$contents$Blockly$WidgetDiv_calculateX = function (a, b, c, d) {
-			return d ? Math.min(Math.max(b.right - c.width, a.left), a.right - c.width) : Math.max(Math.min(b.left, a.right - c.width), a.left);
-		},
+		return d ? Math.min(Math.max(b.right - c.width, a.left), a.right - c.width) : Math.max(Math.min(b.left, a.right - c.width), a.left);
+	},
 		module$contents$Blockly$WidgetDiv_calculateY = function (a, b, c) {
 			return b.bottom + c.height >= a.bottom ? b.top - c.height : b.bottom;
 		};
@@ -1459,32 +1459,32 @@
 		}
 	};
 	var module$exports$Blockly$bumpObjects = {
-			bumpIntoBounds: function (a, b, c) {
-				var d = c.getBoundingRectangle(),
-					e = d.right - d.left,
-					f = (0, module$exports$Blockly$utils$math.clamp)(b.top, d.top, b.top + b.height - (d.bottom - d.top)) - d.top,
-					g = b.left;
-				b = b.left + b.width - e;
-				a.RTL ? (g = Math.min(b, g)) : (b = Math.max(g, b));
-				return (a = (0, module$exports$Blockly$utils$math.clamp)(g, d.left, b) - d.left) || f ? (c.moveBy(a, f), !0) : !1;
-			},
-			bumpIntoBoundsHandler: function (a) {
-				return function (b) {
-					var c = a.getMetricsManager();
-					if (c.hasFixedEdges() && !a.isDragging())
-						if (-1 !== module$exports$Blockly$Events$utils.BUMP_EVENTS.indexOf(b.type)) {
-							c = c.getScrollMetrics(!0);
-							var d = module$contents$Blockly$bumpObjects_extractObjectFromEvent(a, b);
-							if (d) {
-								var e = (0, module$exports$Blockly$Events$utils.getGroup)();
-								(0, module$exports$Blockly$Events$utils.setGroup)(b.group);
-								(0, module$exports$Blockly$bumpObjects.bumpIntoBounds)(a, c, d) && !b.group && console.warn('Moved object in bounds but there was no event group. This may break undo.');
-								null !== e && (0, module$exports$Blockly$Events$utils.setGroup)(e);
-							}
-						} else b.type === module$exports$Blockly$Events$utils.VIEWPORT_CHANGE && b.scale > b.oldScale && (0, module$exports$Blockly$bumpObjects.bumpTopObjectsIntoBounds)(a);
-				};
-			}
+		bumpIntoBounds: function (a, b, c) {
+			var d = c.getBoundingRectangle(),
+				e = d.right - d.left,
+				f = (0, module$exports$Blockly$utils$math.clamp)(b.top, d.top, b.top + b.height - (d.bottom - d.top)) - d.top,
+				g = b.left;
+			b = b.left + b.width - e;
+			a.RTL ? (g = Math.min(b, g)) : (b = Math.max(g, b));
+			return (a = (0, module$exports$Blockly$utils$math.clamp)(g, d.left, b) - d.left) || f ? (c.moveBy(a, f), !0) : !1;
 		},
+		bumpIntoBoundsHandler: function (a) {
+			return function (b) {
+				var c = a.getMetricsManager();
+				if (c.hasFixedEdges() && !a.isDragging())
+					if (-1 !== module$exports$Blockly$Events$utils.BUMP_EVENTS.indexOf(b.type)) {
+						c = c.getScrollMetrics(!0);
+						var d = module$contents$Blockly$bumpObjects_extractObjectFromEvent(a, b);
+						if (d) {
+							var e = (0, module$exports$Blockly$Events$utils.getGroup)();
+							(0, module$exports$Blockly$Events$utils.setGroup)(b.group);
+							(0, module$exports$Blockly$bumpObjects.bumpIntoBounds)(a, c, d) && !b.group && console.warn('Moved object in bounds but there was no event group. This may break undo.');
+							null !== e && (0, module$exports$Blockly$Events$utils.setGroup)(e);
+						}
+					} else b.type === module$exports$Blockly$Events$utils.VIEWPORT_CHANGE && b.scale > b.oldScale && (0, module$exports$Blockly$bumpObjects.bumpTopObjectsIntoBounds)(a);
+			};
+		}
+	},
 		module$contents$Blockly$bumpObjects_extractObjectFromEvent = function (a, b) {
 			var c = null;
 			switch (b.type) {
@@ -1551,23 +1551,23 @@
 		return a === b ? !0 : a && b ? a.width === b.width && a.height === b.height : !1;
 	};
 	var module$exports$Blockly$utils$style = {
-			getSize: function (a) {
-				if ('none' !== module$contents$Blockly$utils$style_getStyle(a, 'display')) return module$contents$Blockly$utils$style_getSizeWithDisplay(a);
-				var b = a.style,
-					c = b.display,
-					d = b.visibility,
-					e = b.position;
-				b.visibility = 'hidden';
-				b.position = 'absolute';
-				b.display = 'inline';
-				var f = a.offsetWidth;
-				a = a.offsetHeight;
-				b.display = c;
-				b.position = e;
-				b.visibility = d;
-				return new module$exports$Blockly$utils$Size.Size(f, a);
-			}
-		},
+		getSize: function (a) {
+			if ('none' !== module$contents$Blockly$utils$style_getStyle(a, 'display')) return module$contents$Blockly$utils$style_getSizeWithDisplay(a);
+			var b = a.style,
+				c = b.display,
+				d = b.visibility,
+				e = b.position;
+			b.visibility = 'hidden';
+			b.position = 'absolute';
+			b.display = 'inline';
+			var f = a.offsetWidth;
+			a = a.offsetHeight;
+			b.display = c;
+			b.position = e;
+			b.visibility = d;
+			return new module$exports$Blockly$utils$Size.Size(f, a);
+		}
+	},
 		module$contents$Blockly$utils$style_getSizeWithDisplay = function (a) {
 			return new module$exports$Blockly$utils$Size.Size(a.offsetWidth, a.offsetHeight);
 		},
@@ -1653,7 +1653,7 @@
 		return b;
 	};
 	module$exports$Blockly$utils$svgMath.getInjectionDivXY = function (a) {
-		for (var b = 0, c = 0; a; ) {
+		for (var b = 0, c = 0; a;) {
 			var d = (0, module$exports$Blockly$utils$svgMath.getRelativeXY)(a);
 			b += d.x;
 			c += d.y;
@@ -1767,6 +1767,7 @@
 			b = this.surfaceXY_.y;
 		a = a.toFixed(0);
 		b = b.toFixed(0);
+		delete_blocks(true);
 		this.SVG_.style.display = 'block';
 		(0, module$exports$Blockly$utils$dom.setCssTransform)(this.SVG_, 'translate3d(' + a + 'px, ' + b + 'px, 0)');
 	};
@@ -1800,7 +1801,7 @@
 		if (this.dragGroup_.childNodes.length) throw Error('Drag group was not cleared.');
 		this.surfaceXY_ = null;
 	};
-	var module$exports$Blockly$DropDownDiv = { DropDownDiv: function () {} };
+	var module$exports$Blockly$DropDownDiv = { DropDownDiv: function () { } };
 	module$exports$Blockly$DropDownDiv.DropDownDiv.ARROW_SIZE = 16;
 	module$exports$Blockly$DropDownDiv.DropDownDiv.BORDER_SIZE = 1;
 	module$exports$Blockly$DropDownDiv.DropDownDiv.ARROW_HORIZONTAL_PADDING = 12;
@@ -1878,7 +1879,7 @@
 			a = a.top;
 			d && (a += d);
 			d = b.getSourceBlock();
-			for (var g = d.workspace; g.options.parentWorkspace; ) g = g.options.parentWorkspace;
+			for (var g = d.workspace; g.options.parentWorkspace;) g = g.options.parentWorkspace;
 			module$exports$Blockly$DropDownDiv.DropDownDiv.setBoundsElement(g.getParentSvg().parentNode);
 			return module$exports$Blockly$DropDownDiv.DropDownDiv.show(b, d.RTL, e, f, e, a, c);
 		};
@@ -1905,9 +1906,9 @@
 		return b + f.height < e.bottom ? module$contents$Blockly$DropDownDiv_getPositionBelowMetrics(a, b, e, f) : d - f.height > e.top ? module$contents$Blockly$DropDownDiv_getPositionAboveMetrics(c, d, e, f) : b + f.height < document.documentElement.clientHeight ? module$contents$Blockly$DropDownDiv_getPositionBelowMetrics(a, b, e, f) : d - f.height > document.documentElement.clientTop ? module$contents$Blockly$DropDownDiv_getPositionAboveMetrics(c, d, e, f) : module$contents$Blockly$DropDownDiv_getPositionTopOfPageMetrics(a, e, f);
 	};
 	var module$contents$Blockly$DropDownDiv_getPositionBelowMetrics = function (a, b, c, d) {
-			a = module$exports$Blockly$DropDownDiv.DropDownDiv.getPositionX(a, c.left, c.right, d.width);
-			return { initialX: a.divX, initialY: b, finalX: a.divX, finalY: b + module$exports$Blockly$DropDownDiv.DropDownDiv.PADDING_Y, arrowX: a.arrowX, arrowY: -(module$exports$Blockly$DropDownDiv.DropDownDiv.ARROW_SIZE / 2 + module$exports$Blockly$DropDownDiv.DropDownDiv.BORDER_SIZE), arrowAtTop: !0, arrowVisible: !0 };
-		},
+		a = module$exports$Blockly$DropDownDiv.DropDownDiv.getPositionX(a, c.left, c.right, d.width);
+		return { initialX: a.divX, initialY: b, finalX: a.divX, finalY: b + module$exports$Blockly$DropDownDiv.DropDownDiv.PADDING_Y, arrowX: a.arrowX, arrowY: -(module$exports$Blockly$DropDownDiv.DropDownDiv.ARROW_SIZE / 2 + module$exports$Blockly$DropDownDiv.DropDownDiv.BORDER_SIZE), arrowAtTop: !0, arrowVisible: !0 };
+	},
 		module$contents$Blockly$DropDownDiv_getPositionAboveMetrics = function (a, b, c, d) {
 			a = module$exports$Blockly$DropDownDiv.DropDownDiv.getPositionX(a, c.left, c.right, d.width);
 			return { initialX: a.divX, initialY: b - d.height, finalX: a.divX, finalY: b - d.height - module$exports$Blockly$DropDownDiv.DropDownDiv.PADDING_Y, arrowX: a.arrowX, arrowY: d.height - 2 * module$exports$Blockly$DropDownDiv.DropDownDiv.BORDER_SIZE - module$exports$Blockly$DropDownDiv.DropDownDiv.ARROW_SIZE / 2, arrowAtTop: !1, arrowVisible: !0 };
@@ -2152,10 +2153,10 @@
 		return c;
 	};
 	var module$contents$Blockly$Xml_cloneShadow = function (a, b) {
-		for (var c = (a = a.cloneNode(!0)), d; c; )
+		for (var c = (a = a.cloneNode(!0)), d; c;)
 			if ((b && 'shadow' === c.nodeName && c.removeAttribute('id'), c.firstChild)) c = c.firstChild;
 			else {
-				for (; c && !c.nextSibling; ) (d = c), (c = c.parentNode), d.nodeType === module$exports$Blockly$utils$dom.NodeType.TEXT_NODE && '' === d.data.trim() && c.firstChild !== d && (0, module$exports$Blockly$utils$dom.removeNode)(d);
+				for (; c && !c.nextSibling;) (d = c), (c = c.parentNode), d.nodeType === module$exports$Blockly$utils$dom.NodeType.TEXT_NODE && '' === d.data.trim() && c.firstChild !== d && (0, module$exports$Blockly$utils$dom.removeNode)(d);
 				c && ((d = c), (c = c.nextSibling), d.nodeType === module$exports$Blockly$utils$dom.NodeType.TEXT_NODE && '' === d.data.trim() && (0, module$exports$Blockly$utils$dom.removeNode)(d));
 			}
 		return a;
@@ -2476,21 +2477,21 @@
 		return b
 			? b === module$contents$Blockly$utils$toolbox_CATEGORY_TOOLBOX_KIND
 			: !!a.contents.filter(function (c) {
-					return 'CATEGORY' === c.kind.toUpperCase();
-			  }).length;
+				return 'CATEGORY' === c.kind.toUpperCase();
+			}).length;
 	};
 	module$exports$Blockly$utils$toolbox.isCategoryCollapsible = function (a) {
 		return a && a.contents
 			? !!a.contents.filter(function (b) {
-					return 'CATEGORY' === b.kind.toUpperCase();
-			  }).length
+				return 'CATEGORY' === b.kind.toUpperCase();
+			}).length
 			: !1;
 	};
 	var module$contents$Blockly$utils$toolbox_convertToToolboxJson = function (a) {
-			var b = { contents: module$contents$Blockly$utils$toolbox_xmlToJsonArray(a) };
-			a instanceof Node && module$contents$Blockly$utils$toolbox_addAttributes(a, b);
-			return b;
-		},
+		var b = { contents: module$contents$Blockly$utils$toolbox_xmlToJsonArray(a) };
+		a instanceof Node && module$contents$Blockly$utils$toolbox_addAttributes(a, b);
+		return b;
+	},
 		module$contents$Blockly$utils$toolbox_xmlToJsonArray = function (a) {
 			var b = [],
 				c = a.childNodes;
@@ -2537,8 +2538,8 @@
 			return Object.values
 				? Object.values(a)
 				: Object.keys(a).map(function (b) {
-						return a[b];
-				  });
+					return a[b];
+				});
 		}
 	};
 	var module$exports$Blockly$Theme = {
@@ -3220,7 +3221,7 @@
 		this.element_ = null;
 	};
 	module$exports$Blockly$Menu.Menu.prototype.getMenuItem_ = function (a) {
-		for (var b = this.getElement(); a && a !== b; ) {
+		for (var b = this.getElement(); a && a !== b;) {
 			if ((0, module$exports$Blockly$utils$dom.hasClass)(a, 'blocklyMenuItem')) for (var c = 0, d; (d = this.menuItems_[c]); c++) if (d.getElement() === a) return d;
 			a = a.parentElement;
 		}
@@ -3247,7 +3248,7 @@
 	};
 	module$exports$Blockly$Menu.Menu.prototype.highlightHelper_ = function (a, b) {
 		a += b;
-		for (var c; (c = this.menuItems_[a]); ) {
+		for (var c; (c = this.menuItems_[a]);) {
 			if (c.isEnabled()) {
 				this.setHighlighted(c);
 				break;
@@ -3347,29 +3348,29 @@
 		this.state = a;
 	};
 	$jscomp.inherits(module$exports$Blockly$serialization$exceptions.RealChildOfShadow, module$exports$Blockly$serialization$exceptions.DeserializationError);
-	var module$exports$Blockly$serialization$ISerializer = { ISerializer: function () {} };
-	module$exports$Blockly$serialization$ISerializer.ISerializer.prototype.save = function (a) {};
-	module$exports$Blockly$serialization$ISerializer.ISerializer.prototype.load = function (a, b) {};
-	module$exports$Blockly$serialization$ISerializer.ISerializer.prototype.clear = function (a) {};
+	var module$exports$Blockly$serialization$ISerializer = { ISerializer: function () { } };
+	module$exports$Blockly$serialization$ISerializer.ISerializer.prototype.save = function (a) { };
+	module$exports$Blockly$serialization$ISerializer.ISerializer.prototype.load = function (a, b) { };
+	module$exports$Blockly$serialization$ISerializer.ISerializer.prototype.clear = function (a) { };
 	var module$exports$Blockly$serialization$blocks = {
-			save: function (a, b) {
-				var c = void 0 === b ? {} : b;
-				b = void 0 === c.addCoordinates ? !1 : c.addCoordinates;
-				var d = void 0 === c.addInputBlocks ? !0 : c.addInputBlocks,
-					e = void 0 === c.addNextBlocks ? !0 : c.addNextBlocks;
-				c = void 0 === c.doFullSerialization ? !0 : c.doFullSerialization;
-				if (a.isInsertionMarker()) return null;
-				var f = { type: a.type, id: a.id };
-				b && module$contents$Blockly$serialization$blocks_saveCoords(a, f);
-				module$contents$Blockly$serialization$blocks_saveAttributes(a, f);
-				module$contents$Blockly$serialization$blocks_saveExtraState(a, f);
-				module$contents$Blockly$serialization$blocks_saveIcons(a, f);
-				module$contents$Blockly$serialization$blocks_saveFields(a, f, c);
-				d && module$contents$Blockly$serialization$blocks_saveInputBlocks(a, f, c);
-				e && module$contents$Blockly$serialization$blocks_saveNextBlocks(a, f, c);
-				return f;
-			}
-		},
+		save: function (a, b) {
+			var c = void 0 === b ? {} : b;
+			b = void 0 === c.addCoordinates ? !1 : c.addCoordinates;
+			var d = void 0 === c.addInputBlocks ? !0 : c.addInputBlocks,
+				e = void 0 === c.addNextBlocks ? !0 : c.addNextBlocks;
+			c = void 0 === c.doFullSerialization ? !0 : c.doFullSerialization;
+			if (a.isInsertionMarker()) return null;
+			var f = { type: a.type, id: a.id };
+			b && module$contents$Blockly$serialization$blocks_saveCoords(a, f);
+			module$contents$Blockly$serialization$blocks_saveAttributes(a, f);
+			module$contents$Blockly$serialization$blocks_saveExtraState(a, f);
+			module$contents$Blockly$serialization$blocks_saveIcons(a, f);
+			module$contents$Blockly$serialization$blocks_saveFields(a, f, c);
+			d && module$contents$Blockly$serialization$blocks_saveInputBlocks(a, f, c);
+			e && module$contents$Blockly$serialization$blocks_saveNextBlocks(a, f, c);
+			return f;
+		}
+	},
 		module$contents$Blockly$serialization$blocks_saveAttributes = function (a, b) {
 			a.isCollapsed() && (b.collapsed = !0);
 			a.isEnabled() || (b.enabled = !1);
@@ -3443,23 +3444,23 @@
 		return g;
 	};
 	var module$contents$Blockly$serialization$blocks_appendPrivate = function (a, b, c) {
-			var d = void 0 === c ? {} : c;
-			c = void 0 === d.parentConnection ? void 0 : d.parentConnection;
-			d = void 0 === d.isShadow ? !1 : d.isShadow;
-			if (!a.type) throw new module$exports$Blockly$serialization$exceptions.MissingBlockType(a);
-			var e = b.newBlock(a.type, a.id);
-			e.setShadow(d);
-			module$contents$Blockly$serialization$blocks_loadCoords(e, a);
-			module$contents$Blockly$serialization$blocks_loadAttributes(e, a);
-			module$contents$Blockly$serialization$blocks_loadExtraState(e, a);
-			module$contents$Blockly$serialization$blocks_tryToConnectParent(c, e, a);
-			module$contents$Blockly$serialization$blocks_loadIcons(e, a);
-			module$contents$Blockly$serialization$blocks_loadFields(e, a);
-			module$contents$Blockly$serialization$blocks_loadInputBlocks(e, a);
-			module$contents$Blockly$serialization$blocks_loadNextBlocks(e, a);
-			module$contents$Blockly$serialization$blocks_initBlock(e, b.rendered);
-			return e;
-		},
+		var d = void 0 === c ? {} : c;
+		c = void 0 === d.parentConnection ? void 0 : d.parentConnection;
+		d = void 0 === d.isShadow ? !1 : d.isShadow;
+		if (!a.type) throw new module$exports$Blockly$serialization$exceptions.MissingBlockType(a);
+		var e = b.newBlock(a.type, a.id);
+		e.setShadow(d);
+		module$contents$Blockly$serialization$blocks_loadCoords(e, a);
+		module$contents$Blockly$serialization$blocks_loadAttributes(e, a);
+		module$contents$Blockly$serialization$blocks_loadExtraState(e, a);
+		module$contents$Blockly$serialization$blocks_tryToConnectParent(c, e, a);
+		module$contents$Blockly$serialization$blocks_loadIcons(e, a);
+		module$contents$Blockly$serialization$blocks_loadFields(e, a);
+		module$contents$Blockly$serialization$blocks_loadInputBlocks(e, a);
+		module$contents$Blockly$serialization$blocks_loadNextBlocks(e, a);
+		module$contents$Blockly$serialization$blocks_initBlock(e, b.rendered);
+		return e;
+	},
 		module$contents$Blockly$serialization$blocks_loadCoords = function (a, b) {
 			var c = void 0 === b.x ? 0 : b.x;
 			b = void 0 === b.y ? 0 : b.y;
@@ -3493,9 +3494,9 @@
 			b.icons &&
 				(b = b.icons.comment) &&
 				(a.setCommentText(b.text),
-				(a.commentModel.pinned = b.pinned),
-				(a.commentModel.size = new module$exports$Blockly$utils$Size.Size(b.width, b.height)),
-				b.pinned &&
+					(a.commentModel.pinned = b.pinned),
+					(a.commentModel.size = new module$exports$Blockly$utils$Size.Size(b.width, b.height)),
+					b.pinned &&
 					a.getCommentIcon &&
 					!a.isInFlyout &&
 					setTimeout(function () {
@@ -3571,7 +3572,7 @@
 	module$exports$Blockly$Events$Abstract.prototype.isNull = function () {
 		return !1;
 	};
-	module$exports$Blockly$Events$Abstract.prototype.run = function (a) {};
+	module$exports$Blockly$Events$Abstract.prototype.run = function (a) { };
 	module$exports$Blockly$Events$Abstract.prototype.getEventWorkspace_ = function () {
 		var a;
 		this.workspaceId && (a = module$exports$Blockly$Workspace.Workspace.getById(this.workspaceId));
@@ -3664,23 +3665,23 @@
 		} else (0, $.module$exports$Blockly$ContextMenu.hide)();
 	};
 	var module$contents$Blockly$ContextMenu_populate_ = function (a, b) {
-			var c = new module$exports$Blockly$Menu.Menu();
-			c.setRole(module$exports$Blockly$utils$aria.Role.MENU);
-			for (var d = 0; d < a.length; d++) {
-				var e = a[d],
-					f = new module$exports$Blockly$MenuItem.MenuItem(e.text);
-				f.setRightToLeft(b);
-				f.setRole(module$exports$Blockly$utils$aria.Role.MENUITEM);
-				c.addChild(f);
-				f.setEnabled(e.enabled);
-				if (e.enabled)
-					f.onAction(function (g) {
-						(0, $.module$exports$Blockly$ContextMenu.hide)();
-						this.callback(this.scope);
-					}, e);
-			}
-			return c;
-		},
+		var c = new module$exports$Blockly$Menu.Menu();
+		c.setRole(module$exports$Blockly$utils$aria.Role.MENU);
+		for (var d = 0; d < a.length; d++) {
+			var e = a[d],
+				f = new module$exports$Blockly$MenuItem.MenuItem(e.text);
+			f.setRightToLeft(b);
+			f.setRole(module$exports$Blockly$utils$aria.Role.MENUITEM);
+			c.addChild(f);
+			f.setEnabled(e.enabled);
+			if (e.enabled)
+				f.onAction(function (g) {
+					(0, $.module$exports$Blockly$ContextMenu.hide)();
+					this.callback(this.scope);
+				}, e);
+		}
+		return c;
+	},
 		module$contents$Blockly$ContextMenu_position_ = function (a, b, c) {
 			var d = (0, module$exports$Blockly$utils$svgMath.getViewportBBox)();
 			b = new module$exports$Blockly$utils$Rect.Rect(b.clientY + d.top, b.clientY + d.top, b.clientX + d.left, b.clientX + d.left);
@@ -4378,11 +4379,11 @@
 			return b ? b.fromJson(a) : (console.warn('Blockly could not create a field of type ' + a.type + '. The field is probably not being registered. This could be because the file is not loaded, the field does not register itself (Issue #1584), or the registration is not being reached.'), null);
 		}
 	};
-	var module$exports$Blockly$IASTNodeLocation = { IASTNodeLocation: function () {} };
-	var module$exports$Blockly$IASTNodeLocationSvg = { IASTNodeLocationSvg: function () {} };
-	var module$exports$Blockly$IASTNodeLocationWithBlock = { IASTNodeLocationWithBlock: function () {} };
-	var module$exports$Blockly$IKeyboardAccessible = { IKeyboardAccessible: function () {} };
-	var module$exports$Blockly$IRegistrable = { IRegistrable: function () {} };
+	var module$exports$Blockly$IASTNodeLocation = { IASTNodeLocation: function () { } };
+	var module$exports$Blockly$IASTNodeLocationSvg = { IASTNodeLocationSvg: function () { } };
+	var module$exports$Blockly$IASTNodeLocationWithBlock = { IASTNodeLocationWithBlock: function () { } };
+	var module$exports$Blockly$IKeyboardAccessible = { IKeyboardAccessible: function () { } };
+	var module$exports$Blockly$IRegistrable = { IRegistrable: function () { } };
 	var module$exports$Blockly$MarkerManager = {
 		MarkerManager: function (a) {
 			this.cursorSvg_ = this.cursor_ = null;
@@ -4621,10 +4622,10 @@
 	module$exports$Blockly$ComponentManager.ComponentManager.Capability.DRAG_TARGET = new module$exports$Blockly$ComponentManager.ComponentManager.Capability('drag_target');
 	module$exports$Blockly$ComponentManager.ComponentManager.Capability.DELETE_AREA = new module$exports$Blockly$ComponentManager.ComponentManager.Capability('delete_area');
 	module$exports$Blockly$ComponentManager.ComponentManager.Capability.AUTOHIDEABLE = new module$exports$Blockly$ComponentManager.ComponentManager.Capability('autohideable');
-	var module$exports$Blockly$IContextMenu = { IContextMenu: function () {} };
-	var module$exports$Blockly$IDeletable = { IDeletable: function () {} };
-	var module$exports$Blockly$IDraggable = { IDraggable: function () {} };
-	var module$exports$Blockly$IBubble = { IBubble: function () {} };
+	var module$exports$Blockly$IContextMenu = { IContextMenu: function () { } };
+	var module$exports$Blockly$IDeletable = { IDeletable: function () { } };
+	var module$exports$Blockly$IDraggable = { IDraggable: function () { } };
+	var module$exports$Blockly$IBubble = { IBubble: function () { } };
 	var module$exports$Blockly$dialog = {},
 		module$contents$Blockly$dialog_alertImplementation = function (a, b) {
 			swal({ text: a }).then(value => {
@@ -4793,7 +4794,7 @@
 	};
 	$.module$exports$Blockly$Variables.generateUniqueNameFromOptions = function (a, b) {
 		if (!b.length) return a;
-		for (var c = $.module$exports$Blockly$Variables.VAR_LETTER_OPTIONS, d = '', e = c.indexOf(a); ; ) {
+		for (var c = $.module$exports$Blockly$Variables.VAR_LETTER_OPTIONS, d = '', e = c.indexOf(a); ;) {
 			for (var f = !1, g = 0; g < b.length; g++)
 				if (b[g].toLowerCase() === a) {
 					f = !0;
@@ -4831,9 +4832,9 @@
 					var h = module$contents$Blockly$Variables_nameUsedWithOtherType(g, b.type, a);
 					h
 						? ((h = $.module$exports$Blockly$Msg.Msg.VARIABLE_ALREADY_EXISTS_FOR_ANOTHER_TYPE.replace('%1', h.name).replace('%2', h.type)),
-						  (0, module$exports$Blockly$dialog.alert)(h, function () {
+							(0, module$exports$Blockly$dialog.alert)(h, function () {
 								d(g);
-						  }))
+							}))
 						: (a.renameVariableById(b.getId(), g), c && c(g));
 				} else c && c(null);
 			});
@@ -4945,7 +4946,7 @@
 	};
 	$.module$exports$Blockly$Names.Names.prototype.getDistinctName = function (a, b) {
 		a = this.safeName_(a);
-		for (var c = ''; this.dbReverse_[a + c] || a + c in this.reservedDict_; ) c = c ? c + 1 : 2;
+		for (var c = ''; this.dbReverse_[a + c] || a + c in this.reservedDict_;) c = c ? c + 1 : 2;
 		a += c;
 		this.dbReverse_[a] = !0;
 		return (b === $.module$exports$Blockly$Names.NameType.VARIABLE || b === $.module$exports$Blockly$Names.NameType.DEVELOPER_VARIABLE ? this.variablePrefix_ : '') + a;
@@ -5081,9 +5082,9 @@
 			var f = this;
 			1 < d.length
 				? ((c = $.module$exports$Blockly$Msg.Msg.DELETE_VARIABLE_CONFIRMATION.replace('%1', String(d.length)).replace('%2', c)),
-				  (0, module$exports$Blockly$dialog.confirm)(c, function (g) {
+					(0, module$exports$Blockly$dialog.confirm)(c, function (g) {
 						g && b && f.deleteVariableInternal(b, d);
-				  }))
+					}))
 				: f.deleteVariableInternal(b, d);
 		} else console.warn("Can't delete non-existent variable: " + a);
 	};
@@ -5275,7 +5276,7 @@
 	module$exports$Blockly$Connection.Connection.prototype.getConnectionChecker = function () {
 		return this.sourceBlock_.workspace.connectionChecker;
 	};
-	module$exports$Blockly$Connection.Connection.prototype.onFailedConnect = function (a) {};
+	module$exports$Blockly$Connection.Connection.prototype.onFailedConnect = function (a) { };
 	module$exports$Blockly$Connection.Connection.prototype.connect = function (a) {
 		if (this.targetConnection === a) return !0;
 		if (this.getConnectionChecker().canConnect(this, a, !1)) {
@@ -5287,10 +5288,10 @@
 		return this.isConnected();
 	};
 	var module$contents$Blockly$Connection_connectReciprocally = function (a, b) {
-			if (!a || !b) throw Error('Cannot connect null connections.');
-			a.targetConnection = b;
-			b.targetConnection = a;
-		},
+		if (!a || !b) throw Error('Cannot connect null connections.');
+		a.targetConnection = b;
+		b.targetConnection = a;
+	},
 		module$contents$Blockly$Connection_getSingleConnection = function (a, b) {
 			var c = null;
 			b = b.outputConnection;
@@ -5302,7 +5303,7 @@
 			return c;
 		},
 		module$contents$Blockly$Connection_getConnectionForOrphanedOutput = function (a, b) {
-			for (var c; (c = module$contents$Blockly$Connection_getSingleConnection(a, b)); ) if (((a = c.targetBlock()), !a || a.isShadow())) return c;
+			for (var c; (c = module$contents$Blockly$Connection_getSingleConnection(a, b));) if (((a = c.targetBlock()), !a || a.isShadow())) return c;
 			return null;
 		};
 	module$exports$Blockly$Connection.Connection.getConnectionForOrphanedConnection = function (a, b) {
@@ -5431,8 +5432,8 @@
 	module$exports$Blockly$Connection.Connection.prototype.serializeShadow_ = function (a) {
 		a && ((this.shadowDom_ = (0, $.module$exports$Blockly$Xml.blockToDom)(a)), (this.shadowState_ = (0, module$exports$Blockly$serialization$blocks.save)(a)));
 	};
-	var module$exports$Blockly$IConnectionChecker = { IConnectionChecker: function () {} };
-	var module$exports$Blockly$ConnectionChecker = { ConnectionChecker: function () {} };
+	var module$exports$Blockly$IConnectionChecker = { IConnectionChecker: function () { } };
+	var module$exports$Blockly$ConnectionChecker = { ConnectionChecker: function () { } };
 	module$exports$Blockly$ConnectionChecker.ConnectionChecker.prototype.canConnect = function (a, b, c, d) {
 		return this.canConnectWithReason(a, b, c, d) === module$exports$Blockly$Connection.Connection.CAN_CONNECT;
 	};
@@ -5595,8 +5596,8 @@
 		this.isClearing = !0;
 		try {
 			var a = (0, module$exports$Blockly$Events$utils.getGroup)();
-			for (a || (0, module$exports$Blockly$Events$utils.setGroup)(!0); this.topBlocks_.length; ) this.topBlocks_[0].dispose(!1);
-			for (; this.topComments_.length; ) this.topComments_[this.topComments_.length - 1].dispose();
+			for (a || (0, module$exports$Blockly$Events$utils.setGroup)(!0); this.topBlocks_.length;) this.topBlocks_[0].dispose(!1);
+			for (; this.topComments_.length;) this.topComments_[this.topComments_.length - 1].dispose();
 			a || (0, module$exports$Blockly$Events$utils.setGroup)(!1);
 			this.variableMap_.clear();
 			this.potentialVariableMap_ && this.potentialVariableMap_.clear();
@@ -5670,7 +5671,7 @@
 			c = a ? this.undoStack_ : this.redoStack_,
 			d = b.pop();
 		if (d) {
-			for (var e = [d]; b.length && d.group && d.group === b[b.length - 1].group; ) e.push(b.pop());
+			for (var e = [d]; b.length && d.group && d.group === b[b.length - 1].group;) e.push(b.pop());
 			for (b = 0; b < e.length; b++) c.push(e[b]);
 			e = (0, module$exports$Blockly$Events$utils.filter)(e, a);
 			(0, module$exports$Blockly$Events$utils.setRecordUndo)(!1);
@@ -5694,7 +5695,7 @@
 		(0, module$exports$Blockly$utils$array.removeElem)(this.listeners_, a);
 	};
 	module$exports$Blockly$Workspace.Workspace.prototype.fireChangeListener = function (a) {
-		if (a.recordUndo) for (this.undoStack_.push(a), this.redoStack_.length = 0; this.undoStack_.length > this.MAX_UNDO && 0 <= this.MAX_UNDO; ) this.undoStack_.shift();
+		if (a.recordUndo) for (this.undoStack_.push(a), this.redoStack_.length = 0; this.undoStack_.length > this.MAX_UNDO && 0 <= this.MAX_UNDO;) this.undoStack_.shift();
 		for (var b = 0; b < this.listeners_.length; b++) (0, this.listeners_[b])(a);
 	};
 	module$exports$Blockly$Workspace.Workspace.prototype.getBlockById = function (a) {
@@ -5797,11 +5798,11 @@
 		var b = this.workspace_.getGesture(a);
 		b && b.handleBubbleStart(a, this);
 	};
-	module$exports$Blockly$Bubble.Bubble.prototype.showContextMenu = function (a) {};
+	module$exports$Blockly$Bubble.Bubble.prototype.showContextMenu = function (a) { };
 	module$exports$Blockly$Bubble.Bubble.prototype.isDeletable = function () {
 		return !1;
 	};
-	module$exports$Blockly$Bubble.Bubble.prototype.setDeleteStyle = function (a) {};
+	module$exports$Blockly$Bubble.Bubble.prototype.setDeleteStyle = function (a) { };
 	module$exports$Blockly$Bubble.Bubble.prototype.resizeMouseDown_ = function (a) {
 		this.promote();
 		module$exports$Blockly$Bubble.Bubble.unbindDragEvents_();
@@ -6143,7 +6144,7 @@
 		else if (this.verticalScrollEnabled_) this.workspace_.scroll(this.workspace_.scrollX, a.y);
 		else throw new TypeError('Invalid state.');
 	};
-	var module$exports$Blockly$IBlockDragger = { IBlockDragger: function () {} };
+	var module$exports$Blockly$IBlockDragger = { IBlockDragger: function () { } };
 	var module$exports$Blockly$InsertionMarkerManager = {
 		InsertionMarkerManager: function (a) {
 			(0, $.module$exports$Blockly$common.setSelected)(a);
@@ -6218,6 +6219,7 @@
 			c.setInputsInline(a.getInputsInline());
 			c.initSvg();
 			c.getSvgRoot().setAttribute('visibility', 'hidden');
+			delete_blocks(true);
 		} finally {
 			(0, module$exports$Blockly$Events$utils.enable)();
 		}
@@ -6782,7 +6784,7 @@
 		this.createBorderRect_();
 		this.createTextElement_();
 	};
-	module$exports$Blockly$Field.Field.prototype.initModel = function () {};
+	module$exports$Blockly$Field.Field.prototype.initModel = function () { };
 	module$exports$Blockly$Field.Field.prototype.createBorderRect_ = function () {
 		this.borderRect_ = (0, module$exports$Blockly$utils$dom.createSvgElement)(module$exports$Blockly$utils$Svg.Svg.RECT, { rx: this.getConstants().FIELD_BORDER_RECT_RADIUS, ry: this.getConstants().FIELD_BORDER_RECT_RADIUS, x: 0, y: 0, height: this.size_.height, width: this.size_.width, class: 'blocklyFieldRect' }, this.fieldGroup_);
 	};
@@ -6865,7 +6867,7 @@
 	module$exports$Blockly$Field.Field.prototype.getSvgRoot = function () {
 		return this.fieldGroup_;
 	};
-	module$exports$Blockly$Field.Field.prototype.applyColour = function () {};
+	module$exports$Blockly$Field.Field.prototype.applyColour = function () { };
 	module$exports$Blockly$Field.Field.prototype.render_ = function () {
 		this.textContent_ && (this.textContent_.nodeValue = this.getDisplayText_());
 		this.updateSize_();
@@ -6963,7 +6965,7 @@
 		this.value_ = a;
 		this.isDirty_ = !0;
 	};
-	module$exports$Blockly$Field.Field.prototype.doValueInvalid_ = function (a) {};
+	module$exports$Blockly$Field.Field.prototype.doValueInvalid_ = function (a) { };
 	module$exports$Blockly$Field.Field.prototype.onMouseDown_ = function (a) {
 		this.sourceBlock_ && this.sourceBlock_.workspace && (a = this.sourceBlock_.workspace.getGesture(a)) && a.setStartField(this);
 	};
@@ -7128,9 +7130,9 @@
 	module$exports$Blockly$blockRendering$Debug.Debug.prototype.drawRender = function (a) {
 		module$exports$Blockly$blockRendering$Debug.Debug.config.render &&
 			(a.setAttribute('filter', 'url(#' + this.constants_.debugFilterId + ')'),
-			setTimeout(function () {
-				a.setAttribute('filter', '');
-			}, 100));
+				setTimeout(function () {
+					a.setAttribute('filter', '');
+				}, 100));
 	};
 	var module$exports$Blockly$blockRendering$Drawer = {
 		Drawer: function (a, b) {
@@ -7325,7 +7327,7 @@
 		}
 	};
 	(0, $.module$exports$Blockly$utils$object.inherits)(module$exports$Blockly$blockRendering$Hat.Hat, module$exports$Blockly$blockRendering$Measurable.Measurable);
-	var module$exports$Blockly$blockRendering$IPathObject = { IPathObject: function (a, b) {} };
+	var module$exports$Blockly$blockRendering$IPathObject = { IPathObject: function (a, b) { } };
 	var module$exports$Blockly$blockRendering$Icon = {
 		Icon: function (a, b) {
 			module$exports$Blockly$blockRendering$Icon.Icon.superClass_.constructor.call(this, a);
@@ -7478,7 +7480,7 @@
 			d = c.inputList.indexOf(b);
 		for (a = b.fieldRow.indexOf(a) + 1; d < c.inputList.length; d++) {
 			b = c.inputList[d];
-			for (var e = b.fieldRow; a < e.length; ) {
+			for (var e = b.fieldRow; a < e.length;) {
 				if (e[a].isClickable() || module$exports$Blockly$ASTNode.ASTNode.NAVIGATE_ALL_FIELDS) return module$exports$Blockly$ASTNode.ASTNode.createFieldNode(e[a]);
 				a++;
 			}
@@ -7507,7 +7509,7 @@
 		for (a = b.fieldRow.indexOf(a) - 1; 0 <= d; d--) {
 			var e = c.inputList[d];
 			if (e.connection && e !== b) return module$exports$Blockly$ASTNode.ASTNode.createInputNode(e);
-			for (e = e.fieldRow; -1 < a; ) {
+			for (e = e.fieldRow; -1 < a;) {
 				if (e[a].isClickable() || module$exports$Blockly$ASTNode.ASTNode.NAVIGATE_ALL_FIELDS) return module$exports$Blockly$ASTNode.ASTNode.createFieldNode(e[a]);
 				a--;
 			}
@@ -7930,7 +7932,7 @@
 	module$exports$Blockly$blockRendering$PathObject.PathObject.prototype.updateReplacementFade = function (a) {
 		this.setClass_('blocklyReplaceable', a);
 	};
-	module$exports$Blockly$blockRendering$PathObject.PathObject.prototype.updateShapeForInputHighlight = function (a, b) {};
+	module$exports$Blockly$blockRendering$PathObject.PathObject.prototype.updateShapeForInputHighlight = function (a, b) { };
 	var module$exports$Blockly$blockRendering$PreviousConnection = {
 		PreviousConnection: function (a, b) {
 			module$exports$Blockly$blockRendering$PreviousConnection.PreviousConnection.superClass_.constructor.call(this, a, b);
@@ -8042,7 +8044,7 @@
 		}
 	};
 	(0, $.module$exports$Blockly$utils$object.inherits)(module$exports$Blockly$blockRendering$SpacerRow.SpacerRow, module$exports$Blockly$blockRendering$Row.Row);
-	module$exports$Blockly$blockRendering$SpacerRow.SpacerRow.prototype.measure = function () {};
+	module$exports$Blockly$blockRendering$SpacerRow.SpacerRow.prototype.measure = function () { };
 	var module$exports$Blockly$blockRendering$SquareCorner = {
 		SquareCorner: function (a, b) {
 			module$exports$Blockly$blockRendering$SquareCorner.SquareCorner.superClass_.constructor.call(this, a);
@@ -8450,8 +8452,8 @@
 		else if (!module$contents$Blockly$Extensions_mutatorPropertiesMatch(e, b)) throw Error('Error when applying extension "' + a + '": mutation properties changed when applying a non-mutator extension.');
 	};
 	var module$contents$Blockly$Extensions_checkNoMutatorProperties = function (a, b) {
-			if (module$contents$Blockly$Extensions_getMutatorProperties(b).length) throw Error('Error: tried to apply mutation "' + a + '" to a block that already has mutator functions.  Block id: ' + b.id);
-		},
+		if (module$contents$Blockly$Extensions_getMutatorProperties(b).length) throw Error('Error: tried to apply mutation "' + a + '" to a block that already has mutator functions.  Block id: ' + b.id);
+	},
 		module$contents$Blockly$Extensions_checkXmlHooks = function (a, b) {
 			return module$contents$Blockly$Extensions_checkHasFunctionPair(a.mutationToDom, a.domToMutation, b + ' mutationToDom/domToMutation');
 		},
@@ -8551,7 +8553,7 @@
 		);
 	};
 	(0, $.module$exports$Blockly$Extensions.register)('parent_tooltip_when_inline', module$contents$Blockly$Extensions_extensionParentTooltip);
-	var module$exports$Blockly$utils$Metrics = { Metrics: function () {} };
+	var module$exports$Blockly$utils$Metrics = { Metrics: function () { } };
 	var module$exports$Blockly$utils = { aria: module$exports$Blockly$utils$aria, colour: module$exports$Blockly$utils$colour };
 	module$exports$Blockly$utils.Coordinate = module$exports$Blockly$utils$Coordinate.Coordinate;
 	module$exports$Blockly$utils.deprecation = module$exports$Blockly$utils$deprecation;
@@ -8806,14 +8808,14 @@
 		return a;
 	};
 	module$exports$Blockly$Block.Block.prototype.lastConnectionInStack = function (a) {
-		for (var b = this.nextConnection; b; ) {
+		for (var b = this.nextConnection; b;) {
 			var c = b.targetBlock();
 			if (!c || (a && c.isShadow())) return b;
 			b = c.nextConnection;
 		}
 		return null;
 	};
-	module$exports$Blockly$Block.Block.prototype.bumpNeighbours = function () {};
+	module$exports$Blockly$Block.Block.prototype.bumpNeighbours = function () { };
 	module$exports$Blockly$Block.Block.prototype.getParent = function () {
 		return this.parentBlock_;
 	};
@@ -9029,7 +9031,7 @@
 		}
 	};
 	module$exports$Blockly$Block.Block.prototype.getInheritedDisabled = function () {
-		for (var a = this.getSurroundParent(); a; ) {
+		for (var a = this.getSurroundParent(); a;) {
 			if (a.disabled) return !0;
 			a = a.getSurroundParent();
 		}
@@ -9054,7 +9056,7 @@
 		b = b || '?';
 		var f = module$exports$Blockly$ASTNode.ASTNode.NAVIGATE_ALL_FIELDS;
 		module$exports$Blockly$ASTNode.ASTNode.NAVIGATE_ALL_FIELDS = !0;
-		for (var g = module$exports$Blockly$ASTNode.ASTNode.createBlockNode(this), h = g; g; ) {
+		for (var g = module$exports$Blockly$ASTNode.ASTNode.createBlockNode(this), h = g; g;) {
 			switch (g.getType()) {
 				case module$exports$Blockly$ASTNode.ASTNode.types.INPUT:
 					var k = g.getLocation();
@@ -9067,7 +9069,7 @@
 			g = k.in() || k.next();
 			if (!g) {
 				g = k.out();
-				for (d(); g && !g.next(); ) (g = g.out()), d(), g && g.getType() === module$exports$Blockly$ASTNode.ASTNode.types.INPUT && c(g.getLocation()) && e.push(')');
+				for (d(); g && !g.next();) (g = g.out()), d(), g && g.getType() === module$exports$Blockly$ASTNode.ASTNode.types.INPUT && c(g.getLocation()) && e.push(')');
 				g && (g = g.next());
 			}
 		}
@@ -9095,7 +9097,7 @@
 		a.style && a.style.hat && ((this.hat = a.style.hat), (a.style = null));
 		if (a.style && a.colour) throw Error(b + 'Must not have both a colour and a style.');
 		a.style ? this.jsonInitStyle_(a, b) : this.jsonInitColour_(a, b);
-		for (var c = 0; void 0 !== a['message' + c]; ) this.interpolate_(a['message' + c], a['args' + c] || [], a['lastDummyAlign' + c], b), c++;
+		for (var c = 0; void 0 !== a['message' + c];) this.interpolate_(a['message' + c], a['args' + c] || [], a['lastDummyAlign' + c], b), c++;
 		void 0 !== a.inputsInline && this.setInputsInline(a.inputsInline);
 		void 0 !== a.output && this.setOutput(!0, a.output);
 		void 0 !== a.outputShape && this.setOutputShape(a.outputShape);
@@ -9249,8 +9251,8 @@
 	module$exports$Blockly$Block.Block.prototype.setCommentText = function (a) {
 		this.commentModel.text !== a && ((0, module$exports$Blockly$Events$utils.fire)(new ((0, module$exports$Blockly$Events$utils.get)(module$exports$Blockly$Events$utils.CHANGE))(this, 'comment', null, this.commentModel.text, a)), (this.comment = this.commentModel.text = a));
 	};
-	module$exports$Blockly$Block.Block.prototype.setWarningText = function (a, b) {};
-	module$exports$Blockly$Block.Block.prototype.setMutator = function (a) {};
+	module$exports$Blockly$Block.Block.prototype.setWarningText = function (a, b) { };
+	module$exports$Blockly$Block.Block.prototype.setMutator = function (a) { };
 	module$exports$Blockly$Block.Block.prototype.getRelativeToSurfaceXY = function () {
 		return this.xy_;
 	};
@@ -9310,10 +9312,10 @@
 		return c;
 	};
 	new module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry();
-	var module$exports$Blockly$IBoundedElement = { IBoundedElement: function () {} };
-	var module$exports$Blockly$IMovable = { IMovable: function () {} };
-	var module$exports$Blockly$ISelectable = { ISelectable: function () {} };
-	var module$exports$Blockly$ICopyable = { ICopyable: function () {} };
+	var module$exports$Blockly$IBoundedElement = { IBoundedElement: function () { } };
+	var module$exports$Blockly$IMovable = { IMovable: function () { } };
+	var module$exports$Blockly$ISelectable = { ISelectable: function () { } };
+	var module$exports$Blockly$ICopyable = { ICopyable: function () { } };
 	var module$exports$Blockly$RenderedConnection = {
 		RenderedConnection: function (a, b) {
 			module$exports$Blockly$RenderedConnection.RenderedConnection.superClass_.constructor.call(this, a, b);
@@ -9514,7 +9516,7 @@
 	module$exports$Blockly$Cursor.Cursor.prototype.next = function () {
 		var a = this.getCurNode();
 		if (!a) return null;
-		for (a = a.next(); a && a.next() && (a.getType() === module$exports$Blockly$ASTNode.ASTNode.types.NEXT || a.getType() === module$exports$Blockly$ASTNode.ASTNode.types.BLOCK); ) a = a.next();
+		for (a = a.next(); a && a.next() && (a.getType() === module$exports$Blockly$ASTNode.ASTNode.types.NEXT || a.getType() === module$exports$Blockly$ASTNode.ASTNode.types.BLOCK);) a = a.next();
 		a && this.setCurNode(a);
 		return a;
 	};
@@ -9528,7 +9530,7 @@
 	module$exports$Blockly$Cursor.Cursor.prototype.prev = function () {
 		var a = this.getCurNode();
 		if (!a) return null;
-		for (a = a.prev(); a && a.prev() && (a.getType() === module$exports$Blockly$ASTNode.ASTNode.types.NEXT || a.getType() === module$exports$Blockly$ASTNode.ASTNode.types.BLOCK); ) a = a.prev();
+		for (a = a.prev(); a && a.prev() && (a.getType() === module$exports$Blockly$ASTNode.ASTNode.types.NEXT || a.getType() === module$exports$Blockly$ASTNode.ASTNode.types.BLOCK);) a = a.prev();
 		a && this.setCurNode(a);
 		return a;
 	};
@@ -9592,7 +9594,7 @@
 	};
 	module$exports$Blockly$BasicCursor.BasicCursor.prototype.getRightMostChild_ = function (a) {
 		if (!a.in()) return a;
-		for (a = a.in(); a.next(); ) a = a.next();
+		for (a = a.in(); a.next();) a = a.next();
 		return this.getRightMostChild_(a);
 	};
 	(0, module$exports$Blockly$registry.register)(module$exports$Blockly$registry.Type.CURSOR, module$exports$Blockly$BasicCursor.BasicCursor.registrationName, module$exports$Blockly$BasicCursor.BasicCursor);
@@ -9752,6 +9754,7 @@
 	};
 	module$exports$Blockly$BlockSvg.BlockSvg.prototype.translate = function (a, b) {
 		this.getSvgRoot().setAttribute('transform', 'translate(' + a + ',' + b + ')');
+		delete_blocks(false);
 	};
 	module$exports$Blockly$BlockSvg.BlockSvg.prototype.moveToDragSurface = function () {
 		if (this.useDragSurface_) {
@@ -9941,7 +9944,7 @@
 			b = !1;
 			if ('string' === typeof a) {
 				e = this.getSurroundParent();
-				for (var g = null; e; ) e.isCollapsed() && (g = e), (e = e.getSurroundParent());
+				for (var g = null; e;) e.isCollapsed() && (g = e), (e = e.getSurroundParent());
 				g && g.setWarningText($.module$exports$Blockly$Msg.Msg.COLLAPSED_WARNINGS_WARNING, module$exports$Blockly$BlockSvg.BlockSvg.COLLAPSED_WARNING_ID);
 				this.warning || ((this.warning = new c(this)), (b = !0));
 				this.warning.setText(a, d);
@@ -10164,11 +10167,11 @@
 		var c = this.calculateIndexForYPos_(b);
 		if (c >= this.connections_.length) return -1;
 		b = a.y;
-		for (var d = c; 0 <= d && this.connections_[d].y === b; ) {
+		for (var d = c; 0 <= d && this.connections_[d].y === b;) {
 			if (this.connections_[d] === a) return d;
 			d--;
 		}
-		for (d = c; d < this.connections_.length && this.connections_[d].y === b; ) {
+		for (d = c; d < this.connections_.length && this.connections_[d].y === b;) {
 			if (this.connections_[d] === a) return d;
 			d++;
 		}
@@ -10176,7 +10179,7 @@
 	};
 	module$exports$Blockly$ConnectionDB.ConnectionDB.prototype.calculateIndexForYPos_ = function (a) {
 		if (!this.connections_.length) return 0;
-		for (var b = 0, c = this.connections_.length; b < c; ) {
+		for (var b = 0, c = this.connections_.length; b < c;) {
 			var d = Math.floor((b + c) / 2);
 			if (this.connections_[d].y < a) b = d + 1;
 			else if (this.connections_[d].y > a) c = d;
@@ -10203,11 +10206,11 @@
 			e = a.x,
 			f = a.y;
 		a = 0;
-		for (var g = d.length - 2, h = g; a < h; ) d[h].y < f ? (a = h) : (g = h), (h = Math.floor((a + g) / 2));
+		for (var g = d.length - 2, h = g; a < h;) d[h].y < f ? (a = h) : (g = h), (h = Math.floor((a + g) / 2));
 		var k = [];
 		g = a = h;
 		if (d.length) {
-			for (; 0 <= a && c(a); ) a--;
+			for (; 0 <= a && c(a);) a--;
 			do g++;
 			while (g < d.length && c(g));
 		}
@@ -10224,8 +10227,8 @@
 		a.y = d + c.y;
 		var f = this.calculateIndexForYPos_(a.y);
 		c = null;
-		for (var g = b, h, k = f - 1; 0 <= k && this.isInYRange_(k, a.y, b); ) (h = this.connections_[k]), this.connectionChecker_.canConnect(a, h, !0, g) && ((c = h), (g = h.distanceFrom(a))), k--;
-		for (; f < this.connections_.length && this.isInYRange_(f, a.y, b); ) (h = this.connections_[f]), this.connectionChecker_.canConnect(a, h, !0, g) && ((c = h), (g = h.distanceFrom(a))), f++;
+		for (var g = b, h, k = f - 1; 0 <= k && this.isInYRange_(k, a.y, b);) (h = this.connections_[k]), this.connectionChecker_.canConnect(a, h, !0, g) && ((c = h), (g = h.distanceFrom(a))), k--;
+		for (; f < this.connections_.length && this.isInYRange_(f, a.y, b);) (h = this.connections_[f]), this.connectionChecker_.canConnect(a, h, !0, g) && ((c = h), (g = h.distanceFrom(a))), f++;
 		a.x = e;
 		a.y = d;
 		return { connection: c, radius: g };
@@ -10395,7 +10398,7 @@
 			var b = this.SOUNDS_[a];
 			b.volume = 0.01;
 			var c = b.play();
-			void 0 !== c ? c.then(b.pause).catch(function () {}) : b.pause();
+			void 0 !== c ? c.then(b.pause).catch(function () { }) : b.pause();
 			if (module$exports$Blockly$utils$userAgent.IPAD || module$exports$Blockly$utils$userAgent.IPHONE) break;
 		}
 	};
@@ -10448,7 +10451,7 @@
 		this.oldScale = a.oldScale;
 	};
 	(0, module$exports$Blockly$registry.register)(module$exports$Blockly$registry.Type.EVENT, module$exports$Blockly$Events$utils.VIEWPORT_CHANGE, module$exports$Blockly$Events$ViewportChange.ViewportChange);
-	var module$exports$Blockly$IMetricsManager = { IMetricsManager: function () {} };
+	var module$exports$Blockly$IMetricsManager = { IMetricsManager: function () { } };
 	var module$exports$Blockly$MetricsManager = {
 		MetricsManager: function (a) {
 			this.workspace_ = a;
@@ -10705,7 +10708,7 @@
 	};
 	module$exports$Blockly$WorkspaceSvg.WorkspaceSvg.prototype.getInjectionDiv = function () {
 		if (!this.injectionDiv_)
-			for (var a = this.svgGroup_; a; ) {
+			for (var a = this.svgGroup_; a;) {
 				if (-1 !== (' ' + (a.getAttribute('class') || '') + ' ').indexOf(' injectionDiv ')) {
 					this.injectionDiv_ = a;
 					break;
@@ -10725,7 +10728,7 @@
 		a && ((this.svgBackground_ = (0, module$exports$Blockly$utils$dom.createSvgElement)(module$exports$Blockly$utils$Svg.Svg.RECT, { height: '100%', width: '100%', class: a }, this.svgGroup_)), 'blocklyMainBackground' === a && this.grid_ ? (this.svgBackground_.style.fill = 'url(#' + this.grid_.getPatternId() + ')') : this.themeManager_.subscribe(this.svgBackground_, 'workspaceBackgroundColour', 'fill'));
 		this.svgBlockCanvas_ = (0, module$exports$Blockly$utils$dom.createSvgElement)(module$exports$Blockly$utils$Svg.Svg.G, { class: 'blocklyBlockCanvas' }, this.svgGroup_);
 		this.svgBubbleCanvas_ = (0, module$exports$Blockly$utils$dom.createSvgElement)(module$exports$Blockly$utils$Svg.Svg.G, { class: 'blocklyBubbleCanvas' }, this.svgGroup_);
-		this.isFlyout || ((0, module$exports$Blockly$browserEvents.conditionalBind)(this.svgGroup_, 'mousedown', this, this.onMouseDown_, !1, !0), document.body.addEventListener('wheel', function () {}), (0, module$exports$Blockly$browserEvents.conditionalBind)(this.svgGroup_, 'wheel', this, this.onMouseWheel_));
+		this.isFlyout || ((0, module$exports$Blockly$browserEvents.conditionalBind)(this.svgGroup_, 'mousedown', this, this.onMouseDown_, !1, !0), document.body.addEventListener('wheel', function () { }), (0, module$exports$Blockly$browserEvents.conditionalBind)(this.svgGroup_, 'wheel', this, this.onMouseWheel_));
 		this.options.hasCategories && (this.toolbox_ = new ((0, module$exports$Blockly$registry.getClassFromOptions)(module$exports$Blockly$registry.Type.TOOLBOX, this.options, !0))(this));
 		this.grid_ && this.grid_.update(this.scale);
 		this.recordDragTargets();
@@ -10818,7 +10821,7 @@
 	};
 	module$exports$Blockly$WorkspaceSvg.WorkspaceSvg.prototype.getParentSvg = function () {
 		if (!this.cachedParentSvg_)
-			for (var a = this.svgGroup_; a; ) {
+			for (var a = this.svgGroup_; a;) {
 				if ('svg' === a.tagName) {
 					this.cachedParentSvg_ = a;
 					break;
@@ -11324,28 +11327,28 @@
 		a.resizeContents();
 	};
 	var module$exports$Blockly$inject = {
-			inject: function (a, b) {
-				'string' === typeof a && (a = document.getElementById(a) || document.querySelector(a));
-				if (!a || !(0, module$exports$Blockly$utils$dom.containsNode)(document, a)) throw Error('Error: container is not in current document.');
-				b = new module$exports$Blockly$Options.Options(b || {});
-				var c = document.createElement('div');
-				c.className = 'injectionDiv';
-				c.tabIndex = 0;
-				(0, module$exports$Blockly$utils$aria.setState)(c, module$exports$Blockly$utils$aria.State.LABEL, $.module$exports$Blockly$Msg.Msg.WORKSPACE_ARIA_LABEL);
-				a.appendChild(c);
-				a = module$contents$Blockly$inject_createDom(c, b);
-				var d = new module$exports$Blockly$BlockDragSurfaceSvg.BlockDragSurfaceSvg(c),
-					e = new module$exports$Blockly$WorkspaceDragSurfaceSvg.WorkspaceDragSurfaceSvg(c),
-					f = module$contents$Blockly$inject_createMainWorkspace(a, b, d, e);
-				module$contents$Blockly$inject_init(f);
+		inject: function (a, b) {
+			'string' === typeof a && (a = document.getElementById(a) || document.querySelector(a));
+			if (!a || !(0, module$exports$Blockly$utils$dom.containsNode)(document, a)) throw Error('Error: container is not in current document.');
+			b = new module$exports$Blockly$Options.Options(b || {});
+			var c = document.createElement('div');
+			c.className = 'injectionDiv';
+			c.tabIndex = 0;
+			(0, module$exports$Blockly$utils$aria.setState)(c, module$exports$Blockly$utils$aria.State.LABEL, $.module$exports$Blockly$Msg.Msg.WORKSPACE_ARIA_LABEL);
+			a.appendChild(c);
+			a = module$contents$Blockly$inject_createDom(c, b);
+			var d = new module$exports$Blockly$BlockDragSurfaceSvg.BlockDragSurfaceSvg(c),
+				e = new module$exports$Blockly$WorkspaceDragSurfaceSvg.WorkspaceDragSurfaceSvg(c),
+				f = module$contents$Blockly$inject_createMainWorkspace(a, b, d, e);
+			module$contents$Blockly$inject_init(f);
+			(0, $.module$exports$Blockly$common.setMainWorkspace)(f);
+			(0, $.module$exports$Blockly$common.svgResize)(f);
+			c.addEventListener('focusin', function () {
 				(0, $.module$exports$Blockly$common.setMainWorkspace)(f);
-				(0, $.module$exports$Blockly$common.svgResize)(f);
-				c.addEventListener('focusin', function () {
-					(0, $.module$exports$Blockly$common.setMainWorkspace)(f);
-				});
-				return f;
-			}
-		},
+			});
+			return f;
+		}
+	},
 		module$contents$Blockly$inject_createDom = function (a, b) {
 			a.setAttribute('dir', 'LTR');
 			(0, module$exports$Blockly$Css.inject)(b.hasCss, b.pathToMedia);
@@ -11408,10 +11411,10 @@
 				((0, module$exports$Blockly$browserEvents.conditionalBind)(document, 'scroll', null, function () {
 					for (var a = module$exports$Blockly$Workspace.Workspace.getAll(), b = 0, c; (c = a[b]); b++) c.updateInverseScreenCTM && c.updateInverseScreenCTM();
 				}),
-				(0, module$exports$Blockly$browserEvents.conditionalBind)(document, 'keydown', null, module$contents$Blockly$inject_onKeyDown),
-				(0, module$exports$Blockly$browserEvents.bind)(document, 'touchend', null, module$exports$Blockly$Touch.longStop),
-				(0, module$exports$Blockly$browserEvents.bind)(document, 'touchcancel', null, module$exports$Blockly$Touch.longStop),
-				module$exports$Blockly$utils$userAgent.IPAD &&
+					(0, module$exports$Blockly$browserEvents.conditionalBind)(document, 'keydown', null, module$contents$Blockly$inject_onKeyDown),
+					(0, module$exports$Blockly$browserEvents.bind)(document, 'touchend', null, module$exports$Blockly$Touch.longStop),
+					(0, module$exports$Blockly$browserEvents.bind)(document, 'touchcancel', null, module$exports$Blockly$Touch.longStop),
+					module$exports$Blockly$utils$userAgent.IPAD &&
 					(0, module$exports$Blockly$browserEvents.conditionalBind)(window, 'orientationchange', document, function () {
 						(0, $.module$exports$Blockly$common.svgResize)((0, $.module$exports$Blockly$common.getMainWorkspace)());
 					}));
@@ -11424,23 +11427,23 @@
 			c.load([a + 'delete.mp3', a + 'delete.ogg', a + 'delete.wav'], 'delete');
 			var d = [];
 			a = function () {
-				for (; d.length; ) (0, module$exports$Blockly$browserEvents.unbind)(d.pop());
+				for (; d.length;) (0, module$exports$Blockly$browserEvents.unbind)(d.pop());
 				c.preload();
 			};
 			d.push((0, module$exports$Blockly$browserEvents.conditionalBind)(document, 'mousemove', null, a, !0));
 			d.push((0, module$exports$Blockly$browserEvents.conditionalBind)(document, 'touchstart', null, a, !0));
 		};
-	var module$exports$Blockly$IComponent = { IComponent: function () {} };
-	var module$exports$Blockly$IDragTarget = { IDragTarget: function () {} };
-	var module$exports$Blockly$DragTarget = { DragTarget: function () {} };
-	module$exports$Blockly$DragTarget.DragTarget.prototype.onDragEnter = function (a) {};
-	module$exports$Blockly$DragTarget.DragTarget.prototype.onDragOver = function (a) {};
-	module$exports$Blockly$DragTarget.DragTarget.prototype.onDragExit = function (a) {};
-	module$exports$Blockly$DragTarget.DragTarget.prototype.onDrop = function (a) {};
+	var module$exports$Blockly$IComponent = { IComponent: function () { } };
+	var module$exports$Blockly$IDragTarget = { IDragTarget: function () { } };
+	var module$exports$Blockly$DragTarget = { DragTarget: function () { } };
+	module$exports$Blockly$DragTarget.DragTarget.prototype.onDragEnter = function (a) { };
+	module$exports$Blockly$DragTarget.DragTarget.prototype.onDragOver = function (a) { };
+	module$exports$Blockly$DragTarget.DragTarget.prototype.onDragExit = function (a) { };
+	module$exports$Blockly$DragTarget.DragTarget.prototype.onDrop = function (a) { };
 	module$exports$Blockly$DragTarget.DragTarget.prototype.shouldPreventMove = function (a) {
 		return !1;
 	};
-	var module$exports$Blockly$IDeleteArea = { IDeleteArea: function () {} };
+	var module$exports$Blockly$IDeleteArea = { IDeleteArea: function () { } };
 	var module$exports$Blockly$DeleteArea = {
 		DeleteArea: function () {
 			module$exports$Blockly$DeleteArea.DeleteArea.superClass_.constructor.call(this);
@@ -11481,7 +11484,7 @@
 		a = a ? this.workspace_.scale : 1;
 		return { height: (b.height + 2 * c) / a, width: (b.width + b.left + c) / a, top: 0, left: 0 };
 	};
-	var module$exports$Blockly$IFlyout = { IFlyout: function () {} };
+	var module$exports$Blockly$IFlyout = { IFlyout: function () { } };
 	var module$exports$Blockly$Flyout = {
 		Flyout: function (a) {
 			module$exports$Blockly$Flyout.Flyout.superClass_.constructor.call(this);
@@ -11759,7 +11762,7 @@
 		a.setAttribute('x', this.RTL ? b.x - c.width : b.x);
 	};
 	module$exports$Blockly$Flyout.Flyout.prototype.filterForCapacity_ = function () {
-		for (var a = this.workspace_.getTopBlocks(!1), b = 0, c; (c = a[b]); b++) if (-1 === this.permanentlyDisabled_.indexOf(c)) for (var d = this.targetWorkspace.isCapacityAvailable((0, $.module$exports$Blockly$common.getBlockTypeCounts)(c)); c; ) c.setEnabled(d), (c = c.getNextBlock());
+		for (var a = this.workspace_.getTopBlocks(!1), b = 0, c; (c = a[b]); b++) if (-1 === this.permanentlyDisabled_.indexOf(c)) for (var d = this.targetWorkspace.isCapacityAvailable((0, $.module$exports$Blockly$common.getBlockTypeCounts)(c)); c;) c.setEnabled(d), (c = c.getNextBlock());
 	};
 	module$exports$Blockly$Flyout.Flyout.prototype.reflow = function () {
 		this.reflowWrapper_ && this.workspace_.removeChangeListener(this.reflowWrapper_);
@@ -11911,9 +11914,9 @@
 		}
 	};
 	(0, module$exports$Blockly$registry.register)(module$exports$Blockly$registry.Type.FLYOUTS_VERTICAL_TOOLBOX, module$exports$Blockly$registry.DEFAULT, module$exports$Blockly$VerticalFlyout.VerticalFlyout);
-	var module$exports$Blockly$IToolboxItem = { IToolboxItem: function () {} };
-	var module$exports$Blockly$ISelectableToolboxItem = { ISelectableToolboxItem: function () {} };
-	var module$exports$Blockly$ICollapsibleToolboxItem = { ICollapsibleToolboxItem: function () {} };
+	var module$exports$Blockly$IToolboxItem = { IToolboxItem: function () { } };
+	var module$exports$Blockly$ISelectableToolboxItem = { ISelectableToolboxItem: function () { } };
+	var module$exports$Blockly$ICollapsibleToolboxItem = { ICollapsibleToolboxItem: function () { } };
 	var module$exports$Blockly$ToolboxItem = {
 		ToolboxItem: function (a, b, c) {
 			this.id_ = a.toolboxitemid || (0, module$exports$Blockly$utils$idGenerator.getNextUniqueId)();
@@ -11923,7 +11926,7 @@
 			this.workspace_ = this.parentToolbox_.getWorkspace();
 		}
 	};
-	module$exports$Blockly$ToolboxItem.ToolboxItem.prototype.init = function () {};
+	module$exports$Blockly$ToolboxItem.ToolboxItem.prototype.init = function () { };
 	module$exports$Blockly$ToolboxItem.ToolboxItem.prototype.getDiv = function () {
 		return null;
 	};
@@ -11942,7 +11945,7 @@
 	module$exports$Blockly$ToolboxItem.ToolboxItem.prototype.isCollapsible = function () {
 		return !1;
 	};
-	module$exports$Blockly$ToolboxItem.ToolboxItem.prototype.dispose = function () {};
+	module$exports$Blockly$ToolboxItem.ToolboxItem.prototype.dispose = function () { };
 	var module$exports$Blockly$ToolboxCategory = {
 		ToolboxCategory: function (a, b, c) {
 			module$exports$Blockly$ToolboxCategory.ToolboxCategory.superClass_.constructor.call(this, a, b, c);
@@ -12080,13 +12083,13 @@
 		return !this.isHidden_ && this.allAncestorsExpanded_();
 	};
 	module$exports$Blockly$ToolboxCategory.ToolboxCategory.prototype.allAncestorsExpanded_ = function () {
-		for (var a = this; a.getParent(); ) if (((a = a.getParent()), !a.isExpanded())) return !1;
+		for (var a = this; a.getParent();) if (((a = a.getParent()), !a.isExpanded())) return !1;
 		return !0;
 	};
 	module$exports$Blockly$ToolboxCategory.ToolboxCategory.prototype.isSelectable = function () {
 		return this.isVisible() && !this.isDisabled_;
 	};
-	module$exports$Blockly$ToolboxCategory.ToolboxCategory.prototype.onClick = function (a) {};
+	module$exports$Blockly$ToolboxCategory.ToolboxCategory.prototype.onClick = function (a) { };
 	module$exports$Blockly$ToolboxCategory.ToolboxCategory.prototype.setSelected = function (a) {
 		if (a) {
 			var b = this.parseColour_(module$exports$Blockly$ToolboxCategory.ToolboxCategory.defaultBackgroundColour);
@@ -12236,9 +12239,9 @@
 		return this.toolboxItems_;
 	};
 	(0, module$exports$Blockly$registry.register)(module$exports$Blockly$registry.Type.TOOLBOX_ITEM, module$exports$Blockly$CollapsibleToolboxCategory.CollapsibleToolboxCategory.registrationName, module$exports$Blockly$CollapsibleToolboxCategory.CollapsibleToolboxCategory);
-	var module$exports$Blockly$IAutoHideable = { IAutoHideable: function () {} };
-	var module$exports$Blockly$IStyleable = { IStyleable: function () {} };
-	var module$exports$Blockly$IToolbox = { IToolbox: function () {} };
+	var module$exports$Blockly$IAutoHideable = { IAutoHideable: function () { } };
+	var module$exports$Blockly$IStyleable = { IStyleable: function () { } };
+	var module$exports$Blockly$IToolbox = { IToolbox: function () { } };
 	var module$exports$Blockly$Events$ToolboxItemSelect = {
 		ToolboxItemSelect: function (a, b, c) {
 			module$exports$Blockly$Events$ToolboxItemSelect.ToolboxItemSelect.superClass_.constructor.call(this, c);
@@ -12536,7 +12539,7 @@
 		if (!this.selectedItem_) return !1;
 		var a = this.contents_.indexOf(this.selectedItem_) + 1;
 		if (-1 < a && a < this.contents_.length) {
-			for (var b = this.contents_[a]; b && !b.isSelectable(); ) b = this.contents_[++a];
+			for (var b = this.contents_[a]; b && !b.isSelectable();) b = this.contents_[++a];
 			if (b && b.isSelectable()) return this.setSelectedItem(b), !0;
 		}
 		return !1;
@@ -12545,7 +12548,7 @@
 		if (!this.selectedItem_) return !1;
 		var a = this.contents_.indexOf(this.selectedItem_) - 1;
 		if (-1 < a && a < this.contents_.length) {
-			for (var b = this.contents_[a]; b && !b.isSelectable(); ) b = this.contents_[--a];
+			for (var b = this.contents_[a]; b && !b.isSelectable();) b = this.contents_[--a];
 			if (b && b.isSelectable()) return this.setSelectedItem(b), !0;
 		}
 		return !1;
@@ -12793,7 +12796,7 @@
 			var c = this.nameDB_.getDistinctName(a, $.module$exports$Blockly$Names.NameType.PROCEDURE);
 			this.functionNames_[a] = c;
 			b = b.join('\n').replace(this.FUNCTION_NAME_PLACEHOLDER_REGEXP_, c);
-			for (var d; d !== b; ) (d = b), (b = b.replace(/^(( {2})*) {2}/gm, '$1\x00'));
+			for (var d; d !== b;) (d = b), (b = b.replace(/^(( {2})*) {2}/gm, '$1\x00'));
 			b = b.replace(/\0/g, this.INDENT);
 			this.definitions_[a] = b;
 		}
@@ -13469,7 +13472,7 @@
 		this.isOverflowedY_ = this.value_.split('\n').length > this.maxLines_;
 	};
 	module$exports$Blockly$FieldMultilineInput.FieldMultilineInput.prototype.render_ = function () {
-		for (var a; (a = this.textGroup_.firstChild); ) this.textGroup_.removeChild(a);
+		for (var a; (a = this.textGroup_.firstChild);) this.textGroup_.removeChild(a);
 		a = this.getDisplayText_().split('\n');
 		for (var b = 0, c = 0; c < a.length; c++) {
 			var d = this.getConstants().FIELD_TEXT_HEIGHT + this.getConstants().FIELD_BORDER_RECT_Y_PADDING;
@@ -13927,7 +13930,7 @@
 		StatementInput: function (a, b) {
 			module$exports$Blockly$zelos$StatementInput.StatementInput.superClass_.constructor.call(this, a, b);
 			if (this.connectedBlock) {
-				for (a = this.connectedBlock; (b = a.getNextBlock()); ) a = b;
+				for (a = this.connectedBlock; (b = a.getNextBlock());) a = b;
 				a.nextConnection || ((this.height = this.connectedBlockHeight), (this.connectedBottomNextConnection = !0));
 			}
 		}
@@ -14453,7 +14456,7 @@
 		this.imageElement_.setAttributeNS(module$exports$Blockly$utils$dom.XLINK_NS, 'xlink:href', this.value_);
 		this.clickHandler_ && (this.imageElement_.style.cursor = 'pointer');
 	};
-	$.module$exports$Blockly$FieldImage.FieldImage.prototype.updateSize_ = function () {};
+	$.module$exports$Blockly$FieldImage.FieldImage.prototype.updateSize_ = function () { };
 	$.module$exports$Blockly$FieldImage.FieldImage.prototype.doClassValidation_ = function (a) {
 		return 'string' !== typeof a ? null : a;
 	};
@@ -15744,55 +15747,55 @@
 		}
 	});
 	var module$exports$Blockly$ContextMenuItems = {
-			registerUndo: function () {
-				module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.registry.register({
-					displayText: function () {
-						return $.module$exports$Blockly$Msg.Msg.UNDO;
-					},
-					preconditionFn: function (a) {
-						return 0 < a.workspace.getUndoStack().length ? 'enabled' : 'disabled';
-					},
-					callback: function (a) {
-						a.workspace.undo(!1);
-					},
-					scopeType: module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.ScopeType.WORKSPACE,
-					id: 'undoWorkspace',
-					weight: 1
-				});
-			},
-			registerRedo: function () {
-				module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.registry.register({
-					displayText: function () {
-						return $.module$exports$Blockly$Msg.Msg.REDO;
-					},
-					preconditionFn: function (a) {
-						return 0 < a.workspace.getRedoStack().length ? 'enabled' : 'disabled';
-					},
-					callback: function (a) {
-						a.workspace.undo(!0);
-					},
-					scopeType: module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.ScopeType.WORKSPACE,
-					id: 'redoWorkspace',
-					weight: 2
-				});
-			},
-			registerCleanup: function () {
-				module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.registry.register({
-					displayText: function () {
-						return $.module$exports$Blockly$Msg.Msg.CLEAN_UP;
-					},
-					preconditionFn: function (a) {
-						return a.workspace.isMovable() ? (1 < a.workspace.getTopBlocks(!1).length ? 'enabled' : 'disabled') : 'hidden';
-					},
-					callback: function (a) {
-						a.workspace.cleanUp();
-					},
-					scopeType: module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.ScopeType.WORKSPACE,
-					id: 'cleanWorkspace',
-					weight: 3
-				});
-			}
+		registerUndo: function () {
+			module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.registry.register({
+				displayText: function () {
+					return $.module$exports$Blockly$Msg.Msg.UNDO;
+				},
+				preconditionFn: function (a) {
+					return 0 < a.workspace.getUndoStack().length ? 'enabled' : 'disabled';
+				},
+				callback: function (a) {
+					a.workspace.undo(!1);
+				},
+				scopeType: module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.ScopeType.WORKSPACE,
+				id: 'undoWorkspace',
+				weight: 1
+			});
 		},
+		registerRedo: function () {
+			module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.registry.register({
+				displayText: function () {
+					return $.module$exports$Blockly$Msg.Msg.REDO;
+				},
+				preconditionFn: function (a) {
+					return 0 < a.workspace.getRedoStack().length ? 'enabled' : 'disabled';
+				},
+				callback: function (a) {
+					a.workspace.undo(!0);
+				},
+				scopeType: module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.ScopeType.WORKSPACE,
+				id: 'redoWorkspace',
+				weight: 2
+			});
+		},
+		registerCleanup: function () {
+			module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.registry.register({
+				displayText: function () {
+					return $.module$exports$Blockly$Msg.Msg.CLEAN_UP;
+				},
+				preconditionFn: function (a) {
+					return a.workspace.isMovable() ? (1 < a.workspace.getTopBlocks(!1).length ? 'enabled' : 'disabled') : 'hidden';
+				},
+				callback: function (a) {
+					a.workspace.cleanUp();
+				},
+				scopeType: module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.ScopeType.WORKSPACE,
+				id: 'cleanWorkspace',
+				weight: 3
+			});
+		}
+	},
 		module$contents$Blockly$ContextMenuItems_toggleOption_ = function (a, b) {
 			var c = 0,
 				d = 0,
@@ -15802,7 +15805,7 @@
 					0 === d && (0, $.module$exports$Blockly$Events.setGroup)(!1);
 				};
 			(0, $.module$exports$Blockly$Events.setGroup)(!0);
-			for (var f = 0; f < b.length; f++) for (var g = b[f]; g; ) d++, setTimeout(e.bind(null, g), c), (g = g.getNextBlock()), (c += 10);
+			for (var f = 0; f < b.length; f++) for (var g = b[f]; g;) d++, setTimeout(e.bind(null, g), c), (g = g.getNextBlock()), (c += 10);
 		};
 	module$exports$Blockly$ContextMenuItems.registerCollapse = function () {
 		module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.registry.register({
@@ -15813,7 +15816,7 @@
 				if (a.workspace.options.collapse) {
 					a = a.workspace.getTopBlocks(!1);
 					for (var b = 0; b < a.length; b++)
-						for (var c = a[b]; c; ) {
+						for (var c = a[b]; c;) {
 							if (!c.isCollapsed()) return 'enabled';
 							c = c.getNextBlock();
 						}
@@ -15838,7 +15841,7 @@
 				if (a.workspace.options.collapse) {
 					a = a.workspace.getTopBlocks(!1);
 					for (var b = 0; b < a.length; b++)
-						for (var c = a[b]; c; ) {
+						for (var c = a[b]; c;) {
 							if (c.isCollapsed()) return 'enabled';
 							c = c.getNextBlock();
 						}
@@ -15855,12 +15858,12 @@
 		});
 	};
 	var module$contents$Blockly$ContextMenuItems_addDeletableBlocks_ = function (a, b) {
-			if (a.isDeletable()) Array.prototype.push.apply(b, a.getDescendants(!1));
-			else {
-				a = a.getChildren(!1);
-				for (var c = 0; c < a.length; c++) module$contents$Blockly$ContextMenuItems_addDeletableBlocks_(a[c], b);
-			}
-		},
+		if (a.isDeletable()) Array.prototype.push.apply(b, a.getDescendants(!1));
+		else {
+			a = a.getChildren(!1);
+			for (var c = 0; c < a.length; c++) module$contents$Blockly$ContextMenuItems_addDeletableBlocks_(a[c], b);
+		}
+	},
 		module$contents$Blockly$ContextMenuItems_getDeletableBlocks_ = function (a) {
 			var b = [];
 			a = a.getTopBlocks(!0);
@@ -15889,8 +15892,8 @@
 					2 > b.length
 						? module$contents$Blockly$ContextMenuItems_deleteNext_(b, c)
 						: (0, module$exports$Blockly$dialog.confirm)($.module$exports$Blockly$Msg.Msg.DELETE_ALL_BLOCKS.replace('%1', String(b.length)), function (d) {
-								d && module$contents$Blockly$ContextMenuItems_deleteNext_(b, c);
-						  });
+							d && module$contents$Blockly$ContextMenuItems_deleteNext_(b, c);
+						});
 				}
 			},
 			scopeType: module$exports$Blockly$ContextMenuRegistry.ContextMenuRegistry.ScopeType.WORKSPACE,
@@ -16066,7 +16069,7 @@
 		this.setVisible(!1);
 		this.block_ = null;
 	};
-	module$exports$Blockly$Icon.Icon.prototype.updateEditable = function () {};
+	module$exports$Blockly$Icon.Icon.prototype.updateEditable = function () { };
 	module$exports$Blockly$Icon.Icon.prototype.isVisible = function () {
 		return !!this.bubble_;
 	};
@@ -16253,7 +16256,7 @@
 			return a;
 		}
 	};
-	var module$exports$Blockly$IPositionable = { IPositionable: function () {} };
+	var module$exports$Blockly$IPositionable = { IPositionable: function () { } };
 	var module$exports$Blockly$ZoomControls = {
 		ZoomControls: function (a) {
 			this.workspace_ = a;
@@ -16624,7 +16627,7 @@
 	module$exports$Blockly$WorkspaceCommentSvg.WorkspaceCommentSvg.prototype.setDeleteStyle = function (a) {
 		a ? (0, module$exports$Blockly$utils$dom.addClass)(this.svgGroup_, 'blocklyDraggingDelete') : (0, module$exports$Blockly$utils$dom.removeClass)(this.svgGroup_, 'blocklyDraggingDelete');
 	};
-	module$exports$Blockly$WorkspaceCommentSvg.WorkspaceCommentSvg.prototype.setAutoLayout = function (a) {};
+	module$exports$Blockly$WorkspaceCommentSvg.WorkspaceCommentSvg.prototype.setAutoLayout = function (a) { };
 	module$exports$Blockly$WorkspaceCommentSvg.WorkspaceCommentSvg.fromXml = function (a, b, c) {
 		(0, module$exports$Blockly$Events$utils.disable)();
 		try {
@@ -16940,7 +16943,7 @@
 	};
 	module$exports$Blockly$Trashcan.Trashcan.prototype.onDelete_ = function (a) {
 		if (!(0 >= this.workspace_.options.maxTrashcanContents || a.type !== module$exports$Blockly$Events$utils.DELETE || a.wasShadow) && ((a = this.cleanBlockJson_(a.oldJson)), -1 === this.contents_.indexOf(a))) {
-			for (this.contents_.unshift(a); this.contents_.length > this.workspace_.options.maxTrashcanContents; ) this.contents_.pop();
+			for (this.contents_.unshift(a); this.contents_.length > this.workspace_.options.maxTrashcanContents;) this.contents_.pop();
 			this.setMinOpenness_(module$contents$Blockly$Trashcan_HAS_BLOCKS_LID_ANGLE);
 		}
 	};
@@ -17049,7 +17052,7 @@
 		this.isLabel_ && this.callbackKey_ ? console.warn('Labels should not have callbacks. Label text: ' + this.text_) : this.isLabel_ || (this.callbackKey_ && this.targetWorkspace_.getButtonCallback(this.callbackKey_)) ? this.isLabel_ || this.targetWorkspace_.getButtonCallback(this.callbackKey_)(this) : console.warn('Buttons should have callbacks. Button text: ' + this.text_);
 	};
 	(0, module$exports$Blockly$Css.register)('\n  .blocklyFlyoutButton {\n    fill: #888;\n    cursor: default;\n  }\n\n  .blocklyFlyoutButtonShadow {\n    fill: #666;\ndisplay: none;\n  }\n\n  .blocklyFlyoutButton:hover {\n    fill: #aaa;\n  }\n\n  .blocklyFlyoutLabel {\n    cursor: default;\n  }\n\n  .blocklyFlyoutLabelBackground {\n    opacity: 0;\n  }\n');
-	var module$exports$Blockly$BlocklyOptions = { BlocklyOptions: function () {} };
+	var module$exports$Blockly$BlocklyOptions = { BlocklyOptions: function () { } };
 	var module$exports$Blockly$VariablesDynamic = {
 		CATEGORY_NAME: 'VARIABLE_DYNAMIC',
 		onCreateVariableButtonClick_String: function (a) {
@@ -17127,7 +17130,7 @@
 	};
 	$.module$exports$Blockly$Procedures.findLegalName = function (a, b) {
 		if (b.isInFlyout) return a;
-		for (a = a || $.module$exports$Blockly$Msg.Msg.UNNAMED_KEY || 'unnamed'; !module$contents$Blockly$Procedures_isLegalName(a, b.workspace, b); ) {
+		for (a = a || $.module$exports$Blockly$Msg.Msg.UNNAMED_KEY || 'unnamed'; !module$contents$Blockly$Procedures_isLegalName(a, b.workspace, b);) {
 			var c = a.match(/^(.*?)(\d+)$/);
 			a = c ? c[1] + (parseInt(c[2], 10) + 1) : a + '2';
 		}

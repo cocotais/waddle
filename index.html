@@ -174,22 +174,26 @@
 		}
 
 		#delete-div {
-			position: relative;
+			position: absolute;
 			top: 0px;
 			width: 60px;
 			height: 100%;
-			z-index: 75;
+			z-index: 0;
 			background-color: #00000055;
 			-webkit-backdrop-filter: blur(10px);
 			backdrop-filter: blur(10px);
+			opacity: 0%;
+			transition: opacity 0.2s;
 		}
 
 		#delete-svg {
-			position: relative;
+			position: absolute;
 			top: 50%;
 			width: 60px;
 			height: 60px;
-			z-index: 80;
+			z-index: 0;
+			opacity: 0%;
+			transition: opacity 0.5s;
 		}
 
 	</style>
@@ -227,6 +231,24 @@
 		</nav>
 		<script>
 			$('.cls-1').animate({ 'stroke-dashoffset': '1500px' }, 10);
+		</script>
+		<script>
+			// 删除样式
+			var delete_blocks =function(mode) {
+				let delete_div = document.getElementById('delete-svg').style;
+				let delete_svg = document.getElementById('delete-div').style;
+				if (mode) {
+					delete_div.zIndex = 80;
+					delete_svg.zIndex = 75;
+					delete_div.opacity = 1;
+					delete_svg.opacity = 1;
+				} else {
+					delete_div.zIndex = 0;
+					delete_svg.zIndex = 0;
+					delete_div.opacity = 0;
+					delete_svg.opacity = 0;
+				}
+			}
 		</script>
 		<div id="delete-div"></div>
 		<div id="table">
@@ -738,15 +760,15 @@
 </body>
 <!--引入Blockly必要文件-->
 
-<script src="./static/blockly-master/blockly_compressed.js"></script>
+<script src="./static/blockly-master/blockly_compressed.min.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1280px' }, 10);
 </script>
-<script src="./static/blockly-master/javascript_compressed.js"></script>
+<script src="./static/blockly-master/javascript_compressed.min.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1260px' }, 10);
 </script>
-<script src="./static/blockly-master/blocks_compressed.js"></script>
+<script src="./static/blockly-master/blocks_compressed.min.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1240px' }, 10);
 </script>
