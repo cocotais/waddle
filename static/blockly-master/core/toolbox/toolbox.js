@@ -25,37 +25,37 @@ const eventUtils = goog.require('Blockly.Events.utils');
 const object = goog.require('Blockly.utils.object');
 const registry = goog.require('Blockly.registry');
 const toolbox = goog.require('Blockly.utils.toolbox');
-const {BlockSvg} = goog.require('Blockly.BlockSvg');
+const { BlockSvg } = goog.require('Blockly.BlockSvg');
 /* eslint-disable-next-line no-unused-vars */
-const {BlocklyOptions} = goog.requireType('Blockly.BlocklyOptions');
-const {CollapsibleToolboxCategory} = goog.require('Blockly.CollapsibleToolboxCategory');
-const {ComponentManager} = goog.require('Blockly.ComponentManager');
-const {DeleteArea} = goog.require('Blockly.DeleteArea');
+const { BlocklyOptions } = goog.requireType('Blockly.BlocklyOptions');
+const { CollapsibleToolboxCategory } = goog.require('Blockly.CollapsibleToolboxCategory');
+const { ComponentManager } = goog.require('Blockly.ComponentManager');
+const { DeleteArea } = goog.require('Blockly.DeleteArea');
 /* eslint-disable-next-line no-unused-vars */
-const {IAutoHideable} = goog.require('Blockly.IAutoHideable');
+const { IAutoHideable } = goog.require('Blockly.IAutoHideable');
 /* eslint-disable-next-line no-unused-vars */
-const {ICollapsibleToolboxItem} = goog.requireType('Blockly.ICollapsibleToolboxItem');
+const { ICollapsibleToolboxItem } = goog.requireType('Blockly.ICollapsibleToolboxItem');
 /* eslint-disable-next-line no-unused-vars */
-const {IDraggable} = goog.requireType('Blockly.IDraggable');
+const { IDraggable } = goog.requireType('Blockly.IDraggable');
 /* eslint-disable-next-line no-unused-vars */
-const {IFlyout} = goog.requireType('Blockly.IFlyout');
+const { IFlyout } = goog.requireType('Blockly.IFlyout');
 /* eslint-disable-next-line no-unused-vars */
-const {IKeyboardAccessible} = goog.require('Blockly.IKeyboardAccessible');
+const { IKeyboardAccessible } = goog.require('Blockly.IKeyboardAccessible');
 /* eslint-disable-next-line no-unused-vars */
-const {ISelectableToolboxItem} = goog.requireType('Blockly.ISelectableToolboxItem');
+const { ISelectableToolboxItem } = goog.requireType('Blockly.ISelectableToolboxItem');
 /* eslint-disable-next-line no-unused-vars */
-const {IStyleable} = goog.require('Blockly.IStyleable');
+const { IStyleable } = goog.require('Blockly.IStyleable');
 /* eslint-disable-next-line no-unused-vars */
-const {IToolboxItem} = goog.requireType('Blockly.IToolboxItem');
+const { IToolboxItem } = goog.requireType('Blockly.IToolboxItem');
 /* eslint-disable-next-line no-unused-vars */
-const {IToolbox} = goog.require('Blockly.IToolbox');
-const {KeyCodes} = goog.require('Blockly.utils.KeyCodes');
-const {Options} = goog.require('Blockly.Options');
-const {Rect} = goog.require('Blockly.utils.Rect');
+const { IToolbox } = goog.require('Blockly.IToolbox');
+const { KeyCodes } = goog.require('Blockly.utils.KeyCodes');
+const { Options } = goog.require('Blockly.Options');
+const { Rect } = goog.require('Blockly.utils.Rect');
 /* eslint-disable-next-line no-unused-vars */
-const {ShortcutRegistry} = goog.requireType('Blockly.ShortcutRegistry');
+const { ShortcutRegistry } = goog.requireType('Blockly.ShortcutRegistry');
 /* eslint-disable-next-line no-unused-vars */
-const {WorkspaceSvg} = goog.requireType('Blockly.WorkspaceSvg');
+const { WorkspaceSvg } = goog.requireType('Blockly.WorkspaceSvg');
 /** @suppress {extraRequire} */
 goog.require('Blockly.Events.ToolboxItemSelect');
 
@@ -73,7 +73,7 @@ goog.require('Blockly.Events.ToolboxItemSelect');
  * @extends {DeleteArea}
  * @alias Blockly.Toolbox
  */
-const Toolbox = function(workspace) {
+const Toolbox = function (workspace) {
   Toolbox.superClass_.constructor.call(this);
   /**
    * The workspace this toolbox is on.
@@ -94,7 +94,7 @@ const Toolbox = function(workspace) {
    * @type {!toolbox.ToolboxInfo}
    * @protected
    */
-  this.toolboxDef_ = workspace.options.languageTree || {'contents': []};
+  this.toolboxDef_ = workspace.options.languageTree || { 'contents': [] };
 
   /**
    * Whether the toolbox should be laid out horizontally.
@@ -202,7 +202,7 @@ object.inherits(Toolbox, DeleteArea);
  * @return {boolean} True if the shortcut has been handled, false otherwise.
  * @public
  */
-Toolbox.prototype.onShortcut = function(_shortcut) {
+Toolbox.prototype.onShortcut = function (_shortcut) {
   return false;
 };
 
@@ -210,7 +210,7 @@ Toolbox.prototype.onShortcut = function(_shortcut) {
  * Initializes the toolbox
  * @public
  */
-Toolbox.prototype.init = function() {
+Toolbox.prototype.init = function () {
   const workspace = this.workspace_;
   const svg = workspace.getParentSvg();
 
@@ -224,7 +224,7 @@ Toolbox.prototype.init = function() {
   this.render(this.toolboxDef_);
   const themeManager = workspace.getThemeManager();
   themeManager.subscribe(
-      this.HtmlDiv, 'toolboxBackgroundColour', 'background-color');
+    this.HtmlDiv, 'toolboxBackgroundColour', 'background-color');
   themeManager.subscribe(this.HtmlDiv, 'toolboxForegroundColour', 'color');
   this.workspace_.getComponentManager().addComponent({
     component: this,
@@ -243,7 +243,7 @@ Toolbox.prototype.init = function() {
  * @return {!Element} The HTML container for the toolbox.
  * @protected
  */
-Toolbox.prototype.createDom_ = function(workspace) {
+Toolbox.prototype.createDom_ = function (workspace) {
   const svg = workspace.getParentSvg();
 
   const container = this.createContainer_();
@@ -264,7 +264,7 @@ Toolbox.prototype.createDom_ = function(workspace) {
  * @return {!Element} The HTML container for the toolbox.
  * @protected
  */
-Toolbox.prototype.createContainer_ = function() {
+Toolbox.prototype.createContainer_ = function () {
   const toolboxContainer = document.createElement('div');
   toolboxContainer.setAttribute('layout', this.isHorizontal() ? 'h' : 'v');
   dom.addClass(toolboxContainer, 'blocklyToolboxDiv');
@@ -278,7 +278,7 @@ Toolbox.prototype.createContainer_ = function() {
  * @return {!Element} The HTML container for the toolbox contents.
  * @protected
  */
-Toolbox.prototype.createContentsContainer_ = function() {
+Toolbox.prototype.createContentsContainer_ = function () {
   const contentsContainer = document.createElement('div');
   dom.addClass(contentsContainer, 'blocklyToolboxContents');
   if (this.isHorizontal()) {
@@ -294,16 +294,16 @@ Toolbox.prototype.createContentsContainer_ = function() {
  *     of the toolbox.
  * @protected
  */
-Toolbox.prototype.attachEvents_ = function(container, contentsContainer) {
+Toolbox.prototype.attachEvents_ = function (container, contentsContainer) {
   // Clicking on toolbox closes popups.
   const clickEvent = browserEvents.conditionalBind(
-      container, 'click', this, this.onClick_,
+    container, 'click', this, this.onClick_,
       /* opt_noCaptureIdentifier */ false,
       /* opt_noPreventDefault */ true);
   this.boundEvents_.push(clickEvent);
 
   const keyDownEvent = browserEvents.conditionalBind(
-      contentsContainer, 'keydown', this, this.onKeyDown_,
+    contentsContainer, 'keydown', this, this.onKeyDown_,
       /* opt_noCaptureIdentifier */ false,
       /* opt_noPreventDefault */ true);
   this.boundEvents_.push(keyDownEvent);
@@ -314,7 +314,7 @@ Toolbox.prototype.attachEvents_ = function(container, contentsContainer) {
  * @param {!Event} e Click event to handle.
  * @protected
  */
-Toolbox.prototype.onClick_ = function(e) {
+Toolbox.prototype.onClick_ = function (e) {
   if (browserEvents.isRightButton(e) || e.target === this.HtmlDiv) {
     // Close flyout.
     common.getMainWorkspace().hideChaff(false);
@@ -339,7 +339,7 @@ Toolbox.prototype.onClick_ = function(e) {
  * @param {!KeyboardEvent} e The key down event.
  * @protected
  */
-Toolbox.prototype.onKeyDown_ = function(e) {
+Toolbox.prototype.onKeyDown_ = function (e) {
   let handled = false;
   switch (e.keyCode) {
     case KeyCodes.DOWN:
@@ -383,32 +383,32 @@ Toolbox.prototype.onKeyDown_ = function(e) {
  *     `Blockly.VerticalFlyout`, and no flyout plugin is specified.
  * @protected
  */
-Toolbox.prototype.createFlyout_ = function() {
+Toolbox.prototype.createFlyout_ = function () {
   const workspace = this.workspace_;
   // TODO (#4247): Look into adding a makeFlyout method to Blockly Options.
   const workspaceOptions = new Options(
-      /** @type {!BlocklyOptions} */
-      ({
-        'parentWorkspace': workspace,
-        'rtl': workspace.RTL,
-        'oneBasedIndex': workspace.options.oneBasedIndex,
-        'horizontalLayout': workspace.horizontalLayout,
-        'renderer': workspace.options.renderer,
-        'rendererOverrides': workspace.options.rendererOverrides,
-        'move': {
-          'scrollbars': true,
-        },
-      }));
+    /** @type {!BlocklyOptions} */
+    ({
+      'parentWorkspace': workspace,
+      'rtl': workspace.RTL,
+      'oneBasedIndex': workspace.options.oneBasedIndex,
+      'horizontalLayout': workspace.horizontalLayout,
+      'renderer': workspace.options.renderer,
+      'rendererOverrides': workspace.options.rendererOverrides,
+      'move': {
+        'scrollbars': true,
+      },
+    }));
   // Options takes in either 'end' or 'start'. This has already been parsed to
   // be either 0 or 1, so set it after.
   workspaceOptions.toolboxPosition = workspace.options.toolboxPosition;
   let FlyoutClass = null;
   if (workspace.horizontalLayout) {
     FlyoutClass = registry.getClassFromOptions(
-        registry.Type.FLYOUTS_HORIZONTAL_TOOLBOX, workspace.options, true);
+      registry.Type.FLYOUTS_HORIZONTAL_TOOLBOX, workspace.options, true);
   } else {
     FlyoutClass = registry.getClassFromOptions(
-        registry.Type.FLYOUTS_VERTICAL_TOOLBOX, workspace.options, true);
+      registry.Type.FLYOUTS_VERTICAL_TOOLBOX, workspace.options, true);
   }
   return new FlyoutClass(workspaceOptions);
 };
@@ -419,7 +419,7 @@ Toolbox.prototype.createFlyout_ = function() {
  *     for creating a toolbox.
  * @package
  */
-Toolbox.prototype.render = function(toolboxDef) {
+Toolbox.prototype.render = function (toolboxDef) {
   this.toolboxDef_ = toolboxDef;
   for (let i = 0; i < this.contents_.length; i++) {
     const toolboxItem = this.contents_[i];
@@ -440,7 +440,7 @@ Toolbox.prototype.render = function(toolboxDef) {
  *     holding objects containing information on the contents of the toolbox.
  * @protected
  */
-Toolbox.prototype.renderContents_ = function(toolboxDef) {
+Toolbox.prototype.renderContents_ = function (toolboxDef) {
   // This is for performance reasons. By using document fragment we only have to
   // add to the DOM once.
   const fragment = document.createDocumentFragment();
@@ -459,19 +459,19 @@ Toolbox.prototype.renderContents_ = function(toolboxDef) {
  *     toolbox elements to.
  * @private
  */
-Toolbox.prototype.createToolboxItem_ = function(toolboxItemDef, fragment) {
+Toolbox.prototype.createToolboxItem_ = function (toolboxItemDef, fragment) {
   let registryName = toolboxItemDef['kind'];
 
   // Categories that are collapsible are created using a class registered under
   // a different name.
   if (registryName.toUpperCase() === 'CATEGORY' &&
-      toolbox.isCategoryCollapsible(
-          /** @type {!toolbox.CategoryInfo} */ (toolboxItemDef))) {
+    toolbox.isCategoryCollapsible(
+          /** @type {!toolbox.CategoryInfo} */(toolboxItemDef))) {
     registryName = CollapsibleToolboxCategory.registrationName;
   }
 
   const ToolboxItemClass =
-      registry.getClass(registry.Type.TOOLBOX_ITEM, registryName.toLowerCase());
+    registry.getClass(registry.Type.TOOLBOX_ITEM, registryName.toLowerCase());
   if (ToolboxItemClass) {
     const toolboxItem = new ToolboxItemClass(toolboxItemDef, this);
     this.addToolboxItem_(toolboxItem);
@@ -493,12 +493,12 @@ Toolbox.prototype.createToolboxItem_ = function(toolboxItemDef, fragment) {
  * @param {!IToolboxItem} toolboxItem The item in the toolbox.
  * @protected
  */
-Toolbox.prototype.addToolboxItem_ = function(toolboxItem) {
+Toolbox.prototype.addToolboxItem_ = function (toolboxItem) {
   this.contents_.push(toolboxItem);
   this.contentMap_[toolboxItem.getId()] = toolboxItem;
   if (toolboxItem.isCollapsible()) {
     const collapsibleItem = /** @type {ICollapsibleToolboxItem} */
-        (toolboxItem);
+      (toolboxItem);
     const childToolboxItems = collapsibleItem.getChildToolboxItems();
     for (let i = 0; i < childToolboxItems.length; i++) {
       const child = childToolboxItems[i];
@@ -512,7 +512,7 @@ Toolbox.prototype.addToolboxItem_ = function(toolboxItem) {
  * @return {!Array<!IToolboxItem>} The list of items in the toolbox.
  * @public
  */
-Toolbox.prototype.getToolboxItems = function() {
+Toolbox.prototype.getToolboxItems = function () {
   return this.contents_;
 };
 
@@ -521,8 +521,8 @@ Toolbox.prototype.getToolboxItems = function() {
  * @param {string} style The name of the class to add.
  * @package
  */
-Toolbox.prototype.addStyle = function(style) {
-  dom.addClass(/** @type {!Element} */ (this.HtmlDiv), style);
+Toolbox.prototype.addStyle = function (style) {
+  dom.addClass(/** @type {!Element} */(this.HtmlDiv), style);
 };
 
 /**
@@ -530,8 +530,8 @@ Toolbox.prototype.addStyle = function(style) {
  * @param {string} style The name of the class to remove.
  * @package
  */
-Toolbox.prototype.removeStyle = function(style) {
-  dom.removeClass(/** @type {!Element} */ (this.HtmlDiv), style);
+Toolbox.prototype.removeStyle = function (style) {
+  dom.removeClass(/** @type {!Element} */(this.HtmlDiv), style);
 };
 
 /**
@@ -540,7 +540,7 @@ Toolbox.prototype.removeStyle = function(style) {
  * @return {?Rect} The component's bounding box. Null if drag
  *   target area should be ignored.
  */
-Toolbox.prototype.getClientRect = function() {
+Toolbox.prototype.getClientRect = function () {
   if (!this.HtmlDiv || !this.isVisible_) {
     return null;
   }
@@ -582,7 +582,7 @@ Toolbox.prototype.getClientRect = function() {
  *     this area.
  * @override
  */
-Toolbox.prototype.wouldDelete = function(element, _couldConnect) {
+Toolbox.prototype.wouldDelete = function (element, _couldConnect) {
   if (element instanceof BlockSvg) {
     const block = /** @type {BlockSvg} */ (element);
     // Prefer dragging to the toolbox over connecting to other blocks.
@@ -599,7 +599,7 @@ Toolbox.prototype.wouldDelete = function(element, _couldConnect) {
  *   dragged.
  * @override
  */
-Toolbox.prototype.onDragEnter = function(_dragElement) {
+Toolbox.prototype.onDragEnter = function (_dragElement) {
   this.updateCursorDeleteStyle_(true);
 };
 
@@ -609,7 +609,7 @@ Toolbox.prototype.onDragEnter = function(_dragElement) {
  *   dragged.
  * @override
  */
-Toolbox.prototype.onDragExit = function(_dragElement) {
+Toolbox.prototype.onDragExit = function (_dragElement) {
   this.updateCursorDeleteStyle_(false);
 };
 
@@ -621,7 +621,7 @@ Toolbox.prototype.onDragExit = function(_dragElement) {
  *   dragged.
  * @override
  */
-Toolbox.prototype.onDrop = function(_dragElement) {
+Toolbox.prototype.onDrop = function (_dragElement) {
   this.updateCursorDeleteStyle_(false);
 };
 
@@ -631,7 +631,7 @@ Toolbox.prototype.onDrop = function(_dragElement) {
  * @protected
  * @override
  */
-Toolbox.prototype.updateWouldDelete_ = function(wouldDelete) {
+Toolbox.prototype.updateWouldDelete_ = function (wouldDelete) {
   if (wouldDelete === this.wouldDelete_) {
     return;
   }
@@ -652,9 +652,9 @@ Toolbox.prototype.updateWouldDelete_ = function(wouldDelete) {
  * @param {boolean} addStyle Whether the style should be added or removed.
  * @protected
  */
-Toolbox.prototype.updateCursorDeleteStyle_ = function(addStyle) {
+Toolbox.prototype.updateCursorDeleteStyle_ = function (addStyle) {
   const style =
-      this.wouldDelete_ ? 'blocklyToolboxDelete' : 'blocklyToolboxGrab';
+    this.wouldDelete_ ? 'blocklyToolboxDelete' : 'blocklyToolboxGrab';
   if (addStyle) {
     this.addStyle(style);
   } else {
@@ -669,7 +669,7 @@ Toolbox.prototype.updateCursorDeleteStyle_ = function(addStyle) {
  *     if no item exists.
  * @public
  */
-Toolbox.prototype.getToolboxItemById = function(id) {
+Toolbox.prototype.getToolboxItemById = function (id) {
   return this.contentMap_[id] || null;
 };
 
@@ -678,7 +678,7 @@ Toolbox.prototype.getToolboxItemById = function(id) {
  * @return {number} The width of the toolbox.
  * @public
  */
-Toolbox.prototype.getWidth = function() {
+Toolbox.prototype.getWidth = function () {
   return this.width_;
 };
 
@@ -687,7 +687,7 @@ Toolbox.prototype.getWidth = function() {
  * @return {number} The width of the toolbox.
  * @public
  */
-Toolbox.prototype.getHeight = function() {
+Toolbox.prototype.getHeight = function () {
   return this.height_;
 };
 
@@ -696,7 +696,7 @@ Toolbox.prototype.getHeight = function() {
  * @return {?IFlyout} The toolbox flyout.
  * @public
  */
-Toolbox.prototype.getFlyout = function() {
+Toolbox.prototype.getFlyout = function () {
   return this.flyout_;
 };
 
@@ -705,7 +705,7 @@ Toolbox.prototype.getFlyout = function() {
  * @return {!WorkspaceSvg} The parent workspace for the toolbox.
  * @public
  */
-Toolbox.prototype.getWorkspace = function() {
+Toolbox.prototype.getWorkspace = function () {
   return this.workspace_;
 };
 
@@ -715,7 +715,7 @@ Toolbox.prototype.getWorkspace = function() {
  *     currently selected.
  * @public
  */
-Toolbox.prototype.getSelectedItem = function() {
+Toolbox.prototype.getSelectedItem = function () {
   return this.selectedItem_;
 };
 
@@ -725,7 +725,7 @@ Toolbox.prototype.getSelectedItem = function() {
  *     item was previously selected.
  * @public
  */
-Toolbox.prototype.getPreviouslySelectedItem = function() {
+Toolbox.prototype.getPreviouslySelectedItem = function () {
   return this.previouslySelectedItem_;
 };
 
@@ -735,7 +735,7 @@ Toolbox.prototype.getPreviouslySelectedItem = function() {
  *     vertical.
  * @public
  */
-Toolbox.prototype.isHorizontal = function() {
+Toolbox.prototype.isHorizontal = function () {
   return this.horizontalLayout_;
 };
 
@@ -744,7 +744,7 @@ Toolbox.prototype.isHorizontal = function() {
  * the workspace is in rtl.
  * @public
  */
-Toolbox.prototype.position = function() {
+Toolbox.prototype.position = function () {
   const workspaceMetrics = this.workspace_.getMetrics();
   const toolboxDiv = this.HtmlDiv;
   if (!toolboxDiv) {
@@ -779,17 +779,17 @@ Toolbox.prototype.position = function() {
  * Handles resizing the toolbox when a toolbox item resizes.
  * @package
  */
-Toolbox.prototype.handleToolboxItemResize = function() {
+Toolbox.prototype.handleToolboxItemResize = function () {
   // Reposition the workspace so that (0,0) is in the correct position relative
   // to the new absolute edge (ie toolbox edge).
   const workspace = this.workspace_;
   const rect = this.HtmlDiv.getBoundingClientRect();
   const newX = this.toolboxPosition === toolbox.Position.LEFT ?
-      workspace.scrollX + rect.width :
-      workspace.scrollX;
+    workspace.scrollX + rect.width :
+    workspace.scrollX;
   const newY = this.toolboxPosition === toolbox.Position.TOP ?
-      workspace.scrollY + rect.height :
-      workspace.scrollY;
+    workspace.scrollY + rect.height :
+    workspace.scrollY;
   workspace.translate(newX, newY);
 
   // Even though the div hasn't changed size, the visible workspace
@@ -801,7 +801,7 @@ Toolbox.prototype.handleToolboxItemResize = function() {
  * Unhighlights any previously selected item.
  * @public
  */
-Toolbox.prototype.clearSelection = function() {
+Toolbox.prototype.clearSelection = function () {
   this.setSelectedItem(null);
 };
 
@@ -809,7 +809,7 @@ Toolbox.prototype.clearSelection = function() {
  * Updates the category colours and background colour of selected categories.
  * @package
  */
-Toolbox.prototype.refreshTheme = function() {
+Toolbox.prototype.refreshTheme = function () {
   for (let i = 0; i < this.contents_.length; i++) {
     const child = this.contents_[i];
     if (child.refreshTheme) {
@@ -824,9 +824,9 @@ Toolbox.prototype.refreshTheme = function() {
  * procedures.
  * @public
  */
-Toolbox.prototype.refreshSelection = function() {
+Toolbox.prototype.refreshSelection = function () {
   if (this.selectedItem_ && this.selectedItem_.isSelectable() &&
-      this.selectedItem_.getContents().length) {
+    this.selectedItem_.getContents().length) {
     this.flyout_.show(this.selectedItem_.getContents());
   }
 };
@@ -836,7 +836,7 @@ Toolbox.prototype.refreshSelection = function() {
  * @param {boolean} isVisible True if toolbox should be visible.
  * @public
  */
-Toolbox.prototype.setVisible = function(isVisible) {
+Toolbox.prototype.setVisible = function (isVisible) {
   if (this.isVisible_ === isVisible) {
     return;
   }
@@ -853,7 +853,7 @@ Toolbox.prototype.setVisible = function(isVisible) {
  * @param {boolean} onlyClosePopups Whether only popups should be closed.
  *     Flyouts should not be closed if this is true.
  */
-Toolbox.prototype.autoHide = function(onlyClosePopups) {
+Toolbox.prototype.autoHide = function (onlyClosePopups) {
   if (!onlyClosePopups && this.flyout_ && this.flyout_.autoClose) {
     this.clearSelection();
   }
@@ -865,7 +865,7 @@ Toolbox.prototype.autoHide = function(onlyClosePopups) {
  * @param {?IToolboxItem} newItem The toolbox item to select.
  * @public
  */
-Toolbox.prototype.setSelectedItem = function(newItem) {
+Toolbox.prototype.setSelectedItem = function (newItem) {
   const oldItem = this.selectedItem_;
 
   if ((!newItem && !oldItem) || (newItem && !newItem.isSelectable())) {
@@ -894,7 +894,7 @@ Toolbox.prototype.setSelectedItem = function(newItem) {
  * @return {boolean} True if the old item should be deselected, false otherwise.
  * @protected
  */
-Toolbox.prototype.shouldDeselectItem_ = function(oldItem, newItem) {
+Toolbox.prototype.shouldDeselectItem_ = function (oldItem, newItem) {
   // Deselect the old item unless the old item is collapsible and has been
   // previously clicked on.
   return oldItem !== null && (!oldItem.isCollapsible() || oldItem !== newItem);
@@ -909,7 +909,7 @@ Toolbox.prototype.shouldDeselectItem_ = function(oldItem, newItem) {
  * @return {boolean} True if the new item should be selected, false otherwise.
  * @protected
  */
-Toolbox.prototype.shouldSelectItem_ = function(oldItem, newItem) {
+Toolbox.prototype.shouldSelectItem_ = function (oldItem, newItem) {
   // Select the new item unless the old item equals the new item.
   return newItem !== null && newItem !== oldItem;
 };
@@ -920,13 +920,13 @@ Toolbox.prototype.shouldSelectItem_ = function(oldItem, newItem) {
  *     toolbox item which should be deselected.
  * @protected
  */
-Toolbox.prototype.deselectItem_ = function(item) {
+Toolbox.prototype.deselectItem_ = function (item) {
   this.selectedItem_ = null;
   this.previouslySelectedItem_ = item;
   item.setSelected(false);
   aria.setState(
-      /** @type {!Element} */ (this.contentsDiv_), aria.State.ACTIVEDESCENDANT,
-      '');
+      /** @type {!Element} */(this.contentsDiv_), aria.State.ACTIVEDESCENDANT,
+    '');
 };
 
 /**
@@ -937,13 +937,13 @@ Toolbox.prototype.deselectItem_ = function(item) {
  *     item.
  * @protected
  */
-Toolbox.prototype.selectItem_ = function(oldItem, newItem) {
+Toolbox.prototype.selectItem_ = function (oldItem, newItem) {
   this.selectedItem_ = newItem;
   this.previouslySelectedItem_ = oldItem;
   newItem.setSelected(true);
   aria.setState(
-      /** @type {!Element} */ (this.contentsDiv_), aria.State.ACTIVEDESCENDANT,
-      newItem.getId());
+      /** @type {!Element} */(this.contentsDiv_), aria.State.ACTIVEDESCENDANT,
+    newItem.getId());
 };
 
 /**
@@ -951,7 +951,7 @@ Toolbox.prototype.selectItem_ = function(oldItem, newItem) {
  * @param {number} position The position of the item to select.
  * @public
  */
-Toolbox.prototype.selectItemByPosition = function(position) {
+Toolbox.prototype.selectItemByPosition = function (position) {
   if (position > -1 && position < this.contents_.length) {
     const item = this.contents_[position];
     if (item.isSelectable()) {
@@ -967,9 +967,9 @@ Toolbox.prototype.selectItemByPosition = function(position) {
  * @param {?ISelectableToolboxItem} newItem The newly selected toolbox item.
  * @protected
  */
-Toolbox.prototype.updateFlyout_ = function(oldItem, newItem) {
+Toolbox.prototype.updateFlyout_ = function (oldItem, newItem) {
   if (!newItem || (oldItem === newItem && !newItem.isCollapsible()) ||
-      !newItem.getContents().length) {
+    !newItem.getContents().length) {
     this.flyout_.hide();
   } else {
     this.flyout_.show(newItem.getContents());
@@ -985,7 +985,7 @@ Toolbox.prototype.updateFlyout_ = function(oldItem, newItem) {
  *     item.
  * @private
  */
-Toolbox.prototype.fireSelectEvent_ = function(oldItem, newItem) {
+Toolbox.prototype.fireSelectEvent_ = function (oldItem, newItem) {
   const oldElement = oldItem && oldItem.getName();
   let newElement = newItem && newItem.getName();
   // In this case the toolbox closes, so the newElement should be null.
@@ -993,7 +993,7 @@ Toolbox.prototype.fireSelectEvent_ = function(oldItem, newItem) {
     newElement = null;
   }
   const event = new (eventUtils.get(eventUtils.TOOLBOX_ITEM_SELECT))(
-      oldElement, newElement, this.workspace_.id);
+    oldElement, newElement, this.workspace_.id);
   eventUtils.fire(event);
 };
 
@@ -1002,7 +1002,7 @@ Toolbox.prototype.fireSelectEvent_ = function(oldItem, newItem) {
  * @return {boolean} True if a parent category was selected, false otherwise.
  * @private
  */
-Toolbox.prototype.selectParent_ = function() {
+Toolbox.prototype.selectParent_ = function () {
   if (!this.selectedItem_) {
     return false;
   }
@@ -1013,8 +1013,8 @@ Toolbox.prototype.selectParent_ = function() {
     collapsibleItem.setExpanded(false);
     return true;
   } else if (
-      this.selectedItem_.getParent() &&
-      this.selectedItem_.getParent().isSelectable()) {
+    this.selectedItem_.getParent() &&
+    this.selectedItem_.getParent().isSelectable()) {
     this.setSelectedItem(this.selectedItem_.getParent());
     return true;
   }
@@ -1027,12 +1027,12 @@ Toolbox.prototype.selectParent_ = function() {
  * @return {boolean} True if a child category was selected, false otherwise.
  * @private
  */
-Toolbox.prototype.selectChild_ = function() {
+Toolbox.prototype.selectChild_ = function () {
   if (!this.selectedItem_ || !this.selectedItem_.isCollapsible()) {
     return false;
   }
   const collapsibleItem = /** @type {ICollapsibleToolboxItem} */
-      (this.selectedItem_);
+    (this.selectedItem_);
   if (!collapsibleItem.isExpanded()) {
     collapsibleItem.setExpanded(true);
     return true;
@@ -1047,7 +1047,7 @@ Toolbox.prototype.selectChild_ = function() {
  * @return {boolean} True if a next category was selected, false otherwise.
  * @private
  */
-Toolbox.prototype.selectNext_ = function() {
+Toolbox.prototype.selectNext_ = function () {
   if (!this.selectedItem_) {
     return false;
   }
@@ -1071,7 +1071,7 @@ Toolbox.prototype.selectNext_ = function() {
  * @return {boolean} True if a previous category was selected, false otherwise.
  * @private
  */
-Toolbox.prototype.selectPrevious_ = function() {
+Toolbox.prototype.selectPrevious_ = function () {
   if (!this.selectedItem_) {
     return false;
   }
@@ -1094,7 +1094,7 @@ Toolbox.prototype.selectPrevious_ = function() {
  * Disposes of this toolbox.
  * @public
  */
-Toolbox.prototype.dispose = function() {
+Toolbox.prototype.dispose = function () {
   this.workspace_.getComponentManager().removeComponent('toolbox');
   this.flyout_.dispose();
   for (let i = 0; i < this.contents_.length; i++) {
@@ -1132,7 +1132,7 @@ Css.register(`
     overflow-x: visible;
     overflow-y: auto;
     position: absolute;
-    z-index: 70;  /* so blocks go under toolbox when dragging */
+    z-index: 5;  /* so blocks go up toolbox when dragging */
     -webkit-tap-highlight-color: transparent;  /* issue #1345 */
   }
 

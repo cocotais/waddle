@@ -202,7 +202,7 @@
 	</script>
 	<div id="body" style="visibility:hidden;">
 		<img onclick='dropdown_show();' alt="Waddle" id="logo1" src="./static/img/purple-logo.svg"
-			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 60; background-color: var(--toolbox-color);cursor: pointer;">
+			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 5; background-color: var(--toolbox-color);cursor: pointer;">
 		<nav class="navbar navbar-expand navbar-dark" style="height:0px;background-color: var(--main-color);">
 			<div class="container-fluid">
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -238,8 +238,8 @@
 				let delete_div = document.getElementById('delete-svg').style;
 				let delete_svg = document.getElementById('delete-div').style;
 				if (mode) {
-					delete_div.zIndex = 80;
-					delete_svg.zIndex = 75;
+					delete_div.zIndex = 7;
+					delete_svg.zIndex = 6;
 					delete_div.opacity = 1;
 					delete_svg.opacity = 1;
 				} else {
@@ -1899,6 +1899,7 @@
 	document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 	document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
 	document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
+	$('.blocklyToolboxDiv').css('z-index','5');
 	setTimeout(() => {
 		document.getElementsByClassName("blocklyTrash")[0].style.display = "none";
 		Blockly.svgResize(workspace);
