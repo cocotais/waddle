@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="theme-color" id="pwa-color" content="#6d50f0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	<link rel="manifest" href="./manifest.json">
+	<link rel="manifest" href="./pwa/manifest.json">
 	<meta name="apple-touch-fullscreen" content="yes">
 	<link rel="apple-touch-icon" href="./static/img/apple-touch-icon.png">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport">
@@ -24,7 +24,7 @@
 	<script>
 		if ('serviceWorker' in navigator) {
 			window.addEventListener('load', function () {
-				navigator.serviceWorker.register('./sw.js')
+				navigator.serviceWorker.register('./pwa/sw.js')
 			});
 		}
 	</script>
