@@ -1900,6 +1900,7 @@
 	document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
 	document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
 	$('.blocklyToolboxDiv').css('z-index','5');
+	$('.blocklyFlyout').css('z-index','3');
 	setTimeout(() => {
 		document.getElementsByClassName("blocklyTrash")[0].style.display = "none";
 		Blockly.svgResize(workspace);
