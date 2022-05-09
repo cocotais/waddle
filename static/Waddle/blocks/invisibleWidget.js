@@ -103,8 +103,9 @@ Blockly.Blocks['ivw_addProperty'] = {
                     ['字符串', 'string'],
                     ['数字', 'number'],
                     ['布尔', 'boolean'],
-                    ['颜色','color'],
-                    ['任何类型', "['string','number','boolean','color','array','object',]"]
+                    ['颜色', 'color'],
+                    ['对象', 'object'],
+                    ['任何类型', "['string','number','boolean','color','array','object']"]
                 ]),
                 'valueType'
             );
@@ -179,19 +180,15 @@ Blockly.Blocks['ivw_addMethod'] = {
 
 Blockly.Blocks['ivw_addParams'] = {
     init: function () {
-        this.appendDummyInput().appendField('添加参数').appendField('参数').appendField(new Blockly.FieldTextInput('paramName'), 'key').appendField('标签').appendField(new Blockly.FieldTextInput('参数名'), 'label');
         this.appendDummyInput()
-            .appendField('输入值类型')
-            .appendField(
-                new Blockly.FieldDropdown([
-                    ['字符串', 'string'],
-                    ['数字', 'number'],
-                    ['布尔', 'boolean'],
-                    ['颜色', 'color'],
-                    ['任何类型', "['string','number','boolean','color','array','object',]"]
-                ]),
-                'valueType'
-            );
+            .appendField("添加参数")
+            .appendField("参数")
+            .appendField(new Blockly.FieldTextInput("paramName"), "key")
+            .appendField("标签")
+            .appendField(new Blockly.FieldTextInput("参数名"), "label");
+        this.appendDummyInput()
+            .appendField("输入值类型")
+            .appendField(new Blockly.FieldDropdown([["字符串", "string"], ["数字", "number"], ["布尔", "boolean"],["颜色","color"],["对象","object"], ["任何类型", "['string','number','boolean','array','object']"]]), "valueType");
         this.appendValueInput('defaultValue').appendField('默认值');
         // 以下弃用
         // this.appendDummyInput()
