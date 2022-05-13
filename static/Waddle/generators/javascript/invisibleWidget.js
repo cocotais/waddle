@@ -66,7 +66,7 @@ const types = {
 Blockly.JavaScript['ivw_addProperty'] = function (block) {
 	var text_key = block.getFieldValue('key');
 	var text_label = block.getFieldValue('label');
-	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
+	//var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var text_valueType = block.getFieldValue('valueType');
 	var value_defaultValue = Blockly.JavaScript.valueToCode(block, 'defaultValue', Blockly.JavaScript.ORDER_ATOMIC);
 	var code = `
@@ -75,7 +75,6 @@ types['properties'].push({
     label: '${text_label}',
     valueType: ${text_valueType == "['string','number','boolean','array','object',]" ? text_valueType : ("'" + text_valueType + "'")},
     defaultValue: ${value_defaultValue},
-${statements_other}
 })
 `;
 	return code;

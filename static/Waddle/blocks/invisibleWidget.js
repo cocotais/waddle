@@ -110,7 +110,7 @@ Blockly.Blocks['ivw_addProperty'] = {
                 'valueType'
             );
         this.appendValueInput('defaultValue').appendField('默认值');
-        this.appendStatementInput('other').setCheck(null);
+        //this.appendStatementInput('other').setCheck(null);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#e76cea');
