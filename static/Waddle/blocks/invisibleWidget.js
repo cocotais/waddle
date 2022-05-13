@@ -159,9 +159,7 @@ Blockly.Blocks['ivw_addMethod'] = {
                     ['颜色', "'color'"],
                     ['对象', "'object'"],
                     ['任何类型', "['string','number','boolean','array','color','object',]"]
-                ]),
-                'valueType'
-            );
+                ]), 'valueType');
         // this.appendDummyInput()
         // 	.appendField("积木选项")
         // this.appendStatementInput("other")
@@ -188,7 +186,14 @@ Blockly.Blocks['ivw_addParams'] = {
             .appendField(new Blockly.FieldTextInput("参数名"), "label");
         this.appendDummyInput()
             .appendField("输入值类型")
-            .appendField(new Blockly.FieldDropdown([["字符串", "string"], ["数字", "number"], ["布尔", "boolean"],["颜色","color"],["对象","object"], ["任何类型", "['string','number','boolean','array','object']"]]), "valueType");
+            .appendField(new Blockly.FieldDropdown([
+                ["字符串", "'string'"],
+                ["数字", "'number'"],
+                ["布尔", "'boolean'"],
+                ["颜色", "'color'"],
+                ["对象", "'object'"],
+                ["任何类型", "['string','number','boolean','color','array','object']"]
+            ]), "valueType");
         this.appendValueInput('defaultValue').appendField('默认值');
         // 以下弃用
         // this.appendDummyInput()
