@@ -130,7 +130,7 @@ Blockly.JavaScript['ivw_addParams'] = function (block) {
     {
         key: '${text_key}',
         label: '${text_label}',
-        valueType: ${text_valueType == "['string','number','boolean','array','object']" ? "['string','number','color','boolean','array','object']" : ("'" + text_valueType + "'")},
+        valueType: ${text_valueType},
         defaultValue: ${value_defaultValue},
     },`;
 	return code;
