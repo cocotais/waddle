@@ -450,22 +450,6 @@ TIP
 		<block type="htmldom_appendchild">
 		</block>
 	</category>
-	<category name="权限获取" css-icon="iconfont waddle-tool">
-		<block type="permissions_get">
-		</block>
-		<block type="permissions_window">
-		</block>
-		<block type="permissions_document">
-		</block>
-		<block type="permissions_navigator">
-		</block>
-		<block type="permissions_history">
-		</block>
-		<block type="permissions_call">
-		</block>
-		<block type="permissions_call_return">
-		</block>
-	</category>
 	<category name="lodash" css-icon="iconfont waddle-tool">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
 		</button>
@@ -586,6 +570,22 @@ TIP
 		<label text="为列表添加项，自行添加字符串框">
 		</label>
 		<block type="tools_listItem">
+		</block>
+	</category>
+	<category name="权限获取" css-icon="iconfont waddle-tool">
+		<block type="permissions_get">
+		</block>
+		<block type="permissions_window">
+		</block>
+		<block type="permissions_document">
+		</block>
+		<block type="permissions_navigator">
+		</block>
+		<block type="permissions_history">
+		</block>
+		<block type="permissions_call">
+		</block>
+		<block type="permissions_call_return">
 		</block>
 	</category>
 	<sep>
