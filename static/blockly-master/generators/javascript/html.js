@@ -664,12 +664,7 @@ html_attribute_to_str = code => {
 };
 html_escape_one = char => {
     //HTML转义一下
-    switch (char) {
-        case '<':
-            return '&#60';
-        case '>':
-            return '&#62';
-    }
+    //与现在转义冲突，所以废除
     return char;
 };
 html_escape = str => {
