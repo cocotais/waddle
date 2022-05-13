@@ -359,6 +359,12 @@ TIP
 	<sep>
 	</sep>
 	<category name="HTML" css-icon="iconfont waddle-tool">
+		<label text="警告：标签、样式等不完善，" callbackKey="betawarning">
+		</label>
+		<label text="可能无法完成日常开发需求，" callbackKey="betawarning">
+		</label>
+		<label text="请谨慎使用！" callbackKey="betawarning">
+		</label>
 		<block type="html_code">
 		</block>
 		<block type="html_tag">
@@ -419,6 +425,8 @@ TIP
 		</block>
 		<block type="html_attribute_style">
 		</block>
+		<block type="html_css_background_color">
+		</block>
 		<block type="html_other_px">
 		</block>
 		<block type="html_other_cm">
@@ -434,6 +442,8 @@ TIP
 		<block type="html_other_%">
 		</block>
 		<block type="html_other_em">
+		</block>
+		<block type="html_other_color">
 		</block>
 		<block type="what_waddle1">
 		</block>
