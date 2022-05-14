@@ -1523,6 +1523,7 @@ Blockly.Blocks['html_attribute'] = {
         this.appendValueInput('VALUE').setCheck(null).appendField('的值为');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
+        this.setInputsInline(true);
         this.setColour(230);
         this.setTooltip('');
         this.setHelpUrl('');

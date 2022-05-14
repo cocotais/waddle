@@ -16,6 +16,8 @@ TIP
 -->
 <toolbox>
 	<category name="控制" css-icon="iconfont waddle-control" colour="#68CDFF">
+		<label text="循环">
+		</label>
 		<block type="controls_repeat_ext">
 			<value name="TIMES">
 				<block type="math_number">
@@ -52,6 +54,8 @@ TIP
 		</category>
 		<category name="逻辑" colour="#AE8964">
 		-->
+		<label text="逻辑">
+		</label>
 		<block type="controls_if">
 		</block>
 		<block type="logic_ternary">
@@ -363,12 +367,8 @@ TIP
 	<sep>
 	</sep>
 	<category name="HTML" css-icon="iconfont waddle-tool">
-		<label text="警告：标签、样式等不完善，" callbackKey="betawarning">
-		</label>
-		<label text="可能无法完成日常开发需求，" callbackKey="betawarning">
-		</label>
-		<label text="请谨慎使用！" callbackKey="betawarning">
-		</label>
+		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
+		</button>
 		<block type="html_code">
 		</block>
 		<block type="html_tag">
