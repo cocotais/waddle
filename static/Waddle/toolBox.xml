@@ -58,18 +58,6 @@ TIP
 		</block>
 	</category>
 	<category name="运算" css-icon="iconfont waddle-math" colour="#FEAE8A">
-		<label text="逻辑">
-		</label>
-		<block type="logic_compare">
-		</block>
-		<block type="logic_operation">
-		</block>
-		<block type="logic_boolean">
-		</block>
-		<block type="logic_negate">
-		</block>
-		<block type="logic_null">
-		</block>
 		<label text="数学">
 		</label>
 		<block type="math_number">
@@ -118,6 +106,18 @@ TIP
 		<block type="math_random_float">
 		</block>
 		<block type="math_atan2">
+		</block>
+		<label text="逻辑">
+		</label>
+		<block type="logic_compare">
+		</block>
+		<block type="logic_operation">
+		</block>
+		<block type="logic_boolean">
+		</block>
+		<block type="logic_negate">
+		</block>
+		<block type="logic_null">
 		</block>
 		<label text="文本">
 		</label>
