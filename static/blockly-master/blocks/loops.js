@@ -195,6 +195,7 @@ common.defineBlocksWithJsonArray([
         ['%{BKY_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE}', 'CONTINUE'],
       ],
     }],
+    "inputsInline": true,
     'previousStatement': null,
     'style': 'loop_blocks',
     'helpUrl': '%{BKY_CONTROLS_FLOW_STATEMENTS_HELPURL}',

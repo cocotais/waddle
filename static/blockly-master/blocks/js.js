@@ -376,6 +376,7 @@ Blockly.Blocks['js_base64'] = {
                 'TYPE'
             );
         this.appendValueInput('TEXT').setCheck('String');
+        this.setInputsInline(true);
         this.setOutput(true, 'String');
         this.setColour(230);
         this.setTooltip('进行base64转换');

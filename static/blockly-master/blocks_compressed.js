@@ -33,34 +33,34 @@
 		}
 	]);
 	var module$contents$Blockly$blocks$variablesDynamic_CUSTOM_CONTEXT_MENU_VARIABLE_GETTER_SETTER_MIXIN = {
-			customContextMenu: function (a) {
-				if (!this.isInFlyout) {
-					var b = this.getFieldValue('VAR');
-					var c = this.workspace.getVariableById(b).type;
-					if ('variables_get_dynamic' === this.type) {
-						b = 'variables_set_dynamic';
-						var d = $.module$exports$Blockly$Msg.Msg.VARIABLES_GET_CREATE_SET;
-					} else (b = 'variables_get_dynamic'), (d = $.module$exports$Blockly$Msg.Msg.VARIABLES_SET_CREATE_GET);
-					var e = { enabled: 0 < this.workspace.remainingCapacity() },
-						f = this.getField('VAR').getText();
-					e.text = d.replace('%1', f);
-					d = (0, $.module$exports$Blockly$utils$xml.createElement)('field');
-					d.setAttribute('name', 'VAR');
-					d.setAttribute('variabletype', c);
-					d.appendChild((0, $.module$exports$Blockly$utils$xml.createTextNode)(f));
-					c = (0, $.module$exports$Blockly$utils$xml.createElement)('block');
-					c.setAttribute('type', b);
-					c.appendChild(d);
-					e.callback = (0, $.module$exports$Blockly$ContextMenu.callbackFactory)(this, c);
-					a.push(e);
-				} else if ('variables_get_dynamic' === this.type || 'variables_get_reporter_dynamic' === this.type) (b = { text: $.module$exports$Blockly$Msg.Msg.RENAME_VARIABLE, enabled: !0, callback: module$contents$Blockly$blocks$variablesDynamic_renameOptionCallbackFactory(this) }), (e = this.getField('VAR').getText()), (e = { text: $.module$exports$Blockly$Msg.Msg.DELETE_VARIABLE.replace('%1', e), enabled: !0, callback: module$contents$Blockly$blocks$variablesDynamic_deleteOptionCallbackFactory(this) }), a.unshift(b), a.unshift(e);
-			},
-			onchange: function (a) {
-				a = this.getFieldValue('VAR');
-				a = (0, $.module$exports$Blockly$Variables.getVariable)(this.workspace, a);
-				'variables_get_dynamic' === this.type ? this.outputConnection.setCheck(a.type) : this.getInput('VALUE').connection.setCheck(a.type);
-			}
+		customContextMenu: function (a) {
+			if (!this.isInFlyout) {
+				var b = this.getFieldValue('VAR');
+				var c = this.workspace.getVariableById(b).type;
+				if ('variables_get_dynamic' === this.type) {
+					b = 'variables_set_dynamic';
+					var d = $.module$exports$Blockly$Msg.Msg.VARIABLES_GET_CREATE_SET;
+				} else (b = 'variables_get_dynamic'), (d = $.module$exports$Blockly$Msg.Msg.VARIABLES_SET_CREATE_GET);
+				var e = { enabled: 0 < this.workspace.remainingCapacity() },
+					f = this.getField('VAR').getText();
+				e.text = d.replace('%1', f);
+				d = (0, $.module$exports$Blockly$utils$xml.createElement)('field');
+				d.setAttribute('name', 'VAR');
+				d.setAttribute('variabletype', c);
+				d.appendChild((0, $.module$exports$Blockly$utils$xml.createTextNode)(f));
+				c = (0, $.module$exports$Blockly$utils$xml.createElement)('block');
+				c.setAttribute('type', b);
+				c.appendChild(d);
+				e.callback = (0, $.module$exports$Blockly$ContextMenu.callbackFactory)(this, c);
+				a.push(e);
+			} else if ('variables_get_dynamic' === this.type || 'variables_get_reporter_dynamic' === this.type) (b = { text: $.module$exports$Blockly$Msg.Msg.RENAME_VARIABLE, enabled: !0, callback: module$contents$Blockly$blocks$variablesDynamic_renameOptionCallbackFactory(this) }), (e = this.getField('VAR').getText()), (e = { text: $.module$exports$Blockly$Msg.Msg.DELETE_VARIABLE.replace('%1', e), enabled: !0, callback: module$contents$Blockly$blocks$variablesDynamic_deleteOptionCallbackFactory(this) }), a.unshift(b), a.unshift(e);
 		},
+		onchange: function (a) {
+			a = this.getFieldValue('VAR');
+			a = (0, $.module$exports$Blockly$Variables.getVariable)(this.workspace, a);
+			'variables_get_dynamic' === this.type ? this.outputConnection.setCheck(a.type) : this.getInput('VALUE').connection.setCheck(a.type);
+		}
+	},
 		module$contents$Blockly$blocks$variablesDynamic_renameOptionCallbackFactory = function (a) {
 			return function () {
 				var b = a.workspace,
@@ -96,26 +96,26 @@
 		}
 	]);
 	var module$contents$Blockly$blocks$variables_CUSTOM_CONTEXT_MENU_VARIABLE_GETTER_SETTER_MIXIN = {
-			customContextMenu: function (a) {
-				if (!this.isInFlyout) {
-					if ('variables_get' === this.type) {
-						var b = 'variables_set';
-						var c = $.module$exports$Blockly$Msg.Msg.VARIABLES_GET_CREATE_SET;
-					} else (b = 'variables_get'), (c = $.module$exports$Blockly$Msg.Msg.VARIABLES_SET_CREATE_GET);
-					var d = { enabled: 0 < this.workspace.remainingCapacity() },
-						e = this.getField('VAR').getText();
-					d.text = c.replace('%1', e);
-					c = (0, $.module$exports$Blockly$utils$xml.createElement)('field');
-					c.setAttribute('name', 'VAR');
-					c.appendChild((0, $.module$exports$Blockly$utils$xml.createTextNode)(e));
-					e = (0, $.module$exports$Blockly$utils$xml.createElement)('block');
-					e.setAttribute('type', b);
-					e.appendChild(c);
-					d.callback = (0, $.module$exports$Blockly$ContextMenu.callbackFactory)(this, e);
-					a.push(d);
-				} else if ('variables_get' === this.type || 'variables_get_reporter' === this.type) (b = { text: $.module$exports$Blockly$Msg.Msg.RENAME_VARIABLE, enabled: !0, callback: module$contents$Blockly$blocks$variables_renameOptionCallbackFactory(this) }), (d = this.getField('VAR').getText()), (d = { text: $.module$exports$Blockly$Msg.Msg.DELETE_VARIABLE.replace('%1', d), enabled: !0, callback: module$contents$Blockly$blocks$variables_deleteOptionCallbackFactory(this) }), a.unshift(b), a.unshift(d);
-			}
-		},
+		customContextMenu: function (a) {
+			if (!this.isInFlyout) {
+				if ('variables_get' === this.type) {
+					var b = 'variables_set';
+					var c = $.module$exports$Blockly$Msg.Msg.VARIABLES_GET_CREATE_SET;
+				} else (b = 'variables_get'), (c = $.module$exports$Blockly$Msg.Msg.VARIABLES_SET_CREATE_GET);
+				var d = { enabled: 0 < this.workspace.remainingCapacity() },
+					e = this.getField('VAR').getText();
+				d.text = c.replace('%1', e);
+				c = (0, $.module$exports$Blockly$utils$xml.createElement)('field');
+				c.setAttribute('name', 'VAR');
+				c.appendChild((0, $.module$exports$Blockly$utils$xml.createTextNode)(e));
+				e = (0, $.module$exports$Blockly$utils$xml.createElement)('block');
+				e.setAttribute('type', b);
+				e.appendChild(c);
+				d.callback = (0, $.module$exports$Blockly$ContextMenu.callbackFactory)(this, e);
+				a.push(d);
+			} else if ('variables_get' === this.type || 'variables_get_reporter' === this.type) (b = { text: $.module$exports$Blockly$Msg.Msg.RENAME_VARIABLE, enabled: !0, callback: module$contents$Blockly$blocks$variables_renameOptionCallbackFactory(this) }), (d = this.getField('VAR').getText()), (d = { text: $.module$exports$Blockly$Msg.Msg.DELETE_VARIABLE.replace('%1', d), enabled: !0, callback: module$contents$Blockly$blocks$variables_deleteOptionCallbackFactory(this) }), a.unshift(b), a.unshift(d);
+		}
+	},
 		module$contents$Blockly$blocks$variables_renameOptionCallbackFactory = function (a) {
 			return function () {
 				var b = a.workspace,
@@ -148,7 +148,7 @@
 			tooltip: '%{BKY_TEXT_TEXT_TOOLTIP}',
 			extensions: ['parent_tooltip_when_inline']
 		},
-		{ type: 'text_join', message0: '', output: 'String', style: 'text_blocks', helpUrl: '%{BKY_TEXT_JOIN_HELPURL}', tooltip: '%{BKY_TEXT_JOIN_TOOLTIP}', mutator: 'text_join_mutator' },
+		{ type: 'text_join', message0: '', "inputsInline": true, output: 'String', style: 'text_blocks', helpUrl: '%{BKY_TEXT_JOIN_HELPURL}', tooltip: '%{BKY_TEXT_JOIN_TOOLTIP}', mutator: 'text_join_mutator' },
 		{ type: 'text_create_join_container', message0: '%{BKY_TEXT_CREATE_JOIN_TITLE_JOIN} %1 %2', args0: [{ type: 'input_dummy' }, { type: 'input_statement', name: 'STACK' }], style: 'text_blocks', tooltip: '%{BKY_TEXT_CREATE_JOIN_TOOLTIP}', enableContextMenu: !1 },
 		{ type: 'text_create_join_item', message0: '%{BKY_TEXT_CREATE_JOIN_ITEM_TITLE_ITEM}', previousStatement: null, nextStatement: null, style: 'text_blocks', tooltip: '%{BKY_TEXT_CREATE_JOIN_ITEM_TOOLTIP}', enableContextMenu: !1 },
 		{
@@ -335,9 +335,9 @@
 		init: function () {
 			this.mixin(module$contents$Blockly$blocks$texts_QUOTE_IMAGE_MIXIN);
 			var a = [
-					[$.module$exports$Blockly$Msg.Msg.TEXT_PROMPT_TYPE_TEXT, 'TEXT'],
-					[$.module$exports$Blockly$Msg.Msg.TEXT_PROMPT_TYPE_NUMBER, 'NUMBER']
-				],
+				[$.module$exports$Blockly$Msg.Msg.TEXT_PROMPT_TYPE_TEXT, 'TEXT'],
+				[$.module$exports$Blockly$Msg.Msg.TEXT_PROMPT_TYPE_NUMBER, 'NUMBER']
+			],
 				b = this;
 			this.setHelpUrl($.module$exports$Blockly$Msg.Msg.TEXT_PROMPT_HELPURL);
 			this.setStyle('text_blocks');
@@ -390,25 +390,25 @@
 		}
 	};
 	var module$contents$Blockly$blocks$texts_QUOTE_IMAGE_MIXIN = {
-			QUOTE_IMAGE_LEFT_DATAURI: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAn0lEQVQI1z3OMa5BURSF4f/cQhAKjUQhuQmFNwGJEUi0RKN5rU7FHKhpjEH3TEMtkdBSCY1EIv8r7nFX9e29V7EBAOvu7RPjwmWGH/VuF8CyN9/OAdvqIXYLvtRaNjx9mMTDyo+NjAN1HNcl9ZQ5oQMM3dgDUqDo1l8DzvwmtZN7mnD+PkmLa+4mhrxVA9fRowBWmVBhFy5gYEjKMfz9AylsaRRgGzvZAAAAAElFTkSuQmCC',
-			QUOTE_IMAGE_RIGHT_DATAURI: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAqUlEQVQI1z3KvUpCcRiA8ef9E4JNHhI0aFEacm1o0BsI0Slx8wa8gLauoDnoBhq7DcfWhggONDmJJgqCPA7neJ7p934EOOKOnM8Q7PDElo/4x4lFb2DmuUjcUzS3URnGib9qaPNbuXvBO3sGPHJDRG6fGVdMSeWDP2q99FQdFrz26Gu5Tq7dFMzUvbXy8KXeAj57cOklgA+u1B5AoslLtGIHQMaCVnwDnADZIFIrXsoXrgAAAABJRU5ErkJggg==',
-			QUOTE_IMAGE_WIDTH: 12,
-			QUOTE_IMAGE_HEIGHT: 12,
-			quoteField_: function (a) {
-				for (var b = 0, c; (c = this.inputList[b]); b++)
-					for (var d = 0, e; (e = c.fieldRow[d]); d++)
-						if (a === e.name) {
-							c.insertFieldAt(d, this.newQuote_(!0));
-							c.insertFieldAt(d + 2, this.newQuote_(!1));
-							return;
-						}
-				console.warn('field named "' + a + '" not found in ' + this.toDevString());
-			},
-			newQuote_: function (a) {
-				a = this.RTL ? !a : a;
-				return new $.module$exports$Blockly$FieldImage.FieldImage(a ? this.QUOTE_IMAGE_LEFT_DATAURI : this.QUOTE_IMAGE_RIGHT_DATAURI, this.QUOTE_IMAGE_WIDTH, this.QUOTE_IMAGE_HEIGHT, a ? '\u201c' : '\u201d');
-			}
+		QUOTE_IMAGE_LEFT_DATAURI: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAn0lEQVQI1z3OMa5BURSF4f/cQhAKjUQhuQmFNwGJEUi0RKN5rU7FHKhpjEH3TEMtkdBSCY1EIv8r7nFX9e29V7EBAOvu7RPjwmWGH/VuF8CyN9/OAdvqIXYLvtRaNjx9mMTDyo+NjAN1HNcl9ZQ5oQMM3dgDUqDo1l8DzvwmtZN7mnD+PkmLa+4mhrxVA9fRowBWmVBhFy5gYEjKMfz9AylsaRRgGzvZAAAAAElFTkSuQmCC',
+		QUOTE_IMAGE_RIGHT_DATAURI: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAqUlEQVQI1z3KvUpCcRiA8ef9E4JNHhI0aFEacm1o0BsI0Slx8wa8gLauoDnoBhq7DcfWhggONDmJJgqCPA7neJ7p934EOOKOnM8Q7PDElo/4x4lFb2DmuUjcUzS3URnGib9qaPNbuXvBO3sGPHJDRG6fGVdMSeWDP2q99FQdFrz26Gu5Tq7dFMzUvbXy8KXeAj57cOklgA+u1B5AoslLtGIHQMaCVnwDnADZIFIrXsoXrgAAAABJRU5ErkJggg==',
+		QUOTE_IMAGE_WIDTH: 12,
+		QUOTE_IMAGE_HEIGHT: 12,
+		quoteField_: function (a) {
+			for (var b = 0, c; (c = this.inputList[b]); b++)
+				for (var d = 0, e; (e = c.fieldRow[d]); d++)
+					if (a === e.name) {
+						c.insertFieldAt(d, this.newQuote_(!0));
+						c.insertFieldAt(d + 2, this.newQuote_(!1));
+						return;
+					}
+			console.warn('field named "' + a + '" not found in ' + this.toDevString());
 		},
+		newQuote_: function (a) {
+			a = this.RTL ? !a : a;
+			return new $.module$exports$Blockly$FieldImage.FieldImage(a ? this.QUOTE_IMAGE_LEFT_DATAURI : this.QUOTE_IMAGE_RIGHT_DATAURI, this.QUOTE_IMAGE_WIDTH, this.QUOTE_IMAGE_HEIGHT, a ? '\u201c' : '\u201d');
+		}
+	},
 		module$contents$Blockly$blocks$texts_TEXT_QUOTES_EXTENSION = function () {
 			this.mixin(module$contents$Blockly$blocks$texts_QUOTE_IMAGE_MIXIN);
 			this.quoteField_('TEXT');
@@ -443,7 +443,7 @@
 			},
 			compose: function (a) {
 				var b = a.getInputTargetBlock('STACK');
-				for (a = []; b && !b.isInsertionMarker(); ) a.push(b.valueConnection_), (b = b.nextConnection && b.nextConnection.targetBlock());
+				for (a = []; b && !b.isInsertionMarker();) a.push(b.valueConnection_), (b = b.nextConnection && b.nextConnection.targetBlock());
 				for (b = 0; b < this.itemCount_; b++) {
 					var c = this.getInput('ADD' + b).connection.targetConnection;
 					c && -1 === a.indexOf(c) && c.disconnect();
@@ -454,7 +454,7 @@
 			},
 			saveConnections: function (a) {
 				a = a.getInputTargetBlock('STACK');
-				for (var b = 0; a; ) {
+				for (var b = 0; a;) {
 					var c = this.getInput('ADD' + b);
 					a.valueConnection_ = c && c.connection.targetConnection;
 					a = a.nextConnection && a.nextConnection.targetBlock();
@@ -479,11 +479,11 @@
 		};
 	(0, $.module$exports$Blockly$Extensions.register)('text_append_tooltip', (0, $.module$exports$Blockly$Extensions.buildTooltipWithFieldText)('%{BKY_TEXT_APPEND_TOOLTIP}', 'VAR'));
 	var module$contents$Blockly$blocks$texts_TEXT_INDEXOF_TOOLTIP_EXTENSION = function () {
-			var a = this;
-			this.setTooltip(function () {
-				return $.module$exports$Blockly$Msg.Msg.TEXT_INDEXOF_TOOLTIP.replace('%1', a.workspace.options.oneBasedIndex ? '0' : '-1');
-			});
-		},
+		var a = this;
+		this.setTooltip(function () {
+			return $.module$exports$Blockly$Msg.Msg.TEXT_INDEXOF_TOOLTIP.replace('%1', a.workspace.options.oneBasedIndex ? '0' : '-1');
+		});
+	},
 		module$contents$Blockly$blocks$texts_TEXT_CHARAT_MUTATOR_MIXIN = {
 			mutationToDom: function () {
 				var a = (0, $.module$exports$Blockly$utils$xml.createElement)('mutation');
@@ -616,7 +616,7 @@
 				this.arguments_ = [];
 				this.paramIds_ = [];
 				this.argumentVarModels_ = [];
-				for (var b = a.getInputTargetBlock('STACK'); b && !b.isInsertionMarker(); ) {
+				for (var b = a.getInputTargetBlock('STACK'); b && !b.isInsertionMarker();) {
 					var c = b.getFieldValue('NAME');
 					this.arguments_.push(c);
 					c = this.workspace.getVariable(c, '');
@@ -1209,21 +1209,21 @@
 	var module$contents$Blockly$blocks$math_TOOLTIPS_BY_OP = { ADD: '%{BKY_MATH_ARITHMETIC_TOOLTIP_ADD}', MINUS: '%{BKY_MATH_ARITHMETIC_TOOLTIP_MINUS}', MULTIPLY: '%{BKY_MATH_ARITHMETIC_TOOLTIP_MULTIPLY}', DIVIDE: '%{BKY_MATH_ARITHMETIC_TOOLTIP_DIVIDE}', POWER: '%{BKY_MATH_ARITHMETIC_TOOLTIP_POWER}', ROOT: '%{BKY_MATH_SINGLE_TOOLTIP_ROOT}', ABS: '%{BKY_MATH_SINGLE_TOOLTIP_ABS}', NEG: '%{BKY_MATH_SINGLE_TOOLTIP_NEG}', LN: '%{BKY_MATH_SINGLE_TOOLTIP_LN}', LOG10: '%{BKY_MATH_SINGLE_TOOLTIP_LOG10}', EXP: '%{BKY_MATH_SINGLE_TOOLTIP_EXP}', POW10: '%{BKY_MATH_SINGLE_TOOLTIP_POW10}', SIN: '%{BKY_MATH_TRIG_TOOLTIP_SIN}', COS: '%{BKY_MATH_TRIG_TOOLTIP_COS}', TAN: '%{BKY_MATH_TRIG_TOOLTIP_TAN}', ASIN: '%{BKY_MATH_TRIG_TOOLTIP_ASIN}', ACOS: '%{BKY_MATH_TRIG_TOOLTIP_ACOS}', ATAN: '%{BKY_MATH_TRIG_TOOLTIP_ATAN}', SUM: '%{BKY_MATH_ONLIST_TOOLTIP_SUM}', MIN: '%{BKY_MATH_ONLIST_TOOLTIP_MIN}', MAX: '%{BKY_MATH_ONLIST_TOOLTIP_MAX}', AVERAGE: '%{BKY_MATH_ONLIST_TOOLTIP_AVERAGE}', MEDIAN: '%{BKY_MATH_ONLIST_TOOLTIP_MEDIAN}', MODE: '%{BKY_MATH_ONLIST_TOOLTIP_MODE}', STD_DEV: '%{BKY_MATH_ONLIST_TOOLTIP_STD_DEV}', RANDOM: '%{BKY_MATH_ONLIST_TOOLTIP_RANDOM}' };
 	(0, $.module$exports$Blockly$Extensions.register)('math_op_tooltip', (0, $.module$exports$Blockly$Extensions.buildTooltipForDropdown)('OP', module$contents$Blockly$blocks$math_TOOLTIPS_BY_OP));
 	var module$contents$Blockly$blocks$math_IS_DIVISIBLEBY_MUTATOR_MIXIN = {
-			mutationToDom: function () {
-				var a = (0, $.module$exports$Blockly$utils$xml.createElement)('mutation'),
-					b = 'DIVISIBLE_BY' === this.getFieldValue('PROPERTY');
-				a.setAttribute('divisor_input', b);
-				return a;
-			},
-			domToMutation: function (a) {
-				a = 'true' === a.getAttribute('divisor_input');
-				this.updateShape_(a);
-			},
-			updateShape_: function (a) {
-				var b = this.getInput('DIVISOR');
-				a ? b || this.appendValueInput('DIVISOR').setCheck('Number') : b && this.removeInput('DIVISOR');
-			}
+		mutationToDom: function () {
+			var a = (0, $.module$exports$Blockly$utils$xml.createElement)('mutation'),
+				b = 'DIVISIBLE_BY' === this.getFieldValue('PROPERTY');
+			a.setAttribute('divisor_input', b);
+			return a;
 		},
+		domToMutation: function (a) {
+			a = 'true' === a.getAttribute('divisor_input');
+			this.updateShape_(a);
+		},
+		updateShape_: function (a) {
+			var b = this.getInput('DIVISOR');
+			a ? b || this.appendValueInput('DIVISOR').setCheck('Number') : b && this.removeInput('DIVISOR');
+		}
+	},
 		module$contents$Blockly$blocks$math_IS_DIVISIBLE_MUTATOR_EXTENSION = function () {
 			this.getField('PROPERTY').setValidator(function (a) {
 				a = 'DIVISIBLE_BY' === a;
@@ -1233,18 +1233,18 @@
 	(0, $.module$exports$Blockly$Extensions.registerMutator)('math_is_divisibleby_mutator', module$contents$Blockly$blocks$math_IS_DIVISIBLEBY_MUTATOR_MIXIN, module$contents$Blockly$blocks$math_IS_DIVISIBLE_MUTATOR_EXTENSION);
 	(0, $.module$exports$Blockly$Extensions.register)('math_change_tooltip', (0, $.module$exports$Blockly$Extensions.buildTooltipWithFieldText)('%{BKY_MATH_CHANGE_TOOLTIP}', 'VAR'));
 	var module$contents$Blockly$blocks$math_LIST_MODES_MUTATOR_MIXIN = {
-			updateType_: function (a) {
-				'MODE' === a ? this.outputConnection.setCheck('Array') : this.outputConnection.setCheck('Number');
-			},
-			mutationToDom: function () {
-				var a = (0, $.module$exports$Blockly$utils$xml.createElement)('mutation');
-				a.setAttribute('op', this.getFieldValue('OP'));
-				return a;
-			},
-			domToMutation: function (a) {
-				this.updateType_(a.getAttribute('op'));
-			}
+		updateType_: function (a) {
+			'MODE' === a ? this.outputConnection.setCheck('Array') : this.outputConnection.setCheck('Number');
 		},
+		mutationToDom: function () {
+			var a = (0, $.module$exports$Blockly$utils$xml.createElement)('mutation');
+			a.setAttribute('op', this.getFieldValue('OP'));
+			return a;
+		},
+		domToMutation: function (a) {
+			this.updateType_(a.getAttribute('op'));
+		}
+	},
 		module$contents$Blockly$blocks$math_LIST_MODES_MUTATOR_EXTENSION = function () {
 			this.getField('OP').setValidator(
 				function (a) {
@@ -1290,7 +1290,7 @@
 			],
 			message1: '%{BKY_CONTROLS_REPEAT_INPUT_DO} %1',
 			args1: [{ type: 'input_statement', name: 'DO' }],
-			inputsInline: !0,
+			"inputsInline": true,
 			previousStatement: null,
 			nextStatement: null,
 			style: 'loop_blocks',
@@ -1304,6 +1304,7 @@
 				{ type: 'field_variable', name: 'VAR', variable: null },
 				{ type: 'input_value', name: 'LIST', check: 'Array' }
 			],
+			"inputsInline": true,
 			message1: '%{BKY_CONTROLS_REPEAT_INPUT_DO} %1',
 			args1: [{ type: 'input_statement', name: 'DO' }],
 			previousStatement: null,
@@ -1325,6 +1326,7 @@
 					]
 				}
 			],
+			"inputsInline": true,
 			previousStatement: null,
 			style: 'loop_blocks',
 			helpUrl: '%{BKY_CONTROLS_FLOW_STATEMENTS_HELPURL}',
@@ -1451,7 +1453,7 @@
 		},
 		{ type: 'logic_negate', message0: '%{BKY_LOGIC_NEGATE_TITLE}', args0: [{ type: 'input_value', name: 'BOOL', check: 'Boolean' }], output: 'Boolean', style: 'math_blocks', tooltip: '%{BKY_LOGIC_NEGATE_TOOLTIP}', helpUrl: '%{BKY_LOGIC_NEGATE_HELPURL}' },
 		{ type: 'logic_null', message0: '%{BKY_LOGIC_NULL}', output: null, style: 'math_blocks', tooltip: '%{BKY_LOGIC_NULL_TOOLTIP}', helpUrl: '%{BKY_LOGIC_NULL_HELPURL}' },
-		{ type: 'logic_ternary', message0: '%{BKY_LOGIC_TERNARY_CONDITION} %1', args0: [{ type: 'input_value', name: 'IF', check: 'Boolean' }], message1: '%{BKY_LOGIC_TERNARY_IF_TRUE} %1', args1: [{ type: 'input_value', name: 'THEN' }], message2: '%{BKY_LOGIC_TERNARY_IF_FALSE} %1', args2: [{ type: 'input_value', name: 'ELSE' }], output: null, style: 'loop_blocks', tooltip: '%{BKY_LOGIC_TERNARY_TOOLTIP}', helpUrl: '%{BKY_LOGIC_TERNARY_HELPURL}', extensions: ['logic_ternary'] },
+		{ type: 'logic_ternary', message0: '%{BKY_LOGIC_TERNARY_CONDITION} %1', args0: [{ type: 'input_value', name: 'IF', check: 'Boolean' }], message1: '%{BKY_LOGIC_TERNARY_IF_TRUE} %1', args1: [{ type: 'input_value', name: 'THEN' }], message2: '%{BKY_LOGIC_TERNARY_IF_FALSE} %1', args2: [{ type: 'input_value', name: 'ELSE' }], inputsInline: true, output: null, style: 'loop_blocks', tooltip: '%{BKY_LOGIC_TERNARY_TOOLTIP}', helpUrl: '%{BKY_LOGIC_TERNARY_HELPURL}', extensions: ['logic_ternary'] },
 		{ type: 'controls_if_if', message0: '%{BKY_CONTROLS_IF_IF_TITLE_IF}', nextStatement: null, enableContextMenu: !1, style: 'loop_blocks', tooltip: '%{BKY_CONTROLS_IF_IF_TOOLTIP}' },
 		{ type: 'controls_if_elseif', message0: '%{BKY_CONTROLS_IF_ELSEIF_TITLE_ELSEIF}', previousStatement: null, nextStatement: null, enableContextMenu: !1, style: 'loop_blocks', tooltip: '%{BKY_CONTROLS_IF_ELSEIF_TOOLTIP}' },
 		{ type: 'controls_if_else', message0: '%{BKY_CONTROLS_IF_ELSE_TITLE_ELSE}', previousStatement: null, enableContextMenu: !1, style: 'loop_blocks', tooltip: '%{BKY_CONTROLS_IF_ELSE_TOOLTIP}' },
@@ -1501,7 +1503,7 @@
 		compose: function (a) {
 			a = a.nextConnection.targetBlock();
 			this.elseCount_ = this.elseifCount_ = 0;
-			for (var b = [null], c = [null], d = null; a && !a.isInsertionMarker(); ) {
+			for (var b = [null], c = [null], d = null; a && !a.isInsertionMarker();) {
 				switch (a.type) {
 					case 'controls_if_elseif':
 						this.elseifCount_++;
@@ -1522,7 +1524,7 @@
 		},
 		saveConnections: function (a) {
 			a = a.nextConnection.targetBlock();
-			for (var b = 1; a; ) {
+			for (var b = 1; a;) {
 				switch (a.type) {
 					case 'controls_if_elseif':
 						var c = this.getInput('IF' + b),
@@ -1585,15 +1587,15 @@
 	};
 	(0, $.module$exports$Blockly$Extensions.register)('controls_if_tooltip', module$contents$Blockly$blocks$logic_CONTROLS_IF_TOOLTIP_EXTENSION);
 	var module$contents$Blockly$blocks$logic_LOGIC_COMPARE_ONCHANGE_MIXIN = {
-			onchange: function (a) {
-				this.prevBlocks_ || (this.prevBlocks_ = [null, null]);
-				var b = this.getInputTargetBlock('A'),
-					c = this.getInputTargetBlock('B');
-				b && c && !this.workspace.connectionChecker.doTypeChecks(b.outputConnection, c.outputConnection) && ((0, $.module$exports$Blockly$Events.setGroup)(a.group), (a = this.prevBlocks_[0]), a !== b && (b.unplug(), !a || a.isDisposed() || a.isShadow() || this.getInput('A').connection.connect(a.outputConnection)), (b = this.prevBlocks_[1]), b !== c && (c.unplug(), !b || b.isDisposed() || b.isShadow() || this.getInput('B').connection.connect(b.outputConnection)), this.bumpNeighbours(), (0, $.module$exports$Blockly$Events.setGroup)(!1));
-				this.prevBlocks_[0] = this.getInputTargetBlock('A');
-				this.prevBlocks_[1] = this.getInputTargetBlock('B');
-			}
-		},
+		onchange: function (a) {
+			this.prevBlocks_ || (this.prevBlocks_ = [null, null]);
+			var b = this.getInputTargetBlock('A'),
+				c = this.getInputTargetBlock('B');
+			b && c && !this.workspace.connectionChecker.doTypeChecks(b.outputConnection, c.outputConnection) && ((0, $.module$exports$Blockly$Events.setGroup)(a.group), (a = this.prevBlocks_[0]), a !== b && (b.unplug(), !a || a.isDisposed() || a.isShadow() || this.getInput('A').connection.connect(a.outputConnection)), (b = this.prevBlocks_[1]), b !== c && (c.unplug(), !b || b.isDisposed() || b.isShadow() || this.getInput('B').connection.connect(b.outputConnection)), this.bumpNeighbours(), (0, $.module$exports$Blockly$Events.setGroup)(!1));
+			this.prevBlocks_[0] = this.getInputTargetBlock('A');
+			this.prevBlocks_[1] = this.getInputTargetBlock('B');
+		}
+	},
 		module$contents$Blockly$blocks$logic_LOGIC_COMPARE_EXTENSION = function () {
 			this.mixin(module$contents$Blockly$blocks$logic_LOGIC_COMPARE_ONCHANGE_MIXIN);
 		};
@@ -1637,6 +1639,7 @@
 			this.setHelpUrl($.module$exports$Blockly$Msg.Msg.LISTS_CREATE_WITH_HELPURL);
 			this.setStyle('list_blocks');
 			this.itemCount_ = 3;
+			this.setInputsInline(true);
 			this.updateShape_();
 			this.setOutput(!0, 'Array');
 			this.setMutator(new $.module$exports$Blockly$Mutator.Mutator(['lists_create_with_item']));
@@ -1671,7 +1674,7 @@
 		},
 		compose: function (a) {
 			var b = a.getInputTargetBlock('STACK');
-			for (a = []; b && !b.isInsertionMarker(); ) a.push(b.valueConnection_), (b = b.nextConnection && b.nextConnection.targetBlock());
+			for (a = []; b && !b.isInsertionMarker();) a.push(b.valueConnection_), (b = b.nextConnection && b.nextConnection.targetBlock());
 			for (b = 0; b < this.itemCount_; b++) {
 				var c = this.getInput('ADD' + b).connection.targetConnection;
 				c && -1 === a.indexOf(c) && c.disconnect();
@@ -1682,7 +1685,7 @@
 		},
 		saveConnections: function (a) {
 			a = a.getInputTargetBlock('STACK');
-			for (var b = 0; a; ) {
+			for (var b = 0; a;) {
 				var c = this.getInput('ADD' + b);
 				a.valueConnection_ = c && c.connection.targetConnection;
 				a = a.nextConnection && a.nextConnection.targetBlock();
@@ -2075,6 +2078,7 @@
 				{ type: 'input_value', name: 'GREEN', check: 'Number', align: 'RIGHT' },
 				{ type: 'input_value', name: 'BLUE', check: 'Number', align: 'RIGHT' }
 			],
+			"inputsInline": true,
 			output: 'Colour',
 			helpUrl: '%{BKY_COLOUR_RGB_HELPURL}',
 			style: 'colour_blocks',
@@ -2088,6 +2092,7 @@
 				{ type: 'input_value', name: 'COLOUR2', check: 'Colour', align: 'RIGHT' },
 				{ type: 'input_value', name: 'RATIO', check: 'Number', align: 'RIGHT' }
 			],
+			"inputsInline": true,
 			output: 'Colour',
 			helpUrl: '%{BKY_COLOUR_BLEND_HELPURL}',
 			style: 'colour_blocks',
