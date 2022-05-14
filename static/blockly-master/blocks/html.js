@@ -1523,6 +1523,7 @@ Blockly.Blocks['html_attribute'] = {
         this.appendValueInput('VALUE').setCheck(null).appendField('的值为');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
+        this.setInputsInline(true);
         this.setColour(230);
         this.setTooltip('');
         this.setHelpUrl('');
@@ -1914,9 +1915,20 @@ Blockly.Blocks['html_other_em'] = {
     }
 };
 
+Blockly.Blocks['html_other_color'] = {
+    init: function () {
+        this.appendDummyInput().appendField('颜色值 #').appendField(new Blockly.FieldTextInput('ff4400'),'VAL');;
+        this.setInputsInline();
+        this.setOutput(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
 Blockly.Blocks['html_css_background_color'] = {
     init: function () {
-        this.appendValueInput('VAL').setCheck(null).appendField('定义样式 背景颜色');
+        this.appendValueInput('VAL').appendField('定义样式 背景颜色');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);

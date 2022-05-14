@@ -19,63 +19,62 @@ Blockly.JavaScript['ivw_defTypes'] = function (block) {
 	window.mytitle = text_title;
 	var code = `
 const types = {
-  isInvisibleWidget: true,
-  type: "${text_type}",
-  icon: "${text_icon}",
-  title: "${text_title}",
-  version: "${text_version}",
-  isGlobalWidget: ${dropdown_isglobalwidget},
-  properties: [],
-  methods: [],
-  events: [],
+    isInvisibleWidget: true,
+    type: "${text_type}",
+    icon: "${text_icon}",
+    title: "${text_title}",
+    version: "${text_version}",
+    isGlobalWidget: ${dropdown_isglobalwidget},
+    properties: [],
+    methods: [],
+    events: [],
 };
 `;
 	return code;
 };
 
 // Blockly.JavaScript['ivw_itemType'] = function (block) {
-// 	var text_type = block.getFieldValue('type');
-// 	var code = `type: "${text_type}",\n`;
-// 	return code;
+//     var text_type = block.getFieldValue('type');
+//     var code = `type: "${text_type}",\n`;
+//     return code;
 // };
 
 // Blockly.JavaScript['ivw_itemIcon'] = function (block) {
-// 	var text_icon = block.getFieldValue('icon');
-// 	var code = `icon: "${text_icon}",\n`;
-// 	return code;
+//     var text_icon = block.getFieldValue('icon');
+//     var code = `icon: "${text_icon}",\n`;
+//     return code;
 // };
 
 // Blockly.JavaScript['ivw_itemTitle'] = function (block) {
-// 	var text_title = block.getFieldValue('title');
-// 	var code = `title: "${text_title}",\n`;
-// 	return code;
+//     var text_title = block.getFieldValue('title');
+//     var code = `title: "${text_title}",\n`;
+//     return code;
 // };
 
 // Blockly.JavaScript['ivw_itemVersion'] = function (block) {
-// 	var text_version = block.getFieldValue('version');
-// 	var code = `version: "${text_version}",\n`;
-// 	return code;
+//     var text_version = block.getFieldValue('version');
+//     var code = `version: "${text_version}",\n`;
+//     return code;
 // };
 
 // Blockly.JavaScript['ivw_itemIsGlobalWidget'] = function (block) {
-// 	var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
-// 	var code = `isGlobalWidget: ${dropdown_isglobalwidget},\n`;
-// 	return code;
+//     var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
+//     var code = `isGlobalWidget: ${dropdown_isglobalwidget},\n`;
+//     return code;
 // };
 
 Blockly.JavaScript['ivw_addProperty'] = function (block) {
 	var text_key = block.getFieldValue('key');
 	var text_label = block.getFieldValue('label');
-	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
+	//var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var text_valueType = block.getFieldValue('valueType');
 	var value_defaultValue = Blockly.JavaScript.valueToCode(block, 'defaultValue', Blockly.JavaScript.ORDER_ATOMIC);
 	var code = `
 types['properties'].push({
-  key: '${text_key}',
-  label: '${text_label}',
-  valueType: ${text_valueType == "['string','number','boolean','array','object',]" ? text_valueType : ("'" + text_valueType + "'")},
-  defaultValue: ${value_defaultValue},
-${statements_other}
+    key: '${text_key}',
+    label: '${text_label}',
+    valueType: ${text_valueType == "['string','number','boolean','array','object',]" ? text_valueType : ("'" + text_valueType + "'")},
+    defaultValue: ${value_defaultValue},
 })
 `;
 	return code;
@@ -109,17 +108,14 @@ Blockly.JavaScript['ivw_addMethod'] = function (block) {
 	};
 	var code = `
 types['methods'].push({
-  key: '${text_key}',
-  label: '${text_label}',
-  ${text_valueType === 'noReturn' ? '' : "valueType: " + text_valueType + ","}
-  params: [
-  ${statements_params}
-  ],
+    key: '${text_key}',
+    label: '${text_label}',
+    params: [${statements_params}],
+    ${text_valueType === 'noReturn' ? '' : "valueType: " + text_valueType + ","}
 })
 Widget.prototype.${text_key} = function (${params}) {
-  ${statements_code};
-}
-`;
+    ${statements_code}
+}`;
 	return code;
 };
 
@@ -130,14 +126,12 @@ Blockly.JavaScript['ivw_addParams'] = function (block) {
 	var value_defaultValue = Blockly.JavaScript.valueToCode(block, 'defaultValue', Blockly.JavaScript.ORDER_ATOMIC);
 	// var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var code = `
-{
-  key: '${text_key}',
-  label: '${text_label}',
-  valueType: ${text_valueType == "['string','number','boolean','array','object',]" ? text_valueType : ("'" + text_valueType + "'")},
-  defaultValue: ${value_defaultValue},
-},
-
-`;
+    {
+        key: '${text_key}',
+        label: '${text_label}',
+        valueType: ${text_valueType},
+        defaultValue: ${value_defaultValue},
+    },`;
 	return code;
 };
 
@@ -146,13 +140,12 @@ Blockly.JavaScript['ivw_addDropdownParams'] = function (block) {
 	var text_label = block.getFieldValue('label');
 	var statements_dropdownItems = Blockly.JavaScript.statementToCode(block, 'dropdownItems');
 	var code = `
-{
-  key: '${text_key}',
-  label: '${text_label}',
-  valueType: 'string',
-  dropdown: [
-	  ${statements_dropdownItems}],
-},
+    {
+        key: '${text_key}',
+        label: '${text_label}',
+        valueType: 'string',
+        dropdown: [${statements_dropdownItems}],
+    },
 
 `;
 	return code;
@@ -160,7 +153,7 @@ Blockly.JavaScript['ivw_addDropdownParams'] = function (block) {
 
 Blockly.JavaScript['ivw_addDropdownItem'] = function (block) {
 	var text_label = block.getFieldValue('label');
-	var code = `\
+	var code = `
 { label: '${text_label}', value: '${text_label}', },
 `;
 	return code;
@@ -173,12 +166,10 @@ Blockly.JavaScript['ivw_addEvent'] = function (block) {
 	var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
 	var code = `
 types['events'].push({
-  key: '${text_key}',
-  label: '${text_label}',
-  params: [
-    ${statements_params}
-  ],
-${statements_other}
+    key: '${text_key}',
+    label: '${text_label}',
+    params: [${statements_params}],
+    ${statements_other}
 })
 `;
 	return code;
@@ -243,11 +234,11 @@ Blockly.JavaScript['ivw_defWidget'] = function (block) {
 	var statements_functions = Blockly.JavaScript.statementToCode(block, 'functions');
 	var code = `
 class Widget extends InvisibleWidget {
-  constructor(props) {
-    super(props);
-  ${statements_constructor}
-  }
-  ${statements_functions}
+    constructor(props) {
+        super(props);
+        ${statements_constructor}
+    }
+    ${statements_functions}
 }
 `;
 	return code;
