@@ -14,7 +14,7 @@
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
 		window.reast = false;
-		var version = 'V1.43.10(904)-beta' //以后版本号改我就行！
+		var version = 'V1.45.15(913)-beta' //以后版本号改我就行！
 		console.log("%c ", 'background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzAwIiBoZWlnaHQ9IjEzMDAiIHZpZXdCb3g9IjAgMCAxMzAwIDEzMDAiPg0KICA8ZyBpZD0i57uEXzM2IiBkYXRhLW5hbWU9Iue7hCAzNiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTU5ODUgLTUzNjkuMzc0KSI+DQogICAgPHBhdGggaWQ9Iui3r+W+hF82IiBkYXRhLW5hbWU9Iui3r+W+hCA2IiBkPSJNMjUwOC4yMzUsMTk5My40MzNjNDc4LjMyMSwwLDY1MCwxNzEuNjc5LDY1MCw2NTBzLTE3MS42NzksNjUwLTY1MCw2NTAtNjUwLTE3MS42NzktNjUwLTY1MFMyMDI5LjkxNCwxOTkzLjQzMywyNTA4LjIzNSwxOTkzLjQzM1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQxMjYuNzY1IDMzNzUuOTQxKSIgZmlsbD0iIzZiNTBmMyIgZmlsbC1ydWxlPSJldmVub2RkIi8+DQogICAgPGcgaWQ9Iue7hF8zMCIgZGF0YS1uYW1lPSLnu4QgMzAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQxNiA0Nzg1LjcwNSkiPg0KICAgICAgPHBhdGggaWQ9Iui3r+W+hF8xIiBkYXRhLW5hbWU9Iui3r+W+hCAxIiBkPSJNOTA4LjM1OSwyMTYwYTE4LjQxNSwxOC40MTUsMCwwLDEsMTcuODY3LDIyLjg4M2MtMjMuMDkxLDkyLjM3LTEwOS40LDQzNy41OTQtMTM0LjYzOCw1MzguNTU1YTM2LjgzMiwzNi44MzIsMCwwLDEtMzUuNzM0LDI3LjlINjI0LjAzM2ExOC40MTUsMTguNDE1LDAsMCwxLTE3Ljg2Ny0yMi44ODNMNzQwLjgsMjE4Ny45YTM2LjgzMiwzNi44MzIsMCwwLDEsMzUuNzM0LTI3LjlaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1Njk3LjIyMyAtMTE3OSkiIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPg0KICAgICAgPHBhdGggaWQ9Iui3r+W+hF8yIiBkYXRhLW5hbWU9Iui3r+W+hCAyIiBkPSJNODYuMTY2LDIxODIuODgzQTE4LjQxNCwxOC40MTQsMCwwLDEsMTA0LjAzMywyMTYwSDIzNS44NTRhMzYuODMyLDM2LjgzMiwwLDAsMSwzNS43MzQsMjcuOUwzMTUuNCwyMzYzLjEzOGE3My42NDEsNzMuNjQxLDAsMCwxLDAsMzUuNzI5Yy0xNC4zMzYsNTcuMzUtNTkuMzc1LDIzNy41LTc4LjY4NCwzMTQuNzM1YTkuMjA2LDkuMjA2LDAsMCwxLTE3Ljg2NiwwWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTczOC4zODUgLTExNzkpIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgICAgIDxwYXRoIGlkPSLot6/lvoRfMyIgZGF0YS1uYW1lPSLot6/lvoQgMyIgZD0iTTMyOC4wNjUsMjc0OS4zNGEzNi44MzEsMzYuODMxLDAsMCwxLTM1LjczNC00NS43NjZjMjkuMTI4LTExNi41MTQsMTA1LjQ0LTQyMS43NjQsMTI4LjkxOC01MTUuNjcyYTM2LjgzMiwzNi44MzIsMCwwLDEsMzUuNzM0LTI3LjlINTQ2LjhhMzYuODMyLDM2LjgzMiwwLDAsMSwzNS43MzQsMjcuOWMxMS41Miw0Ni4wNzksMzQuMiwxMzYuODEsNDMuODA4LDE3NS4yMzZhNzMuNjQyLDczLjY0MiwwLDAsMSwwLDM1LjcyOWMtMTQuMzM2LDU3LjM1LTU5LjM3NCwyMzcuNS03OC42ODMsMzE0LjczNWE5LjIwNyw5LjIwNywwLDAsMS0xNy44NjcsMGMtMy4wMzgtMTIuMTQ2LTYuNTQ5LTI2LjItMTAuMDMzLTQwLjEzYTE4LjQxNywxOC40MTcsMCwwLDAtMzUuNzM0LDBjLTQuMjYzLDE3LjA1NC04LjU2NiwzNC4yNjUtMTEuOTkzLDQ3Ljk2N2EzNi44MzEsMzYuODMxLDAsMCwxLTM1LjczMywyNy45WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcyMi4xMDkgLTExNzkpIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgICA8L2c+DQogIDwvZz4NCjwvc3ZnPg0K");padding:14px 100px;background-size: contain;background-repeat: no-repeat;')
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
@@ -1016,15 +1016,6 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '400px' }, 10);
 </script>
 <script>
-	function checkImgExists(imgurl) {
-		return new Promise(function (resolve, reject) {
-			var ImgObj = new Image();
-			ImgObj.src = imgurl;
-			ImgObj.onload = function (res) {
-				resolve(res);
-			}
-		})
-	}
 	/*传入html字符串源码即可*/
 
 	function htmlEscape(text) {
@@ -1053,13 +1044,13 @@
 		document.getElementById("codeArea").innerHTML = htmlEscape(code);
 		hljs.highlightBlock(document.getElementById("codeArea"))
 		code = code.replaceAll("\n", "")
-		checkImgExists(myicon).then(() => {
-			//success callback
-			document.getElementsByClassName("myicon")[0].src = myicon;
-		}).catch(() => {
-			//fail callback
-			document.getElementsByClassName("myicon")[0].src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAhGVYSWZNTQAqAAAACAAFARIAAwAAAAEAAQAAARoABQAAAAEAAABKARsABQAAAAEAAABSASgAAwAAAAEAAgAAh2kABAAAAAEAAABaAAAAAAAAAUoAAAABAAABSgAAAAEAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAAC8yX8cAAAACXBIWXMAADLAAAAywAEoZFrbAAACyGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj4zMzA8L3RpZmY6WVJlc29sdXRpb24+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjI8L3RpZmY6UmVzb2x1dGlvblVuaXQ+CiAgICAgICAgIDx0aWZmOlhSZXNvbHV0aW9uPjMzMDwvdGlmZjpYUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjQ8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpDb2xvclNwYWNlPjE8L2V4aWY6Q29sb3JTcGFjZT4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjQ8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KjIsMfwAAAAtJREFUCB1jYAACAAAFAAGNu5vzAAAAAElFTkSuQmCC';
-		})
+		
+
+		if(document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')'){
+			document.documentElement.style.setProperty('--pic-icon', 'url(' + myicon + ')');
+		}
+		
+
 		if (code.match(/return\((.+?)\)/g) != null) {
 			//事一个可见控件！
 			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
@@ -1617,8 +1608,8 @@
 </script>
 <div id="funcs" class="funcs">
 	<div id="funcs-buttons" data-title="控件图标预览">
-		<img class="myicon" src="https://waddle.coco-central.cn/static/img/logo.svg" alt=""
-			style="border: 3px solid var(--nd-main-color);-webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px;width: 30px;height: 30px;display: flex;">
+		<div class="myicon"
+			style="border: 3px solid var(--nd-main-color); -webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px; width: 30px; height: 30px; display: flex; background-image: var(--pic-icon); background-repeat: no-repeat; background-size: 24px;"></div>
 	</div>
 	<div id="funcs-buttons" data-title="切换主题" class="waddle-theme" onclick="switch_theme()">
 		<svg class="theme-sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
