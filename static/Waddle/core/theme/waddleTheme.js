@@ -8,7 +8,7 @@ WaddleTheme = Blockly.Theme.defineTheme('WaddleTheme', {
 		loop_blocks: { colourPrimary: "#68CDFF" },
 		math_blocks: { colourPrimary: "#FEAE8A" },
 		procedure_blocks: { colourPrimary: "#F88767" },
-		text_blocks: { colourPrimary: "#1ab293" },
+		text_blocks: { colourPrimary: "#FEAE8A" },
 		variable_blocks: { colourPrimary: "#FFBB55" },
 		variable_dynamic_blocks: { colourPrimary: "#F9CC37" },
 		hat_blocks: { colourPrimary: "330", hat: "cap" }
@@ -40,7 +40,7 @@ DarkTheme = Blockly.Theme.defineTheme('DarkTheme', {
 		loop_blocks: { colourPrimary: "#68CDFF" },
 		math_blocks: { colourPrimary: "#FEAE8A" },
 		procedure_blocks: { colourPrimary: "#F88767" },
-		text_blocks: { colourPrimary: "#1ab293" },
+		text_blocks: { colourPrimary: "#FEAE8A" },
 		variable_blocks: { colourPrimary: "#FFBB55" },
 		variable_dynamic_blocks: { colourPrimary: "#F9CC37" },
 		hat_blocks: { colourPrimary: "330", hat: "cap" }

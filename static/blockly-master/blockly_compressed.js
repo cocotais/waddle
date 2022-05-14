@@ -2586,7 +2586,7 @@
 		return c;
 	};
 	var module$exports$Blockly$Themes$Classic = {},
-		module$contents$Blockly$Themes$Classic_defaultBlockStyles = { colour_blocks: { colourPrimary: '20' }, list_blocks: { colourPrimary: '260' }, logic_blocks: { colourPrimary: '210' }, loop_blocks: { colourPrimary: '120' }, math_blocks: { colourPrimary: '230' }, procedure_blocks: { colourPrimary: '290' }, text_blocks: { colourPrimary: '160' }, variable_blocks: { colourPrimary: '330' }, variable_dynamic_blocks: { colourPrimary: '310' }, hat_blocks: { colourPrimary: '330', hat: 'cap' } },
+		module$contents$Blockly$Themes$Classic_defaultBlockStyles = {},
 		module$contents$Blockly$Themes$Classic_categoryStyles = { colour_category: { colour: '20' }, list_category: { colour: '260' }, logic_category: { colour: '210' }, loop_category: { colour: '120' }, math_category: { colour: '230' }, procedure_category: { colour: '290' }, text_category: { colour: '160' }, variable_category: { colour: '330' }, variable_dynamic_category: { colour: '310' } };
 	module$exports$Blockly$Themes$Classic.Classic = new module$exports$Blockly$Theme.Theme('classic', module$contents$Blockly$Themes$Classic_defaultBlockStyles, module$contents$Blockly$Themes$Classic_categoryStyles);
 	var module$exports$Blockly$Options = {
@@ -15354,8 +15354,8 @@
 	module$exports$Blockly$geras.Renderer = module$exports$Blockly$geras$Renderer.Renderer;
 	module$exports$Blockly$geras.StatementInput = module$exports$Blockly$geras$StatementInput.StatementInput;
 	var module$exports$Blockly$Themes$Zelos = {},
-		module$contents$Blockly$Themes$Zelos_defaultBlockStyles = { colour_blocks: { colourPrimary: '#CF63CF', colourSecondary: '#C94FC9', colourTertiary: '#BD42BD' }, list_blocks: { colourPrimary: '#9966FF', colourSecondary: '#855CD6', colourTertiary: '#774DCB' }, logic_blocks: { colourPrimary: '#4C97FF', colourSecondary: '#4280D7', colourTertiary: '#3373CC' }, loop_blocks: { colourPrimary: '#0fBD8C', colourSecondary: '#0DA57A', colourTertiary: '#0B8E69' }, math_blocks: { colourPrimary: '#59C059', colourSecondary: '#46B946', colourTertiary: '#389438' }, procedure_blocks: { colourPrimary: '#FF6680', colourSecondary: '#FF4D6A', colourTertiary: '#FF3355' }, text_blocks: { colourPrimary: '#FFBF00', colourSecondary: '#E6AC00', colourTertiary: '#CC9900' }, variable_blocks: { colourPrimary: '#FF8C1A', colourSecondary: '#FF8000', colourTertiary: '#DB6E00' }, variable_dynamic_blocks: { colourPrimary: '#FF8C1A', colourSecondary: '#FF8000', colourTertiary: '#DB6E00' }, hat_blocks: { colourPrimary: '#4C97FF', colourSecondary: '#4280D7', colourTertiary: '#3373CC', hat: 'cap' } },
-		module$contents$Blockly$Themes$Zelos_categoryStyles = { colour_category: { colour: '#CF63CF' }, list_category: { colour: '#9966FF' }, logic_category: { colour: '#4C97FF' }, loop_category: { colour: '#0fBD8C' }, math_category: { colour: '#59C059' }, procedure_category: { colour: '#FF6680' }, text_category: { colour: '#FFBF00' }, variable_category: { colour: '#FF8C1A' }, variable_dynamic_category: { colour: '#FF8C1A' } };
+		module$contents$Blockly$Themes$Zelos_defaultBlockStyles = { },
+		module$contents$Blockly$Themes$Zelos_categoryStyles = { };
 	module$exports$Blockly$Themes$Zelos.Zelos = new module$exports$Blockly$Theme.Theme('zelos', module$contents$Blockly$Themes$Zelos_defaultBlockStyles, module$contents$Blockly$Themes$Zelos_categoryStyles);
 	var module$exports$Blockly$Themes = {};
 	module$exports$Blockly$Themes.Classic = module$exports$Blockly$Themes$Classic.Classic;

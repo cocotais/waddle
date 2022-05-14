@@ -50,9 +50,9 @@ const defaultBlockStyles = {
     'colourTertiary': '#FF3355',
   },
   'text_blocks': {
-    'colourPrimary': '#FFBF00',
-    'colourSecondary': '#E6AC00',
-    'colourTertiary': '#CC9900',
+    'colourPrimary': '#59C059',
+    'colourSecondary': '#46B946',
+    'colourTertiary': '#389438',
   },
   'variable_blocks': {
     'colourPrimary': '#FF8C1A',
