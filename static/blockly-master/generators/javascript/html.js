@@ -664,12 +664,7 @@ html_attribute_to_str = code => {
 };
 html_escape_one = char => {
     //HTML转义一下
-    switch (char) {
-        case '<':
-            return '&#60';
-        case '>':
-            return '&#62';
-    }
+    //与现在转义冲突，所以废除
     return char;
 };
 html_escape = str => {
@@ -904,7 +899,7 @@ Blockly.JavaScript['html_attribute_style'] = function (block) {
 };
 
 Blockly.JavaScript['html_css_background_color'] = function (block) {
-    var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "";
     var code = `background-color:${val};\n`;
     return html_escape(code);
 };
@@ -979,6 +974,12 @@ Blockly.JavaScript['html_other_%'] = function (block) {
 Blockly.JavaScript['html_other_em'] = function (block) {
     var val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
     var code = `${val}em\n`;
+    return html_escape(code);
+};
+
+Blockly.JavaScript['html_other_color'] = function (block) {
+    var val = block.getFieldValue('VAL');
+    var code = `#${val}\n`;
     return html_escape(code);
 };
 

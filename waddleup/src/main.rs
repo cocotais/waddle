@@ -41,7 +41,7 @@ fn main() -> Result<()> {
                     .args(["clone", "https://gitee.com/coco-ag/coco-waddle.git", path])
                     .output();
                 Command::new("SETX")
-                    .args(["/M", "Path", &waddleup_path])
+                    .args(["/M", "Waddle", &waddleup_path])
                     .output()
                     .expect("failed to execute process");
             } else {

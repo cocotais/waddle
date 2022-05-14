@@ -14,8 +14,8 @@
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
 		window.reast = false;
-		var version = 'V1.41.5(870)-alpha' //以后版本号改我就行！
-		console.log("%c ", "background: url('https://waddle.coco-central.cn/static/img/cs.png');padding:14px 100px;background-size: contain;background-repeat: no-repeat;")
+		var version = 'V1.45.15(916)-alpha' //以后版本号改我就行！
+		console.log("%c ", 'background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzAwIiBoZWlnaHQ9IjEzMDAiIHZpZXdCb3g9IjAgMCAxMzAwIDEzMDAiPg0KICA8ZyBpZD0i57uEXzM2IiBkYXRhLW5hbWU9Iue7hCAzNiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTU5ODUgLTUzNjkuMzc0KSI+DQogICAgPHBhdGggaWQ9Iui3r+W+hF82IiBkYXRhLW5hbWU9Iui3r+W+hCA2IiBkPSJNMjUwOC4yMzUsMTk5My40MzNjNDc4LjMyMSwwLDY1MCwxNzEuNjc5LDY1MCw2NTBzLTE3MS42NzksNjUwLTY1MCw2NTAtNjUwLTE3MS42NzktNjUwLTY1MFMyMDI5LjkxNCwxOTkzLjQzMywyNTA4LjIzNSwxOTkzLjQzM1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQxMjYuNzY1IDMzNzUuOTQxKSIgZmlsbD0iIzZiNTBmMyIgZmlsbC1ydWxlPSJldmVub2RkIi8+DQogICAgPGcgaWQ9Iue7hF8zMCIgZGF0YS1uYW1lPSLnu4QgMzAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQxNiA0Nzg1LjcwNSkiPg0KICAgICAgPHBhdGggaWQ9Iui3r+W+hF8xIiBkYXRhLW5hbWU9Iui3r+W+hCAxIiBkPSJNOTA4LjM1OSwyMTYwYTE4LjQxNSwxOC40MTUsMCwwLDEsMTcuODY3LDIyLjg4M2MtMjMuMDkxLDkyLjM3LTEwOS40LDQzNy41OTQtMTM0LjYzOCw1MzguNTU1YTM2LjgzMiwzNi44MzIsMCwwLDEtMzUuNzM0LDI3LjlINjI0LjAzM2ExOC40MTUsMTguNDE1LDAsMCwxLTE3Ljg2Ny0yMi44ODNMNzQwLjgsMjE4Ny45YTM2LjgzMiwzNi44MzIsMCwwLDEsMzUuNzM0LTI3LjlaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1Njk3LjIyMyAtMTE3OSkiIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPg0KICAgICAgPHBhdGggaWQ9Iui3r+W+hF8yIiBkYXRhLW5hbWU9Iui3r+W+hCAyIiBkPSJNODYuMTY2LDIxODIuODgzQTE4LjQxNCwxOC40MTQsMCwwLDEsMTA0LjAzMywyMTYwSDIzNS44NTRhMzYuODMyLDM2LjgzMiwwLDAsMSwzNS43MzQsMjcuOUwzMTUuNCwyMzYzLjEzOGE3My42NDEsNzMuNjQxLDAsMCwxLDAsMzUuNzI5Yy0xNC4zMzYsNTcuMzUtNTkuMzc1LDIzNy41LTc4LjY4NCwzMTQuNzM1YTkuMjA2LDkuMjA2LDAsMCwxLTE3Ljg2NiwwWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTczOC4zODUgLTExNzkpIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgICAgIDxwYXRoIGlkPSLot6/lvoRfMyIgZGF0YS1uYW1lPSLot6/lvoQgMyIgZD0iTTMyOC4wNjUsMjc0OS4zNGEzNi44MzEsMzYuODMxLDAsMCwxLTM1LjczNC00NS43NjZjMjkuMTI4LTExNi41MTQsMTA1LjQ0LTQyMS43NjQsMTI4LjkxOC01MTUuNjcyYTM2LjgzMiwzNi44MzIsMCwwLDEsMzUuNzM0LTI3LjlINTQ2LjhhMzYuODMyLDM2LjgzMiwwLDAsMSwzNS43MzQsMjcuOWMxMS41Miw0Ni4wNzksMzQuMiwxMzYuODEsNDMuODA4LDE3NS4yMzZhNzMuNjQyLDczLjY0MiwwLDAsMSwwLDM1LjcyOWMtMTQuMzM2LDU3LjM1LTU5LjM3NCwyMzcuNS03OC42ODMsMzE0LjczNWE5LjIwNyw5LjIwNywwLDAsMS0xNy44NjcsMGMtMy4wMzgtMTIuMTQ2LTYuNTQ5LTI2LjItMTAuMDMzLTQwLjEzYTE4LjQxNywxOC40MTcsMCwwLDAtMzUuNzM0LDBjLTQuMjYzLDE3LjA1NC04LjU2NiwzNC4yNjUtMTEuOTkzLDQ3Ljk2N2EzNi44MzEsMzYuODMxLDAsMCwxLTM1LjczMywyNy45WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcyMi4xMDkgLTExNzkpIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgICA8L2c+DQogIDwvZz4NCjwvc3ZnPg0K");padding:14px 100px;background-size: contain;background-repeat: no-repeat;')
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
 		console.log("%c\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec", "font-size:14px;color:rgb(42,125,255)")
@@ -173,6 +173,7 @@
 			margin-top: 22vh;
 		}
 
+
 		#delete-div {
 			position: absolute;
 			top: 0px;
@@ -181,33 +182,43 @@
 			z-index: 0;
 			background-color: #00000055;
 			-webkit-backdrop-filter: blur(10px);
-			backdrop-filter: blur(10px);
+			backdrop-filter: blur(12px) saturate(145%);
 			opacity: 0%;
 			transition: opacity 0.2s;
 		}
 
-		#delete-svg {
+		.delete-svg {
 			position: absolute;
 			top: 50%;
-			width: 60px;
-			height: 60px;
+			left: 15px;
+			width: 30px;
 			z-index: 0;
 			opacity: 0%;
 			transition: opacity 0.5s;
 		}
 
+		#delete-svg-up {
+			width: 35px;
+			left: 12.5px;
+			margin-top: -4px;
+		}
+
+		#delete-svg-down {
+			margin-top: 3px;
+		}
 	</style>
 	<script>
 		$('.cls-1').animate({ 'stroke-dashoffset': '1600px' }, 10);
 	</script>
 	<div id="body" style="visibility:hidden;">
 		<img onclick='dropdown_show();' alt="Waddle" id="logo1" src="./static/img/purple-logo.svg"
-			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 60; background-color: var(--toolbox-color);cursor: pointer;">
+			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 5; background-color: var(--toolbox-color);cursor: pointer;">
 		<nav class="navbar navbar-expand navbar-dark" style="height:0px;background-color: var(--main-color);">
 			<div class="container-fluid">
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav">
-						<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="cursor: pointer;">
+						<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
+							style="cursor: pointer;">
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="5" height="10"
 								style="left: -5px;top: 15px;position: absolute;z-index: 10000000;">
 								<polygon points="0,5 5,0 5,10" fill="#fff"></polygon>
@@ -233,24 +244,48 @@
 			$('.cls-1').animate({ 'stroke-dashoffset': '1500px' }, 10);
 		</script>
 		<script>
+
+
 			// 删除样式
-			var delete_blocks =function(mode) {
-				let delete_div = document.getElementById('delete-svg').style;
-				let delete_svg = document.getElementById('delete-div').style;
+			var delete_blocks = function (mode) {
+				var delete_svg_up = document.getElementById('delete-svg-up').style;
+				var delete_svg_down = document.getElementById('delete-svg-down').style;
+				var delete_div = document.getElementById('delete-div').style;
 				if (mode) {
-					delete_div.zIndex = 80;
-					delete_svg.zIndex = 75;
+					delete_svg_up.zIndex = 500;
+					delete_svg_down.zIndex = 500;
+					delete_div.zIndex = 6;
+					delete_svg_up.opacity = 1;
+					delete_svg_down.opacity = 1;
 					delete_div.opacity = 1;
-					delete_svg.opacity = 1;
 				} else {
-					delete_div.zIndex = 0;
-					delete_svg.zIndex = 0;
+					delete_svg_up.zIndex = 0;
+					delete_svg_down.zIndex = 0;
+					delete_svg_up.opacity = 0;
+					delete_svg_down.opacity = 0;
 					delete_div.opacity = 0;
-					delete_svg.opacity = 0;
+					setTimeout(() => delete_div.zIndex = 0, 200)
 				}
 			}
 		</script>
-		<div id="delete-div"></div>
+		<div id="delete-div" class="blocklyToolboxDelete">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" version="1.1"
+				width="64" id="delete-svg-up" class="delete-svg" height="16" viewBox="0 0 64 16">
+				<g style="mix-blend-mode:passthrough">
+					<path
+						d="M17,0C13.6863,0,11,2.68629,11,6L11,8L4,8C1.79086,8,0,9.79086,0,12C0,14.2091,1.79086,16,4,16L60,16C62.2091,16,64,14.2091,64,12C64,9.79086,62.2091,8,60,8L53,8L53,6C53,2.68629,50.3137,0,47,0L17,0Z"
+						fill-rule="evenodd" fill="#E0EAFF" fill-opacity="1" />
+				</g>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" version="1.1"
+				width="52" id="delete-svg-down" class="delete-svg" height="45" viewBox="0 0 52 45">
+				<g style="mix-blend-mode:passthrough">
+					<path
+						d="M0,3C0,1.34315,1.34315,0,3,0L49,0C50.6569,0,52,1.34315,52,3L52,36C52,40.9706,47.9706,45,43,45L9,45C4.02944,45,0,40.9706,0,36L0,3ZM11,12.5C11,10.0147,13.0147,8,15.5,8C17.9853,8,20,10.0147,20,12.5L20,32.5C20,34.9853,17.9853,37,15.5,37C13.0147,37,11,34.9853,11,32.5L11,12.5ZM35.5,8C33.0147,8,31,10.0147,31,12.5L31,32.5C31,34.9853,33.0147,37,35.5,37C37.9853,37,40,34.9853,40,32.5L40,12.5C40,10.0147,37.9853,8,35.5,8Z"
+						fill-rule="evenodd" fill="#E0EAFF" fill-opacity="1" />
+				</g>
+			</svg>
+		</div>
 		<div id="table">
 			<div id="blocklyDiv" style="width:100vw;"></div>
 			<!--ToolBox积木-->
@@ -260,33 +295,6 @@
 			<xml id="workspaceblocks" style="display: none;width:100vw;">
 			</xml>
 		</div>
-		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" version="1.1" width="144" id="delete-svg"
-			height="150" viewBox="0 0 144 150">
-			<defs>
-				<filter id="master_svg1_326_4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB" x="0" y="0"
-					width="144" height="144">
-					<feFlood flood-opacity="0" result="BackgroundImageFix" />
-					<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-					<feOffset dy="3" dx="0" />
-					<feGaussianBlur stdDeviation="4" />
-					<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1599999964237213 0" />
-					<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-					<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-				</filter>
-			</defs>
-			<clipPath id="master_svg0_326_4">
-				<rect x="8" y="5" width="128" height="128" rx="0" />
-			</clipPath>
-			<g filter="url(#master_svg1_326_4)" style="mix-blend-mode:passthrough">
-				<g>
-					<g style="mix-blend-mode:passthrough">
-						<path
-							d="M61.333356494140624,21.00019609375C59.91885649414063,21.00019609375,58.56225649414063,21.56209609375,57.56205649414063,22.56219609375C56.561956494140624,23.56249609375,55.999956494140626,24.91899609375,55.999956494140626,26.33349609375C55.999956494140626,26.33349609375,55.999956494140626,31.66679609375,55.999956494140626,31.66679609375C55.999956494140626,31.66679609375,87.99995649414062,31.66679609375,87.99995649414062,31.66679609375C87.99995649414062,31.66679609375,87.99995649414062,26.33349609375,87.99995649414062,26.33349609375C87.99995649414062,24.91899609375,87.43785649414062,23.56249609375,86.43785649414062,22.56219609375C85.43785649414062,21.56209609375,84.08105649414063,21.00019609375,82.66665649414062,21.00019609375C82.66665649414062,21.00019609375,61.333356494140624,21.00019609375,61.333356494140624,21.00019609375C61.333356494140624,21.00019609375,61.333356494140624,21.00019609375,61.333356494140624,21.00019609375ZM98.66665649414062,31.66679609375C98.66665649414062,31.66679609375,98.66665649414062,26.33349609375,98.66665649414062,26.33349609375C98.66665649414062,22.089996093750003,96.98075649414062,18.020376093750002,93.98025649414062,15.01978609375C90.97975649414063,12.01920609375,86.90985649414063,10.33349609375,82.66665649414062,10.33349609375C82.66665649414062,10.33349609375,61.333356494140624,10.33349609375,61.333356494140624,10.33349609375C57.089856494140626,10.33349609375,53.02015649414062,12.01920609375,50.01965649414063,15.01978609375C47.01905649414063,18.020376093750002,45.333356494140624,22.089996093750003,45.333356494140624,26.33349609375C45.333356494140624,26.33349609375,45.333356494140624,31.66679609375,45.333356494140624,31.66679609375C45.333356494140624,31.66679609375,23.999986494140625,31.66679609375,23.999986494140625,31.66679609375C21.054466494140627,31.66679609375,18.666656494140625,34.054696093749996,18.666656494140625,37.00019609375C18.666656494140625,39.94569609375,21.054466494140627,42.33349609375,23.999986494140625,42.33349609375C23.999986494140625,42.33349609375,29.333356494140624,42.33349609375,29.333356494140624,42.33349609375C29.333356494140624,42.33349609375,29.333356494140624,111.66649609375,29.333356494140624,111.66649609375C29.333356494140624,115.91049609375,31.019056494140624,119.97949609375,34.01965649414063,122.98049609375C37.02015649414062,125.98049609375,41.089856494140626,127.66649609375,45.333356494140624,127.66649609375C45.333356494140624,127.66649609375,98.66665649414062,127.66649609375,98.66665649414062,127.66649609375C102.91035649414063,127.66649609375,106.97975649414063,125.98049609375,109.98025649414062,122.98049609375C112.98075649414062,119.97949609375,114.66665649414062,115.91049609375,114.66665649414062,111.66649609375C114.66665649414062,111.66649609375,114.66665649414062,42.33349609375,114.66665649414062,42.33349609375C114.66665649414062,42.33349609375,119.99965649414062,42.33349609375,119.99965649414062,42.33349609375C122.94565649414062,42.33349609375,125.33365649414063,39.94569609375,125.33365649414063,37.00019609375C125.33365649414063,34.054696093749996,122.94565649414062,31.66679609375,119.99965649414062,31.66679609375C119.99965649414062,31.66679609375,98.66665649414062,31.66679609375,98.66665649414062,31.66679609375C98.66665649414062,31.66679609375,98.66665649414062,31.66679609375,98.66665649414062,31.66679609375ZM39.999956494140626,42.33349609375C39.999956494140626,42.33349609375,39.999956494140626,111.66649609375,39.999956494140626,111.66649609375C39.999956494140626,113.08149609375,40.561956494140624,114.43849609375,41.56205649414062,115.43849609375C42.56225649414063,116.43849609375,43.91885649414063,117.00049609375,45.333356494140624,117.00049609375C45.333356494140624,117.00049609375,98.66665649414062,117.00049609375,98.66665649414062,117.00049609375C100.08105649414063,117.00049609375,101.43785649414062,116.43849609375,102.43785649414062,115.43849609375C103.43785649414062,114.43849609375,103.99995649414062,113.08149609375,103.99995649414062,111.66649609375C103.99995649414062,111.66649609375,103.99995649414062,42.33349609375,103.99995649414062,42.33349609375C103.99995649414062,42.33349609375,39.999956494140626,42.33349609375,39.999956494140626,42.33349609375C39.999956494140626,42.33349609375,39.999956494140626,42.33349609375,39.999956494140626,42.33349609375ZM61.333356494140624,58.33349609375C64.27885649414063,58.33349609375,66.66665649414062,60.72129609375,66.66665649414062,63.66679609375C66.66665649414062,63.66679609375,66.66665649414062,95.66679609375,66.66665649414062,95.66679609375C66.66665649414062,98.61239609375,64.27885649414063,101.00019609375,61.333356494140624,101.00019609375C58.38785649414063,101.00019609375,55.999956494140626,98.61239609375,55.999956494140626,95.66679609375C55.999956494140626,95.66679609375,55.999956494140626,63.66679609375,55.999956494140626,63.66679609375C55.999956494140626,60.72129609375,58.38785649414063,58.33349609375,61.333356494140624,58.33349609375C61.333356494140624,58.33349609375,61.333356494140624,58.33349609375,61.333356494140624,58.33349609375ZM77.33335649414062,63.66679609375C77.33335649414062,60.72129609375,79.72105649414063,58.33349609375,82.66665649414062,58.33349609375C85.61225649414062,58.33349609375,87.99995649414062,60.72129609375,87.99995649414062,63.66679609375C87.99995649414062,63.66679609375,87.99995649414062,95.66679609375,87.99995649414062,95.66679609375C87.99995649414062,98.61239609375,85.61225649414062,101.00019609375,82.66665649414062,101.00019609375C79.72105649414063,101.00019609375,77.33335649414062,98.61239609375,77.33335649414062,95.66679609375C77.33335649414062,95.66679609375,77.33335649414062,63.66679609375,77.33335649414062,63.66679609375C77.33335649414062,63.66679609375,77.33335649414062,63.66679609375,77.33335649414062,63.66679609375Z"
-							fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" />
-					</g>
-				</g>
-			</g>
-		</svg>
 
 		<a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
 		<style>
@@ -297,7 +305,7 @@
 				height: max-content;
 				text-align: center;
 				width: max-content;
-				bottom: 50px;
+				bottom: 44px;
 				background-color: rgba(0, 0, 0, .4);
 				border: 8px solid rgba(0, 0, 0, .0);
 				z-index: 1600;
@@ -307,20 +315,21 @@
 				visibility: hidden;
 				justify-content: center;
 				align-items: center;
-				-webkit-animation: hide-it 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				animation: hide-it 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+				-webkit-animation: hide-it 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+				animation: hide-it 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 				opacity: 0;
 			}
 
 			#funcs-buttons:hover:after {
-				-webkit-animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				animation: scale-up-top 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+				-webkit-animation: scale-up-top 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+				animation: scale-up-top 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 				font-weight: normal;
 			}
-			
-			.shown#funcs-buttons:after{
+
+			.shown#funcs-buttons:after {
 				visibility: visible;
-			} 
+			}
+
 			@keyframes hide-it {
 				0% {
 					-webkit-transform: scale(1);
@@ -927,7 +936,6 @@
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '460px' }, 10);
 </script>
-<script src="//at.alicdn.com/t/font_3372087_abgcbmzimyd.js"></script>
 <style>
 	.icon {
 		width: 40px;
@@ -1008,18 +1016,6 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '400px' }, 10);
 </script>
 <script>
-	function checkImgExists(imgurl) {
-		return new Promise(function (resolve, reject) {
-			var ImgObj = new Image();
-			ImgObj.src = imgurl;
-			ImgObj.onload = function (res) {
-				resolve(res);
-			}
-			ImgObj.onerror = function (err) {
-				reject(err)
-			}
-		})
-	}
 	/*传入html字符串源码即可*/
 
 	function htmlEscape(text) {
@@ -1048,19 +1044,21 @@
 		document.getElementById("codeArea").innerHTML = htmlEscape(code);
 		hljs.highlightBlock(document.getElementById("codeArea"))
 		code = code.replaceAll("\n", "")
-		checkImgExists(myicon).then(() => {
-			//success callback
-			document.getElementsByClassName("myicon")[0].src = myicon;
-		}).catch(() => {
-			//fail callback
-			document.getElementsByClassName("myicon")[0].src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAhGVYSWZNTQAqAAAACAAFARIAAwAAAAEAAQAAARoABQAAAAEAAABKARsABQAAAAEAAABSASgAAwAAAAEAAgAAh2kABAAAAAEAAABaAAAAAAAAAUoAAAABAAABSgAAAAEAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAAC8yX8cAAAACXBIWXMAADLAAAAywAEoZFrbAAACyGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj4zMzA8L3RpZmY6WVJlc29sdXRpb24+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjI8L3RpZmY6UmVzb2x1dGlvblVuaXQ+CiAgICAgICAgIDx0aWZmOlhSZXNvbHV0aW9uPjMzMDwvdGlmZjpYUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjQ8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpDb2xvclNwYWNlPjE8L2V4aWY6Q29sb3JTcGFjZT4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjQ8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KjIsMfwAAAAtJREFUCB1jYAACAAAFAAGNu5vzAAAAAElFTkSuQmCC';
-		})
+		
+
+		if(document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')'){
+			document.documentElement.style.setProperty('--pic-icon', 'url(' + myicon + ')');
+		}
+		
+
 		if (code.match(/return\((.+?)\)/g) != null) {
 			//事一个可见控件！
 			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
-			console.log(document.getElementById("myModal").style.display)
 			let html_code = code.match(/return\((.+?)\)/g)[0].substring(8, code.match(/return\((.+?)\)/g)[0].length - 2).replaceAll('&#60', '<').replaceAll('&#62', '>')
 			document.getElementById("widgetPreview").innerHTML = html_code
+		}
+		else{
+			document.getElementById("widgetPreview").style.display = 'none';
 		}
 	}
 	workspace.addChangeListener(myUpdateFunction);
@@ -1612,8 +1610,8 @@
 </script>
 <div id="funcs" class="funcs">
 	<div id="funcs-buttons" data-title="控件图标预览">
-		<img class="myicon" src="https://waddle.coco-central.cn/static/img/logo.svg"
-			style="border: 3px solid var(--nd-main-color);-webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px;width: 30px;height: 30px;display: flex;">
+		<div class="myicon"
+			style="border: 3px solid var(--nd-main-color); -webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px; width: 30px; height: 30px; display: flex; background-image: var(--pic-icon); background-repeat: no-repeat; background-size: 24px;"></div>
 	</div>
 	<div id="funcs-buttons" data-title="切换主题" class="waddle-theme" onclick="switch_theme()">
 		<svg class="theme-sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1759,6 +1757,7 @@
 		align-items: center;
 		justify-content: space-evenly;
 		box-shadow: 0px 3px 6px 2px rgb(0 0 0 / 30%);
+		backdrop-filter: blur(5px) saturate(200%);
 	}
 
 	#funcs-buttons:hover {
@@ -1874,7 +1873,6 @@
 			h = w / 6;
 			$('#funcs').css('border-top-right-radius', '0px');
 			$('#funcs').css('border-bottom-right-radius', '0px');
-			$('#funcs').css('right', '0px');
 			if (w < 250) {
 				w = 250;
 			}
@@ -1884,11 +1882,9 @@
 		} else {
 			$('#funcs').css('border-top-right-radius', '77px');
 			$('#funcs').css('border-bottom-right-radius', '77px');
-			$('#funcs').css('right', '40px');
 		}
 		document.getElementById('funcs').style.height = h + 'px';
 		document.getElementById('funcs').style.width = w + 'px';
-		$('#delete-svg').css('top',(window.innerHeight*0.5 - 30)+'px');
 	};
 	size_changer();
 	window.onresize = size_changer;
@@ -1899,17 +1895,39 @@
 	document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 	document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
 	document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
+	$('.blocklyToolboxDiv').css('z-index', '5');
+	$('.blocklyFlyout').css('z-index', '3');
+	$('#delete-svg-up').css('top', (window.innerHeight - $('#delete-svg-up').height()) / 2 - 7 + 'px');
+	$('#delete-svg-down').css('top', (window.innerHeight - $('#delete-svg-down').height()) / 2 + 7 + 'px');
+
+	window.onbeforeunload = function (event) {
+        const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
+  		localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
+    }
+
 	setTimeout(() => {
+		document.getElementsByClassName('blocklyToolboxDiv')[0].id = "blocklyToolboxDiv";
 		document.getElementsByClassName("blocklyTrash")[0].style.display = "none";
 		Blockly.svgResize(workspace);
 		document.getElementById("body").style = "visibility: visible";
 		document.getElementsByClassName("funcs")[0].style.display = "inline-flex";
-		setTimeout(() => {var box=document.querySelectorAll('#funcs-buttons');
+		Blockly.getMainWorkspace().clear();
+		try{
+			const xml = Blockly.Xml.textToDom(localStorage.getItem("xmlText"));
+			Blockly.Xml.domToWorkspace(xml, Blockly.getMainWorkspace());
+		}
+		catch (err){
+			upload('./static/Waddle/tutorials/invisiblewidget.waddle')
+		}
+  		
+		setTimeout(() => {
+			var box = document.querySelectorAll('#funcs-buttons');
 
-		for (var i = 0; i < box.length; i++) {
-    		box[i].classList.add('shown');
-		}},500);
-    	
+			for (var i = 0; i < box.length; i++) {
+				box[i].classList.add('shown');
+			}
+		}, 500);
+
 		if (getCookie('logo-egg') == 1) {
 			document.cookie = 'logo-egg=true';
 			swal("获得成就：最简单的彩蛋");

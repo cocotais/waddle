@@ -24,12 +24,12 @@ const parsing = goog.require('Blockly.utils.parsing');
 const registry = goog.require('Blockly.registry');
 const toolbox = goog.require('Blockly.utils.toolbox');
 /* eslint-disable-next-line no-unused-vars */
-const {ICollapsibleToolboxItem} = goog.requireType('Blockly.ICollapsibleToolboxItem');
+const { ICollapsibleToolboxItem } = goog.requireType('Blockly.ICollapsibleToolboxItem');
 /* eslint-disable-next-line no-unused-vars */
-const {ISelectableToolboxItem} = goog.require('Blockly.ISelectableToolboxItem');
+const { ISelectableToolboxItem } = goog.require('Blockly.ISelectableToolboxItem');
 /* eslint-disable-next-line no-unused-vars */
-const {IToolbox} = goog.requireType('Blockly.IToolbox');
-const {ToolboxItem} = goog.require('Blockly.ToolboxItem');
+const { IToolbox } = goog.requireType('Blockly.IToolbox');
+const { ToolboxItem } = goog.require('Blockly.ToolboxItem');
 
 
 /**
@@ -44,9 +44,9 @@ const {ToolboxItem} = goog.require('Blockly.ToolboxItem');
  * @implements {ISelectableToolboxItem}
  * @alias Blockly.ToolboxCategory
  */
-const ToolboxCategory = function(categoryDef, toolbox, opt_parent) {
+const ToolboxCategory = function (categoryDef, toolbox, opt_parent) {
   ToolboxCategory.superClass_.constructor.call(
-      this, categoryDef, toolbox, opt_parent);
+    this, categoryDef, toolbox, opt_parent);
 
   /**
    * The name that will be displayed on the category.
@@ -179,7 +179,7 @@ ToolboxCategory.defaultBackgroundColour = '#57e';
  *    all the CSS classes for a category.
  * @protected
  */
-ToolboxCategory.prototype.makeDefaultCssConfig_ = function() {
+ToolboxCategory.prototype.makeDefaultCssConfig_ = function () {
   return {
     'container': 'blocklyToolboxCategory',
     'row': 'blocklyTreeRow',
@@ -200,7 +200,7 @@ ToolboxCategory.prototype.makeDefaultCssConfig_ = function() {
  *     to create a category.
  * @protected
  */
-ToolboxCategory.prototype.parseContents_ = function(categoryDef) {
+ToolboxCategory.prototype.parseContents_ = function (categoryDef) {
   const contents = categoryDef['contents'];
 
   if (categoryDef['custom']) {
@@ -218,7 +218,7 @@ ToolboxCategory.prototype.parseContents_ = function(categoryDef) {
 /**
  * @override
  */
-ToolboxCategory.prototype.init = function() {
+ToolboxCategory.prototype.init = function () {
   this.createDom_();
   if (this.toolboxItemDef_['hidden'] === 'true') {
     this.hide();
@@ -230,13 +230,13 @@ ToolboxCategory.prototype.init = function() {
  * @return {!Element} The parent element for the category.
  * @protected
  */
-ToolboxCategory.prototype.createDom_ = function() {
+ToolboxCategory.prototype.createDom_ = function () {
   this.htmlDiv_ = this.createContainer_();
   aria.setRole(this.htmlDiv_, aria.Role.TREEITEM);
   aria.setState(
-      /** @type {!Element} */ (this.htmlDiv_), aria.State.SELECTED, false);
+      /** @type {!Element} */(this.htmlDiv_), aria.State.SELECTED, false);
   aria.setState(
-      /** @type {!Element} */ (this.htmlDiv_), aria.State.LEVEL, this.level_);
+      /** @type {!Element} */(this.htmlDiv_), aria.State.LEVEL, this.level_);
 
   this.rowDiv_ = this.createRowContainer_();
   this.rowDiv_.style.pointerEvents = 'auto';
@@ -253,8 +253,8 @@ ToolboxCategory.prototype.createDom_ = function() {
   this.labelDom_ = this.createLabelDom_(this.name_);
   this.rowContents_.appendChild(this.labelDom_);
   aria.setState(
-      /** @type {!Element} */ (this.htmlDiv_), aria.State.LABELLEDBY,
-      this.labelDom_.getAttribute('id'));
+      /** @type {!Element} */(this.htmlDiv_), aria.State.LABELLEDBY,
+    this.labelDom_.getAttribute('id'));
 
   this.addColourBorder_(this.colour_);
 
@@ -266,7 +266,7 @@ ToolboxCategory.prototype.createDom_ = function() {
  * @return {!Element} The div that holds the icon and the label.
  * @protected
  */
-ToolboxCategory.prototype.createContainer_ = function() {
+ToolboxCategory.prototype.createContainer_ = function () {
   const container = document.createElement('div');
   dom.addClass(container, this.cssConfig_['container']);
   return container;
@@ -278,13 +278,13 @@ ToolboxCategory.prototype.createContainer_ = function() {
  * @return {!Element} The div that holds the contents container.
  * @protected
  */
-ToolboxCategory.prototype.createRowContainer_ = function() {
+ToolboxCategory.prototype.createRowContainer_ = function () {
   const rowDiv = document.createElement('div');
   dom.addClass(rowDiv, this.cssConfig_['row']);
   let nestedPadding = ToolboxCategory.nestedPadding * this.getLevel();
   nestedPadding = nestedPadding.toString() + 'px';
   this.workspace_.RTL ? rowDiv.style.paddingRight = nestedPadding :
-                        rowDiv.style.paddingLeft = nestedPadding;
+    rowDiv.style.paddingLeft = nestedPadding;
   return rowDiv;
 };
 
@@ -294,7 +294,7 @@ ToolboxCategory.prototype.createRowContainer_ = function() {
  * @return {!Element} The div that holds the icon and the label.
  * @protected
  */
-ToolboxCategory.prototype.createRowContentsContainer_ = function() {
+ToolboxCategory.prototype.createRowContentsContainer_ = function () {
   const contentsContainer = document.createElement('div');
   dom.addClass(contentsContainer, this.cssConfig_['rowcontentcontainer']);
   return contentsContainer;
@@ -305,7 +305,7 @@ ToolboxCategory.prototype.createRowContentsContainer_ = function() {
  * @return {!Element} The span that holds the category icon.
  * @protected
  */
-ToolboxCategory.prototype.createIconDom_ = function() {
+ToolboxCategory.prototype.createIconDom_ = function () {
   const toolboxIcon = document.createElement('span');
   if (!this.parentToolbox_.isHorizontal()) {
     dom.addClass(toolboxIcon, this.cssConfig_['icon']);
@@ -322,7 +322,7 @@ ToolboxCategory.prototype.createIconDom_ = function() {
  * @return {!Element} The span that holds the category label.
  * @protected
  */
-ToolboxCategory.prototype.createLabelDom_ = function(name) {
+ToolboxCategory.prototype.createLabelDom_ = function (name) {
   const toolboxLabel = document.createElement('span');
   toolboxLabel.setAttribute('id', this.getId() + '.label');
   toolboxLabel.textContent = name;
@@ -334,9 +334,9 @@ ToolboxCategory.prototype.createLabelDom_ = function(name) {
  * Updates the colour for this category.
  * @public
  */
-ToolboxCategory.prototype.refreshTheme = function() {
+ToolboxCategory.prototype.refreshTheme = function () {
   this.colour_ = this.getColour_(/** @type {toolbox.CategoryInfo} **/
-                                 (this.toolboxItemDef_));
+    (this.toolboxItemDef_));
   this.addColourBorder_(this.colour_);
 };
 
@@ -345,10 +345,10 @@ ToolboxCategory.prototype.refreshTheme = function() {
  * @param {string} colour The category colour.
  * @protected
  */
-ToolboxCategory.prototype.addColourBorder_ = function(colour) {
+ToolboxCategory.prototype.addColourBorder_ = function (colour) {
   if (colour) {
     const border =
-        ToolboxCategory.borderWidth + 'px solid ' + (colour || '#ddd');
+      ToolboxCategory.borderWidth + 'px solid ' + (colour || '#ddd');
     if (this.workspace_.RTL) {
       this.rowDiv_.style.borderRight = border;
     } else {
@@ -364,15 +364,15 @@ ToolboxCategory.prototype.addColourBorder_ = function(colour) {
  * @return {string} The hex colour for the category.
  * @protected
  */
-ToolboxCategory.prototype.getColour_ = function(categoryDef) {
+ToolboxCategory.prototype.getColour_ = function (categoryDef) {
   const styleName =
-      categoryDef['categorystyle'] || categoryDef['categoryStyle'];
+    categoryDef['categorystyle'] || categoryDef['categoryStyle'];
   const colour = categoryDef['colour'];
 
   if (colour && styleName) {
     console.warn(
-        'Toolbox category "' + this.name_ +
-        '" must not have both a style and a colour');
+      'Toolbox category "' + this.name_ +
+      '" must not have both a style and a colour');
   } else if (styleName) {
     return this.getColourfromStyle_(styleName);
   } else {
@@ -388,7 +388,7 @@ ToolboxCategory.prototype.getColour_ = function(categoryDef) {
  * @return {string} The hex colour for the category.
  * @private
  */
-ToolboxCategory.prototype.getColourfromStyle_ = function(styleName) {
+ToolboxCategory.prototype.getColourfromStyle_ = function (styleName) {
   const theme = this.workspace_.getTheme();
   if (styleName && theme) {
     const style = theme.categoryStyles[styleName];
@@ -396,7 +396,7 @@ ToolboxCategory.prototype.getColourfromStyle_ = function(styleName) {
       return this.parseColour_(style.colour);
     } else {
       console.warn(
-          'Style "' + styleName + '" must exist and contain a colour value');
+        'Style "' + styleName + '" must exist and contain a colour value');
     }
   }
   return '';
@@ -409,7 +409,7 @@ ToolboxCategory.prototype.getColourfromStyle_ = function(styleName) {
  * @return {!Element} The HTML element that receives clicks.
  * @public
  */
-ToolboxCategory.prototype.getClickTarget = function() {
+ToolboxCategory.prototype.getClickTarget = function () {
   return /** @type {!Element} */ (this.rowDiv_);
 };
 
@@ -420,7 +420,7 @@ ToolboxCategory.prototype.getClickTarget = function() {
  * @return {string} The hex colour for the category.
  * @private
  */
-ToolboxCategory.prototype.parseColour_ = function(colourValue) {
+ToolboxCategory.prototype.parseColour_ = function (colourValue) {
   // Decode the colour for any potential message references
   // (eg. `%{BKY_MATH_HUE}`).
   const colour = parsing.replaceMessageReferences(colourValue);
@@ -437,8 +437,8 @@ ToolboxCategory.prototype.parseColour_ = function(colourValue) {
         return hex;
       } else {
         console.warn(
-            'Toolbox category "' + this.name_ +
-            '" has unrecognized colour attribute: ' + colour);
+          'Toolbox category "' + this.name_ +
+          '" has unrecognized colour attribute: ' + colour);
         return '';
       }
     }
@@ -450,7 +450,7 @@ ToolboxCategory.prototype.parseColour_ = function(colourValue) {
  * @param {?Element} iconDiv The div that holds the icon.
  * @protected
  */
-ToolboxCategory.prototype.openIcon_ = function(iconDiv) {
+ToolboxCategory.prototype.openIcon_ = function (iconDiv) {
   if (!iconDiv) {
     return;
   }
@@ -463,7 +463,7 @@ ToolboxCategory.prototype.openIcon_ = function(iconDiv) {
  * @param {?Element} iconDiv The div that holds the icon.
  * @protected
  */
-ToolboxCategory.prototype.closeIcon_ = function(iconDiv) {
+ToolboxCategory.prototype.closeIcon_ = function (iconDiv) {
   if (!iconDiv) {
     return;
   }
@@ -477,7 +477,7 @@ ToolboxCategory.prototype.closeIcon_ = function(iconDiv) {
  * @param {boolean} isVisible True if category should be visible.
  * @protected
  */
-ToolboxCategory.prototype.setVisible_ = function(isVisible) {
+ToolboxCategory.prototype.setVisible_ = function (isVisible) {
   this.htmlDiv_.style.display = isVisible ? 'block' : 'none';
   this.isHidden_ = !isVisible;
 
@@ -489,7 +489,7 @@ ToolboxCategory.prototype.setVisible_ = function(isVisible) {
 /**
  * Hide the category.
  */
-ToolboxCategory.prototype.hide = function() {
+ToolboxCategory.prototype.hide = function () {
   this.setVisible_(false);
 };
 
@@ -497,7 +497,7 @@ ToolboxCategory.prototype.hide = function() {
  * Show the category. Category will only appear if its parent category is also
  * expanded.
  */
-ToolboxCategory.prototype.show = function() {
+ToolboxCategory.prototype.show = function () {
   this.setVisible_(true);
 };
 
@@ -508,7 +508,7 @@ ToolboxCategory.prototype.show = function() {
  * @return {boolean} True if the category is visible, false otherwise.
  * @public
  */
-ToolboxCategory.prototype.isVisible = function() {
+ToolboxCategory.prototype.isVisible = function () {
   return !this.isHidden_ && this.allAncestorsExpanded_();
 };
 
@@ -518,7 +518,7 @@ ToolboxCategory.prototype.isVisible = function() {
  * @return {boolean} True only if every ancestor is expanded
  * @protected
  */
-ToolboxCategory.prototype.allAncestorsExpanded_ = function() {
+ToolboxCategory.prototype.allAncestorsExpanded_ = function () {
   let category = this;
   while (category.getParent()) {
     category = category.getParent();
@@ -532,7 +532,7 @@ ToolboxCategory.prototype.allAncestorsExpanded_ = function() {
 /**
  * @override
  */
-ToolboxCategory.prototype.isSelectable = function() {
+ToolboxCategory.prototype.isSelectable = function () {
   return this.isVisible() && !this.isDisabled_;
 };
 
@@ -541,7 +541,7 @@ ToolboxCategory.prototype.isSelectable = function() {
  * @param {!Event} _e Click event to handle.
  * @public
  */
-ToolboxCategory.prototype.onClick = function(_e) {
+ToolboxCategory.prototype.onClick = function (_e) {
   // No-op
 };
 
@@ -551,10 +551,10 @@ ToolboxCategory.prototype.onClick = function(_e) {
  *     otherwise.
  * @public
  */
-ToolboxCategory.prototype.setSelected = function(isSelected) {
+ToolboxCategory.prototype.setSelected = function (isSelected) {
   if (isSelected) {
     const defaultColour =
-        this.parseColour_(ToolboxCategory.defaultBackgroundColour);
+      this.parseColour_(ToolboxCategory.defaultBackgroundColour);
     this.rowDiv_.style.backgroundColor = this.colour_ || defaultColour;
     dom.addClass(this.rowDiv_, this.cssConfig_['selected']);
   } else {
@@ -562,18 +562,18 @@ ToolboxCategory.prototype.setSelected = function(isSelected) {
     dom.removeClass(this.rowDiv_, this.cssConfig_['selected']);
   }
   aria.setState(
-      /** @type {!Element} */ (this.htmlDiv_), aria.State.SELECTED, isSelected);
+      /** @type {!Element} */(this.htmlDiv_), aria.State.SELECTED, isSelected);
 };
 
 /**
  * Sets whether the category is disabled.
  * @param {boolean} isDisabled True to disable the category, false otherwise.
  */
-ToolboxCategory.prototype.setDisabled = function(isDisabled) {
+ToolboxCategory.prototype.setDisabled = function (isDisabled) {
   this.isDisabled_ = isDisabled;
   this.getDiv().setAttribute('disabled', isDisabled);
   isDisabled ? this.getDiv().setAttribute('disabled', 'true') :
-               this.getDiv().removeAttribute('disabled');
+    this.getDiv().removeAttribute('disabled');
 };
 
 /**
@@ -581,21 +581,21 @@ ToolboxCategory.prototype.setDisabled = function(isDisabled) {
  * @return {string} The name of the toolbox item.
  * @public
  */
-ToolboxCategory.prototype.getName = function() {
+ToolboxCategory.prototype.getName = function () {
   return this.name_;
 };
 
 /**
  * @override
  */
-ToolboxCategory.prototype.getParent = function() {
+ToolboxCategory.prototype.getParent = function () {
   return this.parent_;
 };
 
 /**
  * @override
  */
-ToolboxCategory.prototype.getDiv = function() {
+ToolboxCategory.prototype.getDiv = function () {
   return this.htmlDiv_;
 };
 
@@ -606,7 +606,7 @@ ToolboxCategory.prototype.getDiv = function() {
  *     of items to be displayed in the flyout.
  * @public
  */
-ToolboxCategory.prototype.getContents = function() {
+ToolboxCategory.prototype.getContents = function () {
   return this.flyoutItems_;
 };
 
@@ -619,7 +619,7 @@ ToolboxCategory.prototype.getContents = function() {
  *     dynamic category.
  * @public
  */
-ToolboxCategory.prototype.updateFlyoutContents = function(contents) {
+ToolboxCategory.prototype.updateFlyoutContents = function (contents) {
   this.flyoutItems_ = [];
 
   if (typeof contents === 'string') {
@@ -628,16 +628,16 @@ ToolboxCategory.prototype.updateFlyoutContents = function(contents) {
     // Removes old custom field when contents is updated.
     delete this.toolboxItemDef_['custom'];
     this.toolboxItemDef_['contents'] =
-        toolbox.convertFlyoutDefToJsonArray(contents);
+      toolbox.convertFlyoutDefToJsonArray(contents);
   }
   this.parseContents_(
-      /** @type {toolbox.CategoryInfo} */ (this.toolboxItemDef_));
+      /** @type {toolbox.CategoryInfo} */(this.toolboxItemDef_));
 };
 
 /**
  * @override
  */
-ToolboxCategory.prototype.dispose = function() {
+ToolboxCategory.prototype.dispose = function () {
   dom.removeNode(this.htmlDiv_);
 };
 
@@ -671,7 +671,7 @@ Css.register(`
   }
 
   .blocklyTreeIcon {
-    background-image: url(<<<PATH>>>/sprites.png);
+    background-image: url(<<<PATH>>>/sprites.svg);
     height: 16px;
     vertical-align: middle;
     visibility: hidden;
@@ -719,7 +719,7 @@ Css.register(`
 `);
 
 registry.register(
-    registry.Type.TOOLBOX_ITEM, ToolboxCategory.registrationName,
-    ToolboxCategory);
+  registry.Type.TOOLBOX_ITEM, ToolboxCategory.registrationName,
+  ToolboxCategory);
 
 exports.ToolboxCategory = ToolboxCategory;
