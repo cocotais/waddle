@@ -1906,12 +1906,27 @@
 	$('.blocklyFlyout').css('z-index', '3');
 	$('#delete-svg-up').css('top', (window.innerHeight - $('#delete-svg-up').height()) / 2 - 7 + 'px');
 	$('#delete-svg-down').css('top', (window.innerHeight - $('#delete-svg-down').height()) / 2 + 7 + 'px');
+
+	window.onbeforeunload = function (event) {
+        const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
+  		localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
+    }
+
 	setTimeout(() => {
 		document.getElementsByClassName('blocklyToolboxDiv')[0].id = "blocklyToolboxDiv";
 		document.getElementsByClassName("blocklyTrash")[0].style.display = "none";
 		Blockly.svgResize(workspace);
 		document.getElementById("body").style = "visibility: visible";
 		document.getElementsByClassName("funcs")[0].style.display = "inline-flex";
+		Blockly.getMainWorkspace().clear();
+		try{
+			const xml = Blockly.Xml.textToDom(localStorage.getItem("xmlText"));
+			Blockly.Xml.domToWorkspace(xml, Blockly.getMainWorkspace());
+		}
+		catch (err){
+			upload('./static/Waddle/tutorials/invisiblewidget.waddle')
+		}
+  		
 		setTimeout(() => {
 			var box = document.querySelectorAll('#funcs-buttons');
 
