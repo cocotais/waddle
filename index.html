@@ -219,10 +219,6 @@
 					<ul class="navbar-nav">
 						<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
 							style="cursor: pointer;">
-							<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="5" height="10"
-								style="left: -5px;top: 15px;position: absolute;z-index: 10000000;">
-								<polygon points="0,5 5,0 5,10" fill="#fff"></polygon>
-							</svg>
 							<li class="dropdown-item" onClick="show_newsth()">新建控件</li>
 							<li class="dropdown-item" onClick="save()">保存到电脑</li>
 							<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
@@ -1044,12 +1040,12 @@
 		document.getElementById("codeArea").innerHTML = htmlEscape(code);
 		hljs.highlightBlock(document.getElementById("codeArea"))
 		code = code.replaceAll("\n", "")
-		
 
-		if(document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')'){
+
+		if (document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')') {
 			document.documentElement.style.setProperty('--pic-icon', 'url(' + myicon + ')');
 		}
-		
+
 
 		if (code.match(/return\((.+?)\)/g) != null) {
 			//事一个可见控件！
@@ -1057,7 +1053,7 @@
 			let html_code = code.match(/return\((.+?)\)/g)[0].substring(8, code.match(/return\((.+?)\)/g)[0].length - 2).replaceAll('&#60', '<').replaceAll('&#62', '>')
 			document.getElementById("widgetPreview").innerHTML = html_code
 		}
-		else{
+		else {
 			document.getElementById("widgetPreview").style.display = 'none';
 		}
 	}
@@ -1611,7 +1607,8 @@
 <div id="funcs" class="funcs">
 	<div id="funcs-buttons" data-title="控件图标预览">
 		<div class="myicon"
-			style="border: 3px solid var(--nd-main-color); -webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px; width: 30px; height: 30px; display: flex; background-image: var(--pic-icon); background-repeat: no-repeat; background-size: 24px;"></div>
+			style="border: 3px solid var(--nd-main-color); -webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px; width: 30px; height: 30px; display: flex; background-image: var(--pic-icon); background-repeat: no-repeat; background-size: 24px;">
+		</div>
 	</div>
 	<div id="funcs-buttons" data-title="切换主题" class="waddle-theme" onclick="switch_theme()">
 		<svg class="theme-sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1901,9 +1898,9 @@
 	$('#delete-svg-down').css('top', (window.innerHeight - $('#delete-svg-down').height()) / 2 + 7 + 'px');
 
 	window.onbeforeunload = function (event) {
-        const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
-  		localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
-    }
+		const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
+		localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
+	}
 
 	setTimeout(() => {
 		document.getElementsByClassName('blocklyToolboxDiv')[0].id = "blocklyToolboxDiv";
@@ -1912,14 +1909,14 @@
 		document.getElementById("body").style = "visibility: visible";
 		document.getElementsByClassName("funcs")[0].style.display = "inline-flex";
 		Blockly.getMainWorkspace().clear();
-		try{
+		try {
 			const xml = Blockly.Xml.textToDom(localStorage.getItem("xmlText"));
 			Blockly.Xml.domToWorkspace(xml, Blockly.getMainWorkspace());
 		}
-		catch (err){
+		catch (err) {
 			upload('./static/Waddle/tutorials/invisiblewidget.waddle')
 		}
-  		
+
 		setTimeout(() => {
 			var box = document.querySelectorAll('#funcs-buttons');
 
