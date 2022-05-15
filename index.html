@@ -201,6 +201,7 @@
 			width: 35px;
 			left: 12.5px;
 			margin-top: -4px;
+			transition: opacity transform 0.5s;
 		}
 
 		#delete-svg-down {
@@ -219,10 +220,6 @@
 					<ul class="navbar-nav">
 						<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
 							style="cursor: pointer;">
-							<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="5" height="10"
-								style="left: -5px;top: 15px;position: absolute;z-index: 10000000;">
-								<polygon points="0,5 5,0 5,10" fill="#fff"></polygon>
-							</svg>
 							<li class="dropdown-item" onClick="show_newsth()">新建控件</li>
 							<li class="dropdown-item" onClick="save()">保存到电脑</li>
 							<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
@@ -248,23 +245,48 @@
 
 			// 删除样式
 			var delete_blocks = function (mode) {
-				var delete_svg_up = document.getElementById('delete-svg-up').style;
-				var delete_svg_down = document.getElementById('delete-svg-down').style;
+				var delete_trash_cover = document.getElementById('delete-svg-up').style;
+				var delete_trash_body = document.getElementById('delete-svg-down').style;
 				var delete_div = document.getElementById('delete-div').style;
 				if (mode) {
-					delete_svg_up.zIndex = 500;
-					delete_svg_down.zIndex = 500;
+					delete_trash_cover.zIndex = 500;
+					delete_trash_body.zIndex = 500;
 					delete_div.zIndex = 6;
-					delete_svg_up.opacity = 1;
-					delete_svg_down.opacity = 1;
+					delete_trash_cover.opacity = 1;
+					delete_trash_body.opacity = 1;
 					delete_div.opacity = 1;
+					if(mouse_X() < 60) {
+						trash_cover(true);
+					} else {
+						trash_cover(false);
+					}
 				} else {
-					delete_svg_up.zIndex = 0;
-					delete_svg_down.zIndex = 0;
-					delete_svg_up.opacity = 0;
-					delete_svg_down.opacity = 0;
+					delete_trash_cover.zIndex = 0;
+					delete_trash_body.zIndex = 0;
+					delete_trash_cover.opacity = 0;
+					delete_trash_body.opacity = 0;
 					delete_div.opacity = 0;
-					setTimeout(() => delete_div.zIndex = 0, 200)
+					setTimeout(() => delete_div.zIndex = 0, 200);
+				}
+			}
+
+			function mouse_X() {
+				var posX = 0;
+				var event = event || window.event;
+				if (event.pageX) {
+					posX = event.pageX;
+				} else if (event.clientX) {
+					posX = event.clientX + document.documentElement.scrollLeft + document.body.scrollLeft;
+				}
+				return posX;
+			}
+
+			var trash_cover = function(mode) {
+				var delete_trash_cover = document.getElementById('delete-svg-up').style;
+				if (mode) {
+					delete_trash_cover.transform = "translate(-4px,-4px) rotate(-20deg)";
+				} else {
+					delete_trash_cover.transform = "translate(0px) rotate(0deg)";
 				}
 			}
 		</script>
@@ -274,7 +296,7 @@
 				<g style="mix-blend-mode:passthrough">
 					<path
 						d="M17,0C13.6863,0,11,2.68629,11,6L11,8L4,8C1.79086,8,0,9.79086,0,12C0,14.2091,1.79086,16,4,16L60,16C62.2091,16,64,14.2091,64,12C64,9.79086,62.2091,8,60,8L53,8L53,6C53,2.68629,50.3137,0,47,0L17,0Z"
-						fill-rule="evenodd" fill="#E0EAFF" fill-opacity="1" />
+						fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" />
 				</g>
 			</svg>
 			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" version="1.1"
@@ -282,7 +304,7 @@
 				<g style="mix-blend-mode:passthrough">
 					<path
 						d="M0,3C0,1.34315,1.34315,0,3,0L49,0C50.6569,0,52,1.34315,52,3L52,36C52,40.9706,47.9706,45,43,45L9,45C4.02944,45,0,40.9706,0,36L0,3ZM11,12.5C11,10.0147,13.0147,8,15.5,8C17.9853,8,20,10.0147,20,12.5L20,32.5C20,34.9853,17.9853,37,15.5,37C13.0147,37,11,34.9853,11,32.5L11,12.5ZM35.5,8C33.0147,8,31,10.0147,31,12.5L31,32.5C31,34.9853,33.0147,37,35.5,37C37.9853,37,40,34.9853,40,32.5L40,12.5C40,10.0147,37.9853,8,35.5,8Z"
-						fill-rule="evenodd" fill="#E0EAFF" fill-opacity="1" />
+						fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" />
 				</g>
 			</svg>
 		</div>
@@ -1044,12 +1066,12 @@
 		document.getElementById("codeArea").innerHTML = htmlEscape(code);
 		hljs.highlightBlock(document.getElementById("codeArea"))
 		code = code.replaceAll("\n", "")
-		
 
-		if(document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')'){
+
+		if (document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')') {
 			document.documentElement.style.setProperty('--pic-icon', 'url(' + myicon + ')');
 		}
-		
+
 
 		if (code.match(/return\((.+?)\)/g) != null) {
 			//事一个可见控件！
@@ -1057,7 +1079,7 @@
 			let html_code = code.match(/return\((.+?)\)/g)[0].substring(8, code.match(/return\((.+?)\)/g)[0].length - 2).replaceAll('&#60', '<').replaceAll('&#62', '>')
 			document.getElementById("widgetPreview").innerHTML = html_code
 		}
-		else{
+		else {
 			document.getElementById("widgetPreview").style.display = 'none';
 		}
 	}
@@ -1611,7 +1633,8 @@
 <div id="funcs" class="funcs">
 	<div id="funcs-buttons" data-title="控件图标预览">
 		<div class="myicon"
-			style="border: 3px solid var(--nd-main-color); -webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px; width: 30px; height: 30px; display: flex; background-image: var(--pic-icon); background-repeat: no-repeat; background-size: 24px;"></div>
+			style="border: 3px solid var(--nd-main-color); -webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px; width: 30px; height: 30px; display: flex; background-image: var(--pic-icon); background-repeat: no-repeat; background-size: 24px;">
+		</div>
 	</div>
 	<div id="funcs-buttons" data-title="切换主题" class="waddle-theme" onclick="switch_theme()">
 		<svg class="theme-sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1901,9 +1924,9 @@
 	$('#delete-svg-down').css('top', (window.innerHeight - $('#delete-svg-down').height()) / 2 + 7 + 'px');
 
 	window.onbeforeunload = function (event) {
-        const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
-  		localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
-    }
+		const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
+		localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
+	}
 
 	setTimeout(() => {
 		document.getElementsByClassName('blocklyToolboxDiv')[0].id = "blocklyToolboxDiv";
@@ -1912,14 +1935,14 @@
 		document.getElementById("body").style = "visibility: visible";
 		document.getElementsByClassName("funcs")[0].style.display = "inline-flex";
 		Blockly.getMainWorkspace().clear();
-		try{
+		try {
 			const xml = Blockly.Xml.textToDom(localStorage.getItem("xmlText"));
 			Blockly.Xml.domToWorkspace(xml, Blockly.getMainWorkspace());
 		}
-		catch (err){
+		catch (err) {
 			upload('./static/Waddle/tutorials/invisiblewidget.waddle')
 		}
-  		
+
 		setTimeout(() => {
 			var box = document.querySelectorAll('#funcs-buttons');
 
