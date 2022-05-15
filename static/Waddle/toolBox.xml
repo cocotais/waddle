@@ -373,6 +373,8 @@ TIP
 		</block>
 		<block type="html_tag">
 		</block>
+		<block type="html_html">
+		</block>
 		<block type="html_js">
 		</block>
 		<block type="html_js2">
