@@ -971,31 +971,31 @@
 <script>
 	//为了防锁死，改异步
 	$.ajax({
-			url: './static/Waddle/toolBox.xml',
-			type: 'get',
-			async: false,//使用同步的方式,true为异步方式
-			success: function (data) {
-				xmlDoc = data;
-				toolbox = document.getElementById('toolbox');
-				toolbox.innerHTML = xmlDoc.getElementsByTagName('toolbox')[0].innerHTML;
-				$.ajax({
-					url: './static/Waddle/workspace.xml',
-					type: 'get',
-					async: false,//使用同步的方式,true为异步方式
-					success: function (data) {
-						xmlDoc = data;
-						workspaceblocks = document.getElementById('workspaceblocks');
-						workspaceblocks.innerHTML = xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML;
-					},
-					fail: function () {
-						//code here...
-					}
-				});
-			},
-			fail: function () {
-				//code here...
-			}
-		});
+		url: './static/Waddle/toolBox.xml',
+		type: 'get',
+		async: false,//使用同步的方式,true为异步方式
+		success: function (data) {
+			xmlDoc = data;
+			toolbox = document.getElementById('toolbox');
+			toolbox.innerHTML = xmlDoc.getElementsByTagName('toolbox')[0].innerHTML;
+			$.ajax({
+				url: './static/Waddle/workspace.xml',
+				type: 'get',
+				async: false,//使用同步的方式,true为异步方式
+				success: function (data) {
+					xmlDoc = data;
+					workspaceblocks = document.getElementById('workspaceblocks');
+					workspaceblocks.innerHTML = xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML;
+				},
+				fail: function () {
+					//code here...
+				}
+			});
+		},
+		fail: function () {
+			//code here...
+		}
+	});
 
 
 	var workspaceBlocks = document.getElementById("workspaceblocks");
