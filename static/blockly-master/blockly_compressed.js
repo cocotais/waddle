@@ -7922,6 +7922,7 @@
 	};
 	module$exports$Blockly$blockRendering$PathObject.PathObject.prototype.updateDraggingDelete = function (a) {
 		this.setClass_('blocklyDraggingDelete', a);
+		trash_cover(true);
 	};
 	module$exports$Blockly$blockRendering$PathObject.PathObject.prototype.updateInsertionMarker = function (a) {
 		this.setClass_('blocklyInsertionMarker', a);
@@ -9755,6 +9756,7 @@
 	module$exports$Blockly$BlockSvg.BlockSvg.prototype.translate = function (a, b) {
 		this.getSvgRoot().setAttribute('transform', 'translate(' + a + ',' + b + ')');
 		delete_blocks(false);
+		trash_cover(false);
 	};
 	module$exports$Blockly$BlockSvg.BlockSvg.prototype.moveToDragSurface = function () {
 		if (this.useDragSurface_) {

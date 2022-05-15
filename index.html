@@ -201,6 +201,7 @@
 			width: 35px;
 			left: 12.5px;
 			margin-top: -4px;
+			transition: opacity transform 0.5s;
 		}
 
 		#delete-svg-down {
@@ -248,23 +249,48 @@
 
 			// 删除样式
 			var delete_blocks = function (mode) {
-				var delete_svg_up = document.getElementById('delete-svg-up').style;
-				var delete_svg_down = document.getElementById('delete-svg-down').style;
+				var delete_trash_cover = document.getElementById('delete-svg-up').style;
+				var delete_trash_body = document.getElementById('delete-svg-down').style;
 				var delete_div = document.getElementById('delete-div').style;
 				if (mode) {
-					delete_svg_up.zIndex = 500;
-					delete_svg_down.zIndex = 500;
+					delete_trash_cover.zIndex = 500;
+					delete_trash_body.zIndex = 500;
 					delete_div.zIndex = 6;
-					delete_svg_up.opacity = 1;
-					delete_svg_down.opacity = 1;
+					delete_trash_cover.opacity = 1;
+					delete_trash_body.opacity = 1;
 					delete_div.opacity = 1;
+					if(mouse_X() < 60) {
+						trash_cover(true);
+					} else {
+						trash_cover(false);
+					}
 				} else {
-					delete_svg_up.zIndex = 0;
-					delete_svg_down.zIndex = 0;
-					delete_svg_up.opacity = 0;
-					delete_svg_down.opacity = 0;
+					delete_trash_cover.zIndex = 0;
+					delete_trash_body.zIndex = 0;
+					delete_trash_cover.opacity = 0;
+					delete_trash_body.opacity = 0;
 					delete_div.opacity = 0;
-					setTimeout(() => delete_div.zIndex = 0, 200)
+					setTimeout(() => delete_div.zIndex = 0, 200);
+				}
+			}
+
+			function mouse_X() {
+				var posX = 0;
+				var event = event || window.event;
+				if (event.pageX) {
+					posX = event.pageX;
+				} else if (event.clientX) {
+					posX = event.clientX + document.documentElement.scrollLeft + document.body.scrollLeft;
+				}
+				return posX;
+			}
+
+			var trash_cover = function(mode) {
+				var delete_trash_cover = document.getElementById('delete-svg-up').style;
+				if (mode) {
+					delete_trash_cover.transform = "translate(-4px,-4px) rotate(-20deg)";
+				} else {
+					delete_trash_cover.transform = "translate(0px) rotate(0deg)";
 				}
 			}
 		</script>
