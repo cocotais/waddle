@@ -11,20 +11,6 @@ document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
 document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
 Blockly.svgResize(workspace);
-var dark_url = './static/Waddle/custom_category_dark.js';
-var light_url = './static/Waddle/custom_category.js';
-if (window.XMLHttpRequest) {
-	// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
-	xmlhttp = new XMLHttpRequest();
-} else {
-	swal('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！');
-}
-xmlhttp.open('GET', dark_url, false);
-xmlhttp.send();
-dark = xmlhttp.responseText;
-xmlhttp.open('GET', light_url, false);
-xmlhttp.send();
-light = xmlhttp.responseText;
 var sty = document.createElement('style');
 var to_dark = function () {
 	workspace.setTheme(DarkTheme);
@@ -40,7 +26,6 @@ var to_dark = function () {
 	document.getElementsByClassName('newsth-content')[0].style.backgroundColor = 'var(--nd-main-color)';
 	document.getElementsByClassName('aboutus-logo')[0].style.color = '#fff';
 	document.getElementsByClassName('newsth-logo')[0].style.color = '#fff';
-	eval(dark);
 	document.cookie = 'mode=dark';
 	document.getElementById('pwa-color').setAttribute('content', '#525252');
 
@@ -90,7 +75,6 @@ var to_light = function () {
 	document.getElementsByClassName('aboutus-logo')[0].style.color = 'var(--main-color)';
 	document.getElementsByClassName('newsth-logo')[0].style.color = 'var(--main-color)';
 	document.getElementById('pwa-color').setAttribute('content', '#6d50f0');
-	eval(light);
 	document.cookie = 'mode=light';
 
 	document.documentElement.style.setProperty('--common-background', '#fff');
