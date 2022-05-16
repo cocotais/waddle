@@ -539,6 +539,10 @@ TIP
 		</block>
 		<block type="crypto_md5">
 		</block>
+		<block type="crypto_sha1">
+		</block>
+		<block type="crypto_tostr">
+		</block>
 	</category>
 	<category name="utils" css-icon="iconfont waddle-tool">
 		<button text="实验性功能提示" callbackKey="betawarning">
