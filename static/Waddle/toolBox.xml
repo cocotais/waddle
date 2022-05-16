@@ -534,6 +534,12 @@ TIP
 		<block type="axios_maxcontentlength">
 		</block>
 	</category>
+	<category name="Crypto-JS" css-icon="iconfont waddle-tool">
+		<block type="crypto_import">
+		</block>
+		<block type="crypto_md5">
+		</block>
+	</category>
 	<category name="utils" css-icon="iconfont waddle-tool">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>

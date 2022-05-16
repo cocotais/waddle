@@ -1,11 +1,13 @@
-Blockly.Blocks['crypto_import'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("引入crypto-js");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour('#3492ff');
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
+Blockly.JavaScript["crypto_import"] = function (block) {
+  return `var CryptoJS = require("crypto-js");\n`;
+};
+
+Blockly.JavaScript["crypto_md5"] = function (block) {
+  var value_str = Blockly.JavaScript.valueToCode(
+    block,
+    "STR",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `CryptoJS.MD5(${value_str})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
