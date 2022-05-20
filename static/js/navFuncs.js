@@ -79,6 +79,7 @@ let upload = function (waddle) {
             let parser = new DOMParser();
             let xml = parser.parseFromString(request.responseText, 'text/xml');
             let blocks = xml.getElementsByTagName('body')[0].getElementsByTagName('blocks')[0].getElementsByTagName('xml')[0];
+            document.getElementsByClassName("groundglass")[0].style.display = ""; 
             workspace.clear();
             Blockly.Xml.domToWorkspace(blocks, workspace);
         }
