@@ -21,6 +21,19 @@ Blockly.Blocks['js_run2'] = {
     }
 };
 
+Blockly.Blocks['js_run_join'] = {
+    init: function () {
+        this.appendDummyInput().appendField('拼接代码');
+        this.appendValueInput('CODE1');
+        this.appendValueInput('CODE2');
+        this.setInputsInline(true);
+        this.setOutput(true, 'Number');
+        this.setColour('#F86787');
+        this.setTooltip('拼接自定义的代码');
+        this.setHelpUrl('https://www.w3school.com.cn/js/index.asp');
+    }
+};
+
 Blockly.Blocks['js_usestrict'] = {
     init: function () {
         this.appendDummyInput().appendField('使用严格模式');
