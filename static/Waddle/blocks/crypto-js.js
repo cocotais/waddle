@@ -44,3 +44,4 @@ Blockly.Blocks["crypto_tostr"] = {
     this.setHelpUrl("");
   },
 };
+//用甚莫颜色好？
