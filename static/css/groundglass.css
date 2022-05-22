@@ -45,7 +45,13 @@
         animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     }
 
-    #delete-div{
-        background-color: #000a;
+    .del-groundglass{
+        display: block;
+        width: 60px;
+        animation: none;
+        -webkit-animation: none;
+        z-index: 0;
+        transition: opacity 0.2s;
     }
+    
 }

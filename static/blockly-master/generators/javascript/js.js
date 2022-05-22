@@ -8,6 +8,13 @@ Blockly.JavaScript['js_run2'] = function (block) {
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['js_run_join'] = function (block) {
+    var code = 
+    Blockly.JavaScript.valueToCode(block, 'CODE1', Blockly.JavaScript.ORDER_NONE) + 
+    Blockly.JavaScript.valueToCode(block, 'CODE2', Blockly.JavaScript.ORDER_NONE) ;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
 Blockly.JavaScript['js_usestrict'] = function (block) {
     let code = '"use strict";\n';
     return code;
