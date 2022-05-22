@@ -272,18 +272,10 @@ TIP
 		<label text="鸡肋积木">
 		</label>
 		<block type="js_run">
-			<value name="CODE">
-				<shadow type="text">
-					<field name="TEXT">console.log(233);</field>
-				</shadow>
-			</value>
 		</block>
 		<block type="js_run2">
-			<value name="CODE">
-				<shadow type="text">
-					<field name="TEXT">console.log(233);</field>
-				</shadow>
-			</value>
+		</block>
+		<block type="js_run_join">
 		</block>
 		<block type="js_usestrict">
 		</block>
@@ -372,6 +364,12 @@ TIP
 		<block type="html_code">
 		</block>
 		<block type="html_tag">
+		</block>
+		<block type="html_html">
+		</block>
+		<block type="html_js">
+		</block>
+		<block type="html_js2">
 		</block>
 		<block type="html_div">
 		</block>
@@ -552,6 +550,16 @@ TIP
 		<block type="utils_isnative">
 		</block>
 	</category>
+		<category name="crypto" css-icon="iconfont waddle-tool">
+		<block type="crypto_import">
+		</block>
+		<block type="crypto_md5">
+		</block>
+		<block type="crypto_sha1">
+		</block>
+		<block type="crypto_tostr">
+		</block>
+	</category>
 	<category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">
 		<label text="工具.积木夹子">
 		</label>
@@ -614,32 +622,6 @@ TIP
 	</category>
 	<sep>
 	</sep>
-	<category name="自定义" css-icon="iconfont waddle-invisiblewidget" colour="#6d50f0">
-		<label text="蓝色属于自定义控件通用" colour="#5574F8">
-		</label>
-		<label text="紫色属于不可见控件专属,青色属于可见控件专属" colour="#8647F3">
-		</label>
-		<label text="模板见框架与示例">
-		</label>
-		<label text="控件类型定义">
-		</label>
-		<block type="ivw_defTypes">
-		</block>
-		<block type="ivw_defWidget">
-		</block>
-		<button text="实验性功能提示（可见控件）" callbackKey="betawarning">
-		</button>
-		<block type="vw_defTypes">
-		</block>
-		<block type="vw_defWidget">
-		</block>
-		<block type="vw_returnrender">
-		</block>
-		<block type="ivw_export">
-		</block>
-		<label text="模板见框架与示例">
-		</label>
-	</category>
 	<category name="类型定义" css-icon="iconfont waddle-visiblewidget" colour="#A15B5D">
 		<label text="模板见框架与示例">
 		</label>
@@ -771,6 +753,32 @@ TIP
 		</block>
 		<block type="ivw_getparam">
 		</block>
+	</category>
+	<category name="自定义" css-icon="iconfont waddle-invisiblewidget" colour="#6d50f0">
+		<label text="蓝色属于自定义控件通用" colour="#5574F8">
+		</label>
+		<label text="紫色属于不可见控件专属,青色属于可见控件专属" colour="#8647F3">
+		</label>
+		<label text="模板见框架与示例">
+		</label>
+		<label text="控件类型定义">
+		</label>
+		<block type="ivw_defTypes">
+		</block>
+		<block type="ivw_defWidget">
+		</block>
+		<button text="实验性功能提示（可见控件）" callbackKey="betawarning">
+		</button>
+		<block type="vw_defTypes">
+		</block>
+		<block type="vw_defWidget">
+		</block>
+		<block type="vw_returnrender">
+		</block>
+		<block type="ivw_export">
+		</block>
+		<label text="模板见框架与示例">
+		</label>
 	</category>
 	<category css-icon="iconfont waddle-example" name="框架" colour="#6d50f0">
 		<!-- <category name="基本框架" colour="#6d50f0"> -->

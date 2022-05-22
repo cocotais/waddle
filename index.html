@@ -11,12 +11,25 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport">
 	<meta content="telephone=no" name="format-detection">
 	<meta name="description" content="让CoCo没有难做的控件">
-	<script src="./static/js/jquery-3.6.0.min.js"></script>
+	<script src="./static/js/jquery-3.6.0.min.js">
+	</script>
 	<script>
+		//这里是正片
 		window.reast = false;
-		var version = 'V1.45.15(916)-alpha' //以后版本号改我就行！
-		console.log("%c ", 'background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzAwIiBoZWlnaHQ9IjEzMDAiIHZpZXdCb3g9IjAgMCAxMzAwIDEzMDAiPg0KICA8ZyBpZD0i57uEXzM2IiBkYXRhLW5hbWU9Iue7hCAzNiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTU5ODUgLTUzNjkuMzc0KSI+DQogICAgPHBhdGggaWQ9Iui3r+W+hF82IiBkYXRhLW5hbWU9Iui3r+W+hCA2IiBkPSJNMjUwOC4yMzUsMTk5My40MzNjNDc4LjMyMSwwLDY1MCwxNzEuNjc5LDY1MCw2NTBzLTE3MS42NzksNjUwLTY1MCw2NTAtNjUwLTE3MS42NzktNjUwLTY1MFMyMDI5LjkxNCwxOTkzLjQzMywyNTA4LjIzNSwxOTkzLjQzM1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQxMjYuNzY1IDMzNzUuOTQxKSIgZmlsbD0iIzZiNTBmMyIgZmlsbC1ydWxlPSJldmVub2RkIi8+DQogICAgPGcgaWQ9Iue7hF8zMCIgZGF0YS1uYW1lPSLnu4QgMzAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQxNiA0Nzg1LjcwNSkiPg0KICAgICAgPHBhdGggaWQ9Iui3r+W+hF8xIiBkYXRhLW5hbWU9Iui3r+W+hCAxIiBkPSJNOTA4LjM1OSwyMTYwYTE4LjQxNSwxOC40MTUsMCwwLDEsMTcuODY3LDIyLjg4M2MtMjMuMDkxLDkyLjM3LTEwOS40LDQzNy41OTQtMTM0LjYzOCw1MzguNTU1YTM2LjgzMiwzNi44MzIsMCwwLDEtMzUuNzM0LDI3LjlINjI0LjAzM2ExOC40MTUsMTguNDE1LDAsMCwxLTE3Ljg2Ny0yMi44ODNMNzQwLjgsMjE4Ny45YTM2LjgzMiwzNi44MzIsMCwwLDEsMzUuNzM0LTI3LjlaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1Njk3LjIyMyAtMTE3OSkiIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPg0KICAgICAgPHBhdGggaWQ9Iui3r+W+hF8yIiBkYXRhLW5hbWU9Iui3r+W+hCAyIiBkPSJNODYuMTY2LDIxODIuODgzQTE4LjQxNCwxOC40MTQsMCwwLDEsMTA0LjAzMywyMTYwSDIzNS44NTRhMzYuODMyLDM2LjgzMiwwLDAsMSwzNS43MzQsMjcuOUwzMTUuNCwyMzYzLjEzOGE3My42NDEsNzMuNjQxLDAsMCwxLDAsMzUuNzI5Yy0xNC4zMzYsNTcuMzUtNTkuMzc1LDIzNy41LTc4LjY4NCwzMTQuNzM1YTkuMjA2LDkuMjA2LDAsMCwxLTE3Ljg2NiwwWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTczOC4zODUgLTExNzkpIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgICAgIDxwYXRoIGlkPSLot6/lvoRfMyIgZGF0YS1uYW1lPSLot6/lvoQgMyIgZD0iTTMyOC4wNjUsMjc0OS4zNGEzNi44MzEsMzYuODMxLDAsMCwxLTM1LjczNC00NS43NjZjMjkuMTI4LTExNi41MTQsMTA1LjQ0LTQyMS43NjQsMTI4LjkxOC01MTUuNjcyYTM2LjgzMiwzNi44MzIsMCwwLDEsMzUuNzM0LTI3LjlINTQ2LjhhMzYuODMyLDM2LjgzMiwwLDAsMSwzNS43MzQsMjcuOWMxMS41Miw0Ni4wNzksMzQuMiwxMzYuODEsNDMuODA4LDE3NS4yMzZhNzMuNjQyLDczLjY0MiwwLDAsMSwwLDM1LjcyOWMtMTQuMzM2LDU3LjM1LTU5LjM3NCwyMzcuNS03OC42ODMsMzE0LjczNWE5LjIwNyw5LjIwNywwLDAsMS0xNy44NjcsMGMtMy4wMzgtMTIuMTQ2LTYuNTQ5LTI2LjItMTAuMDMzLTQwLjEzYTE4LjQxNywxOC40MTcsMCwwLDAtMzUuNzM0LDBjLTQuMjYzLDE3LjA1NC04LjU2NiwzNC4yNjUtMTEuOTkzLDQ3Ljk2N2EzNi44MzEsMzYuODMxLDAsMCwxLTM1LjczMywyNy45WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTcyMi4xMDkgLTExNzkpIiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgICA8L2c+DQogIDwvZz4NCjwvc3ZnPg0K");padding:14px 100px;background-size: contain;background-repeat: no-repeat;')
-		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
+		var version = 'V1.46.21(955)-beta' //以后版本号改我就行！
+        console.log(`%c\nwwwwwww      wwwwww     wwwwwww
+ wwwwwww    wwwwwww    wwwwwwww
+ wwwwwww    wwwwwwww   wwwwwww
+  wwwwwww  wwwwwwwww  wwwwwwww
+  wwwwwww  wwwwwwwww  wwwwwww
+   wwwwww wwwwwwwwww wwwwwwww
+   wwwww  wwwwwwwwww wwwwwww
+    wwww wwwwwwwwww wwwwwwww
+    www  wwwwwwwwww wwwwwww
+     ww wwwwwwwwww wwwwwwww
+     w  wwwwwww  w wwwwwww
+		`, "font-weight:bold;color:#6d50f0")		
+        console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
 		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造！\n\n特别鸣谢：https://gitee.com/coco-ag/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
 		console.log("%c\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec", "font-size:14px;color:rgb(42,125,255)")
 		console.log("%c" + version + " ©️ 2022 CoCo Central, All rights reserved.", "color:red;")
@@ -49,6 +62,7 @@
 		rip.innerText = 'html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
 		document.body.appendChild(rip);
 	}
+
 </script>
 
 <body>
@@ -67,23 +81,19 @@
 						</style>
 					</defs>
 					<g id="组_41" data-name="组 41" transform="translate(-15658.403 -6102.205)">
-						<path id="lu1" data-name="路径 1" class="cls-1"
-							d="M908.359,2160a18.415,18.415,0,0,1,17.867,22.883c-23.091,92.37-109.4,437.594-134.638,538.555a36.832,36.832,0,0,1-35.734,27.9H624.033a18.415,18.415,0,0,1-17.867-22.883L740.8,2187.9a36.832,36.832,0,0,1,35.734-27.9Z"
-							transform="translate(15540.223 3950.705)" />
-						<path id="lu2" data-name="路径 2" class="cls-1"
-							d="M86.166,2182.883A18.414,18.414,0,0,1,104.033,2160H235.854a36.832,36.832,0,0,1,35.734,27.9L315.4,2363.138a73.641,73.641,0,0,1,0,35.729c-14.336,57.35-59.375,237.5-78.684,314.735a9.206,9.206,0,0,1-17.866,0Z"
-							transform="translate(15581.385 3950.705)" />
-						<path id="lu3" data-name="路径 3" class="cls-1"
-							d="M328.065,2749.34a36.831,36.831,0,0,1-35.734-45.766c29.128-116.514,105.44-421.764,128.918-515.672a36.832,36.832,0,0,1,35.734-27.9H546.8a36.832,36.832,0,0,1,35.734,27.9c11.52,46.079,34.2,136.81,43.808,175.236a73.642,73.642,0,0,1,0,35.729c-14.336,57.35-59.374,237.5-78.683,314.735a9.207,9.207,0,0,1-17.867,0c-3.038-12.146-6.549-26.2-10.033-40.13a18.417,18.417,0,0,0-35.734,0c-4.263,17.054-8.566,34.265-11.993,47.967a36.831,36.831,0,0,1-35.733,27.9Z"
-							transform="translate(15565.109 3950.705)" />
+						<path id="lu1" data-name="路径 1" class="cls-1" d="M908.359,2160a18.415,18.415,0,0,1,17.867,22.883c-23.091,92.37-109.4,437.594-134.638,538.555a36.832,36.832,0,0,1-35.734,27.9H624.033a18.415,18.415,0,0,1-17.867-22.883L740.8,2187.9a36.832,36.832,0,0,1,35.734-27.9Z"
+						 transform="translate(15540.223 3950.705)" />
+						<path id="lu2" data-name="路径 2" class="cls-1" d="M86.166,2182.883A18.414,18.414,0,0,1,104.033,2160H235.854a36.832,36.832,0,0,1,35.734,27.9L315.4,2363.138a73.641,73.641,0,0,1,0,35.729c-14.336,57.35-59.375,237.5-78.684,314.735a9.206,9.206,0,0,1-17.866,0Z"
+						 transform="translate(15581.385 3950.705)" />
+						<path id="lu3" data-name="路径 3" class="cls-1" d="M328.065,2749.34a36.831,36.831,0,0,1-35.734-45.766c29.128-116.514,105.44-421.764,128.918-515.672a36.832,36.832,0,0,1,35.734-27.9H546.8a36.832,36.832,0,0,1,35.734,27.9c11.52,46.079,34.2,136.81,43.808,175.236a73.642,73.642,0,0,1,0,35.729c-14.336,57.35-59.374,237.5-78.683,314.735a9.207,9.207,0,0,1-17.867,0c-3.038-12.146-6.549-26.2-10.033-40.13a18.417,18.417,0,0,0-35.734,0c-4.263,17.054-8.566,34.265-11.993,47.967a36.831,36.831,0,0,1-35.733,27.9Z"
+						 transform="translate(15565.109 3950.705)" />
 					</g>
 				</svg>
 
 			</div>
 
 			<noscript>这里马上会有彩蛋~耐心等等~(顺便先开开Javascript)</noscript>
-			<p id="loading-text" onClick="document.getElementById('loading-text').style.color = 'rgba(255,255,255,100)'"
-				style="color: rgb(255,255,255);">让CoCo没有难做的控件</p>
+			<p id="loading-text" onClick="document.getElementById('loading-text').style.color = 'rgba(255,255,255,100)'" style="color: rgb(255,255,255);">让CoCo没有难做的控件</p>
 		</div>
 	</div>
 	<script>
@@ -201,6 +211,7 @@
 			width: 35px;
 			left: 12.5px;
 			margin-top: -4px;
+			transition: all 0.5s cubic-bezier(.1, 1, .5, 1);
 		}
 
 		#delete-svg-down {
@@ -219,10 +230,6 @@
 					<ul class="navbar-nav">
 						<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
 							style="cursor: pointer;">
-							<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="5" height="10"
-								style="left: -5px;top: 15px;position: absolute;z-index: 10000000;">
-								<polygon points="0,5 5,0 5,10" fill="#fff"></polygon>
-							</svg>
 							<li class="dropdown-item" onClick="show_newsth()">新建控件</li>
 							<li class="dropdown-item" onClick="save()">保存到电脑</li>
 							<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
@@ -248,23 +255,61 @@
 
 			// 删除样式
 			var delete_blocks = function (mode) {
-				var delete_svg_up = document.getElementById('delete-svg-up').style;
-				var delete_svg_down = document.getElementById('delete-svg-down').style;
+				var delete_trash_cover = document.getElementById('delete-svg-up').style;
+				var delete_trash_body = document.getElementById('delete-svg-down').style;
 				var delete_div = document.getElementById('delete-div').style;
+				try {
+					var del_groundglass = document.getElementById("del-groundglass").style;
+				} catch (error) {
+					//pass
+				}
+				
 				if (mode) {
-					delete_svg_up.zIndex = 500;
-					delete_svg_down.zIndex = 500;
+					delete_trash_cover.zIndex = 500;
+					del_groundglass.zIndex = 5;
+					delete_trash_body.zIndex = 500;
+					del_groundglass.opacity = 1;
 					delete_div.zIndex = 6;
-					delete_svg_up.opacity = 1;
-					delete_svg_down.opacity = 1;
+					delete_trash_cover.opacity = 1;
+					delete_trash_body.opacity = 1;
 					delete_div.opacity = 1;
+					if (mouse_X() < 60) {
+						trash_cover(true);
+					} else {
+						trash_cover(false);
+					}
 				} else {
-					delete_svg_up.zIndex = 0;
-					delete_svg_down.zIndex = 0;
-					delete_svg_up.opacity = 0;
-					delete_svg_down.opacity = 0;
+					delete_trash_cover.zIndex = 0;
+					delete_trash_body.zIndex = 0;
+					delete_trash_cover.opacity = 0;
+					delete_trash_body.opacity = 0;
 					delete_div.opacity = 0;
-					setTimeout(() => delete_div.zIndex = 0, 200)
+					try {
+						del_groundglass.opacity = 0;
+						setTimeout(() => {del_groundglass.zIndex = 0; delete_div.zIndex = 0}, 150);
+					} catch (error) {
+						//pass
+					}
+				}
+			}
+
+			function mouse_X() {
+				var posX = 0;
+				var event = event || window.event;
+				if (event.pageX) {
+					posX = event.pageX;
+				} else if (event.clientX) {
+					posX = event.clientX + document.documentElement.scrollLeft + document.body.scrollLeft;
+				}
+				return posX;
+			}
+
+			var trash_cover = function (mode) {
+				var delete_trash_cover = document.getElementById('delete-svg-up').style;
+				if (mode) {
+					delete_trash_cover.transform = "translate(-4px,-4px) rotate(-20deg)";
+				} else {
+					delete_trash_cover.transform = "translate(0px) rotate(0deg)";
 				}
 			}
 		</script>
@@ -274,7 +319,7 @@
 				<g style="mix-blend-mode:passthrough">
 					<path
 						d="M17,0C13.6863,0,11,2.68629,11,6L11,8L4,8C1.79086,8,0,9.79086,0,12C0,14.2091,1.79086,16,4,16L60,16C62.2091,16,64,14.2091,64,12C64,9.79086,62.2091,8,60,8L53,8L53,6C53,2.68629,50.3137,0,47,0L17,0Z"
-						fill-rule="evenodd" fill="#E0EAFF" fill-opacity="1" />
+						fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" />
 				</g>
 			</svg>
 			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" version="1.1"
@@ -282,7 +327,7 @@
 				<g style="mix-blend-mode:passthrough">
 					<path
 						d="M0,3C0,1.34315,1.34315,0,3,0L49,0C50.6569,0,52,1.34315,52,3L52,36C52,40.9706,47.9706,45,43,45L9,45C4.02944,45,0,40.9706,0,36L0,3ZM11,12.5C11,10.0147,13.0147,8,15.5,8C17.9853,8,20,10.0147,20,12.5L20,32.5C20,34.9853,17.9853,37,15.5,37C13.0147,37,11,34.9853,11,32.5L11,12.5ZM35.5,8C33.0147,8,31,10.0147,31,12.5L31,32.5C31,34.9853,33.0147,37,35.5,37C37.9853,37,40,34.9853,40,32.5L40,12.5C40,10.0147,37.9853,8,35.5,8Z"
-						fill-rule="evenodd" fill="#E0EAFF" fill-opacity="1" />
+						fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" />
 				</g>
 			</svg>
 		</div>
@@ -707,7 +752,7 @@
 					<span class="newsth-close">&times;</span>
 				</div>
 				<div class="newsth-body">
-					<div class="card" id="card" onclick='newsth.style.display = "none";workspace.clear();'><span
+					<div class="card" id="card" onclick='newsth.style.display = "none";document.getElementsByClassName("groundglass")[0].className = "groundglass";document.getElementsByClassName("groundglass")[0].style.display = ""; workspace.clear();'><span
 							class="sord">空白作品</span></div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/visiblewidget.waddle')">
@@ -891,6 +936,10 @@
 <script src="./static/Waddle/blocks/utils.js"></script>
 <script src="./static/Waddle/generators/javascript/utils.js"></script>
 
+<!--crypto控件积木(实验性)-->
+<script src="./static/Waddle/blocks/crypto-js.js"></script>
+<script src="./static/Waddle/generators/javascript/crypto-js.js"></script>
+
 <!--HTML DOM积木-->
 <script src="./static/Waddle/blocks/htmldom.js"></script>
 <script src="./static/Waddle/generators/javascript/htmldom.js"></script>
@@ -950,36 +999,34 @@
 	}
 </style>
 <script>
-	//加载工作区
-	//积木盒
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {
-		swal('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
-	}
+	//为了防锁死，改异步
+	$.ajax({
+		url: './static/Waddle/toolBox.xml',
+		type: 'get',
+		async: false,//使用同步的方式,true为异步方式
+		success: function (data) {
+			xmlDoc = data;
+			toolbox = document.getElementById('toolbox');
+			toolbox.innerHTML = xmlDoc.getElementsByTagName('toolbox')[0].innerHTML;
+			$.ajax({
+				url: './static/Waddle/workspace.xml',
+				type: 'get',
+				async: false,//使用同步的方式,true为异步方式
+				success: function (data) {
+					xmlDoc = data;
+					workspaceblocks = document.getElementById('workspaceblocks');
+					workspaceblocks.innerHTML = xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML;
+				},
+				fail: function () {
+					//code here...
+				}
+			});
+		},
+		fail: function () {
+			//code here...
+		}
+	});
 
-	xmlhttp.open("GET", "./static/Waddle/toolBox.xml", false);
-
-	xmlhttp.send();
-	xmlDoc = xmlhttp.responseXML;
-	toolbox = document.getElementById('toolbox');
-	toolbox.innerHTML = xmlDoc.getElementsByTagName('toolbox')[0].innerHTML;
-
-	//工作区
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari，旧版IE代码已删除
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {
-		swal('你就别用了吧！你这浏览器不行啊！换一个或升级，谢谢！')
-	}
-	xmlhttp.open("GET", "./static/Waddle/workspace.xml", false);
-
-	xmlhttp.send();
-
-	xmlDoc = xmlhttp.responseXML;
-	workspaceblocks = document.getElementById('workspaceblocks');
-	workspaceblocks.innerHTML = xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML;
 
 	var workspaceBlocks = document.getElementById("workspaceblocks");
 
@@ -1010,8 +1057,6 @@
 
 	/* 加载初始积木 */
 	Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
-
-
 	// 加载结束后，把积木栏文本整体调小一个像素，图标调大五个像素，这样不会喧宾夺主(这种方法直接硬改，很暴力)
 	$("span.blocklyTreeLabel").css("cssText", "font: 13px sans-serif !important");
 	$("span.iconfont").css("cssText", "font-size: 21px !important");
@@ -1048,12 +1093,12 @@
 		document.getElementById("codeArea").innerHTML = htmlEscape(code);
 		hljs.highlightBlock(document.getElementById("codeArea"))
 		code = code.replaceAll("\n", "")
-		
 
-		if(document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')'){
+
+		if (document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')') {
 			document.documentElement.style.setProperty('--pic-icon', 'url(' + myicon + ')');
 		}
-		
+
 
 		if (code.match(/return\((.+?)\)/g) != null) {
 			//事一个可见控件！
@@ -1061,14 +1106,13 @@
 			let html_code = code.match(/return\((.+?)\)/g)[0].substring(8, code.match(/return\((.+?)\)/g)[0].length - 2).replaceAll('&#60', '<').replaceAll('&#62', '>')
 			document.getElementById("widgetPreview").innerHTML = html_code
 		}
-		else{
+		else {
 			document.getElementById("widgetPreview").style.display = 'none';
 		}
 	}
 	workspace.addChangeListener(myUpdateFunction);
 
 	var modal = document.getElementById('myModal');
-
 
 	// 复制代码
 	var copy = document.getElementsByClassName("copy")[0];
@@ -1615,7 +1659,8 @@
 <div id="funcs" class="funcs">
 	<div id="funcs-buttons" data-title="控件图标预览">
 		<div class="myicon"
-			style="border: 3px solid var(--nd-main-color); -webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px; width: 30px; height: 30px; display: flex; background-image: var(--pic-icon); background-repeat: no-repeat; background-size: 24px;"></div>
+			style="border: 3px solid var(--nd-main-color); -webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px; width: 30px; height: 30px; display: flex; background-image: var(--pic-icon); background-repeat: no-repeat; background-size: 24px;">
+		</div>
 	</div>
 	<div id="funcs-buttons" data-title="切换主题" class="waddle-theme" onclick="switch_theme()">
 		<svg class="theme-sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1877,6 +1922,7 @@
 			h = w / 6;
 			$('#funcs').css('border-top-right-radius', '0px');
 			$('#funcs').css('border-bottom-right-radius', '0px');
+			$('#funcs').css('right', '0px');
 			if (w < 250) {
 				w = 250;
 			}
@@ -1886,6 +1932,7 @@
 		} else {
 			$('#funcs').css('border-top-right-radius', '77px');
 			$('#funcs').css('border-bottom-right-radius', '77px');
+			$('#funcs').css('right', '40px');
 		}
 		document.getElementById('funcs').style.height = h + 'px';
 		document.getElementById('funcs').style.width = w + 'px';
@@ -1899,16 +1946,18 @@
 	document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 	document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
 	document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
+	document.getElementById("delete-div").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
+	document.getElementById("delete-svg-up").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 35) / 2 + 'px';
+	document.getElementById("delete-svg-down").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 30) / 2 + 'px';
 	$('.blocklyToolboxDiv').css('z-index', '5');
 	$('.blocklyFlyout').css('z-index', '3');
 	$('#delete-svg-up').css('top', (window.innerHeight - $('#delete-svg-up').height()) / 2 - 7 + 'px');
 	$('#delete-svg-down').css('top', (window.innerHeight - $('#delete-svg-down').height()) / 2 + 7 + 'px');
 
 	window.onbeforeunload = function (event) {
-        const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
-  		localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
-    }
-
+		const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
+		localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
+	}
 	setTimeout(() => {
 		document.getElementsByClassName('blocklyToolboxDiv')[0].id = "blocklyToolboxDiv";
 		document.getElementsByClassName("blocklyTrash")[0].style.display = "none";
@@ -1916,14 +1965,14 @@
 		document.getElementById("body").style = "visibility: visible";
 		document.getElementsByClassName("funcs")[0].style.display = "inline-flex";
 		Blockly.getMainWorkspace().clear();
-		try{
+		try {
 			const xml = Blockly.Xml.textToDom(localStorage.getItem("xmlText"));
 			Blockly.Xml.domToWorkspace(xml, Blockly.getMainWorkspace());
 		}
-		catch (err){
+		catch (err) {
 			upload('./static/Waddle/tutorials/invisiblewidget.waddle')
 		}
-  		
+
 		setTimeout(() => {
 			var box = document.querySelectorAll('#funcs-buttons');
 
@@ -1950,5 +1999,5 @@
 	setTimeout(() => to_center(), 1000) //加载完成1s后执行
 </script>
 <div class="groundglass"></div>
-
+<div id="del-groundglass" class="del-groundglass groundglass"></div>
 </html>

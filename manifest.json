@@ -1,7 +1,8 @@
 {
     "name": "Waddle",
     "short_name": "Waddle",
-    "start_url": "index.html",
+    "start_url": "./index.html",
+    "id": "/index.html",
     "display": "standalone",
     "background_color": "#6d50f0",
     "theme_color": "#6d50f0",
