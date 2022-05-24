@@ -1,4 +1,4 @@
-const CACHE_NAME = 'waddle-v2';
+const CACHE_NAME = 'waddle-'+version;
 const FILES_TO_CACHE = ['./',
   './index.html',
   './static/Waddle/toolBox.xml',
