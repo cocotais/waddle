@@ -1912,6 +1912,16 @@
 	$('.cls-1').animate({ 'stroke-dashoffset': '50px' }, 10);
 </script>
 <script>
+	// 通过增加时间尾缀重新请求资源
+	// 降低网页性能，增加服务器开销
+	var scripts = document.getElementsByTagName("script");
+	for (var i = 0; i < scripts.length; i++) {
+		if (scripts[i].src) {
+			scripts[i].src = scripts[i].src + "?t=" + new Date().getTime();
+		}
+	}
+</script>
+<script>
 	// 右下角响应式布局
 	var size_changer = function () {
 		x = window.innerWidth;
