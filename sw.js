@@ -1,4 +1,4 @@
-const CACHE_NAME = 'waddle-'+version;
+const CACHE_NAME = 'Waddle-'+'V1.46.22(964)-beta'//也要改我！;
 const FILES_TO_CACHE = ['./',
   './index.html',
   './static/Waddle/toolBox.xml',
@@ -9,9 +9,9 @@ const FILES_TO_CACHE = ['./',
   './static/Waddle/tutorials/visiblewidget.waddle'
 ];
 
+
 // Install SW
 self.addEventListener('install', e => {
-  console.log('[Service Worker] Install');
   // 添加预缓存文件
   e.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
@@ -22,13 +22,22 @@ self.addEventListener('install', e => {
 });
 
 self.addEventListener('fetch', function (e) {
-    // 如果有cache则直接返回，否则通过fetch请求
-    e.respondWith(
-        caches.match(e.request).then(function (cache) {
-            return cache || fetch(e.request);
-        }).catch(function (err) {
-            console.log(err);
-            //return fetch(e.request);
-        })
-    );
+  // 先网络，再缓存
+  e.respondWith(
+      fetch(e.request).catch(function() {
+        return caches.match(e.request);
+    })
+  );
+});
+
+self.addEventListener('activate', function (e) {
+  var cachePromise = caches.keys().then(function (keys) {
+      return Promise.all(keys.map(function (key) {
+          if (key !== CACHE_NAME) {
+              return caches.delete(key);
+          }
+      }));
+  })
+  e.waitUntil(cachePromise);
+  return self.clients.claim();
 });

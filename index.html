@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
-
+<!----写在这里，就是两个版本号都要改！---->
+<!----将"V1.46.22(964)-beta"替换为版本（这条的也要）---->
 <head>
 	<meta charset="utf-8">
 	<meta name="theme-color" id="pwa-color" content="#6d50f0">
@@ -14,9 +15,8 @@
 	<script src="./static/js/jquery-3.6.0.min.js">
 	</script>
 	<script>
-		//这里是正片
 		window.reast = false;
-		window.version = 'V1.46.21(962)-beta' //以后版本号改我就行！
+		window.version = 'V1.46.22(964)-beta' //以后版本号改我就行！
         console.log(`%c\nwwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
  wwwwwww    wwwwwwww   wwwwwww
@@ -1910,16 +1910,6 @@
 <script src="./static/js/themes.js"></script>
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '50px' }, 10);
-</script>
-<script>
-	// 通过增加时间尾缀重新请求资源
-	// 降低网页性能，增加服务器开销
-	var scripts = document.getElementsByTagName("script");
-	for (var i = 0; i < scripts.length; i++) {
-		if (scripts[i].src) {
-			scripts[i].src = scripts[i].src + "?t=" + new Date().getTime();
-		}
-	}
 </script>
 <script>
 	// 右下角响应式布局
