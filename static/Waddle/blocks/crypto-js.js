@@ -27,6 +27,33 @@ Blockly.Blocks["crypto_sha1"] = {
     this.appendValueInput("STR")
       .setCheck(null)
       .appendField("使用Crypto哈希SHA-1");
+    this.appendDummyInput("").appendField("的对象");
+    this.setOutput(true, null);
+    this.setColour("#0682f5");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+
+Blockly.Blocks["crypto_md5_s"] = {
+  init: function () {
+    this.appendValueInput("STR")
+      .setCheck(null)
+      .appendField("使用Crypto生成哈希MD5");
+    this.appendDummyInput("").appendField("的字符串");
+    this.setOutput(true, null);
+    this.setColour("#0682f5");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+
+Blockly.Blocks["crypto_sha1_s"] = {
+  init: function () {
+    this.appendValueInput("STR")
+      .setCheck(null)
+      .appendField("使用Crypto哈希SHA-1");
+    this.appendDummyInput("").appendField("的字符串");
     this.setOutput(true, null);
     this.setColour("#0682f5");
     this.setTooltip("");

@@ -543,6 +543,10 @@ TIP
 		<category name="crypto" css-icon="iconfont waddle-tool">
 		<block type="crypto_import">
 		</block>
+		<block type="crypto_md5_s">
+		</block>
+		<block type="crypto_sha1_s">
+		</block>
 		<block type="crypto_md5">
 		</block>
 		<block type="crypto_sha1">

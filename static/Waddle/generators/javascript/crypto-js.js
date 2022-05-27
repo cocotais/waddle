@@ -1,3 +1,4 @@
+//草为什么我代码没了，，重新写一遍
 Blockly.JavaScript["crypto_import"] = function (block) {
   return `var CryptoJS = require("crypto-js");\n`;
 };
@@ -19,6 +20,26 @@ Blockly.JavaScript["crypto_sha1"] = function (block) {
     Blockly.JavaScript.ORDER_ATOMIC
   );
   var code = `CryptoJS.SHA1(${value_str})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["crypto_md5_s"] = function (block) {
+  var value_str = Blockly.JavaScript.valueToCode(
+    block,
+    "STR",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `CryptoJS.MD5(${value_str}).toString()`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["crypto_sha1_s"] = function (block) {
+  var value_str = Blockly.JavaScript.valueToCode(
+    block,
+    "STR",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `CryptoJS.SHA1(${value_str}).toString()`;
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
