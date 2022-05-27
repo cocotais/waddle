@@ -550,6 +550,26 @@ TIP
 		<block type="crypto_tostr">
 		</block>
 	</category>
+		<category name="vika" css-icon="iconfont waddle-tool">
+		<block type="vika_import">
+		</block>
+		<block type="vika_auth_simple">
+		</block>
+		<block type="vika_auth">
+		</block>
+		<block type="vika_all_simple">
+		</block>
+		<block type="vika_all">
+		</block>
+		<block type="vika_response_success">
+		</block>
+		<block type="vika_response_code">
+		</block>
+		<block type="vika_response_message">
+		</block>
+		<block type="vika_response_data">
+		</block>
+	</category>
 	<category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">
 		<label text="工具.积木夹子">
 		</label>
