@@ -135,6 +135,7 @@ window.onresize = function () {
     document.getElementById('toolbox').style.height = window.innerHeight + 'px';
     document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 	document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
+	document.getElementsByClassName("modal-content")[0].style.height = window.innerHeight + 'px';
 	document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
     Blockly.svgResize(workspace);
 };
@@ -169,3 +170,6 @@ if ($(window).width() < 818) {
         document.getElementById('toolbox').style.width = 'calc(100vw - 400px)';
     }
 }
+
+document.getElementsByClassName("copy")[0].style.top = (window.innerHeight-110) + 'px';
+document.getElementsByClassName("modal-close")[0].style.top = (window.innerHeight-110) + 'px';

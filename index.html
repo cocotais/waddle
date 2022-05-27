@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <!----写在这里，就是两个版本号都要改！---->
-<!----将"V1.46.23(969)-beta"替换为版本（这条的也要）---->
+<!----将"V1.46.24(970)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -17,7 +17,7 @@
 	</script>
 	<script>
 		window.reast = false;
-		var version = 'V1.46.23(969)-beta' //以后版本号改我就行！
+		var version = 'V1.46.24(970)-beta' //以后版本号改我就行！
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -650,17 +650,22 @@ wwwwwww      wwwwww     wwwwwww
 				text-align: center;
 				text-decoration: none;
 				display: inline-block;
-				font-size: 16px;
 				border-radius: 100px;
 				position: absolute;
-				right: 40px;
 				bottom: 40px;
 				box-shadow: 0 0 3px 1px rgba(0, 0, 0, .3);
+			}
+
+			.copy {
+				right: 40px;
+				font-size: 16px;
 			}
 
 			.modal-close {
 				left: 40px;
 				font-size: 50px;
+				max-width: 70px;
+				min-width: 70px;
 			}
 
 			.copy:hover,
@@ -760,7 +765,8 @@ wwwwwww      wwwwww     wwwwwww
 				<div class="newsth-body">
 					<div class="card" id="card"
 						onclick='newsth.style.display = "none";document.getElementsByClassName("groundglass")[0].className = "groundglass";document.getElementsByClassName("groundglass")[0].style.display = ""; workspace.clear();'>
-						<span class="sord">空白作品</span></div>
+						<span class="sord">空白作品</span>
+					</div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/visiblewidget.waddle')">
 						<span class="sord">可见控件模版</span>
@@ -1906,6 +1912,9 @@ wwwwwww      wwwwww     wwwwwww
 		document.getElementById("toolbox").style.height = (window.innerHeight + 'px');
 		document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 		document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
+		document.getElementsByClassName("modal-content")[0].style.height = window.innerHeight + 'px';
+		document.getElementsByClassName("copy")[0].style.top = (window.innerHeight - 110) + 'px';
+		document.getElementsByClassName("modal-close")[0].style.top = (window.innerHeight - 110) + 'px';
 		document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
 		Blockly.svgResize(workspace);
 	});
@@ -1939,7 +1948,12 @@ wwwwwww      wwwwww     wwwwwww
 		} else {
 			$('#funcs').css('border-top-right-radius', '77px');
 			$('#funcs').css('border-bottom-right-radius', '77px');
-			$('#funcs').css('right', '40px');
+			if (modal.style.display == "none" || modal.style.display == "") {
+				$('#funcs').css('right', '40px');
+			}
+			else {
+				$('#funcs').css('right', '440px');
+			}
 		}
 		document.getElementById('funcs').style.height = h + 'px';
 		document.getElementById('funcs').style.width = w + 'px';

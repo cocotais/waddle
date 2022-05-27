@@ -6,7 +6,7 @@
 				<field name="type">MY_WIDGET</field>
 				<next>
 					<block type="ivw_itemIcon" id="ffxwnbffxwnbffxwnbnb">
-						<field name="icon">https://waddle.coco-central.cn/static/img/logo.svg</field>
+						<field name="icon">./static/img/logo.svg</field>
 						<next>
 							<block type="ivw_itemTitle" id="hzsnnbhzsnnbhzsnnbnb">
 								<field name="title">我的控件</field>
