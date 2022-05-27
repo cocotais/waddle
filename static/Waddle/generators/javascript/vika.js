@@ -137,3 +137,14 @@ Blockly.JavaScript["vika_response_data"] = function (block) {
   var code = "response.data";
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript["vika_sort"] = function (block) {
+  var dropdown_sort = block.getFieldValue("sort");
+  var value_id = Blockly.JavaScript.valueToCode(
+    block,
+    "id",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `{${value_id}:${dropdown_sort}}`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};

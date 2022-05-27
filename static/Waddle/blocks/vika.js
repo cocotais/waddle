@@ -140,3 +140,23 @@ Blockly.Blocks["vika_response_data"] = {
     this.setHelpUrl("");
   },
 };
+
+Blockly.Blocks["vika_sort"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("排序配置")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["正序", "asc"],
+          ["倒序", "desc"],
+        ]),
+        "sort"
+      );
+    this.appendValueInput("id").setCheck(null).appendField("列名称或ID");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
