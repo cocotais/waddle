@@ -117,6 +117,21 @@ let count = function () {
   }
 };
 
+var get_num_oj = 0;
+let count_oj = function () {
+  get_num_oj += 1;
+  if (get_num_oj >= 5) {
+    if (getCookie("oj-egg") == false) {
+      document.cookie = "oj-egg=true";
+      swal("获得成就：学习JS的网站");
+    }
+    {
+      window.open("./static/Waddle/eastegg/waddleOJ/html/index.html");
+      get_num_oj = -999;
+    }
+  }
+};
+
 var isclick = false;
 
 let dropdown_show = function () {
