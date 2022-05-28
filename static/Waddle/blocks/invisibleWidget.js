@@ -186,7 +186,7 @@ Blockly.Blocks['ivw_addParams'] = {
         this.appendDummyInput()
             .appendField("添加参数")
             .appendField("参数名")
-            .appendField(new Blockly.FieldTextInput("参数1"), "label")
+            .appendField(new Blockly.FieldTextInput("参数名"), "label")
             .appendField("参数内部名")
             .appendField(new Blockly.FieldTextInput("paramName"), "key");
         this.appendDummyInput()
@@ -215,12 +215,7 @@ Blockly.Blocks['ivw_addParams'] = {
 
 Blockly.Blocks['ivw_addDropdownParams'] = {
     init: function () {
-        this.appendDummyInput()
-            .appendField('添加下拉参数')
-            .appendField('参数名')
-            .appendField(new Blockly.FieldTextInput('参数1'), 'label')
-            .appendField('参数内部')
-            .appendField(new Blockly.FieldTextInput('paramName'), 'key')；
+        this.appendDummyInput().appendField('添加下拉参数').appendField('参数').appendField(new Blockly.FieldTextInput('paramName'), 'key').appendField('标签').appendField(new Blockly.FieldTextInput('参数名'), 'label');
         this.appendDummyInput().appendField('下拉选项');
         this.appendStatementInput('dropdownItems').setCheck(null);
         this.setPreviousStatement(true, null);
