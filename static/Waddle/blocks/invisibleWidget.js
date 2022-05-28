@@ -3,7 +3,7 @@ const HELP_URL = 'https://www.yuque.com/coco-central/widget/widgetguide';
 Blockly.Blocks['ivw_defTypes'] = {
     init: function () {
         this.appendDummyInput().appendField('创建不可见控件');
-        this.appendDummyInput().appendField('类型名').appendField(new Blockly.FieldTextInput('MY_WIDGET'), 'type').appendField('图标').appendField(new Blockly.FieldTextInput('./static/img/logo.svg'), 'icon');
+        this.appendDummyInput().appendField('类型名').appendField(new Blockly.FieldTextInput('MY_WIDGET'), 'type').appendField('图标').appendField(new Blockly.FieldTextInput('https://waddle.coco-central.cn/static/img/logo.svg'), 'icon');
         // 五个参数分两行输入
         this.appendDummyInput()
             .appendField('名称')
@@ -210,7 +210,12 @@ Blockly.Blocks['ivw_addParams'] = {
 
 Blockly.Blocks['ivw_addDropdownParams'] = {
     init: function () {
-        this.appendDummyInput().appendField('添加下拉参数').appendField('参数').appendField(new Blockly.FieldTextInput('paramName'), 'key').appendField('标签').appendField(new Blockly.FieldTextInput('参数名'), 'label');
+        this.appendDummyInput()
+            .appendField('添加下拉参数')
+            .appendField('参数名')
+            .appendField(new Blockly.FieldTextInput('参数1'), 'label')
+            .appendField('参数内部')
+            .appendField(new Blockly.FieldTextInput('paramName'), 'key')；
         this.appendDummyInput().appendField('下拉选项');
         this.appendStatementInput('dropdownItems').setCheck(null);
         this.setPreviousStatement(true, null);
