@@ -185,10 +185,10 @@ Blockly.Blocks['ivw_addParams'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("添加参数")
-            .appendField("参数")
-            .appendField(new Blockly.FieldTextInput("paramName"), "key")
-            .appendField("标签")
-            .appendField(new Blockly.FieldTextInput("参数名"), "label");
+            .appendField("参数名")
+            .appendField(new Blockly.FieldTextInput("参数名"), "label")
+            .appendField("参数内部名")
+            .appendField(new Blockly.FieldTextInput("paramName"), "key");
         this.appendDummyInput()
             .appendField("输入值类型")
             .appendField(new Blockly.FieldDropdown([
