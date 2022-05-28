@@ -3,7 +3,7 @@ const HELP_URL = 'https://www.yuque.com/coco-central/widget/widgetguide';
 Blockly.Blocks['ivw_defTypes'] = {
     init: function () {
         this.appendDummyInput().appendField('创建不可见控件');
-        this.appendDummyInput().appendField('类型名').appendField(new Blockly.FieldTextInput('MY_WIDGET'), 'type').appendField('图标').appendField(new Blockly.FieldTextInput('./static/img/logo.svg'), 'icon');
+        this.appendDummyInput().appendField('类型名').appendField(new Blockly.FieldTextInput('MY_WIDGET'), 'type').appendField('图标').appendField(new Blockly.FieldTextInput('https://waddle.coco-central.cn/static/img/logo.svg'), 'icon');
         // 五个参数分两行输入
         this.appendDummyInput()
             .appendField('名称')
