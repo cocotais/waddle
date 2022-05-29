@@ -215,7 +215,7 @@ Blockly.Blocks['ivw_addDropdownParams'] = {
             .appendField('参数名')
             .appendField(new Blockly.FieldTextInput('参数1'), 'label')
             .appendField('参数内部')
-            .appendField(new Blockly.FieldTextInput('paramName'), 'key')；
+            .appendField(new Blockly.FieldTextInput('paramName'), 'key');
         this.appendDummyInput().appendField('下拉选项');
         this.appendStatementInput('dropdownItems').setCheck(null);
         this.setPreviousStatement(true, null);

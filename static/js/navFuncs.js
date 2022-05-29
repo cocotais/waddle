@@ -108,11 +108,7 @@ let count = function () {
       document.cookie = "help-egg=true";
       swal("获得成就：需要帮助的训练师");
     }
-    if (Math.random < 0.5) {
-      window.open("./static/Waddle/eastegg/aiwidget.html");
-    } else {
-      window.open("./static/Waddle/eastegg/pdd.html");
-    }
+    window.open("./static/Waddle/eastegg/pdd.html");
     get_num = -999;
   }
 };

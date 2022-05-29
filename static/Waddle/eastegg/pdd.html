@@ -210,6 +210,7 @@
     <style>
       body {
         background-color: #c42027;
+        overflow: hidden;
       }
       @keyframes start {
         0% {
@@ -224,6 +225,7 @@
       }
     </style>
     <script>
+      var get_num = 0;
       function start() {
         if (
           document.getElementById("zp").style["animationPlayState"] != "running"
@@ -234,7 +236,14 @@
             document.getElementById("zp").style["animationPlayState"] =
               "paused";
             document.getElementById("zp").style["animation"] = "";
-            alert("谢谢惠顾");
+            
+            get_num += 1;
+            if (get_num >= 10) {
+              alert("谢谢惠顾，但你成功获取权限！");
+              window.open("./aiwidget.html");
+            }else{
+              alert("谢谢惠顾");
+            }
           }, 2000);
         }
       }
