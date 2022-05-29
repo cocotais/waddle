@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
-<!----写在这里，就是三个版本号都要改！（index的和sw.js的）---->
-<!----将"V1.47.29(982)-beta"替换为版本（这条的也要）---->
+<!----写在这里，就是两个版本号都要改！---->
+<!----将"V1.47.24(971)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -17,7 +17,7 @@
 	</script>
 	<script>
 		window.reast = false;
-		var version = 'V1.47.29(982)-beta' //以后版本号改我就行！
+		var version = 'V1.47.24(971)-beta' //以后版本号改我就行！
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -802,17 +802,17 @@ wwwwwww      wwwwww     wwwwwww
 				<div class="aboutus-body">
 					<img width="240" src="./static/img/waddle.svg" style="margin: 30px 0;" alt="Waddle"
 						onclick="east_chk()"></img>
-					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">让CoCo没有<span onclick="count_oj()">难</span>做的控件</p>
+					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">让CoCo没有难做的控件</p>
 					</br>
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由所有Waddle的开源贡献者共同创造！</p>
 					<!----<p style="color: #ffffff;font-size: 17px;">中子星000（QQ：2422481178）主理制作</br>MathCalculus（QQ：2504556268）主理制作</br>Epeiuss（Mail：ffxw0720@163.com）监制</br>海藻酸钠（QQ：3409473369）美术/UI/监制</br>小鱼yuzifu（QQ：1906929246）前端设计</br>刘lyxAndy（QQ：3449556207）细节处理</p>--->
-					<p style="color: #ffffff;font-size: 15px;" onclick=count()>帮助链接：
+					<p style="color: #ffffff;font-size: 15px;">帮助链接：
 						<a href="https://docs.coco-central.cn/waddle/" style="color: #ffffff;font-size: 15px;"
 							target="_blank" rel="noopener">https://docs.coco-central.cn/waddle/</a>
 					</p>
 					</br>
 					</br>
-					<p id="version" style="color: #ffffff;font-size: 20px;font-weight: bold;"></p>
+					<p id="version" style="color: #ffffff;font-size: 20px;font-weight: bold;" onclick=count()></p>
 					<script>
 						$("#version").text("目前版本：" + version);
 					</script>
@@ -952,6 +952,10 @@ wwwwwww      wwwwww     wwwwwww
 <!--vika控件积木(实验性)-->
 <script src="./static/Waddle/blocks/vika.js"></script>
 <script src="./static/Waddle/generators/javascript/vika.js"></script>
+
+<!--qrcode控件积木(实验性)-->
+<script src="./static/Waddle/blocks/qrcode.js"></script>
+<script src="./static/Waddle/generators/javascript/qrcode.js"></script>
 
 <!--HTML DOM积木-->
 <script src="./static/Waddle/blocks/htmldom.js"></script>

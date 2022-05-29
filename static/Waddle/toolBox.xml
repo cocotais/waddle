@@ -623,6 +623,22 @@ TIP
 			</value>
 		</block>
 	</category>
+	<category name="qrcode" css-icon="iconfont waddle-tool">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="qrcode_import">
+		</block>
+		<block type="qrcode_tocanvas">
+		</block>
+		<block type="qrcode_err">
+		</block>
+		<block type="qrcode_tocanvas_c">
+		</block>
+		<block type="qrcode_err">
+		</block>
+		<block type="qrcode_canvas">
+		</block>
+	</category>
 	<category name="工具" css-icon="iconfont waddle-tool" colour="#0E7D65">
 		<label text="工具.积木夹子">
 		</label>
