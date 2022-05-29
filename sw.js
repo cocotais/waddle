@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Waddle-'+'V1.47.29(980)-beta'//也要改我！;
+const CACHE_NAME = 'Waddle-'+'V1.47.29(981)-beta'//也要改我！;
 const FILES_TO_CACHE = ['./',
   './index.html',
   './static/Waddle/toolBox.xml',
@@ -22,11 +22,14 @@ self.addEventListener('install', e => {
 });
 
 self.addEventListener('fetch', function (e) {
-  // 先网络，再缓存
+  // 如果有cache则直接返回，否则通过fetch请求
   e.respondWith(
-      fetch(e.request).catch(function() {
-        return caches.match(e.request);
-    })
+      caches.match(e.request).then(function (cache) {
+          return cache || fetch(e.request);
+      }).catch(function (err) {
+          console.log(err);
+          return fetch(e.request);
+      })
   );
 });
 

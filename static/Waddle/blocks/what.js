@@ -4,7 +4,7 @@ Blockly.Blocks["what_waddle1"] = {
       .setAlign(Blockly.ALIGN_CENTRE)
       .appendField(
         new Blockly.FieldImage(
-          "./static/img/logo.svg",
+          "https://waddle.coco-central.cn/static/img/logo.svg",
           100,
           100,
           { alt: "*", flipRtl: "FALSE" }
