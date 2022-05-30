@@ -2,8 +2,13 @@ const HELP_URL = 'https://www.yuque.com/coco-central/widget/widgetguide';
 
 Blockly.Blocks['ivw_defTypes'] = {
     init: function () {
-        this.appendDummyInput().appendField('创建不可见控件');
-        this.appendDummyInput().appendField('类型名').appendField(new Blockly.FieldTextInput('MY_WIDGET'), 'type').appendField('图标').appendField(new Blockly.FieldTextInput('https://waddle.coco-central.cn/static/img/logo.svg'), 'icon');
+        this.appendDummyInput()
+            .appendField('创建不可见控件');
+        this.appendDummyInput()
+            .appendField('类型名')
+            .appendField(new Blockly.FieldTextInput('MY_WIDGET'), 'type')
+            .appendField('图标')
+            .appendField(new Blockly.FieldTextInput('https://waddle.coco-central.cn/static/img/logo.svg'), 'icon');
         // 五个参数分两行输入
         this.appendDummyInput()
             .appendField('名称')
@@ -18,8 +23,6 @@ Blockly.Blocks['ivw_defTypes'] = {
                 ]),
                 'isGlobalWidget'
             );
-        // this.appendStatementInput("types")
-        // 	.setCheck(null); //弃用
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#8647F3');
@@ -95,7 +98,12 @@ Blockly.Blocks['ivw_defTypes'] = {
 
 Blockly.Blocks['ivw_addProperty'] = {
     init: function () {
-        this.appendDummyInput().appendField('新建属性积木').appendField('变量名').appendField(new Blockly.FieldTextInput('propertyName'), 'key').appendField('属性名').appendField(new Blockly.FieldTextInput('属性1'), 'label');
+        this.appendDummyInput()
+            .appendField('新建属性积木')
+            .appendField('变量名')
+            .appendField(new Blockly.FieldTextInput('propertyName'), 'key')
+            .appendField('属性名')
+            .appendField(new Blockly.FieldTextInput('属性1'), 'label');
         this.appendDummyInput()
             .appendField('属性值类型')
             .appendField(
@@ -109,8 +117,8 @@ Blockly.Blocks['ivw_addProperty'] = {
                 ]),
                 'valueType'
             );
-        this.appendValueInput('defaultValue').appendField('默认值');
-        //this.appendStatementInput('other').setCheck(null);
+        this.appendValueInput('defaultValue')
+            .appendField('默认值');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#e76cea');
@@ -122,9 +130,12 @@ Blockly.Blocks['ivw_addProperty'] = {
 // 有点可怕（（，这大小写不对
 Blockly.Blocks['ivw_getproperty'] = {
     init: function () {
-        this.appendDummyInput().appendField('获取控件属性').appendField(new Blockly.FieldTextInput('key'), 'KEY').appendField('的值');
+        this.appendDummyInput()
+            .appendField('获取控件属性')
+            .appendField(new Blockly.FieldTextInput('propertyName'), 'KEY')
+            .appendField('的值');
         this.setOutput(true, null);
-        this.setColour('5574F8');
+        this.setColour('#e76cea');
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -132,9 +143,12 @@ Blockly.Blocks['ivw_getproperty'] = {
 
 Blockly.Blocks['ivw_getparam'] = {
     init: function () {
-        this.appendDummyInput().appendField('获取参数').appendField(new Blockly.FieldTextInput('key'), 'KEY').appendField('的值');
+        this.appendDummyInput()
+            .appendField('获取参数')
+            .appendField(new Blockly.FieldTextInput('paramName'), 'KEY')
+            .appendField('的值');
         this.setOutput(true, null);
-        this.setColour('5574F8');
+        this.setColour('#3ca9ff');
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -160,14 +174,14 @@ Blockly.Blocks['ivw_addMethod'] = {
                     ['对象', "'object'"],
                     ['任何类型', "['string','number','boolean','array','color','object',]"]
                 ]), 'valueType');
-        // this.appendDummyInput()
-        // 	.appendField("积木选项")
-        // this.appendStatementInput("other")
-        // 	.setCheck(null);
-        this.appendDummyInput().appendField('代码参数');
-        this.appendStatementInput('params').setCheck(null);
-        this.appendDummyInput().appendField('执行代码');
-        this.appendStatementInput('code').setCheck(null);
+        this.appendDummyInput()
+            .appendField('代码参数');
+        this.appendStatementInput('params')
+            .setCheck(null);
+        this.appendDummyInput()
+            .appendField('执行代码');
+        this.appendStatementInput('code')
+            .setCheck(null);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#ffbb55');
@@ -195,11 +209,6 @@ Blockly.Blocks['ivw_addParams'] = {
                 ["任何类型", "['string','number','boolean','color','array','object']"]
             ]), "valueType");
         this.appendValueInput('defaultValue').appendField('默认值');
-        // 以下弃用
-        // this.appendDummyInput()
-        // 	.appendField("积木选项")
-        // this.appendStatementInput("other")
-        // 	.setCheck(null);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#3CA9FF');
@@ -228,7 +237,9 @@ Blockly.Blocks['ivw_addDropdownParams'] = {
 
 Blockly.Blocks['ivw_addDropdownItem'] = {
     init: function () {
-        this.appendDummyInput().appendField('下拉参数').appendField(new Blockly.FieldTextInput('paramName'), 'label');
+        this.appendDummyInput()
+            .appendField('下拉参数')
+            .appendField(new Blockly.FieldTextInput('参数名'), 'label');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#3CA9FF');
@@ -239,7 +250,13 @@ Blockly.Blocks['ivw_addDropdownItem'] = {
 
 Blockly.Blocks['ivw_addEvent'] = {
     init: function () {
-        this.appendDummyInput().appendField('新建积木').appendField('当').appendField(new Blockly.FieldTextInput('发生什么'), 'label').appendField('时').appendField('事件内部名').appendField(new Blockly.FieldTextInput('eventName'), 'key');
+        this.appendDummyInput()
+            .appendField('新建积木')
+            .appendField('当')
+            .appendField(new Blockly.FieldTextInput('发生什么'), 'label')
+            .appendField('时')
+            .appendField('事件内部名')
+            .appendField(new Blockly.FieldTextInput('eventName'), 'key');
         this.appendDummyInput().appendField('参数');
         this.appendStatementInput('params').setCheck(null);
         this.appendDummyInput().appendField('积木选项');
@@ -254,10 +271,12 @@ Blockly.Blocks['ivw_addEvent'] = {
 
 Blockly.Blocks['ivw_methodReturn'] = {
     init: function () {
-        this.appendValueInput('value').setCheck(null).appendField('返回');
+        this.appendValueInput('value')
+            .setCheck(null)
+            .appendField('返回');
         this.setPreviousStatement(true, null);
         this.setNextStatement(false, null);
-        this.setColour('5574F8');
+        this.setColour('#ffbb55');
         this.setTooltip('触发事件并传参（可选，请用事件传参积木）');
         this.setHelpUrl(HELP_URL);
     }
@@ -265,11 +284,13 @@ Blockly.Blocks['ivw_methodReturn'] = {
 
 Blockly.Blocks['ivw_emit'] = {
     init: function () {
-        this.appendValueInput('event').setCheck(null).appendField('触发事件');
+        this.appendValueInput('event')
+            .setCheck(null)
+            .appendField('触发事件');
         this.appendStatementInput('parameters').setCheck(null);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour('5574F8');
+        this.setColour('#608fee');
         this.setTooltip('触发事件并传参（可选，请用事件传参积木）');
         this.setHelpUrl(HELP_URL);
     }
@@ -277,10 +298,12 @@ Blockly.Blocks['ivw_emit'] = {
 
 Blockly.Blocks['ivw_emitParameter'] = {
     init: function () {
-        this.appendValueInput('parameter').setCheck(null).appendField('事件传参');
+        this.appendValueInput('parameter')
+            .setCheck(null)
+            .appendField('事件传参');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour('5574F8');
+        this.setColour('#608fee');
         this.setTooltip('传参（可选）');
         this.setHelpUrl(HELP_URL);
     }
@@ -299,7 +322,9 @@ for (const key in attris) {
         const attri = attris[key];
         Blockly.Blocks['ivwAttri_' + key] = {
             init: function () {
-                this.appendValueInput('value').setCheck(null).appendField(new Blockly.FieldLabelSerializable(attri), 'blockLabel');
+                this.appendValueInput('value')
+                    .setCheck(null)
+                    .appendField(new Blockly.FieldLabelSerializable(attri), 'blockLabel');
                 this.setPreviousStatement(true, null);
                 this.setNextStatement(true, null);
                 this.setColour('#5574F8');
@@ -312,7 +337,10 @@ for (const key in attris) {
 
 Blockly.Blocks['ivwAttri_custom'] = {
     init: function () {
-        this.appendValueInput('value').setCheck(null).appendField('自定义属性').appendField(new Blockly.FieldTextInput('label'), 'key');
+        this.appendValueInput('value')
+            .setCheck(null)
+            .appendField('自定义属性')
+            .appendField(new Blockly.FieldTextInput('label'), 'key');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#5574F8');
@@ -323,7 +351,8 @@ Blockly.Blocks['ivwAttri_custom'] = {
 
 Blockly.Blocks['ivw_export'] = {
     init: function () {
-        this.appendDummyInput().appendField('导出控件');
+        this.appendDummyInput()
+            .appendField('导出控件');
         this.setPreviousStatement(true, null);
         this.setNextStatement(false, null);
         this.setColour('#5574F8');
@@ -334,8 +363,10 @@ Blockly.Blocks['ivw_export'] = {
 
 Blockly.Blocks['ivw_defWidget'] = {
     init: function () {
-        this.appendDummyInput().appendField('不可见控件积木代码');
-        this.appendDummyInput().appendField('构造器');
+        this.appendDummyInput()
+            .appendField('不可见控件积木代码');
+        this.appendDummyInput()
+            .appendField('构造器');
         this.appendStatementInput('constructor').setCheck(null);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -347,7 +378,12 @@ Blockly.Blocks['ivw_defWidget'] = {
 
 Blockly.Blocks['ivw_propsinit'] = {
     init: function () {
-        this.appendDummyInput().appendField('传入属性').appendField('从').appendField(new Blockly.FieldTextInput('prop'), 'props_name').appendField('到').appendField(new Blockly.FieldTextInput('default'), 'this_name');
+        this.appendDummyInput()
+            .appendField('传入属性')
+            .appendField('从')
+            .appendField(new Blockly.FieldTextInput('prop'), 'props_name')
+            .appendField('到')
+            .appendField(new Blockly.FieldTextInput('default'), 'this_name');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#5574F8');
