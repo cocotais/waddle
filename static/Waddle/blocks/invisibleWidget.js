@@ -18,8 +18,8 @@ Blockly.Blocks['ivw_defTypes'] = {
             .appendField('类型')
             .appendField(
                 new Blockly.FieldDropdown([
-                    ['全局控件', 'true'],
-                    ['屏幕控件', 'false']
+                    ['功能控件', 'true'],
+                    ['界面控件', 'false']
                 ]),
                 'isGlobalWidget'
             );
@@ -100,10 +100,10 @@ Blockly.Blocks['ivw_addProperty'] = {
     init: function () {
         this.appendDummyInput()
             .appendField('新建属性积木')
-            .appendField('变量名')
-            .appendField(new Blockly.FieldTextInput('propertyName'), 'key')
             .appendField('属性名')
-            .appendField(new Blockly.FieldTextInput('属性1'), 'label');
+            .appendField(new Blockly.FieldTextInput('属性1'), 'label')
+            .appendField('属性内部名')
+            .appendField(new Blockly.FieldTextInput('propertyName'), 'key');
         this.appendDummyInput()
             .appendField('属性值类型')
             .appendField(
@@ -158,10 +158,10 @@ Blockly.Blocks['ivw_addMethod'] = {
     init: function () {
         this.appendDummyInput()
             .appendField('新建方法积木')
-            .appendField('函数名')
-            .appendField(new Blockly.FieldTextInput('methodName'), 'key')
             .appendField('方法名')
             .appendField(new Blockly.FieldTextInput('方法1'), 'label')
+            .appendField('方法内部名')
+            .appendField(new Blockly.FieldTextInput('methodName'), 'key')
             .appendField('返回值类型')
             .appendField(
                 new Blockly.FieldDropdown([
@@ -194,10 +194,10 @@ Blockly.Blocks['ivw_addParams'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("添加参数")
-            .appendField("参数")
-            .appendField(new Blockly.FieldTextInput("paramName"), "key")
-            .appendField("标签")
-            .appendField(new Blockly.FieldTextInput("参数名"), "label");
+            .appendField("参数名")
+            .appendField(new Blockly.FieldTextInput("参数名"), "label")
+            .appendField("参数内部名")
+            .appendField(new Blockly.FieldTextInput("paramName"), "key");
         this.appendDummyInput()
             .appendField("输入值类型")
             .appendField(new Blockly.FieldDropdown([
@@ -223,7 +223,7 @@ Blockly.Blocks['ivw_addDropdownParams'] = {
             .appendField('添加下拉参数')
             .appendField('参数名')
             .appendField(new Blockly.FieldTextInput('参数1'), 'label')
-            .appendField('参数内部')
+            .appendField('参数内部名')
             .appendField(new Blockly.FieldTextInput('paramName'), 'key');
         this.appendDummyInput().appendField('下拉选项');
         this.appendStatementInput('dropdownItems').setCheck(null);

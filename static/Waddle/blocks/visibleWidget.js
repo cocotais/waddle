@@ -14,7 +14,7 @@ Blockly.Blocks['vw_defTypes'] = {
 			.appendField("版本")
 			.appendField(new Blockly.FieldTextInput("1.0.0"), "version")
 			// .appendField("类型")
-			// .appendField(new Blockly.FieldDropdown([["全局控件", "true"], ["屏幕控件", "false"]]), "isGlobalWidget");
+			// .appendField(new Blockly.FieldDropdown([["功能控件", "true"], ["界面控件", "false"]]), "isGlobalWidget");
 			// 可见控件必须非全局
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
