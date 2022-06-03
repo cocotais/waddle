@@ -313,45 +313,7 @@ TIP
 		<block type="lists_sort">
 		</block>
 	</category>
-	<category name="颜色" css-icon="iconfont waddle-colour">
-		<block type="colour_picker">
-		</block>
-		<block type="colour_random">
-		</block>
-		<block type="colour_rgb">
-			<value name="RED">
-				<shadow type="math_number">
-					<field name="TEXT">100</field>
-				</shadow>
-			</value>
-			<value name="GREEN">
-				<shadow type="math_number">
-					<field name="TEXT">50</field>
-				</shadow>
-			</value>
-			<value name="BLUE">
-				<shadow type="math_number">
-					<field name="TEXT">0</field>
-				</shadow>
-			</value>
-		</block>
-		<block type="colour_blend">
-			<value name="COLOUR1">
-				<shadow type="colour_picker">
-					<field name="TEXT">#ff0000</field>
-				</shadow>
-			</value>
-			<value name="COLOUR2">
-				<shadow type="colour_picker">
-					<field name="TEXT">#3333ff</field>
-				</shadow>
-			</value>
-			<value name="RATIO">
-				<shadow type="math_number">
-					<field name="TEXT">0.5</field>
-				</shadow>
-			</value>
-		</block>
+	<category name="颜色" css-icon="iconfont waddle-colour" custom="COLOR_CARD">
 	</category>
 	<category name="DOM" css-icon="iconfont waddle-tool">
 		<block type="htmldom_document">
@@ -767,8 +729,6 @@ TIP
 		<block type="html_other_em">
 		</block>
 		<block type="html_other_color">
-		</block>
-		<block type="what_waddle1">
 		</block>
 	</category>
 </toolbox>

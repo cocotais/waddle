@@ -3,6 +3,26 @@ Blockly.JavaScript["what_waddle1"] = function (block) {
     ? '"Waddle - 让Coco没有难做的控件"'
     : '"新年快乐(?)"';
 };
+Blockly.JavaScript["what_waddle2"] = function (block) {
+  return Math.trunc(new Date().getTime() / 1000) % 2 == 1
+    ? '"Waddle - 让Coco没有难做的控件"'
+    : '"新年快乐(?)"';
+};
+Blockly.JavaScript["what_waddle3"] = function (block) {
+  return Math.trunc(new Date().getTime() / 1000) % 2 == 1
+    ? '"Waddle - 让Coco没有难做的控件"'
+    : '"新年快乐(?)"';
+};
+Blockly.JavaScript["what_waddle4"] = function (block) {
+  return Math.trunc(new Date().getTime() / 1000) % 2 == 1
+    ? '"Waddle - 让Coco没有难做的控件"'
+    : '"新年快乐(?)"';
+};
+Blockly.JavaScript["what_waddle5"] = function (block) {
+  return Math.trunc(new Date().getTime() / 1000) % 2 == 1
+    ? '"Waddle - 让Coco没有难做的控件"'
+    : '"新年快乐(?)"';
+};
 //Waddle下井字棋
 Blockly.Blocks["game_tictactoe_board1"] = {
   init: function () {
@@ -69,3 +89,4 @@ Blockly.Blocks["game_tictactoe_o"] = {
     this.setHelpUrl("");
   },
 };
+Blockly.JavaScript["what_waddlerp"]=function(){return '"rp++;"\n'}

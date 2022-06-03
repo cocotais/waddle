@@ -24,8 +24,138 @@ Blockly.Blocks["what_waddle1"] = {
     this.setTooltip("");
     this.setHelpUrl("");
   },
+};Blockly.Blocks["what_waddle2"] = {
+  init: function () {
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField(
+        new Blockly.FieldImage(
+          "https://waddle.coco-central.cn/static/img/logo.svg",
+          100,
+          100,
+          { alt: "*", flipRtl: "FALSE" }
+        )
+      );
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("Waddle卡2");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("集齐5种可获");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("得空气一份");
+    this.setInputsInline(false);
+    this.setColour("#3b5bdb");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};Blockly.Blocks["what_waddle3"] = {
+  init: function () {
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField(
+        new Blockly.FieldImage(
+          "https://waddle.coco-central.cn/static/img/logo.svg",
+          100,
+          100,
+          { alt: "*", flipRtl: "FALSE" }
+        )
+      );
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("Waddle卡3");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("集齐5种可获");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("得空气一份");
+    this.setInputsInline(false);
+    this.setColour("#087f5b");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};Blockly.Blocks["what_waddle4"] = {
+  init: function () {
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField(
+        new Blockly.FieldImage(
+          "https://waddle.coco-central.cn/static/img/logo.svg",
+          100,
+          100,
+          { alt: "*", flipRtl: "FALSE" }
+        )
+      );
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("Waddle卡4");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("集齐5种可获");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("得空气一份");
+    this.setInputsInline(false);
+    this.setColour("#e67700");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};Blockly.Blocks["what_waddle5"] = {
+  init: function () {
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField(
+        new Blockly.FieldImage(
+          "https://waddle.coco-central.cn/static/img/logo.svg",
+          100,
+          100,
+          { alt: "*", flipRtl: "FALSE" }
+        )
+      );
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("Waddle卡5");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("集齐5种可获");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("得空气一份");
+    this.setInputsInline(false);
+    this.setColour("#c92a2a");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};Blockly.Blocks["what_waddlerp"] = {
+  init: function () {
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField(
+        new Blockly.FieldImage(
+          "https://waddle.coco-central.cn/static/img/logo.svg",
+          100,
+          100,
+          { alt: "*", flipRtl: "FALSE" }
+        )
+      );
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("人品卡");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("持有此卡可");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_CENTRE)
+      .appendField("使rp++");
+    this.setInputsInline(false);
+    this.setColour("#d9d9d9");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
 };
-//嘿嘿，我只做了一个
+//做完了，只放一个
 Blockly.JavaScript["game_tictactoe_board1"] = function () {
   return "";
 };
