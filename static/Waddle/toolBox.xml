@@ -435,7 +435,7 @@ TIP
 		<block type="axios_maxcontentlength">
 		</block>
 	</category>
-	<category name="utils" css-icon="iconfont waddle-tool">
+	<category name="utils" css-icon="iconfont waddle-tool" custom="UTILS_GAME">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="utils_import">
