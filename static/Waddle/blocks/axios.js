@@ -25,6 +25,7 @@
 //**************]/OOO@^  =@OO@` ./@OOOOO@/*********
 //                 于勤保佑 无bug
 
+//使用的是axios图标中的颜色
 
 Blockly.Blocks['axios_import'] = {
     init: function () {

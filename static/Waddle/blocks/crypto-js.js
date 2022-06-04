@@ -1,3 +1,5 @@
+//使用的是crypto图标中的颜色
+
 Blockly.Blocks["crypto_import"] = {
   init: function () {
     this.appendDummyInput().appendField("引入crypto-js");
