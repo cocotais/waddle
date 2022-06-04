@@ -1,0 +1,84 @@
+.waddle-control {
+    color: #01adff;
+}
+
+.waddle-math {
+    color: #f0aa8b;
+}
+
+.waddle-fx {
+    color: #f88767;
+}
+
+.waddle-function {
+    color: #5ab45b;
+}
+
+.waddle-variable {
+    color: #ffbb55;
+}
+
+.waddle-list {
+    color: #ff9c37;
+}
+
+.waddle-color {
+    color: #2bc9a7;
+}
+
+.waddle-dom {
+    color: #a073ff;
+}
+
+.waddle-lodash {
+    color: #5098fc;
+}
+
+.waddle-axios {
+    color: #8647f3;
+}
+
+.waddle-utils {
+    color: #14b390;
+}
+
+.waddle-crypto {
+    color: #5574f8;
+}
+
+.waddle-vika {
+    color: #f88767;
+}
+
+.waddle-qrcode {
+    color: #c367f9;
+}
+
+.waddle-tools {
+    color: #14b390;
+}
+
+.waddle-permission {
+    color: #a073ff;
+}
+
+.waddle-build {
+    background-image: linear-gradient(to right, #8647f3cc, #00c79faa);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 30px;
+}
+
+.waddle-block {
+    background-image: linear-gradient(to right, #e76cea, #ffbb55);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 30px;
+}
+
+.waddle-render {
+    background-image: linear-gradient(to right, #01adffee,#5098fc88);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 30px;
+}
