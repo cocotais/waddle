@@ -154,7 +154,8 @@ Blockly.Blocks['js_popup_prompt'] = {
 
 Blockly.Blocks['js_json_parse'] = {
     init: function () {
-        this.appendValueInput('TEXT').setCheck('String').appendField('解析json字符串');
+        this.appendValueInput('TEXT').setCheck('String').appendField('将文本');
+        this.appendDummyInput().appendField("解析为对象")
         this.setInputsInline(false);
         this.setOutput(true, 'Object');
         this.setColour('#68CDFF');
@@ -166,7 +167,7 @@ Blockly.Blocks['js_json_parse'] = {
 Blockly.Blocks['js_json_stringify'] = {
     init: function () {
         this.appendValueInput('OBJECT').setCheck('Object').appendField('将对象');
-        this.appendDummyInput().appendField('转为字符串');
+        this.appendDummyInput().appendField('转为文本');
         this.setOutput(true, 'String');
         this.setColour('#68CDFF');
         this.setTooltip('将对象转为json字符串。');
@@ -177,7 +178,7 @@ Blockly.Blocks['js_json_stringify'] = {
 Blockly.Blocks['js_json_access'] = {
     init: function () {
         this.appendValueInput('OBJECT').setCheck('Object').appendField('获取对象');
-        this.appendValueInput('KEY').setCheck('String').appendField('的键');
+        this.appendValueInput('KEY').setCheck('String').appendField('属性为');
         this.appendDummyInput().appendField('的值');
         this.setOutput(true, null);
         this.setColour('#68CDFF');
