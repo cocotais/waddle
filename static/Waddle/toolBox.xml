@@ -464,7 +464,7 @@ TIP
 		<block type="qrcode_canvas">
 		</block>
 	</category>
-	<category name="color" css-icon="iconfont waddle-crypto">
+	<!-- <category name="color" css-icon="iconfont waddle-crypto">
 		<block type="color_import">
 		</block>
 		<block type="color_strobj">
@@ -475,7 +475,7 @@ TIP
 		</block>
 		<block type="color_getsaturation">
 		</block>
-	</category>
+	</category> -->
 	<category name="工具" css-icon="iconfont waddle-object waddle-tools">
 		<label text="工具.积木夹子">
 		</label>

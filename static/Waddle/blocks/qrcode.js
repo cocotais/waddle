@@ -4,7 +4,7 @@ Blockly.Blocks["qrcode_import"] = {
     this.appendDummyInput().appendField("引入qrcode");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#2b2b2b");
+    this.setColour(BlockColors["qrcode"]);
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -21,7 +21,7 @@ Blockly.Blocks["qrcode_tocanvas"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#2b2b2b");
+    this.setColour(BlockColors["qrcode"]);
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -32,7 +32,7 @@ Blockly.Blocks["qrcode_err"] = {
     this.appendDummyInput().appendField("错误信息");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setColour("#2b2b2b");
+    this.setColour(BlockColors["qrcode"]);
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -46,7 +46,7 @@ Blockly.Blocks["qrcode_tocanvas_c"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#2b2b2b");
+    this.setColour(BlockColors["qrcode"]);
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -57,7 +57,7 @@ Blockly.Blocks["qrcode_canvas"] = {
     this.appendDummyInput().appendField("返回canvas对象");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setColour("#2b2b2b");
+    this.setColour(BlockColors["qrcode"]);
     this.setTooltip("");
     this.setHelpUrl("");
   },
