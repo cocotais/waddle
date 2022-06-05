@@ -1,5 +1,6 @@
 import io
 import re
+import time
 
 import bs4
 import requests
@@ -28,15 +29,24 @@ def get_commit_number():
     获取gitee仓库中的最新提交数
     :return Number
     """
-    page = requests.get('https://gitee.com/coco-central/waddle/tree/dev/')
+    page = requests.get(url)
     soup = bs4.BeautifulSoup(page.content, 'html.parser')
     return(int(str(soup.select('div.all-commits>a')[0]).split('\n')[1][0:-4]))
 
 
 def get_last_version_number():
     """
-    获取index.html中的当前版本号
-    :return str
+    获取gitee仓库中的最新版本号
+    :return Number
+    """
+    page = requests.get(url)
+    soup = bs4.BeautifulSoup(page.content, 'html.parser')
+    return(str(soup.select('#git-readme>div>div.file_content.markdown-body>div')[-1])[5:-6].strip())
+
+
+def get_this_version_number():
+    """
+    获取当前版本号
     """
     with open('index.html', 'r', encoding='utf-8') as index:
         return(re.search(r"var version = '(.*)'", index.read(), re.M | re.I).group(1))
@@ -59,8 +69,7 @@ def calculate_next_version_number(last_commit_number, last_version_number):
 
 
 print()
-
-url = ''
+url = 'https://gitee.com/coco-central/waddle/tree/dev/'
 
 print('Branch origin/dev has ', end='')
 last_commit_number = get_commit_number()
@@ -68,17 +77,21 @@ print(last_commit_number, 'commits ', end='')
 print('with the version ', end='')
 last_version_number = get_last_version_number()
 print(last_version_number, '.')
+time.sleep(2)
 
+print('The local version is ', end='')
+this_version_number = get_this_version_number()
+print(this_version_number, '.')
 
 print('The next version is ', end='')
 next_version_number = calculate_next_version_number(
     last_commit_number, last_version_number)
 print(next_version_number, '.')
+
 print('The version numbers have been modified in the following directories:')
-
-alter('index.html', last_version_number, next_version_number)
-print('-', 'index.html')
-alter('sw.js', last_version_number, next_version_number)
-print('-', 'sw.js')
-
-print('警告，下一版本号非提交部分的末位是按照本地文件版本号+1计算的，如有不匹配请多次运行本程序。')
+alter('index.html', this_version_number, next_version_number)
+print('-', 'index.html : 2')
+alter('sw.js', this_version_number, next_version_number)
+print('-', 'sw.js : 1')
+alter('README.md', this_version_number, next_version_number)
+print('-', 'README.md : 1')
