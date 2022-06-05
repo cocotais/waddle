@@ -163,9 +163,9 @@ Blockly.JavaScript['js_base64'] = function (block) {
     var dropdown_type = block.getFieldValue('TYPE');
     var value_text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_NONE);
     if (dropdown_type == 'BM') {
-        return `btoa(encodeURI(${value_text}))`;
+        return [`btoa(encodeURI(${value_text}))`, Blockly.JavaScript.ORDER_NONE];
     } else {
-        return `decodeURI(atob(${value_text}))`;
+        return [`decodeURI(atob(${value_text}))`, Blockly.JavaScript.ORDER_NONE];
     }
 };
 
