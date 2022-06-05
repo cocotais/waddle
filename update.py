@@ -28,7 +28,7 @@ def get_commit_number():
     获取gitee仓库中的最新提交数
     :return Number
     """
-    page = requests.get(url)
+    page = requests.get('https://gitee.com/coco-central/waddle/tree/dev/')
     soup = bs4.BeautifulSoup(page.content, 'html.parser')
     return(int(str(soup.select('div.all-commits>a')[0]).split('\n')[1][0:-4]))
 
@@ -60,7 +60,7 @@ def calculate_next_version_number(last_commit_number, last_version_number):
 
 print()
 
-url = 'https://gitee.com/coco-central/waddle/tree/dev/'
+url = ''
 
 print('Branch origin/dev has ', end='')
 last_commit_number = get_commit_number()

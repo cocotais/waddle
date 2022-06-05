@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Waddle-'+'V1.47.25(1013)-beta'//也要改我！;
+const CACHE_NAME = 'Waddle-'+'V1.47.26(1014)-beta'//也要改我！;
 const FILES_TO_CACHE = ['./',
   './index.html',
   './static/Waddle/toolBox.xml',
