@@ -341,7 +341,10 @@ function utilsFlyoutCallback(workspace) {
 function coloursFlyoutCallback(workspace) {
     var xmlList = [];
     var blockList = [
-        `<block type="colour_picker">
+    `<label text="原生颜色">
+    </label>
+    `,
+    `<block type="colour_picker">
 		</block>`, `
 		<block type="colour_random">
 		</block>`, `
@@ -380,6 +383,9 @@ function coloursFlyoutCallback(workspace) {
 			</value>
 		</block>`,
     `
+    <label text="使用Color.js">
+    </label>`,
+    `
 		<block type="color_import">
 		</block>`,
     `
@@ -396,7 +402,7 @@ function coloursFlyoutCallback(workspace) {
 		</block>`
     ]
     var cardList = [
-        `<block type="what_waddle1">
+    `<block type="what_waddle1">
 		</block>`, `
 		<block type="what_waddle2">
 		</block>`, `
