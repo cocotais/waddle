@@ -1,6 +1,5 @@
 import io
 import re
-import time
 
 import bs4
 import requests
@@ -47,6 +46,7 @@ def get_last_version_number():
 def get_this_version_number():
     """
     获取当前版本号
+    :return str
     """
     with open('index.html', 'r', encoding='utf-8') as index:
         return(re.search(r"var version = '(.*)'", index.read(), re.M | re.I).group(1))
@@ -55,7 +55,6 @@ def get_this_version_number():
 def calculate_next_version_number(last_commit_number, last_version_number):
     """
     计算下一版本号
-    警告，下一版本号非提交部分的末位是按照本地文件版本号+1计算的，如有不匹配请多次运行本程序。
     :param last_commit_number 最新提交数
     :param last_version_number 当前版本号
     :return str
@@ -76,17 +75,16 @@ last_commit_number = get_commit_number()
 print(last_commit_number, 'commits ', end='')
 print('with the version ', end='')
 last_version_number = get_last_version_number()
-print(last_version_number, '.')
-time.sleep(2)
+print(last_version_number, '\b.')
 
 print('The local version is ', end='')
 this_version_number = get_this_version_number()
-print(this_version_number, '.')
+print(this_version_number, '\b.')
 
 print('The next version is ', end='')
 next_version_number = calculate_next_version_number(
     last_commit_number, last_version_number)
-print(next_version_number, '.')
+print(next_version_number, '\b.')
 
 print('The version numbers have been modified in the following directories:')
 alter('index.html', this_version_number, next_version_number)
@@ -95,3 +93,12 @@ alter('sw.js', this_version_number, next_version_number)
 print('-', 'sw.js : 1')
 alter('README.md', this_version_number, next_version_number)
 print('-', 'README.md : 1')
+
+print('\'./static/Waddle/toolBox.xml\' is being formatted.', end='')
+with open('./static/Waddle/toolBox.xml', 'r', encoding='utf-8') as file:
+    text = file.read()
+text = re.sub(r'<field name="[A-Z|a-z]*">\n\s*', '<field name="TEXT">', text)
+text = re.sub(r'\n\t*</field>', '</field>', text)
+with open('./static/Waddle/toolBox.xml', 'w', encoding='utf-8') as file:
+    file.write(text)
+print('\r\'./static/Waddle/toolBox.xml\' format complete.', '  ')
