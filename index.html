@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
-<!----写在这里，就是两个版本号都要改！---->
-<!----将"V1.47.24(984)-beta"替换为版本（这条的也要）---->
+
+<!----将"V1.47.27(1015)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -17,7 +17,7 @@
 	</script>
 	<script>
 		window.reast = false;
-		var version = 'V1.47.24(984)-beta' //以后版本号改我就行！
+		var version = 'V1.47.27(1015)-beta' //以后版本号改我就行！
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -43,7 +43,7 @@ wwwwwww      wwwwww     wwwwwww
 			});
 		}
 	</script>
-	<link rel="shortcut icon" href="./static/img/logo.svg" type="image/x-icon">
+	<link rel="shortcut icon" href="./static/img/logo/logo-white.svg" type="image/x-icon">
 	<link rel="stylesheet" href="./static/css/theme.css">
 </head>
 <script>
@@ -228,7 +228,7 @@ wwwwwww      wwwwww     wwwwwww
 		$('.cls-1').animate({ 'stroke-dashoffset': '1600px' }, 10);
 	</script>
 	<div id="body" style="visibility:hidden;">
-		<img onclick='dropdown_show();' alt="Waddle" id="logo1" src="./static/img/purple-logo.svg"
+		<img onclick='dropdown_show();' alt="Waddle" id="logo1" src="./static/img/logo/logo-purple.svg"
 			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 5; background-color: var(--toolbox-color);cursor: pointer;">
 		<nav class="navbar navbar-expand navbar-dark" style="height:0px;background-color: var(--main-color);">
 			<div class="container-fluid">
@@ -800,9 +800,10 @@ wwwwwww      wwwwww     wwwwwww
 					<span class="aboutus-close">&times;</span>
 				</div>
 				<div class="aboutus-body">
-					<img width="240" src="./static/img/waddle.svg" style="margin: 30px 0;" alt="Waddle"
+					<img width="240" src="./static/img/logo/logo-white-full.svg" style="margin: 30px 0;" alt="Waddle"
 						onclick="east_chk()"></img>
-					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">让CoCo没有<span onclick="count_oj()">难</span>做的控件</p>
+					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">让CoCo没有<span
+							onclick="count_oj()">难</span>做的控件</p>
 					</br>
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由所有Waddle的开源贡献者共同创造！</p>
 					<!----<p style="color: #ffffff;font-size: 17px;">中子星000（QQ：2422481178）主理制作</br>MathCalculus（QQ：2504556268）主理制作</br>Epeiuss（Mail：ffxw0720@163.com）监制</br>海藻酸钠（QQ：3409473369）美术/UI/监制</br>小鱼yuzifu（QQ：1906929246）前端设计</br>刘lyxAndy（QQ：3449556207）细节处理</p>--->
@@ -843,11 +844,12 @@ wwwwwww      wwwwww     wwwwwww
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1200px' }, 10);
 </script>
-<link rel="shortcut icon" href="./static/img/logo.svg">
+<link rel="shortcut icon" href="./static/img/logo/logo-white.svg">
 <title>Waddle - 让CoCo没有难做的控件</title>
 
 <!--图标库-->
-<link rel="stylesheet" href="https://at.alicdn.com/t/font_3193112_l62ftr4pl4h.css">
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_3193112_7sw8re1is8r.css">
+<link rel="stylesheet" href="./static/css/toolBoxColor.css">
 <script>
 	$('.cls-1').animate({ 'stroke-dashoffset': '1180px' }, 10);
 </script>
@@ -957,6 +959,10 @@ wwwwwww      wwwwww     wwwwwww
 <script src="./static/Waddle/blocks/qrcode.js"></script>
 <script src="./static/Waddle/generators/javascript/qrcode.js"></script>
 
+<!--color控件积木(实验性)-->
+<script src="./static/Waddle/blocks/color.js"></script>
+<script src="./static/Waddle/generators/javascript/color.js"></script>
+
 <!--HTML DOM积木-->
 <script src="./static/Waddle/blocks/htmldom.js"></script>
 <script src="./static/Waddle/generators/javascript/htmldom.js"></script>
@@ -1015,6 +1021,7 @@ wwwwwww      wwwwww     wwwwwww
 		overflow: hidden;
 	}
 </style>
+<script src="./static/js/dynamicToolBox.js"></script>
 <script>
 	//为了防锁死，改异步
 	$.ajax({
@@ -1069,7 +1076,9 @@ wwwwwww      wwwwww     wwwwwww
 			theme: theme,
 			renderer: 'zelos' //scratch风格，自定义的是custom_renderer
 		});
-
+	
+	workspace.registerToolboxCategoryCallback( 'UTILS_GAME', utilsFlyoutCallback);
+	workspace.registerToolboxCategoryCallback( 'COLOR_CARD', coloursFlyoutCallback);
 	workspace.registerButtonCallback("betawarning", function () { swal("这是实验性功能，正在测试，将来可能会频繁改动，若有bug请向作者反馈！") })
 
 	/* 加载初始积木 */

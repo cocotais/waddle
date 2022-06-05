@@ -107,9 +107,15 @@ TIP
 		</block>
 		<block type="math_atan2">
 		</block>
+		<block type="js_base">
+		</block>
 		<label text="逻辑">
 		</label>
 		<block type="logic_compare">
+		</block>
+		<block type="js_comparisons">
+		</block>
+		<block type="js_bitwise">
 		</block>
 		<block type="logic_operation">
 		</block>
@@ -153,6 +159,20 @@ TIP
 		</block>
 		<block type="text_trim">
 		</block>
+		<block type="js_replace">
+		</block>
+		<block type="js_powerandlower">
+		</block>
+		<block type="js_with">
+		</block>
+		<block type="js_pad">
+		</block>
+		<block type="js_escape">
+		</block>
+		<block type="js_base64">
+		</block>
+		<block type="js_uri">
+		</block>
 		<block type="text_prompt_ext">
 			<value name="TEXT">
 				<shadow type="text">
@@ -169,7 +189,7 @@ TIP
 	</category>
 	<category name="函数" css-icon="iconfont waddle-fx" custom="PROCEDURE">
 	</category>
-	<category name="功能" css-icon="iconfont waddle-js">
+	<category name="功能" css-icon="iconfont waddle-function">
 		<label text="鸡肋积木">
 		</label>
 		<block type="js_run">
@@ -179,10 +199,6 @@ TIP
 		<block type="js_run_join">
 		</block>
 		<block type="js_usestrict">
-		</block>
-		<block type="js_bitwise">
-		</block>
-		<block type="js_comparisons">
 		</block>
 		<block type="js_time">
 		</block>
@@ -229,22 +245,6 @@ TIP
 		<block type="js_console_time">
 		</block>
 		<block type="js_console_timeend">
-		</block>
-		<block type="js_base64">
-		</block>
-		<block type="js_uri">
-		</block>
-		<block type="js_replace">
-		</block>
-		<block type="js_powerandlower">
-		</block>
-		<block type="js_with">
-		</block>
-		<block type="js_pad">
-		</block>
-		<block type="js_escape">
-		</block>
-		<block type="js_base">
 		</block>
 		<!--
 		<block type="js_str_index">
@@ -313,47 +313,9 @@ TIP
 		<block type="lists_sort">
 		</block>
 	</category>
-	<category name="颜色" css-icon="iconfont waddle-colour">
-		<block type="colour_picker">
-		</block>
-		<block type="colour_random">
-		</block>
-		<block type="colour_rgb">
-			<value name="RED">
-				<shadow type="math_number">
-					<field name="TEXT">100</field>
-				</shadow>
-			</value>
-			<value name="GREEN">
-				<shadow type="math_number">
-					<field name="TEXT">50</field>
-				</shadow>
-			</value>
-			<value name="BLUE">
-				<shadow type="math_number">
-					<field name="TEXT">0</field>
-				</shadow>
-			</value>
-		</block>
-		<block type="colour_blend">
-			<value name="COLOUR1">
-				<shadow type="colour_picker">
-					<field name="TEXT">#ff0000</field>
-				</shadow>
-			</value>
-			<value name="COLOUR2">
-				<shadow type="colour_picker">
-					<field name="TEXT">#3333ff</field>
-				</shadow>
-			</value>
-			<value name="RATIO">
-				<shadow type="math_number">
-					<field name="TEXT">0.5</field>
-				</shadow>
-			</value>
-		</block>
+	<category name="颜色" css-icon="iconfont waddle-object waddle-color" custom="COLOR_CARD">
 	</category>
-	<category name="DOM" css-icon="iconfont waddle-tool">
+	<category name="DOM" css-icon="iconfont waddle-dom">
 		<block type="htmldom_document">
 		</block>
 		<block type="html_getelementbytagname">
@@ -365,7 +327,7 @@ TIP
 		<block type="htmldom_appendchild">
 		</block>
 	</category>
-	<category name="lodash" css-icon="iconfont waddle-tool">
+	<category name="lodash" css-icon="iconfont waddle-lodash">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
 		</button>
 		<block type="lodash_import">
@@ -415,7 +377,7 @@ TIP
 		<block type="lodash_flattendeep">
 		</block>
 	</category>
-	<category name="axios" css-icon="iconfont waddle-tool">
+	<category name="axios" css-icon="iconfont waddle-axios">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="axios_import">
@@ -435,7 +397,7 @@ TIP
 		<block type="axios_maxcontentlength">
 		</block>
 	</category>
-	<category name="utils" css-icon="iconfont waddle-tool">
+	<category name="utils" css-icon="iconfont waddle-utils" custom="UTILS_GAME">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="utils_import">
@@ -443,7 +405,7 @@ TIP
 		<block type="utils_isnative">
 		</block>
 	</category>
-	<category name="crypto" css-icon="iconfont waddle-tool">
+	<category name="crypto" css-icon="iconfont waddle-crypto">
 		<block type="crypto_import">
 		</block>
 		<block type="crypto_md5_s">
@@ -457,7 +419,7 @@ TIP
 		<block type="crypto_tostr">
 		</block>
 	</category>
-	<category name="vika" css-icon="iconfont waddle-tool">
+	<category name="vika" css-icon="iconfont waddle-vika">
 		<block type="vika_import">
 		</block>
 		<block type="vika_auth_simple">
@@ -486,7 +448,7 @@ TIP
 			</value>
 		</block>
 	</category>
-	<category name="qrcode" css-icon="iconfont waddle-tool">
+	<category name="qrcode" css-icon="iconfont waddle-qrcode">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="qrcode_import">
@@ -502,7 +464,7 @@ TIP
 		<block type="qrcode_canvas">
 		</block>
 	</category>
-	<category name="工具" css-icon="iconfont waddle-tool">
+	<category name="工具" css-icon="iconfont waddle-object waddle-tools">
 		<label text="工具.积木夹子">
 		</label>
 		<label text="方便积木分段，折叠；顶部注释积木夹子标签">
@@ -546,7 +508,7 @@ TIP
 		<block type="tools_listItem">
 		</block>
 	</category>
-	<category name="权限获取" css-icon="iconfont waddle-tool">
+	<category name="权限获取" css-icon="iconfont waddle-object waddle-permission">
 		<block type="permissions_get">
 		</block>
 		<block type="permissions_window">
@@ -564,7 +526,7 @@ TIP
 	</category>
 	<sep>
 	</sep>
-	<category name="构造" css-icon="iconfont waddle-example">
+	<category name="构造" css-icon="iconfont waddle-build">
 		<label text="不可见控件基本框架">
 		</label>
 		<block type="ivw_defTypes">
@@ -630,7 +592,7 @@ TIP
 		<block type="ivw_propsinit">
 		</block>
 	</category>
-	<category name="积木" css-icon="iconfont waddle-visiblewidget">
+	<category name="积木" css-icon="iconfont waddle-block">
 		<label text="属性定义">
 		</label>
 		<block type="ivw_addProperty">
@@ -679,7 +641,7 @@ TIP
 		<block type="ivw_getparam">
 		</block>
 	</category>
-	<category name="渲染" css-icon="iconfont waddle-tool">
+	<category name="渲染" css-icon="iconfont waddle-render">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
 		</button>
 		<block type="html_code">
@@ -767,8 +729,6 @@ TIP
 		<block type="html_other_em">
 		</block>
 		<block type="html_other_color">
-		</block>
-		<block type="what_waddle1">
 		</block>
 	</category>
 </toolbox>

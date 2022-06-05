@@ -1,3 +1,5 @@
+//用的
+
 Blockly.Blocks['permissions_get'] = {
     init: function () {
         this.appendDummyInput()
@@ -15,7 +17,7 @@ Blockly.Blocks['permissions_get'] = {
             );
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
+        this.setColour(BlockColors["permission"]);
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -25,7 +27,7 @@ Blockly.Blocks['permissions_window'] = {
     init: function () {
         this.appendDummyInput().appendField('窗口(window)');
         this.setOutput(true, null);
-        this.setColour(230);
+        this.setColour(BlockColors["permission"]);
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -35,7 +37,7 @@ Blockly.Blocks['permissions_document'] = {
     init: function () {
         this.appendDummyInput().appendField('文档(document)');
         this.setOutput(true, null);
-        this.setColour(230);
+        this.setColour(BlockColors["permission"]);
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -45,7 +47,7 @@ Blockly.Blocks['permissions_navigator'] = {
     init: function () {
         this.appendDummyInput().appendField('浏览器(navigator)');
         this.setOutput(true, null);
-        this.setColour(230);
+        this.setColour(BlockColors["permission"]);
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -55,7 +57,7 @@ Blockly.Blocks['permissions_history'] = {
     init: function () {
         this.appendDummyInput().appendField('历史记录(history)');
         this.setOutput(true, null);
-        this.setColour(230);
+        this.setColour(BlockColors["permission"]);
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -78,7 +80,7 @@ Blockly.Blocks['permissions_call'] = {
             .appendField(new Blockly.FieldTextInput('alert("233")'), 'CODE');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
+        this.setColour(BlockColors["permission"]);
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -100,7 +102,7 @@ Blockly.Blocks['permissions_call_return'] = {
             .appendField('的')
             .appendField(new Blockly.FieldTextInput('alert("233")'), 'CODE');
         this.setOutput(true, null);
-        this.setColour(230);
+        this.setColour(BlockColors["permission"]);
         this.setTooltip('');
         this.setHelpUrl('');
     }

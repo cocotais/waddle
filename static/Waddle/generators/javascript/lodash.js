@@ -25,6 +25,8 @@
 //**************]/OOO@^  =@OO@` ./@OOOOO@/*********
 //                 于勤保佑 无bug
 
+
+
 Blockly.JavaScript['lodash_import'] = function () {
     var code = `const lodash = require('lodash');\n`;
     return code;

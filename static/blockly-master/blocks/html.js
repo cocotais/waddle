@@ -1501,7 +1501,7 @@ Blockly.Blocks["html_code"] = {
       .appendField(new Blockly.FieldTextInput("<p>你好</p>"), "CODE");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1516,7 +1516,7 @@ Blockly.Blocks["html_tag"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1529,7 +1529,7 @@ Blockly.Blocks["html_attribute"] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setInputsInline(true);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1542,7 +1542,7 @@ Blockly.Blocks["html_attribute_id"] = {
       .appendField("定义属性 编号");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1553,7 +1553,7 @@ Blockly.Blocks["html_attribute_class"] = {
     this.appendValueInput("URL").setCheck("String").appendField("定义属性 类");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1566,7 +1566,7 @@ Blockly.Blocks["html_attribute_onclick"] = {
       .appendField("定义属性 当被点击时");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1579,7 +1579,7 @@ Blockly.Blocks["html_attribute_ondblclick"] = {
       .appendField("定义属性 当被双击时");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1592,7 +1592,7 @@ Blockly.Blocks["html_attribute_onmousemove"] = {
       .appendField("定义属性 当鼠标移到该元素上时");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1605,7 +1605,7 @@ Blockly.Blocks["html_attribute_onmouseout"] = {
       .appendField("定义属性 当鼠标移出该元素上时");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1618,7 +1618,7 @@ Blockly.Blocks["html_attribute_onemptied"] = {
       .appendField("定义属性 当媒体文件不可用时");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1629,7 +1629,7 @@ Blockly.Blocks["html_js"] = {
     this.appendValueInput("E").setCheck(null).appendField("新建表达式");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1639,7 +1639,7 @@ Blockly.Blocks["html_js2"] = {
   init: function () {
     this.appendValueInput("E").setCheck(null).appendField("新建表达式");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1652,7 +1652,7 @@ Blockly.Blocks["html_attribute_href"] = {
       .appendField("定义属性 跳转链接");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1673,7 +1673,7 @@ Blockly.Blocks["html_attribute_target"] = {
       );
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1686,7 +1686,7 @@ Blockly.Blocks["html_attribute_src"] = {
       .appendField("定义属性 外部资源链接");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1699,7 +1699,7 @@ Blockly.Blocks["html_attribute_alt"] = {
       .appendField("定义属性 图片替代链接");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1718,7 +1718,7 @@ Blockly.Blocks["html_attribute_loading"] = {
       );
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1737,7 +1737,7 @@ Blockly.Blocks["html_attribute_disabled"] = {
       );
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1756,7 +1756,7 @@ Blockly.Blocks["html_attribute_autoplay"] = {
       );
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1769,7 +1769,7 @@ Blockly.Blocks["html_attribute_style"] = {
       .appendField("定义属性 样式");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1784,7 +1784,7 @@ Blockly.Blocks["html_css"] = {
       .appendField("的值为");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1797,7 +1797,7 @@ Blockly.Blocks["html_css_font_size"] = {
       .appendField("定义样式 字体大小");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1810,7 +1810,7 @@ Blockly.Blocks["html_css_line_height"] = {
       .appendField("定义样式 字体行高");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1831,7 +1831,7 @@ Blockly.Blocks["html_css_font_style"] = {
       );
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1854,7 +1854,7 @@ Blockly.Blocks["html_css_text_decoration"] = {
       );
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1865,7 +1865,7 @@ Blockly.Blocks["html_other_px"] = {
     this.appendValueInput("VAL").setCheck(null);
     this.appendDummyInput().appendField("像素");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1876,7 +1876,7 @@ Blockly.Blocks["html_other_cm"] = {
     this.appendValueInput("VAL").setCheck(null);
     this.appendDummyInput().appendField("厘米");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1887,7 +1887,7 @@ Blockly.Blocks["html_other_mm"] = {
     this.appendValueInput("VAL").setCheck(null);
     this.appendDummyInput().appendField("毫米");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1898,7 +1898,7 @@ Blockly.Blocks["html_other_in"] = {
     this.appendValueInput("VAL").setCheck(null);
     this.appendDummyInput().appendField("英寸");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1909,7 +1909,7 @@ Blockly.Blocks["html_other_pt"] = {
     this.appendValueInput("VAL").setCheck(null);
     this.appendDummyInput().appendField("点");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1920,7 +1920,7 @@ Blockly.Blocks["html_other_pc"] = {
     this.appendValueInput("VAL").setCheck(null);
     this.appendDummyInput().appendField("派卡");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1931,7 +1931,7 @@ Blockly.Blocks["html_other_%"] = {
     this.appendValueInput("VAL").appendField("父元素的").setCheck(null);
     this.appendDummyInput().appendField("%");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1942,7 +1942,7 @@ Blockly.Blocks["html_other_em"] = {
     this.appendValueInput("VAL").setCheck(null);
     this.appendDummyInput().appendField("个字体大小");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1955,7 +1955,7 @@ Blockly.Blocks["html_other_color"] = {
       .appendField(new Blockly.FieldTextInput("ff4400"), "VAL");
     this.setInputsInline();
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1966,7 +1966,7 @@ Blockly.Blocks["html_css_background_color"] = {
     this.appendValueInput("VAL").appendField("定义样式 背景颜色");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1979,7 +1979,7 @@ Blockly.Blocks["html_plaintext"] = {
       .appendField(new Blockly.FieldTextInput("文本"), "TEXT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -2003,7 +2003,7 @@ Blockly.Blocks["html_h123456"] = {
       )
       .appendField("级文本，内容");
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
     this.setPreviousStatement(true, null);
@@ -2019,7 +2019,7 @@ Blockly.Blocks["html_a"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -2031,7 +2031,7 @@ Blockly.Blocks["html_button"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -2043,7 +2043,7 @@ Blockly.Blocks["html_img"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -2055,7 +2055,7 @@ Blockly.Blocks["html_video"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -2067,7 +2067,7 @@ Blockly.Blocks["html_input"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -2079,7 +2079,7 @@ Blockly.Blocks["html_iframe"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -2091,7 +2091,7 @@ Blockly.Blocks["html_b"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -2103,7 +2103,7 @@ Blockly.Blocks["html_br"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -2115,7 +2115,7 @@ Blockly.Blocks["html_div"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -2127,7 +2127,7 @@ Blockly.Blocks["html_footer"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -2141,7 +2141,7 @@ Blockly.Blocks["html_noscript"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -2153,7 +2153,7 @@ Blockly.Blocks["html_script"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -2165,7 +2165,7 @@ Blockly.Blocks["html_html"] = {
     this.appendDummyInput().appendField("转为html元素");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour('#00569c');
     this.setTooltip("");
     this.setHelpUrl("");
   },

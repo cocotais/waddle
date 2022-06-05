@@ -4,7 +4,7 @@ Blockly.Blocks['lodash_import'] = {
             .appendField("引入lodash");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -20,7 +20,7 @@ Blockly.Blocks['lodash_chunk'] = {
             .appendField("转为二维数组，每组大小为");
         this.setOutput(true, "Array");
         this.setInputsInline(true);
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -34,7 +34,7 @@ Blockly.Blocks['lodash_compact'] = {
         this.appendDummyInput()
             .appendField("中的假值删除");
         this.setOutput(true, "Array");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -51,7 +51,7 @@ Blockly.Blocks['lodash_concat'] = {
         this.appendDummyInput()
             .appendField("连接为数组");
         this.setOutput(true, "Array");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -68,7 +68,7 @@ Blockly.Blocks['lodash_difference'] = {
         this.appendDummyInput()
             .appendField("过滤掉");
         this.setOutput(true, "Array");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -88,7 +88,7 @@ Blockly.Blocks['lodash_differencebydropdown'] = {
         this.appendDummyInput()
             .appendField("过滤掉");
         this.setOutput(true, "Array");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -108,7 +108,7 @@ Blockly.Blocks['lodash_differenceby'] = {
         this.appendDummyInput()
             .appendField("过滤掉");
         this.setOutput(true, "Array");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -127,7 +127,7 @@ Blockly.Blocks['lodash_differencewithdropdown'] = {
             .appendField(new Blockly.FieldDropdown([["相等", "lodash.isEqual"]]), "COMPARATOR")
             .appendField("时过滤掉");
         this.setOutput(true, "Array");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -146,7 +146,7 @@ Blockly.Blocks['lodash_differencewith'] = {
             .appendField(new Blockly.FieldTextInput("lodash.isEqual"), "COMPARATOR")
             .appendField("成立时过滤掉");
         this.setOutput(true, "Array");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -163,7 +163,7 @@ Blockly.Blocks['lodash_drop'] = {
         this.appendDummyInput()
             .appendField("位删除");
         this.setOutput(true, "Array");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -180,7 +180,7 @@ Blockly.Blocks['lodash_dropright'] = {
         this.appendDummyInput()
             .appendField("位删除");
         this.setOutput(true, "Array");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -195,7 +195,7 @@ Blockly.Blocks['lodash_dropwhiledropdown'] = {
             .appendField(new Blockly.FieldDropdown([["为假", "function(a){return !!a}"], ["为真", "function(a){return !a}"], ["大于0", "function(a){return a>0}"], ["小于0", "function(a){return a<0}"]]), "PRE")
             .appendField("时将其和前面的元素删除");
         this.setOutput(true, "Array");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -210,7 +210,7 @@ Blockly.Blocks['lodash_droprightwhiledropdown'] = {
             .appendField(new Blockly.FieldDropdown([["为假", "function(a){return !!a}"], ["为真", "function(a){return !a}"], ["大于0", "function(a){return a<=0}"], ["小于0", "function(a){return a>=0}"]]), "PRE")
             .appendField("时将其和后面的元素删除");
         this.setOutput(true, "Array");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -225,7 +225,7 @@ Blockly.Blocks['lodash_dropwhile'] = {
             .appendField(new Blockly.FieldTextInput("function(value){return !!value}"), "PRE")
             .appendField("返回假值时将其和前面的元素删除");
         this.setOutput(true, "Array");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -240,7 +240,7 @@ Blockly.Blocks['lodash_droprightwhile'] = {
             .appendField(new Blockly.FieldTextInput("function(value){return !!value}"), "PRE")
             .appendField("返回假值时将其和后面的元素删除");
         this.setOutput(true, "Array");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -262,7 +262,7 @@ Blockly.Blocks['lodash_fill'] = {
             .appendField("替换为");
         this.setOutput(true, "Array");
         this.setInputsInline(true);
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -277,7 +277,7 @@ Blockly.Blocks['lodash_findindexdropdown'] = {
             .appendField(new Blockly.FieldDropdown([["为假", "function(a){return !a}"], ["为真", "function(a){return !!a}"], ["大于0", "function(a){return a>0}"], ["小于0", "function(a){return a<0}"]]), "PRE")
             .appendField("时的索引(获取找到的第一项)");
         this.setOutput(true, "Number");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -292,7 +292,7 @@ Blockly.Blocks['lodash_findlastindexdropdown'] = {
             .appendField(new Blockly.FieldDropdown([["为假", "function(a){return !a}"], ["为真", "function(a){return !!a}"], ["大于0", "function(a){return a>0}"], ["小于0", "function(a){return a<0}"]]), "PRE")
             .appendField("时的索引(获取找到的最后一项)");
         this.setOutput(true, "Number");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -307,7 +307,7 @@ Blockly.Blocks['lodash_findindex'] = {
             .appendField(new Blockly.FieldTextInput("function(value){return !!value}"), "PRE")
             .appendField("时的索引(获取找到的第一项)");
         this.setOutput(true, "Number");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -322,7 +322,7 @@ Blockly.Blocks['lodash_findlastindex'] = {
             .appendField(new Blockly.FieldTextInput("function(value){return !!value}"), "PRE")
             .appendField("时的索引(获取找到的最后一项)");
         this.setOutput(true, "Number");
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -337,7 +337,7 @@ Blockly.Blocks['lodash_first'] = {
             .appendField("的第一个元素");
         this.setInputsInline(true);
         this.setOutput(true, null);
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -352,7 +352,7 @@ Blockly.Blocks['lodash_flatten'] = {
             .appendField("减少一层嵌套深度");
         this.setInputsInline(true);
         this.setOutput(true, null);
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }
@@ -367,7 +367,7 @@ Blockly.Blocks['lodash_flattendeep'] = {
             .appendField("递归到一维数组");
         this.setInputsInline(true);
         this.setOutput(true, null);
-        this.setColour('#3492ff');
+        this.setColour(BlockColors["lodash"]);
         this.setTooltip("");
         this.setHelpUrl("");
     }

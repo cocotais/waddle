@@ -1,8 +1,11 @@
+//使用的是w3c图标中的颜色
+
+
 Blockly.Blocks['htmldom_document'] = {
     init: function () {
         this.appendDummyInput().appendField('文档');
         this.setOutput(true, 'Node');
-        this.setColour(230);
+        this.setColour(BlockColors["dom"]);
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -14,7 +17,7 @@ Blockly.Blocks['html_getelementbyid'] = {
         this.appendValueInput('ID').setCheck(null).appendField('获取编号为');
         this.appendDummyInput().appendField('的元素');
         this.setOutput(true, 'Node');
-        this.setColour(230);
+        this.setColour(BlockColors["dom"]);
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -26,7 +29,7 @@ Blockly.Blocks['html_getelementbyclass'] = {
         this.appendValueInput('CLASS').setCheck(null).appendField('获取类为');
         this.appendDummyInput().appendField('的元素列表');
         this.setOutput(true, 'Array');
-        this.setColour(230);
+        this.setColour(BlockColors["dom"]);
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -38,7 +41,7 @@ Blockly.Blocks['html_getelementbytagname'] = {
         this.appendValueInput('TAGNAME').setCheck(null).appendField('获取标签名为');
         this.appendDummyInput().appendField('的元素列表');
         this.setOutput(true, 'Array');
-        this.setColour(230);
+        this.setColour(BlockColors["dom"]);
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -51,7 +54,7 @@ Blockly.Blocks['htmldom_appendchild'] = {
         this.appendDummyInput().appendField('的子元素的末尾');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
+        this.setColour(BlockColors["dom"]);
         this.setTooltip('');
         this.setHelpUrl('');
     }
