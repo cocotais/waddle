@@ -107,9 +107,15 @@ TIP
 		</block>
 		<block type="math_atan2">
 		</block>
+		<block type="js_base">
+		</block>
 		<label text="逻辑">
 		</label>
 		<block type="logic_compare">
+		</block>
+		<block type="js_comparisons">
+		</block>
+		<block type="js_bitwise">
 		</block>
 		<block type="logic_operation">
 		</block>
@@ -153,6 +159,20 @@ TIP
 		</block>
 		<block type="text_trim">
 		</block>
+		<block type="js_replace">
+		</block>
+		<block type="js_powerandlower">
+		</block>
+		<block type="js_with">
+		</block>
+		<block type="js_pad">
+		</block>
+		<block type="js_escape">
+		</block>
+		<block type="js_base64">
+		</block>
+		<block type="js_uri">
+		</block>
 		<block type="text_prompt_ext">
 			<value name="TEXT">
 				<shadow type="text">
@@ -179,10 +199,6 @@ TIP
 		<block type="js_run_join">
 		</block>
 		<block type="js_usestrict">
-		</block>
-		<block type="js_bitwise">
-		</block>
-		<block type="js_comparisons">
 		</block>
 		<block type="js_time">
 		</block>
@@ -229,22 +245,6 @@ TIP
 		<block type="js_console_time">
 		</block>
 		<block type="js_console_timeend">
-		</block>
-		<block type="js_base64">
-		</block>
-		<block type="js_uri">
-		</block>
-		<block type="js_replace">
-		</block>
-		<block type="js_powerandlower">
-		</block>
-		<block type="js_with">
-		</block>
-		<block type="js_pad">
-		</block>
-		<block type="js_escape">
-		</block>
-		<block type="js_base">
 		</block>
 		<!--
 		<block type="js_str_index">
