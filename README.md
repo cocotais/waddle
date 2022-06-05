@@ -1,6 +1,6 @@
 <p align="center">
     <br>
-    <img alt="Waddle-Logo-Purple" src="static/img/cs.png"/>
+    <img alt="Waddle-Logo-Purple" src="static/img/logo/logo-purple-full.png"/>
     <br>
     <br>
     <a href='https://gitee.com/coco-central/waddle/stargazers'><img src='https://gitee.com/coco-central/waddle/badge/star.svg?theme=white' alt='star'></img></a>

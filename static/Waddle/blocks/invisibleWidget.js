@@ -8,7 +8,7 @@ Blockly.Blocks['ivw_defTypes'] = {
             .appendField('类型名')
             .appendField(new Blockly.FieldTextInput('MY_WIDGET'), 'type')
             .appendField('图标')
-            .appendField(new Blockly.FieldTextInput('https://waddle.coco-central.cn/static/img/logo.svg'), 'icon');
+            .appendField(new Blockly.FieldTextInput('https://waddle.coco-central.cn/static/img/logo/logo-white.svg'), 'icon');
         // 五个参数分两行输入
         this.appendDummyInput()
             .appendField('名称')
@@ -48,7 +48,7 @@ Blockly.Blocks['ivw_defTypes'] = {
 // 	init: function () {
 // 		this.appendDummyInput()
 // 			.appendField("控件图标")
-// 			.appendField(new Blockly.FieldTextInput("./static/img/logo.svg"), "icon");
+// 			.appendField(new Blockly.FieldTextInput("./static/img/logo/logo-white.svg"), "icon");
 // 		this.setPreviousStatement(true, null);
 // 		this.setNextStatement(true, null);
 // 		this.setColour("#5574F8");
