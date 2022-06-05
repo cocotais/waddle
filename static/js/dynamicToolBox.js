@@ -378,6 +378,21 @@ function coloursFlyoutCallback(workspace) {
 					<field name="TEXT">0.5</field>
 				</shadow>
 			</value>
+		</block>`,
+    `
+		<block type="color_import">
+		</block>`,
+    `
+		<block type="color_strobj">
+		</block>`,
+    `
+		<block type="color_get">
+		</block>`,
+    `
+		<block type="color_gethue">
+		</block>`,
+    `
+		<block type="color_getsaturation">
 		</block>`
     ]
     var cardList = [
