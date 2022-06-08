@@ -312,6 +312,16 @@ TIP
 		<block type="lists_sort">
 		</block>
 	</category>
+	<category name="字典" css-icon="iconfont waddle-object waddle-dict waddle-testing">
+	<label text="未启用功能，勿用">
+	</label>
+		<block type="dict_pair">
+		</block>
+		<block type="dict_create_with">
+			<mutation items="1">
+			</mutation>
+		</block>
+	</category>
 	<category name="颜色" css-icon="iconfont waddle-object waddle-color" custom="COLOR_CARD">
 	</category>
 	<category name="DOM" css-icon="iconfont waddle-dom">
@@ -327,7 +337,7 @@ TIP
 		</block>
 	</category>
 	<category name="lodash" css-icon="iconfont waddle-lodash">
-		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
+		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="lodash_import">
 		</block>
