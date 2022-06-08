@@ -313,13 +313,45 @@ TIP
 		</block>
 	</category>
 	<category name="字典" css-icon="iconfont waddle-object waddle-dict waddle-testing">
-	<label text="未启用功能，勿用">
-	</label>
+		<label text="未启用功能，勿用">
+		</label>
 		<block type="dict_pair">
 		</block>
 		<block type="dict_create_with">
 			<mutation items="1">
 			</mutation>
+		</block>
+		<block type="dict_set">
+			<value name="KEY">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="dict_get">
+			<value name="KEY">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="dict_del">
+			<value name="KEY">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="dict_clear">
+		</block>
+		<block type="dict_len">
+		</block>
+		<block type="dict_keys">
+		</block>
+		<block type="dict_values">
+		</block>
+		<block type="dict_has_key">
+			<value name="KEY">
+				<block type="variables_get">
+				</block>
+			</value>
 		</block>
 	</category>
 	<category name="颜色" css-icon="iconfont waddle-object waddle-color" custom="COLOR_CARD">
