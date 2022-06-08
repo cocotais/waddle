@@ -33,7 +33,7 @@ def get_this_commit_number():
     """
     获取本地仓库提交数
     """
-    return(int(os.popen('git rev-list --all --count').read().strip()))
+    return(int(os.popen('git rev-list HEAD --count').read().strip()))
 
 
 def get_last_version_number():
