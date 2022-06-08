@@ -1,4 +1,5 @@
 import io
+import os
 import re
 
 import bs4
@@ -8,10 +9,6 @@ import requests
 def alter(file_name, old_str, new_str):
     """
     替换文件中的字符串
-    :param file_name:文件名
-    :param old_str:就字符串
-    :param new_str:新字符串
-    :return None
     """
     file_data = ""
     with io.open(file_name, "r", encoding="utf-8") as f:
@@ -23,20 +20,25 @@ def alter(file_name, old_str, new_str):
         f.write(file_data)
 
 
-def get_commit_number():
+def get_last_commit_number():
     """
     获取gitee仓库中的最新提交数
-    :return Number
     """
     page = requests.get(url)
     soup = bs4.BeautifulSoup(page.content, 'html.parser')
     return(int(str(soup.select('div.all-commits>a')[0]).split('\n')[1][0:-4]))
 
 
+def get_this_commit_number():
+    """
+    获取本地仓库提交数
+    """
+    return(int(os.popen('git rev-list --all --count').read().strip()))
+
+
 def get_last_version_number():
     """
     获取gitee仓库中的最新版本号
-    :return Number
     """
     page = requests.get(url)
     soup = bs4.BeautifulSoup(page.content, 'html.parser')
@@ -45,8 +47,7 @@ def get_last_version_number():
 
 def get_this_version_number():
     """
-    获取当前版本号
-    :return str
+    获取本地仓库版本号
     """
     with open('index.html', 'r', encoding='utf-8') as index:
         return(re.search(r"var version = '(.*)'", index.read(), re.M | re.I).group(1))
@@ -55,9 +56,6 @@ def get_this_version_number():
 def calculate_next_version_number(last_commit_number, last_version_number):
     """
     计算下一版本号
-    :param last_commit_number 最新提交数
-    :param last_version_number 当前版本号
-    :return str
     """
     temporary = re.sub(r'(?<=\().+?(?=\))',
                        str(last_commit_number + 1), last_version_number)
@@ -71,13 +69,16 @@ print()
 url = 'https://gitee.com/coco-central/waddle/tree/dev/'
 
 print('Branch origin/dev has ', end='')
-last_commit_number = get_commit_number()
+last_commit_number = get_last_commit_number()
 print(last_commit_number, 'commits ', end='')
 print('with the version ', end='')
 last_version_number = get_last_version_number()
 print(last_version_number, '\b.')
 
-print('The local version is ', end='')
+print('Branch dev has ', end='')
+this_commit_number = get_this_commit_number()
+print(this_commit_number, 'commits ', end='')
+print('with the version ', end='')
 this_version_number = get_this_version_number()
 print(this_version_number, '\b.')
 
