@@ -284,9 +284,9 @@ Blockly.Blocks['ivw_methodReturn'] = {
 
 Blockly.Blocks['ivw_emit'] = {
     init: function () {
-        this.appendValueInput('event')
-            .setCheck(null)
-            .appendField('触发事件');
+        this.appendDummyInput()
+            .appendField('主动触发事件')
+            .appendField(new Blockly.FieldTextInput('事件名'), 'event');
         this.appendStatementInput('parameters').setCheck(null);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);

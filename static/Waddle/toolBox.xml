@@ -595,11 +595,6 @@ TIP
 		<label text="属性定义">
 		</label>
 		<block type="ivw_addProperty">
-			<value name="defaultValue">
-				<block type="text">
-					<field name="TEXT">默认值</field>
-				</block>
-			</value>
 		</block>
 		<block type="ivw_getproperty">
 		</block>
@@ -624,16 +619,17 @@ TIP
 				</block>
 			</value>
 		</block>
+		<block type="ivw_emitParameter">
+		</block>
 		<label text="参数设置">
 		</label>
 		<block type="ivw_addParams">
-			<value name="defaultValue">
-				<block type="text">
-					<field name="TEXT">默认值</field>
-				</block>
-			</value>
 		</block>
 		<block type="ivw_addDropdownParams">
+			<value name="dropdownItems">
+				<block type="ivw_addDropdownItem">
+				</block>
+			</value>
 		</block>
 		<block type="ivw_addDropdownItem">
 		</block>
