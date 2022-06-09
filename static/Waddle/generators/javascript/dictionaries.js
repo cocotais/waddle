@@ -17,28 +17,24 @@ Blockly.JavaScript['dict_get'] = function (block) {
 
 Blockly.JavaScript['dict_del'] = function (block) {
     var dict = Blockly.JavaScript.valueToCode(block, 'dict', Blockly.JavaScript.ORDER_ATOMIC);
-    var key = Blockly.JavaScript.valueToCode(block, 'key', Blockly.JavaScript.ORDER_ATOMIC);
-    return dict + '.del(' + key + ');\n';
+    if (block.getFieldValue('type') == 'all') {
+        return dict + '.clear();\n';
+    } else {
+        var key = Blockly.JavaScript.valueToCode(block, 'key', Blockly.JavaScript.ORDER_ATOMIC);
+        return 'delete ' + dict + '[' + key + '];\n';
+    }
+
 }
 
-Blockly.JavaScript['dict_clear'] = function (block) {
+Blockly.JavaScript['dict_data'] = function (block) {
     var dict = Blockly.JavaScript.valueToCode(block, 'dict', Blockly.JavaScript.ORDER_ATOMIC);
-    return dict + '.clear();\n';
-}
-
-Blockly.JavaScript['dict_len'] = function (block) {
-    var dict = Blockly.JavaScript.valueToCode(block, 'dict', Blockly.JavaScript.ORDER_ATOMIC);
-    return 'Object.keys(' + dict + ').length';
-}
-
-Blockly.JavaScript['dict_keys'] = function (block) {
-    var dict = Blockly.JavaScript.valueToCode(block, 'dict', Blockly.JavaScript.ORDER_ATOMIC);
-    return 'Object.keys(' + dict + ')';
-}
-
-Blockly.JavaScript['dict_values'] = function (block) {
-    var dict = Blockly.JavaScript.valueToCode(block, 'dict', Blockly.JavaScript.ORDER_ATOMIC);
-    return 'Object.values(' + dict + ')';
+    if (block.getFieldValue('type') == 'length') {
+        return 'Object.keys(' + dict + ').length';
+    }  else if (block.getFieldValue('type') == 'keys') {
+        return dict + '.keys()';
+    } else if (block.getFieldValue('type') == 'values') {
+        return dict + '.values()';
+    }
 }
 
 Blockly.JavaScript['dict_has_key'] = function (block) {

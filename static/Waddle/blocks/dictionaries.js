@@ -7,7 +7,7 @@ Blockly.Blocks['dict_pair'] = {
             .setCheck(null)
             .appendField("值");
         this.setInputsInline(true);
-        this.setOutput(true,'dict_pair');
+        this.setOutput(true, 'dict_pair');
         this.setColour(BlockColors["dict"]);
         this.setTooltip("生成一个键值对");
         this.setHelpUrl("");
@@ -16,12 +16,15 @@ Blockly.Blocks['dict_pair'] = {
 
 Blockly.Blocks['dict_set'] = {
     init: function () {
+        this.appendValueInput("dict")
+            .setCheck("Dict")
+            .appendField("设置字典");
         this.appendValueInput("key")
             .setCheck(null)
             .appendField("键");
         this.appendValueInput("value")
             .setCheck(null)
-            .appendField("值");
+            .appendField("的值为");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -31,10 +34,11 @@ Blockly.Blocks['dict_set'] = {
     }
 };
 
-Blockly.Blocks['dict_get'] = {  
+Blockly.Blocks['dict_get'] = {
     init: function () {
-        this.appendDummyInput()
-            .appendField("获取键")
+        this.appendValueInput("dict")
+            .setCheck("Dict")
+            .appendField("获取字典");
         this.appendValueInput("key")
             .setCheck(null)
             .appendField("键");
@@ -51,77 +55,56 @@ Blockly.Blocks['dict_get'] = {
 Blockly.Blocks['dict_del'] = {
     init: function () {
         this.appendValueInput("dict")
-            .setCheck(null)
-            .appendField("删除字典");
-        this.appendValueInput("key")
-            .setCheck(null)
-            .appendField("键")
+            .setCheck("Dict")
+            .appendField("(Bug)删除字典");
         this.appendDummyInput()
-            .appendField("的值");
+            .appendField(new Blockly.FieldDropdown([
+                ["键为", "_key"],
+                ["所有项", "all"]
+            ]), "type");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(BlockColors["dict"]);
+        // this.setColour(BlockColors["dict"]);
+        this.setColour("#ff0000");
         this.setTooltip("删除一个键值对");
         this.setHelpUrl("");
+    },
+    onchange: function (event) {
+        if (this.getFieldValue("type") == "_key") {
+            if (!this.getInput("key")) {
+                this.appendValueInput("key")
+                    .setCheck(null)
+                this.appendDummyInput("t")
+                    .appendField("的值");
+            }
+        } else {
+            if (this.getInput("key")) {
+                this.removeInput("key");
+                this.removeInput("t");
+            }
+        }
     }
+
 };
 
-Blockly.Blocks['dict_clear'] = {
+Blockly.Blocks['dict_data'] = {
     init: function () {
         this.appendValueInput("dict")
-            .setCheck(null)
-            .appendField("清空字典");
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(BlockColors["dict"]);
-        this.setTooltip("清空字典");
-        this.setHelpUrl("");
-    }
-};
-
-Blockly.Blocks['dict_len'] = {
-    init: function () {
-        this.appendValueInput("dict")
-            .setCheck(null)
+            .setCheck("Dict")
             .appendField("字典");
+        // dorpdown for length or keys or values
         this.appendDummyInput()
-            .appendField("的长度");
+            .appendField("的")
+            .appendField(new Blockly.FieldDropdown([
+                ["项数", "length"],
+                ["所有键", "keys"],
+                ["所有值", "values"]
+            ]), "type");
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(BlockColors["dict"]);
-        this.setTooltip("获取字典的长度");
-        this.setHelpUrl("");
-    }
-};
-
-Blockly.Blocks['dict_keys'] = { 
-    init: function () {
-        this.appendValueInput("dict")
-            .setCheck(null)
-            .appendField("字典");
-        this.appendDummyInput()
-            .appendField("的所有键");
-        this.setInputsInline(true);
-        this.setOutput(true, null);
-        this.setColour(BlockColors["dict"]);
-        this.setTooltip("获取字典的键");
-        this.setHelpUrl("");
-    }
-};
-
-Blockly.Blocks['dict_values'] = {
-    init: function () {
-        this.appendValueInput("dict")
-            .setCheck(null)
-            .appendField("字典");
-        this.appendDummyInput()
-            .appendField("的所有值");
-        this.setInputsInline(true);
-        this.setOutput(true, null);
-        this.setColour(BlockColors["dict"]);
-        this.setTooltip("获取字典的值");
+        this.setTooltip("获取字典的长度、键或值");
         this.setHelpUrl("");
     }
 };
@@ -129,7 +112,7 @@ Blockly.Blocks['dict_values'] = {
 Blockly.Blocks['dict_has_key'] = {
     init: function () {
         this.appendValueInput("dict")
-            .setCheck(null)
+            .setCheck("Dict")
             .appendField("字典");
         this.appendValueInput("key")
             .setCheck(null)

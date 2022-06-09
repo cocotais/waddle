@@ -339,13 +339,7 @@ TIP
 				</block>
 			</value>
 		</block>
-		<block type="dict_clear">
-		</block>
-		<block type="dict_len">
-		</block>
-		<block type="dict_keys">
-		</block>
-		<block type="dict_values">
+		<block type="dict_data">
 		</block>
 		<block type="dict_has_key">
 			<value name="KEY">
