@@ -15,13 +15,13 @@ Blockly.JavaScript['axios_getpost_simple'] = function (block) {
   .catch((error) => {
   ${error}
   });
-`
-    return code
-}
+`;
+    return code;
+};
 
 Blockly.JavaScript['axios_response'] = function () {
-    return ['response', Blockly.JavaScript.ORDER_NONE]
-}
+    return ['response', Blockly.JavaScript.ORDER_NONE];
+};
 
 Blockly.JavaScript['axios_responsedropdown'] = function (block) {
     var dropdown_mode = block.getFieldValue('MODE');
@@ -32,8 +32,8 @@ Blockly.JavaScript['axios_responsedropdown'] = function (block) {
 };
 
 Blockly.JavaScript['axios_error'] = function () {
-    return ['error', Blockly.JavaScript.ORDER_NONE]
-}
+    return ['error', Blockly.JavaScript.ORDER_NONE];
+};
 
 Blockly.JavaScript['axios_getpost'] = function (block) {
     var dropdown_mode = block.getFieldValue('MODE');
