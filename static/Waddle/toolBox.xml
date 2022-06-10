@@ -55,6 +55,16 @@ TIP
 		</block>
 		<block type="logic_ternary">
 		</block>
+		<label text="注释">
+		</label>
+		<block type="tools_clip">
+		</block>
+		<block type="tools_exegesis">
+		</block>
+		<label text="执行">
+		</label>
+		<block type="tools_only_run">
+		</block>
 	</category>
 	<category name="运算" css-icon="iconfont waddle-math">
 		<label text="数学">
@@ -497,50 +507,6 @@ TIP
 		<block type="qrcode_err">
 		</block>
 		<block type="qrcode_canvas">
-		</block>
-	</category>
-	<category name="工具" css-icon="iconfont waddle-object waddle-tools">
-		<label text="工具.积木夹子">
-		</label>
-		<label text="方便积木分段，折叠；顶部注释积木夹子标签">
-		</label>
-		<block type="tools_clip">
-		</block>
-		<label text="工具.仅运行">
-		</label>
-		<label text="用于运行有返回值的积木">
-		</label>
-		<block type="tools_only_run">
-		</block>
-		<label text="工具.注释">
-		</label>
-		<label text="用于插入单行注释">
-		</label>
-		<block type="tools_exegesis">
-		</block>
-		<label text="工具.字典">
-		</label>
-		<label text="创建字典">
-		</label>
-		<block type="tools_dict">
-		</block>
-		<label text="工具.列表">
-		</label>
-		<label text="创建列表">
-		</label>
-		<block type="tools_list">
-		</block>
-		<label text="工具.字典值">
-		</label>
-		<label text="为字典添加项，自行添加字符串框">
-		</label>
-		<block type="tools_dictItem">
-		</block>
-		<label text="工具.列表值">
-		</label>
-		<label text="为列表添加项，自行添加字符串框">
-		</label>
-		<block type="tools_listItem">
 		</block>
 	</category>
 	<category name="权限获取" css-icon="iconfont waddle-object waddle-permission">
