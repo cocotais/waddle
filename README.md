@@ -8,9 +8,9 @@
     <br>
 </p>
 
-
 # 简介
-Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形化编辑器
+
+Waddle 是由 CoCo 中控台 基于 Blockly 开发的 CoCo 自定义控件 图形化编辑器
 
 # 使用
 
@@ -44,21 +44,24 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
   </ol>
 </details>
 
+# 遇到 Bug/有好建议
 
-# 遇到Bug/有好建议
-如果你遇到了 Bug 或者有了好建议，可以选择在 [Issues页（优先处理）](https://gitee.com/coco-central/waddle/issues) 反馈，可以在 [反馈表单](https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec) 内填写！我们会尽快处理！
+如果你遇到了 Bug 或者有了好建议，可以选择在 [Issues 页（优先处理）](https://gitee.com/coco-central/waddle/issues) 反馈，可以在 [反馈表单](https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec) 内填写！我们会尽快处理！
 
 # 参与贡献
+
 如果你想要对代码进行贡献，可以参考 [这份文档](https://docs.coco-central.cn/waddle/#/dev/)
 
 如果你想要对使用手册进行贡献，可以前往 [这里](https://gitee.com/coco-central/docs) 直接编辑，我们将对您的内容进行审核
 
 # 联系
+
 目前我们制作团队的全部成员都在 Waddle 交流群中，若你想与我们面对面交流，欢迎加入！
-QQ群号：327827621
+QQ 群号：327827621
 
 # 捐赠我们
-CoCo中控台 由一群初中生创建，资金有限，域名与服务器完全自费。如果你对我们的成果认可，欢迎捐赠：
+
+CoCo 中控台 由一群初中生创建，资金有限，域名与服务器完全自费。如果你对我们的成果认可，欢迎捐赠：
 
 <p align="center">
   <br>
@@ -68,3 +71,5 @@ CoCo中控台 由一群初中生创建，资金有限，域名与服务器完全
   <br>
 </p>
 <br>
+
+<div class="waddle-version-bot"> V1.47.32(1027)-beta </div>

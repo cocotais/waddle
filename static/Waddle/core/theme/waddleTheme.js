@@ -5,6 +5,7 @@ var BlockColors = {
 	"function": "#77d657",
 	"varible": "#ffbb55",
 	"list": "#f9cc37",
+	"dict": "#2bc9a7",
 	"colour": "#2bc9a7",
 	"dom": "#a073ff",
 	"lodash": "#608fee",

@@ -413,13 +413,7 @@ Blockly.Msg["PROCEDURES_DEFRETURN_PROCEDURE"] = Blockly.Msg["PROCEDURES_DEFNORET
 Blockly.Msg["PROCEDURES_DEFRETURN_TITLE"] = Blockly.Msg["PROCEDURES_DEFNORETURN_TITLE"];
 Blockly.Msg["TEXT_APPEND_VARIABLE"] = Blockly.Msg["VARIABLES_DEFAULT_NAME"];
 Blockly.Msg["TEXT_CREATE_JOIN_ITEM_TITLE_ITEM"] = Blockly.Msg["VARIABLES_DEFAULT_NAME"];
-
-Blockly.Msg["MATH_HUE"] = "230";
-Blockly.Msg["LOOPS_HUE"] = "120";
-Blockly.Msg["LISTS_HUE"] = "260";
-Blockly.Msg["LOGIC_HUE"] = "210";
-Blockly.Msg["VARIABLES_HUE"] = "330";
-Blockly.Msg["TEXTS_HUE"] = "160";
-Blockly.Msg["PROCEDURES_HUE"] = "290";
-Blockly.Msg["COLOUR_HUE"] = "20";
-Blockly.Msg["VARIABLES_DYNAMIC_HUE"] = "310";
+Blockly.Msg["DICT_CREATE_WITH_TOOLTIP"] = "创建一个空字典。";
+Blockly.Msg["DICT_CREATE_WITH_INPUT_WITH"] = '创建字典';
+Blockly.Msg["DICT_CREATE_WITH_ITEM_TOOLTIP"] = '项';
+Blockly.Msg["DICT_CREATE_WITH_CONTAINER_TOOLTIP"] = '添加, 删除或重新排列这个字典的内容。';

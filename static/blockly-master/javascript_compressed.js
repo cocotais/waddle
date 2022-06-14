@@ -775,6 +775,14 @@
 		a = $.Blockly.JavaScript.valueToCode(a, 'RATIO', $.Blockly.JavaScript.ORDER_NONE) || 0.5;
 		return [$.Blockly.JavaScript.provideFunction_('colourBlend', ['function ' + $.Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + '(c1, c2, ratio) {', '  ratio = Math.max(Math.min(Number(ratio), 1), 0);', '  var r1 = parseInt(c1.substring(1, 3), 16);', '  var g1 = parseInt(c1.substring(3, 5), 16);', '  var b1 = parseInt(c1.substring(5, 7), 16);', '  var r2 = parseInt(c2.substring(1, 3), 16);', '  var g2 = parseInt(c2.substring(3, 5), 16);', '  var b2 = parseInt(c2.substring(5, 7), 16);', '  var r = Math.round(r1 * (1 - ratio) + r2 * ratio);', '  var g = Math.round(g1 * (1 - ratio) + g2 * ratio);', '  var b = Math.round(b1 * (1 - ratio) + b2 * ratio);', "  r = ('0' + (r || 0).toString(16)).slice(-2);", "  g = ('0' + (g || 0).toString(16)).slice(-2);", "  b = ('0' + (b || 0).toString(16)).slice(-2);", "  return '#' + r + g + b;", '}']) + '(' + b + ', ' + c + ', ' + a + ')', $.Blockly.JavaScript.ORDER_FUNCTION_CALL];
 	};
+	Blockly.JavaScript.dict_create_with = function (a) {
+		for(var b = [], c = 0; c < a.itemCount_; c++) {
+			var d = $.Blockly.JavaScript.valueToCode(a, 'KEY' + c, $.Blockly.JavaScript.ORDER_COMMA) || 'null',
+				e = $.Blockly.JavaScript.valueToCode(a, 'VALUE' + c, $.Blockly.JavaScript.ORDER_COMMA) || 'null';
+			b.push(d + ': ' + e)
+		}
+		return ['{' + b.join(', ') + '}', $.Blockly.JavaScript.ORDER_ATOMIC];
+	}
 	var module$exports$Blockly$JavaScript$all = {};
 
 	return $.Blockly.JavaScript;

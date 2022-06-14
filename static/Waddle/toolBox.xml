@@ -3,12 +3,11 @@
 <!-- 样式不对，暂时不用文件夹 -->
 <!-- TIP：请使用VSCode扩展里的XML Formatter进行格式化，保证开始和闭合不在标签同一行 -->
 <!--
-TIP
+TIP （以下内容可以交于update.py）
 TIP 格式化后用正则替换所有
 TIP <field name="[a-z]*">\n\s*
 TIP 为
-TIP <field name="TEXT">
-TIP 格式化后用正则替换所有
+TIP <field name="TEXT">TIP 格式化后用正则替换所有
 TIP \n\t*</field>
 TIP 为
 TIP </field>
@@ -55,6 +54,16 @@ TIP
 		<block type="controls_if">
 		</block>
 		<block type="logic_ternary">
+		</block>
+		<label text="注释">
+		</label>
+		<block type="tools_clip">
+		</block>
+		<block type="tools_exegesis">
+		</block>
+		<label text="执行">
+		</label>
+		<block type="tools_only_run">
 		</block>
 	</category>
 	<category name="运算" css-icon="iconfont waddle-math">
@@ -313,6 +322,42 @@ TIP
 		<block type="lists_sort">
 		</block>
 	</category>
+	<category name="字典" css-icon="iconfont waddle-object waddle-dict waddle-testing">
+		<label text="未启用功能，勿用">
+		</label>
+		<block type="dict_pair">
+		</block>
+		<block type="dict_create_with">
+			<mutation items="1">
+			</mutation>
+		</block>
+		<block type="dict_set">
+			<value name="KEY">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="dict_get">
+			<value name="KEY">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="dict_del">
+			<value name="KEY">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="dict_data">
+		</block>
+		<block type="dict_has_key">
+			<value name="KEY">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+	</category>
 	<category name="颜色" css-icon="iconfont waddle-object waddle-color" custom="COLOR_CARD">
 	</category>
 	<category name="DOM" css-icon="iconfont waddle-dom">
@@ -328,7 +373,7 @@ TIP
 		</block>
 	</category>
 	<category name="lodash" css-icon="iconfont waddle-lodash">
-		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
+		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="lodash_import">
 		</block>
@@ -464,50 +509,6 @@ TIP
 		<block type="qrcode_canvas">
 		</block>
 	</category>
-	<category name="工具" css-icon="iconfont waddle-object waddle-tools">
-		<label text="工具.积木夹子">
-		</label>
-		<label text="方便积木分段，折叠；顶部注释积木夹子标签">
-		</label>
-		<block type="tools_clip">
-		</block>
-		<label text="工具.仅运行">
-		</label>
-		<label text="用于运行有返回值的积木">
-		</label>
-		<block type="tools_only_run">
-		</block>
-		<label text="工具.注释">
-		</label>
-		<label text="用于插入单行注释">
-		</label>
-		<block type="tools_exegesis">
-		</block>
-		<label text="工具.字典">
-		</label>
-		<label text="创建字典">
-		</label>
-		<block type="tools_dict">
-		</block>
-		<label text="工具.列表">
-		</label>
-		<label text="创建列表">
-		</label>
-		<block type="tools_list">
-		</block>
-		<label text="工具.字典值">
-		</label>
-		<label text="为字典添加项，自行添加字符串框">
-		</label>
-		<block type="tools_dictItem">
-		</block>
-		<label text="工具.列表值">
-		</label>
-		<label text="为列表添加项，自行添加字符串框">
-		</label>
-		<block type="tools_listItem">
-		</block>
-	</category>
 	<category name="权限获取" css-icon="iconfont waddle-object waddle-permission">
 		<block type="permissions_get">
 		</block>
@@ -596,11 +597,6 @@ TIP
 		<label text="属性定义">
 		</label>
 		<block type="ivw_addProperty">
-			<value name="defaultValue">
-				<block type="text">
-					<field name="TEXT">默认值</field>
-				</block>
-			</value>
 		</block>
 		<block type="ivw_getproperty">
 		</block>
@@ -625,16 +621,17 @@ TIP
 				</block>
 			</value>
 		</block>
+		<block type="ivw_emitParameter">
+		</block>
 		<label text="参数设置">
 		</label>
 		<block type="ivw_addParams">
-			<value name="defaultValue">
-				<block type="text">
-					<field name="TEXT">默认值</field>
-				</block>
-			</value>
 		</block>
 		<block type="ivw_addDropdownParams">
+			<value name="dropdownItems">
+				<block type="ivw_addDropdownItem">
+				</block>
+			</value>
 		</block>
 		<block type="ivw_addDropdownItem">
 		</block>

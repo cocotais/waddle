@@ -22,6 +22,10 @@
     color: #ff9c37;
 }
 
+.waddle-dict {
+    color: #2bc9a7;
+}
+
 .waddle-color {
     color: #2bc9a7;
 }
@@ -77,8 +81,13 @@
 }
 
 .waddle-render {
-    background-image: linear-gradient(to right, #01adffee,#5098fc88);
+    background-image: linear-gradient(to right, #01adffee, #5098fc88);
     -webkit-background-clip: text;
     color: transparent;
     font-size: 30px;
+}
+
+.waddle-testing {
+    opacity: 50%;
+    filter: blur(3px);
 }
