@@ -1,5 +1,3 @@
-//用的
-
 Blockly.Blocks['permissions_get'] = {
     init: function () {
         this.appendDummyInput()

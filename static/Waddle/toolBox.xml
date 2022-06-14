@@ -190,8 +190,8 @@ TIP
 	<category name="函数" css-icon="iconfont waddle-fx" custom="PROCEDURE">
 	</category>
 	<category name="功能" css-icon="iconfont waddle-function">
-		<label text="鸡肋积木">
-		</label>
+		<block type="function_obj">
+		</block>
 		<block type="js_run">
 		</block>
 		<block type="js_run2">
@@ -639,6 +639,12 @@ TIP
 		<block type="ivw_addDropdownItem">
 		</block>
 		<block type="ivw_getparam">
+		</block>
+		<lable text="积木设置">
+		</lable>
+		<block type="ivw_option_icon">
+		</block>
+		<block type="ivw_option_color">
 		</block>
 	</category>
 	<category name="渲染" css-icon="iconfont waddle-render">

@@ -96,6 +96,7 @@ Blockly.JavaScript['js_window_depth'] = function (block) {
 Blockly.JavaScript['js_window_pixeldepth'] = function (block) {
     var code = `this.screen.pixelDepth`;
     return [code, Blockly.JavaScript.ORDER_NONE];
+    
 };
 
 Blockly.JavaScript['js_navigator_online'] = function (block) {

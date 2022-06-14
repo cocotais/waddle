@@ -1,4 +1,3 @@
-//用的黑色（不是纯黑）
 Blockly.Blocks["qrcode_import"] = {
   init: function () {
     this.appendDummyInput().appendField("引入qrcode");
