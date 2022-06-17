@@ -1914,7 +1914,7 @@ Blockly.Blocks["html_css_border"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#00569c");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -1938,7 +1938,63 @@ Blockly.Blocks["html_css_border2"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour("#00569c");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+
+Blockly.Blocks["html_css_dimension"] = {
+  init: function () {
+    this.appendDummyInput().appendField("定义样式 尺寸");
+    this.appendValueInput("NAME")
+      .setCheck(null)
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["高度", "height"],
+          ["宽度", "width"],
+          ["最大宽度", "max-width"],
+          ["最小宽度", "min-width"],
+          ["最大高度", "max-height"],
+          ["最小高度", "min-height"],
+        ]),
+        "NAME1"
+      );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#00569c");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+
+Blockly.Blocks["html_css_marginpadding"] = {
+  init: function () {
+    this.appendDummyInput().appendField("定义样式 边距");
+    this.appendValueInput("NAME")
+      .setCheck(null)
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["外边距", "margin"],
+          ["内边距", "padding"],
+        ]),
+        "NAME1"
+      )
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["全部", ""],
+          ["上方", "-top"],
+          ["下方", "-bottom"],
+          ["左方", "-left"],
+          ["右方", "-right"],
+        ]),
+        "NAME"
+      );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#00569c");
     this.setTooltip("");
     this.setHelpUrl("");
   },

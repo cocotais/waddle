@@ -1077,6 +1077,21 @@ Blockly.JavaScript['html_css_border2'] = function(block) {
   return code;
 };
 
+Blockly.JavaScript['html_css_dimension'] = function(block) {
+  var dropdown_name1 = block.getFieldValue('NAME1');
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = `${dropdown_name1}:${value_name};\n`;
+  return code;
+};
+
+Blockly.JavaScript['html_css_marginpadding'] = function(block) {
+  var dropdown_name1 = block.getFieldValue('NAME1');
+  var dropdown_name = block.getFieldValue('NAME');
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = `${dropdown_name1}${dropdown_name}:${value_name};\n`;
+  return code;
+};
+
 Blockly.JavaScript["html_other_px"] = function (block) {
   var val =
     Blockly.JavaScript.valueToCode(
