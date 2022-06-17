@@ -199,8 +199,6 @@ TIP
 	<category name="函数" css-icon="iconfont waddle-fx" custom="PROCEDURE">
 	</category>
 	<category name="功能" css-icon="iconfont waddle-function">
-		<block type="function_obj">
-		</block>
 		<block type="js_run">
 		</block>
 		<block type="js_run2">
@@ -713,7 +711,13 @@ TIP
 		</block>
 		<block type="html_attribute_style">
 		</block>
-		<block type="html_css_background_color">
+		<block type="html_css">
+		</block>
+		<block type="html_css_background">
+		</block>
+		<block type="html_css_border">
+		</block>
+		<block type="html_css_border2">
 		</block>
 		<block type="html_other_px">
 		</block>

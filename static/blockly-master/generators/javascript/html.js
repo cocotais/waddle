@@ -1008,7 +1008,7 @@ Blockly.JavaScript["html_attribute_style"] = function (block) {
   var code = `style="${statements_con}"\n`;
   return html_escape(code);
 };
-
+/*
 Blockly.JavaScript["html_css_background_color"] = function (block) {
   var val =
     Blockly.JavaScript.valueToCode(
@@ -1041,7 +1041,7 @@ Blockly.JavaScript["html_css_text_decoration"] = function (block) {
   var mode = block.getFieldValue("MODE");
   var code = `text-decoration:${mode};\n`;
   return html_escape(code);
-};
+};*/
 
 Blockly.JavaScript["html_css"] = function (block) {
   var val =
@@ -1053,6 +1053,28 @@ Blockly.JavaScript["html_css"] = function (block) {
   var name = block.getFieldValue("NAME") || "attribute";
   var code = `${name}:${val};\n`;
   return html_escape(code);
+};
+
+Blockly.JavaScript['html_css_background'] = function(block) {
+  var dropdown_type = block.getFieldValue('TYPE');
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = `${dropdown_type}:${value_name};\n`;
+  return code;
+};
+
+Blockly.JavaScript['html_css_border'] = function(block) {
+  var dropdown_name1 = block.getFieldValue('NAME1');
+  var dropdown_name2 = block.getFieldValue('NAME2');
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC) || "none";
+  var code = `border${dropdown_name1}${dropdown_name2}:${value_name};\n`;
+  return code;
+};
+
+Blockly.JavaScript['html_css_border2'] = function(block) {
+  var dropdown_name = block.getFieldValue('NAME');
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC) || "none"
+  var code = `border${dropdown_name}radios:${value_name};\n`;
+  return code;
 };
 
 Blockly.JavaScript["html_other_px"] = function (block) {
