@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.32(1027)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.33(1032)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'V1.47.32(1027)-beta' //版本号
+		var version = 'V1.47.33(1032)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -369,9 +369,7 @@ wwwwwww      wwwwww     wwwwwww
 				content: attr(data-title);
 				position: absolute;
 				border-radius: 8px;
-				height: max-content;
 				text-align: center;
-				width: max-content;
 				bottom: 44px;
 				background-color: rgba(0, 0, 0, .4);
 				border: 8px solid rgba(0, 0, 0, .0);
@@ -385,6 +383,7 @@ wwwwwww      wwwwww     wwwwwww
 				-webkit-animation: hide-it 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 				animation: hide-it 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 				opacity: 0;
+				pointer-events: none;
 			}
 
 			#funcs-buttons:hover:after {
@@ -828,7 +827,6 @@ wwwwwww      wwwwww     wwwwwww
 							onclick="count_oj()">难</span>做的控件</p>
 					</br>
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由所有Waddle的开源贡献者共同创造！</p>
-					<!----<p style="color: #ffffff;font-size: 17px;">中子星000（QQ：2422481178）主理制作</br>MathCalculus（QQ：2504556268）主理制作</br>Epeiuss（Mail：ffxw0720@163.com）监制</br>海藻酸钠（QQ：3409473369）美术/UI/监制</br>小鱼yuzifu（QQ：1906929246）前端设计</br>刘lyxAndy（QQ：3449556207）细节处理</p>--->
 					<p style="color: #ffffff;font-size: 15px;" onclick="count()">帮助链接：
 						<a href="https://docs.coco-central.cn/waddle/" style="color: #ffffff;font-size: 15px;"
 							target="_blank" rel="noopener">https://docs.coco-central.cn/waddle/</a>
@@ -1112,6 +1110,8 @@ wwwwwww      wwwwww     wwwwwww
 		if (isVisibleWidget()) {
 			// 打开可见控件预览框
 			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
+			let code = Blockly.JavaScript.workspaceToCode(workspace);
+			code = code.replaceAll("\n", "");
 			let html_code = code.match(/return\((.+?)\)/g)[0].substring(8, code.match(/return\((.+?)\)/g)[0].length - 2).replaceAll('&#60', '<').replaceAll('&#62', '>')
 			document.getElementById("widgetPreview").innerHTML = html_code
 		}

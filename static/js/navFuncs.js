@@ -131,8 +131,8 @@ let count_oj = function () {
 var isclick = false;
 
 let dropdown_show = function () {
-  document.getElementById("navmenu").style.top = "15px";
-  document.getElementById("navmenu").style.marginLeft = "70px";
+  document.getElementById("navmenu").style.top = "0px";
+  document.getElementById("navmenu").style.marginLeft = "60px";
   if (
     document.getElementsByClassName("dropdown-menu")[0].className ==
     "dropdown-menu show"

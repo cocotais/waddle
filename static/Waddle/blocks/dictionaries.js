@@ -39,7 +39,7 @@ Blockly.Blocks['dict_get'] = {
 
 Blockly.Blocks['dict_del'] = {
     init: function () {
-        this.appendValueInput('dict').setCheck('Dict').appendField('(Bug)删除字典');
+        this.appendValueInput('dict').setCheck('Dict').appendField('删除字典');
         this.appendDummyInput().appendField(
             new Blockly.FieldDropdown([
                 ['键为', '_key'],
@@ -51,9 +51,11 @@ Blockly.Blocks['dict_del'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         // this.setColour(BlockColors["dict"]);
-        this.setColour('#ff0000');
+        this.setColour(BlockColors['dict']);
         this.setTooltip('删除一个键值对');
         this.setHelpUrl('');
+        this.appendValueInput('key').setCheck(null);
+        this.appendDummyInput('t').appendField('的值');
     },
     onchange: function (event) {
         if (this.getFieldValue('type') == '_key') {

@@ -320,9 +320,7 @@ TIP
 		<block type="lists_sort">
 		</block>
 	</category>
-	<category name="字典" css-icon="iconfont waddle-object waddle-dict waddle-testing">
-		<label text="未启用功能，勿用">
-		</label>
+	<category name="字典" css-icon="iconfont waddle-object waddle-dict">
 		<block type="dict_pair">
 		</block>
 		<block type="dict_create_with">
