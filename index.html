@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.33(1032)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.34(1033)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'V1.47.33(1032)-beta' //版本号
+		var version = 'V1.47.34(1033)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -352,6 +352,69 @@ wwwwwww      wwwwww     wwwwwww
 				</g>
 			</svg>
 		</div>
+
+		<div>
+			<button id="toup" class="updown" style="top:70px;display: none;"
+				onclick="$('.blocklyToolboxDiv').animate({scrollTop: 0});">▲</button>
+			<button id="todown" class="updown" style="bottom:0;" onclick="
+			bottom=$('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
+			$('.blocklyToolboxDiv').animate({scrollTop: bottom})">▼</button>
+		</div>
+
+		<style>
+			.updown{
+				position: absolute;
+				z-index: 10;
+				width:60px;
+				background: var(--main-color);
+				border: var(--main-color);
+				color: #fff;
+				border-radius: 4px;
+				-webkit-transition-duration: 0.1s;
+				/* Safari */
+				transition-duration: 0.1s;
+			}
+			.updown:hover{
+				background: var(--nd-main-color);
+				border: var(--nd-main-color);
+				cursor: pointer;
+			}
+		</style>
+		<script>
+			$(window).resize(function () {
+				bottom = $('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
+					if ($('.blocklyToolboxDiv').scrollTop() == 0) {
+						document.getElementById("toup").style.display = "none"
+						document.getElementById("todown").style.display = "block"
+					}
+					else if ($('.blocklyToolboxDiv').scrollTop() == bottom) {
+						document.getElementById("toup").style.display = "block"
+						document.getElementById("todown").style.display = "none"
+					}
+					else {
+						document.getElementById("toup").style.display = "block"
+						document.getElementById("todown").style.display = "block"
+					}
+			})
+			$('.blocklyToolboxDiv').ready(function () {
+				$('.blocklyToolboxDiv').scroll(function () {
+					bottom = $('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
+					if ($('.blocklyToolboxDiv').scrollTop() == 0) {
+						document.getElementById("toup").style.display = "none"
+						document.getElementById("todown").style.display = "block"
+					}
+					else if ($('.blocklyToolboxDiv').scrollTop() == bottom) {
+						document.getElementById("toup").style.display = "block"
+						document.getElementById("todown").style.display = "none"
+					}
+					else {
+						document.getElementById("toup").style.display = "block"
+						document.getElementById("todown").style.display = "block"
+					}
+				});
+			});
+		</script>
+
 		<div id="table">
 			<div id="blocklyDiv" style="width:100vw;"></div>
 			<!--ToolBox积木-->
