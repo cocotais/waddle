@@ -15,7 +15,7 @@ TIP 避免字符串积木出现空白字符
 TIP
 -->
 <toolbox>
-	<category name="控制" css-icon="iconfont waddle-control">
+	<category name="控制" css-class="waddle-control" css-icon="waddle-control">
 		<label text="循环">
 		</label>
 		<block type="controls_repeat_ext">
@@ -66,7 +66,7 @@ TIP
 		<block type="tools_only_run">
 		</block>
 	</category>
-	<category name="运算" css-icon="iconfont waddle-math">
+	<category name="运算" css-icon="waddle-math" css-class="waddle-math">
 		<label text="数学">
 		</label>
 		<block type="math_number">
@@ -196,9 +196,9 @@ TIP
 			</value>
 		</block>
 	</category>
-	<category name="函数" css-icon="iconfont waddle-fx" custom="PROCEDURE">
+	<category name="函数" css-icon="waddle-fx" css-class="waddle-fx" custom="PROCEDURE">
 	</category>
-	<category name="功能" css-icon="iconfont waddle-function">
+	<category name="功能" css-icon="waddle-function" css-class="waddle-function">
 		<block type="js_run">
 		</block>
 		<block type="js_run2">
@@ -266,9 +266,9 @@ TIP
 	</category>
 	<sep>
 	</sep>
-	<category name="变量" css-icon="iconfont waddle-variable" custom="VARIABLE">
+	<category name="变量" css-icon="waddle-variable" css-class="waddle-variable" custom="VARIABLE">
 	</category>
-	<category name="列表" css-icon="iconfont waddle-list">
+	<category name="列表" css-icon="waddle-list" css-class="waddle-list">
 		<block type="lists_create_with">
 			<mutation items="0">
 			</mutation>
@@ -320,7 +320,7 @@ TIP
 		<block type="lists_sort">
 		</block>
 	</category>
-	<category name="字典" css-icon="iconfont waddle-object waddle-dict">
+	<category name="字典" css-icon="waddle-object" css-class="waddle-object waddle-dict">
 		<block type="dict_pair">
 		</block>
 		<block type="dict_create_with">
@@ -354,9 +354,9 @@ TIP
 			</value>
 		</block>
 	</category>
-	<category name="颜色" css-icon="iconfont waddle-object waddle-color" custom="COLOR_CARD">
+	<category name="颜色" css-icon="waddle-object" css-class="waddle-object waddle-color" custom="COLOR_CARD">
 	</category>
-	<category name="DOM" css-icon="iconfont waddle-dom">
+	<category name="DOM" css-icon="waddle-dom" css-class="waddle-dom">
 		<block type="htmldom_document">
 		</block>
 		<block type="html_getelementbytagname">
@@ -368,7 +368,7 @@ TIP
 		<block type="htmldom_appendchild">
 		</block>
 	</category>
-	<category name="lodash" css-icon="iconfont waddle-lodash">
+	<category name="lodash" css-icon="waddle-lodash" css-class="waddle-lodash">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="lodash_import">
@@ -418,7 +418,7 @@ TIP
 		<block type="lodash_flattendeep">
 		</block>
 	</category>
-	<category name="axios" css-icon="iconfont waddle-axios">
+	<category name="axios" css-icon="waddle-axios" css-class="waddle-axios">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="axios_import">
@@ -438,7 +438,7 @@ TIP
 		<block type="axios_maxcontentlength">
 		</block>
 	</category>
-	<category name="utils" css-icon="iconfont waddle-utils" custom="UTILS_GAME">
+	<category name="utils" css-icon="waddle-utils" css-class="waddle-utils" custom="UTILS_GAME">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="utils_import">
@@ -446,7 +446,7 @@ TIP
 		<block type="utils_isnative">
 		</block>
 	</category>
-	<category name="crypto" css-icon="iconfont waddle-crypto">
+	<category name="crypto" css-icon="waddle-crypto" css-class="waddle-crypto">
 		<block type="crypto_import">
 		</block>
 		<block type="crypto_md5_s">
@@ -460,7 +460,7 @@ TIP
 		<block type="crypto_tostr">
 		</block>
 	</category>
-	<category name="vika" css-icon="iconfont waddle-vika">
+	<category name="vika" css-icon="waddle-vika" css-class="waddle-vika">
 		<block type="vika_import">
 		</block>
 		<block type="vika_auth_simple">
@@ -489,7 +489,7 @@ TIP
 			</value>
 		</block>
 	</category>
-	<category name="qrcode" css-icon="iconfont waddle-qrcode">
+	<category name="qrcode" css-icon="waddle-qrcode" css-class="waddle-qrcode">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="qrcode_import">
@@ -505,7 +505,7 @@ TIP
 		<block type="qrcode_canvas">
 		</block>
 	</category>
-	<category name="权限获取" css-icon="iconfont waddle-object waddle-permission">
+	<category name="权限获取" css-icon="waddle-object" css-class="waddle-object waddle-permission">
 		<block type="permissions_get">
 		</block>
 		<block type="permissions_window">
@@ -523,7 +523,7 @@ TIP
 	</category>
 	<sep>
 	</sep>
-	<category name="构造" css-icon="iconfont waddle-build">
+	<category name="构造" css-icon="waddle-build" css-class="waddle-build">
 		<label text="不可见控件基本框架">
 		</label>
 		<block type="ivw_defTypes">
@@ -589,7 +589,7 @@ TIP
 		<block type="ivw_propsinit">
 		</block>
 	</category>
-	<category name="积木" css-icon="iconfont waddle-block">
+	<category name="积木" css-icon="waddle-block" css-class="waddle-block">
 		<label text="属性定义">
 		</label>
 		<block type="ivw_addProperty">
@@ -640,7 +640,7 @@ TIP
 		<block type="ivw_option_color">
 		</block>
 	</category>
-	<category name="渲染" css-icon="iconfont waddle-render">
+	<category name="渲染" css-icon="waddle-render" css-class="waddle-render">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
 		</button>
 		<block type="html_code">

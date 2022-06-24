@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.33(1032)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.38(1038)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'V1.47.33(1032)-beta' //版本号
+		var version = 'V1.47.38(1038)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -50,6 +50,11 @@ wwwwwww      wwwwww     wwwwwww
 	<link rel="stylesheet" href="./static/css/theme.css">
 </head>
 <script>
+	// 加载器
+	var loader = function (i) {
+		$('.cls-1').animate({ 'stroke-dashoffset': i + 'px' }, 10);
+	}
+	loader(1650);
 	//获取cookie
 	function getCookie(cname) {
 		var name = cname + "=";
@@ -279,10 +284,10 @@ wwwwwww      wwwwww     wwwwwww
 
 				if (mode) {
 					delete_trash_cover.zIndex = 500;
-					del_groundglass.zIndex = 5;
+					del_groundglass.zIndex = 6;
 					delete_trash_body.zIndex = 500;
 					del_groundglass.opacity = 1;
-					delete_div.zIndex = 6;
+					delete_div.zIndex = 7;
 					delete_trash_cover.opacity = 1;
 					delete_trash_body.opacity = 1;
 					delete_div.opacity = 1;
@@ -352,6 +357,69 @@ wwwwwww      wwwwww     wwwwwww
 				</g>
 			</svg>
 		</div>
+
+		<div>
+			<button id="toup" class="updown" style="top:70px;display: none;border-radius: 4px 4px 0 0;"
+				onclick="$('.blocklyToolboxDiv').animate({scrollTop: 0});">▲</button>
+			<button id="todown" class="updown" style="bottom:0;border-radius: 0 0 4px 4px;" onclick="
+			bottom=$('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
+			$('.blocklyToolboxDiv').animate({scrollTop: bottom})">▼</button>
+		</div>
+
+		<style>
+			.updown{
+				position: absolute;
+				z-index: 6;
+				width:60px;
+				background: var(--main-color);
+				border: var(--main-color);
+				color: #fff;
+				height: 17px;
+				-webkit-transition-duration: 0.1s;
+				/* Safari */
+				transition-duration: 0.1s;
+			}
+			.updown:hover{
+				background: var(--nd-main-color);
+				border: var(--nd-main-color);
+				cursor: pointer;
+			}
+		</style>
+		<script>
+			$(window).resize(function () {
+				bottom = $('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
+					if ($('.blocklyToolboxDiv').scrollTop() == 0) {
+						document.getElementById("toup").style.display = "none"
+						document.getElementById("todown").style.display = "block"
+					}
+					else if ($('.blocklyToolboxDiv').scrollTop() == bottom) {
+						document.getElementById("toup").style.display = "block"
+						document.getElementById("todown").style.display = "none"
+					}
+					else {
+						document.getElementById("toup").style.display = "block"
+						document.getElementById("todown").style.display = "block"
+					}
+			})
+			$('.blocklyToolboxDiv').ready(function () {
+				$('.blocklyToolboxDiv').scroll(function () {
+					bottom = $('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
+					if ($('.blocklyToolboxDiv').scrollTop() == 0) {
+						document.getElementById("toup").style.display = "none"
+						document.getElementById("todown").style.display = "block"
+					}
+					else if ($('.blocklyToolboxDiv').scrollTop() == bottom) {
+						document.getElementById("toup").style.display = "block"
+						document.getElementById("todown").style.display = "none"
+					}
+					else {
+						document.getElementById("toup").style.display = "block"
+						document.getElementById("todown").style.display = "block"
+					}
+				});
+			});
+		</script>
+
 		<div id="table">
 			<div id="blocklyDiv" style="width:100vw;"></div>
 			<!--ToolBox积木-->
@@ -370,7 +438,9 @@ wwwwwww      wwwwww     wwwwwww
 				position: absolute;
 				border-radius: 8px;
 				text-align: center;
-				bottom: 44px;
+				bottom: 60px;
+				width: max-content;
+				width: intrinsic;
 				background-color: rgba(0, 0, 0, .4);
 				border: 8px solid rgba(0, 0, 0, .0);
 				z-index: 1600;
@@ -479,13 +549,13 @@ wwwwwww      wwwwww     wwwwwww
 
 			/* 加载失败默认主题 */
 
-			.iconfont {
+			/*.iconfont {
 				font-family: "iconfont" !important;
 				font-size: 18px;
 				font-style: normal;
 				-webkit-font-smoothing: antialiased;
 				-moz-osx-font-smoothing: grayscale;
-			}
+			}*/
 
 			.swal-footer {
 				margin-top: 32px;
@@ -874,8 +944,9 @@ wwwwwww      wwwwww     wwwwwww
 </script>
 
 <!--图标库-->
-<link rel="stylesheet" href="https://at.alicdn.com/t/font_3193112_7sw8re1is8r.css">
+<!--link rel="stylesheet" href="https://at.alicdn.com/t/font_3193112_7sw8re1is8r.css"-->
 <link rel="stylesheet" href="./static/css/toolBoxColor.css">
+<script src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_23.fcd39f306a41a689d215017e8d8764ec.js"></script>
 
 <script>
 	loader(595);
