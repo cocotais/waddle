@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.36(1035)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.37(1036)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'V1.47.36(1035)-beta' //版本号
+		var version = 'V1.47.37(1036)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -50,6 +50,11 @@ wwwwwww      wwwwww     wwwwwww
 	<link rel="stylesheet" href="./static/css/theme.css">
 </head>
 <script>
+	// 加载器
+	var loader = function (i) {
+		$('.cls-1').animate({ 'stroke-dashoffset': i + 'px' }, 10);
+	}
+	loader(1650);
 	//获取cookie
 	function getCookie(cname) {
 		var name = cname + "=";
@@ -67,10 +72,7 @@ wwwwwww      wwwwww     wwwwwww
 		rip.innerText = 'html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
 		document.body.appendChild(rip);
 	}
-	// 加载器
-	var loader = function (i) {
-		$('.cls-1').animate({ 'stroke-dashoffset': i + 'px' }, 10);
-	}
+	
 
 	loader(1450); // 加载进度，伴随加载逐帧降为0
 </script>
@@ -354,9 +356,9 @@ wwwwwww      wwwwww     wwwwwww
 		</div>
 
 		<div>
-			<button id="toup" class="updown" style="top:70px;display: none;"
+			<button id="toup" class="updown" style="top:70px;display: none;border-radius: 4px 4px 0 0;"
 				onclick="$('.blocklyToolboxDiv').animate({scrollTop: 0});">▲</button>
-			<button id="todown" class="updown" style="bottom:0;" onclick="
+			<button id="todown" class="updown" style="bottom:0;border-radius: 0 0 4px 4px;" onclick="
 			bottom=$('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
 			$('.blocklyToolboxDiv').animate({scrollTop: bottom})">▼</button>
 		</div>
@@ -369,7 +371,7 @@ wwwwwww      wwwwww     wwwwwww
 				background: var(--main-color);
 				border: var(--main-color);
 				color: #fff;
-				border-radius: 4px;
+				height: 17px;
 				-webkit-transition-duration: 0.1s;
 				/* Safari */
 				transition-duration: 0.1s;
