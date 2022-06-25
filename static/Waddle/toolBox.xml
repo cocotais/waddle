@@ -320,7 +320,7 @@ TIP
 		<block type="lists_sort">
 		</block>
 	</category>
-	<category name="字典" css-icon="waddle-object" css-class="waddle-object waddle-dict">
+	<category name="字典" css-icon="waddle-dict" css-class="waddle-dict">
 		<block type="dict_pair">
 		</block>
 		<block type="dict_create_with">
@@ -354,7 +354,7 @@ TIP
 			</value>
 		</block>
 	</category>
-	<category name="颜色" css-icon="waddle-object" css-class="waddle-object waddle-color" custom="COLOR_CARD">
+	<category name="颜色" css-icon="waddle-color" css-class="waddle-color" custom="COLOR_CARD">
 	</category>
 	<category name="DOM" css-icon="waddle-dom" css-class="waddle-dom">
 		<block type="htmldom_document">
@@ -505,7 +505,7 @@ TIP
 		<block type="qrcode_canvas">
 		</block>
 	</category>
-	<category name="权限获取" css-icon="waddle-object" css-class="waddle-object waddle-permission">
+	<category name="权限获取" css-icon="waddle-permission" css-class="waddle-permission">
 		<block type="permissions_get">
 		</block>
 		<block type="permissions_window">
