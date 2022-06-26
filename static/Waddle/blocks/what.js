@@ -111,7 +111,7 @@ Blockly.JavaScript['game_idiom_paper'] = function () {
 };
 /*function load_game() {
   let str = `
-	<category name="游戏" css-icon="iconfont waddle-object">
+	<category name="游戏" css-icon="waddle-object">
 		<block type="game_tictactoe_board1">
 			<comment pinned="true" h="80" w="160">
 				一个井字棋棋盘！
