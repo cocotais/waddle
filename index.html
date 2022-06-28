@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.39(1041)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.40(1048)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -13,13 +13,12 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport">
 	<meta content="telephone=no" name="format-detection">
 	<meta name="description" content="让CoCo没有难做的控件">
-	<link rel="shortcut icon" href="./static/img/logo/logo-purple.svg">
 	<title>Waddle - 让CoCo没有难做的控件</title>
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'V1.47.39(1041)-beta' //版本号
+		var version = 'V1.47.40(1048)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -688,7 +687,7 @@ wwwwwww      wwwwww     wwwwwww
 					<iconpark-icon name="copyp-success" class='copyityes' style="display: none;width:50px;height: 50px;" width="40px" height="40px"></iconpark-icon>
 				</button>
 				<button class="modal-close" style="-webkit-user-select: none;-ms-user-select: none;user-select: none;"
-					onclick="switch_code()"><iconpark-icon name="close" width="50px" height="50px"></iconpark-icon></button>
+					onclick="switch_code()"><iconpark-icon name="close" style="width:50px;height: 50px;" width="40px" height="40px"></iconpark-icon></button>
 			</div>
 		</div>
 
@@ -825,7 +824,7 @@ wwwwwww      wwwwww     wwwwwww
 				<div class="newsth-header">
 					<span class="newsth-logo"
 						style="color: var(--main-color);font-weight: bold; font-size: 25px;">新建控件</span>
-					<span class="newsth-close">&times;</span>
+					<span class="newsth-close"><iconpark-icon name="close" width="30px" height="30px"></iconpark-icon></span>
 				</div>
 				<div class="newsth-body">
 					<div class="card" id="card"
@@ -863,7 +862,7 @@ wwwwwww      wwwwww     wwwwwww
 				<div class="aboutus-header">
 					<span class="aboutus-logo"
 						style="color: var(--main-color);font-weight: bold; font-size: 25px;">关于我们</span>
-					<span class="aboutus-close">&times;</span>
+					<span class="aboutus-close"><iconpark-icon name="close" width="30px" height="30px"></span>
 				</div>
 				<div class="aboutus-body">
 					<img width="240" src="./static/img/logo/logo-white-full.svg" style="margin: 30px 0;" alt="Waddle"
@@ -921,7 +920,7 @@ wwwwwww      wwwwww     wwwwwww
 <!--图标库-->
 <!--link rel="stylesheet" href="https://at.alicdn.com/t/font_3193112_7sw8re1is8r.css"-->
 <link rel="stylesheet" href="./static/css/toolBoxColor.css">
-<script src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_29.a4ea54a75a967008915ef96202ff0074.js"></script>
+<script src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_32.4e0827c4649910b65f338c9fafbac4aa.js"></script>
 
 <script>
 	loader(595);
@@ -1483,6 +1482,9 @@ wwwwwww      wwwwww     wwwwwww
 		border-radius: 10px 10px 0 0;
 		background-color: rgb(245, 248, 250);
 		color: rgb(245, 248, 250);
+    	display: flex;
+    	justify-content: space-between;
+    	align-items: center;
 	}
 
 	.newsth-body {
@@ -1568,7 +1570,7 @@ wwwwwww      wwwwww     wwwwwww
 		top: 20vh;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		background-color: var(--main-color);
-		background: --aboutus-background-image;
+		background: var(--aboutus-background);
 		background-size: cover;
 		min-width: 284px;
 	}
@@ -1708,6 +1710,9 @@ wwwwwww      wwwwww     wwwwwww
 		border-radius: 10px 10px 0 0;
 		background-color: rgb(245, 248, 250);
 		color: rgb(245, 248, 250);
+    	display: flex;
+    	justify-content: space-between;
+    	align-items: center;
 	}
 
 	.aboutus-body {

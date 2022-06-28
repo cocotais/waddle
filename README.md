@@ -80,4 +80,4 @@ CoCo 中控台 由一群初中生创建，资金有限，域名与服务器完�
 </p>
 <br>
 
-<div class="waddle-version-bot">V1.47.39(1041)-beta</div>
+<div class="waddle-version-bot">V1.47.40(1048)-beta</div>

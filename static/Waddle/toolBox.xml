@@ -523,7 +523,7 @@ TIP
 	</category>
 	<sep>
 	</sep>
-	<category name="构造" css-icon="waddle-build" css-class="waddle-build">
+	<category name="构造" css-icon="waddle-build-Gradient" css-class="waddle-build">
 		<label text="不可见控件基本框架">
 		</label>
 		<block type="ivw_defTypes">
@@ -589,7 +589,7 @@ TIP
 		<block type="ivw_propsinit">
 		</block>
 	</category>
-	<category name="积木" css-icon="waddle-block" css-class="waddle-block">
+	<category name="积木" css-icon="waddle-block-Gradient" css-class="waddle-block">
 		<label text="属性定义">
 		</label>
 		<block type="ivw_addProperty">
@@ -640,7 +640,7 @@ TIP
 		<block type="ivw_option_color">
 		</block>
 	</category>
-	<category name="渲染" css-icon="waddle-render" css-class="waddle-render">
+	<category name="渲染" css-icon="waddle-render-Gradient" css-class="waddle-render">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
 		</button>
 		<block type="html_code">
