@@ -4,7 +4,7 @@ Blockly.Blocks["what_waddle1"] = {
       .setAlign(Blockly.ALIGN_CENTRE)
       .appendField(
         new Blockly.FieldImage(
-          "https://waddle.coco-central.cn/static/img/logo/logo-white.svg",
+          "https://waddle.coco-central.cn/static/img/logo/logo-purple.svg",
           100,
           100,
           { alt: "*", flipRtl: "FALSE" }
@@ -30,7 +30,7 @@ Blockly.Blocks["what_waddle1"] = {
       .setAlign(Blockly.ALIGN_CENTRE)
       .appendField(
         new Blockly.FieldImage(
-          "https://waddle.coco-central.cn/static/img/logo/logo-white.svg",
+          "https://waddle.coco-central.cn/static/img/logo/logo-purple.svg",
           100,
           100,
           { alt: "*", flipRtl: "FALSE" }
@@ -56,7 +56,7 @@ Blockly.Blocks["what_waddle1"] = {
       .setAlign(Blockly.ALIGN_CENTRE)
       .appendField(
         new Blockly.FieldImage(
-          "https://waddle.coco-central.cn/static/img/logo/logo-white.svg",
+          "https://waddle.coco-central.cn/static/img/logo/logo-purple.svg",
           100,
           100,
           { alt: "*", flipRtl: "FALSE" }
@@ -82,7 +82,7 @@ Blockly.Blocks["what_waddle1"] = {
       .setAlign(Blockly.ALIGN_CENTRE)
       .appendField(
         new Blockly.FieldImage(
-          "https://waddle.coco-central.cn/static/img/logo/logo-white.svg",
+          "https://waddle.coco-central.cn/static/img/logo/logo-purple.svg",
           100,
           100,
           { alt: "*", flipRtl: "FALSE" }
@@ -108,7 +108,7 @@ Blockly.Blocks["what_waddle1"] = {
       .setAlign(Blockly.ALIGN_CENTRE)
       .appendField(
         new Blockly.FieldImage(
-          "https://waddle.coco-central.cn/static/img/logo/logo-white.svg",
+          "https://waddle.coco-central.cn/static/img/logo/logo-purple.svg",
           100,
           100,
           { alt: "*", flipRtl: "FALSE" }
@@ -134,7 +134,7 @@ Blockly.Blocks["what_waddle1"] = {
       .setAlign(Blockly.ALIGN_CENTRE)
       .appendField(
         new Blockly.FieldImage(
-          "https://waddle.coco-central.cn/static/img/logo/logo-white.svg",
+          "https://waddle.coco-central.cn/static/img/logo/logo-purple.svg",
           100,
           100,
           { alt: "*", flipRtl: "FALSE" }
