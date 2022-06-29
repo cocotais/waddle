@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.40(1048)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.41(1049)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -18,7 +18,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'V1.47.40(1048)-beta' //版本号
+		var version = 'V1.47.41(1049)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -282,10 +282,10 @@ wwwwwww      wwwwww     wwwwwww
 
 				if (mode) {
 					delete_trash_cover.zIndex = 500;
-					del_groundglass.zIndex = 6;
+					del_groundglass.zIndex = 300;
 					delete_trash_body.zIndex = 500;
 					del_groundglass.opacity = 1;
-					delete_div.zIndex = 7;
+					delete_div.zIndex = 301;
 					delete_trash_cover.opacity = 1;
 					delete_trash_body.opacity = 1;
 					delete_div.opacity = 1;
@@ -295,14 +295,20 @@ wwwwwww      wwwwww     wwwwwww
 						trash_cover(false);
 					}
 				} else {
-					delete_trash_cover.zIndex = 0;
-					delete_trash_body.zIndex = 0;
+
 					delete_trash_cover.opacity = 0;
 					delete_trash_body.opacity = 0;
 					delete_div.opacity = 0;
 					try {
 						del_groundglass.opacity = 0;
-						setTimeout(() => { del_groundglass.zIndex = 0; delete_div.zIndex = 0 }, 150);
+						setTimeout(() => {
+							if (!mode) {
+								delete_trash_cover.zIndex = 0;
+								delete_trash_body.zIndex = 0;
+								del_groundglass.zIndex = 0;
+								delete_div.zIndex = 0
+							}
+						}, 150);
 					} catch (error) {
 						//pass
 					}
@@ -358,17 +364,21 @@ wwwwwww      wwwwww     wwwwwww
 
 		<div>
 			<button id="toup" class="updown" style="top:70px;display: none;border-radius: 4px 4px 0 0;"
-				onclick="$('.blocklyToolboxDiv').animate({scrollTop: 0});"><iconpark-icon name="updown" fill="white" size="16"></iconpark-icon></button>
+				onclick="$('.blocklyToolboxDiv').animate({scrollTop: 0});">
+				<iconpark-icon name="updown" fill="white" size="16"></iconpark-icon>
+			</button>
 			<button id="todown" class="updown" style="bottom:0;border-radius: 0 0 4px 4px;" onclick="
 			bottom=$('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
-			$('.blocklyToolboxDiv').animate({scrollTop: bottom})"><iconpark-icon name="updown" fill="white" size="16" style="transform:rotate(180deg);"></iconpark-icon></button>
+			$('.blocklyToolboxDiv').animate({scrollTop: bottom})">
+				<iconpark-icon name="updown" fill="white" size="16" style="transform:rotate(180deg);"></iconpark-icon>
+			</button>
 		</div>
 
 		<style>
-			.updown{
+			.updown {
 				position: absolute;
 				z-index: 6;
-				width:60px;
+				width: 60px;
 				background: var(--main-color);
 				border: var(--main-color);
 				color: #fff;
@@ -377,7 +387,8 @@ wwwwwww      wwwwww     wwwwwww
 				/* Safari */
 				transition-duration: 0.1s;
 			}
-			.updown:hover{
+
+			.updown:hover {
 				background: var(--nd-main-color);
 				border: var(--nd-main-color);
 				cursor: pointer;
@@ -385,28 +396,62 @@ wwwwwww      wwwwww     wwwwwww
 		</style>
 		<script>
 			$(window).resize(function () {
-				bottom = $('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
-					if ($('.blocklyToolboxDiv').scrollTop() == 0) {
+				toolbox = document.getElementsByClassName('blocklyToolboxDiv')[0]
+				bottom = Math.ceil(toolbox.scrollHeight - toolbox.clientHeight - 2);
+				if (toolbox.scrollTop == 0) {
+					if (Math.ceil(toolbox.scrollTop) >= bottom) {
 						document.getElementById("toup").style.display = "none"
-						document.getElementById("todown").style.display = "block"
-					}
-					else if ($('.blocklyToolboxDiv').scrollTop() == bottom) {
-						document.getElementById("toup").style.display = "block"
 						document.getElementById("todown").style.display = "none"
 					}
 					else {
-						document.getElementById("toup").style.display = "block"
-						document.getElementById("todown").style.display = "block"
-					}
-			})
-			$('.blocklyToolboxDiv').ready(function () {
-				$('.blocklyToolboxDiv').scroll(function () {
-					bottom = $('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
-					if ($('.blocklyToolboxDiv').scrollTop() == 0) {
 						document.getElementById("toup").style.display = "none"
 						document.getElementById("todown").style.display = "block"
 					}
-					else if ($('.blocklyToolboxDiv').scrollTop() == bottom || $('.blocklyToolboxDiv').scrollTop() > bottom) {
+				}
+				else if (Math.ceil(toolbox.scrollTop) - bottom >= 0) {
+					document.getElementById("toup").style.display = "block"
+					document.getElementById("todown").style.display = "none"
+				}
+				else {
+					document.getElementById("toup").style.display = "block"
+					document.getElementById("todown").style.display = "block"
+				}
+			})
+			$('.blocklyToolboxDiv').ready(function () {
+				toolbox = document.getElementsByClassName('blocklyToolboxDiv')[0]
+				bottom = Math.ceil(toolbox.scrollHeight - toolbox.clientHeight - 2);
+				if (toolbox.scrollTop == 0) {
+					if (Math.ceil(toolbox.scrollTop) >= bottom) {
+						document.getElementById("toup").style.display = "none"
+						document.getElementById("todown").style.display = "none"
+					}
+					else {
+						document.getElementById("toup").style.display = "none"
+						document.getElementById("todown").style.display = "block"
+					}
+				}
+				else if (Math.ceil(toolbox.scrollTop) - bottom >= 0) {
+					document.getElementById("toup").style.display = "block"
+					document.getElementById("todown").style.display = "none"
+				}
+				else {
+					document.getElementById("toup").style.display = "block"
+					document.getElementById("todown").style.display = "block"
+				}
+				$('.blocklyToolboxDiv').scroll(function () {
+					toolbox = document.getElementsByClassName('blocklyToolboxDiv')[0]
+					bottom = Math.ceil(toolbox.scrollHeight - toolbox.clientHeight - 2);
+					if (toolbox.scrollTop == 0) {
+						if (Math.ceil(toolbox.scrollTop) >= bottom) {
+							document.getElementById("toup").style.display = "none"
+							document.getElementById("todown").style.display = "none"
+						}
+						else {
+							document.getElementById("toup").style.display = "none"
+							document.getElementById("todown").style.display = "block"
+						}
+					}
+					else if (Math.ceil(toolbox.scrollTop) - bottom >= 0) {
 						document.getElementById("toup").style.display = "block"
 						document.getElementById("todown").style.display = "none"
 					}
@@ -683,11 +728,16 @@ wwwwwww      wwwwww     wwwwwww
 					<pre readonly id="codeArea"></pre>
 				</div>
 				<button class="copy">
-					<iconpark-icon style="width:50px;height: 50px;" name="copy" width="40px" height="40px" class='copyit'></iconpark-icon>
-					<iconpark-icon name="copyp-success" class='copyityes' style="display: none;width:50px;height: 50px;" width="40px" height="40px"></iconpark-icon>
+					<iconpark-icon style="width:50px;height: 50px;" name="copy" width="40px" height="40px"
+						class='copyit'></iconpark-icon>
+					<iconpark-icon name="copyp-success" class='copyityes' style="display: none;width:50px;height: 50px;"
+						width="40px" height="40px"></iconpark-icon>
 				</button>
 				<button class="modal-close" style="-webkit-user-select: none;-ms-user-select: none;user-select: none;"
-					onclick="switch_code()"><iconpark-icon name="close" style="width:50px;height: 50px;" width="40px" height="40px"></iconpark-icon></button>
+					onclick="switch_code()">
+					<iconpark-icon name="close" style="width:50px;height: 50px;" width="40px" height="40px">
+					</iconpark-icon>
+				</button>
 			</div>
 		</div>
 
@@ -824,7 +874,9 @@ wwwwwww      wwwwww     wwwwwww
 				<div class="newsth-header">
 					<span class="newsth-logo"
 						style="color: var(--main-color);font-weight: bold; font-size: 25px;">新建控件</span>
-					<span class="newsth-close"><iconpark-icon name="close" width="30px" height="30px"></iconpark-icon></span>
+					<span class="newsth-close">
+						<iconpark-icon name="close" width="30px" height="30px"></iconpark-icon>
+					</span>
 				</div>
 				<div class="newsth-body">
 					<div class="card" id="card"
@@ -862,7 +914,9 @@ wwwwwww      wwwwww     wwwwwww
 				<div class="aboutus-header">
 					<span class="aboutus-logo"
 						style="color: var(--main-color);font-weight: bold; font-size: 25px;">关于我们</span>
-					<span class="aboutus-close"><iconpark-icon name="close" width="30px" height="30px"></span>
+					<span class="aboutus-close">
+						<iconpark-icon name="close" width="30px" height="30px">
+					</span>
 				</div>
 				<div class="aboutus-body">
 					<img width="240" src="./static/img/logo/logo-white-full.svg" style="margin: 30px 0;" alt="Waddle"
@@ -920,7 +974,8 @@ wwwwwww      wwwwww     wwwwwww
 <!--图标库-->
 <!--link rel="stylesheet" href="https://at.alicdn.com/t/font_3193112_7sw8re1is8r.css"-->
 <link rel="stylesheet" href="./static/css/toolBoxColor.css">
-<script src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_32.4e0827c4649910b65f338c9fafbac4aa.js"></script>
+<script
+	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_32.e4ed6cf68190a8a20dbb88893881e773.js"></script>
 
 <script>
 	loader(595);
@@ -1482,9 +1537,9 @@ wwwwwww      wwwwww     wwwwwww
 		border-radius: 10px 10px 0 0;
 		background-color: rgb(245, 248, 250);
 		color: rgb(245, 248, 250);
-    	display: flex;
-    	justify-content: space-between;
-    	align-items: center;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	.newsth-body {
@@ -1710,9 +1765,9 @@ wwwwwww      wwwwww     wwwwwww
 		border-radius: 10px 10px 0 0;
 		background-color: rgb(245, 248, 250);
 		color: rgb(245, 248, 250);
-    	display: flex;
-    	justify-content: space-between;
-    	align-items: center;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	.aboutus-body {
@@ -1833,7 +1888,7 @@ wwwwwww      wwwwww     wwwwwww
 	</div>
 	<div id="funcs-buttons" data-title="切换主题" class="waddle-theme" onclick="switch_theme()">
 		<iconpark-icon name="day" class="theme-sun" style="height:30px;" width="30px" height="30px"></iconpark-icon>
-		<iconpark-icon name="night" class="theme-moon" style="height:30px;"  width="30px" height="30px"></iconpark-icon>
+		<iconpark-icon name="night" class="theme-moon" style="height:30px;" width="30px" height="30px"></iconpark-icon>
 	</div>
 	<div id="funcs-buttons" data-title="转换代码" class="switch_code" onclick="switch_code()">
 		<iconpark-icon name="code" width="30px" height="30px"></iconpark-icon>
@@ -1892,6 +1947,11 @@ wwwwwww      wwwwww     wwwwwww
 		document.getElementsByClassName("copy")[0].style.top = (window.innerHeight - 110) + 'px';
 		document.getElementsByClassName("modal-close")[0].style.top = (window.innerHeight - 110) + 'px';
 		document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
+		document.getElementById("delete-div").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
+		document.getElementById("delete-svg-up").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 35) / 2 + 'px';
+		document.getElementById("delete-svg-down").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 30) / 2 + 'px';
+		document.getElementById("delete-svg-up").style.top = (window.innerHeight - document.getElementById('delete-svg-up').style.height) / 2 - 7 + 'px';
+		document.getElementById("delete-svg-down").style.top = (window.innerHeight - document.getElementById('delete-svg-down').style.height) / 2 - 7 + 'px';
 		Blockly.svgResize(workspace);
 	});
 </script>

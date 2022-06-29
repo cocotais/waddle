@@ -28,7 +28,9 @@
 }
 
 .blocklyTreeSeparator {
-    border-bottom: #00000000;
+    border-bottom: solid var(--nd-main-color) 1px;
+    height: 0;
+    margin: 5px 14px;
 }
 
 /* Stacks the icon on top of the label. */
