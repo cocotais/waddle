@@ -22,6 +22,10 @@
     color: #ff9c37;
 }
 
+.waddle-dict {
+    color: #2bc9a7;
+}
+
 .waddle-color {
     color: #2bc9a7;
 }
@@ -63,22 +67,19 @@
 }
 
 .waddle-build {
-    background-image: linear-gradient(to right, #8647f3cc, #00c79faa);
-    -webkit-background-clip: text;
-    color: transparent;
-    font-size: 30px;
+    color: #8647f3cc;
 }
 
 .waddle-block {
-    background-image: linear-gradient(to right, #e76cea, #ffbb55);
-    -webkit-background-clip: text;
-    color: transparent;
-    font-size: 30px;
+    color: #ffbb55;
+
 }
 
 .waddle-render {
-    background-image: linear-gradient(to right, #01adffee,#5098fc88);
-    -webkit-background-clip: text;
-    color: transparent;
-    font-size: 30px;
+    color: #01adffee;
+}
+
+.waddle-testing {
+    opacity: 50%;
+    filter: blur(3px);
 }

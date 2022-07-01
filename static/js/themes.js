@@ -18,8 +18,6 @@ var to_dark = function () {
 	document.getElementById('widgetPreview').style.backgroundColor = '#333033';
 	document.getElementsByClassName('theme-sun')[0].style.display = 'block';
 	document.getElementsByClassName('theme-moon')[0].style.display = 'none';
-	$('.aboutus-content').css('cssText', "background: linear-gradient(rgba(82, 82, 82, 0.65), rgba(0, 0, 0, 0.45)), url('./static/img/background.svg') no-repeat 0% 20%/ cover");
-	//document.getElementsByClassName("modal-header")[0].style.backgroundColor = "var(--main-color)"
 	document.getElementsByClassName('modal-content')[0].style.borderTopColor = 'rgb(82, 82, 82)';
 	document.getElementsByClassName('newsth-header')[0].style.backgroundColor = 'var(--main-color)';
 	document.getElementsByClassName('aboutus-header')[0].style.backgroundColor = 'var(--main-color)';
@@ -59,15 +57,14 @@ var to_dark = function () {
 	document.documentElement.style.setProperty('--funcs-hover-color', '#aaaaaa');
 	document.documentElement.style.setProperty('--show-code-color', '#876CFF');
 	document.documentElement.style.setProperty('--show-hover-code-color', '#6d50f0');
+	document.documentElement.style.setProperty('--aboutus-background','linear-gradient(rgba(82, 82, 82, 0.65), rgba(0, 0, 0, 0.45)), url(\'./static/img/background.svg\') no-repeat 0% 20%/ cover');
 };
-$('.cls-1').animate({ 'stroke-dashoffset': '150px' }, 10);
 var to_light = function () {
 	workspace.setTheme(WaddleTheme);
 	document.getElementById('widgetPreview').style.backgroundColor = '#ffffff';
 	document.getElementById('widgetPreview').style.color = '#000';
 	document.getElementsByClassName('theme-sun')[0].style.display = 'none';
 	document.getElementsByClassName('theme-moon')[0].style.display = 'block';
-	$('.aboutus-content').css('cssText', "background: linear-gradient(rgba(245, 248, 250, 0.15), rgba(109, 80, 240, 0.95)), url('./static/img/background.svg') no-repeat 0% 20%/ cover");
 	document.getElementsByClassName('modal-content')[0].style.borderTopColor = 'rgb(109, 80, 240)';
 	document.getElementsByClassName('newsth-header')[0].style.backgroundColor = '#F5F8FA';
 	document.getElementsByClassName('aboutus-header')[0].style.backgroundColor = '#F5F8FA';
@@ -107,6 +104,7 @@ var to_light = function () {
 	document.documentElement.style.setProperty('--show-code-color', '#876CFF');
 	document.documentElement.style.setProperty('--show-hover-code-color', '#6d50f0');
 	document.documentElement.style.setProperty('--line-color', '#9C89FF');
+	document.documentElement.style.setProperty('--aboutus-background', "linear-gradient(rgba(245, 248, 250, 0.15), rgba(109, 80, 240, 0.95)), url('./static/img/background.svg') no-repeat 0% 20%/ cover");
 };
 var theme_conut = 0;
 var switch_theme = function () {
@@ -139,7 +137,6 @@ window.onresize = function () {
 	document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
     Blockly.svgResize(workspace);
 };
-$('.cls-1').animate({ 'stroke-dashoffset': '100px' }, 10);
 if (theme == 'dark') {
 	to_dark();
 } else {

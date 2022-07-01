@@ -1,10 +1,14 @@
 <p align="center">
     <br>
-    <img alt="Waddle-Logo-Purple" src="static/img/logo/logo-purple-full.png"/>
+    <img alt="Waddle-Logo-Purple" src="https://waddle.coco-central.cn/static/img/logo/logo-purple-full.png"/>
     <br>
     <br>
-    <a href='https://gitee.com/coco-central/waddle/stargazers'><img src='https://gitee.com/coco-central/waddle/badge/star.svg?theme=white' alt='star'></img></a>
-    <a href='https://gitee.com/coco-central/waddle/members'><img src='https://gitee.com/coco-central/waddle/badge/fork.svg?theme=white' alt='fork'></img></a>
+    <a href='https://gitee.com/coco-central/waddle/stargazers'>
+    <img src='https://gitee.com/coco-central/waddle/badge/star.svg?theme=white' alt='star'></img>
+    </a>
+    <a href='https://gitee.com/coco-central/waddle/members'>
+    <img src='https://gitee.com/coco-central/waddle/badge/fork.svg?theme=white' alt='fork'></img>
+    </a>
     <br>
 </p>
 
@@ -59,17 +63,21 @@ Waddle 是由 CoCo 中控台 基于 Blockly 开发的 CoCo 自定义控件 图�
 目前我们制作团队的全部成员都在 Waddle 交流群中，若你想与我们面对面交流，欢迎加入！
 QQ 群号：327827621
 
+# 感谢
+
+- IconPark开源图标库
+
 # 捐赠我们
 
 CoCo 中控台 由一群初中生创建，资金有限，域名与服务器完全自费。如果你对我们的成果认可，欢迎捐赠：
 
 <p align="center">
   <br>
-  <img alt="donate" src="https://gitee.com/coco-central/coco-waddle/raw/master/static/img/donate.png" height="250" width="250" />
+  <img alt="donate" src="https://waddle.coco-central.cn/static/img/donate.png" height="250" width="250" />
   <br>
   <a href="https://docs.coco-central.cn/waddle/#/%E6%89%93%E8%B5%8F%E6%94%B6%E5%85%A5%E6%94%AF%E5%87%BA%E6%98%8E%E7%BB%86">收入支出明细</a>
   <br>
 </p>
 <br>
 
-<div class="waddle-version-bot">V1.47.26(1014)-release</div>
+<div class="waddle-version-bot">V1.47.41(1049)-release</div>

@@ -1,14 +1,14 @@
 Blockly.JavaScript['vw_defTypes'] = function (block) {
-	// var statements_types = Blockly.JavaScript.statementToCode(block, 'types');
-	var text_type = block.getFieldValue('type');
-	var text_icon = block.getFieldValue('icon');
-	var text_title = block.getFieldValue('title');
-	var text_version = block.getFieldValue('version');
-  window.myicon = text_icon;
-  window.mytitle = text_title;
-	// var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
-  // 可见控件必须非全局
-	var code = `
+    // var statements_types = Blockly.JavaScript.statementToCode(block, 'types');
+    var text_type = block.getFieldValue('type');
+    var text_icon = block.getFieldValue('icon');
+    var text_title = block.getFieldValue('title');
+    var text_version = block.getFieldValue('version');
+    window.myicon = text_icon;
+    window.mytitle = text_title;
+    // var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
+    // 可见控件必须非全局
+    var code = `
 const types = {
   isInvisibleWidget: false,
   type: "${text_type}",
@@ -21,13 +21,13 @@ const types = {
   events: [],
 };
 `;
-	return code;
+    return code;
 };
 
 Blockly.JavaScript['vw_defWidget'] = function (block) {
-	var statements_constructor = Blockly.JavaScript.statementToCode(block, 'constructor');
-	var statements_render = Blockly.JavaScript.statementToCode(block, 'render');
-	var code = `
+    var statements_constructor = Blockly.JavaScript.statementToCode(block, 'constructor');
+    var statements_render = Blockly.JavaScript.statementToCode(block, 'render');
+    var code = `
 class Widget extends VisibleWidget {
   constructor(props) {
     super(props);
@@ -38,13 +38,13 @@ class Widget extends VisibleWidget {
   }
 }
 `;
-	return code;
+    return code;
 };
 
 Blockly.JavaScript['vw_returnrender'] = function (block) {
-	var statements_html = Blockly.JavaScript.statementToCode(block, 'HTML');
-	var code = `return(
+    var statements_html = Blockly.JavaScript.statementToCode(block, 'HTML');
+    var code = `return(
   ${statements_html}
 );\n`;
-	return code;
+    return code;
 };
