@@ -1,14 +1,10 @@
 <p align="center">
     <br>
-    <img alt="Waddle-Logo-Purple" src="https://waddle.coco-central.cn/static/img/logo/logo-purple-full.png"/>
+    <img alt="Waddle-Logo-Purple" src="static/img/logo/logo-purple-full.png"/>
     <br>
     <br>
-    <a href='https://gitee.com/coco-central/waddle/stargazers'>
-    <img src='https://gitee.com/coco-central/waddle/badge/star.svg?theme=white' alt='star'></img>
-    </a>
-    <a href='https://gitee.com/coco-central/waddle/members'>
-    <img src='https://gitee.com/coco-central/waddle/badge/fork.svg?theme=white' alt='fork'></img>
-    </a>
+    <a href='https://gitee.com/coco-central/waddle/stargazers'><img src='https://gitee.com/coco-central/waddle/badge/star.svg?theme=white' alt='star'></img></a>
+    <a href='https://gitee.com/coco-central/waddle/members'><img src='https://gitee.com/coco-central/waddle/badge/fork.svg?theme=white' alt='fork'></img></a>
     <br>
 </p>
 
@@ -69,7 +65,7 @@ CoCo 中控台 由一群初中生创建，资金有限，域名与服务器完�
 
 <p align="center">
   <br>
-  <img alt="donate" src="https://waddle.coco-central.cn/static/img/donate.png" height="250" width="250" />
+  <img alt="donate" src="https://gitee.com/coco-central/coco-waddle/raw/master/static/img/donate.png" height="250" width="250" />
   <br>
   <a href="https://docs.coco-central.cn/waddle/#/%E6%89%93%E8%B5%8F%E6%94%B6%E5%85%A5%E6%94%AF%E5%87%BA%E6%98%8E%E7%BB%86">收入支出明细</a>
   <br>

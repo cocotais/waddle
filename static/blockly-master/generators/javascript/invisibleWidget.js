@@ -28,7 +28,7 @@ Blockly.JavaScript['ivw_invisiblewidget'] = function (block) {
 	var code =
 		`
 /*
-* 嘿，欢迎使用 Waddle 制作控件
+* 嘿，欢迎使用 WidgetCraft 制作控件
 * 本工具基于Blockly开发，由 中子星000（QQ：2422481178）主理制作、MathCalculus（QQ：2504556268）协助制作、Epeiuss（QQ：2822603942）与海藻酸钠（QQ：3409473369）监制
 * 欢迎各位进入开源仓库参与建设：https://gitee.com/coco-ag/coco-widgetcraft/
 * 建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec
