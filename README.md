@@ -54,7 +54,7 @@ Waddle 是由 CoCo 中控台 基于 Blockly 开发的 CoCo 自定义控件 图�
 
 # 参与贡献
 
-如果你想要对代码进行贡献，可以参考 [这份文档](https://docs.coco-central.cn/waddle/#/dev/)
+如果你想要对代码进行贡献，可以参考 [这份文档](https://docs.coco-central.cn/waddle/#/dev/1-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97)
 
 如果你想要对使用手册进行贡献，可以前往 [这里](https://gitee.com/coco-central/docs) 直接编辑，我们将对您的内容进行审核
 
