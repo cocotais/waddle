@@ -74,9 +74,9 @@ QQ 群号：327827621
   <br>
   <img alt="donate" src="https://waddle.coco-central.cn/static/img/donate.png" height="250" width="250" />
   <br>
-  <a href="https://docs.coco-central.cn/waddle/#/%E6%89%93%E8%B5%8F%E6%94%B6%E5%85%A5%E6%94%AF%E5%87%BA%E6%98%8E%E7%BB%86">收入支出明细</a>
+  <a href="https://docs.coco-central.cn/waddle/#/appendix/3-%E6%89%93%E8%B5%8F%E6%94%B6%E5%85%A5%E6%94%AF%E5%87%BA%E6%98%8E%E7%BB%86">收入支出明细</a>
   <br>
 </p>
 <br>
 
-<div class="waddle-version-bot">V1.47.43(1059)-beta</div>
+<div class="waddle-version-bot">V1.47.42(1057)-beta</div>
