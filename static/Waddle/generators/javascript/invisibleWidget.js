@@ -158,19 +158,19 @@ Blockly.JavaScript['ivw_option_icon'] = function(block) {
 	var code = `
 types['methods'].forEach(element => {
   if(element.key=="${text_name}"){
-	element.blockOptions={};
+	if(!element.blockOptions)element.blockOptions={};
     element.blockOptions.icon=${value_icon};
   }
 });
 types['events'].forEach(element => {
   if(element.key=="${text_name}"){
-	element.blockOptions={};
+	if(!element.blockOptions)element.blockOptions={};
     element.blockOptions.icon=${value_icon};
   }
 });
 types['properties'].forEach(element => {
   if(element.key=="${text_name}"){
-	element.blockOptions={};
+	if(!element.blockOptions)element.blockOptions={};
 	element.blockOptions.icon=${value_icon};
   }
 });
@@ -184,19 +184,19 @@ Blockly.JavaScript['ivw_option_color'] = function(block) {
 	var code = `
 types['methods'].forEach(element => {
   if(element.key=="${text_name}"){
-	element.blockOptions={};
+	if(!element.blockOptions)element.blockOptions={};
     element.blockOptions.color=${value_icon};
   }
 });
 types['events'].forEach(element => {
   if(element.key=="${text_name}"){
-	element.blockOptions={};
+	if(!element.blockOptions)element.blockOptions={};
     element.blockOptions.color=${value_icon};
   }
 });
 types['properties'].forEach(element => {
   if(element.key=="${text_name}"){
-	element.blockOptions={};
+	if(!element.blockOptions)element.blockOptions={};
 	element.blockOptions.color=${value_icon};
   }
 });

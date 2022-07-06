@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.43(1064)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.41(1050)-release"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -15,12 +15,10 @@
 	<meta name="description" content="让CoCo没有难做的控件">
 	<title>Waddle - 让CoCo没有难做的控件</title>
 	<script src="./static/js/jquery-3.6.0.min.js"></script>
-	<script src="./static/js/nprogress.js"></script>
 	<script>
 		// 控制台输出
-
 		window.reast = false;
-		var version = 'V1.47.43(1064)-beta' //版本号
+		var version = 'V1.47.41(1050)-release' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -51,6 +49,11 @@ wwwwwww      wwwwww     wwwwwww
 	<link rel="stylesheet" href="./static/css/theme.css">
 </head>
 <script>
+	// 加载器
+	var loader = function (i) {
+		$('.cls-1').animate({ 'stroke-dashoffset': i + 'px' }, 10);
+	}
+	loader(1650);
 	//获取cookie
 	function getCookie(cname) {
 		var name = cname + "=";
@@ -68,6 +71,12 @@ wwwwwww      wwwwww     wwwwwww
 		rip.innerText = 'html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
 		document.body.appendChild(rip);
 	}
+	// 加载器
+	var loader = function (i) {
+		document.getElementsByClassName('cls-1')[0].style.strokeDashoffset = i;
+		document.getElementsByClassName('cls-1')[1].style.strokeDashoffset = i;
+		document.getElementsByClassName('cls-1')[2].style.strokeDashoffset = i;
+	}
 </script>
 
 <body>
@@ -75,7 +84,8 @@ wwwwwww      wwwwww     wwwwwww
 	<!-- 加载页样式-->
 	<style>
 		.container {
-			margin-bottom: 4em;
+			width: 40%;
+			margin: 4em auto;
 		}
 
 		#lu1 {
@@ -99,7 +109,7 @@ wwwwwww      wwwwww     wwwwwww
 		.cls-1 {
 			stroke-linecap: round;
 			stroke-linejoin: round;
-			stroke-dashoffset: 1650px;
+			stroke-dashoffset: 0px;
 		}
 
 		.loading {
@@ -113,17 +123,8 @@ wwwwwww      wwwwww     wwwwwww
 			text-align: center;
 		}
 
-		#loading-text {
-			margin-bottom: 0;
-		}
-
 		.loading-pair {
-			height: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			align-content: center;
+			margin-top: 22vh;
 		}
 	</style>
 
@@ -161,7 +162,6 @@ wwwwwww      wwwwww     wwwwwww
 		</div>
 	</div>
 	<script>
-		NProgress.start();
 		document.body.style.overflow = 'hidden' //禁止页面滑动
 		var tipList = [
 			"让CoCo没有难做的控件",
@@ -201,6 +201,10 @@ wwwwwww      wwwwww     wwwwwww
 		}
 	</script>
 
+	<script>
+		loader(1200);
+	</script>
+
 	<div id="body" style="visibility:hidden;">
 		<img onclick='dropdown_show();' alt="Waddle" id="logo1" src="./static/img/logo/logo-purple.svg"
 			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 5; background-color: var(--toolbox-color);cursor: pointer;">
@@ -215,7 +219,7 @@ wwwwwww      wwwwww     wwwwwww
 							<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
 							<li class="dropdown-item" onClick="js_save()">导出为CoCo文件</li>
 							<div style="height: 1px;background-color: #f2f2f2;margin: 0 10px;"></div>
-							<li class="dropdown-item" onClick="count();window.open('https://docs.coco-central.cn/waddle/')">文档
+							<li class="dropdown-item" onClick="window.open('https://docs.coco-central.cn/waddle/')">文档
 							</li>
 							<li class="dropdown-item" onClick="show_about()">关于Waddle</li>
 						</ul>
@@ -223,6 +227,10 @@ wwwwwww      wwwwww     wwwwwww
 				</div>
 			</div>
 		</nav>
+
+		<script>
+			loader(1080);
+		</script>
 
 		<style>
 			/* 垃圾桶样式 */
@@ -328,6 +336,10 @@ wwwwwww      wwwwww     wwwwwww
 					delete_trash_cover.transform = "translate(0px) rotate(0deg)";
 				}
 			}
+		</script>
+
+		<script>
+			loader(950);
 		</script>
 
 		<!-- 垃圾桶 -->
@@ -704,6 +716,10 @@ wwwwwww      wwwwww     wwwwwww
 			}
 		</style>
 
+		<script>
+			loader(850);
+		</script>
+
 		<!-- 代码框 -->
 		<div id="myModal" class="modal">
 			<!-- 代码框内容 -->
@@ -724,6 +740,10 @@ wwwwwww      wwwwww     wwwwwww
 				</button>
 			</div>
 		</div>
+
+		<script>
+			loader(800);
+		</script>
 
 		<style>
 			.copy,
@@ -843,6 +863,10 @@ wwwwwww      wwwwww     wwwwwww
 			}
 		</style>
 
+		<script>
+			loader(750);
+		</script>
+
 		<!-- 新建浮窗 -->
 		<div id="mynewsth" class="newsth">
 			<!-- 新建浮窗内容 -->
@@ -872,9 +896,7 @@ wwwwwww      wwwwww     wwwwwww
 						<span class="sord">[不可见控件]<br>Hello</span>
 					</div>
 					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>定时器</span></div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/base.waddle')"><span
-							class="sord">[不可见控件]<br>Base编解码</span>
+					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>Base编解码</span>
 					</div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hyperlink.waddle')">
@@ -903,6 +925,10 @@ wwwwwww      wwwwww     wwwwwww
 							onclick="count_oj()">难</span>做的控件</p>
 					</br>
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由所有Waddle的开源贡献者共同创造！</p>
+					<p style="color: #ffffff;font-size: 15px;" onclick="count()">帮助链接：
+						<a href="https://docs.coco-central.cn/waddle/" style="color: #ffffff;font-size: 15px;"
+							target="_blank" rel="noopener">https://docs.coco-central.cn/waddle/</a>
+					</p>
 					</br>
 					</br>
 					<p id="version" style="color: #ffffff;font-size: 20px;font-weight: bold;"></p>
@@ -917,25 +943,61 @@ wwwwwww      wwwwww     wwwwwww
 </body>
 <!--引入Blockly必要文件-->
 
+<script>
+	loader(700);
+</script>
+
 <script src="./static/blockly-master/blockly_compressed.min.js"></script>
+
+<script>
+	loader(675);
+</script>
+
 <script src="./static/blockly-master/javascript_compressed.min.js"></script>
+
+<script>
+	loader(650);
+</script>
+
 <script src="./static/blockly-master/blocks_compressed.min.js"></script>
+
+<script>
+	loader(625);
+</script>
+
 <script src="./static/blockly-master/msg/js/zh-hans.js"></script>
+
+<script>
+	loader(615);
+</script>
+
 <!--图标库-->
 <!--link rel="stylesheet" href="https://at.alicdn.com/t/font_3193112_7sw8re1is8r.css"-->
 <link rel="stylesheet" href="./static/css/toolBoxColor.css">
 <script
 	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_32.e4ed6cf68190a8a20dbb88893881e773.js"></script>
 
+<script>
+	loader(595);
+</script>
+
 <!--引入框架-->
 
 <link href="./static/css/navbar.css" rel="stylesheet">
 <link href="./static/css/groundglass.css" rel="stylesheet">
 
+<script>
+	loader(550);
+</script>
+
 <!--引入高亮-->
 <script src="./static/js/highlight.min.js"></script>
 <script src="./static/js/javascript.min.js"></script>
 <link href="./static/css/googlecode.min.css" rel="stylesheet">
+
+<script>
+	loader(500);
+</script>
 
 <!--自定义Blockly样式-->
 <script src="./static/Waddle/custom_category.js"></script>
@@ -1015,11 +1077,19 @@ wwwwwww      wwwwww     wwwwwww
 <script src="./static/Waddle/blocks/dictionaries.js"></script>
 <script src="./static/Waddle/generators/javascript/dictionaries.js"></script>
 
+<script>
+	loader(425);
+</script>
+
 <!--导入导航栏按钮函数-->
 <script src="./static/js/navFuncs.js"></script>
 
 <!--sweetalert-->
 <script src="./static/js/sweetalert.min.js"></script>
+
+<script>
+	loader(400);
+</script>
 
 <!--彩蛋定义-->
 <script>
@@ -1238,6 +1308,10 @@ wwwwwww      wwwwww     wwwwwww
 
 </script>
 
+<script>
+	loader(375);
+</script>
+
 <!-- 可见控件预览框 -->
 <style>
 	#widgetPreview {
@@ -1438,14 +1512,11 @@ wwwwwww      wwwwww     wwwwwww
 	.newsth-close {
 		color: var(--close-color);
 		font-weight: bold;
-		font-size: 25px;
+		font-size: 50px;
 		float: right;
-		display: flex;
 		position: relative;
 		right: 4px;
-		align-content: center;
-		align-items: center;
-		justify-content: center;
+		line-height: 32px;
 	}
 
 	.newsth-logo {
@@ -1510,7 +1581,9 @@ wwwwwww      wwwwww     wwwwwww
 	}
 
 </script>
-
+<script>
+	loader(325);
+</script>
 <style>
 	/* 代码框 (background) */
 
@@ -1668,14 +1741,11 @@ wwwwwww      wwwwww     wwwwwww
 	.aboutus-close {
 		color: var(--close-color);
 		font-weight: bold;
-		font-size: 25px;
+		font-size: 50px;
 		float: right;
-		display: flex;
 		position: relative;
 		right: 4px;
-		align-content: center;
-		align-items: center;
-		justify-content: center;
+		line-height: 32px;
 	}
 
 	.aboutus-logo {
@@ -1726,6 +1796,10 @@ wwwwwww      wwwwww     wwwwwww
 		document.getElementsByClassName("aboutus")[0].className = "aboutus"
 		setTimeout(() => { aboutus.style.display = "none"; document.getElementsByClassName("groundglass")[0].style.display = ""; }, 320)
 	}
+</script>
+
+<script>
+	loader(250);
 </script>
 
 <!-- 右下导航栏样式 -->
@@ -1834,6 +1908,10 @@ wwwwwww      wwwwww     wwwwwww
 		<iconpark-icon name="bigger" width="30px" height="30px"></iconpark-icon>
 	</div>
 </div>
+
+<script>
+	loader(100);
+</script>
 
 <script>
 	// 窗口大小重置时，重新设置位置
@@ -1970,11 +2048,12 @@ wwwwwww      wwwwww     wwwwwww
 			// pass
 		}
 	}
-	NProgress.done()
 	setTimeout(() => to_center(), 1000) //加载完成1s后执行
-
 </script>
 <div class="groundglass"></div>
 <div id="del-groundglass" class="del-groundglass groundglass"></div>
+<script>
+	loader(0);
+</script>
 
 </html>
