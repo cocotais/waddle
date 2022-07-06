@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.44(1069)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.45(1070)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -18,9 +18,8 @@
 	<script src="./static/js/nprogress.js"></script>
 	<script>
 		// 控制台输出
-
 		window.reast = false;
-		var version = 'V1.47.44(1069)-beta' //版本号
+		var version = 'V1.47.45(1070)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -219,6 +218,8 @@ wwwwwww      wwwwww     wwwwwww
 								onClick="count();window.open('https://docs.coco-central.cn/waddle/')">文档
 							</li>
 							<li class="dropdown-item" onClick="show_about()">关于Waddle</li>
+							<div style="height: 1px;background-color: #f2f2f2;margin: 0 10px;"></div>
+							<li class="dropdown-item" onClick="settings()">偏好设置</li>
 						</ul>
 					</ul>
 				</div>
@@ -599,7 +600,7 @@ wwwwwww      wwwwww     wwwwwww
 				border-radius: 10px;
 			}
 
-			.swal-button--confirm {
+			.swal-button--confirm{
 				background-color: #6d50f0;
 			}
 
@@ -925,8 +926,7 @@ wwwwwww      wwwwww     wwwwwww
 <!--图标库-->
 <!--link rel="stylesheet" href="https://at.alicdn.com/t/font_3193112_7sw8re1is8r.css"-->
 <link rel="stylesheet" href="./static/css/toolBoxColor.css">
-<script
-	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_32.e4ed6cf68190a8a20dbb88893881e773.js"></script>
+<script src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_33.fdf8538f7941801daea403a123402a14.js"></script>
 
 <!--引入框架-->
 
@@ -1929,6 +1929,8 @@ wwwwwww      wwwwww     wwwwwww
 	document.getElementById("delete-svg-up").style.top = (window.innerHeight - document.getElementById('delete-svg-up').style.height) / 2 - 7 + 'px';
 	document.getElementById("delete-svg-down").style.top = (window.innerHeight - document.getElementById('delete-svg-down').style.height) / 2 - 7 + 'px';
 	document.getElementsByClassName('blocklyToolboxDiv')[0].style.zIndex = 5;
+
+	window.settingss=getCookie('settingss')
 
 	window.onbeforeunload = function (event) {
 		const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());

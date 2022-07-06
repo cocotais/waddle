@@ -177,3 +177,33 @@ function show_newsth() {
   document.getElementsByClassName("groundglass")[0].className =
     "groundglass show";
 }
+
+
+function settings() {
+  if(!window.settingss){
+    z='√'
+    y=''
+  }
+  else{
+      y='√'
+      z=''
+  }
+  swal({
+    buttons: {
+      keep: {
+        text: y+"固定宽度",
+        value: "keep",
+      },
+      nkeep: {
+        text: z+"积木全显",
+        value: '',
+      },
+    },closeOnClickOutside:!1,closeOnEsc: false,title:"设置积木盒展示模式"
+  })
+    .then((value) => {
+      window.settingss = value;
+      document.cookie = "settingss="+value;
+    }
+    )
+
+}
