@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.43(1059)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.43(1064)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -20,7 +20,7 @@
 		// 控制台输出
 
 		window.reast = false;
-		var version = 'V1.47.43(1059)-beta' //版本号
+		var version = 'V1.47.43(1064)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -113,17 +113,17 @@ wwwwwww      wwwwww     wwwwwww
 			text-align: center;
 		}
 
-		#loading-text{
+		#loading-text {
 			margin-bottom: 0;
 		}
 
 		.loading-pair {
 			height: 100%;
 			display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
 		}
 	</style>
 
@@ -215,7 +215,7 @@ wwwwwww      wwwwww     wwwwwww
 							<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
 							<li class="dropdown-item" onClick="js_save()">导出为CoCo文件</li>
 							<div style="height: 1px;background-color: #f2f2f2;margin: 0 10px;"></div>
-							<li class="dropdown-item" onClick="window.open('https://docs.coco-central.cn/waddle/')">文档
+							<li class="dropdown-item" onClick="count();window.open('https://docs.coco-central.cn/waddle/')">文档
 							</li>
 							<li class="dropdown-item" onClick="show_about()">关于Waddle</li>
 						</ul>
@@ -872,7 +872,9 @@ wwwwwww      wwwwww     wwwwwww
 						<span class="sord">[不可见控件]<br>Hello</span>
 					</div>
 					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>定时器</span></div>
-					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>Base编解码</span>
+					<div class="card" id="card"
+						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/base.waddle')"><span
+							class="sord">[不可见控件]<br>Base编解码</span>
 					</div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hyperlink.waddle')">
@@ -901,10 +903,6 @@ wwwwwww      wwwwww     wwwwwww
 							onclick="count_oj()">难</span>做的控件</p>
 					</br>
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由所有Waddle的开源贡献者共同创造！</p>
-					<p style="color: #ffffff;font-size: 15px;" onclick="count()">帮助链接：
-						<a href="https://docs.coco-central.cn/waddle/" style="color: #ffffff;font-size: 15px;"
-							target="_blank" rel="noopener">https://docs.coco-central.cn/waddle/</a>
-					</p>
 					</br>
 					</br>
 					<p id="version" style="color: #ffffff;font-size: 20px;font-weight: bold;"></p>
@@ -1440,11 +1438,14 @@ wwwwwww      wwwwww     wwwwwww
 	.newsth-close {
 		color: var(--close-color);
 		font-weight: bold;
-		font-size: 50px;
+		font-size: 25px;
 		float: right;
+		display: flex;
 		position: relative;
 		right: 4px;
-		line-height: 32px;
+		align-content: center;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.newsth-logo {
@@ -1667,11 +1668,14 @@ wwwwwww      wwwwww     wwwwwww
 	.aboutus-close {
 		color: var(--close-color);
 		font-weight: bold;
-		font-size: 50px;
+		font-size: 25px;
 		float: right;
+		display: flex;
 		position: relative;
 		right: 4px;
-		line-height: 32px;
+		align-content: center;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.aboutus-logo {
