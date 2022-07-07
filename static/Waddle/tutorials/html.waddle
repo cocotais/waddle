@@ -1,0 +1,108 @@
+<root><head><waddleversion>0</waddleversion><dataversion>0</dataversion></head><body><blocks><xml xmlns="https://developers.google.com/blockly/xml"><block type="js_console_log" id="d(3@7[TgaNp@~(ePZS{`" x="374" y="75"><value name="TEXT"><block type="text" id="Ns=y!Cn0)|SCM@?0@n~x"><field name="TEXT">本控件通过Waddle制作</field></block></value><next><block type="js_console_log" id="`Im`S)40z[W=48A5;|hM"><value name="TEXT"><block type="text" id="n:0I3i[pUnitGUXgk,:}"><field name="TEXT">控件作者：中子星000（QQ：2422481178）</field></block></value><next><block type="vw_defTypes" id="#($p`(B0gLMeNNqP9=%v"><field name="type">HTML_WIDGET</field><field name="icon">https://waddle.coco-central.cn/static/img/logo/logo-white.svg</field><field name="title">HTML控件</field><field name="version">1.0.0</field><field name="width">200</field><field name="height">150</field><next><block type="vw_defWidget" id="vPD/UG[D8!mHTmj5n.x["><statement name="constructor"><block type="js_run" id="v,F[:]JNdmE^ymrI0yPc"><field name="CODE">this.widgetLog("本控件通过Waddle制作");</field><next><block type="js_run" id="Q5{9X,$B8:Nz#X7Vhi3."><field name="CODE">this.widgetLog("控件作者：中子星000（QQ：2422481178）");</field><next><block type="ivw_propsinit" id="=6$Kl9W.D+oFJ1im18Tf"><field name="props_name">content</field><field name="this_name">content</field></block></next></block></next></block></statement><statement name="render"><block type="vw_returnrender" id="F#xc23MhHgNJ@vp)#3fz"><statement name="HTML"><block type="html_tag" id="m8k791:3G+-Y(=O?(V-m"><field name="NAME">div</field><statement name="PRO"><block type="html_attribute" id="!.c2[q(~BaKG(d)?Bvq|"><field name="KEY">dangerouslySetInnerHTML</field><value name="VALUE"><block type="js_run2" id="oaFP`IW)u0~UJt;V@uEd"><field name="CODE">{{ __html: this.content }}</field></block></value></block></statement></block></statement></block></statement><next><block type="ivw_addProperty" id="70K{uUc`SuKOfO[S):2/"><field name="label">HTML文本</field><field name="key">content</field><field name="valueType">multilineString</field><value name="defaultValue"><block type="text" id="Oyh2ZIcM/_yI!sWpy@IO"><field name="TEXT">&lt;a href="https://coco-central.cn/"&gt;Hello, CoCo!&lt;/a&gt;</field></block></value><value name="config"><block type="ivw_config" id="zWclrRO.#w;}Tu;G`xWx"><field name="icon">无</field><field name="generateBlock">FALSE</field><field name="inputsInline">TRUE</field><field name="space">16</field><value name="color"><shadow type="colour_picker" id="rpH*o)2%[gqCmRV:AExq"><field name="COLOUR">#ffbb55</field></shadow></value></block></value><next><block type="ivw_addMethod" id="h=N%#woDdT]l3:Vn+v`Y"><field name="label">获取HTML文本</field><field name="key">get_content</field><field name="valueType">'string'</field><statement name="code"><block type="ivw_methodReturn" id="cfj,cB+BDu,Td*l/T.;]"><value name="value"><block type="js_run2" id="[~wIc19*PeQ;Lp^#b-|j"><field name="CODE">this.content</field></block></value></block></statement><next><block type="ivw_addMethod" id="q,]74(lc4=%+-^W96Xgh"><field name="label">设置HTML文本</field><field name="key">set_content</field><field name="valueType">noReturn</field><statement name="params"><block type="ivw_addParams" id="%Le(O|gIhsv32ShMdU,K"><field name="label">文本</field><field name="key">content</field><field name="valueType">'multilineString'</field><value name="defaultValue"><block type="text" id="LDia;7Bv[nP2ptgH5M?:"><field name="TEXT">&lt;a href="https://coco-central.cn/"&gt;Hello, CoCo!&lt;/a&gt;</field></block></value></block></statement><statement name="code"><block type="js_run" id="edeVono]f.U|fn%jDP)5"><field name="CODE">this.content = content;</field></block></statement><next><block type="ivw_export" id="9XvRlww2v`Y)Y,zKVRPn"></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml></blocks><js>console.log('本控件通过Waddle制作');
+console.log('控件作者：中子星000（QQ：2422481178）');
+
+const types = {
+  isInvisibleWidget: false,
+  type: "HTML_WIDGET",
+  icon: "https://waddle.coco-central.cn/static/img/logo/logo-white.svg",
+  title: "HTML控件",
+  version: "1.0.0",
+  isGlobalWidget: false,
+  properties: [
+    {
+      key: '__width',
+      label: '宽度',
+      valueType: 'number',
+      defaultValue: 200,
+      blockOptions: {
+        generateBlock: false,
+      },
+    },
+    {
+      key: '__height',
+      label: '高度',
+      valueType: 'number',
+      defaultValue: 150,
+      blockOptions: {
+        generateBlock: false,
+      },
+    },
+    {
+      key: '__size',
+      label: '',
+      valueType: 'number',
+      defaultValue: 0,
+      readonly: true,
+      blockOptions: {
+        setter: {
+          keys: ['__height', '__width'],
+        },
+        getter: {
+          keys: ['__height', '__width'],
+        },
+      },
+    },
+  ],
+  methods: [],
+  events: [],
+};
+
+class Widget extends VisibleWidget {
+  constructor(props) {
+    super(props);
+    this.widgetLog("本控件通过Waddle制作");this.widgetLog("控件作者：中子星000（QQ：2422481178）");this.content=props.content
+  }
+  render() {
+    return(
+      <div dangerouslySetInnerHTML={{ __html: this.content }}></div>
+
+  );
+
+  }
+}
+
+types['properties'].push({
+    key: 'content',
+    label: 'HTML文本',
+    valueType: 'string',
+    editorType: 'TextArea',
+    defaultValue: '<a href="https://coco-central.cn/">Hello, CoCo!</a>',
+    blockOptions: {
+    color: '#ffbb55',
+    icon: '无',
+    generateBlock: false,
+    inputsInline: true,
+    space: 16,
+},
+})
+
+types['methods'].push({
+    key: 'get_content',
+    label: '获取HTML文本',
+    params: [],
+    valueType: 'string',
+
+})
+Widget.prototype.get_content = function () {
+      return this.content;
+}
+types['methods'].push({
+    key: 'set_content',
+    label: '设置HTML文本',
+    params: [
+      {
+          key: 'content',
+          label: '文本',
+          valueType: 'multilineString',
+      checkType: 'string',
+          defaultValue: '<a href="https://coco-central.cn/">Hello, CoCo!</a>',
+      },],
+
+
+})
+Widget.prototype.set_content = function (content,) {
+      this.content = content;
+}
+exports.types = types;
+exports.widget = Widget;
+</js></body></root>

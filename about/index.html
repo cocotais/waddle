@@ -18,7 +18,6 @@
             background: rgb(246, 246, 246);
             margin: 0px;
             padding: 0px;
-            overflow-x: hidden;
         }
 
         #main {
@@ -27,11 +26,10 @@
             overflow: hidden;
             display: flex;
             justify-content: center;
+            position: relative;
         }
 
         #banner {
-            left: 50%;
-            transform: translateX(-50%);
             width: 150vw;
             height: 800px;
             overflow: hidden;
@@ -49,7 +47,7 @@
             height: 100%;
             width: 100vw;
             justify-content: center;
-            position: relative;
+            position: absolute;
             flex-direction: column;
             color: #fff;
             filter: drop-shadow(0 0 30px #9C89FF);
@@ -155,13 +153,17 @@
         }
 
         #footer {
-            width: 100vw;
-            height: 40px;
+            width: calc(100vw - 40px);
+            height: max-content;
+            border: #fff solid 20px;
             background: white;
             display: flex;
             align-items: center;
             justify-content: center;
             align-content: center;
+            flex-wrap: wrap;
+            text-decoration: auto;
+            color: currentColor;
         }
 
         .rouqi,
@@ -193,25 +195,42 @@
 
         @media only screen and (max-width: 540px) {
 
-            #thank,
-            #form {
-                transform: scale(0.8) !important;
+            .card,
+            .thankyou {
+                width: 200px;
+                height: 200px;
+            }
+            .rouqi,
+            .rongqi {
+                width: calc(540px * 0.815);
             }
         }
 
         @media only screen and (max-width: 430px) {
 
-            #thank,
-            #form {
-                transform: scale(0.6) !important;
+            .card,
+            .thankyou {
+                width: 150px;
+                height: 150px;
+                font-size: 20px;
+            }
+
+            .rouqi,
+            .rongqi {
+                width: calc(540px * 0.63);
+            }
+
+            .thank_pic{
+                width: 50px;
+                height: 50px;
             }
         }
-
     </style>
     <div id="main">
         <div id="banner"></div>
         <div id="content">
             <img id="about-img" width="300"
+                onclick="if(!Math.floor((Math.random()*10))){if(Math.floor(Math.random()*2)==1){var audio= new Audio ('https://creation.codemao.cn/445/kitten/d2ViXzIwMDJfNDM4NDAzXzY2NTQzNjVfMTY0NDMxNjEzNzUyNV9kYWFiNjE5Nw==');audio.play ();}else{var audio= new Audio ('https://creation.codemao.cn/445/kitten/d2ViXzIwMDJfNDM4NDAzXzY2NTQzNjVfMTY1Mzc5Mzg2NjE0OV9hYzBhMzY2Mw==');audio.play ();}}"
                 src="https://waddle-beta.coco-central.cn/static/img/logo/logo-white-full.svg" alt="Waddle"></img>
             <p style="font-size: 30px;margin-block-start: 2em; margin-block-end: 3em;font-weight: bold;">
                 让CoCo没有难做的控件
@@ -255,23 +274,23 @@
     <div id="thank">
         <p style="font-size: 30px;font-weight:bold;">仓库贡献人员</p>
         <div class="rouqi">
-            <div class="thankyou" onclick="window.open('https://gitee.com/sf-yuzifu');"><img width="100"
+            <div class="thankyou" onclick="window.open('https://gitee.com/sf-yuzifu');"><img width="100" class="thank_pic"
                     style="border: transparent solid 3px;border-radius: 100%;"
                     src="https://portrait.gitee.com/uploads/avatars/user/1894/5683059_yuzifu25266_1643553510.png!avatar200">小鱼yuzifu
             </div>
-            <div class="thankyou" onclick="window.open('https://gitee.com/mathcalculus');"><img width="100"
+            <div class="thankyou" onclick="window.open('https://gitee.com/mathcalculus');"><img width="100" class="thank_pic"
                     style="border: #0004 solid 3px;border-radius: 100%;"
                     src="https://portrait.gitee.com/uploads/avatars/user/3021/9065842_mathcalculus_1655124709.png!avatar200">MathCalculus
             </div>
-            <div class="thankyou" onclick="window.open('https://gitee.com/ZZX000yyds');"><img width="100"
+            <div class="thankyou" onclick="window.open('https://gitee.com/ZZX000yyds');"><img width="100" class="thank_pic"
                     style="border: #0004 solid 3px;border-radius: 100%;"
                     src="https://portrait.gitee.com/uploads/avatars/user/2529/7588594_NSSzzx_admin_1643613109.png!avatar200">中子星000
             </div>
-            <div class="thankyou" onclick="window.open('https://gitee.com/sodiumcode');"><img width="100"
+            <div class="thankyou" onclick="window.open('https://gitee.com/sodiumcode');"><img width="100" class="thank_pic"
                     style="border: #0004 solid 3px;border-radius: 100%;"
                     src="https://portrait.gitee.com/uploads/avatars/user/2639/7918318_sodiumcode_1644248333.png!avatar200">海藻酸钠
             </div>
-            <div class="thankyou" onclick="window.open('https://gitee.com/technology-me');"><img width="100"
+            <div class="thankyou" onclick="window.open('https://gitee.com/technology-me');"><img width="100" class="thank_pic"
                     style="border: #0004 solid 3px;border-radius: 100%;"
                     src="https://portrait.gitee.com/uploads/avatars/user/2718/8155540_technology-me_1606647582.png!avatar200">technology-me
             </div>
@@ -279,12 +298,13 @@
     </div>
 
     <div id="footer">
-        <span style="margin: 0 30px 0 0;">©️CoCo中控台 2021-2022</span>
-        <a style="margin: 0 30px 0 0;" href="https://gitee.com/coco-central/waddle/contributors?ref=master" target="_blank">查看仓库全部贡献人员</a>
-        <a href="https://beian.miit.gov.cn/" target="_blank" style="color: #666;">苏ICP备2022008786号</a>
+        <p>&nbsp;&nbsp;©️CoCo中控台 2021-2022&nbsp;&nbsp;</p>
+        <p><a href="https://gitee.com/coco-central/waddle/contributors?ref=master"
+            target="_blank" style="text-decoration: auto;
+            color: currentColor;">&nbsp;&nbsp;查看仓库全部贡献人员&nbsp;&nbsp;</a></p>
+        <p><a href="https://beian.miit.gov.cn/" target="_blank" style="text-decoration: auto;
+        color: currentColor;">&nbsp;&nbsp;苏ICP备2022008786号&nbsp;&nbsp;</a></p>
     </div>
 </body>
-
-<script>document.body.style.overflowX = 'hidden' //禁止页面滑动</script>
 
 </html>
