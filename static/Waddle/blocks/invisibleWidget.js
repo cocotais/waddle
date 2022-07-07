@@ -93,7 +93,7 @@ Blockly.Blocks['ivw_defTypes'] = {
 
 Blockly.Blocks['ivw_addProperty'] = {
     init: function () {
-        this.appendDummyInput().appendField('新建属性积木').appendField('属性名').appendField(new Blockly.FieldTextInput('属性1'), 'label').appendField('属性内部名').appendField(new Blockly.FieldTextInput('propertyName'), 'key');
+        this.appendDummyInput().appendField('新建 属性积木').appendField('属性名').appendField(new Blockly.FieldTextInput('属性1'), 'label').appendField('属性内部名').appendField(new Blockly.FieldTextInput('propertyName'), 'key');
         this.appendDummyInput()
             .appendField('属性值类型')
             .appendField(
@@ -108,6 +108,9 @@ Blockly.Blocks['ivw_addProperty'] = {
                 'valueType'
             );
         this.appendValueInput('defaultValue').appendField('默认值');
+        this.appendValueInput("config")
+            .setCheck(null)
+            .appendField("积木配置");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#e76cea');
@@ -140,12 +143,12 @@ Blockly.Blocks['ivw_getparam'] = {
 Blockly.Blocks['ivw_addMethod'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField('新建方法积木')
+            .appendField('新建 方法积木')
             .appendField('方法名')
             .appendField(new Blockly.FieldTextInput('方法1'), 'label')
-            .appendField('方法内部名')
+            .appendField('积木内部名')
             .appendField(new Blockly.FieldTextInput('methodName'), 'key')
-            .appendField('返回值类型')
+            .appendField('返回值')
             .appendField(
                 new Blockly.FieldDropdown([
                     ['不返回', 'noReturn'],
@@ -163,6 +166,9 @@ Blockly.Blocks['ivw_addMethod'] = {
         this.appendStatementInput('params').setCheck(null);
         this.appendDummyInput().appendField('执行代码');
         this.appendStatementInput('code').setCheck(null);
+        this.appendValueInput("config")
+            .setCheck(null)
+            .appendField("积木配置");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#ffbb55');
@@ -222,11 +228,12 @@ Blockly.Blocks['ivw_addDropdownItem'] = {
 
 Blockly.Blocks['ivw_addEvent'] = {
     init: function () {
-        this.appendDummyInput().appendField('新建积木').appendField('当').appendField(new Blockly.FieldTextInput('发生什么'), 'label').appendField('时').appendField('事件内部名').appendField(new Blockly.FieldTextInput('eventName'), 'key');
+        this.appendDummyInput().appendField('新建 事件积木').appendField('当').appendField(new Blockly.FieldTextInput('发生什么'), 'label').appendField('时').appendField('事件内部名').appendField(new Blockly.FieldTextInput('eventName'), 'key');
         this.appendDummyInput().appendField('参数');
         this.appendStatementInput('params').setCheck(null);
-        this.appendDummyInput().appendField('积木选项');
-        this.appendStatementInput('other').setCheck(null);
+        this.appendValueInput("config")
+            .setCheck(null)
+            .appendField("积木配置");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#608fee');
@@ -270,11 +277,11 @@ Blockly.Blocks['ivw_emitParameter'] = {
 };
 
 attris = {
-  key: "名称",
-  valueType: "值类型",
-  label: "标签",
-  labelAfter: "尾标签",
-  defaultValue: "默认值",
+    key: "名称",
+    valueType: "值类型",
+    label: "标签",
+    labelAfter: "尾标签",
+    defaultValue: "默认值",
 };
 
 for (const key in attris) {
@@ -340,31 +347,31 @@ Blockly.Blocks['ivw_propsinit'] = {
 };
 
 Blockly.Blocks["ivw_option_icon"] = {
-  init: function () {
-    this.appendValueInput("ICON")
-      .setCheck("String")
-      .appendField("定义 积木内部名 为")
-      .appendField(new Blockly.FieldTextInput(""), "NAME")
-      .appendField("的积木的 图标 为");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(230);
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
+    init: function () {
+        this.appendValueInput("ICON")
+            .setCheck("String")
+            .appendField("定义 积木内部名 为")
+            .appendField(new Blockly.FieldTextInput(""), "NAME")
+            .appendField("的积木的 图标 为");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    },
 };
 
 Blockly.Blocks["ivw_option_color"] = {
     init: function () {
-      this.appendValueInput("ICON")
-        .setCheck("String")
-        .appendField("定义 积木内部名 为")
-        .appendField(new Blockly.FieldTextInput(""), "NAME")
-        .appendField("的积木的 颜色 为");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(230);
-      this.setTooltip("");
-      this.setHelpUrl("");
+        this.appendValueInput("ICON")
+            .setCheck("String")
+            .appendField("定义 积木内部名 为")
+            .appendField(new Blockly.FieldTextInput(""), "NAME")
+            .appendField("的积木的 颜色 为");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
     },
-  };
+};

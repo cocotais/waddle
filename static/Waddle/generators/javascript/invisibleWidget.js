@@ -66,15 +66,17 @@ const types = {
 Blockly.JavaScript['ivw_addProperty'] = function (block) {
     var text_key = block.getFieldValue('key');
     var text_label = block.getFieldValue('label');
-    //var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
+    //var statements_other = Blockly.JavaScript.statementToCode(block, 'other'); 弃用，改用配置表的方式，即value_config
     var text_valueType = block.getFieldValue('valueType');
     var value_defaultValue = Blockly.JavaScript.valueToCode(block, 'defaultValue', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_config = Blockly.JavaScript.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
     var code = `
 types['properties'].push({
     key: '${text_key}',
     label: '${text_label}',
     valueType: ${text_valueType == "['string','number','boolean','array','object',]" ? text_valueType : "'" + text_valueType + "'"},
     defaultValue: ${value_defaultValue},
+    ${value_config}
 })
 `;
     return code;
@@ -99,7 +101,8 @@ Blockly.JavaScript['ivw_addMethod'] = function (block) {
     var text_valueType = block.getFieldValue('valueType');
     var statements_params = Blockly.JavaScript.statementToCode(block, 'params');
     var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
-    // var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
+    // var statements_other = Blockly.JavaScript.statementToCode(block, 'other'); 弃用，改用配置表的方式，即value_config
+    var value_config = Blockly.JavaScript.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
     var params = '';
     if (statements_params) {
         eval('[' + statements_params + ']').forEach(value => {
@@ -112,6 +115,7 @@ types['methods'].push({
     label: '${text_label}',
     params: [${statements_params}],
     ${text_valueType === 'noReturn' ? '' : 'valueType: ' + text_valueType + ','}
+    ${value_config}
 })
 Widget.prototype.${text_key} = function (${params}) {
     ${statements_code}
@@ -216,13 +220,13 @@ Blockly.JavaScript['ivw_addEvent'] = function (block) {
     var text_key = block.getFieldValue('key');
     var text_label = block.getFieldValue('label');
     var statements_params = Blockly.JavaScript.statementToCode(block, 'params');
-    var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
+    var value_config = Blockly.JavaScript.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
     var code = `
 types['events'].push({
     key: '${text_key}',
     label: '${text_label}',
     params: [${statements_params}],
-    ${statements_other}
+    ${value_config}
 })
 `;
     return code;
