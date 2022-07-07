@@ -65,4 +65,24 @@ Blockly.Blocks['crypto_tostr'] = {
         this.setHelpUrl('');
     }
 };
-//用甚莫颜色好？
+
+Blockly.Blocks['crypto_sha256'] = {
+    init: function () {
+        this.appendValueInput('STR').setCheck(null).appendField('使用Crypto哈希SHA-256');
+        this.appendDummyInput('').appendField('的对象');
+        this.setOutput(true, null);
+        this.setColour(BlockColors['crypto']);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+Blockly.Blocks['crypto_sha256_s'] = {
+    init: function () {
+        this.appendValueInput('STR').setCheck(null).appendField('使用Crypto哈希SHA-256');
+        this.appendDummyInput('').appendField('的字符串');
+        this.setOutput(true, null);
+        this.setColour(BlockColors['crypto']);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};

@@ -453,9 +453,13 @@ TIP
 		</block>
 		<block type="crypto_sha1_s">
 		</block>
+		<block type="crypto_sha256_s">
+		</block>
 		<block type="crypto_md5">
 		</block>
 		<block type="crypto_sha1">
+		</block>
+		<block type="crypto_sha256">
 		</block>
 		<block type="crypto_tostr">
 		</block>

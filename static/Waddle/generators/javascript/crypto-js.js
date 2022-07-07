@@ -1,4 +1,3 @@
-//草为什么我代码没了，，重新写一遍
 Blockly.JavaScript['crypto_import'] = function (block) {
     return `var CryptoJS = require("crypto-js");\n`;
 };
@@ -29,8 +28,17 @@ Blockly.JavaScript['crypto_sha1_s'] = function (block) {
 
 Blockly.JavaScript['crypto_tostr'] = function (block) {
     var value_str = Blockly.JavaScript.valueToCode(block, 'STR', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
     var code = `(${value_str}).toString()`;
-    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['crypto_sha256'] = function (block) {
+    var value_str = Blockly.JavaScript.valueToCode(block, 'STR', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = `CryptoJS.SHA256(${value_str})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
+Blockly.JavaScript['crypto_sha256_s'] = function (block) {
+    var value_str = Blockly.JavaScript.valueToCode(block, 'STR', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = `CryptoJS.SHA256(${value_str}).toString()`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
