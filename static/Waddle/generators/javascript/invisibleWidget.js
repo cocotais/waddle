@@ -306,3 +306,23 @@ Blockly.JavaScript['ivw_propsinit'] = function (block) {
     var code = `this.${text_this_name}=props.${text_props_name}`;
     return code;
 };
+
+
+Blockly.JavaScript['ivw_config'] = function(block) {
+    var value_color = Blockly.JavaScript.valueToCode(block, 'color', Blockly.JavaScript.ORDER_ATOMIC);
+    var text_icon = block.getFieldValue('icon');
+    var checkbox_generateblock = block.getFieldValue('generateBlock') === 'TRUE';
+    var checkbox_inputsinline = block.getFieldValue('inputsInline') === 'TRUE';
+    var number_space = block.getFieldValue('space');
+    // TODO: Assemble JavaScript into code variable.
+    var code = `\
+blockOptions: {
+    color: ${value_color},
+    icon: '${text_icon}',
+    generateBlock: ${checkbox_generateblock},
+    inputsInline: ${checkbox_inputsinline},
+    space: ${number_space},
+},`;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.JavaScript.ORDER_NONE];
+  };

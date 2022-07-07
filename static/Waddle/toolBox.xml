@@ -643,6 +643,13 @@ TIP
 		</block>
 		<block type="ivw_option_color">
 		</block>
+		<block type="ivw_config">
+			<value name="color">
+				<shadow type="colour_picker">
+					<field name="COLOUR">#ffbb55</field>
+				</shadow>
+			</value>
+		</block>
 	</category>
 	<category name="渲染" css-icon="waddle-render-Gradient" css-class="waddle-render">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">

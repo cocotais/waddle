@@ -109,7 +109,7 @@ Blockly.Blocks['ivw_addProperty'] = {
             );
         this.appendValueInput('defaultValue').appendField('默认值');
         this.appendValueInput("config")
-            .setCheck(null)
+            .setCheck('config')
             .appendField("积木配置");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -167,7 +167,7 @@ Blockly.Blocks['ivw_addMethod'] = {
         this.appendDummyInput().appendField('执行代码');
         this.appendStatementInput('code').setCheck(null);
         this.appendValueInput("config")
-            .setCheck(null)
+            .setCheck('config')
             .appendField("积木配置");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -232,7 +232,7 @@ Blockly.Blocks['ivw_addEvent'] = {
         this.appendDummyInput().appendField('参数');
         this.appendStatementInput('params').setCheck(null);
         this.appendValueInput("config")
-            .setCheck(null)
+            .setCheck('config')
             .appendField("积木配置");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -375,3 +375,27 @@ Blockly.Blocks["ivw_option_color"] = {
         this.setHelpUrl("");
     },
 };
+
+Blockly.Blocks['ivw_config'] = {
+    init: function() {
+      this.appendValueInput("color")
+          .setCheck("Colour")
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("积木颜色");
+      this.appendDummyInput()
+          .appendField("积木图标")
+          .appendField(new Blockly.FieldTextInput("无"), "icon");
+      this.appendDummyInput()
+          .appendField("生成本积木")
+          .appendField(new Blockly.FieldCheckbox("TRUE"), "generateBlock")
+          .appendField("单行积木")
+          .appendField(new Blockly.FieldCheckbox("TRUE"), "inputsInline");
+      this.appendDummyInput()
+          .appendField("与下一块积木的间隔")
+          .appendField(new Blockly.FieldNumber(16, 1, 100, 1), "space");
+      this.setOutput(true, "config");
+      this.setColour("ffbb55");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
