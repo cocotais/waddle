@@ -641,8 +641,8 @@ TIP
 		</block>
 		<block type="ivw_getparam">
 		</block>
-		<lable text="积木设置">
-		</lable>
+		<label text="积木设置">
+		</label>
 		<block type="ivw_option_icon">
 		</block>
 		<block type="ivw_option_color">
