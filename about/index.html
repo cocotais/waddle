@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Waddle - 让CoCo没有难做的控件</title>
-    <link rel="shortcut icon" href="https://waddle-beta.coco-central.cn/static/img/logo/logo-white.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="https://waddle-beta.coco-central.cn/static/img/logo/logo-white.svg"
+        type="image/x-icon">
     <meta content="width=device-width,minimum-scale=1.0 initial-scale=1.0, maximum-scale=1.0,user-scalable=no"
         name="viewport">
 </head>
@@ -35,6 +36,7 @@
             height: 800px;
             overflow: hidden;
             position: absolute;
+            min-width: 1000px;
             background-color: #6d50f0;
             background: radial-gradient(rgba(109, 80, 240, 0.95), rgba(245, 248, 250, 0.15)), url('https://waddle-beta.coco-central.cn/static/img/background-new.svg') no-repeat 0% 20%/ cover;
             background-position: center 0;
@@ -193,7 +195,7 @@
 
             #thank,
             #form {
-                transform: scale(0.8);
+                transform: scale(0.8) !important;
             }
         }
 
@@ -201,22 +203,16 @@
 
             #thank,
             #form {
-                transform: scale(0.6);
+                transform: scale(0.6) !important;
             }
         }
 
-        @media only screen and (max-width: 320px) {
-
-            #thank,
-            #form {
-                transform: scale(0.6);
-            }
-        }
     </style>
     <div id="main">
         <div id="banner"></div>
         <div id="content">
-            <img id="about-img" width="300" src="https://waddle-beta.coco-central.cn/static/img/logo/logo-white-full.svg" alt="Waddle"></img>
+            <img id="about-img" width="300"
+                src="https://waddle-beta.coco-central.cn/static/img/logo/logo-white-full.svg" alt="Waddle"></img>
             <p style="font-size: 30px;margin-block-start: 2em; margin-block-end: 3em;font-weight: bold;">
                 让CoCo没有难做的控件
             </p>
@@ -283,8 +279,9 @@
     </div>
 
     <div id="footer">
-        <span style="margin: 0 30px 0 0;">©️CoCo中控台 2021-2022</span><a
-            href="https://gitee.com/coco-central/waddle/contributors?ref=master" target="_blank">查看仓库贡献人员</a>
+        <span style="margin: 0 30px 0 0;">©️CoCo中控台 2021-2022</span>
+        <a style="margin: 0 30px 0 0;" href="https://gitee.com/coco-central/waddle/contributors?ref=master" target="_blank">查看仓库全部贡献人员</a>
+        <a href="https://beian.miit.gov.cn/" target="_blank" style="color: #666;">苏ICP备2022008786号</a>
     </div>
 </body>
 
