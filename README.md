@@ -79,4 +79,4 @@ QQ 群号：327827621
 </p>
 <br>
 
-<div class="waddle-version-bot">V1.47.46(1071)-beta</div>
+<div class="waddle-version-bot">V1.47.47(1072)-beta</div>

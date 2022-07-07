@@ -187,6 +187,8 @@ function settings(check) {
   else{
     window.settingss = 'keep';
   }
+  window.reast = 'minus';document.getElementsByClassName('blocklyZoom')[0].dispatchEvent(new PointerEvent('pointerdown'));window.reast = false;document.getElementById('zoom-size-number').innerHTML = Math.ceil(myscale * 100)+'%'
+  window.reast = 'plus';document.getElementsByClassName('blocklyZoom')[1].dispatchEvent(new PointerEvent('pointerdown'));window.reast = false;document.getElementById('zoom-size-number').innerHTML = Math.ceil(myscale * 100)+'%'
   document.cookie = "settingss=" + window.settingss;
 }
 
