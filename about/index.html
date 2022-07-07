@@ -1,7 +1,293 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-    </head>
-    <body></body>
+
+<head>
+    <meta charset="utf-8">
+    <title>Waddle - 让CoCo没有难做的控件</title>
+    <link rel="shortcut icon" href="https://waddle-beta.coco-central.cn/static/img/logo/logo-white.svg" type="image/x-icon">
+    <meta content="width=device-width,minimum-scale=1.0 initial-scale=1.0, maximum-scale=1.0,user-scalable=no"
+        name="viewport">
+</head>
+
+<body>
+    <script
+        src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_37.9bb31309dd62010a4c7126ae133e6116.js"></script>
+    <style>
+        body {
+            background: rgb(246, 246, 246);
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+        }
+
+        #main {
+            width: 100vw;
+            height: 800px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        #banner {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150vw;
+            height: 800px;
+            overflow: hidden;
+            position: absolute;
+            background-color: #6d50f0;
+            background: radial-gradient(rgba(109, 80, 240, 0.95), rgba(245, 248, 250, 0.15)), url('https://waddle-beta.coco-central.cn/static/img/background-new.svg') no-repeat 0% 20%/ cover;
+            background-position: center 0;
+            border-radius: 0 0 50% 50%;
+        }
+
+        #content {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 100vw;
+            justify-content: center;
+            position: relative;
+            flex-direction: column;
+            color: #fff;
+            filter: drop-shadow(0 0 30px #9C89FF);
+            animation: a 1.3s both;
+            -webkit-animation: a 1.3s both;
+        }
+
+        @keyframes a {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        @-webkit-keyframes a {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        .ver {
+            border-width: 0;
+            background: #9C89FFaa;
+            color: white;
+            width: 150px;
+            font-size: 22px;
+            height: 70px;
+            border-radius: 10px;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            align-content: center;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .ver:hover {
+            transform: scale(1.1);
+            background: #9C89FF11;
+            cursor: pointer;
+        }
+
+        #thank,
+        #form {
+            width: 100vw;
+            margin: 100px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            align-content: center;
+            color: #000;
+            font-size: 25px;
+            flex-wrap: wrap;
+            animation: a 1.3s both;
+            -webkit-animation: a 1.3s both;
+        }
+
+        *::-webkit-scrollbar {
+            display: none;
+        }
+
+        * {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .card,
+        .thankyou {
+            margin: 10px;
+            width: 250px;
+            height: 200px;
+            background: white;
+            border-radius: 0.4em;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .thankyou {
+            width: 250px;
+            height: 250px;
+            justify-content: space-evenly;
+        }
+
+        .card:hover,
+        .thankyou:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        #footer {
+            width: 100vw;
+            height: 40px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .rouqi,
+        .rongqi {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            align-content: center;
+        }
+
+        @media only screen and (max-width: 1350px) {
+            .rouqi {
+                width: 810px;
+            }
+
+            .rongqi {
+                width: 540px;
+            }
+        }
+
+        @media only screen and (max-width: 810px) {
+
+            .rouqi,
+            .rongqi {
+                width: 540px;
+            }
+        }
+
+        @media only screen and (max-width: 540px) {
+
+            #thank,
+            #form {
+                transform: scale(0.8);
+            }
+        }
+
+        @media only screen and (max-width: 430px) {
+
+            #thank,
+            #form {
+                transform: scale(0.6);
+            }
+        }
+
+        @media only screen and (max-width: 320px) {
+
+            #thank,
+            #form {
+                transform: scale(0.6);
+            }
+        }
+    </style>
+    <div id="main">
+        <div id="banner"></div>
+        <div id="content">
+            <img id="about-img" width="300" src="https://waddle-beta.coco-central.cn/static/img/logo/logo-white-full.svg" alt="Waddle"></img>
+            <p style="font-size: 30px;margin-block-start: 2em; margin-block-end: 3em;font-weight: bold;">
+                让CoCo没有难做的控件
+            </p>
+            <!--div style="margin-block-end: 1em;">
+                <a href='https://gitee.com/coco-central/waddle/stargazers'>
+                    <img src='https://gitee.com/coco-central/waddle/badge/star.svg?theme=white' alt='star'></img>
+                </a>
+                <a href='https://gitee.com/coco-central/waddle/members'>
+                    <img src='https://gitee.com/coco-central/waddle/badge/fork.svg?theme=white' alt='fork'></img>
+                </a>
+            </div-->
+            <div id="buttons" style="display: flex;">
+                <button onclick="window.open('https://waddle.coco-central.cn/');" class="ver">
+                    <iconpark-icon width="35px" height="35px" name="release" color="white"></iconpark-icon>稳定版
+                </button>
+                <button onclick="window.open('https://waddle-beta.coco-central.cn/');" class="ver">
+                    <iconpark-icon width="35px" height="35px" name="beta" color="white"></iconpark-icon>开发版
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="form">
+        <div class="rongqi">
+            <div class="card" onclick="window.open('https://gitee.com/coco-central/waddle');">
+                <iconpark-icon width="80px" height="80px" name="gitee"></iconpark-icon>
+                Gitee仓库
+            </div>
+            <div class="card"
+                onclick="window.open('https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec');">
+                <iconpark-icon width="80px" height="80px" name="yuque"></iconpark-icon>语雀反馈表
+            </div>
+            <div class="card"
+                onclick="window.open('https://qm.qq.com/cgi-bin/qm/qr?k=gxeNn7tYcfQcYafL0GAF4GbVHcwI5Y9C&jump_from=webapi');">
+                <iconpark-icon width="80px" height="80px" name="qq"></iconpark-icon>官方交流群
+            </div>
+            <div class="card" onclick="window.open('https://docs.coco-central.cn/waddle/#/');">官方文档</div>
+        </div>
+    </div>
+
+    <div id="thank">
+        <p style="font-size: 30px;font-weight:bold;">仓库贡献人员</p>
+        <div class="rouqi">
+            <div class="thankyou" onclick="window.open('https://gitee.com/sf-yuzifu');"><img width="100"
+                    style="border: transparent solid 3px;border-radius: 100%;"
+                    src="https://portrait.gitee.com/uploads/avatars/user/1894/5683059_yuzifu25266_1643553510.png!avatar200">小鱼yuzifu
+            </div>
+            <div class="thankyou" onclick="window.open('https://gitee.com/mathcalculus');"><img width="100"
+                    style="border: #0004 solid 3px;border-radius: 100%;"
+                    src="https://portrait.gitee.com/uploads/avatars/user/3021/9065842_mathcalculus_1655124709.png!avatar200">MathCalculus
+            </div>
+            <div class="thankyou" onclick="window.open('https://gitee.com/ZZX000yyds');"><img width="100"
+                    style="border: #0004 solid 3px;border-radius: 100%;"
+                    src="https://portrait.gitee.com/uploads/avatars/user/2529/7588594_NSSzzx_admin_1643613109.png!avatar200">中子星000
+            </div>
+            <div class="thankyou" onclick="window.open('https://gitee.com/sodiumcode');"><img width="100"
+                    style="border: #0004 solid 3px;border-radius: 100%;"
+                    src="https://portrait.gitee.com/uploads/avatars/user/2639/7918318_sodiumcode_1644248333.png!avatar200">海藻酸钠
+            </div>
+            <div class="thankyou" onclick="window.open('https://gitee.com/technology-me');"><img width="100"
+                    style="border: #0004 solid 3px;border-radius: 100%;"
+                    src="https://portrait.gitee.com/uploads/avatars/user/2718/8155540_technology-me_1606647582.png!avatar200">technology-me
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <span style="margin: 0 30px 0 0;">©️CoCo中控台 2021-2022</span><a
+            href="https://gitee.com/coco-central/waddle/contributors?ref=master" target="_blank">查看仓库贡献人员</a>
+    </div>
+</body>
+
+<script>document.body.style.overflowX = 'hidden' //禁止页面滑动</script>
+
 </html>
