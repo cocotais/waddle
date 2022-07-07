@@ -167,6 +167,7 @@ function show_about() {
   document.getElementsByClassName("aboutus")[0].className = "aboutus show";
   document.getElementsByClassName("groundglass")[0].className =
     "groundglass show";
+  settingThird(1)
 }
 
 function show_newsth() {
@@ -179,31 +180,40 @@ function show_newsth() {
 }
 
 
-function settings() {
-  if(!window.settingss){
-    z='√'
-    y=''
+function settings(check) {
+  if(check.checked){
+    window.settingss = '';
   }
   else{
-      y='√'
-      z=''
+    window.settingss = 'keep';
   }
-  swal({
-    buttons: {
-      keep: {
-        text: y+"固定宽度",
-        value: "keep",
-      },
-      nkeep: {
-        text: z+"积木全显",
-        value: '',
-      },
-    },closeOnClickOutside:!1,closeOnEsc: false,title:"设置积木盒展示模式"
-  })
-    .then((value) => {
-      window.settingss = value;
-      document.cookie = "settingss="+value;
-    }
-    )
+  document.cookie = "settingss=" + window.settingss;
+}
 
+function settingThird(number) {
+  a = document.getElementsByClassName("setting-body")[0]
+  b = document.getElementsByClassName("aboutus-body")[0]
+  c = document.getElementsByClassName("thanks-body")[0]
+  d = document.getElementsByClassName("setting-button")
+  for (i = 0; i < d.length; i++) { 
+    d[i].style.backgroundColor = 'var(--settings-button-background)'
+    d[i].style.color = 'var(--settings-button-color)'
+ }
+  if (number == 1) {
+    a.style.display = 'flex'
+    b.style.display = 'none'
+    c.style.display = 'none'
+  }
+  else if (number == 2) {
+    a.style.display = 'none'
+    b.style.display = 'block'
+    c.style.display = 'none'
+  }
+  else if (number == 3) {
+    a.style.display = 'none'
+    b.style.display = 'none'
+    c.style.display = 'flex'
+  }
+  d[number - 1].style.backgroundColor = 'var(--settings-button-set-background)'
+  d[number - 1].style.color = 'var(--settings-button-set-color)'
 }
