@@ -654,6 +654,14 @@ TIP
 				</shadow>
 			</value>
 		</block>
+		<label text="CoCo控制台">
+		</label>
+		<block type="widget_widgetlog">
+		</block>
+		<block type="widget_widgetwarn">
+		</block>
+		<block type="widget_widgeterror">
+		</block>
 	</category>
 	<category name="渲染" css-icon="waddle-render-Gradient" css-class="waddle-render">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
