@@ -70,11 +70,25 @@ Blockly.JavaScript['ivw_addProperty'] = function (block) {
     var text_valueType = block.getFieldValue('valueType');
     var value_defaultValue = Blockly.JavaScript.valueToCode(block, 'defaultValue', Blockly.JavaScript.ORDER_ATOMIC);
     var value_config = Blockly.JavaScript.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
+
+    var valueType = '';
+    var multilineString = false;
+    if (text_valueType === "any") {
+        valueType = "['string','number','boolean','array','object',]";
+    }
+    else if (text_valueType === "multilineString") {
+        multilineString = true;
+        valueType = "'string'";
+    }
+    else {
+        valueType = "'" + text_valueType + "'";
+    }
+
     var code = `
 types['properties'].push({
     key: '${text_key}',
     label: '${text_label}',
-    valueType: ${text_valueType == "['string','number','boolean','array','object',]" ? text_valueType : "'" + text_valueType + "'"},
+    valueType: ${valueType},${multilineString?"\n    editorType: 'multilineString',":""}
     defaultValue: ${value_defaultValue},
     ${value_config}
 })

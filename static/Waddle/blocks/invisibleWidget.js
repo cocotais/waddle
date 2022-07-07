@@ -99,11 +99,12 @@ Blockly.Blocks['ivw_addProperty'] = {
             .appendField(
                 new Blockly.FieldDropdown([
                     ['字符串', 'string'],
+                    ['字符串（多行）', 'multilineString'],
                     ['数字', 'number'],
                     ['布尔', 'boolean'],
                     ['颜色', 'color'],
                     ['对象', 'object'],
-                    ['任何类型', "['string','number','boolean','color','array','object']"]
+                    ['任何类型', "any"]
                 ]),
                 'valueType'
             );
@@ -185,6 +186,7 @@ Blockly.Blocks['ivw_addParams'] = {
             .appendField(
                 new Blockly.FieldDropdown([
                     ['字符串', "'string'"],
+                    ['字符串（多行）', "'multilineString'"],
                     ['数字', "'number'"],
                     ['布尔', "'boolean'"],
                     ['颜色', "'color'"],
@@ -377,25 +379,25 @@ Blockly.Blocks["ivw_option_color"] = {
 };
 
 Blockly.Blocks['ivw_config'] = {
-    init: function() {
-      this.appendValueInput("color")
-          .setCheck("Colour")
-          .setAlign(Blockly.ALIGN_RIGHT)
-          .appendField("积木颜色");
-      this.appendDummyInput()
-          .appendField("积木图标")
-          .appendField(new Blockly.FieldTextInput("无"), "icon");
-      this.appendDummyInput()
-          .appendField("生成本积木")
-          .appendField(new Blockly.FieldCheckbox("TRUE"), "generateBlock")
-          .appendField("单行积木")
-          .appendField(new Blockly.FieldCheckbox("TRUE"), "inputsInline");
-      this.appendDummyInput()
-          .appendField("与下一块积木的间隔")
-          .appendField(new Blockly.FieldNumber(16, 1, 100, 1), "space");
-      this.setOutput(true, "config");
-      this.setColour("ffbb55");
-   this.setTooltip("");
-   this.setHelpUrl("");
+    init: function () {
+        this.appendValueInput("color")
+            .setCheck("Colour")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("积木颜色");
+        this.appendDummyInput()
+            .appendField("积木图标")
+            .appendField(new Blockly.FieldTextInput("无"), "icon");
+        this.appendDummyInput()
+            .appendField("生成本积木")
+            .appendField(new Blockly.FieldCheckbox("TRUE"), "generateBlock")
+            .appendField("单行积木")
+            .appendField(new Blockly.FieldCheckbox("TRUE"), "inputsInline");
+        this.appendDummyInput()
+            .appendField("与下一块积木的间隔")
+            .appendField(new Blockly.FieldNumber(16, 1, 100, 1), "space");
+        this.setOutput(true, "config");
+        this.setColour("ffbb55");
+        this.setTooltip("");
+        this.setHelpUrl("");
     }
-  };
+};
