@@ -88,7 +88,7 @@ Blockly.JavaScript['ivw_addProperty'] = function (block) {
 types['properties'].push({
     key: '${text_key}',
     label: '${text_label}',
-    valueType: ${valueType},${multilineString?"\n    editorType: 'multilineString',":""}
+    valueType: ${valueType},${multilineString?"\n    editorType: 'TextArea',":""}
     defaultValue: ${value_defaultValue},
     ${value_config}
 })
@@ -147,7 +147,7 @@ Blockly.JavaScript['ivw_addParams'] = function (block) {
     {
         key: '${text_key}',
         label: '${text_label}',
-        valueType: ${text_valueType},
+        valueType: ${text_valueType},${text_valueType === "'multilineString'"?"\n    checkType: 'string',":''}
         defaultValue: ${value_defaultValue},
     },`;
     return code;
