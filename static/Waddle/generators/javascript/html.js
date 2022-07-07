@@ -704,12 +704,7 @@ css_to_one = (css) => {
 };
 
 Blockly.JavaScript["html_attribute"] = function (block) {
-  var key =
-    Blockly.JavaScript.valueToCode(
-      block,
-      "KEY",
-      Blockly.JavaScript.ORDER_ATOMIC
-    ) || "''";
+  var key = block.getFieldValue('KEY');
   var value =
     Blockly.JavaScript.valueToCode(
       block,
