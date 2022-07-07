@@ -600,6 +600,10 @@ TIP
 		</block>
 		<block type="ivw_getproperty">
 		</block>
+		<block type="ivw_setprop">
+		</block>
+		<block type="vw_setprop">
+		</block>
 		<label text="方法定义">
 		</label>
 		<block type="ivw_addMethod">

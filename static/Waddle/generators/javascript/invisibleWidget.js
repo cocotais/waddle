@@ -88,7 +88,7 @@ Blockly.JavaScript['ivw_addProperty'] = function (block) {
 types['properties'].push({
     key: '${text_key}',
     label: '${text_label}',
-    valueType: ${valueType},${multilineString?"\n    editorType: 'TextArea',":""}
+    valueType: ${valueType},${multilineString ? "\n    editorType: 'TextArea'," : ""}
     defaultValue: ${value_defaultValue},
     ${value_config}
 })
@@ -106,7 +106,7 @@ Blockly.JavaScript['ivw_getproperty'] = function (block) {
 Blockly.JavaScript['ivw_getparam'] = function (block) {
     var code = block.getFieldValue('KEY');
     // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, 0];
 };
 
 Blockly.JavaScript['ivw_addMethod'] = function (block) {
@@ -147,7 +147,7 @@ Blockly.JavaScript['ivw_addParams'] = function (block) {
     {
         key: '${text_key}',
         label: '${text_label}',
-        valueType: ${text_valueType},${text_valueType === "'multilineString'"?"\n    checkType: 'string',":''}
+        valueType: ${text_valueType},${text_valueType === "'multilineString'" ? "\n    checkType: 'string'," : ''}
         defaultValue: ${value_defaultValue},
     },`;
     return code;
@@ -169,11 +169,11 @@ Blockly.JavaScript['ivw_addDropdownParams'] = function (block) {
     return code;
 };
 
-Blockly.JavaScript['ivw_option_icon'] = function(block) {
-	var text_name = block.getFieldValue('NAME');
-	var value_icon = Blockly.JavaScript.valueToCode(block, 'ICON', Blockly.JavaScript.ORDER_ATOMIC);
+Blockly.JavaScript['ivw_option_icon'] = function (block) {
+    var text_name = block.getFieldValue('NAME');
+    var value_icon = Blockly.JavaScript.valueToCode(block, 'ICON', Blockly.JavaScript.ORDER_ATOMIC);
 
-	var code = `
+    var code = `
 types['methods'].forEach(element => {
   if(element.key=="${text_name}"){
 	if(!element.blockOptions)element.blockOptions={};
@@ -193,13 +193,13 @@ types['properties'].forEach(element => {
   }
 });
 `;
-	return code;
+    return code;
 };
 
-Blockly.JavaScript['ivw_option_color'] = function(block) {
-	var text_name = block.getFieldValue('NAME');
-	var value_icon = Blockly.JavaScript.valueToCode(block, 'ICON', Blockly.JavaScript.ORDER_ATOMIC);
-	var code = `
+Blockly.JavaScript['ivw_option_color'] = function (block) {
+    var text_name = block.getFieldValue('NAME');
+    var value_icon = Blockly.JavaScript.valueToCode(block, 'ICON', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = `
 types['methods'].forEach(element => {
   if(element.key=="${text_name}"){
 	if(!element.blockOptions)element.blockOptions={};
@@ -219,7 +219,7 @@ types['properties'].forEach(element => {
   }
 });
 `;
-	return code;
+    return code;
 };
 
 Blockly.JavaScript['ivw_addDropdownItem'] = function (block) {
@@ -322,7 +322,7 @@ Blockly.JavaScript['ivw_propsinit'] = function (block) {
 };
 
 
-Blockly.JavaScript['ivw_config'] = function(block) {
+Blockly.JavaScript['ivw_config'] = function (block) {
     var value_color = Blockly.JavaScript.valueToCode(block, 'color', Blockly.JavaScript.ORDER_ATOMIC);
     var text_icon = block.getFieldValue('icon');
     var checkbox_generateblock = block.getFieldValue('generateBlock') === 'TRUE';
@@ -339,4 +339,12 @@ blockOptions: {
 },`;
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];
-  };
+};
+
+Blockly.JavaScript['ivw_setprop'] = function (block) {
+    var text_name = block.getFieldValue('name');
+    var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = `this.${text_name} = ${value_value};\n`;
+    return code;
+};

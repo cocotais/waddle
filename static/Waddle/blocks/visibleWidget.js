@@ -5,10 +5,10 @@ Blockly.Blocks['vw_defTypes'] = {
         // 五个参数分两行输入
         this.appendDummyInput().appendField('名称').appendField(new Blockly.FieldTextInput('我的控件'), 'title').appendField('版本').appendField(new Blockly.FieldTextInput('1.0.0'), 'version');
         this.appendDummyInput()
-          .appendField("默认宽度")
-          .appendField(new Blockly.FieldNumber(200), "width")
-          .appendField("默认高度")
-          .appendField(new Blockly.FieldNumber(150), "height");
+            .appendField("默认宽度")
+            .appendField(new Blockly.FieldNumber(200), "width")
+            .appendField("默认高度")
+            .appendField(new Blockly.FieldNumber(150), "height");
         // .appendField("类型")
         // .appendField(new Blockly.FieldDropdown([["功能控件", "true"], ["界面控件", "false"]]), "isGlobalWidget");
         // 可见控件必须非全局
@@ -43,5 +43,23 @@ Blockly.Blocks['vw_returnrender'] = {
         this.setColour('#00c79f');
         this.setTooltip('');
         this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['vw_setprop'] = {
+    init: function () {
+        this.appendValueInput("value")
+            .setCheck(null)
+            .appendField("设置 控件属性")
+            .appendField(new Blockly.FieldTextInput("prop"), "name")
+            .appendField("的值为");
+        this.appendDummyInput()
+            .appendField("并重渲染");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour("#e76cea");
+        this.setTooltip("");
+        this.setHelpUrl("");
     }
 };

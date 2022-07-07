@@ -401,3 +401,19 @@ Blockly.Blocks['ivw_config'] = {
         this.setHelpUrl("");
     }
 };
+
+Blockly.Blocks['ivw_setprop'] = {
+    init: function () {
+        this.appendValueInput("value")
+            .setCheck(null)
+            .appendField("设置 控件属性")
+            .appendField(new Blockly.FieldTextInput("prop"), "name")
+            .appendField("的值为");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour("#e76cea");
+        this.setTooltip("");
+        this.setHelpUrl("不可见控件使用");
+    }
+};
