@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.52(1093)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.53(1096)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'V1.47.52(1093)-beta' //版本号
+		var version = 'V1.47.53(1096)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -1864,6 +1864,28 @@ wwwwwww      wwwwww     wwwwwww
 		font-weight: bold;
 		-webkit-transition-duration: 0.1s;
 		transition-duration: 0.1s;
+	}
+
+	@media only screen and (max-width: 818px) {
+		.newsth-content,.aboutus-content{
+			width: 100vw;
+			height: 100%;
+			top:0;
+			animation: none !important;
+			-webkit-animation:none !important;
+			border-radius: 0;
+		}
+		.newsth-body{
+			height: calc(100vh - 78px);
+		}
+
+		.aboutus-body,.setting-body,.thanks-body{
+			height: calc(100vh - 154px);
+		}
+
+		.newsth-header,.aboutus-header{
+			border-radius: 0;
+		}
 	}
 </style>
 <!-- 右下导航栏 -->
