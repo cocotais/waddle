@@ -463,6 +463,10 @@ TIP
 		</block>
 		<block type="crypto_tostr">
 		</block>
+		<block type="crypto_aes_encrypt">
+		</block>
+		<block type="crypto_aes_decrypt">
+		</block>
 	</category>
 	<category name="vika" css-icon="waddle-vika" css-class="waddle-vika">
 		<block type="vika_import">

@@ -42,3 +42,16 @@ Blockly.JavaScript['crypto_sha256_s'] = function (block) {
     var code = `CryptoJS.SHA256(${value_str}).toString()`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['crypto_aes_encrypt'] = function(block) {
+    var value_text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_code = Blockly.JavaScript.valueToCode(block, 'CODE', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = `CryptoJS.AES.encrypt(${value_text}, ${value_code})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
+Blockly.JavaScript['crypto_aes_decrypt'] = function(block) {
+    var value_text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_code = Blockly.JavaScript.valueToCode(block, 'CODE', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = `CryptoJS.AES.decrypt(${value_text}, ${value_code})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
