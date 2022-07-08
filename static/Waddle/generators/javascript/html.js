@@ -712,7 +712,7 @@ Blockly.JavaScript["html_attribute"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "''";
   // TODO: Assemble JavaScript into code variable.
-  var code = `${key}=${value}\n`;
+  var code = `${key}={${value}}\n`;
   return html_escape(code);
 };
 
