@@ -348,35 +348,35 @@ Blockly.Blocks['ivw_propsinit'] = {
     }
 };
 
-Blockly.Blocks["ivw_option_icon"] = {
-    init: function () {
-        this.appendValueInput("ICON")
-            .setCheck("String")
-            .appendField("定义 积木内部名 为")
-            .appendField(new Blockly.FieldTextInput(""), "NAME")
-            .appendField("的积木的 图标 为");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    },
-};
+// Blockly.Blocks["ivw_option_icon"] = {
+//     init: function () {
+//         this.appendValueInput("ICON")
+//             .setCheck("String")
+//             .appendField("定义 积木内部名 为")
+//             .appendField(new Blockly.FieldTextInput(""), "NAME")
+//             .appendField("的积木的 图标 为");
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(230);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     },
+// };
 
-Blockly.Blocks["ivw_option_color"] = {
-    init: function () {
-        this.appendValueInput("ICON")
-            .setCheck("String")
-            .appendField("定义 积木内部名 为")
-            .appendField(new Blockly.FieldTextInput(""), "NAME")
-            .appendField("的积木的 颜色 为");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    },
-};
+// Blockly.Blocks["ivw_option_color"] = {
+//     init: function () {
+//         this.appendValueInput("ICON")
+//             .setCheck("String")
+//             .appendField("定义 积木内部名 为")
+//             .appendField(new Blockly.FieldTextInput(""), "NAME")
+//             .appendField("的积木的 颜色 为");
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(230);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     },
+// };
 
 Blockly.Blocks['ivw_config'] = {
     init: function () {

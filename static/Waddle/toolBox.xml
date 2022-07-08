@@ -643,10 +643,10 @@ TIP
 		</block>
 		<label text="积木设置">
 		</label>
-		<block type="ivw_option_icon">
+		<!-- <block type="ivw_option_icon">
 		</block>
 		<block type="ivw_option_color">
-		</block>
+		</block> -->
 		<block type="ivw_config">
 			<value name="color">
 				<shadow type="colour_picker">

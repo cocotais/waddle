@@ -169,58 +169,58 @@ Blockly.JavaScript['ivw_addDropdownParams'] = function (block) {
     return code;
 };
 
-Blockly.JavaScript['ivw_option_icon'] = function (block) {
-    var text_name = block.getFieldValue('NAME');
-    var value_icon = Blockly.JavaScript.valueToCode(block, 'ICON', Blockly.JavaScript.ORDER_ATOMIC);
+// Blockly.JavaScript['ivw_option_icon'] = function (block) {
+//     var text_name = block.getFieldValue('NAME');
+//     var value_icon = Blockly.JavaScript.valueToCode(block, 'ICON', Blockly.JavaScript.ORDER_ATOMIC);
 
-    var code = `
-types['methods'].forEach(element => {
-  if(element.key=="${text_name}"){
-	if(!element.blockOptions)element.blockOptions={};
-    element.blockOptions.icon=${value_icon};
-  }
-});
-types['events'].forEach(element => {
-  if(element.key=="${text_name}"){
-	if(!element.blockOptions)element.blockOptions={};
-    element.blockOptions.icon=${value_icon};
-  }
-});
-types['properties'].forEach(element => {
-  if(element.key=="${text_name}"){
-	if(!element.blockOptions)element.blockOptions={};
-	element.blockOptions.icon=${value_icon};
-  }
-});
-`;
-    return code;
-};
+//     var code = `
+// types['methods'].forEach(element => {
+//   if(element.key=="${text_name}"){
+// 	if(!element.blockOptions)element.blockOptions={};
+//     element.blockOptions.icon=${value_icon};
+//   }
+// });
+// types['events'].forEach(element => {
+//   if(element.key=="${text_name}"){
+// 	if(!element.blockOptions)element.blockOptions={};
+//     element.blockOptions.icon=${value_icon};
+//   }
+// });
+// types['properties'].forEach(element => {
+//   if(element.key=="${text_name}"){
+// 	if(!element.blockOptions)element.blockOptions={};
+// 	element.blockOptions.icon=${value_icon};
+//   }
+// });
+// `;
+//     return code;
+// };
 
-Blockly.JavaScript['ivw_option_color'] = function (block) {
-    var text_name = block.getFieldValue('NAME');
-    var value_icon = Blockly.JavaScript.valueToCode(block, 'ICON', Blockly.JavaScript.ORDER_ATOMIC);
-    var code = `
-types['methods'].forEach(element => {
-  if(element.key=="${text_name}"){
-	if(!element.blockOptions)element.blockOptions={};
-    element.blockOptions.color=${value_icon};
-  }
-});
-types['events'].forEach(element => {
-  if(element.key=="${text_name}"){
-	if(!element.blockOptions)element.blockOptions={};
-    element.blockOptions.color=${value_icon};
-  }
-});
-types['properties'].forEach(element => {
-  if(element.key=="${text_name}"){
-	if(!element.blockOptions)element.blockOptions={};
-	element.blockOptions.color=${value_icon};
-  }
-});
-`;
-    return code;
-};
+// Blockly.JavaScript['ivw_option_color'] = function (block) {
+//     var text_name = block.getFieldValue('NAME');
+//     var value_icon = Blockly.JavaScript.valueToCode(block, 'ICON', Blockly.JavaScript.ORDER_ATOMIC);
+//     var code = `
+// types['methods'].forEach(element => {
+//   if(element.key=="${text_name}"){
+// 	if(!element.blockOptions)element.blockOptions={};
+//     element.blockOptions.color=${value_icon};
+//   }
+// });
+// types['events'].forEach(element => {
+//   if(element.key=="${text_name}"){
+// 	if(!element.blockOptions)element.blockOptions={};
+//     element.blockOptions.color=${value_icon};
+//   }
+// });
+// types['properties'].forEach(element => {
+//   if(element.key=="${text_name}"){
+// 	if(!element.blockOptions)element.blockOptions={};
+// 	element.blockOptions.color=${value_icon};
+//   }
+// });
+// `;
+//     return code;
+// };
 
 Blockly.JavaScript['ivw_addDropdownItem'] = function (block) {
     var text_label = block.getFieldValue('label');
