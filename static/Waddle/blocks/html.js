@@ -1524,7 +1524,9 @@ Blockly.Blocks["html_tag"] = {
 
 Blockly.Blocks["html_attribute"] = {
   init: function () {
-    this.appendValueInput("KEY").setCheck("String").appendField("定义属性");
+    this.appendDummyInput()
+    .appendField("定义属性")
+    .appendField(new Blockly.FieldTextInput("href"), "KEY");
     this.appendValueInput("VALUE").setCheck(null).appendField("的值为");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

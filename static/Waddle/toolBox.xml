@@ -604,6 +604,10 @@ TIP
 		</block>
 		<block type="ivw_getproperty">
 		</block>
+		<block type="ivw_setprop">
+		</block>
+		<block type="vw_setprop">
+		</block>
 		<label text="方法定义">
 		</label>
 		<block type="ivw_addMethod">
@@ -641,11 +645,26 @@ TIP
 		</block>
 		<block type="ivw_getparam">
 		</block>
-		<lable text="积木设置">
-		</lable>
-		<block type="ivw_option_icon">
+		<label text="积木设置">
+		</label>
+		<!-- <block type="ivw_option_icon">
 		</block>
 		<block type="ivw_option_color">
+		</block> -->
+		<block type="ivw_config">
+			<value name="color">
+				<shadow type="colour_picker">
+					<field name="COLOUR">#ffbb55</field>
+				</shadow>
+			</value>
+		</block>
+		<label text="CoCo控制台">
+		</label>
+		<block type="widget_widgetlog">
+		</block>
+		<block type="widget_widgetwarn">
+		</block>
+		<block type="widget_widgeterror">
 		</block>
 	</category>
 	<category name="渲染" css-icon="waddle-render-Gradient" css-class="waddle-render">

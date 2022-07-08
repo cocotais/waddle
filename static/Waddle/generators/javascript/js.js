@@ -5,7 +5,7 @@ Blockly.JavaScript['js_run'] = function (block) {
 
 Blockly.JavaScript['js_run2'] = function (block) {
     var code = block.getFieldValue('CODE') || 'console.log(233)';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, 0]; // 最高优先级，避免增加无用括号
 };
 
 Blockly.JavaScript['js_run_join'] = function (block) {

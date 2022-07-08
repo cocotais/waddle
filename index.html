@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.47(1073)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.52(1093)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'V1.47.47(1073)-beta' //版本号
+		var version = 'V1.47.52(1093)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -882,6 +882,10 @@ wwwwwww      wwwwww     wwwwwww
 						<span class="sord">[可见控件]<br>超链接</span>
 					</div>
 					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[可见控件]<br>闪烁的按钮</span></div>
+					<div class="card" id="card"
+						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/html.waddle')">
+						<span class="sord">[可见控件]<br>HTML控件</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -903,8 +907,10 @@ wwwwwww      wwwwww     wwwwwww
 					<button class="setting-button" onclick="settingThird(3)">感谢</button>
 				</div>
 				<div class="setting-body">
-					<div style="margin-block-start: 1em; display: flex; flex-direction: row-reverse; align-items: center; width: 100%; justify-content: space-between;">
-						<input id="showorkeep" onclick="settings(this)" style="width: 20px;height: 20px;" type="checkbox">
+					<div
+						style="margin-block-start: 1em; display: flex; flex-direction: row-reverse; align-items: center; width: 100%; justify-content: space-between;">
+						<input id="showorkeep" onclick="settings(this)" style="width: 20px;height: 20px;"
+							type="checkbox">
 						<span>积木盒积木全显</span>
 					</div>
 					<!--div style="margin-block-start: 1em; display: flex; flex-direction: row-reverse; align-items: center; width: 100%; justify-content: space-between;">
@@ -913,10 +919,9 @@ wwwwwww      wwwwww     wwwwwww
 					</div-->
 				</div>
 				<div class="aboutus-body">
-					<img id="about-img" width="240" src="./static/img/logo/logo-purple-full.png.svg" style="margin: 30px 0;" alt="Waddle"
-						onclick="east_chk()"></img>
-					<p>让CoCo没有<span
-							onclick="count_oj()">难</span>做的控件</p>
+					<img id="about-img" width="240" src="./static/img/logo/logo-purple-full.png.svg"
+						style="margin: 30px 0;" alt="Waddle" onclick="east_chk()"></img>
+					<p>让CoCo没有<span onclick="count_oj()">难</span>做的控件</p>
 					</br>
 					<p>由所有Waddle的开源贡献者共同创造！</p>
 					</br>
@@ -993,6 +998,10 @@ wwwwwww      wwwwww     wwwwwww
 <!--可见控件积木(实验性)-->
 <script src="./static/Waddle/blocks/visibleWidget.js"></script>
 <script src="./static/Waddle/generators/javascript/visibleWidget.js"></script>
+
+<!--控件通用积木-->
+<script src="./static/Waddle/blocks/widget.js"></script>
+<script src="./static/Waddle/generators/javascript/widget.js"></script>
 
 <!--权限控件积木(实验性)-->
 <script src="./static/Waddle/blocks/permissions.js"></script>
@@ -1157,17 +1166,6 @@ wwwwwww      wwwwww     wwwwwww
 
 	// 打开可见控件预览框条件：周期判断或代码框更新
 
-	setInterval(function () {
-		// 周期判断
-		if (isVisibleWidget()) {
-			// 打开可见控件预览框
-			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
-			let code = Blockly.JavaScript.workspaceToCode(workspace);
-			code = code.replaceAll("\n", "");
-			let html_code = code.match(/return\((.+?)\)/g)[0].substring(8, code.match(/return\((.+?)\)/g)[0].length - 2).replaceAll('&#60', '<').replaceAll('&#62', '>')
-			document.getElementById("widgetPreview").innerHTML = html_code
-		}
-	}, 100)
 
 	function UpdateFunction(event) {
 		// 代码框更新
@@ -1176,20 +1174,20 @@ wwwwwww      wwwwww     wwwwwww
 		hljs.highlightBlock(document.getElementById("codeArea"))
 		code = code.replaceAll("\n", "")
 
-
 		if (document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')') {
 			document.documentElement.style.setProperty('--pic-icon', 'url(' + myicon + ')');
 		}
 
-
 		if (isVisibleWidget()) {
 			// 打开可见控件预览框
 			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
-			let html_code = code.match(/return\((.+?)\)/g)[0].substring(8, code.match(/return\((.+?)\)/g)[0].length - 2).replaceAll('&#60', '<').replaceAll('&#62', '>')
+			let code = yuzifu
+			code = code.replace(/\n/g, "");
+			let html_code = code.replace(/\x3C/g,"<")
 			document.getElementById("widgetPreview").innerHTML = html_code
 		}
 		else {
-			document.getElementById("widgetPreview").style.display = 'none';
+			document.getElementById("widgetPreview").style.display = 'none'
 		}
 	}
 	workspace.addChangeListener(UpdateFunction);
@@ -1242,6 +1240,12 @@ wwwwwww      wwwwww     wwwwwww
 			funcs.style.borderTopRightRadius = '0px';
 			funcs.style.borderBottomRightRadius = '0px';
 			funcs.style.right = '0px';
+		}
+		if (isVisibleWidget()) {
+			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
+		}
+		else{
+			document.getElementById("widgetPreview").style.display = 'none'
 		}
 	}
 
@@ -1579,7 +1583,7 @@ wwwwwww      wwwwww     wwwwwww
 		background-color: rgba(105, 85, 231, 0.7);
 		color: white;
 		font-size: 16px;
-		transition: background-color 0.2s,color 0.2s;
+		transition: background-color 0.2s, color 0.2s;
 	}
 
 	/* 代码框内容 */
@@ -1761,7 +1765,7 @@ wwwwwww      wwwwww     wwwwwww
 		font-weight: bold;
 	}
 
-	.setting-body{
+	.setting-body {
 		align-items: flex-start !important;
 	}
 
@@ -1987,8 +1991,8 @@ wwwwwww      wwwwww     wwwwwww
 	document.getElementsByClassName('blocklyToolboxDiv')[0].style.zIndex = 5;
 
 	window.settingss = getCookie('settingss')
-	if(!window.settingss){
-		document.getElementById("showorkeep").checked=true
+	if (!window.settingss) {
+		document.getElementById("showorkeep").checked = true
 	}
 
 	window.onbeforeunload = function (event) {
