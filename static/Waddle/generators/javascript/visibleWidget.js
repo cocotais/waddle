@@ -74,6 +74,7 @@ class Widget extends VisibleWidget {
   }
 }
 `;
+  
     return code;
 };
 
@@ -82,6 +83,7 @@ Blockly.JavaScript['vw_returnrender'] = function (block) {
     var code = `return(
   ${statements_html}
 );\n`;
+window.yuzifu=statements_html;
     return code;
 };
 
