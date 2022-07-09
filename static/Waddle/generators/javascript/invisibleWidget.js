@@ -84,6 +84,35 @@ Blockly.JavaScript['ivw_addProperty'] = function (block) {
         valueType = "'" + text_valueType + "'";
     }
 
+    if (value_defaultValue == '') {
+        switch (text_valueType) {
+            case 'multilineString':
+                value_defaultValue = '""';
+                break;
+            case 'string':
+                value_defaultValue = '""';
+                break;
+            case 'number':
+                value_defaultValue = 0;
+                break;
+            case 'boolean':
+                value_defaultValue = true;
+                break;
+            case 'color':
+                value_defaultValue = '"#6e4ff4"';
+                break;
+            case 'object':
+                value_defaultValue = '""';
+                break;
+            case 'object':
+                value_defaultValue = '""';
+                break;
+            default:
+                value_defaultValue = '""';
+                break;
+        }
+    }
+
     var code = `
 types['properties'].push({
     key: '${text_key}',
