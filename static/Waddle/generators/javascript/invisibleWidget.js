@@ -345,7 +345,7 @@ class Widget extends InvisibleWidget {
 
 Blockly.JavaScript['ivw_propsinit'] = function (block) {
     var text_props_name = block.getFieldValue('props_name');
-    var code = `this.${text_props_name}=props.${text_props_name}`;
+    var code = `this.${text_props_name}=props.${text_props_name};\n`;
     return code;
 };
 
