@@ -1194,15 +1194,16 @@ wwwwwww      wwwwww     wwwwwww
 		if (isVisibleWidget()) {
 			// 打开可见控件预览框
 			widgetPreviewDom.style.display = document.getElementById("myModal").style.display;
-			exports = {types:null,widget:null};
-			Function(code)(VisibleWidget=VisibleWidget,exports=exports);
+
+			exports = {types:null,widget:null};//空壳，用来防报错
+			Function(code)(VisibleWidget=VisibleWidget,exports=exports);//加载你做出的控件
 			let properties = {};
 			exports.types.properties.forEach(element => {
 				properties[element.key] = element.defaultValue;
-			});
-			let previewWidget = new exports.widget(properties);
+			});//获取每个属性的初始值，下一步创建实例时传入
+			let previewWidget = new exports.widget(properties);//创建一个控件实例
 			ReactDOM.render(
-				previewWidget.render(),
+				previewWidget.render(),//渲染
 				document.getElementById('widgetPreview')
 			);
 		}
