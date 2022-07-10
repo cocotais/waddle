@@ -82,6 +82,8 @@ Blockly.JavaScript['vw_returnrender'] = function (block) {
   var statements_html = Blockly.JavaScript.statementToCode(block, 'HTML');
   if (statements_html.length > 0) {
     statements_html = statements_html.substring(0, statements_html.length - 2); // 去除最后一个多余的逗号
+  } else if (statements_html.length == 0) {
+    statements_html = "React.createElement('p',{style:{color:'red'}},'Waddle提醒您，你还没有设置渲染积木')";
   }
   var code = `\
 return(
