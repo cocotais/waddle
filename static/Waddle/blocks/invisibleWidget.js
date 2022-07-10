@@ -115,7 +115,7 @@ Blockly.Blocks['ivw_addProperty'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#e76cea');
-        this.setTooltip('定义一个属性积木\n变量名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！');
+        this.setTooltip('定义一个属性积木\n变量名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！，需要配合初始化积木使用，初始化积木放在构造器里');
         this.setHelpUrl(HELP_URL);
     }
 };
@@ -339,11 +339,11 @@ Blockly.Blocks['ivw_defWidget'] = {
 
 Blockly.Blocks['ivw_propsinit'] = {
     init: function () {
-        this.appendDummyInput().appendField('传入属性').appendField('从').appendField(new Blockly.FieldTextInput('prop'), 'props_name').appendField('到').appendField(new Blockly.FieldTextInput('default'), 'this_name');
+        this.appendDummyInput().appendField('初始化属性').appendField(new Blockly.FieldTextInput('prop'), 'props_name');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#5574F8');
-        this.setTooltip('传入属性(this.xxx=props.xxx)');
+        this.setTooltip('根据定义属性积木时的值初始化控件属性，放在构造器里');
         this.setHelpUrl(HELP_URL);
     }
 };
