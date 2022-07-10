@@ -2205,7 +2205,7 @@ Blockly.Blocks["html_video"] = {
 
 Blockly.Blocks["html_input"] = {
   init: function () {
-    this.appendStatementInput("CON").setCheck(null).appendField("新建输入");
+    this.appendDummyInput("CON").appendField("新建输入");
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

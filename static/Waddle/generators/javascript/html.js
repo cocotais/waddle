@@ -944,13 +944,10 @@ Blockly.JavaScript["html_video"] = function (block) {
 };
 
 Blockly.JavaScript["html_input"] = function (block) {
-  var statements_con = (
-    Blockly.JavaScript.statementToCode(block, "CON") || ""
-  ).trim();
   var statements_pro = html_attribute_to_str(
     Blockly.JavaScript.statementToCode(block, "PRO") || ""
   );
-  var code = `React.createElement("input", {${statements_pro}}, [${statements_con}]),\n`;
+  var code = `React.createElement("input", {${statements_pro}}, null),\n`;
   return html_escape(code);
 };
 
