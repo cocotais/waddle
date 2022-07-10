@@ -1232,7 +1232,7 @@ Blockly.JavaScript["html_html"] = function (block) {
     "NAME",
     Blockly.JavaScript.ORDER_ATOMIC
   ); // TODO: Assemble JavaScript into code variable.
-  var code = `React.createElement("div", {dangerouslySetInnerHTML: {__html: ${value_name}}}, []),\n`;
+  var code = `React.createElement("div", {dangerouslySetInnerHTML: {__html: ${value_name}}}, null),\n`;
 
   return code;
 };
