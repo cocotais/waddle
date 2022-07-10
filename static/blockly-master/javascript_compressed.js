@@ -767,7 +767,7 @@
 		var b = $.Blockly.JavaScript.valueToCode(a, 'RED', $.Blockly.JavaScript.ORDER_NONE) || 0,
 			c = $.Blockly.JavaScript.valueToCode(a, 'GREEN', $.Blockly.JavaScript.ORDER_NONE) || 0;
 		a = $.Blockly.JavaScript.valueToCode(a, 'BLUE', $.Blockly.JavaScript.ORDER_NONE) || 0;
-		return [$.Blockly.JavaScript.provideFunction_('colourRgb', ['function ' + $.Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + '(r, g, b) {', '  r = Math.max(Math.min(Number(r), 100), 0) * 2.55;', '  g = Math.max(Math.min(Number(g), 100), 0) * 2.55;', '  b = Math.max(Math.min(Number(b), 100), 0) * 2.55;', "  r = ('0' + (Math.round(r) || 0).toString(16)).slice(-2);", "  g = ('0' + (Math.round(g) || 0).toString(16)).slice(-2);", "  b = ('0' + (Math.round(b) || 0).toString(16)).slice(-2);", "  return '#' + r + g + b;", '}']) + '(' + b + ', ' + c + ', ' + a + ')', $.Blockly.JavaScript.ORDER_FUNCTION_CALL];
+		return [$.Blockly.JavaScript.provideFunction_('colourRgb', ['function ' + $.Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + '(r, g, b) {', "  r = ('0' + (Math.round(r) || 0).toString(16)).slice(-2);", "  g = ('0' + (Math.round(g) || 0).toString(16)).slice(-2);", "  b = ('0' + (Math.round(b) || 0).toString(16)).slice(-2);", "  return '#' + r + g + b;", '}']) + '(' + b + ', ' + c + ', ' + a + ')', $.Blockly.JavaScript.ORDER_FUNCTION_CALL];
 	};
 	$.Blockly.JavaScript.colour_blend = function (a) {
 		var b = $.Blockly.JavaScript.valueToCode(a, 'COLOUR1', $.Blockly.JavaScript.ORDER_NONE) || "'#000000'",
