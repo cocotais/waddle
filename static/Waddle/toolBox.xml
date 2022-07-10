@@ -670,8 +670,9 @@ TIP
 	<category name="渲染" css-icon="waddle-render-Gradient" css-class="waddle-render">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
 		</button>
-		<block type="html_code">
-		</block>
+		<!-- <block type="html_code">
+		</block> -->
+		<!-- 暂时弃用 -->
 		<block type="html_tag">
 		</block>
 		<block type="html_html">
