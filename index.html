@@ -1052,6 +1052,10 @@ wwwwwww      wwwwww     wwwwwww
 <!--sweetalert-->
 <script src="./static/js/sweetalert.min.js"></script>
 
+<!-- 导入React，用于可见控件预览 -->
+<script src="./static/js/react.development.js"></script>
+<script src="./static/js/react-dom.development.js"></script>
+
 <!--彩蛋定义-->
 <script>
 	function east_chk() {
@@ -1166,28 +1170,44 @@ wwwwwww      wwwwww     wwwwwww
 
 	// 打开可见控件预览框条件：周期判断或代码框更新
 
+	class VisibleWidget{
+		constructor(){};
+		setProps(){}
+		widgetLog(){}
+		widgetWarn(){}
+		widgetError(){}
+	} //空壳，用来防报错
 
 	function UpdateFunction(event) {
 		// 代码框更新
 		var code = Blockly.JavaScript.workspaceToCode(workspace);
 		document.getElementById("codeArea").innerHTML = htmlEscape(code);
 		hljs.highlightBlock(document.getElementById("codeArea"))
-		code = code.replaceAll("\n", "")
+		// code = code.replaceAll("\n", "") 似乎未被使用，所以注释了
 
 		if (document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')') {
 			document.documentElement.style.setProperty('--pic-icon', 'url(' + myicon + ')');
 		}
 
+		let widgetPreviewDom = document.getElementById("widgetPreview");
+
 		if (isVisibleWidget()) {
 			// 打开可见控件预览框
-			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
-			let code = yuzifu
-			code = code.replace(/\n/g, "");
-			let html_code = code.replace(/\x3C/g,"<")
-			document.getElementById("widgetPreview").innerHTML = html_code
+			widgetPreviewDom.style.display = document.getElementById("myModal").style.display;
+			exports = {types:null,widget:null};
+			Function(code)(VisibleWidget=VisibleWidget,exports=exports);
+			let properties = {};
+			exports.types.properties.forEach(element => {
+				properties[element.key] = element.defaultValue;
+			});
+			let previewWidget = new exports.widget(properties);
+			ReactDOM.render(
+				previewWidget.render(),
+				document.getElementById('widgetPreview')
+			);
 		}
 		else {
-			document.getElementById("widgetPreview").style.display = 'none'
+			widgetPreviewDom.style.display = 'none'
 		}
 	}
 	workspace.addChangeListener(UpdateFunction);
