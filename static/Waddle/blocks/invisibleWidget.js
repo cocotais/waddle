@@ -204,6 +204,30 @@ Blockly.Blocks['ivw_addParams'] = {
     }
 };
 
+Blockly.Blocks['ivw_addEventParams'] = {
+    init: function () {
+        this.appendDummyInput().appendField('添加事件参数').appendField('参数名').appendField(new Blockly.FieldTextInput('参数名'), 'label').appendField('参数内部名').appendField(new Blockly.FieldTextInput('paramName'), 'key');
+        this.appendDummyInput()
+            .appendField('输出值类型')
+            .appendField(
+                new Blockly.FieldDropdown([
+                    ['字符串', "'string'"],
+                    ['数字', "'number'"],
+                    ['布尔', "'boolean'"],
+                    ['颜色', "'color'"],
+                    ['对象', "'object'"],
+                    ['任何类型', "['string','number','boolean','color','array','object']"]
+                ]),
+                'valueType'
+            );
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour('#3CA9FF');
+        this.setTooltip('定义控件用于事件的参数');
+        this.setHelpUrl(HELP_URL);
+    }
+};
+
 Blockly.Blocks['ivw_addDropdownParams'] = {
     init: function () {
         this.appendDummyInput().appendField('添加下拉参数').appendField('参数名').appendField(new Blockly.FieldTextInput('参数1'), 'label').appendField('参数内部名').appendField(new Blockly.FieldTextInput('paramName'), 'key');

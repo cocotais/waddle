@@ -635,6 +635,8 @@ TIP
 		</label>
 		<block type="ivw_addParams">
 		</block>
+		<block type="ivw_addEventParams">
+		</block>
 		<block type="ivw_addDropdownParams">
 			<value name="dropdownItems">
 				<block type="ivw_addDropdownItem">
