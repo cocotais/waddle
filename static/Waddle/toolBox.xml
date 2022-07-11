@@ -709,6 +709,8 @@ TIP
 		</block>
 		<block type="html_attribute">
 		</block>
+		<block type="html_attribute_event">
+		</block>
 		<block type="html_attribute_href">
 		</block>
 		<block type="html_attribute_src">

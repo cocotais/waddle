@@ -1537,6 +1537,22 @@ Blockly.Blocks["html_attribute"] = {
   },
 };
 
+Blockly.Blocks["html_attribute_event"] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField("定义事件属性 HTML事件名")
+        .appendField(new Blockly.FieldTextInput("onChange"), "eventName")
+        .appendField("触发控件事件 事件内部名")
+        .appendField(new Blockly.FieldTextInput("onChange"), "widgetEventName");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setInputsInline(true);
+      this.setColour("#00569c");
+      this.setTooltip("");
+      this.setHelpUrl("HTML事件名请用驼峰命名法，事件内部名就是你事件积木定义的那个");
+    },
+  };
+
 Blockly.Blocks["html_attribute_id"] = {
   init: function () {
     this.appendValueInput("URL")

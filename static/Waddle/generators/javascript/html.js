@@ -717,6 +717,13 @@ Blockly.JavaScript["html_attribute"] = function (block) {
   return html_escape(code);
 };
 
+Blockly.JavaScript["html_attribute_event"] = function (block) {
+  var eventName = block.getFieldValue('eventName');
+  var widgetEventName = block.getFieldValue('widgetEventName');
+  var code = `${eventName}: this.${widgetEventName},\n`;
+  return html_escape(code);
+};
+
 Blockly.JavaScript["html_attribute_href"] = function (block) {
   var value_name =
     Blockly.JavaScript.valueToCode(
