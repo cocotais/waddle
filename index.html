@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.52(1093)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.53(1118)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'V1.47.52(1093)-beta' //版本号
+		var version = 'V1.47.53(1118)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -45,8 +45,18 @@ wwwwwww      wwwwww     wwwwwww
 				navigator.serviceWorker.register('./sw.js')
 			});
 		}
+
+		var logo = document.createElement('link');
+		logo.setAttribute("type", 'image/x-icon')
+		logo.setAttribute("rel", 'shortcut icon')
+		if (version.includes("beta")) {
+			logo.setAttribute("href", './static/img/logo/logo-beta.svg')
+		}
+		else {
+			logo.setAttribute("href", './static/img/logo/logo-purple.svg')
+		}
+		document.head.appendChild(logo);
 	</script>
-	<link rel="shortcut icon" href="./static/img/logo/logo-purple.svg" type="image/x-icon">
 	<link rel="stylesheet" href="./static/css/theme.css">
 </head>
 <script>
@@ -1170,13 +1180,13 @@ wwwwwww      wwwwww     wwwwwww
 
 	// 打开可见控件预览框条件：周期判断或代码框更新
 
-	class VisibleWidget{
-		constructor(){};
-		setProps(){}
-		widgetLog(){}
-		widgetWarn(){}
-		widgetError(){}
-		emit(){}
+	class VisibleWidget {
+		constructor() { };
+		setProps() { }
+		widgetLog() { }
+		widgetWarn() { }
+		widgetError() { }
+		emit() { }
 	} //空壳，用来防报错
 
 	function UpdateFunction(event) {
@@ -1196,8 +1206,8 @@ wwwwwww      wwwwww     wwwwwww
 			// 打开可见控件预览框
 			widgetPreviewDom.style.display = document.getElementById("myModal").style.display;
 
-			exports = {types:null,widget:null};//空壳，用来防报错
-			Function(code)(VisibleWidget=VisibleWidget,exports=exports);//加载你做出的控件
+			exports = { types: null, widget: null };//空壳，用来防报错
+			Function(code)(VisibleWidget = VisibleWidget, exports = exports);//加载你做出的控件
 			let properties = {};
 			exports.types.properties.forEach(element => {
 				properties[element.key] = element.defaultValue;
@@ -1266,7 +1276,7 @@ wwwwwww      wwwwww     wwwwwww
 		if (isVisibleWidget()) {
 			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
 		}
-		else{
+		else {
 			document.getElementById("widgetPreview").style.display = 'none'
 		}
 	}
@@ -2005,6 +2015,12 @@ wwwwwww      wwwwww     wwwwwww
 	document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 	document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
 	document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
+	if (version.includes("beta")) {
+		document.getElementById("logo1").src = "./static/img/logo/logo-beta.svg"
+	}
+	else{
+		document.getElementById("logo1").src = "./static/img/logo/logo-purple.svg"
+	}
 	document.getElementById("delete-div").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
 	document.getElementById("delete-svg-up").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 35) / 2 + 'px';
 	document.getElementById("delete-svg-down").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 30) / 2 + 'px';
