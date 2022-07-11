@@ -654,13 +654,14 @@ Blockly.JavaScript['html_noa_tag_wbr'] = function(block){
 //trim()有助于身体健康
 
 html_attribute_to_str = (code) => {
-  //属性格式一下
-  let list = code.split("\n");
-  let att = "";
-  list.forEach((element) => {
-    att = att + element.trim() + " ";
-  });
-  return att.trim();
+  // //属性格式一下
+  // let list = code.split("\n");
+  // let att = "";
+  // list.forEach((element) => {
+  //   att = att + element.trim() + " ";
+  // });
+  // return att.trim();
+  return code;
 };
 html_escape_one = (char) => {
   //HTML转义一下
