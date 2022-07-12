@@ -23,14 +23,14 @@ Blockly.Blocks['vw_defTypes'] = {
 Blockly.Blocks['vw_defWidget'] = {
     init: function () {
         this.appendDummyInput().appendField('可见控件积木代码');
-        this.appendDummyInput().appendField('构造器');
+        this.appendDummyInput().appendField('控件初始化');
         this.appendStatementInput('constructor').setCheck(null);
         this.appendDummyInput().appendField('渲染方法');
         this.appendStatementInput('render').setCheck(null);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#00c79f');
-        this.setTooltip('定义可见控件实体，构造器里放初始化属性（懂js的随意）');
+        this.setTooltip('定义可见控件实体，控件初始化里放初始化属性（懂js的随意）');
         this.setHelpUrl(HELP_URL);
     }
 };

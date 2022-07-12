@@ -6,7 +6,7 @@ Blockly.Blocks['widget_widgetlog'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(75);
-        this.setTooltip("需要在构造器或者方法函数内使用！！！");
+        this.setTooltip("需要在控件初始化或者方法函数内使用！！！");
         this.setHelpUrl("");
     }
 };
@@ -19,7 +19,7 @@ Blockly.Blocks['widget_widgetwarn'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(75);
-        this.setTooltip("需要在构造器或者方法函数内使用！！！");
+        this.setTooltip("需要在控件初始化或者方法函数内使用！！！");
         this.setHelpUrl("");
     }
 };
@@ -32,7 +32,7 @@ Blockly.Blocks['widget_widgeterror'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(75);
-        this.setTooltip("需要在构造器或者方法函数内使用！！！");
+        this.setTooltip("需要在控件初始化或者方法函数内使用！！！");
         this.setHelpUrl("");
     }
 };

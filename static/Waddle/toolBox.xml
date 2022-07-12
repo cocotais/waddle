@@ -608,6 +608,8 @@ TIP
 		</block>
 		<block type="vw_setprop">
 		</block>
+		<block type="ivw_propsinit">
+		</block>
 		<label text="方法定义">
 		</label>
 		<block type="ivw_addMethod">

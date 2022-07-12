@@ -115,7 +115,7 @@ Blockly.Blocks['ivw_addProperty'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#e76cea');
-        this.setTooltip('定义一个属性积木\n变量名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！，需要配合初始化积木使用，初始化积木放在构造器里');
+        this.setTooltip('定义一个属性积木\n变量名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！，需要配合初始化积木使用，初始化积木放在控件初始化里');
         this.setHelpUrl(HELP_URL);
     }
 };
@@ -351,23 +351,23 @@ Blockly.Blocks['ivw_export'] = {
 Blockly.Blocks['ivw_defWidget'] = {
     init: function () {
         this.appendDummyInput().appendField('不可见控件积木代码');
-        this.appendDummyInput().appendField('构造器');
+        this.appendDummyInput().appendField('控件初始化');
         this.appendStatementInput('constructor').setCheck(null);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#8647F3');
-        this.setTooltip('定义不可见控件实体，构造器里放初始化属性（懂js的随意）');
+        this.setTooltip('定义不可见控件实体，控件初始化里放初始化属性（懂js的随意）');
         this.setHelpUrl(HELP_URL);
     }
 };
 
 Blockly.Blocks['ivw_propsinit'] = {
     init: function () {
-        this.appendDummyInput().appendField('初始化属性').appendField(new Blockly.FieldTextInput('prop'), 'props_name');
+        this.appendDummyInput().appendField('初始化控件属性').appendField(new Blockly.FieldTextInput('prop'), 'props_name');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour('#5574F8');
-        this.setTooltip('根据定义属性积木时的值初始化控件属性，放在构造器里');
+        this.setColour('#e76cea');
+        this.setTooltip('根据定义属性积木时的值初始化控件属性，放在控件初始化里');
         this.setHelpUrl(HELP_URL);
     }
 };
