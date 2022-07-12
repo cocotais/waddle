@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.53(1118)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.54(1132)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'V1.47.53(1118)-beta' //版本号
+		var version = 'V1.47.54(1132)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -923,10 +923,10 @@ wwwwwww      wwwwww     wwwwwww
 							type="checkbox">
 						<span>积木盒积木全显</span>
 					</div>
-					<!--div style="margin-block-start: 1em; display: flex; flex-direction: row-reverse; align-items: center; width: 100%; justify-content: space-between;">
-						<input id="alwaykeep" style="width: 20px;height: 20px;" type="checkbox">
+					<div style="margin-block-start: 1em; display: flex; flex-direction: row-reverse; align-items: center; width: 100%; justify-content: space-between;">
+						<input id="alwaykeep" onclick="holdToolboxs(this)" style="width: 20px;height: 20px;" type="checkbox">
 						<span>积木盒常驻</span>
-					</div-->
+					</div>
 				</div>
 				<div class="aboutus-body">
 					<img id="about-img" width="240" src="./static/img/logo/logo-purple-full.png.svg"
@@ -2031,6 +2031,11 @@ wwwwwww      wwwwww     wwwwwww
 	window.settingss = getCookie('settingss')
 	if (!window.settingss) {
 		document.getElementById("showorkeep").checked = true
+	}
+
+	window.holdToolbox = getCookie('holdToolbox')
+	if (window.holdToolbox) {
+		document.getElementById("alwaykeep").checked = true
 	}
 
 	window.onbeforeunload = function (event) {

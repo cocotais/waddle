@@ -192,6 +192,16 @@ function settings(check) {
   document.cookie = "settingss=" + window.settingss;
 }
 
+function holdToolboxs(check) {
+  if(check.checked){
+    window.holdToolbox = 'true';
+  }
+  else{
+    window.holdToolbox = '';
+  }
+  document.cookie = "holdToolbox=" + window.holdToolbox;
+}
+
 function settingThird(number) {
   a = document.getElementsByClassName("setting-body")[0]
   b = document.getElementsByClassName("aboutus-body")[0]
