@@ -720,7 +720,7 @@ Blockly.JavaScript["html_attribute"] = function (block) {
 Blockly.JavaScript["html_attribute_event"] = function (block) {
   var eventName = block.getFieldValue('eventName');
   var widgetEventName = block.getFieldValue('widgetEventName');
-  var code = `${eventName}: this.${widgetEventName},\n`;
+  var code = `${eventName}: this.${widgetEventName}.bind(this),\n`;
   return html_escape(code);
 };
 
