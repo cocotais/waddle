@@ -276,6 +276,7 @@ Blockly.JavaScript['ivw_addEvent'] = function (block) {
     var text_key = block.getFieldValue('key');
     var text_label = block.getFieldValue('label');
     var statements_params = Blockly.JavaScript.statementToCode(block, 'params');
+    var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
     var value_config = Blockly.JavaScript.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
     var code = `
 types['events'].push({
@@ -284,6 +285,9 @@ types['events'].push({
     params: [${statements_params}],
     ${value_config}
 })
+Widget.prototype.${text_key} = function (event) {
+    ${statements_code}
+}
 `;
     return code;
 };

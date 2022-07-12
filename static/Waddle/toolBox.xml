@@ -623,17 +623,12 @@ TIP
 		<label text="事件定义">
 		</label>
 		<block type="ivw_addEvent">
+			<statement name="code">
+				<block type="ivw_emit">
+				</block>
+			</statement>
 		</block>
 		<block type="ivw_emit">
-			<value name="event">
-				<block type="text">
-					<field name="TEXT">事件名</field>
-				</block>
-			</value>
-			<value name="parameters">
-				<block type="ivw_emitParameter">
-				</block>
-			</value>
 		</block>
 		<block type="ivw_emitParameter">
 		</block>
