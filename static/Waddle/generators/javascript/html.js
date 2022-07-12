@@ -1090,7 +1090,7 @@ Blockly.JavaScript["html_other_px"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}px"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_cm"] = function (block) {
@@ -1101,7 +1101,7 @@ Blockly.JavaScript["html_other_cm"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}cm"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_mm"] = function (block) {
@@ -1112,7 +1112,7 @@ Blockly.JavaScript["html_other_mm"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}mm"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_in"] = function (block) {
@@ -1123,7 +1123,7 @@ Blockly.JavaScript["html_other_in"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}in"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_pt"] = function (block) {
@@ -1134,7 +1134,7 @@ Blockly.JavaScript["html_other_pt"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}pt"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_pc"] = function (block) {
@@ -1145,7 +1145,7 @@ Blockly.JavaScript["html_other_pc"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}pc"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_%"] = function (block) {
@@ -1156,7 +1156,7 @@ Blockly.JavaScript["html_other_%"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}%"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_em"] = function (block) {
@@ -1167,13 +1167,13 @@ Blockly.JavaScript["html_other_em"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}em"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_color"] = function (block) {
   var val = block.getFieldValue("VAL");
   var code = `"#${val}"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_code"] = function (block) {
