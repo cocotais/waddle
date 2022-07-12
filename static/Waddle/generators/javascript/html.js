@@ -929,24 +929,18 @@ Blockly.JavaScript["html_button"] = function (block) {
 };
 
 Blockly.JavaScript["html_img"] = function (block) {
-  var statements_con = (
-    Blockly.JavaScript.statementToCode(block, "CON") || ""
-  ).trim();
   var statements_pro = html_attribute_to_str(
     Blockly.JavaScript.statementToCode(block, "PRO") || ""
   );
-  var code = `React.createElement("img", {${statements_pro}}, [${statements_con}]),\n`;
+  var code = `React.createElement("img", {${statements_pro}}, null),\n`;
   return html_escape(code);
 };
 
 Blockly.JavaScript["html_video"] = function (block) {
-  var statements_con = (
-    Blockly.JavaScript.statementToCode(block, "CON") || ""
-  ).trim();
   var statements_pro = html_attribute_to_str(
     Blockly.JavaScript.statementToCode(block, "PRO") || ""
   );
-  var code = `React.createElement("video", {${statements_pro}}, [${statements_con}]),\n`;
+  var code = `React.createElement("video", {${statements_pro}}, null),\n`;
 
   return html_escape(code);
 };
@@ -960,13 +954,11 @@ Blockly.JavaScript["html_input"] = function (block) {
 };
 
 Blockly.JavaScript["html_iframe"] = function (block) {
-  var statements_con = (
-    Blockly.JavaScript.statementToCode(block, "CON") || ""
-  ).trim();
+
   var statements_pro = html_attribute_to_str(
     Blockly.JavaScript.statementToCode(block, "PRO") || ""
   );
-  var code = `React.createElement("iframe", {${statements_pro}}, [${statements_con}]),\n`;
+  var code = `React.createElement("iframe", {${statements_pro}}, null),\n`;
 
   return html_escape(code);
 };
