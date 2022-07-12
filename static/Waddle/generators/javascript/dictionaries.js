@@ -12,7 +12,8 @@ Blockly.JavaScript['dict_set'] = function (block) {
 
 Blockly.JavaScript['dict_get'] = function (block) {
     var key = Blockly.JavaScript.valueToCode(block, 'key', Blockly.JavaScript.ORDER_ATOMIC);
-    return 'dict.get(' + key + ')';
+    var dict = Blockly.JavaScript.valueToCode(block, 'dict', Blockly.JavaScript.ORDER_ATOMIC);
+    return dict + '.get(' + key + ')';
 };
 
 Blockly.JavaScript['dict_del'] = function (block) {
