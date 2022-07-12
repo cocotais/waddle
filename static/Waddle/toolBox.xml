@@ -223,6 +223,8 @@ TIP
 		</block>
 		<block type="js_json_access">
 		</block>
+		<label text="在使用以下积木前，请先在程序开头放一个‘获取四个权限’">
+		</label>
 		<block type="js_window_screen">
 		</block>
 		<block type="js_window_avail_screen">
@@ -514,6 +516,8 @@ TIP
 		</block>
 	</category>
 	<category name="权限获取" css-icon="waddle-permission" css-class="waddle-permission">
+		<block type="permissions_getall">
+		</block>
 		<block type="permissions_get">
 		</block>
 		<block type="permissions_window">
