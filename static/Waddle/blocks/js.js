@@ -12,7 +12,7 @@ Blockly.Blocks['js_run'] = {
 
 Blockly.Blocks['js_run2'] = {
     init: function () {
-        this.appendDummyInput().appendField('代码').appendField(new Blockly.FieldTextInput('console.log(233);'), 'CODE');
+        this.appendDummyInput().appendField('代码').appendField(new Blockly.FieldTextInput('console.log(233)'), 'CODE');
         this.setInputsInline(false);
         this.setOutput(true, 'Number');
         this.setColour(BlockColors["function"]);
