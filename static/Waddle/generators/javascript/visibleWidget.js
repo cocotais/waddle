@@ -67,6 +67,8 @@ Blockly.JavaScript['vw_defWidget'] = function (block) {
 class Widget extends VisibleWidget {
   constructor(props) {
     super(props);
+    this.__width = props.__width;
+    this.__height = props.__height;
   ${statements_constructor}
   }
   render() {

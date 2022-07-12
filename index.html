@@ -1213,6 +1213,9 @@ wwwwwww      wwwwww     wwwwwww
 				properties[element.key] = element.defaultValue;
 			});//获取每个属性的初始值，下一步创建实例时传入
 			let previewWidget = new exports.widget(properties);//创建一个控件实例
+			// 设置预览框大小为控件默认大小
+			widgetPreviewDom.style.width = previewWidget.__width + 'px';
+			widgetPreviewDom.style.height = previewWidget.__height + 'px';
 			ReactDOM.render(
 				previewWidget.render(),//渲染
 				document.getElementById('widgetPreview')
