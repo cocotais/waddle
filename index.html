@@ -35,7 +35,7 @@ wwwwwww      wwwwww     wwwwwww
      w  wwwwwww  w wwwwwww
 		`, "font-weight:bold;color:#6d50f0")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
-		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造！\n\n特别鸣谢：https://gitee.com/coco-central/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
+		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造!\n\n特别鸣谢：https://gitee.com/coco-central/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
 		console.log("%c\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-central/coco-waddle/\n建议或特性反馈链接：https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec", "font-size:14px;color:rgb(42,125,255)")
 		console.log("%c" + version + " ©️ 2022 CoCo Central, All rights reserved.", "color:red;")
 	</script>
@@ -164,23 +164,26 @@ wwwwwww      wwwwww     wwwwwww
 		NProgress.start();
 		document.body.style.overflow = 'hidden' //禁止页面滑动
 		var tipList = [
-			"让CoCo没有难做的控件",
-			"你知道吗？在Waddle中有N个彩蛋！",
-			"在关于页面点击2次Waddle图标有惊喜！",
-			"试一试夜间模式！",
-			"工具是给开发者调试的利器！",
-			"不会操作？看看模板！",
-			"Waddle由CoCo编辑器中控台制作！",
+			"让CoCo没有 难 做的控件",//彩蛋提示
+			"你知道吗？在Waddle中有N个彩蛋!",
+			"在关于页面点击2次Waddle图标有惊喜!",
+			"试一试夜间模式!",
+			"工具是给开发者调试的利器!",
+			"不会操作？看看模板!",
+			"Waddle由CoCo中控台制作!",
 			"试试在f12中搜搜所有贡献者的名字？",
 			"听说Waddle有VSCode主题了？",
 			"咕咕咕~",
-			"不会用怎么办？首先不要慌张，打开语雀看看。",
-			"我们抄的隔街Phigros的Tips～",
-			"Waddle YYDS！",
-			"祝编程猫发展的越来越好！",
-			"Waddle编辑器上gitee项目推荐了！",
+			"据说Waddle接入拼夕夕了?",//指Waddle的抽奖彩蛋
+			"不会用怎么办？首先不要慌张，打开文档看看。",
+			"我们抄的隔街Phigros的Tips~",
+			"Waddle YYDS!",
+			"祝编程猫发展的越来越好!",
+			"Waddle上gitee项目推荐了!",
 			"没啥能看的？",
-			"Waddle被Gitee官方写文章了!!!"
+			"Waddle被Gitee官方写文章了!!!",
+			"难道Waddle有OJ题库了？",//Waddle的OJ彩蛋
+			"Wadddddddddddle!"
 		];
 		document.getElementById("loading-text").innerText = tipList[Math.floor(Math.random() * tipList.length)];
 
@@ -900,7 +903,7 @@ wwwwwww      wwwwww     wwwwwww
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">让CoCo没有<span
 							onclick="count_oj()">难</span>做的控件</p>
 					</br>
-					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由所有Waddle的开源贡献者共同创造！</p>
+					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由所有Waddle的开源贡献者共同创造!</p>
 					<p style="color: #ffffff;font-size: 15px;" onclick="count()">帮助链接：
 						<a href="https://docs.coco-central.cn/waddle/" style="color: #ffffff;font-size: 15px;"
 							target="_blank" rel="noopener">https://docs.coco-central.cn/waddle/</a>
@@ -1027,9 +1030,9 @@ wwwwwww      wwwwww     wwwwwww
 <script>
 	function east_chk() {
 		if (document.cookie.includes("easter")) {
-			swal("彩蛋", "恭喜，你貌似触发了彩蛋！", "success")
+			swal("彩蛋", "恭喜，你貌似触发了彩蛋!", "success")
 				.then((value) => {
-					swal("马上去彩蛋！", { buttons: ["取消", "确认"], })
+					swal("马上去彩蛋!", { buttons: ["取消", "确认"], })
 						.then((value) => {
 							if (value) {
 								if (getCookie('logo-egg') == false) {
@@ -1106,7 +1109,7 @@ wwwwwww      wwwwww     wwwwwww
 	// 部分积木盒的特殊处理
 	workspace.registerToolboxCategoryCallback('UTILS_GAME', utilsFlyoutCallback);
 	workspace.registerToolboxCategoryCallback('COLOR_CARD', coloursFlyoutCallback);
-	workspace.registerButtonCallback("betawarning", function () { swal("这是实验性功能，正在测试，将来可能会频繁改动，若有bug请向作者反馈！") })
+	workspace.registerButtonCallback("betawarning", function () { swal("这是实验性功能，正在测试，将来可能会频繁改动，若有bug请向作者反馈!") })
 
 	/* 加载初始积木 */
 	Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
