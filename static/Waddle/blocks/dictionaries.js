@@ -162,7 +162,7 @@ Blockly.Blocks.dict_create_with = {
 	updateShape_: function () {
 		this.itemCount_ && this.getInput("EMPTY") ? this.removeInput("EMPTY") : this.itemCount_ || this.getInput("EMPTY") || this.appendDummyInput("EMPTY").appendField(Blockly.Msg.DICT_CREATE_EMPTY_TITLE);
 		for (var a = 0; a < this.itemCount_; a++) if (!this.getInput("ADD" + a)) {
-			var b = this.appendValueInput("ADD" + a);
+			var b = this.appendValueInput("ADD" + a).setCheck('dict_pair');
 			0 == a && b.appendField(Blockly.Msg.DICT_CREATE_WITH_INPUT_WITH)
 		}
 		for (; this.getInput("ADD" + a);) this.removeInput("ADD" + a),
