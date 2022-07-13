@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.54(1132)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.55(1138)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'V1.47.54(1132)-beta' //版本号
+		var version = 'V1.47.55(1138)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -580,13 +580,30 @@ wwwwwww      wwwwww     wwwwwww
 				}
 			}
 
-			*::-webkit-scrollbar {
+			.blocklyToolboxDiv::-webkit-scrollbar,
+			#logo1::-webkit-scrollbar {
 				display: none;
 			}
 
-			* {
+			.blocklyToolboxDiv::-webkit-scrollbar,
+			#logo1::-webkit-scrollbar {
 				scrollbar-width: none;
 				-ms-overflow-style: none;
+			}
+
+			*::-webkit-scrollbar {
+				width: 5px;
+				height: 5px;
+			}
+
+			*::-webkit-scrollbar-thumb {
+				border-radius: 10px;
+				box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+				background-color: #cccccc88;
+			}
+
+			*::-webkit-scrollbar-thumb:hover {
+				background-color: #bbbbbb88;
 			}
 
 			/* 加载失败默认主题 */
@@ -848,6 +865,7 @@ wwwwwww      wwwwww     wwwwwww
 
 			.modal-body {
 				padding: 2px 16px;
+				padding: 0 1em !important;
 				overflow-y: auto;
 				overflow-x: auto;
 				height: 75%;
@@ -923,8 +941,10 @@ wwwwwww      wwwwww     wwwwwww
 							type="checkbox">
 						<span>积木盒积木全显</span>
 					</div>
-					<div style="margin-block-start: 1em; display: flex; flex-direction: row-reverse; align-items: center; width: 100%; justify-content: space-between;">
-						<input id="alwaykeep" onclick="holdToolboxs(this)" style="width: 20px;height: 20px;" type="checkbox">
+					<div
+						style="margin-block-start: 1em; display: flex; flex-direction: row-reverse; align-items: center; width: 100%; justify-content: space-between;">
+						<input id="alwaykeep" onclick="holdToolboxs(this)" style="width: 20px;height: 20px;"
+							type="checkbox">
 						<span>积木盒常驻</span>
 					</div>
 				</div>
@@ -2021,7 +2041,7 @@ wwwwwww      wwwwww     wwwwwww
 	if (version.includes("beta")) {
 		document.getElementById("logo1").src = "./static/img/logo/logo-beta.svg"
 	}
-	else{
+	else {
 		document.getElementById("logo1").src = "./static/img/logo/logo-purple.svg"
 	}
 	document.getElementById("delete-div").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
