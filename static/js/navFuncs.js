@@ -167,6 +167,7 @@ function show_about() {
   document.getElementsByClassName("aboutus")[0].className = "aboutus show";
   document.getElementsByClassName("groundglass")[0].className =
     "groundglass show";
+  settingThird(1)
 }
 
 function show_newsth() {
@@ -176,4 +177,55 @@ function show_newsth() {
   document.getElementsByClassName("newsth")[0].className = "newsth show";
   document.getElementsByClassName("groundglass")[0].className =
     "groundglass show";
+}
+
+
+function settings(check) {
+  if(check.checked){
+    window.settingss = '';
+  }
+  else{
+    window.settingss = 'keep';
+  }
+  window.reast = 'minus';document.getElementsByClassName('blocklyZoom')[0].dispatchEvent(new PointerEvent('pointerdown'));window.reast = false;document.getElementById('zoom-size-number').innerHTML = Math.ceil(myscale * 100)+'%'
+  window.reast = 'plus';document.getElementsByClassName('blocklyZoom')[1].dispatchEvent(new PointerEvent('pointerdown'));window.reast = false;document.getElementById('zoom-size-number').innerHTML = Math.ceil(myscale * 100)+'%'
+  document.cookie = "settingss=" + window.settingss;
+}
+
+function holdToolboxs(check) {
+  if(check.checked){
+    window.holdToolbox = 'true';
+  }
+  else{
+    window.holdToolbox = '';
+  }
+  document.cookie = "holdToolbox=" + window.holdToolbox;
+}
+
+function settingThird(number) {
+  a = document.getElementsByClassName("setting-body")[0]
+  b = document.getElementsByClassName("aboutus-body")[0]
+  c = document.getElementsByClassName("thanks-body")[0]
+  d = document.getElementsByClassName("setting-button")
+  for (i = 0; i < d.length; i++) { 
+    d[i].style.backgroundColor = 'var(--settings-button-background)'
+    d[i].style.color = 'var(--settings-button-color)'
+ }
+  if (number == 1) {
+    a.style.display = 'flex'
+    b.style.display = 'none'
+    c.style.display = 'none'
+  }
+  else if (number == 2) {
+    a.style.display = 'none'
+    b.style.display = 'block'
+    c.style.display = 'none'
+  }
+  else if (number == 3) {
+    a.style.display = 'none'
+    b.style.display = 'none'
+    c.style.display = 'flex'
+  }
+  d[number - 1].style.backgroundColor = 'var(--settings-button-set-background)'
+  d[number - 1].style.color = 'var(--settings-button-set-color)'
 }

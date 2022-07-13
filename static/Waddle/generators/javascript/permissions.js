@@ -9,6 +9,13 @@ Blockly.JavaScript['permissions_get'] = function (block) {
     return code;
 };
 
+Blockly.JavaScript['permissions_getall'] = function(){
+    return `var document = this.document;
+var window = this.window;
+var navigator = this.navigator;
+var history = this.history;`;
+}
+
 Blockly.JavaScript['permissions_document'] = function (block) {
     var code = 'document';
     return [code, Blockly.JavaScript.ORDER_NONE];

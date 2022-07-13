@@ -5,7 +5,7 @@ Blockly.JavaScript['js_run'] = function (block) {
 
 Blockly.JavaScript['js_run2'] = function (block) {
     var code = block.getFieldValue('CODE') || 'console.log(233)';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, 0]; // 最高优先级，避免增加无用括号
 };
 
 Blockly.JavaScript['js_run_join'] = function (block) {
@@ -79,38 +79,38 @@ Blockly.JavaScript['js_json_access'] = function (block) {
 };
 
 Blockly.JavaScript['js_window_screen'] = function (block) {
-    var code = `this.${block.getFieldValue('TYPE')}`;
+    var code = `${block.getFieldValue('TYPE')}`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['js_window_avail_screen'] = function (block) {
-    var code = `this.${block.getFieldValue('TYPE')}`;
+    var code = `${block.getFieldValue('TYPE')}`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['js_window_depth'] = function (block) {
-    var code = `this.screen.colorDepth`;
+    var code = `screen.colorDepth`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['js_window_pixeldepth'] = function (block) {
-    var code = `this.screen.pixelDepth`;
+    var code = `screen.pixelDepth`;
     return [code, Blockly.JavaScript.ORDER_NONE];
     
 };
 
 Blockly.JavaScript['js_navigator_online'] = function (block) {
-    var code = `this.navigator.onLine`;
+    var code = `navigator.onLine`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['js_navigator_language'] = function (block) {
-    var code = `this.navigator.language`;
+    var code = `navigator.language`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['js_navigator_platform'] = function (block) {
-    var code = `this.navigator.platform`;
+    var code = `navigator.platform`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 

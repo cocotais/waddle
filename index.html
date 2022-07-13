@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.43(1059)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.55(1138)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -18,9 +18,8 @@
 	<script src="./static/js/nprogress.js"></script>
 	<script>
 		// 控制台输出
-
 		window.reast = false;
-		var version = 'V1.47.43(1059)-beta' //版本号
+		var version = 'V1.47.55(1138)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -46,8 +45,18 @@ wwwwwww      wwwwww     wwwwwww
 				navigator.serviceWorker.register('./sw.js')
 			});
 		}
+
+		var logo = document.createElement('link');
+		logo.setAttribute("type", 'image/x-icon')
+		logo.setAttribute("rel", 'shortcut icon')
+		if (version.includes("beta")) {
+			logo.setAttribute("href", './static/img/logo/logo-beta.svg')
+		}
+		else {
+			logo.setAttribute("href", './static/img/logo/logo-purple.svg')
+		}
+		document.head.appendChild(logo);
 	</script>
-	<link rel="shortcut icon" href="./static/img/logo/logo-white.svg" type="image/x-icon">
 	<link rel="stylesheet" href="./static/css/theme.css">
 </head>
 <script>
@@ -113,17 +122,17 @@ wwwwwww      wwwwww     wwwwwww
 			text-align: center;
 		}
 
-		#loading-text{
+		#loading-text {
 			margin-bottom: 0;
 		}
 
 		.loading-pair {
 			height: 100%;
 			display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
 		}
 	</style>
 
@@ -218,9 +227,10 @@ wwwwwww      wwwwww     wwwwwww
 							<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
 							<li class="dropdown-item" onClick="js_save()">导出为CoCo文件</li>
 							<div style="height: 1px;background-color: #f2f2f2;margin: 0 10px;"></div>
-							<li class="dropdown-item" onClick="window.open('https://docs.coco-central.cn/waddle/')">文档
+							<li class="dropdown-item"
+								onClick="count();window.open('https://docs.coco-central.cn/waddle/')">文档
 							</li>
-							<li class="dropdown-item" onClick="show_about()">关于Waddle</li>
+							<li class="dropdown-item" onClick="show_about()">更多选项</li>
 						</ul>
 					</ul>
 				</div>
@@ -356,12 +366,13 @@ wwwwwww      wwwwww     wwwwwww
 		<div>
 			<button id="toup" class="updown" style="top:70px;display: none;border-radius: 4px 4px 0 0;"
 				onclick="$('.blocklyToolboxDiv').animate({scrollTop: 0});">
-				<iconpark-icon name="updown" fill="white" size="16"></iconpark-icon>
+				<iconpark-icon name="updown" fill="var(--arrow-color)" size="16"></iconpark-icon>
 			</button>
 			<button id="todown" class="updown" style="bottom:0;border-radius: 0 0 4px 4px;" onclick="
 			bottom=$('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
 			$('.blocklyToolboxDiv').animate({scrollTop: bottom})">
-				<iconpark-icon name="updown" fill="white" size="16" style="transform:rotate(180deg);"></iconpark-icon>
+				<iconpark-icon name="updown" fill="var(--arrow-color)" size="16" style="transform:rotate(180deg);">
+				</iconpark-icon>
 			</button>
 		</div>
 
@@ -370,9 +381,9 @@ wwwwwww      wwwwww     wwwwwww
 				position: absolute;
 				z-index: 6;
 				width: 60px;
-				background: var(--main-color);
-				border: var(--main-color);
-				color: #fff;
+				background: var(--arrow-background);
+				border: var(--arrow-background);
+				color: var(--arrow-color);
 				height: 17px;
 				-webkit-transition-duration: 0.1s;
 				/* Safari */
@@ -380,8 +391,8 @@ wwwwwww      wwwwww     wwwwwww
 			}
 
 			.updown:hover {
-				background: var(--nd-main-color);
-				border: var(--nd-main-color);
+				background: var(--arrow-hover-background);
+				border: var(--arrow-hover-background);
 				cursor: pointer;
 			}
 		</style>
@@ -572,13 +583,30 @@ wwwwwww      wwwwww     wwwwwww
 				}
 			}
 
-			*::-webkit-scrollbar {
+			.blocklyToolboxDiv::-webkit-scrollbar,
+			#logo1::-webkit-scrollbar {
 				display: none;
 			}
 
-			* {
+			.blocklyToolboxDiv::-webkit-scrollbar,
+			#logo1::-webkit-scrollbar {
 				scrollbar-width: none;
 				-ms-overflow-style: none;
+			}
+
+			*::-webkit-scrollbar {
+				width: 5px;
+				height: 5px;
+			}
+
+			*::-webkit-scrollbar-thumb {
+				border-radius: 10px;
+				box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+				background-color: #cccccc88;
+			}
+
+			*::-webkit-scrollbar-thumb:hover {
+				background-color: #bbbbbb88;
 			}
 
 			/* 加载失败默认主题 */
@@ -840,6 +868,7 @@ wwwwwww      wwwwww     wwwwwww
 
 			.modal-body {
 				padding: 2px 16px;
+				padding: 0 1em !important;
 				overflow-y: auto;
 				overflow-x: auto;
 				height: 75%;
@@ -875,13 +904,19 @@ wwwwwww      wwwwww     wwwwwww
 						<span class="sord">[不可见控件]<br>Hello</span>
 					</div>
 					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>定时器</span></div>
-					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>Base编解码</span>
+					<div class="card" id="card"
+						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/base.waddle')"><span
+							class="sord">[不可见控件]<br>Base编解码</span>
 					</div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hyperlink.waddle')">
 						<span class="sord">[可见控件]<br>超链接</span>
 					</div>
 					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[可见控件]<br>闪烁的按钮</span></div>
+					<div class="card" id="card"
+						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/html.waddle')">
+						<span class="sord">[可见控件]<br>HTML控件</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -892,28 +927,56 @@ wwwwwww      wwwwww     wwwwwww
 			<div class="aboutus-content" style="min-width: 305px;">
 				<div class="aboutus-header">
 					<span class="aboutus-logo"
-						style="color: var(--main-color);font-weight: bold; font-size: 25px;">关于我们</span>
+						style="color: var(--main-color);font-weight: bold; font-size: 25px;">更多</span>
 					<span class="aboutus-close">
 						<iconpark-icon name="close" width="30px" height="30px">
 					</span>
 				</div>
+				<div class="setting-second">
+					<button class="setting-button" onclick="settingThird(1)">偏好设置</button>
+					<button class="setting-button" onclick="settingThird(2)">关于Waddle</button>
+					<button class="setting-button" onclick="settingThird(3)">感谢</button>
+				</div>
+				<div class="setting-body">
+					<div
+						style="margin-block-start: 1em; display: flex; flex-direction: row-reverse; align-items: center; width: 100%; justify-content: space-between;">
+						<input id="showorkeep" onclick="settings(this)" style="width: 20px;height: 20px;"
+							type="checkbox">
+						<span>积木盒积木全显</span>
+					</div>
+					<div
+						style="margin-block-start: 1em; display: flex; flex-direction: row-reverse; align-items: center; width: 100%; justify-content: space-between;">
+						<input id="alwaykeep" onclick="holdToolboxs(this)" style="width: 20px;height: 20px;"
+							type="checkbox">
+						<span>积木盒常驻</span>
+					</div>
+				</div>
 				<div class="aboutus-body">
-					<img width="240" src="./static/img/logo/logo-white-full.svg" style="margin: 30px 0;" alt="Waddle"
-						onclick="east_chk()"></img>
-					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">让CoCo没有<span
-							onclick="count_oj()">难</span>做的控件</p>
+					<img id="about-img" width="240" src="./static/img/logo/logo-purple-full.png.svg"
+						style="margin: 30px 0;" alt="Waddle" onclick="east_chk()"></img>
+					<p>让CoCo没有<span onclick="count_oj()">难</span>做的控件</p>
 					</br>
+<<<<<<< HEAD
 					<p style="color: #ffffff;font-size: 20px;font-weight: bold;">由所有Waddle的开源贡献者共同创造!</p>
 					<p style="color: #ffffff;font-size: 15px;" onclick="count()">帮助链接：
 						<a href="https://docs.coco-central.cn/waddle/" style="color: #ffffff;font-size: 15px;"
 							target="_blank" rel="noopener">https://docs.coco-central.cn/waddle/</a>
 					</p>
+=======
+					<p>由所有Waddle的开源贡献者共同创造！</p>
+>>>>>>> ab750c55829f520751cc9cb97e1b6c9f647a68c7
 					</br>
 					</br>
-					<p id="version" style="color: #ffffff;font-size: 20px;font-weight: bold;"></p>
+					<p id="version"></p>
 					<script>
 						$("#version").text("目前版本：" + version);
 					</script>
+				</div>
+				<div class="thanks-body">
+					<p style="margin-block-start: 1em;">Google Blockly</p>
+					<p style="margin-block-start: 1em;">IconPark</p>
+					<p style="margin-block-start: 1em;">Waddle编辑器的贡献者们</p>
+					<p style="margin-block-start: 1em;">CoCo编辑器</p>
 				</div>
 			</div>
 		</div>
@@ -930,7 +993,7 @@ wwwwwww      wwwwww     wwwwwww
 <!--link rel="stylesheet" href="https://at.alicdn.com/t/font_3193112_7sw8re1is8r.css"-->
 <link rel="stylesheet" href="./static/css/toolBoxColor.css">
 <script
-	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_32.e4ed6cf68190a8a20dbb88893881e773.js"></script>
+	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_33.fdf8538f7941801daea403a123402a14.js"></script>
 
 <!--引入框架-->
 
@@ -976,6 +1039,10 @@ wwwwwww      wwwwww     wwwwwww
 <!--可见控件积木(实验性)-->
 <script src="./static/Waddle/blocks/visibleWidget.js"></script>
 <script src="./static/Waddle/generators/javascript/visibleWidget.js"></script>
+
+<!--控件通用积木-->
+<script src="./static/Waddle/blocks/widget.js"></script>
+<script src="./static/Waddle/generators/javascript/widget.js"></script>
 
 <!--权限控件积木(实验性)-->
 <script src="./static/Waddle/blocks/permissions.js"></script>
@@ -1025,6 +1092,10 @@ wwwwwww      wwwwww     wwwwwww
 
 <!--sweetalert-->
 <script src="./static/js/sweetalert.min.js"></script>
+
+<!-- 导入React，用于可见控件预览 -->
+<script src="./static/js/react.development.js"></script>
+<script src="./static/js/react-dom.development.js"></script>
 
 <!--彩蛋定义-->
 <script>
@@ -1140,39 +1211,49 @@ wwwwwww      wwwwww     wwwwwww
 
 	// 打开可见控件预览框条件：周期判断或代码框更新
 
-	setInterval(function () {
-		// 周期判断
-		if (isVisibleWidget()) {
-			// 打开可见控件预览框
-			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
-			let code = Blockly.JavaScript.workspaceToCode(workspace);
-			code = code.replaceAll("\n", "");
-			let html_code = code.match(/return\((.+?)\)/g)[0].substring(8, code.match(/return\((.+?)\)/g)[0].length - 2).replaceAll('&#60', '<').replaceAll('&#62', '>')
-			document.getElementById("widgetPreview").innerHTML = html_code
-		}
-	}, 100)
+	class VisibleWidget {
+		constructor() { };
+		setProps() { }
+		widgetLog() { }
+		widgetWarn() { }
+		widgetError() { }
+		emit() { }
+	} //空壳，用来防报错
 
 	function UpdateFunction(event) {
 		// 代码框更新
 		var code = Blockly.JavaScript.workspaceToCode(workspace);
 		document.getElementById("codeArea").innerHTML = htmlEscape(code);
 		hljs.highlightBlock(document.getElementById("codeArea"))
-		code = code.replaceAll("\n", "")
-
+		// code = code.replaceAll("\n", "") 似乎未被使用，所以注释了
 
 		if (document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')') {
 			document.documentElement.style.setProperty('--pic-icon', 'url(' + myicon + ')');
 		}
 
+		let widgetPreviewDom = document.getElementById("widgetPreview");
 
 		if (isVisibleWidget()) {
 			// 打开可见控件预览框
-			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
-			let html_code = code.match(/return\((.+?)\)/g)[0].substring(8, code.match(/return\((.+?)\)/g)[0].length - 2).replaceAll('&#60', '<').replaceAll('&#62', '>')
-			document.getElementById("widgetPreview").innerHTML = html_code
+			widgetPreviewDom.style.display = document.getElementById("myModal").style.display;
+
+			exports = { types: null, widget: null };//空壳，用来防报错
+			Function(code)(VisibleWidget = VisibleWidget, exports = exports);//加载你做出的控件
+			let properties = {};
+			exports.types.properties.forEach(element => {
+				properties[element.key] = element.defaultValue;
+			});//获取每个属性的初始值，下一步创建实例时传入
+			let previewWidget = new exports.widget(properties);//创建一个控件实例
+			// 设置预览框大小为控件默认大小
+			widgetPreviewDom.style.width = previewWidget.__width + 'px';
+			widgetPreviewDom.style.height = previewWidget.__height + 'px';
+			ReactDOM.render(
+				previewWidget.render(),//渲染
+				document.getElementById('widgetPreview')
+			);
 		}
 		else {
-			document.getElementById("widgetPreview").style.display = 'none';
+			widgetPreviewDom.style.display = 'none'
 		}
 	}
 	workspace.addChangeListener(UpdateFunction);
@@ -1225,6 +1306,12 @@ wwwwwww      wwwwww     wwwwwww
 			funcs.style.borderTopRightRadius = '0px';
 			funcs.style.borderBottomRightRadius = '0px';
 			funcs.style.right = '0px';
+		}
+		if (isVisibleWidget()) {
+			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
+		}
+		else {
+			document.getElementById("widgetPreview").style.display = 'none'
 		}
 	}
 
@@ -1443,11 +1530,14 @@ wwwwwww      wwwwww     wwwwwww
 	.newsth-close {
 		color: var(--close-color);
 		font-weight: bold;
-		font-size: 50px;
+		font-size: 25px;
 		float: right;
+		display: flex;
 		position: relative;
 		right: 4px;
-		line-height: 32px;
+		align-content: center;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.newsth-logo {
@@ -1542,8 +1632,27 @@ wwwwwww      wwwwww     wwwwwww
 		animation: hideaboutus 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	}
 
-	/* 代码框内容 */
 
+	.setting-second {
+		width: 100%;
+		height: 77px;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+
+	.setting-button {
+		border: transparent;
+		width: calc(100% / 3 - 22px);
+		height: 50px;
+		border-radius: 10px;
+		background-color: rgba(105, 85, 231, 0.7);
+		color: white;
+		font-size: 16px;
+		transition: background-color 0.2s, color 0.2s;
+	}
+
+	/* 代码框内容 */
 	.aboutus-content {
 		position: relative;
 		border-radius: 10px;
@@ -1670,11 +1779,14 @@ wwwwwww      wwwwww     wwwwwww
 	.aboutus-close {
 		color: var(--close-color);
 		font-weight: bold;
-		font-size: 50px;
+		font-size: 25px;
 		float: right;
+		display: flex;
 		position: relative;
 		right: 4px;
-		line-height: 32px;
+		align-content: center;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.aboutus-logo {
@@ -1699,12 +1811,28 @@ wwwwwww      wwwwww     wwwwwww
 		align-items: center;
 	}
 
-	.aboutus-body {
+	.aboutus-body,
+	.setting-body,
+	.thanks-body {
+		position: absolute;
+		display: flex;
 		padding: 2px 16px;
 		overflow-y: auto;
 		overflow-x: hidden;
-		height: calc(60vh - 77px);
+		height: calc(60vh - 154px);
 		text-align: center;
+		flex-direction: column;
+		width: 100%;
+		align-items: center;
+		align-content: center;
+		bottom: 0;
+		color: var(--funcs-color);
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.setting-body {
+		align-items: flex-start !important;
 	}
 
 	.brand {
@@ -1921,12 +2049,28 @@ wwwwwww      wwwwww     wwwwwww
 	document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 	document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
 	document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
+	if (version.includes("beta")) {
+		document.getElementById("logo1").src = "./static/img/logo/logo-beta.svg"
+	}
+	else {
+		document.getElementById("logo1").src = "./static/img/logo/logo-purple.svg"
+	}
 	document.getElementById("delete-div").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
 	document.getElementById("delete-svg-up").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 35) / 2 + 'px';
 	document.getElementById("delete-svg-down").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 30) / 2 + 'px';
 	document.getElementById("delete-svg-up").style.top = (window.innerHeight - document.getElementById('delete-svg-up').style.height) / 2 - 7 + 'px';
 	document.getElementById("delete-svg-down").style.top = (window.innerHeight - document.getElementById('delete-svg-down').style.height) / 2 - 7 + 'px';
 	document.getElementsByClassName('blocklyToolboxDiv')[0].style.zIndex = 5;
+
+	window.settingss = getCookie('settingss')
+	if (!window.settingss) {
+		document.getElementById("showorkeep").checked = true
+	}
+
+	window.holdToolbox = getCookie('holdToolbox')
+	if (window.holdToolbox) {
+		document.getElementById("alwaykeep").checked = true
+	}
 
 	window.onbeforeunload = function (event) {
 		const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
