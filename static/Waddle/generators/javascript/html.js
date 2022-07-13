@@ -856,7 +856,7 @@ Blockly.JavaScript["html_js"] = function (block) {
       "E",
       Blockly.JavaScript.ORDER_ASSIGNMENT
     ) || "";
-  var code = `{${e}}\n`;
+  var code = `${e}\n`;
   return html_escape(code);
 };
 
@@ -867,7 +867,7 @@ Blockly.JavaScript["html_js2"] = function (block) {
       "E",
       Blockly.JavaScript.ORDER_ASSIGNMENT
     ) || "";
-  var code = `{${e}}`;
+  var code = `${e}`;
   return [html_escape(code), 0];
 };
 
