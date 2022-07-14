@@ -1212,9 +1212,16 @@ wwwwwww      wwwwww     wwwwwww
 
 	var isVisibleWidget = function () {
 		// 判断是否为可见控件
-		let code = Blockly.JavaScript.workspaceToCode(workspace);
-		code = code.replaceAll("\n", "");
-		return (code.match(/return\((.+?)\)/g) != null);
+		// 很好的解决了正则表达式的缺点，还省去了很多计算步骤
+		if (workspace.getBlocksByType('vw_defTypes').length == 0) { // 检查是否有可见控件积木vw_defTypes
+			return false;
+		}
+		else {
+			return true;
+		}
+		// let code = Blockly.JavaScript.workspaceToCode(workspace);
+		// code = code.replaceAll("\n", "");
+		// return (code.match(/return\((.+?)\)/g) != null);
 	}
 
 	// 打开可见控件预览框条件：周期判断或代码框更新
