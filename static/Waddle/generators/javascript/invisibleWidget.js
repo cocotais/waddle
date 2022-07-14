@@ -276,6 +276,22 @@ Blockly.JavaScript['ivw_addEvent'] = function (block) {
     var text_key = block.getFieldValue('key');
     var text_label = block.getFieldValue('label');
     var statements_params = Blockly.JavaScript.statementToCode(block, 'params');
+    var value_config = Blockly.JavaScript.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
+    var code = `
+types['events'].push({
+    key: '${text_key}',
+    label: '${text_label}',
+    params: [${statements_params}],
+    ${value_config}
+})
+`;
+    return code;
+};
+
+Blockly.JavaScript['vw_addEvent'] = function (block) {
+    var text_key = block.getFieldValue('key');
+    var text_label = block.getFieldValue('label');
+    var statements_params = Blockly.JavaScript.statementToCode(block, 'params');
     var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
     var value_config = Blockly.JavaScript.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
     var code = `

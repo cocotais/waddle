@@ -623,6 +623,8 @@ TIP
 		<label text="事件定义">
 		</label>
 		<block type="ivw_addEvent">
+		</block>
+		<block type="vw_addEvent">
 			<statement name="code">
 				<block type="ivw_emit">
 				</block>
