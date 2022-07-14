@@ -172,6 +172,36 @@ Blockly.JavaScript['ivw_addParams'] = function (block) {
     var text_valueType = block.getFieldValue('valueType');
     var value_defaultValue = Blockly.JavaScript.valueToCode(block, 'defaultValue', Blockly.JavaScript.ORDER_ATOMIC);
     // var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
+
+    if (value_defaultValue == '') {
+        switch (text_valueType) {
+            case 'multilineString':
+                value_defaultValue = '""';
+                break;
+            case 'string':
+                value_defaultValue = '""';
+                break;
+            case 'number':
+                value_defaultValue = 0;
+                break;
+            case 'boolean':
+                value_defaultValue = true;
+                break;
+            case 'color':
+                value_defaultValue = '"#6e4ff4"';
+                break;
+            case 'object':
+                value_defaultValue = '""';
+                break;
+            case 'object':
+                value_defaultValue = '""';
+                break;
+            default:
+                value_defaultValue = '""';
+                break;
+        }
+    }
+
     var code = `
     {
         key: '${text_key}',
