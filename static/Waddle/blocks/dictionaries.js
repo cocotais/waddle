@@ -26,7 +26,7 @@ Blockly.Blocks['dict_set'] = {
 
 Blockly.Blocks['dict_get'] = {
     init: function () {
-        this.appendValueInput('dict').setCheck('Dict').appendField('获取字典');
+        this.appendValueInput('dict').setCheck(null).appendField('获取字典');
         this.appendValueInput('key').setCheck(null).appendField('键');
         this.appendDummyInput().appendField('的值');
         this.setInputsInline(true);
