@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"V1.47.56(1143)-beta"替换为版本（这条的也要）---->
+<!----将"V1.47.57(1148)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'V1.47.56(1143)-beta' //版本号
+		var version = 'V1.47.57(1148)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -192,7 +192,8 @@ wwwwwww      wwwwww     wwwwwww
 			"没啥能看的？",
 			"Waddle被Gitee官方写文章了!!!",
 			"难道Waddle有OJ题库了？",//Waddle的OJ彩蛋
-			"Wadddddddddddle!"
+			"Wadddddddddddle!",
+			"Just Waddle! lol~"  //你觉得啥彩蛋？
 		];
 		document.getElementById("loading-text").innerText = tipList[Math.floor(Math.random() * tipList.length)];
 
@@ -607,6 +608,21 @@ wwwwwww      wwwwww     wwwwwww
 
 			*::-webkit-scrollbar-thumb:hover {
 				background-color: #bbbbbb88;
+			}
+
+			.blocklyToolboxDiv,
+			#logo1 {
+				scrollbar-width: none;
+				-ms-overflow-style: none;
+			}
+
+			*{
+				scrollbar-width:thin;
+				scrollbar-color: #cccccc88 transparent;
+			}
+
+			*:hover{
+				scrollbar-color: #bbbbbb88 transparent;
 			}
 
 			/* 加载失败默认主题 */
