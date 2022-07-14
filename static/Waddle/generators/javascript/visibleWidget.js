@@ -98,7 +98,6 @@ return(
 Blockly.JavaScript['vw_setprop'] = function (block) {
   var text_name = block.getFieldValue('name');
   var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = `this.setProps({ '${text_name}': ${value_value} });\n`;
+    var code = `this.setProps({ '${text_name}': ${value_value} });\n`;
   return code;
 };

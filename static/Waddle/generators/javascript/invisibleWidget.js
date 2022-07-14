@@ -373,8 +373,7 @@ Blockly.JavaScript['ivw_config'] = function (block) {
     var checkbox_generateblock = block.getFieldValue('generateBlock') === 'TRUE';
     var checkbox_inputsinline = block.getFieldValue('inputsInline') === 'TRUE';
     var number_space = block.getFieldValue('space');
-    // TODO: Assemble JavaScript into code variable.
-    var code = `\
+        var code = `\
 blockOptions: {
     color: ${value_color},
     icon: '${text_icon}',
@@ -389,7 +388,6 @@ blockOptions: {
 Blockly.JavaScript['ivw_setprop'] = function (block) {
     var text_name = block.getFieldValue('name');
     var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-    var code = `this.${text_name} = ${value_value};\n`;
+        var code = `this.${text_name} = ${value_value};\n`;
     return code;
 };

@@ -44,8 +44,7 @@ Blockly.JavaScript['vika_all'] = function (block) {
     var dropdown_cellformat = block.getFieldValue('cellFormat');
     var value_fieldkey = Blockly.JavaScript.valueToCode(block, 'fieldKey', Blockly.JavaScript.ORDER_ATOMIC);
     var statements_then = Blockly.JavaScript.statementToCode(block, 'then');
-    // TODO: Assemble JavaScript into code variable.
-    var code = `Vika.datasheet(${value_sid})
+        var code = `Vika.datasheet(${value_sid})
   .all({
     viewId: ${value_id},
     sort: ${value_sort},
