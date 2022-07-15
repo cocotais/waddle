@@ -120,7 +120,7 @@ Blockly.JavaScript['js_math_constant'] = function (block) {
 };
 
 Blockly.JavaScript['js_console_clean'] = function (block) {
-    var code = `console.clean();\n`;
+    var code = `console.clear();\n`;
     return code;
 };
 
