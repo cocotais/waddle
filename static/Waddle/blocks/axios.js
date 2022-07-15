@@ -162,3 +162,14 @@ Blockly.Blocks['axios_maxcontentlength'] = {
         this.setHelpUrl('');
     }
 };
+
+Blockly.Blocks['axios_data'] = {
+    init: function () {
+        this.appendValueInput('NUM').setCheck(null).appendField('请求数据');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(BlockColors['axios']);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
