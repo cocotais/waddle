@@ -439,6 +439,8 @@ TIP
 		</block>
 		<block type="axios_maxcontentlength">
 		</block>
+		<block type="axios_data">
+		</block>
 	</category>
 	<category name="utils" css-icon="waddle-utils" css-class="waddle-utils" custom="UTILS_GAME">
 		<button text="实验性功能提示" callbackKey="betawarning">

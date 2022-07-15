@@ -67,3 +67,9 @@ Blockly.JavaScript['axios_maxcontentlength'] = function (block) {
     var code = `maxContentLength: ${value_num},\n`;
     return code;
 };
+
+Blockly.JavaScript["axios_data"] = function(block){
+    var value_num = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    var code = `data: ${value_num},\n`;
+    return code;
+}
