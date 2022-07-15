@@ -1,7 +1,7 @@
 Blockly.JavaScript['dict_pair'] = function (block) {
     var key = Blockly.JavaScript.valueToCode(block, 'key', Blockly.JavaScript.ORDER_ATOMIC);
     var value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
-    return '{' + key + ':' + value + '}';
+    return [key + ': ' + value, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.JavaScript['dict_set'] = function (block) {
@@ -41,4 +41,13 @@ Blockly.JavaScript['dict_has_key'] = function (block) {
     var dict = Blockly.JavaScript.valueToCode(block, 'dict', Blockly.JavaScript.ORDER_ATOMIC);
     var key = Blockly.JavaScript.valueToCode(block, 'key', Blockly.JavaScript.ORDER_ATOMIC);
     return '(' + key + ' in ' + dict + ')';
+};
+
+Blockly.JavaScript.dict_create_with = function (a) {
+    var b = [];
+    for(var  c = 0; c < a.itemCount_; c++) {
+        var d = Blockly.JavaScript.valueToCode(a, 'ADD' + c, Blockly.JavaScript.ORDER_COMMA) || 'null: null';
+        b.push(d)
+    }
+    return ['{' + b.join(', ') + '}', Blockly.JavaScript.ORDER_ATOMIC];
 };

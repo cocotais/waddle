@@ -31,8 +31,7 @@ Blockly.JavaScript['utils_import'] = function (block) {
 };
 
 Blockly.JavaScript['utils_isnative'] = function (block) {
-    // TODO: Assemble JavaScript into code variable.
-    var code = 'utils.isNative()';
+        var code = 'utils.isNative()';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];
 };

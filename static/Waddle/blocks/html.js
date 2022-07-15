@@ -2197,8 +2197,7 @@ Blockly.Blocks["html_button"] = {
 
 Blockly.Blocks["html_img"] = {
   init: function () {
-    this.appendStatementInput("CON").setCheck(null).appendField("新建图片");
-    this.appendStatementInput("PRO").setCheck(null).appendField("属性");
+    this.appendStatementInput("PRO").setCheck(null).appendField("新建图片 属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -2209,8 +2208,7 @@ Blockly.Blocks["html_img"] = {
 
 Blockly.Blocks["html_video"] = {
   init: function () {
-    this.appendStatementInput("CON").setCheck(null).appendField("新建视频");
-    this.appendStatementInput("PRO").setCheck(null).appendField("属性");
+    this.appendStatementInput("PRO").setCheck(null).appendField("新建视频 属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -2221,8 +2219,7 @@ Blockly.Blocks["html_video"] = {
 
 Blockly.Blocks["html_input"] = {
   init: function () {
-    this.appendDummyInput("CON").appendField("新建输入");
-    this.appendStatementInput("PRO").setCheck(null).appendField("属性");
+    this.appendStatementInput("PRO").setCheck(null).appendField("新建输入 属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -2233,8 +2230,7 @@ Blockly.Blocks["html_input"] = {
 
 Blockly.Blocks["html_iframe"] = {
   init: function () {
-    this.appendStatementInput("CON").setCheck(null).appendField("新建内联框架");
-    this.appendStatementInput("PRO").setCheck(null).appendField("属性");
+    this.appendStatementInput("PRO").setCheck(null).appendField("新建内联框架 属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -2257,8 +2253,7 @@ Blockly.Blocks["html_b"] = {
 
 Blockly.Blocks["html_br"] = {
   init: function () {
-    this.appendDummyInput().appendField("新建换行");
-    this.appendStatementInput("PRO").setCheck(null).appendField("属性");
+    this.appendStatementInput("PRO").setCheck(null).appendField("新建换行 属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");

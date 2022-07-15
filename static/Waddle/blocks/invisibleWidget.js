@@ -263,7 +263,25 @@ Blockly.Blocks['ivw_addEvent'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#608fee');
-        this.setTooltip('定义一个事件积木\n事件名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！');
+        this.setTooltip('（不可见控件）定义一个事件积木\n事件名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！\n执行代码里面的出发事件不能删，不然事件还是没触发！');
+        this.setHelpUrl(HELP_URL);
+    }
+};
+
+Blockly.Blocks['vw_addEvent'] = {
+    init: function () {
+        this.appendDummyInput().appendField('新建 事件积木（可见控件）').appendField('当').appendField(new Blockly.FieldTextInput('发生什么'), 'label').appendField('时').appendField('事件内部名').appendField(new Blockly.FieldTextInput('eventName'), 'key');
+        this.appendDummyInput().appendField('参数');
+        this.appendStatementInput('params').setCheck(null);
+        this.appendDummyInput().appendField('执行代码');
+        this.appendStatementInput('code').setCheck(null);
+        this.appendValueInput("config")
+            .setCheck('config')
+            .appendField("积木配置");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour('#608fee');
+        this.setTooltip('（可见控件）定义一个事件积木\n事件名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！\n执行代码里面的出发事件不能删，不然事件还是没触发！');
         this.setHelpUrl(HELP_URL);
     }
 };
@@ -281,7 +299,7 @@ Blockly.Blocks['ivw_methodReturn'] = {
 
 Blockly.Blocks['ivw_emit'] = {
     init: function () {
-        this.appendDummyInput().appendField('主动触发事件').appendField(new Blockly.FieldTextInput('事件名'), 'event');
+        this.appendDummyInput().appendField('主动触发事件').appendField(new Blockly.FieldTextInput('eventName'), 'event');
         this.appendStatementInput('parameters').setCheck(null);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);

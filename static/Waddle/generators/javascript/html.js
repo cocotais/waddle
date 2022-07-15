@@ -712,15 +712,14 @@ Blockly.JavaScript["html_attribute"] = function (block) {
       "VALUE",
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "''";
-  // TODO: Assemble JavaScript into code variable.
-  var code = `${key}: ${value},\n`;
+    var code = `${key}: ${value},\n`;
   return html_escape(code);
 };
 
 Blockly.JavaScript["html_attribute_event"] = function (block) {
   var eventName = block.getFieldValue('eventName');
   var widgetEventName = block.getFieldValue('widgetEventName');
-  var code = `${eventName}: this.${widgetEventName},\n`;
+  var code = `${eventName}: this.${widgetEventName}.bind(this),\n`;
   return html_escape(code);
 };
 
@@ -731,8 +730,7 @@ Blockly.JavaScript["html_attribute_href"] = function (block) {
       "URL",
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "''";
-  // TODO: Assemble JavaScript into code variable.
-  var code = `href: ${value_name},\n`;
+    var code = `href: ${value_name},\n`;
   return html_escape(code);
 };
 
@@ -743,8 +741,7 @@ Blockly.JavaScript["html_attribute_src"] = function (block) {
       "URL",
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "''";
-  // TODO: Assemble JavaScript into code variable.
-  var code = `src: ${value_name},\n`;
+    var code = `src: ${value_name},\n`;
   return html_escape(code);
 };
 
@@ -755,8 +752,7 @@ Blockly.JavaScript["html_attribute_id"] = function (block) {
       "URL",
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "''";
-  // TODO: Assemble JavaScript into code variable.
-  var code = `id: ${value_name},\n`;
+    var code = `id: ${value_name},\n`;
   return html_escape(code);
 };
 
@@ -767,15 +763,13 @@ Blockly.JavaScript["html_attribute_class"] = function (block) {
       "URL",
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "''";
-  // TODO: Assemble JavaScript into code variable.
-  var code = `className: ${value_name},\n`;
+    var code = `className: ${value_name},\n`;
   return html_escape(code);
 };
 
 Blockly.JavaScript["html_attribute_target"] = function (block) {
   var dropdown_mode = block.getFieldValue("MODE");
-  // TODO: Assemble JavaScript into code variable.
-  var code = `target: "${dropdown_mode}",\n`;
+    var code = `target: "${dropdown_mode}",\n`;
   return code;
 };
 
@@ -801,8 +795,7 @@ Blockly.JavaScript["html_attribute_onclick"] = function (block) {
   var statements_fun = js_to_one(
     Blockly.JavaScript.statementToCode(block, "FUN")
   );
-  // TODO: Assemble JavaScript into code variable.
-  var code = `onClick: "${statements_fun}",\n`;
+    var code = `onClick: "${statements_fun}",\n`;
   return code;
 };
 
@@ -810,8 +803,7 @@ Blockly.JavaScript["html_attribute_ondblclick"] = function (block) {
   var statements_fun = js_to_one(
     Blockly.JavaScript.statementToCode(block, "FUN")
   );
-  // TODO: Assemble JavaScript into code variable.
-  var code = `onDblClick: "${statements_fun}",\n`;
+    var code = `onDblClick: "${statements_fun}",\n`;
   return code;
 };
 
@@ -819,8 +811,7 @@ Blockly.JavaScript["html_attribute_onmousemove"] = function (block) {
   var statements_fun = js_to_one(
     Blockly.JavaScript.statementToCode(block, "FUN")
   );
-  // TODO: Assemble JavaScript into code variable.
-  var code = `onMouseMove: "${statements_fun}",\n`;
+    var code = `onMouseMove: "${statements_fun}",\n`;
   return code;
 };
 
@@ -828,8 +819,7 @@ Blockly.JavaScript["html_attribute_onmouseout"] = function (block) {
   var statements_fun = js_to_one(
     Blockly.JavaScript.statementToCode(block, "FUN")
   );
-  // TODO: Assemble JavaScript into code variable.
-  var code = `onMouseOut: "${statements_fun}",\n`;
+    var code = `onMouseOut: "${statements_fun}",\n`;
   return code;
 };
 
@@ -837,15 +827,13 @@ Blockly.JavaScript["html_attribute_onemptied"] = function (block) {
   var statements_fun = js_to_one(
     Blockly.JavaScript.statementToCode(block, "FUN")
   );
-  // TODO: Assemble JavaScript into code variable.
-  var code = `onEmptied: "${statements_fun}",\n`;
+    var code = `onEmptied: "${statements_fun}",\n`;
   return code;
 };
 
 Blockly.JavaScript["html_plaintext"] = function (block) {
   var text = block.getFieldValue("TEXT");
-  // TODO: Assemble JavaScript into code variable.
-  var code = `${text}\n`;
+    var code = `${text}\n`;
   return code;
 };
 
@@ -856,7 +844,7 @@ Blockly.JavaScript["html_js"] = function (block) {
       "E",
       Blockly.JavaScript.ORDER_ASSIGNMENT
     ) || "";
-  var code = `{${e}}\n`;
+  var code = `${e}\n`;
   return html_escape(code);
 };
 
@@ -867,7 +855,7 @@ Blockly.JavaScript["html_js2"] = function (block) {
       "E",
       Blockly.JavaScript.ORDER_ASSIGNMENT
     ) || "";
-  var code = `{${e}}`;
+  var code = `${e}`;
   return [html_escape(code), 0];
 };
 
@@ -879,8 +867,7 @@ Blockly.JavaScript["html_h123456"] = function (block) {
   var statements_pro = html_attribute_to_str(
     Blockly.JavaScript.statementToCode(block, "PRO") || ""
   );
-  // TODO: Assemble JavaScript into code variable.
-  // console.log(statements_pro, statements_pro == '');
+    // console.log(statements_pro, statements_pro == '');
   // React.createElement('h1', {}, [])
   // var code = `<${dropdown_type}${
   //   statements_pro == "" ? "" : " "
@@ -897,8 +884,7 @@ Blockly.JavaScript["html_tag"] = function (block) {
   var statements_pro = html_attribute_to_str(
     Blockly.JavaScript.statementToCode(block, "PRO") || ""
   );
-  // TODO: Assemble JavaScript into code variable.
-  // console.log(statements_pro, statements_pro == '');
+    // console.log(statements_pro, statements_pro == '');
   // var code = `<${name}${
   //   statements_pro == "" ? "" : " "
   // }${statements_pro}>${statements_con}</${name}>\n`;
@@ -929,24 +915,18 @@ Blockly.JavaScript["html_button"] = function (block) {
 };
 
 Blockly.JavaScript["html_img"] = function (block) {
-  var statements_con = (
-    Blockly.JavaScript.statementToCode(block, "CON") || ""
-  ).trim();
   var statements_pro = html_attribute_to_str(
     Blockly.JavaScript.statementToCode(block, "PRO") || ""
   );
-  var code = `React.createElement("img", {${statements_pro}}, [${statements_con}]),\n`;
+  var code = `React.createElement("img", {${statements_pro}}, null),\n`;
   return html_escape(code);
 };
 
 Blockly.JavaScript["html_video"] = function (block) {
-  var statements_con = (
-    Blockly.JavaScript.statementToCode(block, "CON") || ""
-  ).trim();
   var statements_pro = html_attribute_to_str(
     Blockly.JavaScript.statementToCode(block, "PRO") || ""
   );
-  var code = `React.createElement("video", {${statements_pro}}, [${statements_con}]),\n`;
+  var code = `React.createElement("video", {${statements_pro}}, null),\n`;
 
   return html_escape(code);
 };
@@ -960,13 +940,11 @@ Blockly.JavaScript["html_input"] = function (block) {
 };
 
 Blockly.JavaScript["html_iframe"] = function (block) {
-  var statements_con = (
-    Blockly.JavaScript.statementToCode(block, "CON") || ""
-  ).trim();
+
   var statements_pro = html_attribute_to_str(
     Blockly.JavaScript.statementToCode(block, "PRO") || ""
   );
-  var code = `React.createElement("iframe", {${statements_pro}}, [${statements_con}]),\n`;
+  var code = `React.createElement("iframe", {${statements_pro}}, null),\n`;
 
   return html_escape(code);
 };
@@ -1090,7 +1068,7 @@ Blockly.JavaScript["html_other_px"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}px"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_cm"] = function (block) {
@@ -1101,7 +1079,7 @@ Blockly.JavaScript["html_other_cm"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}cm"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_mm"] = function (block) {
@@ -1112,7 +1090,7 @@ Blockly.JavaScript["html_other_mm"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}mm"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_in"] = function (block) {
@@ -1123,7 +1101,7 @@ Blockly.JavaScript["html_other_in"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}in"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_pt"] = function (block) {
@@ -1134,7 +1112,7 @@ Blockly.JavaScript["html_other_pt"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}pt"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_pc"] = function (block) {
@@ -1145,7 +1123,7 @@ Blockly.JavaScript["html_other_pc"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}pc"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_%"] = function (block) {
@@ -1156,7 +1134,7 @@ Blockly.JavaScript["html_other_%"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}%"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_em"] = function (block) {
@@ -1167,13 +1145,13 @@ Blockly.JavaScript["html_other_em"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}em"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_other_color"] = function (block) {
   var val = block.getFieldValue("VAL");
   var code = `"#${val}"`;
-  return [html_escape(code),Blockly.JavaScript.ORDER_NONE];
+  return [html_escape(code),0];
 };
 
 Blockly.JavaScript["html_code"] = function (block) {
@@ -1236,8 +1214,7 @@ Blockly.JavaScript["html_html"] = function (block) {
     block,
     "NAME",
     Blockly.JavaScript.ORDER_ATOMIC
-  ); // TODO: Assemble JavaScript into code variable.
-  var code = `React.createElement("div", {dangerouslySetInnerHTML: {__html: ${value_name}}}, null),\n`;
+  );   var code = `React.createElement("div", {dangerouslySetInnerHTML: {__html: ${value_name}}}, null),\n`;
 
   return code;
 };

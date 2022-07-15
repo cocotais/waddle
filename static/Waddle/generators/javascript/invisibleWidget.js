@@ -172,6 +172,36 @@ Blockly.JavaScript['ivw_addParams'] = function (block) {
     var text_valueType = block.getFieldValue('valueType');
     var value_defaultValue = Blockly.JavaScript.valueToCode(block, 'defaultValue', Blockly.JavaScript.ORDER_ATOMIC);
     // var statements_other = Blockly.JavaScript.statementToCode(block, 'other');
+
+    if (value_defaultValue == '') {
+        switch (text_valueType) {
+            case 'multilineString':
+                value_defaultValue = '""';
+                break;
+            case 'string':
+                value_defaultValue = '""';
+                break;
+            case 'number':
+                value_defaultValue = 0;
+                break;
+            case 'boolean':
+                value_defaultValue = true;
+                break;
+            case 'color':
+                value_defaultValue = '"#6e4ff4"';
+                break;
+            case 'object':
+                value_defaultValue = '""';
+                break;
+            case 'object':
+                value_defaultValue = '""';
+                break;
+            default:
+                value_defaultValue = '""';
+                break;
+        }
+    }
+
     var code = `
     {
         key: '${text_key}',
@@ -288,6 +318,26 @@ types['events'].push({
     return code;
 };
 
+Blockly.JavaScript['vw_addEvent'] = function (block) {
+    var text_key = block.getFieldValue('key');
+    var text_label = block.getFieldValue('label');
+    var statements_params = Blockly.JavaScript.statementToCode(block, 'params');
+    var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
+    var value_config = Blockly.JavaScript.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
+    var code = `
+types['events'].push({
+    key: '${text_key}',
+    label: '${text_label}',
+    params: [${statements_params}],
+    ${value_config}
+})
+Widget.prototype.${text_key} = function (event) {
+    ${statements_code}
+}
+`;
+    return code;
+};
+
 Blockly.JavaScript['ivw_methodReturn'] = function (block) {
     var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
     var code = `return ${value_value};`;
@@ -369,8 +419,7 @@ Blockly.JavaScript['ivw_config'] = function (block) {
     var checkbox_generateblock = block.getFieldValue('generateBlock') === 'TRUE';
     var checkbox_inputsinline = block.getFieldValue('inputsInline') === 'TRUE';
     var number_space = block.getFieldValue('space');
-    // TODO: Assemble JavaScript into code variable.
-    var code = `\
+        var code = `\
 blockOptions: {
     color: ${value_color},
     icon: '${text_icon}',
@@ -385,7 +434,6 @@ blockOptions: {
 Blockly.JavaScript['ivw_setprop'] = function (block) {
     var text_name = block.getFieldValue('name');
     var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-    var code = `this.${text_name} = ${value_value};\n`;
+        var code = `this.${text_name} = ${value_value};\n`;
     return code;
 };

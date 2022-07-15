@@ -626,16 +626,13 @@ TIP
 		</label>
 		<block type="ivw_addEvent">
 		</block>
+		<block type="vw_addEvent">
+			<statement name="code">
+				<block type="ivw_emit">
+				</block>
+			</statement>
+		</block>
 		<block type="ivw_emit">
-			<value name="event">
-				<block type="text">
-					<field name="TEXT">事件名</field>
-				</block>
-			</value>
-			<value name="parameters">
-				<block type="ivw_emitParameter">
-				</block>
-			</value>
 		</block>
 		<block type="ivw_emitParameter">
 		</block>
@@ -758,20 +755,60 @@ TIP
 		<block type="html_css_border2">
 		</block>
 		<block type="html_other_px">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_cm">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_mm">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_in">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_pt">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_pc">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_%">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_em">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_color">
 		</block>
