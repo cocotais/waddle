@@ -1225,7 +1225,14 @@ wwwwwww      wwwwww     wwwwwww
 	}
 
 	// 打开可见控件预览框条件：周期判断或代码框更新
-
+	class VisibleWidget {
+		constructor() { };
+		setProps() { }
+		widgetLog() { }
+		widgetWarn() { }
+		widgetError() { }
+		emit() { }
+	} //空壳
 
 	function UpdateFunction(event) {
 		// 代码框更新
@@ -1246,14 +1253,7 @@ wwwwwww      wwwwww     wwwwwww
 
 
 
-			class VisibleWidget {
-				constructor() { };
-				setProps() { }
-				widgetLog() { }
-				widgetWarn() { }
-				widgetError() { }
-				emit() { }
-			} //空壳
+			
 			exports = { types: null, widget: null };//空壳
 			Function(code)(
 				VisibleWidget = VisibleWidget,
@@ -1276,7 +1276,6 @@ wwwwwww      wwwwww     wwwwwww
 				opener = void 0,
 				fetch = void 0,
 				XMLHttpRequest = void 0,
-				location = void 0,
 				open = void 0,
 				alert = void 0,
 				confirm = void 0,
