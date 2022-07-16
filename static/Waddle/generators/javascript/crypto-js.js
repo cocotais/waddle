@@ -256,58 +256,80 @@ Blockly.JavaScript["crypto_encbase64stringify"] = function (block) {
 };
 
 Blockly.JavaScript["crypto_enclatin1parse"] = function (block) {
-    var value_name = Blockly.JavaScript.valueToCode(
-      block,
-      "NAME",
-      Blockly.JavaScript.ORDER_ATOMIC
-    );
-    var code = `CryptoJS.enc.Latin1.parse(${value_name})`;
-    return [code, Blockly.JavaScript.ORDER_NONE];
-  };
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `CryptoJS.enc.Latin1.parse(${value_name})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
 
-  Blockly.JavaScript["crypto_enclatin1stringify"] = function (block) {
-    var value_name = Blockly.JavaScript.valueToCode(
-      block,
-      "NAME",
-      Blockly.JavaScript.ORDER_ATOMIC
-    );
-    var code = `CryptoJS.enc.Latin1.stringify(${value_name})`;
-    return [code, Blockly.JavaScript.ORDER_NONE];
-  };
-  Blockly.JavaScript["crypto_enchexparse"] = function (block) {
-      var value_name = Blockly.JavaScript.valueToCode(
-        block,
-        "NAME",
-        Blockly.JavaScript.ORDER_ATOMIC
-      );
-      var code = `CryptoJS.enc.Hex.parse(${value_name})`;
-      return [code, Blockly.JavaScript.ORDER_NONE];
-    };
-  
-    Blockly.JavaScript["crypto_enchexstringify"] = function (block) {
-        var value_name = Blockly.JavaScript.valueToCode(
-          block,
-          "NAME",
-          Blockly.JavaScript.ORDER_ATOMIC
-        );
-        var code = `CryptoJS.enc.Hex.stringify(${value_name})`;
-        return [code, Blockly.JavaScript.ORDER_NONE];
-      };
-      Blockly.JavaScript["crypto_encutf8parse"] = function (block) {
-          var value_name = Blockly.JavaScript.valueToCode(
-            block,
-            "NAME",
-            Blockly.JavaScript.ORDER_ATOMIC
-          );
-          var code = `CryptoJS.enc.Utf8.parse(${value_name})`;
-          return [code, Blockly.JavaScript.ORDER_NONE];
-        };
-        Blockly.JavaScript["crypto_encutf8stringify"] = function (block) {
-            var value_name = Blockly.JavaScript.valueToCode(
-              block,
-              "NAME",
-              Blockly.JavaScript.ORDER_ATOMIC
-            );
-            var code = `CryptoJS.enc.Utf8.stringify(${value_name})`;
-            return [code, Blockly.JavaScript.ORDER_NONE];
-          };
+Blockly.JavaScript["crypto_enclatin1stringify"] = function (block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `CryptoJS.enc.Latin1.stringify(${value_name})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+Blockly.JavaScript["crypto_enchexparse"] = function (block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `CryptoJS.enc.Hex.parse(${value_name})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["crypto_enchexstringify"] = function (block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `CryptoJS.enc.Hex.stringify(${value_name})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["crypto_encutf8parse"] = function (block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `CryptoJS.enc.Utf8.parse(${value_name})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["crypto_encutf8stringify"] = function (block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `CryptoJS.enc.Utf8.stringify(${value_name})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["crypto_encutf16parse"] = function (block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `CryptoJS.enc.Utf16.parse(${value_name})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["crypto_encutf16stringify"] = function (block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `CryptoJS.enc.Utf16.stringify(${value_name})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};

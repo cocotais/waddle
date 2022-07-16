@@ -503,6 +503,12 @@ TIP
 		</block>
 		<block type="crypto_encutf8parse">
 		</block>
+		<block type="crypto_encutf8stringify">
+		</block>
+		<block type="crypto_encutf16parse">
+		</block>
+		<block type="crypto_encutf16stringify">
+		</block>
 	</category>
 	<category name="vika" css-icon="waddle-vika" css-class="waddle-vika">
 		<block type="vika_import">

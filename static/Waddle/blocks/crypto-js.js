@@ -356,5 +356,31 @@ Blockly.Blocks['crypto_encutf8stringify'] = {
   }
 };
 
+Blockly.Blocks['crypto_encutf16parse'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck("String")
+        .appendField("使用Crypto编码器Utf16解析");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(BlockColors["crypto"]);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['crypto_encutf16stringify'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck("String")
+        .appendField("使用Crypto编码器Utf16字符串化");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(BlockColors["crypto"]);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
 
 //额，我更了个啥玩意
