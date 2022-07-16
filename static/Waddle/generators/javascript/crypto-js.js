@@ -293,3 +293,21 @@ Blockly.JavaScript["crypto_enclatin1parse"] = function (block) {
         var code = `CryptoJS.enc.Hex.stringify(${value_name})`;
         return [code, Blockly.JavaScript.ORDER_NONE];
       };
+      Blockly.JavaScript["crypto_encutf8parse"] = function (block) {
+          var value_name = Blockly.JavaScript.valueToCode(
+            block,
+            "NAME",
+            Blockly.JavaScript.ORDER_ATOMIC
+          );
+          var code = `CryptoJS.enc.Utf8.parse(${value_name})`;
+          return [code, Blockly.JavaScript.ORDER_NONE];
+        };
+        Blockly.JavaScript["crypto_encutf8stringify"] = function (block) {
+            var value_name = Blockly.JavaScript.valueToCode(
+              block,
+              "NAME",
+              Blockly.JavaScript.ORDER_ATOMIC
+            );
+            var code = `CryptoJS.enc.Utf8.stringify(${value_name})`;
+            return [code, Blockly.JavaScript.ORDER_NONE];
+          };
