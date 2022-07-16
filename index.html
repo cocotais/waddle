@@ -1225,7 +1225,7 @@ wwwwwww      wwwwww     wwwwwww
 	}
 
 	// 打开可见控件预览框条件：周期判断或代码框更新
-
+	
 
 	function UpdateFunction(event) {
 		// 代码框更新
@@ -1244,50 +1244,33 @@ wwwwwww      wwwwww     wwwwwww
 			// 打开可见控件预览框
 			widgetPreviewDom.style.display = document.getElementById("myModal").style.display;
 
-
-
-			class VisibleWidget {
-				constructor() { };
-				setProps() { }
-				widgetLog() { }
-				widgetWarn() { }
-				widgetError() { }
-				emit() { }
-			} //空壳
 			exports = { types: null, widget: null };//空壳
-			Function(code)(
-				VisibleWidget = VisibleWidget,
-				exports = exports,
-				window = void 0,
-				document = {
-					getElementById: function (e) {
-						return e ? document.querySelector("#".concat(I.a, " #").concat(e)) : null
-					}
-				},
-				history = void 0,
-				navigator = {
-					userAgent: navigator.userAgent
-				},
-				localStorage = void 0,
-				top = void 0,
-				self = void 0,
-				parent = void 0,
-				frames = void 0,
-				opener = void 0,
-				fetch = void 0,
-				XMLHttpRequest = void 0,
-				location = void 0,
-				open = void 0,
-				alert = void 0,
-				confirm = void 0,
-				prompt = void 0,
-				print = void 0,
-				sessionStorage = void 0,
-				postMessage = void 0,
-				eval = function () {
-					console.error("eval is not implemented")
-				}
-			);//加载你做出的控件
+			//加载你做出的控件
+			Function(
+				'VisibleWidget=class {constructor() { };setProps() { };widgetLog() { };widgetWarn() { };widgetError() { };emit() { }}',
+				'window=void 0',
+				'document={getElementById:function (e) {return e ? document.querySelector("#".concat(I.a, " #").concat(e)) : null}}',
+				'history=void 0',
+				`navigator={userAgent:"${navigator.userAgent}"}`,
+				'localStorage=void 0',
+				'top=void 0',
+				'self=void 0',
+				'parent=void 0',
+				'frames=void 0',
+				'opener=void 0',
+				'fetch=void 0',
+				'XMLHttpRequest=void 0',
+				'location=void 0',
+				'open=void 0',
+				'alert=void 0',
+				'confirm=void 0',
+				'prompt=void 0',
+				'print=void 0',
+				'sessionStorage=void 0',
+				'postMessage=void 0',
+				'eval=function () {console.error("eval is not implemented")}',
+				code)();
+			
 			let properties = {};
 			exports.types.properties.forEach(element => {
 				properties[element.key] = element.defaultValue;
