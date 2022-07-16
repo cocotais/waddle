@@ -112,18 +112,31 @@ Blockly.Blocks["crypto_aes_encrypt"] = {
     this.setHelpUrl("");
   },
 };
-Blockly.Blocks['crypto_aes_decrypt'] = {
-    init: function() {
-      this.appendValueInput("TEXT")
-          .setCheck(null)
-          .appendField("使用Crypto AES解密");
-      this.appendValueInput("CODE")
-          .setCheck(null)
-          .appendField("密钥");
-      this.setInputsInline(true);
-      this.setOutput(true, "String");
-      this.setColour(BlockColors["crypto"]);
-   this.setTooltip("");
-   this.setHelpUrl("");
-    }
+Blockly.Blocks["crypto_aes_decrypt"] = {
+  init: function () {
+    this.appendValueInput("TEXT")
+      .setCheck(null)
+      .appendField("使用Crypto AES解密");
+    this.appendValueInput("CODE").setCheck(null).appendField("密钥");
+    this.setInputsInline(true);
+    this.setOutput(true, "String");
+    this.setColour(BlockColors["crypto"]);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+
+Blockly.Blocks["crypto_hmacmd5str"] = {
+  init: function () {
+    this.appendValueInput("NAME")
+      .setCheck("String")
+      .appendField("使用Crypto生成 消息");
+    this.appendValueInput("W").setCheck("String").appendField("密钥");
+    this.appendDummyInput().appendField("的字符串");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
 };

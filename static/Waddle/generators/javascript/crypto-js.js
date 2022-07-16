@@ -55,3 +55,12 @@ Blockly.JavaScript['crypto_aes_decrypt'] = function(block) {
     var code = `CryptoJS.AES.decrypt(${value_text}, ${value_code})`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['crypto_hmacmd5str'] = function(block) {
+    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_w = Blockly.JavaScript.valueToCode(block, 'W', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = `var hash = CryptoJS.HmacMD5(${value_name}, ${value_w});`;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.JavaScript.ORDER_NONE];
+  };
