@@ -220,3 +220,18 @@ Blockly.Blocks["crypto_hmacsha1"] = {
     this.setHelpUrl("");
   },
 };
+
+Blockly.Blocks["crypto_hmacsha256"] = {
+  init: function () {
+    this.appendValueInput("NAME")
+      .setCheck("String")
+      .appendField("使用Crypto生成 消息");
+    this.appendValueInput("W").setCheck("String").appendField("密钥");
+    this.appendDummyInput().appendField("HMAC SHA256的对象");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(BlockColors["crypto"]);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};

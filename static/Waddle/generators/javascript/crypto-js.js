@@ -112,7 +112,7 @@ Blockly.JavaScript["crypto_hmacmd5str"] = function (block) {
     Blockly.JavaScript.ORDER_ATOMIC
   );
   // TODO: Assemble JavaScript into code variable.
-  var code = `var hash = CryptoJS.HmacMD5(${value_name}, ${value_w}).toString()`;
+  var code = `CryptoJS.HmacMD5(${value_name}, ${value_w}).toString()`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -129,7 +129,7 @@ Blockly.JavaScript["crypto_hmacsha1str"] = function (block) {
     Blockly.JavaScript.ORDER_ATOMIC
   );
   // TODO: Assemble JavaScript into code variable.
-  var code = `var hash = CryptoJS.HmacSHA1(${value_name}, ${value_w}).toString()`;
+  var code = `CryptoJS.HmacSHA1(${value_name}, ${value_w}).toString()`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -146,7 +146,7 @@ Blockly.JavaScript["crypto_hmacsha256str"] = function (block) {
     Blockly.JavaScript.ORDER_ATOMIC
   );
   // TODO: Assemble JavaScript into code variable.
-  var code = `var hash = CryptoJS.HmacSHA256(${value_name}, ${value_w}).toString();`;
+  var code = `CryptoJS.HmacSHA256(${value_name}, ${value_w}).toString()`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -163,7 +163,7 @@ Blockly.JavaScript["crypto_hmacsha512str"] = function (block) {
     Blockly.JavaScript.ORDER_ATOMIC
   );
   // TODO: Assemble JavaScript into code variable.
-  var code = `var hash = CryptoJS.HmacSHA512(${value_name}, ${value_w}).toString()`;
+  var code = `CryptoJS.HmacSHA512(${value_name}, ${value_w}).toString()`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -181,7 +181,7 @@ Blockly.JavaScript["crypto_hmacmd5"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     );
     // TODO: Assemble JavaScript into code variable.
-    var code = `var hash = CryptoJS.HmacMD5(${value_name}, ${value_w})`;
+    var code = `CryptoJS.HmacMD5(${value_name}, ${value_w})`;
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];
   };
@@ -198,7 +198,24 @@ Blockly.JavaScript["crypto_hmacmd5"] = function (block) {
       Blockly.JavaScript.ORDER_ATOMIC
     );
     // TODO: Assemble JavaScript into code variable.
-    var code = `var hash = CryptoJS.HmacSHA1(${value_name}, ${value_w})`;
+    var code = `CryptoJS.HmacSHA1(${value_name}, ${value_w})`;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.JavaScript.ORDER_NONE];
+  };
+
+  Blockly.JavaScript["crypto_hmacsha256str"] = function (block) {
+    var value_name = Blockly.JavaScript.valueToCode(
+      block,
+      "NAME",
+      Blockly.JavaScript.ORDER_ATOMIC
+    );
+    var value_w = Blockly.JavaScript.valueToCode(
+      block,
+      "W",
+      Blockly.JavaScript.ORDER_ATOMIC
+    );
+    // TODO: Assemble JavaScript into code variable.
+    var code = `CryptoJS.HmacSHA256(${value_name}, ${value_w})`;
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];
   };
