@@ -475,6 +475,8 @@ TIP
 		</block>
 		<block type="crypto_hmacmd5str">
 		</block>
+		<block type="crypto_hmacsha1str">
+		</block>
 	</category>
 	<category name="vika" css-icon="waddle-vika" css-class="waddle-vika">
 		<block type="vika_import">
