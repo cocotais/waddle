@@ -187,3 +187,20 @@ Blockly.Blocks["crypto_hmacsha512str"] = {
     this.setHelpUrl("");
   },
 };
+
+
+
+Blockly.Blocks["crypto_hmacmd5"] = {
+  init: function () {
+    this.appendValueInput("NAME")
+      .setCheck("String")
+      .appendField("使用Crypto生成 消息");
+    this.appendValueInput("W").setCheck("String").appendField("密钥");
+    this.appendDummyInput().appendField("HMAC MD5 的对象");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(BlockColors["crypto"]);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
