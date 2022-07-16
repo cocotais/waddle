@@ -495,6 +495,8 @@ TIP
 		</block>
 		<block type="crypto_enclatin1parse">
 		</block>
+		<block type="crypto_enclatin1stringify">
+		</block>
 	</category>
 	<category name="vika" css-icon="waddle-vika" css-class="waddle-vika">
 		<block type="vika_import">
