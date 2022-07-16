@@ -235,3 +235,9 @@ Blockly.JavaScript["crypto_hmacmd5"] = function (block) {
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];
   };
+
+  Blockly.JavaScript['crypto_encbase64parse'] = function(block) {
+    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = `CryptoJS.enc.Base64.parse(${value_name})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+  };

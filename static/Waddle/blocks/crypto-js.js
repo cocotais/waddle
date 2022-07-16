@@ -250,3 +250,16 @@ Blockly.Blocks["crypto_hmacsha512"] = {
     this.setHelpUrl("");
   },
 };
+
+Blockly.Blocks['crypto_encbase64parse'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck("String")
+        .appendField("使用Crypto编码器Base64解析");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(BlockColors["crypto"]);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
