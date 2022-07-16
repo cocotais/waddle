@@ -316,4 +316,18 @@ Blockly.Blocks['crypto_enchexparse'] = {
   }
 };
 
+Blockly.Blocks['crypto_enchexstringify'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck("String")
+        .appendField("使用Crypto编码器Hex字符串化");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(BlockColors["crypto"]);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+
 //额，我更了个啥玩意
