@@ -439,6 +439,8 @@ TIP
 		</block>
 		<block type="axios_maxcontentlength">
 		</block>
+		<block type="axios_withcredentials">
+		</block>
 		<block type="axios_data">
 		</block>
 	</category>

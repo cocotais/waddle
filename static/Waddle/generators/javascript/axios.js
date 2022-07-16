@@ -71,3 +71,9 @@ Blockly.JavaScript["axios_data"] = function(block){
     var code = `data: ${value_num},\n`;
     return code;
 }
+
+Blockly.JavaScript['axios_withcredentials'] = function(block){
+    var value_num = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC) || 'false';
+    var code = `withCredentials: ${value_num},\n`;
+    return code;
+}

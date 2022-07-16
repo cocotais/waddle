@@ -163,6 +163,17 @@ Blockly.Blocks['axios_maxcontentlength'] = {
     }
 };
 
+Blockly.Blocks['axios_withcredentials'] = {
+    init: function () {
+        this.appendValueInput('NUM').setCheck('Boolean').appendField('是否携带cookies');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(BlockColors['axios']);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
 Blockly.Blocks['axios_data'] = {
     init: function () {
         this.appendValueInput('NUM').setCheck(null).appendField('请求数据');
