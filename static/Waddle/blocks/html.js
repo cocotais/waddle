@@ -1524,7 +1524,9 @@ Blockly.Blocks["html_tag"] = {
 
 Blockly.Blocks["html_attribute"] = {
   init: function () {
-    this.appendValueInput("KEY").setCheck("String").appendField("定义属性");
+    this.appendDummyInput()
+    .appendField("定义属性")
+    .appendField(new Blockly.FieldTextInput("href"), "KEY");
     this.appendValueInput("VALUE").setCheck(null).appendField("的值为");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1534,6 +1536,22 @@ Blockly.Blocks["html_attribute"] = {
     this.setHelpUrl("");
   },
 };
+
+Blockly.Blocks["html_attribute_event"] = {
+    init: function () {
+      this.appendDummyInput()
+        .appendField("定义事件属性 HTML事件名")
+        .appendField(new Blockly.FieldTextInput("onChange"), "eventName")
+        .appendField("触发控件事件 事件内部名")
+        .appendField(new Blockly.FieldTextInput("onChange"), "widgetEventName");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setInputsInline(true);
+      this.setColour("#00569c");
+      this.setTooltip("");
+      this.setHelpUrl("HTML事件名请用驼峰命名法，事件内部名就是你事件积木定义的那个");
+    },
+  };
 
 Blockly.Blocks["html_attribute_id"] = {
   init: function () {
@@ -1868,14 +1886,14 @@ Blockly.Blocks["html_css_background"] = {
       .setCheck(null)
       .appendField(
         new Blockly.FieldDropdown([
-          ["背景颜色", "background-color"],
-          ["背景图像", "background-image"],
-          ["背景滚动设置", "background-attachment"],
-          ["背景图像开始设置", "background-position"],
-          ["背景图像重复设置", "background-repeat"],
-          ["背景图像定位区域设置", "background-origin"],
-          ["背景绘制区域", "background-clip"],
-          ["背景尺寸", "background-size"],
+          ["背景颜色", "backgroundColor"],
+          ["背景图像", "backgroundImage"],
+          ["背景滚动设置", "backgroundAttachment"],
+          ["背景图像开始设置", "backgroundPosition"],
+          ["背景图像重复设置", "backgroundRepeat"],
+          ["背景图像定位区域设置", "backgroundOrigin"],
+          ["背景绘制区域", "backgroundClip"],
+          ["背景尺寸", "backgroundSize"],
         ]),
         "TYPE"
       );
@@ -1895,19 +1913,19 @@ Blockly.Blocks["html_css_border"] = {
       .setCheck(null)
       .appendField(
         new Blockly.FieldDropdown([
-          ["全部边框", "-"],
-          ["上边框", "-top-"],
-          ["下边框", "-bottom-"],
-          ["左边框", "-left-"],
-          ["右边框", "-right-"],
+          ["全部边框", ""],
+          ["上边框", "Top"],
+          ["下边框", "Bottom"],
+          ["左边框", "Left"],
+          ["右边框", "Right"],
         ]),
         "NAME1"
       )
       .appendField(
         new Blockly.FieldDropdown([
-          ["颜色", "color"],
-          ["样式", "style"],
-          ["宽度", "width"],
+          ["颜色", "Color"],
+          ["样式", "Style"],
+          ["宽度", "Width"],
         ]),
         "NAME2"
       );
@@ -1927,11 +1945,11 @@ Blockly.Blocks["html_css_border2"] = {
       .setCheck(null)
       .appendField(
         new Blockly.FieldDropdown([
-          ["全部圆角", "-"],
-          ["左上圆角", "-top-left-"],
-          ["右上圆角", "-top-right-"],
-          ["左下圆角", "-bottom-left-"],
-          ["右下圆角", "-bottom-left-"],
+          ["全部圆角", ""],
+          ["左上圆角", "TopLeft"],
+          ["右上圆角", "TopRight"],
+          ["左下圆角", "BottomLeft"],
+          ["右下圆角", "BottomLeft"],
         ]),
         "NAME"
       );
@@ -1953,10 +1971,10 @@ Blockly.Blocks["html_css_dimension"] = {
         new Blockly.FieldDropdown([
           ["高度", "height"],
           ["宽度", "width"],
-          ["最大宽度", "max-width"],
-          ["最小宽度", "min-width"],
-          ["最大高度", "max-height"],
-          ["最小高度", "min-height"],
+          ["最大宽度", "maxWidth"],
+          ["最小宽度", "minWidth"],
+          ["最大高度", "maxHeight"],
+          ["最小高度", "minHeight"],
         ]),
         "NAME1"
       );
@@ -1984,10 +2002,10 @@ Blockly.Blocks["html_css_marginpadding"] = {
       .appendField(
         new Blockly.FieldDropdown([
           ["全部", ""],
-          ["上方", "-top"],
-          ["下方", "-bottom"],
-          ["左方", "-left"],
-          ["右方", "-right"],
+          ["上方", "Top"],
+          ["下方", "Bottom"],
+          ["左方", "Left"],
+          ["右方", "Right"],
         ]),
         "NAME"
       );
@@ -2179,8 +2197,7 @@ Blockly.Blocks["html_button"] = {
 
 Blockly.Blocks["html_img"] = {
   init: function () {
-    this.appendStatementInput("CON").setCheck(null).appendField("新建图片");
-    this.appendStatementInput("PRO").setCheck(null).appendField("属性");
+    this.appendStatementInput("PRO").setCheck(null).appendField("新建图片 属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -2191,8 +2208,7 @@ Blockly.Blocks["html_img"] = {
 
 Blockly.Blocks["html_video"] = {
   init: function () {
-    this.appendStatementInput("CON").setCheck(null).appendField("新建视频");
-    this.appendStatementInput("PRO").setCheck(null).appendField("属性");
+    this.appendStatementInput("PRO").setCheck(null).appendField("新建视频 属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -2203,8 +2219,7 @@ Blockly.Blocks["html_video"] = {
 
 Blockly.Blocks["html_input"] = {
   init: function () {
-    this.appendStatementInput("CON").setCheck(null).appendField("新建输入");
-    this.appendStatementInput("PRO").setCheck(null).appendField("属性");
+    this.appendStatementInput("PRO").setCheck(null).appendField("新建输入 属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -2215,8 +2230,7 @@ Blockly.Blocks["html_input"] = {
 
 Blockly.Blocks["html_iframe"] = {
   init: function () {
-    this.appendStatementInput("CON").setCheck(null).appendField("新建内联框架");
-    this.appendStatementInput("PRO").setCheck(null).appendField("属性");
+    this.appendStatementInput("PRO").setCheck(null).appendField("新建内联框架 属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -2239,8 +2253,7 @@ Blockly.Blocks["html_b"] = {
 
 Blockly.Blocks["html_br"] = {
   init: function () {
-    this.appendDummyInput().appendField("新建换行");
-    this.appendStatementInput("PRO").setCheck(null).appendField("属性");
+    this.appendStatementInput("PRO").setCheck(null).appendField("新建换行 属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");

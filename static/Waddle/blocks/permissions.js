@@ -1,3 +1,17 @@
+Blockly.Blocks['permissions_getall'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('获取权限')
+            .appendField(new Blockly.FieldDropdown([['使用this方法获取', 'THIS']]), 'GETTYPE')
+            .appendField('获取四个权限')
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(BlockColors['permission']);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+};
+
 Blockly.Blocks['permissions_get'] = {
     init: function () {
         this.appendDummyInput()

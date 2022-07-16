@@ -1,0 +1,74 @@
+<root><head><waddleversion>0</waddleversion><dataversion>0</dataversion></head><body><blocks><xml xmlns="https://developers.google.com/blockly/xml"><block type="tools_exegesis" id="/t+[fr3~S=0QyRMe%ZPU" x="-42" y="118"><field name="exegesis">由@诗岸单推人 （woc！是诗岸！）制作</field><next><block type="ivw_defTypes" id="pLhqavIE!eZoBeGne[Q?"><field name="type">BASE_WIDGET</field><field name="icon">https://waddle.coco-central.cn/static/img/logo/logo-white.svg</field><field name="title">Base编解码</field><field name="version">1.0.0</field><field name="isGlobalWidget">true</field><next><block type="ivw_defWidget" id="61/*~$Q?.KAtaE*F-w@?"><next><block type="tools_clip" id="1HHw#s]pK76hjx/r;{/O"><field name="tag">放置一个方法积木，返回值字符串</field><statement name="codes"><block type="ivw_addMethod" id="iZlK[4chk$ZUc+x/C:UC"><field name="label">Base解编码</field><field name="key">Base</field><field name="valueType">'string'</field><statement name="params"><block type="tools_clip" id="2R@_*/mr=aJE9=ep7;D%"><field name="tag">放置一个输入参数，用于用户输入</field><statement name="codes"><block type="ivw_addParams" id="!MWc1R7NdYRlM`8oA${d"><field name="label">解/编码内容</field><field name="key">text</field><field name="valueType">'string'</field><value name="defaultValue"><block type="text" id="Jy@Ht!zWnJ@I]-]+Cb5m"><field name="TEXT">书写内容</field></block></value></block></statement><next><block type="tools_clip" id="=Jmy;.+-oD|0_JG^|V{|"><field name="tag">放置一个下拉参数，检查模式</field><statement name="codes"><block type="ivw_addDropdownParams" id="38V%]m~eEbj3_T@7/(@-"><field name="label">模式</field><field name="key">mode</field><statement name="dropdownItems"><block type="ivw_addDropdownItem" id="EnL1U1br]_o,bUdShPic"><field name="label">编码</field><next><block type="ivw_addDropdownItem" id="-nY#ZU6|SrPvi]DH9}`e"><field name="label">解码</field></block></next></block></statement></block></statement></block></next></block></statement><statement name="code"><block type="tools_clip" id="Vk+*Cd:Ke|2#x(j{sByZ"><field name="tag">检查模式，取参数（mode）的值</field><statement name="codes"><block type="controls_if" id="##0je(!s*/mY!GmAYvMm"><value name="IF0"><block type="logic_compare" id="QkPMdf:NFy:NAaqF=*Rc"><field name="OP">EQ</field><value name="A"><block type="ivw_getparam" id="tmKLWbi1U!kA[}gk-F_X"><field name="KEY">mode</field></block></value><value name="B"><block type="text" id="?HcdH{{9@WQ@v2Fdo?}^"><field name="TEXT">编码</field></block></value></block></value><statement name="DO0"><block type="tools_clip" id="y,N[i^|{3^ace%SUs*4/"><field name="tag">用户选择了“编码”模式</field><statement name="codes"><block type="tools_clip" id="G{kr.9?V_S4FuzRFVFw="><field name="tag">取参数（text）的值进行编码并返回</field><statement name="codes"><block type="tools_exegesis" id="N8*7uD7A_$)cOq2.{$33"><field name="exegesis">使用BASE编码并返回</field><next><block type="ivw_methodReturn" id="|L5efo*3%/G3W.B;l|tT"><value name="value"><block type="js_base64" id="msp?gwl/l4d^:VCjYjV."><field name="TYPE">BM</field><value name="TEXT"><block type="ivw_getparam" id="Bb_Xh*%]G~to=Czq%VaP"><field name="KEY">text</field></block></value></block></value></block></next></block></statement></block></statement></block></statement><next><block type="controls_if" id="9oc]M6Vo8z`)A9O,X?n6"><value name="IF0"><block type="logic_compare" id=":AaHbrF@ztDhO(*hWAAw"><field name="OP">EQ</field><value name="A"><block type="ivw_getparam" id="OAVTM54:|+pJ-Vbao4Lf"><field name="KEY">mode</field></block></value><value name="B"><block type="text" id="FeRAx*?/VSmN6mDYu;(0"><field name="TEXT">解码</field></block></value></block></value><statement name="DO0"><block type="tools_clip" id="ztg@Z,@0(2IjDp[:~0h["><field name="tag">用户选择了“解码”模式</field><statement name="codes"><block type="tools_clip" id="Zr!8uPbWzjt)c[_Z.^it"><field name="tag">取参数（text）的值进行编码并返回</field><statement name="codes"><block type="tools_exegesis" id="V6M(:}p?vJ3h+iI[GN$?"><field name="exegesis">使用BASE解码并返回</field><next><block type="ivw_methodReturn" id="mTmp!;dPf!F[1HFpgVaG"><value name="value"><block type="js_base64" id="U:?,uGC.kCLmAm-UEz/9"><field name="TYPE">JM</field><value name="TEXT"><block type="ivw_getparam" id="5XWFF^y;TkyXoeeeNTVV"><field name="KEY">text</field></block></value></block></value></block></next></block></statement></block></statement></block></statement></block></next></block></statement></block></statement></block></statement><next><block type="ivw_export" id="%;Q2HKK:YopTV}A1`}8F"></block></next></block></next></block></next></block></next></block></xml></blocks><js>// 由@诗岸单推人 （woc！是诗岸！）制作
+
+const types = {
+    isInvisibleWidget: true,
+    type: "BASE_WIDGET",
+    icon: "https://waddle.coco-central.cn/static/img/logo/logo-white.svg",
+    title: "Base编解码",
+    version: "1.0.0",
+    isGlobalWidget: true,
+    properties: [],
+    methods: [],
+    events: [],
+};
+
+class Widget extends InvisibleWidget {
+    constructor(props) {
+        super(props);
+
+    }
+
+}
+// 放置一个方法积木，返回值字符串
+
+  types['methods'].push({
+      key: 'Base',
+      label: 'Base解编码',
+      params: [  // 放置一个输入参数，用于用户输入
+
+          {
+              key: 'text',
+              label: '解/编码内容',
+              valueType: 'string',
+              defaultValue: '书写内容',
+          },
+    // 放置一个下拉参数，检查模式
+
+          {
+              key: 'mode',
+              label: '模式',
+              valueType: 'string',
+              dropdown: [
+        { label: '编码', value: '编码', },
+
+        { label: '解码', value: '解码', },
+      ],
+          },
+
+
+  ],
+      valueType: 'string',
+  })
+  Widget.prototype.Base = function (text,mode,) {
+        // 检查模式，取参数（mode）的值
+      if ((mode) == '编码') {
+        // 用户选择了“编码”模式
+          // 取参数（text）的值进行编码并返回
+            // 使用BASE编码并返回
+            return (btoa(encodeURI(text)));
+
+      }
+      if ((mode) == '解码') {
+        // 用户选择了“解码”模式
+          // 取参数（text）的值进行编码并返回
+            // 使用BASE解码并返回
+            return (decodeURI(atob(text)));
+
+      }
+
+
+  }
+
+exports.types = types;
+exports.widget = Widget;
+</js></body></root>

@@ -9,7 +9,7 @@ var BlockColors = {
 	"colour": "#2bc9a7",
 	"dom": "#a073ff",
 	"lodash": "#608fee",
-	"axios": "#8647f3",
+	"axios": "#5a29e4",
 	"utils": "#14b390",
 	"crypto": "#5574f8",
 	"vika": "#f88767",

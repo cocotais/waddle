@@ -223,6 +223,8 @@ TIP
 		</block>
 		<block type="js_json_access">
 		</block>
+		<label text="在使用以下积木前，请先在程序开头放一个‘获取四个权限’">
+		</label>
 		<block type="js_window_screen">
 		</block>
 		<block type="js_window_avail_screen">
@@ -437,6 +439,10 @@ TIP
 		</block>
 		<block type="axios_maxcontentlength">
 		</block>
+		<block type="axios_withcredentials">
+		</block>
+		<block type="axios_data">
+		</block>
 	</category>
 	<category name="utils" css-icon="waddle-utils" css-class="waddle-utils" custom="UTILS_GAME">
 		<button text="实验性功能提示" callbackKey="betawarning">
@@ -453,11 +459,55 @@ TIP
 		</block>
 		<block type="crypto_sha1_s">
 		</block>
+		<block type="crypto_sha256_s">
+		</block>
 		<block type="crypto_md5">
 		</block>
 		<block type="crypto_sha1">
 		</block>
+		<block type="crypto_sha256">
+		</block>
 		<block type="crypto_tostr">
+		</block>
+		<block type="crypto_aes_encrypt">
+		</block>
+		<block type="crypto_aes_decrypt">
+		</block>
+		<block type="crypto_hmacmd5str">
+		</block>
+		<block type="crypto_hmacsha1str">
+		</block>
+		<block type="crypto_hmacsha256str">
+		</block>
+		<block type="crypto_hmacsha512str">
+		</block>
+		<block type="crypto_hmacmd5">
+		</block>
+		<block type="crypto_hmacsha1">
+		</block>
+		<block type="crypto_hmacsha256">
+		</block>
+		<block type="crypto_hmacsha512">
+		</block>
+		<block type="crypto_encbase64parse">
+		</block>
+		<block type="crypto_encbase64stringify">
+		</block>
+		<block type="crypto_enclatin1parse">
+		</block>
+		<block type="crypto_enclatin1stringify">
+		</block>
+		<block type="crypto_enchexparse">
+		</block>
+		<block type="crypto_enchexstringify">
+		</block>
+		<block type="crypto_encutf8parse">
+		</block>
+		<block type="crypto_encutf8stringify">
+		</block>
+		<block type="crypto_encutf16parse">
+		</block>
+		<block type="crypto_encutf16stringify">
 		</block>
 	</category>
 	<category name="vika" css-icon="waddle-vika" css-class="waddle-vika">
@@ -506,6 +556,8 @@ TIP
 		</block>
 	</category>
 	<category name="权限获取" css-icon="waddle-permission" css-class="waddle-permission">
+		<block type="permissions_getall">
+		</block>
 		<block type="permissions_get">
 		</block>
 		<block type="permissions_window">
@@ -596,6 +648,12 @@ TIP
 		</block>
 		<block type="ivw_getproperty">
 		</block>
+		<block type="ivw_setprop">
+		</block>
+		<block type="vw_setprop">
+		</block>
+		<block type="ivw_propsinit">
+		</block>
 		<label text="方法定义">
 		</label>
 		<block type="ivw_addMethod">
@@ -606,22 +664,21 @@ TIP
 		</label>
 		<block type="ivw_addEvent">
 		</block>
+		<block type="vw_addEvent">
+			<statement name="code">
+				<block type="ivw_emit">
+				</block>
+			</statement>
+		</block>
 		<block type="ivw_emit">
-			<value name="event">
-				<block type="text">
-					<field name="TEXT">事件名</field>
-				</block>
-			</value>
-			<value name="parameters">
-				<block type="ivw_emitParameter">
-				</block>
-			</value>
 		</block>
 		<block type="ivw_emitParameter">
 		</block>
 		<label text="参数设置">
 		</label>
 		<block type="ivw_addParams">
+		</block>
+		<block type="ivw_addEventParams">
 		</block>
 		<block type="ivw_addDropdownParams">
 			<value name="dropdownItems">
@@ -633,18 +690,34 @@ TIP
 		</block>
 		<block type="ivw_getparam">
 		</block>
-		<lable text="积木设置">
-		</lable>
-		<block type="ivw_option_icon">
+		<label text="积木设置">
+		</label>
+		<!-- <block type="ivw_option_icon">
 		</block>
 		<block type="ivw_option_color">
+		</block> -->
+		<block type="ivw_config">
+			<value name="color">
+				<shadow type="colour_picker">
+					<field name="COLOUR">#ffbb55</field>
+				</shadow>
+			</value>
+		</block>
+		<label text="CoCo控制台">
+		</label>
+		<block type="widget_widgetlog">
+		</block>
+		<block type="widget_widgetwarn">
+		</block>
+		<block type="widget_widgeterror">
 		</block>
 	</category>
 	<category name="渲染" css-icon="waddle-render-Gradient" css-class="waddle-render">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
 		</button>
-		<block type="html_code">
-		</block>
+		<!-- <block type="html_code">
+		</block> -->
+		<!-- 暂时弃用 -->
 		<block type="html_tag">
 		</block>
 		<block type="html_html">
@@ -680,6 +753,8 @@ TIP
 		<block type="html_script">
 		</block>
 		<block type="html_attribute">
+		</block>
+		<block type="html_attribute_event">
 		</block>
 		<block type="html_attribute_href">
 		</block>
@@ -718,20 +793,60 @@ TIP
 		<block type="html_css_border2">
 		</block>
 		<block type="html_other_px">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_cm">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_mm">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_in">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_pt">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_pc">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_%">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_em">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
 		</block>
 		<block type="html_other_color">
 		</block>

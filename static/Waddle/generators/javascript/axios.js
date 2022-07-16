@@ -25,8 +25,7 @@ Blockly.JavaScript['axios_response'] = function () {
 
 Blockly.JavaScript['axios_responsedropdown'] = function (block) {
     var dropdown_mode = block.getFieldValue('MODE');
-    // TODO: Assemble JavaScript into code variable.
-    var code = `response.${dropdown_mode}`;
+        var code = `response.${dropdown_mode}`;
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -41,8 +40,7 @@ Blockly.JavaScript['axios_getpost'] = function (block) {
     var statements_par = Blockly.JavaScript.statementToCode(block, 'PAR');
     var statements_ok = Blockly.JavaScript.statementToCode(block, 'OK');
     var statements_error = Blockly.JavaScript.statementToCode(block, 'error');
-    // TODO: Assemble JavaScript into code variable.
-    var code = `
+        var code = `
 axios.${dropdown_mode}(${value_url},{
   ${statements_par}
   })
@@ -67,3 +65,15 @@ Blockly.JavaScript['axios_maxcontentlength'] = function (block) {
     var code = `maxContentLength: ${value_num},\n`;
     return code;
 };
+
+Blockly.JavaScript["axios_data"] = function(block){
+    var value_num = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    var code = `data: ${value_num},\n`;
+    return code;
+}
+
+Blockly.JavaScript['axios_withcredentials'] = function(block){
+    var checkbox_name = block.getFieldValue('NAME') === 'TRUE';
+    var code = `withCredentials: ${checkbox_name},\n`;
+    return code;
+}

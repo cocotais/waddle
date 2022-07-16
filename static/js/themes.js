@@ -57,7 +57,16 @@ var to_dark = function () {
 	document.documentElement.style.setProperty('--funcs-hover-color', '#aaaaaa');
 	document.documentElement.style.setProperty('--show-code-color', '#876CFF');
 	document.documentElement.style.setProperty('--show-hover-code-color', '#6d50f0');
-	document.documentElement.style.setProperty('--aboutus-background','linear-gradient(rgba(82, 82, 82, 0.65), rgba(0, 0, 0, 0.45)), url(\'./static/img/background.svg\') no-repeat 0% 20%/ cover');
+	document.documentElement.style.setProperty('--aboutus-background','#666666');
+	document.documentElement.style.setProperty('--arrow-color', '#fff');
+	document.documentElement.style.setProperty('--arrow-background', '#525252');
+	document.documentElement.style.setProperty('--arrow-hover-background', '#666666');
+
+	document.documentElement.style.setProperty('--settings-button-color', 'rgba(59, 59, 59, 1)');
+	document.documentElement.style.setProperty('--settings-button-background', 'rgba(164, 164, 164, 1)');
+	document.documentElement.style.setProperty('--settings-button-set-color', 'rgba(255, 255, 255, 1)');
+	document.documentElement.style.setProperty('--settings-button-set-background', 'rgba(59, 59, 59, 1)');
+	document.getElementById('about-img').src="./static/img/logo/logo-white-full.svg"
 };
 var to_light = function () {
 	workspace.setTheme(WaddleTheme);
@@ -104,7 +113,18 @@ var to_light = function () {
 	document.documentElement.style.setProperty('--show-code-color', '#876CFF');
 	document.documentElement.style.setProperty('--show-hover-code-color', '#6d50f0');
 	document.documentElement.style.setProperty('--line-color', '#9C89FF');
-	document.documentElement.style.setProperty('--aboutus-background', "linear-gradient(rgba(245, 248, 250, 0.15), rgba(109, 80, 240, 0.95)), url('./static/img/background.svg') no-repeat 0% 20%/ cover");
+	document.documentElement.style.setProperty('--aboutus-background', '#ffffff');
+	document.documentElement.style.setProperty('--arrow-color', '#6d50f0');
+	document.documentElement.style.setProperty('--arrow-background', '#efebff');
+	document.documentElement.style.setProperty('--arrow-hover-background', '#d7cff7');
+	document.getElementById('about-img').src="./static/img/logo/logo-purple-full.png.svg"
+
+
+	document.documentElement.style.setProperty('--settings-button-color', 'rgba(105, 85, 231, 0.8)');
+	document.documentElement.style.setProperty('--settings-button-background', 'rgba(105, 85, 231, 0.1)');
+	document.documentElement.style.setProperty('--settings-button-set-color', '#fff');
+	document.documentElement.style.setProperty('--settings-button-set-background', 'rgba(105, 85, 231, 0.7)');
+	
 };
 var theme_conut = 0;
 var switch_theme = function () {
