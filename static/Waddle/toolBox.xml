@@ -493,6 +493,8 @@ TIP
 		</block>
 		<block type="crypto_encbase64stringify">
 		</block>
+		<block type="crypto_enclatin1parse">
+		</block>
 	</category>
 	<category name="vika" css-icon="waddle-vika" css-class="waddle-vika">
 		<block type="vika_import">

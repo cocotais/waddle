@@ -277,4 +277,17 @@ Blockly.Blocks['crypto_encbase64stringify'] = {
   }
 };
 
+Blockly.Blocks['crypto_enclatin1parse'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck("String")
+        .appendField("使用Crypto编码器Latin1解析");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(BlockColors["crypto"]);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
 //额，我更了个啥玩意

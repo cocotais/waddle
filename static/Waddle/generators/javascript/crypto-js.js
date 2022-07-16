@@ -254,3 +254,13 @@ Blockly.JavaScript["crypto_encbase64stringify"] = function (block) {
   var code = `CryptoJS.enc.Base64.stringify(${value_name})`;
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript["crypto_enclatin1parse"] = function (block) {
+    var value_name = Blockly.JavaScript.valueToCode(
+      block,
+      "NAME",
+      Blockly.JavaScript.ORDER_ATOMIC
+    );
+    var code = `CryptoJS.enc.Latin1.parse(${value_name})`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+  };
