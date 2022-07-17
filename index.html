@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"v1.48.1(1186)-beta"替换为版本（这条的也要）---->
+<!----将"v1.48.2(1187)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.48.1(1186)-beta' //版本号
+		var version = 'v1.48.2(1187)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -250,7 +250,8 @@ wwwwwww      wwwwww     wwwwwww
 				-webkit-backdrop-filter: blur(10px);
 				backdrop-filter: blur(12px) saturate(145%);
 				opacity: 0%;
-				transition: opacity 0.2s;
+				transition: opacity 0.2s, z-index 0.2s;
+				;
 			}
 
 			.delete-svg {
@@ -285,7 +286,6 @@ wwwwwww      wwwwww     wwwwwww
 				} catch (error) {
 					//pass
 				}
-
 				if (mode) {
 					delete_trash_cover.zIndex = 500;
 					del_groundglass.zIndex = 300;
@@ -295,36 +295,38 @@ wwwwwww      wwwwww     wwwwwww
 					delete_trash_cover.opacity = 1;
 					delete_trash_body.opacity = 1;
 					delete_div.opacity = 1;
-					if (mouse_X() < 60) {
+					var mou_X = mouse_X() || mou_X
+					if (mou_X < 60) {
 						trash_cover(true);
 					} else {
 						trash_cover(false);
 					}
-				} else {
-
+				}
+				else {
 					delete_trash_cover.opacity = 0;
 					delete_trash_body.opacity = 0;
 					delete_div.opacity = 0;
 					try {
 						del_groundglass.opacity = 0;
-						setTimeout(() => {
-							if (!mode) {
-								delete_trash_cover.zIndex = 0;
-								delete_trash_body.zIndex = 0;
-								del_groundglass.zIndex = 0;
-								delete_div.zIndex = 0
-							}
-						}, 150);
-					} catch (error) {
+						delete_trash_cover.zIndex = 0;
+						delete_trash_body.zIndex = 0;
+						del_groundglass.zIndex = 0;
+						delete_div.zIndex = 0
+					}
+					catch (error) {
 						//pass
 					}
 				}
+
 			}
 
 			function mouse_X() {
 				// 获取鼠标X坐标
 				var posX = 0;
 				var event = event || window.event;
+				if (!event) {
+					return undefined;
+				}
 				if (event.pageX) {
 					posX = event.pageX;
 				} else if (event.clientX) {
@@ -884,10 +886,14 @@ wwwwwww      wwwwww     wwwwwww
 
 			.modal-body {
 				padding: 2px 16px;
-				padding: 0 1em !important;
+				padding: 0 0 0 1em!important;
 				overflow-y: auto;
 				overflow-x: auto;
 				height: 75%;
+			}
+
+			#codeArea{
+				height: 100%;
 			}
 		</style>
 
@@ -2123,12 +2129,11 @@ wwwwwww      wwwwww     wwwwwww
 	build.style = 'position: absolute;z-index: -1;'
 	$(".waddle-block")[0].after(build);
 	var build = document.createElement('iconpark-icon');
-	build.size = "21px"	
+	build.size = "21px"
 	build.name = "waddle-render"
 	build.className = "waddle-render"
 	build.style = 'position: absolute;z-index: -1;'
 	$(".waddle-render")[0].after(build);
-
 
 	setTimeout(() => {
 		document.getElementsByClassName('blocklyToolboxDiv')[0].id = "blocklyToolboxDiv";
