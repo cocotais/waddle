@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"v1.48.00(1185)-beta"替换为版本（这条的也要）---->
+<!----将"v1.48.1(1186)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.48.00(1185)-beta' //版本号
+		var version = 'v1.48.1(1186)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -1225,7 +1225,7 @@ wwwwwww      wwwwww     wwwwwww
 	}
 
 	// 打开可见控件预览框条件：周期判断或代码框更新
-	
+
 
 	function UpdateFunction(event) {
 		// 代码框更新
@@ -1270,7 +1270,7 @@ wwwwwww      wwwwww     wwwwwww
 				'postMessage=void 0',
 				'eval=function () {console.error("eval is not implemented")}',
 				code)();
-			
+
 			let properties = {};
 			exports.types.properties.forEach(element => {
 				properties[element.key] = element.defaultValue;
@@ -2108,6 +2108,28 @@ wwwwwww      wwwwww     wwwwwww
 		const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
 		localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
 	}
+
+
+	var build = document.createElement('iconpark-icon');
+	build.name = "waddle-build"
+	build.size = "21px"
+	build.className = "waddle-build"
+	build.style = 'position: absolute;z-index: -1;'
+	$(".waddle-build")[0].after(build);
+	var build = document.createElement('iconpark-icon');
+	build.size = "21px"
+	build.name = "waddle-block"
+	build.className = "waddle-block"
+	build.style = 'position: absolute;z-index: -1;'
+	$(".waddle-block")[0].after(build);
+	var build = document.createElement('iconpark-icon');
+	build.size = "21px"	
+	build.name = "waddle-render"
+	build.className = "waddle-render"
+	build.style = 'position: absolute;z-index: -1;'
+	$(".waddle-render")[0].after(build);
+
+
 	setTimeout(() => {
 		document.getElementsByClassName('blocklyToolboxDiv')[0].id = "blocklyToolboxDiv";
 		document.getElementsByClassName("blocklyTrash")[0].style.display = "none";
