@@ -473,6 +473,42 @@ TIP
 		</block>
 		<block type="crypto_aes_decrypt">
 		</block>
+		<block type="crypto_hmacmd5str">
+		</block>
+		<block type="crypto_hmacsha1str">
+		</block>
+		<block type="crypto_hmacsha256str">
+		</block>
+		<block type="crypto_hmacsha512str">
+		</block>
+		<block type="crypto_hmacmd5">
+		</block>
+		<block type="crypto_hmacsha1">
+		</block>
+		<block type="crypto_hmacsha256">
+		</block>
+		<block type="crypto_hmacsha512">
+		</block>
+		<block type="crypto_encbase64parse">
+		</block>
+		<block type="crypto_encbase64stringify">
+		</block>
+		<block type="crypto_enclatin1parse">
+		</block>
+		<block type="crypto_enclatin1stringify">
+		</block>
+		<block type="crypto_enchexparse">
+		</block>
+		<block type="crypto_enchexstringify">
+		</block>
+		<block type="crypto_encutf8parse">
+		</block>
+		<block type="crypto_encutf8stringify">
+		</block>
+		<block type="crypto_encutf16parse">
+		</block>
+		<block type="crypto_encutf16stringify">
+		</block>
 	</category>
 	<category name="vika" css-icon="waddle-vika" css-class="waddle-vika">
 		<block type="vika_import">
