@@ -247,6 +247,10 @@ TIP
 		</block>
 		<block type="js_function_param">
 		</block>
+		<block type="js_settimeout">
+		</block>
+		<block type="js_setinterval">
+		</block>
 		<!--
 		<block type="js_str_index">
 		</block>

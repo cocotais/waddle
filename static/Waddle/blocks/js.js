@@ -753,3 +753,27 @@ Blockly.Blocks["js_function_param"] = {
     this.setHelpUrl("");
   },
 };
+Blockly.Blocks["js_settimeout"] = {
+  init: function () {
+    this.appendValueInput("F").setCheck(null).appendField("运行函数");
+    this.appendValueInput("T").setCheck(null).appendField("于");
+    this.appendDummyInput().appendField("毫秒后");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(BlockColors["function"]);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+Blockly.Blocks["js_setinterval"] = {
+  init: function () {
+    this.appendValueInput("F").setCheck(null).appendField("运行函数");
+    this.appendValueInput("T").setCheck(null).appendField("每隔");
+    this.appendDummyInput().appendField("毫秒");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(BlockColors["function"]);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};

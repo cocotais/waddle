@@ -472,3 +472,15 @@ Blockly.JavaScript["js_function_param_define"] = function (block) {
   var code = `${value_name},`;
   return code;
 };
+Blockly.JavaScript['js_settimeout'] = function(block) {
+    var value_f = Blockly.JavaScript.valueToCode(block, 'F', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_t = Blockly.JavaScript.valueToCode(block, 'T', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = `setTimeout(${value_f},${value_t})`;
+    return code;
+};
+Blockly.JavaScript['js_setinterval'] = function(block) {
+    var value_f = Blockly.JavaScript.valueToCode(block, 'F', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_t = Blockly.JavaScript.valueToCode(block, 'T', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = `setInterval(${value_f},${value_t})`;
+    return code;
+};
