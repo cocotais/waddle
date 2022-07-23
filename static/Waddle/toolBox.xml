@@ -584,6 +584,8 @@ TIP
 		</block>
 		<block type="js_navigator_platform">
 		</block>
+		<block type="js_location">
+		</block>
 	</category>
 	<sep>
 	</sep>

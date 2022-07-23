@@ -484,3 +484,8 @@ Blockly.JavaScript['js_setinterval'] = function(block) {
     var code = `setInterval(${value_f},${value_t})`;
     return code;
 };
+Blockly.JavaScript['js_location'] = function(block) {
+    var dropdown_name = block.getFieldValue('NAME');
+    var code = `window.location.${dropdown_name}`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};

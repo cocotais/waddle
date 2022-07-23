@@ -777,3 +777,22 @@ Blockly.Blocks["js_setinterval"] = {
     this.setHelpUrl("");
   },
 };
+Blockly.Blocks["js_location"] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("获取当前界面")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["URL", "href"],
+          ["URL路径名", "pathname"],
+          ["主机域名", "hostname"],
+          ["主机端口", "port"],
+        ]),
+        "NAME"
+      );
+    this.setOutput(true, null);
+    this.setColour(BlockColors["function"]);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
