@@ -454,3 +454,11 @@ Blockly.JavaScript['ivw_addFunctionParam'] = function (block) {
     var code = paramName + ', ';
     return code;
 };
+
+Blockly.JavaScript['widget_config'] = function(block) {
+    var text_name = block.getFieldValue('NAME');
+    var dropdown_s = block.getFieldValue('S');
+    var code = `types.docs={url:"${text_name}"};
+types.platforms=${dropdown_s}`;
+    return code;
+};

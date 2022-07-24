@@ -717,6 +717,8 @@ TIP
 				</shadow>
 			</value>
 		</block>
+		<block type="widget_config">
+		</block>
 		<label text="CoCo控制台">
 		</label>
 		<block type="widget_widgetlog">

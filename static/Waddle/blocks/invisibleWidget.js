@@ -444,6 +444,29 @@ Blockly.Blocks['ivw_config'] = {
     }
 };
 
+Blockly.Blocks['widget_config'] = {
+    init: function () {
+        this.appendValueInput("color")
+            .setCheck("Colour")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("积木颜色");
+        this.appendDummyInput()
+            .appendField("积木图标")
+            .appendField(new Blockly.FieldTextInput("无"), "icon");
+        this.appendDummyInput()
+            .appendField("生成本积木")
+            .appendField(new Blockly.FieldCheckbox("TRUE"), "generateBlock")
+            .appendField("单行积木")
+            .appendField(new Blockly.FieldCheckbox("TRUE"), "inputsInline");
+        this.appendDummyInput()
+            .appendField("与下一块积木的间隔")
+            .appendField(new Blockly.FieldNumber(16, 1, 100, 1), "space");
+        this.setColour("ffbb55");
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['ivw_setprop'] = {
     init: function () {
         this.appendValueInput("value")
@@ -491,3 +514,19 @@ Blockly.Blocks['ivw_addFunctionParam'] = {
         this.setHelpUrl(HELP_URL);
     }
 };
+
+Blockly.Blocks['widget_config'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("设置控件配置 文档链接")
+          .appendField(new Blockly.FieldTextInput(""), "NAME")
+          .appendField("支持平台")
+          .appendField(new Blockly.FieldDropdown([["全部支持","[\"android\",\"ios\",\"web\"]"], ["网页端","[\"web\"]"], ["手机端","[\"android\",\"ios\"]"]]), "S");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour('#5574f8');
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
