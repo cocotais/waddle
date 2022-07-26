@@ -419,7 +419,7 @@ Blockly.JavaScript['ivw_config'] = function (block) {
     var checkbox_generateblock = block.getFieldValue('generateBlock') === 'TRUE';
     var checkbox_inputsinline = block.getFieldValue('inputsInline') === 'TRUE';
     var number_space = block.getFieldValue('space');
-        var code = `\
+    var code = `\
 blockOptions: {
     color: ${value_color},
     icon: '${text_icon}',
@@ -434,6 +434,31 @@ blockOptions: {
 Blockly.JavaScript['ivw_setprop'] = function (block) {
     var text_name = block.getFieldValue('name');
     var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
-        var code = `this.${text_name} = ${value_value};\n`;
+    var code = `this.${text_name} = ${value_value};\n`;
+    return code;
+};
+
+Blockly.JavaScript['ivw_addFunction'] = function (block) {
+    var functionName = block.getFieldValue('functionName');
+    var statements_params = Blockly.JavaScript.statementToCode(block, 'params');
+    var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
+    var code = `
+Widget.prototype.${functionName} = function (${statements_params}) {
+    ${statements_code}
+}`;
+    return code;
+};
+
+Blockly.JavaScript['ivw_addFunctionParam'] = function (block) {
+    var paramName = block.getFieldValue('paramName');
+    var code = paramName + ', ';
+    return code;
+};
+
+Blockly.JavaScript['widget_config'] = function(block) {
+    var text_name = block.getFieldValue('NAME');
+    var dropdown_s = block.getFieldValue('S');
+    var code = `types.docs={url:"${text_name}"};
+types.platforms=${dropdown_s}`;
     return code;
 };

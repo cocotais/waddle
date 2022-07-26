@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"v1.48.00(1195)-beta"替换为版本（这条的也要）---->
+<!----将"v1.49.0(1195)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.48.00(1195)-beta' //版本号
+		var version = 'v1.49.0(1195)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -34,8 +34,8 @@ wwwwwww      wwwwww     wwwwwww
      w  wwwwwww  w wwwwwww
 		`, "font-weight:bold;color:#6d50f0")
 		console.log("%c嘿，欢迎使用 Waddle!", "font-size:13px;color:rgb(222,154,81)")
-		console.log("%c\nWaddle是基于Blockly开发的CoCo自定义控件图形化编辑器，由所有Waddle的开源贡献者共同创造!\n\n特别鸣谢：https://gitee.com/coco-central/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
-		console.log("%c\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-central/waddle", "font-size:14px;color:rgb(42,125,255)")
+		console.log("%c\n本工具基于blockly开发，由所有Waddle的开源贡献者共同创造!\n\n特别鸣谢：https://gitee.com/coco-central/coco-waddle/contributors?ref=master", "font-size:15px;color:rgb(179,222,255)")
+		console.log("%c\n欢迎各位进入开源仓库参与建设：https://gitee.com/coco-central/coco-waddle/", "font-size:14px;color:rgb(42,125,255)")
 		console.log("%c" + version + " ©️ 2022 CoCo Central, All rights reserved.", "color:red;")
 	</script>
 	<script>
@@ -193,7 +193,8 @@ wwwwwww      wwwwww     wwwwwww
 			"Waddle被Gitee官方写文章了!!!",
 			"难道Waddle有OJ题库了？",//Waddle的OJ彩蛋
 			"Wadddddddddddle!",
-			"Just Waddle! lol~"  //你觉得啥彩蛋？
+			"Just Waddle! lol~",  //你觉得啥彩蛋？
+			"我 永远 喜欢 谷恒条野！" //小鱼发病录（划掉）
 		];
 		document.getElementById("loading-text").innerText = tipList[Math.floor(Math.random() * tipList.length)];
 
@@ -250,7 +251,8 @@ wwwwwww      wwwwww     wwwwwww
 				-webkit-backdrop-filter: blur(10px);
 				backdrop-filter: blur(12px) saturate(145%);
 				opacity: 0%;
-				transition: opacity 0.2s;
+				transition: opacity 0.2s, z-index 0.2s;
+				;
 			}
 
 			.delete-svg {
@@ -285,7 +287,6 @@ wwwwwww      wwwwww     wwwwwww
 				} catch (error) {
 					//pass
 				}
-
 				if (mode) {
 					delete_trash_cover.zIndex = 500;
 					del_groundglass.zIndex = 300;
@@ -295,36 +296,38 @@ wwwwwww      wwwwww     wwwwwww
 					delete_trash_cover.opacity = 1;
 					delete_trash_body.opacity = 1;
 					delete_div.opacity = 1;
-					if (mouse_X() < 60) {
+					var mou_X = mouse_X() || mou_X
+					if (mou_X < 60) {
 						trash_cover(true);
 					} else {
 						trash_cover(false);
 					}
-				} else {
-
+				}
+				else {
 					delete_trash_cover.opacity = 0;
 					delete_trash_body.opacity = 0;
 					delete_div.opacity = 0;
 					try {
 						del_groundglass.opacity = 0;
-						setTimeout(() => {
-							if (!mode) {
-								delete_trash_cover.zIndex = 0;
-								delete_trash_body.zIndex = 0;
-								del_groundglass.zIndex = 0;
-								delete_div.zIndex = 0
-							}
-						}, 150);
-					} catch (error) {
+						delete_trash_cover.zIndex = 0;
+						delete_trash_body.zIndex = 0;
+						del_groundglass.zIndex = 0;
+						delete_div.zIndex = 0
+					}
+					catch (error) {
 						//pass
 					}
 				}
+
 			}
 
 			function mouse_X() {
 				// 获取鼠标X坐标
 				var posX = 0;
 				var event = event || window.event;
+				if (!event) {
+					return undefined;
+				}
 				if (event.pageX) {
 					posX = event.pageX;
 				} else if (event.clientX) {
@@ -884,10 +887,14 @@ wwwwwww      wwwwww     wwwwwww
 
 			.modal-body {
 				padding: 2px 16px;
-				padding: 0 1em !important;
+				padding: 1em 0 0 1em!important;
 				overflow-y: auto;
 				overflow-x: auto;
 				height: 75%;
+			}
+
+			#codeArea{
+				height: 100%;
 			}
 		</style>
 
@@ -908,10 +915,6 @@ wwwwwww      wwwwww     wwwwwww
 						<span class="sord">空白作品</span>
 					</div>
 					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/visiblewidget.waddle')">
-						<span class="sord">可见控件模版</span>
-					</div>
-					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/invisiblewidget.waddle')">
 						<span class="sord">不可见控件模版</span>
 					</div>
@@ -925,6 +928,10 @@ wwwwwww      wwwwww     wwwwwww
 							class="sord">[不可见控件]<br>Base编解码</span>
 					</div>
 					<div class="card" id="card"
+						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/visiblewidget.waddle')">
+						<span class="sord">可见控件模版</span>
+					</div>
+					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hyperlink.waddle')">
 						<span class="sord">[可见控件]<br>超链接</span>
 					</div>
@@ -932,6 +939,10 @@ wwwwwww      wwwwww     wwwwwww
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/html.waddle')">
 						<span class="sord">[可见控件]<br>HTML控件</span>
+					</div>
+					<div class="card" id="card"
+						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/password.waddle')">
+						<span class="sord">[可见控件]<br>密码框</span>
 					</div>
 				</div>
 			</div>
@@ -1225,7 +1236,7 @@ wwwwwww      wwwwww     wwwwwww
 	}
 
 	// 打开可见控件预览框条件：周期判断或代码框更新
-	
+
 
 	function UpdateFunction(event) {
 		// 代码框更新
@@ -1270,7 +1281,7 @@ wwwwwww      wwwwww     wwwwwww
 				'postMessage=void 0',
 				'eval=function () {console.error("eval is not implemented")}',
 				code)();
-			
+
 			let properties = {};
 			exports.types.properties.forEach(element => {
 				properties[element.key] = element.defaultValue;
@@ -1963,6 +1974,38 @@ wwwwwww      wwwwww     wwwwwww
 		-webkit-transition-duration: 0.1s;
 		transition-duration: 0.1s;
 	}
+
+	@media only screen and (max-width: 818px) {
+		.newsth-content,.aboutus-content{
+			width: 100vw;
+			height: 100%;
+			top:0;
+			animation: none !important;
+			-webkit-animation:none !important;
+			border-radius: 0;
+		}
+		.newsth-body{
+			height: calc(100vh - 78px);
+		}
+
+		.aboutus-body,.setting-body,.thanks-body{
+			height: calc(100vh - 154px);
+		}
+
+		.newsth-header,.aboutus-header{
+			border-radius: 0;
+			background-color: var(--aboutus-background) !important;
+		}
+
+		.card{
+			width: 150px;
+			height: 150px;
+		}
+
+		.sord{
+			font-size: 20px;
+		}
+	}
 </style>
 <!-- 右下导航栏 -->
 <div id="funcs" class="funcs">
@@ -2108,6 +2151,27 @@ wwwwwww      wwwwww     wwwwwww
 		const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
 		localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
 	}
+
+
+	var build = document.createElement('iconpark-icon');
+	build.name = "waddle-build"
+	build.size = "21px"
+	build.className = "waddle-build"
+	build.style = 'position: absolute;z-index: -1;'
+	$(".waddle-build")[0].after(build);
+	var build = document.createElement('iconpark-icon');
+	build.size = "21px"
+	build.name = "waddle-block"
+	build.className = "waddle-block"
+	build.style = 'position: absolute;z-index: -1;'
+	$(".waddle-block")[0].after(build);
+	var build = document.createElement('iconpark-icon');
+	build.size = "21px"
+	build.name = "waddle-render"
+	build.className = "waddle-render"
+	build.style = 'position: absolute;z-index: -1;'
+	$(".waddle-render")[0].after(build);
+
 	setTimeout(() => {
 		document.getElementsByClassName('blocklyToolboxDiv')[0].id = "blocklyToolboxDiv";
 		document.getElementsByClassName("blocklyTrash")[0].style.display = "none";

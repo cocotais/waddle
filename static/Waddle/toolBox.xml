@@ -223,22 +223,6 @@ TIP
 		</block>
 		<block type="js_json_access">
 		</block>
-		<label text="在使用以下积木前，请先在程序开头放一个‘获取四个权限’">
-		</label>
-		<block type="js_window_screen">
-		</block>
-		<block type="js_window_avail_screen">
-		</block>
-		<block type="js_window_depth">
-		</block>
-		<block type="js_window_pixeldepth">
-		</block>
-		<block type="js_navigator_online">
-		</block>
-		<block type="js_navigator_language">
-		</block>
-		<block type="js_navigator_platform">
-		</block>
 		<block type="js_math_constant">
 		</block>
 		<block type="js_console_clean">
@@ -254,6 +238,18 @@ TIP
 		<block type="js_console_time">
 		</block>
 		<block type="js_console_timeend">
+		</block>
+		<block type="js_function_value">
+		</block>
+		<block type="js_function_param_define">
+		</block>
+		<block type="js_function_run">
+		</block>
+		<block type="js_function_param">
+		</block>
+		<block type="js_settimeout">
+		</block>
+		<block type="js_setinterval">
 		</block>
 		<!--
 		<block type="js_str_index">
@@ -555,7 +551,7 @@ TIP
 		<block type="qrcode_canvas">
 		</block>
 	</category>
-	<category name="权限获取" css-icon="waddle-permission" css-class="waddle-permission">
+	<category name="权限" css-icon="waddle-permission" css-class="waddle-permission">
 		<block type="permissions_getall">
 		</block>
 		<block type="permissions_get">
@@ -571,6 +567,24 @@ TIP
 		<block type="permissions_call">
 		</block>
 		<block type="permissions_call_return">
+		</block>
+		<label text="在使用以下积木前，请先在程序开头放一个‘获取四个权限’">
+		</label>
+		<block type="js_window_screen">
+		</block>
+		<block type="js_window_avail_screen">
+		</block>
+		<block type="js_window_depth">
+		</block>
+		<block type="js_window_pixeldepth">
+		</block>
+		<block type="js_navigator_online">
+		</block>
+		<block type="js_navigator_language">
+		</block>
+		<block type="js_navigator_platform">
+		</block>
+		<block type="js_location">
 		</block>
 	</category>
 	<sep>
@@ -702,6 +716,8 @@ TIP
 					<field name="COLOUR">#ffbb55</field>
 				</shadow>
 			</value>
+		</block>
+		<block type="widget_config">
 		</block>
 		<label text="CoCo控制台">
 		</label>
