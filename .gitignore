@@ -3,3 +3,6 @@ waddleup/target/
 \.vscode
 \.idea
 \.vs
+static/.DS_Store
+static/img/logo/.DS_Store
+.DS_Store
