@@ -26,7 +26,7 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 
 ## 本地部署
 
-1. clone仓库（ https://gitee.com/coco-central/waddle）
+1. clone仓库（ https://gitee.com/coco-central/waddle ）
 
 2. 打开项目文件夹
 
@@ -34,12 +34,12 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 
 4. 确认8000端口没有占用（占用了请回到第三步自定义端口）
 
-5. 浏览器打开 http://localhost:8000即可
+5. 浏览器打开 http://localhost:8000 即可
 
 
 # 反馈
 
-如果你遇到 Bug 或者有好建议，可以选择 [提交issues（优先处理）](https://gitee.com/coco-central/waddle/issues) ，也可以在 [兔小巢](https://www.yuque.com/forms/share/21daa75d-9aac-4887-8eb9-77dd20e658ec) 内反馈！我们会尽快处理！
+如果你遇到 Bug 或者有好建议，可以选择 [提交issues](https://gitee.com/coco-central/waddle/issues)（优先处理） ，也可以在 [兔小巢](https://support.qq.com/product/420668) 内反馈！我们会尽快处理！
 
 # 贡献
 
@@ -61,4 +61,4 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 </p>
 <br>
 
-<div class="waddle-version-bot">v1.49.0(1195)-release</div>
+<div class="waddle-version-bot">v1.49.0(1196)-release</div>
