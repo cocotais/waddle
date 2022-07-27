@@ -1046,7 +1046,7 @@ wwwwwww      wwwwww     wwwwwww
 <script src="./static/Waddle/blocks/js.js"></script>
 <script src="./static/Waddle/generators/javascript/js.js"></script>
 
-<!--JavaScript积木-->
+<!--html积木-->
 <script src="./static/Waddle/blocks/html.js"></script>
 <script src="./static/Waddle/generators/javascript/html.js"></script>
 
@@ -1105,6 +1105,10 @@ wwwwwww      wwwwww     wwwwwww
 <!--字典控件积木-->
 <script src="./static/Waddle/blocks/dictionaries.js"></script>
 <script src="./static/Waddle/generators/javascript/dictionaries.js"></script>
+
+<!--antdesign控件积木-->
+<script src="./static/Waddle/blocks/antd.js"></script>
+<script src="./static/Waddle/generators/javascript/antd.js"></script>
 
 <!--导入导航栏按钮函数-->
 <script src="./static/js/navFuncs.js"></script>
@@ -1281,7 +1285,6 @@ wwwwwww      wwwwww     wwwwwww
 				'postMessage=void 0',
 				'eval=function () {console.error("eval is not implemented")}',
 				code)();
-
 			let properties = {};
 			exports.types.properties.forEach(element => {
 				properties[element.key] = element.defaultValue;
