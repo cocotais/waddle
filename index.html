@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"v1.49.0(1196)-release"替换为版本（这条的也要）---->
+<!----将"v1.49.1(1201)-release"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.49.0(1196)-release' //版本号
+		var version = 'v1.49.1(1201)-release' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -230,7 +230,7 @@ wwwwwww      wwwwww     wwwwwww
 							<li class="dropdown-item" onClick="js_save()">导出为CoCo文件</li>
 							<div style="height: 1px;background-color: #f2f2f2;margin: 0 10px;"></div>
 							<li class="dropdown-item"
-								onClick="count();window.open('https://docs.coco-central.cn/waddle/')">文档
+								onClick="count();window.open('https://waddle.coco-central.cn/docs/#/')">文档
 							</li>
 							<li class="dropdown-item" onClick="show_about()">更多选项</li>
 						</ul>
@@ -1046,7 +1046,7 @@ wwwwwww      wwwwww     wwwwwww
 <script src="./static/Waddle/blocks/js.js"></script>
 <script src="./static/Waddle/generators/javascript/js.js"></script>
 
-<!--JavaScript积木-->
+<!--html积木-->
 <script src="./static/Waddle/blocks/html.js"></script>
 <script src="./static/Waddle/generators/javascript/html.js"></script>
 
@@ -1105,6 +1105,10 @@ wwwwwww      wwwwww     wwwwwww
 <!--字典控件积木-->
 <script src="./static/Waddle/blocks/dictionaries.js"></script>
 <script src="./static/Waddle/generators/javascript/dictionaries.js"></script>
+
+<!--antdesign控件积木-->
+<script src="./static/Waddle/blocks/antd.js"></script>
+<script src="./static/Waddle/generators/javascript/antd.js"></script>
 
 <!--导入导航栏按钮函数-->
 <script src="./static/js/navFuncs.js"></script>
@@ -1281,7 +1285,6 @@ wwwwwww      wwwwww     wwwwwww
 				'postMessage=void 0',
 				'eval=function () {console.error("eval is not implemented")}',
 				code)();
-
 			let properties = {};
 			exports.types.properties.forEach(element => {
 				properties[element.key] = element.defaultValue;

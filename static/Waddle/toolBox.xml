@@ -551,6 +551,14 @@ TIP
 		<block type="qrcode_canvas">
 		</block>
 	</category>
+	<category name="antd" css-icon="waddle-antd waddle-testing" css="waddle-antd">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="antd_import">
+		</block>
+		<block type="antd_button">
+		</block>
+	</category>
 	<category name="权限" css-icon="waddle-permission" css-class="waddle-permission">
 		<block type="permissions_getall">
 		</block>
