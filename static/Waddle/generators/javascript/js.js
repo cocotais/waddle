@@ -301,13 +301,14 @@ Blockly.JavaScript["js_replace"] = function (block) {
       "STR1",
       Blockly.JavaScript.ORDER_NONE
     ) || '""';
+  var mode = block.getFieldValue('MODE');
   var str2 =
     Blockly.JavaScript.valueToCode(
       block,
       "STR2",
       Blockly.JavaScript.ORDER_NONE
     ) || '""';
-  var code = `(${str}).replace(${str1},${str2})`;
+  var code = `${str}.${mode}(${str1},${str2})`;
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 

@@ -480,15 +480,16 @@ Blockly.Blocks["js_replace"] = {
     this.appendValueInput("STR")
       .setCheck("String")
       .setAlign(Blockly.ALIGN_CENTRE)
-      .appendField("原字符串");
+      .appendField("把");
     this.appendValueInput("STR1")
       .setCheck("String")
       .setAlign(Blockly.ALIGN_CENTRE)
-      .appendField("要替换字符串");
+      .appendField("中的")
+      .appendField(new Blockly.FieldDropdown([["第一个","replace"], ["所有","replaceAll"]]), "MODE");
     this.appendValueInput("STR2")
       .setCheck("String")
       .setAlign(Blockly.ALIGN_CENTRE)
-      .appendField("替换替换为");
+      .appendField("替换为");
     this.setInputsInline(true);
     this.setOutput(true, "String");
     this.setColour(BlockColors["math"]);
