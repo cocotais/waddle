@@ -61,4 +61,4 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 </p>
 <br>
 
-<div class="waddle-version-bot">v1.49.1(1203)-beta</div>
+<div class="waddle-version-bot">v1.49.2(1207)-beta</div>
