@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"v1.50.1(1209)-beta"替换为版本（这条的也要）---->
+<!----将"v1.50.2(1211)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.50.1(1209)-beta' //版本号
+		var version = 'v1.50.2(1211)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -888,13 +888,13 @@ wwwwwww      wwwwww     wwwwwww
 
 			.modal-body {
 				padding: 2px 16px;
-				padding: 1em 0 0 1em!important;
+				padding: 1em 0 0 1em !important;
 				overflow-y: auto;
 				overflow-x: auto;
 				height: 75%;
 			}
 
-			#codeArea{
+			#codeArea {
 				height: 100%;
 			}
 		</style>
@@ -1980,33 +1980,39 @@ wwwwwww      wwwwww     wwwwwww
 	}
 
 	@media only screen and (max-width: 818px) {
-		.newsth-content,.aboutus-content{
+
+		.newsth-content,
+		.aboutus-content {
 			width: 100vw;
 			height: 100%;
-			top:0;
+			top: 0;
 			animation: none !important;
-			-webkit-animation:none !important;
+			-webkit-animation: none !important;
 			border-radius: 0;
 		}
-		.newsth-body{
+
+		.newsth-body {
 			height: calc(100vh - 78px);
 		}
 
-		.aboutus-body,.setting-body,.thanks-body{
+		.aboutus-body,
+		.setting-body,
+		.thanks-body {
 			height: calc(100vh - 154px);
 		}
 
-		.newsth-header,.aboutus-header{
+		.newsth-header,
+		.aboutus-header {
 			border-radius: 0;
 			background-color: var(--aboutus-background) !important;
 		}
 
-		.card{
+		.card {
 			width: 150px;
 			height: 150px;
 		}
 
-		.sord{
+		.sord {
 			font-size: 20px;
 		}
 	}
