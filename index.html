@@ -71,17 +71,17 @@ wwwwwww      wwwwww     wwwwwww
 		return "";
 	}
 	var theme = getCookie('mode');
-	// 2月21日 2022年2月27日 11月13日 黑白
+
+	// 2月21日（2·21事件） 12月13日（国家公祭日） 黑白
 	var date = new Date();
-	if ((date.getMonth() == 2 && date.getDate() == 21) || (date.getFullYear() == 2022 && date.getMonth() == 2 && date.getDate() == 27) || (date.getMonth() == 11 && date.getDate() == 13)) {
+	if ((date.getMonth() + 1 == 2 && date.getDate() == 21) || (date.getMonth() + 1 == 12 && date.getDate() == 13)) {
 		var rip = document.createElement('style');
-		rip.innerText = 'html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
+		rip.innerText = '/*R.I.P.*/html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
 		document.body.appendChild(rip);
 	}
 </script>
 
 <body>
-
 	<!-- 加载页样式-->
 	<style>
 		.container {
@@ -370,11 +370,12 @@ wwwwwww      wwwwww     wwwwwww
 		</div>
 
 		<div>
-			<button id="toup" class="updown" style="top:70px;display: none;border-radius: 4px 4px 0 0;"
+			<button aria-label="移到顶部" id="toup" class="updown"
+				style="top:70px;display: none;border-radius: 4px 4px 0 0;"
 				onclick="$('.blocklyToolboxDiv').animate({scrollTop: 0});">
 				<iconpark-icon name="updown" fill="var(--arrow-color)" size="16"></iconpark-icon>
 			</button>
-			<button id="todown" class="updown" style="bottom:0;border-radius: 0 0 4px 4px;" onclick="
+			<button aria-label="移到底部" id="todown" class="updown" style="bottom:0;border-radius: 0 0 4px 4px;" onclick="
 			bottom=$('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
 			$('.blocklyToolboxDiv').animate({scrollTop: bottom})">
 				<iconpark-icon name="updown" fill="var(--arrow-color)" size="16" style="transform:rotate(180deg);">
@@ -930,7 +931,8 @@ wwwwwww      wwwwww     wwwwwww
 					</div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/blinkButton.waddle')">
-						<span class="sord">[可见控件]<br>闪烁按钮</span></div>
+						<span class="sord">[可见控件]<br>闪烁按钮</span>
+					</div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/html.waddle')">
 						<span class="sord">[可见控件]<br>HTML控件</span>

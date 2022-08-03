@@ -15,13 +15,13 @@
             "src": "./static/img/pwa.png",
             "type": "image/png",
             "sizes": "512x512",
-            "purpose": "any"
+            "purpose": "any maskable"
         },
         {
             "src": "./static/img/apple-touch-icon.png",
             "type": "image/png",
             "sizes": "192x192",
-            "purpose": "any"
+            "purpose": "any maskable"
         }
     ]
 }

@@ -1,12 +1,17 @@
 const CACHE_NAME = 'Waddle-' + 'v1.50.7(1216)-beta'//也要改我！;
-const FILES_TO_CACHE = ['./',
-  './index.html',
-  './static/Waddle/toolBox.xml',
-  './static/Waddle/workspace.xml',
-  './static/Waddle/tutorials/hello.waddle',
-  './static/Waddle/tutorials/hyperlink.waddle',
-  './static/Waddle/tutorials/invisiblewidget.waddle',
-  './static/Waddle/tutorials/visiblewidget.waddle'
+const FILES_TO_CACHE = ['/',
+  '/index.html',
+  '/static/Waddle/',
+  '/static/Waddle/toolBox.xml',
+  '/static/Waddle/workspace.xml',
+  '/static/Waddle/tutorials/hello.waddle',
+  '/static/Waddle/tutorials/hyperlink.waddle',
+  '/static/Waddle/tutorials/invisiblewidget.waddle',
+  '/static/Waddle/tutorials/visiblewidget.waddle',
+  '/static/Waddle/tutorials/password.waddle',
+  '/static/Waddle/tutorials/html.waddle',
+  '/static/Waddle/tutorials/blinkButton.waddle',
+  '/static/Waddle/tutorials/base.waddle'
 ];
 
 
