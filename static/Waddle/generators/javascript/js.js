@@ -443,7 +443,7 @@ Blockly.JavaScript["js_array_join"] = function (block) {
 Blockly.JavaScript["js_function_value"] = function (block) {
   var statements_p = Blockly.JavaScript.statementToCode(block, "P");
   var statements_c = Blockly.JavaScript.statementToCode(block, "C");
-  var code = `(function(${statements_p.trim().trim(",")}){${statements_c}})`;
+  var code = `((${statements_p.trim().trim(",")})=>{${statements_c}})`;
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
@@ -476,13 +476,13 @@ Blockly.JavaScript["js_function_param_define"] = function (block) {
 Blockly.JavaScript['js_settimeout'] = function(block) {
     var value_f = Blockly.JavaScript.valueToCode(block, 'F', Blockly.JavaScript.ORDER_ATOMIC);
     var value_t = Blockly.JavaScript.valueToCode(block, 'T', Blockly.JavaScript.ORDER_ATOMIC);
-    var code = `setTimeout(${value_f},${value_t})`;
+    var code = `setTimeout(${value_f},${value_t});\n`;
     return code;
 };
 Blockly.JavaScript['js_setinterval'] = function(block) {
     var value_f = Blockly.JavaScript.valueToCode(block, 'F', Blockly.JavaScript.ORDER_ATOMIC);
     var value_t = Blockly.JavaScript.valueToCode(block, 'T', Blockly.JavaScript.ORDER_ATOMIC);
-    var code = `setInterval(${value_f},${value_t})`;
+    var code = `setInterval(${value_f},${value_t});\n`;
     return code;
 };
 Blockly.JavaScript['js_location'] = function(block) {
