@@ -24,6 +24,7 @@ var to_dark = function () {
 	document.getElementsByClassName('newsth-content')[0].style.backgroundColor = 'var(--nd-main-color)';
 	document.getElementsByClassName('aboutus-logo')[0].style.color = '#fff';
 	document.getElementsByClassName('newsth-logo')[0].style.color = '#fff';
+	document.getElementById('pwa-color').setAttribute('content', '#525252');
 	document.documentElement.style.setProperty('--common-background', '#333033');
 	document.documentElement.style.setProperty('--common-color', '#d7dae0');
 	document.documentElement.style.setProperty('--quote-color', '#abb2bf');
@@ -158,7 +159,6 @@ var switch_theme = function () {
 		d.setTime(d.getTime() + (3/*天数*/ * 24 * 60 * 60 * 1000));
 		var expires = "expires=" + d.toGMTString();
 		document.cookie = 'mode=dark;expires=' + expires;
-		document.getElementById('pwa-color').setAttribute('content', '#525252');
 	} else {
 		to_light();
 		theme = 'light';
