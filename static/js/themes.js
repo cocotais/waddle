@@ -63,6 +63,13 @@ var to_dark = function () {
 	document.documentElement.style.setProperty('--settings-button-background', 'rgba(164, 164, 164, 1)');
 	document.documentElement.style.setProperty('--settings-button-set-color', 'rgba(255, 255, 255, 1)');
 	document.documentElement.style.setProperty('--settings-button-set-background', 'rgba(59, 59, 59, 1)');
+
+	document.documentElement.style.setProperty('--menu-font', '#ffffffdd');
+	document.documentElement.style.setProperty('--menu-font-hover', '#ffffff');
+	document.documentElement.style.setProperty('--menu-hover', '#525252');
+	document.documentElement.style.setProperty('--menu-active', '#666666');
+	document.documentElement.style.setProperty('--menu-line', '#444444');
+	document.documentElement.style.setProperty('--menu-font-disable', '#fff3');
 	document.getElementById('about-img').src = "./static/img/logo/logo-white-full.svg"
 };
 var to_light = function () {
@@ -120,6 +127,12 @@ var to_light = function () {
 	document.documentElement.style.setProperty('--settings-button-set-color', '#fff');
 	document.documentElement.style.setProperty('--settings-button-set-background', 'rgba(105, 85, 231, 0.7)');
 
+	document.documentElement.style.setProperty('--menu-font', '#000000065');
+	document.documentElement.style.setProperty('--menu-font-hover', '#000000dd');
+	document.documentElement.style.setProperty('--menu-hover', '#f5f3fe');
+	document.documentElement.style.setProperty('--menu-active', '#ddd8f3');
+	document.documentElement.style.setProperty('--menu-line', '#f2f2f2');
+	document.documentElement.style.setProperty('--menu-font-disable', '#0003');
 };
 var theme_conut = 0;
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"v1.50.5(1214)-beta"替换为版本（这条的也要）---->
+<!----将"v1.50.6(1215)-beta"替换为版本（这条的也要）---->
 
 <head>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.50.5(1214)-beta' //版本号
+		var version = 'v1.50.6(1215)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -230,7 +230,7 @@ wwwwwww      wwwwww     wwwwwww
 							<li class="dropdown-item" onClick="save()">保存到电脑</li>
 							<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
 							<li class="dropdown-item" onClick="js_save()">导出为CoCo文件</li>
-							<div style="height: 1px;background-color: #f2f2f2;margin: 0 10px;"></div>
+							<div style="height: 1px;background-color: var(--menu-line);margin: 0 10px;"></div>
 							<li class="dropdown-item"
 								onClick="count();window.open('https://waddle.coco-central.cn/docs/#/')">文档
 							</li>
@@ -714,7 +714,7 @@ wwwwwww      wwwwww     wwwwwww
 			}
 
 			.blocklyMenuItemDisabled {
-				color: #ccc;
+				color: var(--menu-font-disable) !important;
 			}
 
 			.blocklyMenuItem {
@@ -724,8 +724,8 @@ wwwwwww      wwwwww     wwwwwww
 			}
 
 			.blocklyMenuItemHighlight {
-				background-color: #e3ddfc66;
-				color: #000;
+				background-color: var(--menu-hover);
+				color: var(--menu-font-hover);
 			}
 
 			.swal-button-container {
@@ -739,6 +739,11 @@ wwwwwww      wwwwww     wwwwwww
 
 			.blocklyWidgetDiv .blocklyMenu {
 				overflow: hidden;
+				background-color: var(--toolbox-color);
+			}
+
+			.blocklyMenuItem {
+				color: var(--menu-font);
 			}
 		</style>
 
@@ -923,7 +928,9 @@ wwwwwww      wwwwww     wwwwwww
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hyperlink.waddle')">
 						<span class="sord">[可见控件]<br>超链接</span>
 					</div>
-					<div class="card" id="card" onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/blinkButton.waddle')"><span class="sord">[可见控件]<br>闪烁按钮</span></div>
+					<div class="card" id="card"
+						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/blinkButton.waddle')">
+						<span class="sord">[可见控件]<br>闪烁按钮</span></div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/html.waddle')">
 						<span class="sord">[可见控件]<br>HTML控件</span>
@@ -1612,12 +1619,13 @@ wwwwwww      wwwwww     wwwwwww
 	}
 
 	.dropdown-item:hover {
-		background: #f5f3fe;
+		background: var(--menu-hover);
+		color: var(--menu-font-hover);
 	}
 
 	.dropdown-item:active {
-		background: #ddd8f3;
-		color: black;
+		background: var(--menu-active);
+		color: var(--menu-font-hover);
 	}
 </style>
 <script>
