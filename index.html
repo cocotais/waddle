@@ -17,7 +17,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.50.13(1223)-beta' //版本号
+		var version = 'v1.50.14(1226)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -2201,19 +2201,22 @@ wwwwwww      wwwwww     wwwwwww
 	build.name = "waddle-build"
 	build.size = "21px"
 	build.className = "waddle-build"
-	build.style = 'position: absolute;z-index: -1;'
+	build.style = 'position: absolute;'
+	$(".waddle-build")[0].style.zIndex = 1
 	$(".waddle-build")[0].after(build);
 	var build = document.createElement('iconpark-icon');
 	build.size = "21px"
 	build.name = "waddle-block"
 	build.className = "waddle-block"
-	build.style = 'position: absolute;z-index: -1;'
+	build.style = 'position: absolute;'
+	$(".waddle-block")[0].style.zIndex = 1
 	$(".waddle-block")[0].after(build);
 	var build = document.createElement('iconpark-icon');
 	build.size = "21px"
 	build.name = "waddle-render"
 	build.className = "waddle-render"
-	build.style = 'position: absolute;z-index: -1;'
+	build.style = 'position: absolute;'
+	$(".waddle-render")[0].style.zIndex = 1
 	$(".waddle-render")[0].after(build);
 
 	setTimeout(() => {
