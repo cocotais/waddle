@@ -1,4 +1,4 @@
-var version = "v1.50.12(1222)-beta"; // 设置版本号
+var version = "v1.50.13(1223)-beta"; // 设置版本号
 
 self.addEventListener("install", function (event) { // serviceworker第一次加载的时候调用，可以在此时缓存静态资源
   event.waitUntil(
@@ -17,7 +17,8 @@ self.addEventListener("install", function (event) { // serviceworker第一次加
           '/static/Waddle/tutorials/password.waddle',
           '/static/Waddle/tutorials/html.waddle',
           '/static/Waddle/tutorials/blinkButton.waddle',
-          '/static/Waddle/tutorials/base.waddle'
+          '/static/Waddle/tutorials/base.waddle',
+          '/static/Waddle/tutorials/voteLine.waddle'
         ]);
       })
       .then(function () {
