@@ -1,4 +1,4 @@
-var version = "v1.50.10(1220)-beta"; // 设置版本号
+var version = "v1.50.11(1221)-beta"; // 设置版本号
 
 self.addEventListener("install", function (event) { // serviceworker第一次加载的时候调用，可以在此时缓存静态资源
   event.waitUntil(
@@ -7,6 +7,7 @@ self.addEventListener("install", function (event) { // serviceworker第一次加
       .open(version + '-waddle-tutorials')
       .then(function (cache) {
         // 将列出的文件缓存起来
+        self.skipWaiting();
         return cache.addAll([
           '/',
           '/static/Waddle/tutorials/hello.waddle',
