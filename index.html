@@ -17,7 +17,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.50.11(1221)-beta' //版本号
+		var version = 'v1.50.12(1222)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -42,6 +42,19 @@ wwwwwww      wwwwww     wwwwwww
 		if ('serviceWorker' in navigator) {
 			window.addEventListener('load', function () {
 				navigator.serviceWorker.register('./sw.js')
+			});
+			let refreshing = false
+			navigator.serviceWorker.addEventListener('controllerchange', () => {
+				if (refreshing) {
+					return
+				}
+				refreshing = true;
+				swal("有新版本更新，请问是否需要刷新", { buttons: ["取消", "确认"], })
+					.then((value) => {
+						if (value) {
+							window.location.reload();
+						}
+					})
 			});
 		}
 
