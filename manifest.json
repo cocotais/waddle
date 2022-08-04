@@ -1,7 +1,7 @@
 {
     "name": "Waddle",
     "short_name": "Waddle",
-    "start_url": "./index.html",
+    "start_url": "/index.html",
     "id": "/index.html",
     "display": "standalone",
     "background_color": "#6d50f0",
@@ -15,13 +15,13 @@
             "src": "./static/img/pwa.png",
             "type": "image/png",
             "sizes": "512x512",
-            "purpose": "any maskable"
+            "purpose": "any"
         },
         {
             "src": "./static/img/apple-touch-icon.png",
             "type": "image/png",
             "sizes": "192x192",
-            "purpose": "any maskable"
+            "purpose": "maskable"
         }
     ]
 }

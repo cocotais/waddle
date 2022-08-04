@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"v1.50.9(1219)-beta"替换为版本（这条的也要）---->
-
 <head>
 	<meta charset="utf-8">
 	<link rel="manifest" href="./manifest.json">
@@ -19,7 +17,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.50.9(1219)-beta' //版本号
+		var version = 'v1.50.10(1220)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -219,7 +217,8 @@ wwwwwww      wwwwww     wwwwwww
 	</script>
 
 	<div id="body" style="visibility:hidden;">
-		<img onclick='dropdown_show();' alt="Waddle" id="logo1" draggable="false" src="./static/img/logo/logo-purple.svg"
+		<img onclick='dropdown_show();' alt="Waddle" id="logo1" draggable="false"
+			src="./static/img/logo/logo-purple.svg"
 			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 5; background-color: var(--toolbox-color);cursor: pointer;">
 		<nav class="navbar navbar-expand navbar-dark" style="height:0px;background-color: var(--main-color);">
 			<div class="container-fluid">
@@ -749,7 +748,7 @@ wwwwwww      wwwwww     wwwwwww
 			}
 
 			* {
-				transition: color 0.5s,background-color 0.5s,stroke 0.5s,border 0.5s,fill 0.5s;
+				transition: color 0.5s, background-color 0.5s, border 0.5s;
 			}
 		</style>
 
@@ -1157,25 +1156,41 @@ wwwwwww      wwwwww     wwwwwww
 			xmlDoc = data;
 			toolbox = document.getElementById('toolbox');
 			toolbox.innerHTML = xmlDoc.getElementsByTagName('toolbox')[0].innerHTML;
-			$.ajax({
-				url: './static/Waddle/workspace.xml',
-				type: 'get',
-				async: false,//使用同步的方式,true为异步方式
-				success: function (data) {
-					xmlDoc = data;
-					workspaceblocks = document.getElementById('workspaceblocks');
-					workspaceblocks.innerHTML = xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML;
-				},
-				fail: function () {
-					// pass
-				}
-			});
+			localStorage.setItem("toolbox", xmlDoc.getElementsByTagName('toolbox')[0].innerHTML);
+		},
+		error: function () {
+			xmlDoc = localStorage.getItem("toolbox");
+			toolbox = document.getElementById('toolbox');
+			toolbox.innerHTML = xmlDoc;
 		},
 		fail: function () {
-			// pass
+			xmlDoc = localStorage.getItem("toolbox");
+			toolbox = document.getElementById('toolbox');
+			toolbox.innerHTML = xmlDoc;
 		}
 	});
 
+	$.ajax({
+		url: './static/Waddle/workspace.xml',
+		type: 'get',
+		async: false,//使用同步的方式,true为异步方式
+		success: function (data) {
+			xmlDoc = data;
+			workspaceblocks = document.getElementById('workspaceblocks');
+			workspaceblocks.innerHTML = xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML;
+			localStorage.setItem("workspace", xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML);
+		},
+		error: function () {
+			xmlDoc = localStorage.getItem("workspace");
+			workspaceblocks = document.getElementById('workspaceblocks');
+			workspaceblocks.innerHTML = xmlDoc;
+		},
+		fail: function () {
+			xmlDoc = localStorage.getItem("workspace");
+			workspaceblocks = document.getElementById('workspaceblocks');
+			workspaceblocks.innerHTML = xmlDoc;
+		}
+	});
 
 	var workspaceBlocks = document.getElementById("workspaceblocks");
 
