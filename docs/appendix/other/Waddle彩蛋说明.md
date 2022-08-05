@@ -4,4 +4,4 @@
 
 ## Waddle 彩蛋说明搬迁了!
 
-[前往](..\..\..\static\Waddle\easter_egg_info.html)
+[前往](..\..\..\static\Waddle\eastegg\easter_egg_info.html)
