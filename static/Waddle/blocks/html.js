@@ -2316,6 +2316,7 @@ Blockly.Blocks["html_html"] = {
   init: function () {
     this.appendValueInput("NAME").setCheck("String").appendField("将字符串");
     this.appendDummyInput().appendField("转为html元素");
+    this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
