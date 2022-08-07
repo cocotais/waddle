@@ -366,88 +366,7 @@ TIP
 		<block type="htmldom_appendchild">
 		</block>
 	</category>
-	<category name="lodash" css-icon="waddle-lodash" css-class="waddle-lodash">
-		<button text="实验性功能提示" callbackKey="betawarning">
-		</button>
-		<block type="lodash_import">
-		</block>
-		<block type="lodash_chunk">
-		</block>
-		<block type="lodash_compact">
-		</block>
-		<block type="lodash_concat">
-		</block>
-		<block type="lodash_difference">
-		</block>
-		<block type="lodash_differencebydropdown">
-		</block>
-		<block type="lodash_differenceby">
-		</block>
-		<block type="lodash_differencewithdropdown">
-		</block>
-		<block type="lodash_differencewith">
-		</block>
-		<block type="lodash_drop">
-		</block>
-		<block type="lodash_dropright">
-		</block>
-		<block type="lodash_dropwhiledropdown">
-		</block>
-		<block type="lodash_droprightwhiledropdown">
-		</block>
-		<block type="lodash_dropwhile">
-		</block>
-		<block type="lodash_droprightwhile">
-		</block>
-		<block type="lodash_fill">
-		</block>
-		<block type="lodash_findindexdropdown">
-		</block>
-		<block type="lodash_findlastindexdropdown">
-		</block>
-		<block type="lodash_findindex">
-		</block>
-		<block type="lodash_findlastindex">
-		</block>
-		<block type="lodash_first">
-		</block>
-		<block type="lodash_flatten">
-		</block>
-		<block type="lodash_flattendeep">
-		</block>
-	</category>
-	<category name="axios" css-icon="waddle-axios" css-class="waddle-axios">
-		<button text="实验性功能提示" callbackKey="betawarning">
-		</button>
-		<block type="axios_import">
-		</block>
-		<block type="axios_getpost_simple">
-		</block>
-		<block type="axios_response">
-		</block>
-		<block type="axios_responsedropdown">
-		</block>
-		<block type="axios_error">
-		</block>
-		<block type="axios_getpost">
-		</block>
-		<block type="axios_timeout">
-		</block>
-		<block type="axios_maxcontentlength">
-		</block>
-		<block type="axios_withcredentials">
-		</block>
-		<block type="axios_data">
-		</block>
-	</category>
-	<category name="utils" css-icon="waddle-utils" css-class="waddle-utils" custom="UTILS_GAME">
-		<button text="实验性功能提示" callbackKey="betawarning">
-		</button>
-		<block type="utils_import">
-		</block>
-		<block type="utils_isnative">
-		</block>
-	</category>
+
 	<category name="crypto" css-icon="waddle-crypto" css-class="waddle-crypto">
 		<block type="crypto_import">
 		</block>
@@ -506,6 +425,116 @@ TIP
 		<block type="crypto_encutf16stringify">
 		</block>
 	</category>
+	<category name="http" css-icon="waddle-http waddle-testing" css-class="waddle-http">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="http_import">
+		</block>
+	</category>
+	<category name="lodash" css-icon="waddle-lodash" css-class="waddle-lodash">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="lodash_import">
+		</block>
+		<block type="lodash_chunk">
+		</block>
+		<block type="lodash_compact">
+		</block>
+		<block type="lodash_concat">
+		</block>
+		<block type="lodash_difference">
+		</block>
+		<block type="lodash_differencebydropdown">
+		</block>
+		<block type="lodash_differenceby">
+		</block>
+		<block type="lodash_differencewithdropdown">
+		</block>
+		<block type="lodash_differencewith">
+		</block>
+		<block type="lodash_drop">
+		</block>
+		<block type="lodash_dropright">
+		</block>
+		<block type="lodash_dropwhiledropdown">
+		</block>
+		<block type="lodash_droprightwhiledropdown">
+		</block>
+		<block type="lodash_dropwhile">
+		</block>
+		<block type="lodash_droprightwhile">
+		</block>
+		<block type="lodash_fill">
+		</block>
+		<block type="lodash_findindexdropdown">
+		</block>
+		<block type="lodash_findlastindexdropdown">
+		</block>
+		<block type="lodash_findindex">
+		</block>
+		<block type="lodash_findlastindex">
+		</block>
+		<block type="lodash_first">
+		</block>
+		<block type="lodash_flatten">
+		</block>
+		<block type="lodash_flattendeep">
+		</block>
+	</category>
+	<category name="qrcode" css-icon="waddle-qrcode" css-class="waddle-qrcode">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="qrcode_import">
+		</block>
+		<block type="qrcode_tocanvas">
+		</block>
+		<block type="qrcode_err">
+		</block>
+		<block type="qrcode_tocanvas_c">
+		</block>
+		<block type="qrcode_err">
+		</block>
+		<block type="qrcode_canvas">
+		</block>
+	</category>
+	<category name="pedometer" css-icon="waddle-pedometer waddle-testing" css-class="waddle-pedometer">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="pedometer_import">
+		</block>
+	</category>
+	<category name="axios" css-icon="waddle-axios" css-class="waddle-axios">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="axios_import">
+		</block>
+		<block type="axios_getpost_simple">
+		</block>
+		<block type="axios_response">
+		</block>
+		<block type="axios_responsedropdown">
+		</block>
+		<block type="axios_error">
+		</block>
+		<block type="axios_getpost">
+		</block>
+		<block type="axios_timeout">
+		</block>
+		<block type="axios_maxcontentlength">
+		</block>
+		<block type="axios_withcredentials">
+		</block>
+		<block type="axios_data">
+		</block>
+	</category>
+	<category name="utils" css-icon="waddle-utils" css-class="waddle-utils" custom="UTILS_GAME">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="utils_import">
+		</block>
+		<block type="utils_isnative">
+		</block>
+	</category>
 	<category name="vika" css-icon="waddle-vika" css-class="waddle-vika">
 		<block type="vika_import">
 		</block>
@@ -535,23 +564,7 @@ TIP
 			</value>
 		</block>
 	</category>
-	<category name="qrcode" css-icon="waddle-qrcode" css-class="waddle-qrcode">
-		<button text="实验性功能提示" callbackKey="betawarning">
-		</button>
-		<block type="qrcode_import">
-		</block>
-		<block type="qrcode_tocanvas">
-		</block>
-		<block type="qrcode_err">
-		</block>
-		<block type="qrcode_tocanvas_c">
-		</block>
-		<block type="qrcode_err">
-		</block>
-		<block type="qrcode_canvas">
-		</block>
-	</category>
-	<category name="antd" css-icon="waddle-antd waddle-testing" css="waddle-antd">
+	<category name="antd" css-icon="waddle-antd waddle-testing" css-class="waddle-antd">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="antd_import">
@@ -559,6 +572,7 @@ TIP
 		<block type="antd_button">
 		</block>
 	</category>
+
 	<category name="权限" css-icon="waddle-permission" css-class="waddle-permission">
 		<block type="permissions_getall">
 		</block>
