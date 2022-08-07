@@ -1,5 +1,5 @@
 Blockly.JavaScript['qrcode_import'] = function (block) {
-    var code = "var qrcode = require('qrcode');\n";
+    var code = "const qrcode = require('qrcode');\n";
     return code;
 };
 
