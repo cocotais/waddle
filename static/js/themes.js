@@ -141,12 +141,12 @@ var theme_conut = 0;
 const themeMedia = window.matchMedia("(prefers-color-scheme: light)");
 themeMedia.addListener(e => {
 	if (!getCookie('mode')) {
-		if (e.matches) {
-			to_light();
-			theme = 'light';
-		} else {
+		if (!e.matches) {
 			to_dark();
 			theme = 'dark';
+		} else {
+			to_light();
+			theme = 'light';
 		}
 	}
 });
