@@ -571,6 +571,10 @@ TIP
 		</block>
 		<block type="antd_button">
 		</block>
+		<block type="antd_auto_center">
+		</block>
+		<block type="antd_divider">
+		</block>
 	</category>
 
 	<category name="权限" css-icon="waddle-permission" css-class="waddle-permission">

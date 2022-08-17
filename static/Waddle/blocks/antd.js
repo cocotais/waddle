@@ -10,13 +10,36 @@ Blockly.Blocks["antd_import"] = {
 };
 
 Blockly.Blocks["antd_button"] = {
-    init: function () {
-      this.appendStatementInput("CON").setCheck(null).appendField("新建antdesign按钮");
-      this.appendStatementInput("PRO").setCheck(null).appendField("属性");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour("#3d92ef");
-      this.setTooltip("");
-      this.setHelpUrl("");
-    },
-  };
+  init: function () {
+    this.appendStatementInput("CON").setCheck(null).appendField("新建antdesign按钮");
+    this.appendStatementInput("PRO").setCheck(null).appendField("属性");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#3d92ef");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+
+Blockly.Blocks["antd_auto_center"] = {
+  init: function () {
+    this.appendStatementInput("CON").setCheck(null).appendField("新建自动居中 内容");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#3d92ef");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+
+Blockly.Blocks["antd_divider"] = {
+  init: function () {
+    this.appendStatementInput("CON").setCheck(null).appendField("新建分割线 内容");
+    this.appendStatementInput("PRO").setCheck(null).appendField("属性");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#3d92ef");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
