@@ -1,85 +1,89 @@
 .waddle-control {
-    color: #01adff;
+  background-color: #01adff;
 }
 
 .waddle-math {
-    color: #f0aa8b;
+  background-color: #f0aa8b;
 }
 
 .waddle-fx {
-    color: #f88767;
+  background-color: #f88767;
 }
 
 .waddle-function {
-    color: #5ab45b;
+  background-color: #5ab45b;
 }
 
 .waddle-variable {
-    color: #ffbb55;
+  background-color: #ffbb55;
 }
 
 .waddle-list {
-    color: #ff9c37;
+  background-color: #ff9c37;
 }
 
 .waddle-dict {
-    color: #2bc9a7;
+  background-color: #2bc9a7;
 }
 
 .waddle-color {
-    color: #2bc9a7;
+  background-color: #2bc9a7;
 }
 
 .waddle-dom {
-    color: #a073ff;
+  background-color: #a073ff;
 }
 
 .waddle-lodash {
-    color: #5098fc;
+  background-color: #5098fc;
 }
 
 .waddle-axios {
-    color: #5a29e4;
+  background-color: #5a29e4;
 }
 
 .waddle-utils {
-    color: #14b390;
+  background-color: #14b390;
 }
 
 .waddle-crypto {
-    color: #5574f8;
+  background-color: #5574f8;
 }
 
 .waddle-vika {
-    color: #f88767;
+  background-color: #f88767;
 }
 
 .waddle-qrcode {
-    color: #c367f9;
+  background-color: #c367f9;
 }
 
 .waddle-tools {
-    color: #14b390;
+  background-color: #14b390;
 }
 
 .waddle-permission {
-    color: #a073ff;
+  background-color: #a073ff;
 }
 
 .waddle-build {
-    color: #5a29e4cc;
+  background-image: linear-gradient(to right, #8647f3cc, #00c79faa);
 }
 
 .waddle-block {
-    color: #ffbb55;
-
+  background-image: linear-gradient(to right, #e76cea, #ffbb55);
 }
 
 .waddle-render {
-    color: #01adffee;
+  background-image: linear-gradient(to right, #01adffee, #5098fc88);
 }
 
 .waddle-testing {
-    opacity: 50%;
-    filter: blur(3px);
+  opacity: 50%;
+  filter: blur(3px);
 }
+
+.waddle-http,.waddle-pedometer,.waddle-antd{
+    background-color: #3d92ef;
+}
+

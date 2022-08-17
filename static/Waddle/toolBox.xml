@@ -425,7 +425,7 @@ TIP
 		<block type="crypto_encutf16stringify">
 		</block>
 	</category>
-	<category name="http" css-icon="waddle-http waddle-testing" css-class="waddle-http">
+	<category name="http" css-icon="waddle-http" css-class="waddle-http waddle-testing">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="http_import">
@@ -497,7 +497,7 @@ TIP
 		<block type="qrcode_canvas">
 		</block>
 	</category>
-	<category name="pedo meter" css-icon="waddle-pedometer waddle-testing" css-class="waddle-pedometer">
+	<category name="pedo meter" css-icon="waddle-pedometer" css-class="waddle-pedometer waddle-testing">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="pedometer_import">
@@ -564,7 +564,7 @@ TIP
 			</value>
 		</block>
 	</category>
-	<category name="antd" css-icon="waddle-antd waddle-testing" css-class="waddle-antd">
+	<category name="antd" css-icon="waddle-antd" css-class="waddle-antd waddle-testing">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="antd_import">
@@ -615,7 +615,7 @@ TIP
 	</category>
 	<sep>
 	</sep>
-	<category name="构造" css-icon="waddle-build-Gradient" css-class="waddle-build">
+	<category name="构造" css-icon="waddle-build" css-class="waddle-build">
 		<label text="不可见控件基本框架">
 		</label>
 		<block type="ivw_defTypes">
@@ -681,7 +681,7 @@ TIP
 		<block type="ivw_propsinit">
 		</block>
 	</category>
-	<category name="积木" css-icon="waddle-block-Gradient" css-class="waddle-block">
+	<category name="积木" css-icon="waddle-block" css-class="waddle-block">
 		<label text="属性定义">
 		</label>
 		<block type="ivw_addProperty">
@@ -754,7 +754,7 @@ TIP
 		<block type="widget_widgeterror">
 		</block>
 	</category>
-	<category name="渲染" css-icon="waddle-render-Gradient" css-class="waddle-render">
+	<category name="渲染" css-icon="waddle-render" css-class="waddle-render">
 		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
 		</button>
 		<!-- <block type="html_code">

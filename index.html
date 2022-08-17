@@ -17,7 +17,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.50.17(1239)-beta' //版本号
+		var version = 'v1.50.18(1244)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -1034,10 +1034,10 @@ wwwwwww      wwwwww     wwwwwww
 <script src="./static/blockly-master/blocks_compressed.min.js"></script>
 <script src="./static/blockly-master/msg/js/zh-hans.js"></script>
 <!--图标库-->
-<!--link rel="stylesheet" href="https://at.alicdn.com/t/font_3193112_7sw8re1is8r.css"-->
+
 <link rel="stylesheet" href="./static/css/toolBoxColor.css">
 <script
-	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_39.cc6e8d42eca9877b333fd3835caa47fe.js"></script>
+	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_63.15a95ac31f960bb085694d8c0a35a0b5.js"></script>
 
 <!--引入框架-->
 
@@ -1176,6 +1176,15 @@ wwwwwww      wwwwww     wwwwwww
 		} else {
 			document.cookie = "easter=1";
 		}
+	}
+</script>
+
+<script>
+	try{
+		(CSS.paintWorklet || paintWorklet).addModule('./static/js/smooth-corners.js')
+	}
+	catch (err){
+		document.getElementsByTagName("iconpark-icon")
 	}
 </script>
 
@@ -2169,29 +2178,6 @@ wwwwwww      wwwwww     wwwwwww
 		const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
 		localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
 	}
-
-
-	var build = document.createElement('iconpark-icon');
-	build.name = "waddle-build"
-	build.size = "21px"
-	build.className = "waddle-build"
-	build.style = 'position: absolute;'
-	$(".waddle-build")[0].style.zIndex = 1
-	$(".waddle-build")[0].after(build);
-	var build = document.createElement('iconpark-icon');
-	build.size = "21px"
-	build.name = "waddle-block"
-	build.className = "waddle-block"
-	build.style = 'position: absolute;'
-	$(".waddle-block")[0].style.zIndex = 1
-	$(".waddle-block")[0].after(build);
-	var build = document.createElement('iconpark-icon');
-	build.size = "21px"
-	build.name = "waddle-render"
-	build.className = "waddle-render"
-	build.style = 'position: absolute;'
-	$(".waddle-render")[0].style.zIndex = 1
-	$(".waddle-render")[0].after(build);
 
 	setTimeout(() => {
 		document.getElementsByClassName('blocklyToolboxDiv')[0].id = "blocklyToolboxDiv";
