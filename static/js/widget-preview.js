@@ -1,4 +1,37 @@
+
+function require(mouble_name) {
+    let moubles = {
+        // 'antd-mobile': {
+        //     'url': 'https://unpkg.com/antd-mobile@5.21.0/umd/antd-mobile.js',
+        //     'var_name': 'antd'
+        // },
+        'react': {
+            'url': './static/js/react.development.js',
+            'var_name': 'React'
+        },
+        'react-dom': {
+            'url': './static/js/react-dom.development.js',
+            'var_name': 'ReactDom'
+        },
+    };
+    if (mouble_name in moubles) {
+        if (moubles[mouble_name]['var_name'] in window) {
+        }
+        else {
+            const element = document.createElement('script');
+            element.setAttribute('type', 'text/javascript');
+            element.setAttribute('src', moubles[mouble_name]['url']);
+            document.body.appendChild(element);
+        }
+        return window[moubles[mouble_name]['var_name']];
+    }
+    else {
+        //没有这个库就返回空
+        return {};
+    }
+}
 function preview_render(code) {
+
     exports = { types: null, widget: null };//用于导出获取控件
     //运行控件
     Function(// 采用CoCo内运行方法
@@ -34,7 +67,7 @@ function preview_render(code) {
     let previewWidget = new exports.widget(properties);//创建一个控件实例
 
     // 设置预览框大小为控件默认大小
-    let widgetPreviewDom = document.getElementById("widgetPreview");
+    var widgetPreviewDom = document.getElementById("widgetPreview");
     widgetPreviewDom.style.width = previewWidget.__width + 'px';
     widgetPreviewDom.style.height = previewWidget.__height + 'px';
 
