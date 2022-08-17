@@ -497,7 +497,7 @@ TIP
 		<block type="qrcode_canvas">
 		</block>
 	</category>
-	<category name="pedometer" css-icon="waddle-pedometer waddle-testing" css-class="waddle-pedometer">
+	<category name="pedo meter" css-icon="waddle-pedometer waddle-testing" css-class="waddle-pedometer">
 		<button text="实验性功能提示" callbackKey="betawarning">
 		</button>
 		<block type="pedometer_import">
