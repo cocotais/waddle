@@ -38,8 +38,9 @@ function preview_render(code) {
     widgetPreviewDom.style.width = previewWidget.__width + 'px';
     widgetPreviewDom.style.height = previewWidget.__height + 'px';
 
+    //渲染
     ReactDOM.render(
-        previewWidget.render(),//渲染
-        document.getElementById(widgetPreviewDom)
+        previewWidget.render(),
+        widgetPreviewDom
     );
 }
