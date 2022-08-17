@@ -17,7 +17,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.50.18(1244)-beta' //版本号
+		var version = 'v1.50.19(1245)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -70,6 +70,96 @@ wwwwwww      wwwwww     wwwwwww
 		document.head.appendChild(logo);
 	</script>
 	<link rel="stylesheet" href="./static/css/theme.css">
+
+	<div id="app-root"></div>
+	<!--在项目 html 中加载此段代码（最好是在body最后，这样如果你的应用有加载过一些polyfill, 可以避免一些重复加载），即可在项目中使用图标组件-->
+	<script>
+		(function () {
+			function polyfillsLoader() {
+				function loadScript(src, type, attrs) {
+					var attributes = attrs || [];
+					return new Promise(function (resolve) {
+						var script = document.createElement('script');
+
+						function onLoaded() {
+							if (script.parentElement) {
+								script.parentElement.removeChild(script);
+							}
+							resolve();
+						}
+
+						script.src = src;
+						script.onload = onLoaded;
+						attributes.forEach(function (att) {
+							script.setAttribute(att.name, att.value);
+						});
+
+						script.onerror = function () {
+							console.error('[polyfills-loader] failed to load: ' + src + ' check the network tab for HTTP status.');
+							onLoaded();
+						};
+
+						if (type) script.type = type;
+						document.head.appendChild(script);
+					});
+				}
+
+				var polyfills = [];
+
+				if (!('noModule' in HTMLScriptElement.prototype)) {
+					// 这里的 polyfill 链接提供的是公共 cdn 上的地址，你可以将其中的polyfill代码下载下来传到自己的服务器/cdn后使用其链接，下同
+					polyfills.push(loadScript('https://unpkg.com/regenerator-runtime@0.12.1/runtime.js'));
+				}
+
+				if (!('attachShadow' in Element.prototype) || !('getRootNode' in Element.prototype) || window.ShadyDOM && window.ShadyDOM.force) {
+					polyfills.push(loadScript('https://unpkg.com/@webcomponents/webcomponentsjs@2.5.0/webcomponents-bundle.js'));
+				}
+
+				if (!('noModule' in HTMLScriptElement.prototype) && 'getRootNode' in Element.prototype) {
+					polyfills.push(loadScript('https://unpkg.com/@webcomponents/webcomponentsjs@2.5.0/custom-elements-es5-adapter.js'));
+				}
+
+				if (!('attachShadow' in Element.prototype)) {
+					polyfills.push(loadScript('https://www.unpkg.com/lit@2.0.0-rc.2/polyfill-support.js'));
+				}
+
+				function loadFiles() {
+					if (!('noModule' in HTMLScriptElement.prototype)) {
+						// 加载 ES5 版本图标js
+						loadScript('https://tosv.boe.byted.org/obj/iconpark/icons_4_6.56442f89ba236664e7b5eeba0fd2aee0.js')
+					} else {
+						// 加载 ES2019 版本图标js，类型为module的链接是自动defer的
+						loadScript('https://tosv.boe.byted.org/obj/iconpark/icons_4_6.9573a211884ae22db6ce775aa201da3f.js', 'module', []);
+					}
+				}
+
+				if (polyfills.length) {
+					Promise.all(polyfills).then(loadFiles);
+				} else {
+					loadFiles();
+				}
+			}
+
+			if (!('noModule' in HTMLScriptElement.prototype) || !(window.globalThis && typeof window.globalThis == 'object')) {
+				var s = document.createElement('script')
+				function onLoaded() {
+					document.head.removeChild(s);
+					polyfillsLoader();
+				}
+
+				s.src = "https://cdnjs.cloudflare.com/ajax/libs/core-js/3.14.0/minified.min.js";
+				s.onload = onLoaded;
+				s.onerror = function () {
+					console.error('[polyfills-loader] failed to load: ' + s.src + ' check the network tab for HTTP status.');
+					onLoaded();
+				};
+
+				document.head.appendChild(s);
+			} else {
+				polyfillsLoader();
+			}
+		})();
+	</script>
 </head>
 <script>
 	//获取cookie
@@ -1037,7 +1127,7 @@ wwwwwww      wwwwww     wwwwwww
 
 <link rel="stylesheet" href="./static/css/toolBoxColor.css">
 <script
-	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_63.15a95ac31f960bb085694d8c0a35a0b5.js"></script>
+	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_63.15a95ac31f960bb085694d8c0a35a0b5.es5.js"></script>
 
 <!--引入框架-->
 
@@ -1176,15 +1266,6 @@ wwwwwww      wwwwww     wwwwwww
 		} else {
 			document.cookie = "easter=1";
 		}
-	}
-</script>
-
-<script>
-	try{
-		(CSS.paintWorklet || paintWorklet).addModule('./static/js/smooth-corners.js')
-	}
-	catch (err){
-		document.getElementsByTagName("iconpark-icon")
 	}
 </script>
 
