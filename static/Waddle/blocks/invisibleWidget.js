@@ -173,7 +173,7 @@ Blockly.Blocks['ivw_addMethod'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour('#ffbb55');
-        this.setTooltip('定义一个方法积木\n函数名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没导入到CoCo理解就看一下效果\n不可以动态添加！！！');
+        this.setTooltip('定义一个方法积木\n函数名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！');
         this.setHelpUrl(HELP_URL);
     }
 };
