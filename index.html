@@ -17,7 +17,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.50.22(1254)-beta' //版本号
+		var version = 'v1.50.23(1255)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -1085,9 +1085,9 @@ wwwwwww      wwwwww     wwwwwww
 							type="checkbox">
 						<span>积木盒常驻</span>
 					</div>
-					<div style="width: 100%;margin-top: 10px;">
+					<div id="loadExtension" style="width: 100%;margin-top: calc(60vh - 325px);">
 						<button onclick="openExtension()"
-							style="width: 100%;background-color: rgba(105, 85, 231, 0.7);color: #fff;height: 50px;border-radius: 10px;font-size: 16px;border: none;outline: none;">加载界面插件(实验性)</button>
+							style="width: 100%;background-color: var(--settings-button-set-background);color: #fff;height: 50px;border-radius: 10px;font-size: 16px;border: none;outline: none;">加载界面插件(实验性)</button>
 					</div>
 				</div>
 				<div class="aboutus-body">
@@ -2109,6 +2109,10 @@ wwwwwww      wwwwww     wwwwwww
 
 		.sord {
 			font-size: 20px;
+		}
+
+		#loadExtension{
+			margin-top: calc(100vh - 325px) !important;
 		}
 	}
 </style>
