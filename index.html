@@ -17,7 +17,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.50.21(1251)-beta' //版本号
+		var version = 'v1.50.22(1254)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -323,26 +323,20 @@ wwwwwww      wwwwww     wwwwwww
 		<img onclick='dropdown_show();' alt="Waddle" id="logo1" draggable="false"
 			src="./static/img/logo/logo-purple.svg"
 			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 5; background-color: var(--toolbox-color);cursor: pointer;">
-		<nav class="navbar navbar-expand navbar-dark" style="height:0px;background-color: var(--main-color);">
-			<div class="container-fluid">
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav">
-						<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
-							style="cursor: pointer;">
-							<li class="dropdown-item" onClick="show_newsth()">新建控件</li>
-							<li class="dropdown-item" onClick="save()">保存到电脑</li>
-							<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
-							<li class="dropdown-item" onClick="js_save()">导出为CoCo文件</li>
-							<div style="height: 1px;background-color: var(--menu-line);margin: 0 10px;"></div>
-							<li class="dropdown-item"
-								onClick="count();window.open('https://waddle.coco-central.cn/docs/#/')">文档
-							</li>
-							<li class="dropdown-item" onClick="show_about()">更多选项</li>
-						</ul>
-					</ul>
-				</div>
-			</div>
-		</nav>
+
+		<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="cursor: pointer;">
+			<iconpark-icon name="updown" fill="var(--toolbox-color)" size="16"
+			style="position: absolute;transform: rotate(-90deg);left: -10px;filter: drop-shadow(0px -2px 1px rgb(0 0 0 / 30%));top: 18px;">
+		</iconpark-icon>
+			<li class="dropdown-item" onClick="show_newsth()">新建控件</li>
+			<li class="dropdown-item" onClick="save()">保存到电脑</li>
+			<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
+			<li class="dropdown-item" onClick="js_save()">导出为CoCo文件</li>
+			<div style="height: 1px;background-color: var(--menu-line);margin: 0 10px;"></div>
+			<li class="dropdown-item" onClick="count();window.open('https://waddle.coco-central.cn/docs/#/')">文档
+			</li>
+			<li class="dropdown-item" onClick="show_about()">更多选项</li>
+		</ul>
 
 		<style>
 			/* 垃圾桶样式 */
@@ -1092,7 +1086,8 @@ wwwwwww      wwwwww     wwwwwww
 						<span>积木盒常驻</span>
 					</div>
 					<div style="width: 100%;margin-top: 10px;">
-						<button onclick="openExtension()" style="width: 100%;background-color: rgba(105, 85, 231, 0.7);color: #fff;height: 50px;border-radius: 10px;font-size: 16px;border: none;outline: none;">加载界面插件(实验性)</button>
+						<button onclick="openExtension()"
+							style="width: 100%;background-color: rgba(105, 85, 231, 0.7);color: #fff;height: 50px;border-radius: 10px;font-size: 16px;border: none;outline: none;">加载界面插件(实验性)</button>
 					</div>
 				</div>
 				<div class="aboutus-body">
@@ -1129,7 +1124,7 @@ wwwwwww      wwwwww     wwwwwww
 
 <link rel="stylesheet" href="./static/css/toolBoxColor.css">
 <script
-	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_63.15a95ac31f960bb085694d8c0a35a0b5.es5.js"></script>
+	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.es5.js"></script>
 
 <!--引入框架-->
 
