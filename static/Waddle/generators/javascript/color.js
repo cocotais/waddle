@@ -1,5 +1,5 @@
 Blockly.JavaScript['color_import'] = function (block) {
-    var code = "var color = require('color');\n";
+    var code = "const color = require('color');\n";
     return code;
 };
 

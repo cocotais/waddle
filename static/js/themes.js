@@ -24,9 +24,7 @@ var to_dark = function () {
 	document.getElementsByClassName('newsth-content')[0].style.backgroundColor = 'var(--nd-main-color)';
 	document.getElementsByClassName('aboutus-logo')[0].style.color = '#fff';
 	document.getElementsByClassName('newsth-logo')[0].style.color = '#fff';
-	document.cookie = 'mode=dark';
 	document.getElementById('pwa-color').setAttribute('content', '#525252');
-
 	document.documentElement.style.setProperty('--common-background', '#333033');
 	document.documentElement.style.setProperty('--common-color', '#d7dae0');
 	document.documentElement.style.setProperty('--quote-color', '#abb2bf');
@@ -57,7 +55,7 @@ var to_dark = function () {
 	document.documentElement.style.setProperty('--funcs-hover-color', '#aaaaaa');
 	document.documentElement.style.setProperty('--show-code-color', '#876CFF');
 	document.documentElement.style.setProperty('--show-hover-code-color', '#6d50f0');
-	document.documentElement.style.setProperty('--aboutus-background','#666666');
+	document.documentElement.style.setProperty('--aboutus-background', '#666666');
 	document.documentElement.style.setProperty('--arrow-color', '#fff');
 	document.documentElement.style.setProperty('--arrow-background', '#525252');
 	document.documentElement.style.setProperty('--arrow-hover-background', '#666666');
@@ -66,7 +64,14 @@ var to_dark = function () {
 	document.documentElement.style.setProperty('--settings-button-background', 'rgba(164, 164, 164, 1)');
 	document.documentElement.style.setProperty('--settings-button-set-color', 'rgba(255, 255, 255, 1)');
 	document.documentElement.style.setProperty('--settings-button-set-background', 'rgba(59, 59, 59, 1)');
-	document.getElementById('about-img').src="./static/img/logo/logo-white-full.svg"
+
+	document.documentElement.style.setProperty('--menu-font', '#ffffffdd');
+	document.documentElement.style.setProperty('--menu-font-hover', '#ffffff');
+	document.documentElement.style.setProperty('--menu-hover', '#525252');
+	document.documentElement.style.setProperty('--menu-active', '#666666');
+	document.documentElement.style.setProperty('--menu-line', '#444444');
+	document.documentElement.style.setProperty('--menu-font-disable', '#fff3');
+	document.getElementById('about-img').src = "./static/img/logo/logo-white-full.svg"
 };
 var to_light = function () {
 	workspace.setTheme(WaddleTheme);
@@ -81,8 +86,6 @@ var to_light = function () {
 	document.getElementsByClassName('aboutus-logo')[0].style.color = 'var(--main-color)';
 	document.getElementsByClassName('newsth-logo')[0].style.color = 'var(--main-color)';
 	document.getElementById('pwa-color').setAttribute('content', '#6d50f0');
-	document.cookie = 'mode=light';
-
 	document.documentElement.style.setProperty('--common-background', '#fff');
 	document.documentElement.style.setProperty('--common-color', '#000');
 	document.documentElement.style.setProperty('--quote-color', '#800');
@@ -117,23 +120,52 @@ var to_light = function () {
 	document.documentElement.style.setProperty('--arrow-color', '#6d50f0');
 	document.documentElement.style.setProperty('--arrow-background', '#efebff');
 	document.documentElement.style.setProperty('--arrow-hover-background', '#d7cff7');
-	document.getElementById('about-img').src="./static/img/logo/logo-purple-full.png.svg"
+	document.getElementById('about-img').src = "./static/img/logo/logo-purple-full.png.svg"
 
 
 	document.documentElement.style.setProperty('--settings-button-color', 'rgba(105, 85, 231, 0.8)');
 	document.documentElement.style.setProperty('--settings-button-background', 'rgba(105, 85, 231, 0.1)');
 	document.documentElement.style.setProperty('--settings-button-set-color', '#fff');
 	document.documentElement.style.setProperty('--settings-button-set-background', 'rgba(105, 85, 231, 0.7)');
-	
+
+	document.documentElement.style.setProperty('--menu-font', '#000000065');
+	document.documentElement.style.setProperty('--menu-font-hover', '#000000dd');
+	document.documentElement.style.setProperty('--menu-hover', '#f5f3fe');
+	document.documentElement.style.setProperty('--menu-active', '#ddd8f3');
+	document.documentElement.style.setProperty('--menu-line', '#f2f2f2');
+	document.documentElement.style.setProperty('--menu-font-disable', '#0003');
 };
 var theme_conut = 0;
+
+
+const themeMedia = window.matchMedia("(prefers-color-scheme: light)");
+themeMedia.addListener(e => {
+	if (!getCookie('mode')) {
+		if (!e.matches) {
+			to_dark();
+			theme = 'dark';
+		} else {
+			to_light();
+			theme = 'light';
+		}
+	}
+});
+
 var switch_theme = function () {
 	if (theme == 'light') {
 		to_dark();
 		theme = 'dark';
+		var d = new Date();
+		d.setTime(d.getTime() + (3/*天数*/ * 24 * 60 * 60 * 1000));
+		var expires = "expires=" + d.toGMTString();
+		document.cookie = 'mode=dark;expires=' + expires;
 	} else {
 		to_light();
 		theme = 'light';
+		var d = new Date();
+		d.setTime(d.getTime() + (3/*天数*/ * 24 * 60 * 60 * 1000));
+		var expires = "expires=" + d.toGMTString();
+		document.cookie = 'mode=light;expires=' + expires;
 	}
 	theme_conut++;
 	setTimeout(1000, function () {
@@ -147,15 +179,16 @@ var switch_theme = function () {
 		window.open('./static/Waddle/eastegg/vscode/index.html');
 		theme_conut = -999;
 	}
+	triggerOnThemeSwitch()
 };
 window.onresize = function () {
-    document.getElementById('table').style.height = window.innerHeight + 'px';
-    document.getElementById('toolbox').style.height = window.innerHeight + 'px';
-    document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
+	document.getElementById('table').style.height = window.innerHeight + 'px';
+	document.getElementById('toolbox').style.height = window.innerHeight + 'px';
+	document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
 	document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
 	document.getElementsByClassName("modal-content")[0].style.height = window.innerHeight + 'px';
 	document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
-    Blockly.svgResize(workspace);
+	Blockly.svgResize(workspace);
 };
 if (theme == 'dark') {
 	to_dark();
@@ -172,21 +205,21 @@ if (theme == 'dark') {
 }
 hljs.initHighlightingOnLoad();
 if ($(window).width() < 818) {
-    document.getElementsByClassName('modal')[0].style.width = '100vw';
-    document.getElementById('blocklyDiv').style.width = '100vw';
-    document.getElementById('toolbox').style.width = '100vw';
+	document.getElementsByClassName('modal')[0].style.width = '100vw';
+	document.getElementById('blocklyDiv').style.width = '100vw';
+	document.getElementById('toolbox').style.width = '100vw';
 	document.getElementsByClassName("modal-close")[0].style.display = "block"
 } else {
-    document.getElementsByClassName('modal')[0].style.width = '400px';
+	document.getElementsByClassName('modal')[0].style.width = '400px';
 	document.getElementsByClassName("modal-close")[0].style.display = "none"
-    if (modal.style.display == 'none' || modal.style.display == '') {
-        document.getElementById('blocklyDiv').style.width = '100vw';
-        document.getElementById('toolbox').style.width = '100vw';
-    } else {
-        document.getElementById('blocklyDiv').style.width = 'calc(100vw - 400px)';
-        document.getElementById('toolbox').style.width = 'calc(100vw - 400px)';
-    }
+	if (modal.style.display == 'none' || modal.style.display == '') {
+		document.getElementById('blocklyDiv').style.width = '100vw';
+		document.getElementById('toolbox').style.width = '100vw';
+	} else {
+		document.getElementById('blocklyDiv').style.width = 'calc(100vw - 400px)';
+		document.getElementById('toolbox').style.width = 'calc(100vw - 400px)';
+	}
 }
 
-document.getElementsByClassName("copy")[0].style.top = (window.innerHeight-110) + 'px';
-document.getElementsByClassName("modal-close")[0].style.top = (window.innerHeight-110) + 'px';
+document.getElementsByClassName("copy")[0].style.top = (window.innerHeight - 110) + 'px';
+document.getElementsByClassName("modal-close")[0].style.top = (window.innerHeight - 110) + 'px';

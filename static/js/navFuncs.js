@@ -138,11 +138,11 @@ let count_oj = function () {
   }
 };
 
-var isclick = false;
+var isclick,ishold = false;
 
 let dropdown_show = function () {
-  document.getElementById("navmenu").style.top = "0px";
-  document.getElementById("navmenu").style.marginLeft = "60px";
+  document.getElementById("navmenu").style.top = "10px";
+  document.getElementById("navmenu").style.left = "68px";
   if (
     document.getElementsByClassName("dropdown-menu")[0].className ==
     "dropdown-menu show"
@@ -162,12 +162,23 @@ let dropdown_show = function () {
 };
 
 document.onclick = function () {
-  if (isclick == true) {
+  if (isclick == true && !ishold) {
     document.getElementsByClassName("dropdown-menu")[0].className =
       "dropdown-menu";
     isclick = false;
   }
 };
+
+
+window.document.body.onmouseover =  function (event){
+  el = event.target;
+  if (el == document.getElementsByClassName("dropdown-menu")[0]){
+    ishold = true
+  }
+  else{
+    ishold = false
+  }
+}
 
 // 原本的“关于”对话框的显示分离到此
 function show_about() {

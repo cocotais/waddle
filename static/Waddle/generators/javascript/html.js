@@ -1214,7 +1214,11 @@ Blockly.JavaScript["html_html"] = function (block) {
     block,
     "NAME",
     Blockly.JavaScript.ORDER_ATOMIC
-  );   var code = `React.createElement("div", {dangerouslySetInnerHTML: {__html: ${value_name}}}, null),\n`;
+  );
+  var statements_pro = html_attribute_to_str(
+    Blockly.JavaScript.statementToCode(block, "PRO") || ""
+  );
+  var code = `React.createElement("div", {${statements_pro}dangerouslySetInnerHTML: {__html: ${value_name}}}, null),\n`;
 
   return code;
 };

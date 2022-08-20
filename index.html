@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-<!----将"v1.50.3(1212)-release"替换为版本（这条的也要）---->
-
 <head>
 	<meta charset="utf-8">
 	<link rel="manifest" href="./manifest.json">
@@ -19,7 +17,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.50.3(1212)-release' //版本号
+		var version = 'v1.6.0(1255)-release' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -45,6 +43,19 @@ wwwwwww      wwwwww     wwwwwww
 			window.addEventListener('load', function () {
 				navigator.serviceWorker.register('./sw.js')
 			});
+			let refreshing = false
+			navigator.serviceWorker.addEventListener('controllerchange', () => {
+				if (refreshing) {
+					return
+				}
+				refreshing = true;
+				swal("有新版本更新，请问是否需要刷新", { buttons: ["取消", "确认"], })
+					.then((value) => {
+						if (value) {
+							window.location.reload();
+						}
+					})
+			});
 		}
 
 		var logo = document.createElement('link');
@@ -59,6 +70,96 @@ wwwwwww      wwwwww     wwwwwww
 		document.head.appendChild(logo);
 	</script>
 	<link rel="stylesheet" href="./static/css/theme.css">
+
+	<div id="app-root"></div>
+	<!--在项目 html 中加载此段代码（最好是在body最后，这样如果你的应用有加载过一些polyfill, 可以避免一些重复加载），即可在项目中使用图标组件-->
+	<script>
+		(function () {
+			function polyfillsLoader() {
+				function loadScript(src, type, attrs) {
+					var attributes = attrs || [];
+					return new Promise(function (resolve) {
+						var script = document.createElement('script');
+
+						function onLoaded() {
+							if (script.parentElement) {
+								script.parentElement.removeChild(script);
+							}
+							resolve();
+						}
+
+						script.src = src;
+						script.onload = onLoaded;
+						attributes.forEach(function (att) {
+							script.setAttribute(att.name, att.value);
+						});
+
+						script.onerror = function () {
+							console.error('[polyfills-loader] failed to load: ' + src + ' check the network tab for HTTP status.');
+							onLoaded();
+						};
+
+						if (type) script.type = type;
+						document.head.appendChild(script);
+					});
+				}
+
+				var polyfills = [];
+
+				if (!('noModule' in HTMLScriptElement.prototype)) {
+					// 这里的 polyfill 链接提供的是公共 cdn 上的地址，你可以将其中的polyfill代码下载下来传到自己的服务器/cdn后使用其链接，下同
+					polyfills.push(loadScript('https://unpkg.com/regenerator-runtime@0.12.1/runtime.js'));
+				}
+
+				if (!('attachShadow' in Element.prototype) || !('getRootNode' in Element.prototype) || window.ShadyDOM && window.ShadyDOM.force) {
+					polyfills.push(loadScript('https://unpkg.com/@webcomponents/webcomponentsjs@2.5.0/webcomponents-bundle.js'));
+				}
+
+				if (!('noModule' in HTMLScriptElement.prototype) && 'getRootNode' in Element.prototype) {
+					polyfills.push(loadScript('https://unpkg.com/@webcomponents/webcomponentsjs@2.5.0/custom-elements-es5-adapter.js'));
+				}
+
+				if (!('attachShadow' in Element.prototype)) {
+					polyfills.push(loadScript('https://www.unpkg.com/lit@2.0.0-rc.2/polyfill-support.js'));
+				}
+
+				function loadFiles() {
+					if (!('noModule' in HTMLScriptElement.prototype)) {
+						// 加载 ES5 版本图标js
+						loadScript('https://tosv.boe.byted.org/obj/iconpark/icons_4_6.56442f89ba236664e7b5eeba0fd2aee0.js')
+					} else {
+						// 加载 ES2019 版本图标js，类型为module的链接是自动defer的
+						loadScript('https://tosv.boe.byted.org/obj/iconpark/icons_4_6.9573a211884ae22db6ce775aa201da3f.js', 'module', []);
+					}
+				}
+
+				if (polyfills.length) {
+					Promise.all(polyfills).then(loadFiles);
+				} else {
+					loadFiles();
+				}
+			}
+
+			if (!('noModule' in HTMLScriptElement.prototype) || !(window.globalThis && typeof window.globalThis == 'object')) {
+				var s = document.createElement('script')
+				function onLoaded() {
+					document.head.removeChild(s);
+					polyfillsLoader();
+				}
+
+				s.src = "https://cdnjs.cloudflare.com/ajax/libs/core-js/3.14.0/minified.min.js";
+				s.onload = onLoaded;
+				s.onerror = function () {
+					console.error('[polyfills-loader] failed to load: ' + s.src + ' check the network tab for HTTP status.');
+					onLoaded();
+				};
+
+				document.head.appendChild(s);
+			} else {
+				polyfillsLoader();
+			}
+		})();
+	</script>
 </head>
 <script>
 	//获取cookie
@@ -71,17 +172,17 @@ wwwwwww      wwwwww     wwwwwww
 		return "";
 	}
 	var theme = getCookie('mode');
-	// 2月21日 2022年2月27日 11月13日 黑白
+
+	// 2月21日（2·21事件） 12月13日（国家公祭日） 黑白
 	var date = new Date();
-	if ((date.getMonth() == 2 && date.getDate() == 21) || (date.getFullYear() == 2022 && date.getMonth() == 2 && date.getDate() == 27) || (date.getMonth() == 11 && date.getDate() == 13)) {
+	if ((date.getMonth() + 1 == 2 && date.getDate() == 21) || (date.getMonth() + 1 == 12 && date.getDate() == 13)) {
 		var rip = document.createElement('style');
-		rip.innerText = 'html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
+		rip.innerText = '/*R.I.P.*/html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
 		document.body.appendChild(rip);
 	}
 </script>
 
 <body>
-
 	<!-- 加载页样式-->
 	<style>
 		.container {
@@ -121,6 +222,7 @@ wwwwwww      wwwwww     wwwwwww
 			width: 100%;
 			height: 100%;
 			text-align: center;
+			transition: none;
 		}
 
 		#loading-text {
@@ -195,7 +297,8 @@ wwwwwww      wwwwww     wwwwwww
 			"难道Waddle有OJ题库了？",//Waddle的OJ彩蛋
 			"Wadddddddddddle!",
 			"Just Waddle! lol~",  //你觉得啥彩蛋？
-			"我 永远 喜欢 谷恒条野！" //小鱼发病录（划掉）
+			"我 永远 喜欢 谷恒条野！", //小鱼发病录（划掉）
+			"紧跟时事，005nb！"
 		];
 		document.getElementById("loading-text").innerText = tipList[Math.floor(Math.random() * tipList.length)];
 
@@ -217,28 +320,23 @@ wwwwwww      wwwwww     wwwwwww
 	</script>
 
 	<div id="body" style="visibility:hidden;">
-		<img onclick='dropdown_show();' alt="Waddle" id="logo1" src="./static/img/logo/logo-purple.svg"
+		<img onclick='dropdown_show();' alt="Waddle" id="logo1" draggable="false"
+			src="./static/img/logo/logo-purple.svg"
 			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 5; background-color: var(--toolbox-color);cursor: pointer;">
-		<nav class="navbar navbar-expand navbar-dark" style="height:0px;background-color: var(--main-color);">
-			<div class="container-fluid">
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav">
-						<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
-							style="cursor: pointer;">
-							<li class="dropdown-item" onClick="show_newsth()">新建控件</li>
-							<li class="dropdown-item" onClick="save()">保存到电脑</li>
-							<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
-							<li class="dropdown-item" onClick="js_save()">导出为CoCo文件</li>
-							<div style="height: 1px;background-color: #f2f2f2;margin: 0 10px;"></div>
-							<li class="dropdown-item"
-								onClick="count();window.open('https://waddle.coco-central.cn/docs/#/')">文档
-							</li>
-							<li class="dropdown-item" onClick="show_about()">更多选项</li>
-						</ul>
-					</ul>
-				</div>
-			</div>
-		</nav>
+
+		<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="cursor: pointer;">
+			<iconpark-icon name="updown" fill="var(--toolbox-color)" size="16"
+			style="position: absolute;transform: rotate(-90deg);left: -10px;filter: drop-shadow(0px -2px 1px rgb(0 0 0 / 30%));top: 18px;">
+		</iconpark-icon>
+			<li class="dropdown-item" onClick="show_newsth()">新建控件</li>
+			<li class="dropdown-item" onClick="save()">保存到电脑</li>
+			<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
+			<li class="dropdown-item" onClick="js_save()">导出为CoCo文件</li>
+			<div style="height: 1px;background-color: var(--menu-line);margin: 0 10px;"></div>
+			<li class="dropdown-item" onClick="count();window.open('https://waddle.coco-central.cn/docs/#/')">文档
+			</li>
+			<li class="dropdown-item" onClick="show_about()">更多选项</li>
+		</ul>
 
 		<style>
 			/* 垃圾桶样式 */
@@ -275,6 +373,11 @@ wwwwwww      wwwwww     wwwwwww
 
 			#delete-svg-down {
 				margin-top: 3px;
+			}
+
+			/*设置宽度*/
+			.blocklyToolboxCategory {
+				width: 100%;
 			}
 		</style>
 		<script>
@@ -369,11 +472,12 @@ wwwwwww      wwwwww     wwwwwww
 		</div>
 
 		<div>
-			<button id="toup" class="updown" style="top:70px;display: none;border-radius: 4px 4px 0 0;"
+			<button aria-label="移到顶部" id="toup" class="updown"
+				style="top:70px;display: none;border-radius: 4px 4px 0 0;"
 				onclick="$('.blocklyToolboxDiv').animate({scrollTop: 0});">
 				<iconpark-icon name="updown" fill="var(--arrow-color)" size="16"></iconpark-icon>
 			</button>
-			<button id="todown" class="updown" style="bottom:0;border-radius: 0 0 4px 4px;" onclick="
+			<button aria-label="移到底部" id="todown" class="updown" style="bottom:0;border-radius: 0 0 4px 4px;" onclick="
 			bottom=$('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
 			$('.blocklyToolboxDiv').animate({scrollTop: bottom})">
 				<iconpark-icon name="updown" fill="var(--arrow-color)" size="16" style="transform:rotate(180deg);">
@@ -390,9 +494,9 @@ wwwwwww      wwwwww     wwwwwww
 				border: var(--arrow-background);
 				color: var(--arrow-color);
 				height: 17px;
-				-webkit-transition-duration: 0.1s;
+				-webkit-transition-duration: 0.5s;
 				/* Safari */
-				transition-duration: 0.1s;
+				transition-duration: 0.5s;
 			}
 
 			.updown:hover {
@@ -625,20 +729,6 @@ wwwwwww      wwwwww     wwwwwww
 				scrollbar-color: #cccccc88 transparent;
 			}
 
-			*:hover {
-				scrollbar-color: #bbbbbb88 transparent;
-			}
-
-			/* 加载失败默认主题 */
-
-			/*.iconfont {
-				font-family: "iconfont" !important;
-				font-size: 18px;
-				font-style: normal;
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
-			}*/
-
 			.swal-footer {
 				margin-top: 32px;
 				text-align: center;
@@ -672,6 +762,8 @@ wwwwwww      wwwwww     wwwwwww
 
 			.blocklyTreeLabel {
 				padding: 3px 0;
+				white-space: pre-line;
+				text-align: center;
 			}
 
 			.blocklyTreeRowContentContainer {
@@ -727,7 +819,7 @@ wwwwwww      wwwwww     wwwwwww
 			}
 
 			.blocklyMenuItemDisabled {
-				color: #ccc;
+				color: var(--menu-font-disable) !important;
 			}
 
 			.blocklyMenuItem {
@@ -737,8 +829,7 @@ wwwwwww      wwwwww     wwwwwww
 			}
 
 			.blocklyMenuItemHighlight {
-				background-color: #e3ddfc66;
-				color: #000;
+				color: var(--menu-font-hover) !important;
 			}
 
 			.swal-button-container {
@@ -746,12 +837,21 @@ wwwwwww      wwwwww     wwwwwww
 			}
 
 			.blocklyFlyout {
-				box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px 0px, rgba(0, 0, 0, 0.09) 0px 6px 20px 0px;
+				box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 4px 0px;
 				background-color: #ffffff;
 			}
 
 			.blocklyWidgetDiv .blocklyMenu {
 				overflow: hidden;
+				background-color: var(--toolbox-color);
+			}
+
+			.blocklyMenuItem {
+				color: var(--menu-font);
+			}
+
+			* {
+				transition: color 0.5s, background-color 0.5s, border 0.5s;
 			}
 		</style>
 
@@ -936,7 +1036,10 @@ wwwwwww      wwwwww     wwwwwww
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hyperlink.waddle')">
 						<span class="sord">[可见控件]<br>超链接</span>
 					</div>
-					<div class="card" id="card" onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/blinkButton.waddle')"><span class="sord">[可见控件]<br>闪烁按钮</span></div>
+					<div class="card" id="card"
+						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/blinkButton.waddle')">
+						<span class="sord">[可见控件]<br>闪烁按钮</span>
+					</div>
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/html.waddle')">
 						<span class="sord">[可见控件]<br>HTML控件</span>
@@ -944,6 +1047,10 @@ wwwwwww      wwwwww     wwwwwww
 					<div class="card" id="card"
 						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/password.waddle')">
 						<span class="sord">[可见控件]<br>密码框</span>
+					</div>
+					<div class="card" id="card"
+						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/voteLine.waddle')">
+						<span class="sord">[可见控件]<br>投票条</span>
 					</div>
 				</div>
 			</div>
@@ -978,6 +1085,10 @@ wwwwwww      wwwwww     wwwwwww
 							type="checkbox">
 						<span>积木盒常驻</span>
 					</div>
+					<div id="loadExtension" style="width: 100%;margin-top: calc(60vh - 325px);">
+						<button onclick="openExtension()"
+							style="width: 100%;background-color: var(--settings-button-set-background);color: #fff;height: 50px;border-radius: 10px;font-size: 16px;border: none;outline: none;">加载界面插件(实验性)</button>
+					</div>
 				</div>
 				<div class="aboutus-body">
 					<img id="about-img" width="240" src="./static/img/logo/logo-purple-full.png.svg"
@@ -1010,10 +1121,10 @@ wwwwwww      wwwwww     wwwwwww
 <script src="./static/blockly-master/blocks_compressed.min.js"></script>
 <script src="./static/blockly-master/msg/js/zh-hans.js"></script>
 <!--图标库-->
-<!--link rel="stylesheet" href="https://at.alicdn.com/t/font_3193112_7sw8re1is8r.css"-->
+
 <link rel="stylesheet" href="./static/css/toolBoxColor.css">
 <script
-	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_39.cc6e8d42eca9877b333fd3835caa47fe.js"></script>
+	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.es5.js"></script>
 
 <!--引入框架-->
 
@@ -1076,6 +1187,14 @@ wwwwwww      wwwwww     wwwwwww
 <script src="./static/Waddle/blocks/axios.js"></script>
 <script src="./static/Waddle/generators/javascript/axios.js"></script>
 
+<!--http控件积木(实验性)-->
+<script src="./static/Waddle/blocks/http.js"></script>
+<script src="./static/Waddle/generators/javascript/http.js"></script>
+
+<!--pedometer控件积木(实验性)-->
+<script src="./static/Waddle/blocks/pedometer.js"></script>
+<script src="./static/Waddle/generators/javascript/pedometer.js"></script>
+
 <!--crypto控件积木(实验性)-->
 <script src="./static/Waddle/blocks/crypto-js.js"></script>
 <script src="./static/Waddle/generators/javascript/crypto-js.js"></script>
@@ -1117,6 +1236,9 @@ wwwwwww      wwwwww     wwwwwww
 <!--sweetalert-->
 <script src="./static/js/sweetalert.min.js"></script>
 
+<!--可见控件预览-->
+<script src="./static/js//widget-preview.js"></script>
+
 <!-- 导入React，用于可见控件预览 -->
 <script src="./static/js/react.development.js"></script>
 <script src="./static/js/react-dom.development.js"></script>
@@ -1156,25 +1278,41 @@ wwwwwww      wwwwww     wwwwwww
 			xmlDoc = data;
 			toolbox = document.getElementById('toolbox');
 			toolbox.innerHTML = xmlDoc.getElementsByTagName('toolbox')[0].innerHTML;
-			$.ajax({
-				url: './static/Waddle/workspace.xml',
-				type: 'get',
-				async: false,//使用同步的方式,true为异步方式
-				success: function (data) {
-					xmlDoc = data;
-					workspaceblocks = document.getElementById('workspaceblocks');
-					workspaceblocks.innerHTML = xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML;
-				},
-				fail: function () {
-					// pass
-				}
-			});
+			localStorage.setItem("toolbox", xmlDoc.getElementsByTagName('toolbox')[0].innerHTML);
+		},
+		error: function () {
+			xmlDoc = localStorage.getItem("toolbox");
+			toolbox = document.getElementById('toolbox');
+			toolbox.innerHTML = xmlDoc;
 		},
 		fail: function () {
-			// pass
+			xmlDoc = localStorage.getItem("toolbox");
+			toolbox = document.getElementById('toolbox');
+			toolbox.innerHTML = xmlDoc;
 		}
 	});
 
+	$.ajax({
+		url: './static/Waddle/workspace.xml',
+		type: 'get',
+		async: false,//使用同步的方式,true为异步方式
+		success: function (data) {
+			xmlDoc = data;
+			workspaceblocks = document.getElementById('workspaceblocks');
+			workspaceblocks.innerHTML = xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML;
+			localStorage.setItem("workspace", xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML);
+		},
+		error: function () {
+			xmlDoc = localStorage.getItem("workspace");
+			workspaceblocks = document.getElementById('workspaceblocks');
+			workspaceblocks.innerHTML = xmlDoc;
+		},
+		fail: function () {
+			xmlDoc = localStorage.getItem("workspace");
+			workspaceblocks = document.getElementById('workspaceblocks');
+			workspaceblocks.innerHTML = xmlDoc;
+		}
+	});
 
 	var workspaceBlocks = document.getElementById("workspaceblocks");
 
@@ -1248,59 +1386,15 @@ wwwwwww      wwwwww     wwwwwww
 		var code = Blockly.JavaScript.workspaceToCode(workspace);
 		document.getElementById("codeArea").innerHTML = htmlEscape(code);
 		hljs.highlightBlock(document.getElementById("codeArea"))
-		// code = code.replaceAll("\n", "") 似乎未被使用，所以注释了
 
 		if (document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')') {
 			document.documentElement.style.setProperty('--pic-icon', 'url(' + myicon + ')');
 		}
 
-		let widgetPreviewDom = document.getElementById("widgetPreview");
-
 		if (isVisibleWidget()) {
-			// 打开可见控件预览框
-			widgetPreviewDom.style.display = document.getElementById("myModal").style.display;
-
-			exports = { types: null, widget: null };//空壳
-			//加载你做出的控件
-			Function(
-				'VisibleWidget=class {constructor() { };setProps() { };widgetLog() { };widgetWarn() { };widgetError() { };emit() { }}',
-				'window=void 0',
-				'document={getElementById:function (e) {return e ? document.querySelector("#".concat(I.a, " #").concat(e)) : null}}',
-				'history=void 0',
-				`navigator={userAgent:"${navigator.userAgent}"}`,
-				'localStorage=void 0',
-				'top=void 0',
-				'self=void 0',
-				'parent=void 0',
-				'frames=void 0',
-				'opener=void 0',
-				'fetch=void 0',
-				'XMLHttpRequest=void 0',
-				'location=void 0',
-				'open=void 0',
-				'alert=void 0',
-				'confirm=void 0',
-				'prompt=void 0',
-				'print=void 0',
-				'sessionStorage=void 0',
-				'postMessage=void 0',
-				'eval=function () {console.error("eval is not implemented")}',
-				code)();
-			let properties = {};
-			exports.types.properties.forEach(element => {
-				properties[element.key] = element.defaultValue;
-			});//获取每个属性的初始值，下一步创建实例时传入
-			let previewWidget = new exports.widget(properties);//创建一个控件实例
-			// 设置预览框大小为控件默认大小
-			widgetPreviewDom.style.width = previewWidget.__width + 'px';
-			widgetPreviewDom.style.height = previewWidget.__height + 'px';
-			ReactDOM.render(
-				previewWidget.render(),//渲染
-				document.getElementById('widgetPreview')
-			);
-		}
-		else {
-			widgetPreviewDom.style.display = 'none'
+			// 预览框显示在函数switch_code中
+			// 渲染控件
+			preview_render(code)
 		}
 	}
 	workspace.addChangeListener(UpdateFunction);
@@ -1625,12 +1719,13 @@ wwwwwww      wwwwww     wwwwwww
 	}
 
 	.dropdown-item:hover {
-		background: #f5f3fe;
+		background: var(--menu-hover);
+		color: var(--menu-font-hover);
 	}
 
 	.dropdown-item:active {
-		background: #ddd8f3;
-		color: black;
+		background: var(--menu-active);
+		color: var(--menu-font-hover);
 	}
 </style>
 <script>
@@ -2015,6 +2110,10 @@ wwwwwww      wwwwww     wwwwwww
 		.sord {
 			font-size: 20px;
 		}
+
+		#loadExtension{
+			margin-top: calc(100vh - 325px) !important;
+		}
 	}
 </style>
 <!-- 右下导航栏 -->
@@ -2090,6 +2189,7 @@ wwwwwww      wwwwww     wwwwwww
 	});
 </script>
 
+<script src="./static/js/waddle_extension.js"></script>
 <!--Light/Dark切换已移入themes.js-->
 <script src="./static/js/themes.js"></script>
 
@@ -2161,26 +2261,6 @@ wwwwwww      wwwwww     wwwwwww
 		const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
 		localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
 	}
-
-
-	var build = document.createElement('iconpark-icon');
-	build.name = "waddle-build"
-	build.size = "21px"
-	build.className = "waddle-build"
-	build.style = 'position: absolute;z-index: -1;'
-	$(".waddle-build")[0].after(build);
-	var build = document.createElement('iconpark-icon');
-	build.size = "21px"
-	build.name = "waddle-block"
-	build.className = "waddle-block"
-	build.style = 'position: absolute;z-index: -1;'
-	$(".waddle-block")[0].after(build);
-	var build = document.createElement('iconpark-icon');
-	build.size = "21px"
-	build.name = "waddle-render"
-	build.className = "waddle-render"
-	build.style = 'position: absolute;z-index: -1;'
-	$(".waddle-render")[0].after(build);
 
 	setTimeout(() => {
 		document.getElementsByClassName('blocklyToolboxDiv')[0].id = "blocklyToolboxDiv";

@@ -1,5 +1,5 @@
 Blockly.JavaScript['vika_import'] = function (block) {
-    var code = "var vika = require('@vikadata/vika').default;\n";
+    var code = "const vika = require('@vikadata/vika').default;\n";
     return code;
 };
 
