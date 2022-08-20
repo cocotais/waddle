@@ -179,6 +179,7 @@ var switch_theme = function () {
 		window.open('./static/Waddle/eastegg/vscode/index.html');
 		theme_conut = -999;
 	}
+	triggerOnThemeSwitch()
 };
 window.onresize = function () {
 	document.getElementById('table').style.height = window.innerHeight + 'px';
