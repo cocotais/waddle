@@ -63,6 +63,43 @@ class WaddleAPI{
         */
        return Blockly.JavaScript.workspaceToCode(workspace);
     }
+    getIsWorkspaceClearing(){
+        /** 
+        * 获取工作区是否没有积木
+        * @return {bool}
+        */
+        return Blockly.mainWorkspace.isClearing
+    }
+    clearWorkspace(){
+        /** 
+        * 清空积木
+        * @return {void}
+        */
+        Blockly.mainWorkspace.clear()
+    }
+    cleanUpWorkspace(){
+        /** 
+        * 整理积木
+        * @return {void}
+        */
+        Blockly.mainWorkspace.cleanUp()
+    }
+    undoWorkspace(){
+        /** 
+        * 撤销上一步编辑
+        * @return {void}
+        */
+        Blockly.mainWorkspace.undo()
+
+    }
+    pasteWorkspace(){
+        /** 
+        * 在工作区上粘贴
+        * @return {bool} 是否粘贴成功
+        */
+        return Blockly.paste()
+
+    }
     switchCodeViewerState(){
         /** 
         * 切换代码预览框显示状态
@@ -93,6 +130,7 @@ class WaddleExtensionLoader{
         this.loadSucceed=true
         try{
             var exports={}
+            console.log(exports)
             eval(code)
         }catch(e){
             this.error(e)
@@ -145,31 +183,24 @@ function openExtension(){
 function triggerOnThemeSwitch(){
     window.extensions.forEach(element => {
         try{
+            console.log(element)
             if(element.extensionClass.onThemeSwitch){
-                element.onThemeSwitch()
+                element.extensionClass.onThemeSwitch()
             }
         }catch(e){
             swal(`插件发生错误:${e}`)
         }  
     });
 }
-
-/*
-示例插件：
-class MyExtension{
-    constructor(){
-        this.name="MyWaddleExtension"
-        this.title="Waddle插件"
-        this.version=1;
-        this.versionName="0.0.1";
-    }
-    main(){
-        alert("这是我的Waddle插件!")
-    }
-    onThemeSwitch(){
-        alert("主题切换了")
-        alert(waddle.getTheme())
-    }
+function triggerOnCodeViewerSwitch(){
+    window.extensions.forEach(element => {
+        try{
+            console.log(element)
+            if(element.extensionClass.onCodeViewerSwitch){
+                element.extensionClass.onCodeViewerSwitch()
+            }
+        }catch(e){
+            swal(`插件发生错误:${e}`)
+        }  
+    });
 }
-exports.extension = MyExtension
-*/
