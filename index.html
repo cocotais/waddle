@@ -17,7 +17,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.50.23(1255)-beta' //版本号
+		var version = 'v1.50.24(1256)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -108,28 +108,28 @@ wwwwwww      wwwwww     wwwwwww
 
 				if (!('noModule' in HTMLScriptElement.prototype)) {
 					// 这里的 polyfill 链接提供的是公共 cdn 上的地址，你可以将其中的polyfill代码下载下来传到自己的服务器/cdn后使用其链接，下同
-					polyfills.push(loadScript('https://unpkg.com/regenerator-runtime@0.12.1/runtime.js'));
+					polyfills.push(loadScript('./static/js/runtime.js'));
 				}
 
 				if (!('attachShadow' in Element.prototype) || !('getRootNode' in Element.prototype) || window.ShadyDOM && window.ShadyDOM.force) {
-					polyfills.push(loadScript('https://unpkg.com/@webcomponents/webcomponentsjs@2.5.0/webcomponents-bundle.js'));
+					polyfills.push(loadScript('./static/js/webcomponents-bundle.js'));
 				}
 
 				if (!('noModule' in HTMLScriptElement.prototype) && 'getRootNode' in Element.prototype) {
-					polyfills.push(loadScript('https://unpkg.com/@webcomponents/webcomponentsjs@2.5.0/custom-elements-es5-adapter.js'));
+					polyfills.push(loadScript('./static/js/custom-elements-es5-adapter.js'));
 				}
 
 				if (!('attachShadow' in Element.prototype)) {
-					polyfills.push(loadScript('https://www.unpkg.com/lit@2.0.0-rc.2/polyfill-support.js'));
+					polyfills.push(loadScript('./static/js/polyfill-support.js'));
 				}
 
 				function loadFiles() {
 					if (!('noModule' in HTMLScriptElement.prototype)) {
 						// 加载 ES5 版本图标js
-						loadScript('https://tosv.boe.byted.org/obj/iconpark/icons_4_6.56442f89ba236664e7b5eeba0fd2aee0.js')
+						loadScript('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.js')
 					} else {
 						// 加载 ES2019 版本图标js，类型为module的链接是自动defer的
-						loadScript('https://tosv.boe.byted.org/obj/iconpark/icons_4_6.9573a211884ae22db6ce775aa201da3f.js', 'module', []);
+						loadScript('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.es5.js', 'module', []);
 					}
 				}
 
@@ -147,7 +147,7 @@ wwwwwww      wwwwww     wwwwwww
 					polyfillsLoader();
 				}
 
-				s.src = "https://cdnjs.cloudflare.com/ajax/libs/core-js/3.14.0/minified.min.js";
+				s.src = "./static/js/minified.min.js";
 				s.onload = onLoaded;
 				s.onerror = function () {
 					console.error('[polyfills-loader] failed to load: ' + s.src + ' check the network tab for HTTP status.');
@@ -1123,8 +1123,6 @@ wwwwwww      wwwwww     wwwwwww
 <!--图标库-->
 
 <link rel="stylesheet" href="./static/css/toolBoxColor.css">
-<script
-	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.es5.js"></script>
 
 <!--引入框架-->
 

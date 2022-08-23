@@ -1,4 +1,4 @@
-var version = "v1.50.23(1255)-beta"; // 设置版本号
+var version = "v1.50.24(1256)-beta"; // 设置版本号
 
 self.addEventListener("install", function (event) { // serviceworker第一次加载的时候调用，可以在此时缓存静态资源
   event.waitUntil(
