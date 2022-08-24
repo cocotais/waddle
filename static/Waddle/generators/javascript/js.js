@@ -479,11 +479,23 @@ Blockly.JavaScript['js_settimeout'] = function(block) {
     var code = `setTimeout(${value_f},${value_t});\n`;
     return code;
 };
+Blockly.JavaScript['js_settimeout2'] = function(block) {
+  var value_f = Blockly.JavaScript.valueToCode(block, 'F', Blockly.JavaScript.ORDER_NONE);
+  var value_t = Blockly.JavaScript.valueToCode(block, 'T', Blockly.JavaScript.ORDER_NONE);
+  var code = `setTimeout(${value_f},${value_t})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
 Blockly.JavaScript['js_setinterval'] = function(block) {
     var value_f = Blockly.JavaScript.valueToCode(block, 'F', Blockly.JavaScript.ORDER_ATOMIC);
     var value_t = Blockly.JavaScript.valueToCode(block, 'T', Blockly.JavaScript.ORDER_ATOMIC);
     var code = `setInterval(${value_f},${value_t});\n`;
     return code;
+};
+Blockly.JavaScript['js_setinterval2'] = function(block) {
+  var value_f = Blockly.JavaScript.valueToCode(block, 'F', Blockly.JavaScript.ORDER_NONE);
+  var value_t = Blockly.JavaScript.valueToCode(block, 'T', Blockly.JavaScript.ORDER_NONE);
+  var code = `setInterval(${value_f},${value_t})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
 Blockly.JavaScript['js_location'] = function(block) {
     var dropdown_name = block.getFieldValue('NAME');

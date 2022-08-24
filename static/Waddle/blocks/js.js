@@ -766,6 +766,18 @@ Blockly.Blocks["js_settimeout"] = {
     this.setHelpUrl("");
   },
 };
+Blockly.Blocks["js_settimeout2"] = {
+  init: function () {
+    this.appendValueInput("F").setCheck(null).appendField("运行函数");
+    this.appendValueInput("T").setCheck(null).appendField("于");
+    this.appendDummyInput().appendField("毫秒后");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setColour(BlockColors["function"]);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
 Blockly.Blocks["js_setinterval"] = {
   init: function () {
     this.appendValueInput("F").setCheck(null).appendField("运行函数");
@@ -773,6 +785,18 @@ Blockly.Blocks["js_setinterval"] = {
     this.appendDummyInput().appendField("毫秒");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
+    this.setColour(BlockColors["function"]);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+Blockly.Blocks["js_setinterval2"] = {
+  init: function () {
+    this.appendValueInput("F").setCheck(null).appendField("运行函数");
+    this.appendValueInput("T").setCheck(null).appendField("每隔");
+    this.appendDummyInput().appendField("毫秒");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
     this.setColour(BlockColors["function"]);
     this.setTooltip("");
     this.setHelpUrl("");
