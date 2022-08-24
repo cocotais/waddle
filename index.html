@@ -17,7 +17,7 @@
 	<script>
 		// 控制台输出
 		window.reast = false;
-		var version = 'v1.50.24(1256)-beta' //版本号
+		var version = 'v1.50.25(1257)-beta' //版本号
 		console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -905,9 +905,6 @@ wwwwwww      wwwwww     wwwwwww
 
 			.modal-close {
 				left: 40px;
-				font-size: 50px;
-				max-width: 70px;
-				min-width: 70px;
 			}
 
 			.copy:hover,
@@ -1085,7 +1082,7 @@ wwwwwww      wwwwww     wwwwwww
 							type="checkbox">
 						<span>积木盒常驻</span>
 					</div>
-					<div id="loadExtension" style="width: 100%;margin-top: calc(60vh - 325px);">
+					<div id="loadExtension" style="width: 100%;">
 						<button onclick="openExtension()"
 							style="width: 100%;background-color: var(--settings-button-set-background);color: #fff;height: 50px;border-radius: 10px;font-size: 16px;border: none;outline: none;">加载界面插件(实验性)</button>
 					</div>
@@ -1408,7 +1405,7 @@ wwwwwww      wwwwww     wwwwwww
 		var btn = document.getElementsByClassName("switch_code")[0];
 		if (btn.className == "switch_code shown") {
 			document.getElementsByClassName("modal-content")[0].className = "modal-content show shown";
-			if ($(window).width() < 818) {
+			if ($(window).width() <= 818) {
 				document.getElementById("blocklyDiv").style.width = '100vw';
 				document.getElementById("toolbox").style.width = '100vw';
 				document.getElementById("toolbox").style.width = '100vw';
@@ -1954,7 +1951,6 @@ wwwwwww      wwwwww     wwwwwww
 	.aboutus-body,
 	.setting-body,
 	.thanks-body {
-		position: absolute;
 		display: flex;
 		padding: 2px 16px;
 		overflow-y: auto;
@@ -2085,13 +2081,13 @@ wwwwwww      wwwwww     wwwwwww
 		}
 
 		.newsth-body {
-			height: calc(100vh - 78px);
+			height: calc(100% - 78px);
 		}
 
 		.aboutus-body,
 		.setting-body,
 		.thanks-body {
-			height: calc(100vh - 154px);
+			height: calc(100% - 154px);
 		}
 
 		.newsth-header,
@@ -2107,10 +2103,6 @@ wwwwwww      wwwwww     wwwwwww
 
 		.sord {
 			font-size: 20px;
-		}
-
-		#loadExtension{
-			margin-top: calc(100vh - 325px) !important;
 		}
 	}
 </style>
@@ -2147,16 +2139,18 @@ wwwwwww      wwwwww     wwwwwww
 <script>
 	// 窗口大小重置时，重新设置位置
 	$(window).resize(function () {
-		if ($(window).width() < 818) {
+		if ($(window).width() <= 818) {
 			document.getElementsByClassName("modal")[0].style.width = "100vw"
 			document.getElementById("blocklyDiv").style.width = '100vw';
 			document.getElementById("toolbox").style.width = '100vw';
 			document.getElementById("funcs").style.right = '40px';
 			document.getElementsByClassName("modal-close")[0].style.display = "inline-flex"
+			document.getElementById("loadExtension").style.marginTop = (window.innerHeight - 325) +"px"
 		}
 		else {
 			document.getElementsByClassName("modal")[0].style.width = "400px";
 			document.getElementsByClassName("modal-close")[0].style.display = "none"
+			document.getElementById("loadExtension").style.marginTop = (window.innerHeight*0.6 - 325) +"px"
 			if (modal.style.display == "none" || modal.style.display == "") {
 				document.getElementById("blocklyDiv").style.width = '100vw';
 				document.getElementById("toolbox").style.width = '100vw';
