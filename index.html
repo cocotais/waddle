@@ -1086,6 +1086,10 @@ wwwwwww      wwwwww     wwwwwww
 						<button onclick="openExtension()"
 							style="width: 100%;background-color: var(--settings-button-set-background);color: #fff;height: 50px;border-radius: 10px;font-size: 16px;border: none;outline: none;">加载界面插件(实验性)</button>
 					</div>
+					<div id="saveBlocksSvg" style="width: 100%;">
+						<button onclick="saveBlocksSvg()"
+							style="width: 100%;background-color: var(--settings-button-set-background);color: #fff;height: 50px;border-radius: 10px;font-size: 16px;border: none;outline: none;margin-top: 10px;">保存作品积木SVG图片(实验性)</button>
+					</div>
 				</div>
 				<div class="aboutus-body">
 					<img id="about-img" width="240" src="./static/img/logo/logo-purple-full.png.svg"
@@ -2145,12 +2149,12 @@ wwwwwww      wwwwww     wwwwwww
 			document.getElementById("toolbox").style.width = '100vw';
 			document.getElementById("funcs").style.right = '40px';
 			document.getElementsByClassName("modal-close")[0].style.display = "inline-flex"
-			document.getElementById("loadExtension").style.marginTop = (window.innerHeight - 325) +"px"
+			document.getElementById("loadExtension").style.marginTop = (window.innerHeight - 385) +"px"
 		}
 		else {
 			document.getElementsByClassName("modal")[0].style.width = "400px";
 			document.getElementsByClassName("modal-close")[0].style.display = "none"
-			document.getElementById("loadExtension").style.marginTop = (window.innerHeight*0.6 - 325) +"px"
+			document.getElementById("loadExtension").style.marginTop = (window.innerHeight*0.6 - 385) +"px"
 			if (modal.style.display == "none" || modal.style.display == "") {
 				document.getElementById("blocklyDiv").style.width = '100vw';
 				document.getElementById("toolbox").style.width = '100vw';

@@ -250,3 +250,38 @@ function settingThird(number) {
   d[number - 1].style.backgroundColor = 'var(--settings-button-set-background)'
   d[number - 1].style.color = 'var(--settings-button-set-color)'
 }
+
+function domToStr(dom) {
+  let d = document.createElement("div");
+  console.log(d);
+  d.appendChild(dom);
+  return d.innerHTML;
+}
+
+function addSvgHead(str) {
+  return (
+    `<svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><style type="text/css">.blocklyText{color:white;}</style>` +
+    str +
+    `</svg>`
+  );
+}
+
+function saveBlocksSvg() {
+  if(window.confirm("是否要保存所有积木图片？保存后会刷新！")){
+    let blob = new Blob(
+      [
+        addSvgHead(
+          domToStr(document.getElementsByClassName("blocklyBlockCanvas")[0])
+        ),
+      ],
+      { type: "text/plain;charset=utf-8" }
+    );
+    let url = URL.createObjectURL(blob);
+    let downa = document.getElementById("downa");
+    downa.href = url;
+    downa.download = "blocks.svg";
+    downa.click();
+    URL.revokeObjectURL(url);
+    window.location.reload()
+  }
+}
