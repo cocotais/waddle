@@ -204,14 +204,16 @@ if (theme == 'dark') {
 	}
 }
 hljs.initHighlightingOnLoad();
-if ($(window).width() < 818) {
+if ($(window).width() <= 818) {
 	document.getElementsByClassName('modal')[0].style.width = '100vw';
 	document.getElementById('blocklyDiv').style.width = '100vw';
 	document.getElementById('toolbox').style.width = '100vw';
 	document.getElementsByClassName("modal-close")[0].style.display = "block"
+	document.getElementById("loadExtension").style.marginTop = (window.innerHeight - 325) +"px"
 } else {
 	document.getElementsByClassName('modal')[0].style.width = '400px';
 	document.getElementsByClassName("modal-close")[0].style.display = "none"
+	document.getElementById("loadExtension").style.marginTop = (window.innerHeight*0.6 - 325) +"px"
 	if (modal.style.display == 'none' || modal.style.display == '') {
 		document.getElementById('blocklyDiv').style.width = '100vw';
 		document.getElementById('toolbox').style.width = '100vw';

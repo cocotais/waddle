@@ -2,23 +2,23 @@
 <html lang="zh">
 
 <head>
-	<meta charset="utf-8">
-	<link rel="manifest" href="./manifest.json">
-	<meta name="theme-color" id="pwa-color" content="#6d50f0">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-touch-fullscreen" content="yes">
-	<link rel="apple-touch-icon" href="./static/img/apple-touch-icon.png">
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport">
-	<meta content="telephone=no" name="format-detection">
-	<meta name="description" content="让CoCo没有难做的控件">
-	<title>Waddle - 让CoCo没有难做的控件</title>
-	<script src="./static/js/jquery-3.6.0.min.js"></script>
-	<script src="./static/js/nprogress.js"></script>
-	<script>
-		// 控制台输出
-		window.reast = false;
-		var version = 'v1.6.0(1255)-release' //版本号
-		console.log(`%c
+    <meta charset="utf-8">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" id="pwa-color" content="#6d50f0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <link rel="apple-touch-icon" href="./static/img/apple-touch-icon.png">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="description" content="让CoCo没有难做的控件">
+    <title>Waddle - 让CoCo没有难做的控件</title>
+    <script src="./static/js/jquery-3.6.0.min.js"></script>
+    <script src="./static/js/nprogress.js"></script>
+    <script>
+        // 控制台输出
+        window.reast = false;
+        var version = 'v1.50.26(1258)-beta' //版本号
+        console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
  wwwwwww    wwwwwwww   wwwwwww
@@ -31,1088 +31,1083 @@ wwwwwww      wwwwww     wwwwwww
      ww wwwwwwwwww wwwwwwww
      w  wwwwwww  w wwwwwww
 		`, "font-weight:bold;color:#6d50f0")
-		console.log("嘿，欢迎使用 Waddle!")
-		console.log("本工具基于blockly开发，由所有Waddle的开源贡献者共同创造!")
-		console.log("特别鸣谢：https://gitee.com/coco-central/coco-waddle/contributors?ref=master")
-		console.log("欢迎各位进入开源仓库参与建设：https://gitee.com/coco-central/coco-waddle/")
-		console.log("" + version + " ©️ 2022 CoCo-Central, All rights reserved.")
-	</script>
-	<script>
-		// service worker
-		if ('serviceWorker' in navigator) {
-			window.addEventListener('load', function () {
-				navigator.serviceWorker.register('./sw.js')
-			});
-			let refreshing = false
-			navigator.serviceWorker.addEventListener('controllerchange', () => {
-				if (refreshing) {
-					return
-				}
-				refreshing = true;
-				swal("有新版本更新，请问是否需要刷新", { buttons: ["取消", "确认"], })
-					.then((value) => {
-						if (value) {
-							window.location.reload();
-						}
-					})
-			});
-		}
+        console.log("嘿，欢迎使用 Waddle!")
+        console.log("本工具基于blockly开发，由所有Waddle的开源贡献者共同创造!")
+        console.log("特别鸣谢：https://gitee.com/coco-central/coco-waddle/contributors?ref=master")
+        console.log("欢迎各位进入开源仓库参与建设：https://gitee.com/coco-central/coco-waddle/")
+        console.log("" + version + " ©️ 2022 CoCo-Central, All rights reserved.")
+    </script>
+    <script>
+        // service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('./sw.js')
+            });
+            let refreshing = false
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                if (refreshing) {
+                    return
+                }
+                refreshing = true;
+                swal("有新版本更新，请问是否需要刷新", {buttons: ["取消", "确认"],})
+                    .then((value) => {
+                        if (value) {
+                            window.location.reload();
+                        }
+                    })
+            });
+        }
 
-		var logo = document.createElement('link');
-		logo.setAttribute("type", 'image/x-icon')
-		logo.setAttribute("rel", 'shortcut icon')
-		if (version.includes("beta")) {
-			logo.setAttribute("href", './static/img/logo/logo-beta.svg')
-		}
-		else {
-			logo.setAttribute("href", './static/img/logo/logo-purple.svg')
-		}
-		document.head.appendChild(logo);
-	</script>
-	<link rel="stylesheet" href="./static/css/theme.css">
+        var logo = document.createElement('link');
+        logo.setAttribute("type", 'image/x-icon')
+        logo.setAttribute("rel", 'shortcut icon')
+        if (version.includes("beta")) {
+            logo.setAttribute("href", './static/img/logo/logo-beta.svg')
+        } else {
+            logo.setAttribute("href", './static/img/logo/logo-purple.svg')
+        }
+        document.head.appendChild(logo);
+    </script>
+    <link rel="stylesheet" href="./static/css/theme.css">
 
-	<div id="app-root"></div>
-	<!--在项目 html 中加载此段代码（最好是在body最后，这样如果你的应用有加载过一些polyfill, 可以避免一些重复加载），即可在项目中使用图标组件-->
-	<script>
-		(function () {
-			function polyfillsLoader() {
-				function loadScript(src, type, attrs) {
-					var attributes = attrs || [];
-					return new Promise(function (resolve) {
-						var script = document.createElement('script');
+    <div id="app-root"></div>
+    <!--在项目 html 中加载此段代码（最好是在body最后，这样如果你的应用有加载过一些polyfill, 可以避免一些重复加载），即可在项目中使用图标组件-->
+    <script>
+        (function () {
+            function polyfillsLoader() {
+                function loadScript(src, type, attrs) {
+                    var attributes = attrs || [];
+                    return new Promise(function (resolve) {
+                        var script = document.createElement('script');
 
-						function onLoaded() {
-							if (script.parentElement) {
-								script.parentElement.removeChild(script);
-							}
-							resolve();
-						}
+                        function onLoaded() {
+                            if (script.parentElement) {
+                                script.parentElement.removeChild(script);
+                            }
+                            resolve();
+                        }
 
-						script.src = src;
-						script.onload = onLoaded;
-						attributes.forEach(function (att) {
-							script.setAttribute(att.name, att.value);
-						});
+                        script.src = src;
+                        script.onload = onLoaded;
+                        attributes.forEach(function (att) {
+                            script.setAttribute(att.name, att.value);
+                        });
 
-						script.onerror = function () {
-							console.error('[polyfills-loader] failed to load: ' + src + ' check the network tab for HTTP status.');
-							onLoaded();
-						};
+                        script.onerror = function () {
+                            console.error('[polyfills-loader] failed to load: ' + src + ' check the network tab for HTTP status.');
+                            onLoaded();
+                        };
 
-						if (type) script.type = type;
-						document.head.appendChild(script);
-					});
-				}
+                        if (type) script.type = type;
+                        document.head.appendChild(script);
+                    });
+                }
 
-				var polyfills = [];
+                var polyfills = [];
 
-				if (!('noModule' in HTMLScriptElement.prototype)) {
-					// 这里的 polyfill 链接提供的是公共 cdn 上的地址，你可以将其中的polyfill代码下载下来传到自己的服务器/cdn后使用其链接，下同
-					polyfills.push(loadScript('https://unpkg.com/regenerator-runtime@0.12.1/runtime.js'));
-				}
+                if (!('noModule' in HTMLScriptElement.prototype)) {
+                    // 这里的 polyfill 链接提供的是公共 cdn 上的地址，你可以将其中的polyfill代码下载下来传到自己的服务器/cdn后使用其链接，下同
+                    polyfills.push(loadScript('./static/js/runtime.js'));
+                }
 
-				if (!('attachShadow' in Element.prototype) || !('getRootNode' in Element.prototype) || window.ShadyDOM && window.ShadyDOM.force) {
-					polyfills.push(loadScript('https://unpkg.com/@webcomponents/webcomponentsjs@2.5.0/webcomponents-bundle.js'));
-				}
+                if (!('attachShadow' in Element.prototype) || !('getRootNode' in Element.prototype) || window.ShadyDOM && window.ShadyDOM.force) {
+                    polyfills.push(loadScript('./static/js/webcomponents-bundle.js'));
+                }
 
-				if (!('noModule' in HTMLScriptElement.prototype) && 'getRootNode' in Element.prototype) {
-					polyfills.push(loadScript('https://unpkg.com/@webcomponents/webcomponentsjs@2.5.0/custom-elements-es5-adapter.js'));
-				}
+                if (!('noModule' in HTMLScriptElement.prototype) && 'getRootNode' in Element.prototype) {
+                    polyfills.push(loadScript('./static/js/custom-elements-es5-adapter.js'));
+                }
 
-				if (!('attachShadow' in Element.prototype)) {
-					polyfills.push(loadScript('https://www.unpkg.com/lit@2.0.0-rc.2/polyfill-support.js'));
-				}
+                if (!('attachShadow' in Element.prototype)) {
+                    polyfills.push(loadScript('./static/js/polyfill-support.js'));
+                }
 
-				function loadFiles() {
-					if (!('noModule' in HTMLScriptElement.prototype)) {
-						// 加载 ES5 版本图标js
-						loadScript('https://tosv.boe.byted.org/obj/iconpark/icons_4_6.56442f89ba236664e7b5eeba0fd2aee0.js')
-					} else {
-						// 加载 ES2019 版本图标js，类型为module的链接是自动defer的
-						loadScript('https://tosv.boe.byted.org/obj/iconpark/icons_4_6.9573a211884ae22db6ce775aa201da3f.js', 'module', []);
-					}
-				}
+                function loadFiles() {
+                    if (!('noModule' in HTMLScriptElement.prototype)) {
+                        // 加载 ES5 版本图标js
+                        loadScript('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.js')
+                    } else {
+                        // 加载 ES2019 版本图标js，类型为module的链接是自动defer的
+                        loadScript('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.es5.js', 'module', []);
+                    }
+                }
 
-				if (polyfills.length) {
-					Promise.all(polyfills).then(loadFiles);
-				} else {
-					loadFiles();
-				}
-			}
+                if (polyfills.length) {
+                    Promise.all(polyfills).then(loadFiles);
+                } else {
+                    loadFiles();
+                }
+            }
 
-			if (!('noModule' in HTMLScriptElement.prototype) || !(window.globalThis && typeof window.globalThis == 'object')) {
-				var s = document.createElement('script')
-				function onLoaded() {
-					document.head.removeChild(s);
-					polyfillsLoader();
-				}
+            if (!('noModule' in HTMLScriptElement.prototype) || !(window.globalThis && typeof window.globalThis == 'object')) {
+                var s = document.createElement('script')
 
-				s.src = "https://cdnjs.cloudflare.com/ajax/libs/core-js/3.14.0/minified.min.js";
-				s.onload = onLoaded;
-				s.onerror = function () {
-					console.error('[polyfills-loader] failed to load: ' + s.src + ' check the network tab for HTTP status.');
-					onLoaded();
-				};
+                function onLoaded() {
+                    document.head.removeChild(s);
+                    polyfillsLoader();
+                }
 
-				document.head.appendChild(s);
-			} else {
-				polyfillsLoader();
-			}
-		})();
-	</script>
+                s.src = "./static/js/minified.min.js";
+                s.onload = onLoaded;
+                s.onerror = function () {
+                    console.error('[polyfills-loader] failed to load: ' + s.src + ' check the network tab for HTTP status.');
+                    onLoaded();
+                };
+
+                document.head.appendChild(s);
+            } else {
+                polyfillsLoader();
+            }
+        })();
+    </script>
 </head>
 <script>
-	//获取cookie
-	function getCookie(cname) {
-		var name = cname + "=";
-		var ca = document.cookie.split(';'); for (var i = 0; i < ca.length; i++) {
-			var c = ca[i].trim();
-			if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-		}
-		return "";
-	}
-	var theme = getCookie('mode');
+    //获取cookie
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+        }
+        return "";
+    }
 
-	// 2月21日（2·21事件） 12月13日（国家公祭日） 黑白
-	var date = new Date();
-	if ((date.getMonth() + 1 == 2 && date.getDate() == 21) || (date.getMonth() + 1 == 12 && date.getDate() == 13)) {
-		var rip = document.createElement('style');
-		rip.innerText = '/*R.I.P.*/html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
-		document.body.appendChild(rip);
-	}
+    var theme = getCookie('mode');
+
+    // 2月21日（2·21事件） 12月13日（国家公祭日） 黑白
+    var date = new Date();
+    if ((date.getMonth() + 1 == 2 && date.getDate() == 21) || (date.getMonth() + 1 == 12 && date.getDate() == 13)) {
+        var rip = document.createElement('style');
+        rip.innerText = '/*R.I.P.*/html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
+        document.body.appendChild(rip);
+    }
 </script>
 
 <body>
-	<!-- 加载页样式-->
-	<style>
-		.container {
-			margin-bottom: 4em;
-		}
+<!-- 加载页样式-->
+<style>
+    .container {
+        margin-bottom: 4em;
+    }
 
-		#lu1 {
-			stroke-linecap: round;
-			stroke-linejoin: round;
-			stroke-dasharray: 1650px;
-		}
+    #lu1 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1650px;
+    }
 
-		#lu2 {
-			stroke-linecap: round;
-			stroke-linejoin: round;
-			stroke-dasharray: 1650px;
-		}
+    #lu2 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1650px;
+    }
 
-		#lu3 {
-			stroke-linecap: round;
-			stroke-linejoin: round;
-			stroke-dasharray: 1650px;
-		}
+    #lu3 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1650px;
+    }
 
-		.cls-1 {
-			stroke-linecap: round;
-			stroke-linejoin: round;
-			stroke-dashoffset: 1650px;
-		}
+    .cls-1 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dashoffset: 1650px;
+    }
 
-		.loading {
-			background-color: #ffffff;
-			position: absolute;
-			display: block;
-			top: 0%;
-			left: 0%;
-			width: 100%;
-			height: 100%;
-			text-align: center;
-			transition: none;
-		}
+    .loading {
+        background-color: #ffffff;
+        position: absolute;
+        display: block;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: none;
+    }
 
-		#loading-text {
-			margin-bottom: 0;
-		}
+    #loading-text {
+        margin-bottom: 0;
+    }
 
-		.loading-pair {
-			height: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			align-content: center;
-		}
-	</style>
+    .loading-pair {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+</style>
 
-	<div class="loading">
-		<div class="loading-pair">
-			<div class="container">
-				<svg xmlns="http://www.w3.org/2000/svg" height="100" viewBox="0 0 817.192 606.339">
-					<defs>
-						<style>
-							.cls-1 {
-								fill: none;
-								stroke: rgb(255, 255, 255);
-								stroke-width: 20px;
-								fill-rule: evenodd;
-							}
-						</style>
-					</defs>
-					<g transform="translate(-15658.403 -6102.205)">
-						<path id="lu1" class="cls-1"
-							d="M908.359,2160a18.415,18.415,0,0,1,17.867,22.883c-23.091,92.37-109.4,437.594-134.638,538.555a36.832,36.832,0,0,1-35.734,27.9H624.033a18.415,18.415,0,0,1-17.867-22.883L740.8,2187.9a36.832,36.832,0,0,1,35.734-27.9Z"
-							transform="translate(15540.223 3950.705)" />
-						<path id="lu2" class="cls-1"
-							d="M86.166,2182.883A18.414,18.414,0,0,1,104.033,2160H235.854a36.832,36.832,0,0,1,35.734,27.9L315.4,2363.138a73.641,73.641,0,0,1,0,35.729c-14.336,57.35-59.375,237.5-78.684,314.735a9.206,9.206,0,0,1-17.866,0Z"
-							transform="translate(15581.385 3950.705)" />
-						<path id="lu3" class="cls-1"
-							d="M328.065,2749.34a36.831,36.831,0,0,1-35.734-45.766c29.128-116.514,105.44-421.764,128.918-515.672a36.832,36.832,0,0,1,35.734-27.9H546.8a36.832,36.832,0,0,1,35.734,27.9c11.52,46.079,34.2,136.81,43.808,175.236a73.642,73.642,0,0,1,0,35.729c-14.336,57.35-59.374,237.5-78.683,314.735a9.207,9.207,0,0,1-17.867,0c-3.038-12.146-6.549-26.2-10.033-40.13a18.417,18.417,0,0,0-35.734,0c-4.263,17.054-8.566,34.265-11.993,47.967a36.831,36.831,0,0,1-35.733,27.9Z"
-							transform="translate(15565.109 3950.705)" />
-					</g>
-				</svg>
+<div class="loading">
+    <div class="loading-pair">
+        <div class="container">
+            <svg xmlns="http://www.w3.org/2000/svg" height="100" viewBox="0 0 817.192 606.339">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill: none;
+                            stroke: rgb(255, 255, 255);
+                            stroke-width: 20px;
+                            fill-rule: evenodd;
+                        }
+                    </style>
+                </defs>
+                <g transform="translate(-15658.403 -6102.205)">
+                    <path id="lu1" class="cls-1"
+                          d="M908.359,2160a18.415,18.415,0,0,1,17.867,22.883c-23.091,92.37-109.4,437.594-134.638,538.555a36.832,36.832,0,0,1-35.734,27.9H624.033a18.415,18.415,0,0,1-17.867-22.883L740.8,2187.9a36.832,36.832,0,0,1,35.734-27.9Z"
+                          transform="translate(15540.223 3950.705)"/>
+                    <path id="lu2" class="cls-1"
+                          d="M86.166,2182.883A18.414,18.414,0,0,1,104.033,2160H235.854a36.832,36.832,0,0,1,35.734,27.9L315.4,2363.138a73.641,73.641,0,0,1,0,35.729c-14.336,57.35-59.375,237.5-78.684,314.735a9.206,9.206,0,0,1-17.866,0Z"
+                          transform="translate(15581.385 3950.705)"/>
+                    <path id="lu3" class="cls-1"
+                          d="M328.065,2749.34a36.831,36.831,0,0,1-35.734-45.766c29.128-116.514,105.44-421.764,128.918-515.672a36.832,36.832,0,0,1,35.734-27.9H546.8a36.832,36.832,0,0,1,35.734,27.9c11.52,46.079,34.2,136.81,43.808,175.236a73.642,73.642,0,0,1,0,35.729c-14.336,57.35-59.374,237.5-78.683,314.735a9.207,9.207,0,0,1-17.867,0c-3.038-12.146-6.549-26.2-10.033-40.13a18.417,18.417,0,0,0-35.734,0c-4.263,17.054-8.566,34.265-11.993,47.967a36.831,36.831,0,0,1-35.733,27.9Z"
+                          transform="translate(15565.109 3950.705)"/>
+                </g>
+            </svg>
 
-			</div>
-			<!-- 加载小Tip  -->
-			<p id="loading-text" onClick="document.getElementById('loading-text').style.color = 'rgba(255,255,255,100)'"
-				style="color: rgb(255,255,255);">让CoCo没有难做的控件</p>
-		</div>
-	</div>
-	<script>
-		NProgress.start();
-		document.body.style.overflow = 'hidden' //禁止页面滑动
-		var tipList = [
-			"让CoCo没有 难 做的控件",//彩蛋提示
-			"你知道吗？在Waddle中有N个彩蛋!",
-			"在关于页面点击2次Waddle图标有惊喜!",
-			"试一试夜间模式!",
-			"工具是给开发者调试的利器!",
-			"不会操作？看看模板!",
-			"Waddle由CoCo中控台制作!",
-			"试试在f12中搜搜所有贡献者的名字？",
-			"听说Waddle有VSCode主题了？",
-			"咕咕咕~",
-			"据说Waddle接入拼夕夕了?",//指Waddle的抽奖彩蛋
-			"不会用怎么办？首先不要慌张，打开文档看看。",
-			"我们抄的隔街Phigros的Tips~",
-			"Waddle YYDS!",
-			"祝编程猫发展的越来越好!",
-			"Waddle上gitee项目推荐了!",
-			"没啥能看的？",
-			"Waddle被Gitee官方写文章了!!!",
-			"难道Waddle有OJ题库了？",//Waddle的OJ彩蛋
-			"Wadddddddddddle!",
-			"Just Waddle! lol~",  //你觉得啥彩蛋？
-			"我 永远 喜欢 谷恒条野！", //小鱼发病录（划掉）
-			"紧跟时事，005nb！"
-		];
-		document.getElementById("loading-text").innerText = tipList[Math.floor(Math.random() * tipList.length)];
+        </div>
+        <!-- 加载小Tip  -->
+        <p id="loading-text" onClick="document.getElementById('loading-text').style.color = 'rgba(255,255,255,100)'"
+           style="color: rgb(255,255,255);">让CoCo没有难做的控件</p>
+    </div>
+</div>
+<script>
+    NProgress.start();
+    document.body.style.overflow = 'hidden' //禁止页面滑动
+    var tipList = [
+        "让CoCo没有 难 做的控件",//彩蛋提示
+        "你知道吗？在Waddle中有N个彩蛋!",
+        "在关于页面点击2次Waddle图标有惊喜!",
+        "试一试夜间模式!",
+        "工具是给开发者调试的利器!",
+        "不会操作？看看模板!",
+        "Waddle由CoCo中控台制作!",
+        "试试在f12中搜搜所有贡献者的名字？",
+        "听说Waddle有VSCode主题了？",
+        "咕咕咕~",
+        "据说Waddle接入拼夕夕了?",//指Waddle的抽奖彩蛋
+        "不会用怎么办？首先不要慌张，打开文档看看。",
+        "我们抄的隔街Phigros的Tips~",
+        "Waddle YYDS!",
+        "祝编程猫发展的越来越好!",
+        "Waddle上gitee项目推荐了!",
+        "没啥能看的？",
+        "Waddle被Gitee官方写文章了!!!",
+        "难道Waddle有OJ题库了？",//Waddle的OJ彩蛋
+        "Wadddddddddddle!",
+        "Just Waddle! lol~",  //你觉得啥彩蛋？
+        "我 永远 喜欢 谷恒条野！", //小鱼发病录（划掉）
+        "紧跟时事，005nb！"
+    ];
+    document.getElementById("loading-text").innerText = tipList[Math.floor(Math.random() * tipList.length)];
 
-		// 加载完成后适应主题
-		if (theme == "dark") {
-			document.getElementsByClassName("loading")[0].style.backgroundColor = "#525252";
-		} else {
-			if (theme == "light") {
-				document.getElementsByClassName("loading")[0].style.backgroundColor = "#6d50f0";
-			} else {
-				if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-					document.getElementsByClassName("loading")[0].style.backgroundColor = "#525252";
-				}
-				else {
-					document.getElementsByClassName("loading")[0].style.backgroundColor = "#6d50f0";
-				}
-			}
-		}
-	</script>
+    // 加载完成后适应主题
+    if (theme == "dark") {
+        document.getElementsByClassName("loading")[0].style.backgroundColor = "#525252";
+    } else {
+        if (theme == "light") {
+            document.getElementsByClassName("loading")[0].style.backgroundColor = "#6d50f0";
+        } else {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.getElementsByClassName("loading")[0].style.backgroundColor = "#525252";
+            } else {
+                document.getElementsByClassName("loading")[0].style.backgroundColor = "#6d50f0";
+            }
+        }
+    }
+</script>
 
-	<div id="body" style="visibility:hidden;">
-		<img onclick='dropdown_show();' alt="Waddle" id="logo1" draggable="false"
-			src="./static/img/logo/logo-purple.svg"
-			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 5; background-color: var(--toolbox-color);cursor: pointer;">
+<div id="body" style="visibility:hidden;">
+    <img onclick='dropdown_show();' alt="Waddle" id="logo1" draggable="false"
+         src="./static/img/logo/logo-purple.svg"
+         style="-webkit-user-select: none;-ms-user-select: none;user-select: none;height: 70px; width: 60px; border: 12px solid var(--toolbox-color); position: absolute; top: 0px; z-index: 5; background-color: var(--toolbox-color);cursor: pointer;">
 
-		<ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="cursor: pointer;">
-			<iconpark-icon name="updown" fill="var(--toolbox-color)" size="16"
-			style="position: absolute;transform: rotate(-90deg);left: -10px;filter: drop-shadow(0px -2px 1px rgb(0 0 0 / 30%));top: 18px;">
-		</iconpark-icon>
-			<li class="dropdown-item" onClick="show_newsth()">新建控件</li>
-			<li class="dropdown-item" onClick="save()">保存到电脑</li>
-			<li class="dropdown-item" onClick="openfile()">打开本地文件</li>
-			<li class="dropdown-item" onClick="js_save()">导出为CoCo文件</li>
-			<div style="height: 1px;background-color: var(--menu-line);margin: 0 10px;"></div>
-			<li class="dropdown-item" onClick="count();window.open('https://waddle.coco-central.cn/docs/#/')">文档
-			</li>
-			<li class="dropdown-item" onClick="show_about()">更多选项</li>
-		</ul>
+    <ul id="navmenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="cursor: pointer;">
+        <iconpark-icon name="updown" fill="var(--toolbox-color)" size="16"
+                       style="position: absolute;transform: rotate(-90deg);left: -10px;filter: drop-shadow(0px -2px 1px rgb(0 0 0 / 30%));top: 18px;">
+        </iconpark-icon>
+        <li class="dropdown-item" onClick="show_newsth()">新建控件</li>
+        <li class="dropdown-item" onClick="save()">保存到电脑</li>
+        <li class="dropdown-item" onClick="openfile()">打开本地文件</li>
+        <li class="dropdown-item" onClick="js_save()">导出为CoCo文件</li>
+        <div style="height: 1px;background-color: var(--menu-line);margin: 0 10px;"></div>
+        <li class="dropdown-item" onClick="count();window.open('https://waddle.coco-central.cn/docs/#/')">文档
+        </li>
+        <li class="dropdown-item" onClick="show_about()">更多选项</li>
+    </ul>
 
-		<style>
-			/* 垃圾桶样式 */
-			#delete-div {
-				position: absolute;
-				top: 0px;
-				width: 60px;
-				height: 100%;
-				z-index: 0;
-				background-color: #00000055;
-				-webkit-backdrop-filter: blur(10px);
-				backdrop-filter: blur(12px) saturate(145%);
-				opacity: 0%;
-				transition: opacity 0.2s, z-index 0.2s;
-				;
-			}
+    <style>
+        /* 垃圾桶样式 */
+        #delete-div {
+            position: absolute;
+            top: 0px;
+            width: 60px;
+            height: 100%;
+            z-index: 0;
+            background-color: #00000055;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px) saturate(145%);
+            opacity: 0%;
+            transition: opacity 0.2s, z-index 0.2s;;
+        }
 
-			.delete-svg {
-				position: absolute;
-				top: 50%;
-				left: 15px;
-				width: 30px;
-				z-index: 0;
-				opacity: 0%;
-				transition: opacity 0.5s;
-			}
+        .delete-svg {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            width: 30px;
+            z-index: 0;
+            opacity: 0%;
+            transition: opacity 0.5s;
+        }
 
-			#delete-svg-up {
-				width: 35px;
-				left: 12.5px;
-				margin-top: -4px;
-				transition: all 0.5s cubic-bezier(.1, 1, .5, 1);
-			}
+        #delete-svg-up {
+            width: 35px;
+            left: 12.5px;
+            margin-top: -4px;
+            transition: all 0.5s cubic-bezier(.1, 1, .5, 1);
+        }
 
-			#delete-svg-down {
-				margin-top: 3px;
-			}
+        #delete-svg-down {
+            margin-top: 3px;
+        }
 
-			/*设置宽度*/
-			.blocklyToolboxCategory {
-				width: 100%;
-			}
-		</style>
-		<script>
-			// 垃圾桶动态效果
-			var delete_blocks = function (mode) {
-				var delete_trash_cover = document.getElementById('delete-svg-up').style;
-				var delete_trash_body = document.getElementById('delete-svg-down').style;
-				var delete_div = document.getElementById('delete-div').style;
-				try {
-					var del_groundglass = document.getElementById("del-groundglass").style;
-				} catch (error) {
-					//pass
-				}
-				if (mode) {
-					delete_trash_cover.zIndex = 500;
-					del_groundglass.zIndex = 300;
-					delete_trash_body.zIndex = 500;
-					del_groundglass.opacity = 1;
-					delete_div.zIndex = 301;
-					delete_trash_cover.opacity = 1;
-					delete_trash_body.opacity = 1;
-					delete_div.opacity = 1;
-					var mou_X = mouse_X() || mou_X
-					if (mou_X < 60) {
-						trash_cover(true);
-					} else {
-						trash_cover(false);
-					}
-				}
-				else {
-					delete_trash_cover.opacity = 0;
-					delete_trash_body.opacity = 0;
-					delete_div.opacity = 0;
-					try {
-						del_groundglass.opacity = 0;
-						delete_trash_cover.zIndex = 0;
-						delete_trash_body.zIndex = 0;
-						del_groundglass.zIndex = 0;
-						delete_div.zIndex = 0
-					}
-					catch (error) {
-						//pass
-					}
-				}
+        /*设置宽度*/
+        .blocklyToolboxCategory {
+            width: 100%;
+        }
+    </style>
+    <script>
+        // 垃圾桶动态效果
+        var delete_blocks = function (mode) {
+            var delete_trash_cover = document.getElementById('delete-svg-up').style;
+            var delete_trash_body = document.getElementById('delete-svg-down').style;
+            var delete_div = document.getElementById('delete-div').style;
+            try {
+                var del_groundglass = document.getElementById("del-groundglass").style;
+            } catch (error) {
+                //pass
+            }
+            if (mode) {
+                delete_trash_cover.zIndex = 500;
+                del_groundglass.zIndex = 300;
+                delete_trash_body.zIndex = 500;
+                del_groundglass.opacity = 1;
+                delete_div.zIndex = 301;
+                delete_trash_cover.opacity = 1;
+                delete_trash_body.opacity = 1;
+                delete_div.opacity = 1;
+                var mou_X = mouse_X() || mou_X
+                if (mou_X < 60) {
+                    trash_cover(true);
+                } else {
+                    trash_cover(false);
+                }
+            } else {
+                delete_trash_cover.opacity = 0;
+                delete_trash_body.opacity = 0;
+                delete_div.opacity = 0;
+                try {
+                    del_groundglass.opacity = 0;
+                    delete_trash_cover.zIndex = 0;
+                    delete_trash_body.zIndex = 0;
+                    del_groundglass.zIndex = 0;
+                    delete_div.zIndex = 0
+                } catch (error) {
+                    //pass
+                }
+            }
 
-			}
+        }
 
-			function mouse_X() {
-				// 获取鼠标X坐标
-				var posX = 0;
-				var event = event || window.event;
-				if (!event) {
-					return undefined;
-				}
-				if (event.pageX) {
-					posX = event.pageX;
-				} else if (event.clientX) {
-					posX = event.clientX + document.documentElement.scrollLeft + document.body.scrollLeft;
-				}
-				return posX;
-			}
+        function mouse_X() {
+            // 获取鼠标X坐标
+            var posX = 0;
+            var event = event || window.event;
+            if (!event) {
+                return undefined;
+            }
+            if (event.pageX) {
+                posX = event.pageX;
+            } else if (event.clientX) {
+                posX = event.clientX + document.documentElement.scrollLeft + document.body.scrollLeft;
+            }
+            return posX;
+        }
 
-			var trash_cover = function (mode) {
-				// 垃圾桶开盖
-				var delete_trash_cover = document.getElementById('delete-svg-up').style;
-				if (mode) {
-					delete_trash_cover.transform = "translate(-4px,-4px) rotate(-20deg)";
-				} else {
-					delete_trash_cover.transform = "translate(0px) rotate(0deg)";
-				}
-			}
-		</script>
+        var trash_cover = function (mode) {
+            // 垃圾桶开盖
+            var delete_trash_cover = document.getElementById('delete-svg-up').style;
+            if (mode) {
+                delete_trash_cover.transform = "translate(-4px,-4px) rotate(-20deg)";
+            } else {
+                delete_trash_cover.transform = "translate(0px) rotate(0deg)";
+            }
+        }
+    </script>
 
-		<!-- 垃圾桶 -->
-		<div id="delete-div" class="blocklyToolboxDelete">
-			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" version="1.1"
-				width="64" id="delete-svg-up" class="delete-svg" height="16" viewBox="0 0 64 16">
-				<g style="mix-blend-mode:passthrough">
-					<path
-						d="M17,0C13.6863,0,11,2.68629,11,6L11,8L4,8C1.79086,8,0,9.79086,0,12C0,14.2091,1.79086,16,4,16L60,16C62.2091,16,64,14.2091,64,12C64,9.79086,62.2091,8,60,8L53,8L53,6C53,2.68629,50.3137,0,47,0L17,0Z"
-						fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" />
-				</g>
-			</svg>
-			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" version="1.1"
-				width="52" id="delete-svg-down" class="delete-svg" height="45" viewBox="0 0 52 45">
-				<g style="mix-blend-mode:passthrough">
-					<path
-						d="M0,3C0,1.34315,1.34315,0,3,0L49,0C50.6569,0,52,1.34315,52,3L52,36C52,40.9706,47.9706,45,43,45L9,45C4.02944,45,0,40.9706,0,36L0,3ZM11,12.5C11,10.0147,13.0147,8,15.5,8C17.9853,8,20,10.0147,20,12.5L20,32.5C20,34.9853,17.9853,37,15.5,37C13.0147,37,11,34.9853,11,32.5L11,12.5ZM35.5,8C33.0147,8,31,10.0147,31,12.5L31,32.5C31,34.9853,33.0147,37,35.5,37C37.9853,37,40,34.9853,40,32.5L40,12.5C40,10.0147,37.9853,8,35.5,8Z"
-						fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1" />
-				</g>
-			</svg>
-		</div>
+    <!-- 垃圾桶 -->
+    <div id="delete-div" class="blocklyToolboxDelete">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" version="1.1"
+             width="64" id="delete-svg-up" class="delete-svg" height="16" viewBox="0 0 64 16">
+            <g style="mix-blend-mode:passthrough">
+                <path
+                        d="M17,0C13.6863,0,11,2.68629,11,6L11,8L4,8C1.79086,8,0,9.79086,0,12C0,14.2091,1.79086,16,4,16L60,16C62.2091,16,64,14.2091,64,12C64,9.79086,62.2091,8,60,8L53,8L53,6C53,2.68629,50.3137,0,47,0L17,0Z"
+                        fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1"/>
+            </g>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" version="1.1"
+             width="52" id="delete-svg-down" class="delete-svg" height="45" viewBox="0 0 52 45">
+            <g style="mix-blend-mode:passthrough">
+                <path
+                        d="M0,3C0,1.34315,1.34315,0,3,0L49,0C50.6569,0,52,1.34315,52,3L52,36C52,40.9706,47.9706,45,43,45L9,45C4.02944,45,0,40.9706,0,36L0,3ZM11,12.5C11,10.0147,13.0147,8,15.5,8C17.9853,8,20,10.0147,20,12.5L20,32.5C20,34.9853,17.9853,37,15.5,37C13.0147,37,11,34.9853,11,32.5L11,12.5ZM35.5,8C33.0147,8,31,10.0147,31,12.5L31,32.5C31,34.9853,33.0147,37,35.5,37C37.9853,37,40,34.9853,40,32.5L40,12.5C40,10.0147,37.9853,8,35.5,8Z"
+                        fill-rule="evenodd" fill="#FFFFFF" fill-opacity="1"/>
+            </g>
+        </svg>
+    </div>
 
-		<div>
-			<button aria-label="移到顶部" id="toup" class="updown"
-				style="top:70px;display: none;border-radius: 4px 4px 0 0;"
-				onclick="$('.blocklyToolboxDiv').animate({scrollTop: 0});">
-				<iconpark-icon name="updown" fill="var(--arrow-color)" size="16"></iconpark-icon>
-			</button>
-			<button aria-label="移到底部" id="todown" class="updown" style="bottom:0;border-radius: 0 0 4px 4px;" onclick="
+    <div>
+        <button aria-label="移到顶部" id="toup" class="updown"
+                style="top:70px;display: none;border-radius: 4px 4px 0 0;"
+                onclick="$('.blocklyToolboxDiv').animate({scrollTop: 0});">
+            <iconpark-icon name="updown" fill="var(--arrow-color)" size="16"></iconpark-icon>
+        </button>
+        <button aria-label="移到底部" id="todown" class="updown" style="bottom:0;border-radius: 0 0 4px 4px;" onclick="
 			bottom=$('.blocklyToolboxDiv')[0].scrollHeight - document.getElementsByClassName('blocklyToolboxDiv')[0].clientHeight;
 			$('.blocklyToolboxDiv').animate({scrollTop: bottom})">
-				<iconpark-icon name="updown" fill="var(--arrow-color)" size="16" style="transform:rotate(180deg);">
-				</iconpark-icon>
-			</button>
-		</div>
-
-		<style>
-			.updown {
-				position: absolute;
-				z-index: 6;
-				width: 60px;
-				background: var(--arrow-background);
-				border: var(--arrow-background);
-				color: var(--arrow-color);
-				height: 17px;
-				-webkit-transition-duration: 0.5s;
-				/* Safari */
-				transition-duration: 0.5s;
-			}
-
-			.updown:hover {
-				background: var(--arrow-hover-background);
-				border: var(--arrow-hover-background);
-				cursor: pointer;
-			}
-		</style>
-		<script>
-			$(window).resize(function () {
-				toolbox = document.getElementsByClassName('blocklyToolboxDiv')[0]
-				bottom = Math.ceil(toolbox.scrollHeight - toolbox.clientHeight - 2);
-				if (toolbox.scrollTop == 0) {
-					if (Math.ceil(toolbox.scrollTop) >= bottom) {
-						document.getElementById("toup").style.display = "none"
-						document.getElementById("todown").style.display = "none"
-					}
-					else {
-						document.getElementById("toup").style.display = "none"
-						document.getElementById("todown").style.display = "block"
-					}
-				}
-				else if (Math.ceil(toolbox.scrollTop) - bottom >= 0) {
-					document.getElementById("toup").style.display = "block"
-					document.getElementById("todown").style.display = "none"
-				}
-				else {
-					document.getElementById("toup").style.display = "block"
-					document.getElementById("todown").style.display = "block"
-				}
-			})
-			$('.blocklyToolboxDiv').ready(function () {
-				toolbox = document.getElementsByClassName('blocklyToolboxDiv')[0]
-				bottom = Math.ceil(toolbox.scrollHeight - toolbox.clientHeight - 2);
-				if (toolbox.scrollTop == 0) {
-					if (Math.ceil(toolbox.scrollTop) >= bottom) {
-						document.getElementById("toup").style.display = "none"
-						document.getElementById("todown").style.display = "none"
-					}
-					else {
-						document.getElementById("toup").style.display = "none"
-						document.getElementById("todown").style.display = "block"
-					}
-				}
-				else if (Math.ceil(toolbox.scrollTop) - bottom >= 0) {
-					document.getElementById("toup").style.display = "block"
-					document.getElementById("todown").style.display = "none"
-				}
-				else {
-					document.getElementById("toup").style.display = "block"
-					document.getElementById("todown").style.display = "block"
-				}
-				$('.blocklyToolboxDiv').scroll(function () {
-					toolbox = document.getElementsByClassName('blocklyToolboxDiv')[0]
-					bottom = Math.ceil(toolbox.scrollHeight - toolbox.clientHeight - 2);
-					if (toolbox.scrollTop == 0) {
-						if (Math.ceil(toolbox.scrollTop) >= bottom) {
-							document.getElementById("toup").style.display = "none"
-							document.getElementById("todown").style.display = "none"
-						}
-						else {
-							document.getElementById("toup").style.display = "none"
-							document.getElementById("todown").style.display = "block"
-						}
-					}
-					else if (Math.ceil(toolbox.scrollTop) - bottom >= 0) {
-						document.getElementById("toup").style.display = "block"
-						document.getElementById("todown").style.display = "none"
-					}
-					else {
-						document.getElementById("toup").style.display = "block"
-						document.getElementById("todown").style.display = "block"
-					}
-				});
-			});
-		</script>
-
-		<div id="table">
-			<div id="blocklyDiv" style="width:100vw;"></div>
-			<!--ToolBox积木-->
-			<xml id="toolbox" style="display: none;width:100vw;">
-			</xml>
-			<!--工作区积木-->
-			<xml id="workspaceblocks" style="display: none;width:100vw;">
-			</xml>
-		</div>
-
-		<a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
-		<style>
-			/* 导航栏悬停标签 */
-			#funcs-buttons:after {
-				content: attr(data-title);
-				position: absolute;
-				border-radius: 8px;
-				text-align: center;
-				bottom: 60px;
-				width: max-content;
-				width: intrinsic;
-				background-color: rgba(0, 0, 0, .4);
-				border: 8px solid rgba(0, 0, 0, .0);
-				z-index: 1600;
-				font-size: 12px;
-				color: #ffffff;
-				display: flex;
-				visibility: hidden;
-				justify-content: center;
-				align-items: center;
-				-webkit-animation: hide-it 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				animation: hide-it 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				opacity: 0;
-				pointer-events: none;
-			}
-
-			#funcs-buttons:hover:after {
-				-webkit-animation: scale-up-top 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				animation: scale-up-top 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				font-weight: normal;
-			}
-
-			.shown#funcs-buttons:after {
-				visibility: visible;
-			}
-
-			@keyframes hide-it {
-				0% {
-					-webkit-transform: scale(1);
-					transform: scale(1);
-					-webkit-transform-origin: 50% 100%;
-					transform-origin: 50% 100%;
-					opacity: 1;
-				}
-
-				100% {
-					-webkit-transform: scale(0);
-					transform: scale(0);
-					-webkit-transform-origin: 50% 100%;
-					transform-origin: 50% 100%;
-					opacity: 0;
-				}
-			}
-
-			@-webkit-keyframes hide-it {
-				0% {
-					-webkit-transform: scale(1);
-					transform: scale(1);
-					-webkit-transform-origin: 50% 100%;
-					transform-origin: 50% 100%;
-					opacity: 1;
-				}
-
-				100% {
-					-webkit-transform: scale(0);
-					transform: scale(0);
-					-webkit-transform-origin: 50% 100%;
-					transform-origin: 50% 100%;
-					opacity: 0;
-				}
-			}
-
-			@keyframes scale-up-top {
-				0% {
-					-webkit-transform: scale(0);
-					transform: scale(0);
-					-webkit-transform-origin: 50% 100%;
-					transform-origin: 50% 100%;
-					opacity: 0;
-				}
-
-				100% {
-					-webkit-transform: scale(1);
-					transform: scale(1);
-					-webkit-transform-origin: 50% 100%;
-					transform-origin: 50% 100%;
-					opacity: 1;
-				}
-			}
-
-			@-webkit-keyframes scale-up-top {
-				0% {
-					-webkit-transform: scale(0);
-					transform: scale(0);
-					-webkit-transform-origin: 50% 100%;
-					transform-origin: 50% 100%;
-					opacity: 0;
-				}
-
-				100% {
-					-webkit-transform: scale(1);
-					transform: scale(1);
-					-webkit-transform-origin: 50% 100%;
-					transform-origin: 50% 100%;
-					opacity: 1;
-				}
-			}
-
-			.blocklyToolboxDiv::-webkit-scrollbar,
-			#logo1::-webkit-scrollbar {
-				display: none;
-			}
-
-			.blocklyToolboxDiv::-webkit-scrollbar,
-			#logo1::-webkit-scrollbar {
-				scrollbar-width: none;
-				-ms-overflow-style: none;
-			}
-
-			*::-webkit-scrollbar {
-				width: 5px;
-				height: 5px;
-			}
-
-			*::-webkit-scrollbar-thumb {
-				border-radius: 10px;
-				box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-				background-color: #cccccc88;
-			}
-
-			*::-webkit-scrollbar-thumb:hover {
-				background-color: #bbbbbb88;
-			}
-
-			.blocklyToolboxDiv,
-			#logo1 {
-				scrollbar-width: none;
-				-ms-overflow-style: none;
-			}
-
-			* {
-				scrollbar-width: thin;
-				scrollbar-color: #cccccc88 transparent;
-			}
-
-			.swal-footer {
-				margin-top: 32px;
-				text-align: center;
-				overflow: hidden;
-			}
-
-			.swal-modal {
-				border-radius: 10px;
-			}
-
-			.swal-button--confirm {
-				background-color: #6d50f0;
-			}
-
-			.swal-button--confirm:not([disabled]):hover {
-				background-color: #5439ce;
-			}
-
-			.swal-content__input:focus {
-				outline: none;
-				border-color: #6d50f0;
-			}
-
-			.swal-content__input {
-				border-radius: 10px;
-			}
-
-			.swal-button--confirm:not([disabled]):focus {
-				background-color: #6d50f0;
-			}
-
-			.blocklyTreeLabel {
-				padding: 3px 0;
-				white-space: pre-line;
-				text-align: center;
-			}
-
-			.blocklyTreeRowContentContainer {
-				padding: 11px 0px 6px 0;
-			}
-
-			.blocklyToolboxContents {
-				padding: 0em;
-			}
-
-			.blocklyTreeRow {
-				height: 32px;
-				align-items: center;
-				justify-content: space-between;
-				padding: 0;
-				cursor: pointer;
-				border-radius: 5px;
-				margin: 0px 4px;
-				font-size: 12px;
-			}
-
-
-			.mask {
-				position: absolute;
-				top: 0;
-				z-index: -2;
-				/* 使遮罩层位于背景容器层下方，背景容器模糊带消失 */
-			}
-
-			.mbl {
-				filter: alpha(Opacity=60);
-				-moz-opacity: 0.5;
-				opacity: 0.5;
-			}
-
-			.customIcon {
-				padding: 10;
-			}
-
-			.blocklyTreeRowContentContainer {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-			}
-
-			.blocklyTreeRow {
-				height: initial;
-			}
-
-			.blocklyMenuItem {
-				color: rgba(0, 0, 0, .65);
-				font-size: 14px;
-			}
-
-			.blocklyMenuItemDisabled {
-				color: var(--menu-font-disable) !important;
-			}
-
-			.blocklyMenuItem {
-				-webkit-transition-duration: 0.1s;
-				/* Safari */
-				transition-duration: 0.1s;
-			}
-
-			.blocklyMenuItemHighlight {
-				color: var(--menu-font-hover) !important;
-			}
-
-			.swal-button-container {
-				padding: 0 25px;
-			}
-
-			.blocklyFlyout {
-				box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 4px 0px;
-				background-color: #ffffff;
-			}
-
-			.blocklyWidgetDiv .blocklyMenu {
-				overflow: hidden;
-				background-color: var(--toolbox-color);
-			}
-
-			.blocklyMenuItem {
-				color: var(--menu-font);
-			}
-
-			* {
-				transition: color 0.5s, background-color 0.5s, border 0.5s;
-			}
-		</style>
-
-		<!-- 代码框 -->
-		<div id="myModal" class="modal">
-			<!-- 代码框内容 -->
-			<div class="modal-content" id="content">
-				<div class="modal-body">
-					<pre readonly id="codeArea"></pre>
-				</div>
-				<button class="copy">
-					<iconpark-icon style="width:50px;height: 50px;" name="copy" width="40px" height="40px"
-						class='copyit'></iconpark-icon>
-					<iconpark-icon name="copyp-success" class='copyityes' style="display: none;width:50px;height: 50px;"
-						width="40px" height="40px"></iconpark-icon>
-				</button>
-				<button class="modal-close" style="-webkit-user-select: none;-ms-user-select: none;user-select: none;"
-					onclick="switch_code()">
-					<iconpark-icon name="close" style="width:50px;height: 50px;" width="40px" height="40px">
-					</iconpark-icon>
-				</button>
-			</div>
-		</div>
-
-		<style>
-			.copy,
-			.modal-close {
-				-webkit-transition-duration: 0.1s;
-				/* Safari */
-				transition-duration: 0.1s;
-				background: var(--main-color);
-				border: none;
-				color: white;
-				width: 70px;
-				height: 70px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-flex;
-				justify-content: center;
-				align-items: center;
-				border-radius: 100px;
-				position: absolute;
-				bottom: 40px;
-				box-shadow: 0 0 3px 1px rgba(0, 0, 0, .3);
-			}
-
-			.copy {
-				right: 40px;
-				font-size: 16px;
-			}
-
-			.modal-close {
-				left: 40px;
-				font-size: 50px;
-				max-width: 70px;
-				min-width: 70px;
-			}
-
-			.copy:hover,
-			.modal-close:hover {
-				background: var(--nd-main-color);
-				cursor: pointer;
-				box-shadow: 0 0 6px 1px rgba(0, 0, 0, .6);
-			}
-
-			/* 代码框 (background) */
-
-			.modal {
-				display: none;
-				/* 默认隐藏 */
-				position: fixed;
-				z-index: 1000;
-				top: 0;
-				right: 0;
-				height: 100vh;
-				overflow: hidden;
-				margin-left: auto;
-			}
-
-			/* 代码框内容 */
-
-			.modal-content {
-				position: relative;
-				background: var(--common-background);
-				margin: 0 auto;
-				height: 100vh;
-				float: right;
-				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			}
-
-			.modal-content {
-				position: relative;
-				display: flex;
-				flex-direction: column;
-				width: 100%;
-				pointer-events: auto;
-				background-clip: padding-box;
-				outline: 0
-			}
-
-			.modal-body {
-				position: relative;
-				flex: 1 1 auto;
-				padding: 1rem
-			}
-
-			/* 关闭按钮 */
-
-			.close {
-				color: white;
-				border: 13px solid var(--main-color);
-				float: right;
-				font-size: 28px;
-				font-weight: bold;
-				border-radius: 8px;
-				position: absolute;
-				right: 20px;
-			}
-
-			.close:hover,
-			.close:focus {
-				color: white !important;
-				border: 13px solid var(--nd-main-color);
-				text-decoration: none;
-				cursor: pointer;
-			}
-
-			.modal-header {
-				background-color: var(--main-color);
-				color: white;
-				min-height: 53px;
-				max-height: 53px;
-			}
-
-			.modal-body {
-				padding: 2px 16px;
-				padding: 1em 0 0 1em !important;
-				overflow-y: auto;
-				overflow-x: auto;
-				height: 75%;
-			}
-
-			#codeArea {
-				height: 100%;
-			}
-		</style>
-
-		<!-- 新建浮窗 -->
-		<div id="mynewsth" class="newsth">
-			<!-- 新建浮窗内容 -->
-			<div class="newsth-content">
-				<div class="newsth-header">
+            <iconpark-icon name="updown" fill="var(--arrow-color)" size="16" style="transform:rotate(180deg);">
+            </iconpark-icon>
+        </button>
+    </div>
+
+    <style>
+        .updown {
+            position: absolute;
+            z-index: 6;
+            width: 60px;
+            background: var(--arrow-background);
+            border: var(--arrow-background);
+            color: var(--arrow-color);
+            height: 17px;
+            -webkit-transition-duration: 0.5s;
+            /* Safari */
+            transition-duration: 0.5s;
+        }
+
+        .updown:hover {
+            background: var(--arrow-hover-background);
+            border: var(--arrow-hover-background);
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(window).resize(function () {
+            toolbox = document.getElementsByClassName('blocklyToolboxDiv')[0]
+            bottom = Math.ceil(toolbox.scrollHeight - toolbox.clientHeight - 2);
+            if (toolbox.scrollTop == 0) {
+                if (Math.ceil(toolbox.scrollTop) >= bottom) {
+                    document.getElementById("toup").style.display = "none"
+                    document.getElementById("todown").style.display = "none"
+                } else {
+                    document.getElementById("toup").style.display = "none"
+                    document.getElementById("todown").style.display = "block"
+                }
+            } else if (Math.ceil(toolbox.scrollTop) - bottom >= 0) {
+                document.getElementById("toup").style.display = "block"
+                document.getElementById("todown").style.display = "none"
+            } else {
+                document.getElementById("toup").style.display = "block"
+                document.getElementById("todown").style.display = "block"
+            }
+        })
+        $('.blocklyToolboxDiv').ready(function () {
+            toolbox = document.getElementsByClassName('blocklyToolboxDiv')[0]
+            bottom = Math.ceil(toolbox.scrollHeight - toolbox.clientHeight - 2);
+            if (toolbox.scrollTop == 0) {
+                if (Math.ceil(toolbox.scrollTop) >= bottom) {
+                    document.getElementById("toup").style.display = "none"
+                    document.getElementById("todown").style.display = "none"
+                } else {
+                    document.getElementById("toup").style.display = "none"
+                    document.getElementById("todown").style.display = "block"
+                }
+            } else if (Math.ceil(toolbox.scrollTop) - bottom >= 0) {
+                document.getElementById("toup").style.display = "block"
+                document.getElementById("todown").style.display = "none"
+            } else {
+                document.getElementById("toup").style.display = "block"
+                document.getElementById("todown").style.display = "block"
+            }
+            $('.blocklyToolboxDiv').scroll(function () {
+                toolbox = document.getElementsByClassName('blocklyToolboxDiv')[0]
+                bottom = Math.ceil(toolbox.scrollHeight - toolbox.clientHeight - 2);
+                if (toolbox.scrollTop == 0) {
+                    if (Math.ceil(toolbox.scrollTop) >= bottom) {
+                        document.getElementById("toup").style.display = "none"
+                        document.getElementById("todown").style.display = "none"
+                    } else {
+                        document.getElementById("toup").style.display = "none"
+                        document.getElementById("todown").style.display = "block"
+                    }
+                } else if (Math.ceil(toolbox.scrollTop) - bottom >= 0) {
+                    document.getElementById("toup").style.display = "block"
+                    document.getElementById("todown").style.display = "none"
+                } else {
+                    document.getElementById("toup").style.display = "block"
+                    document.getElementById("todown").style.display = "block"
+                }
+            });
+        });
+    </script>
+
+    <div id="table">
+        <div id="blocklyDiv" style="width:100vw;"></div>
+        <!--ToolBox积木-->
+        <xml id="toolbox" style="display: none;width:100vw;">
+        </xml>
+        <!--工作区积木-->
+        <xml id="workspaceblocks" style="display: none;width:100vw;">
+        </xml>
+    </div>
+
+    <a href="#" download="#" style="display: none;" id="downa" aria-label="下载"></a>
+    <style>
+        /* 导航栏悬停标签 */
+        #funcs-buttons:after {
+            content: attr(data-title);
+            position: absolute;
+            border-radius: 8px;
+            text-align: center;
+            bottom: 60px;
+            width: max-content;
+            width: intrinsic;
+            background-color: rgba(0, 0, 0, .4);
+            border: 8px solid rgba(0, 0, 0, .0);
+            z-index: 1600;
+            font-size: 12px;
+            color: #ffffff;
+            display: flex;
+            visibility: hidden;
+            justify-content: center;
+            align-items: center;
+            -webkit-animation: hide-it 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: hide-it 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #funcs-buttons:hover:after {
+            -webkit-animation: scale-up-top 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: scale-up-top 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            font-weight: normal;
+        }
+
+        .shown#funcs-buttons:after {
+            visibility: visible;
+        }
+
+        @keyframes hide-it {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+                opacity: 1;
+            }
+
+            100% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+                -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes hide-it {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+                opacity: 1;
+            }
+
+            100% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+                -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes scale-up-top {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+                -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes scale-up-top {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+                -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+                opacity: 1;
+            }
+        }
+
+        .blocklyToolboxDiv::-webkit-scrollbar,
+        #logo1::-webkit-scrollbar {
+            display: none;
+        }
+
+        .blocklyToolboxDiv::-webkit-scrollbar,
+        #logo1::-webkit-scrollbar {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        *::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #cccccc88;
+        }
+
+        *::-webkit-scrollbar-thumb:hover {
+            background-color: #bbbbbb88;
+        }
+
+        .blocklyToolboxDiv,
+        #logo1 {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #cccccc88 transparent;
+        }
+
+        .swal-footer {
+            margin-top: 32px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .swal-modal {
+            border-radius: 10px;
+        }
+
+        .swal-button--confirm {
+            background-color: #6d50f0;
+        }
+
+        .swal-button--confirm:not([disabled]):hover {
+            background-color: #5439ce;
+        }
+
+        .swal-content__input:focus {
+            outline: none;
+            border-color: #6d50f0;
+        }
+
+        .swal-content__input {
+            border-radius: 10px;
+        }
+
+        .swal-button--confirm:not([disabled]):focus {
+            background-color: #6d50f0;
+        }
+
+        .blocklyTreeLabel {
+            padding: 3px 0;
+            white-space: pre-line;
+            text-align: center;
+        }
+
+        .blocklyTreeRowContentContainer {
+            padding: 11px 0px 6px 0;
+        }
+
+        .blocklyToolboxContents {
+            padding: 0em;
+        }
+
+        .blocklyTreeRow {
+            height: 32px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0px 4px;
+            font-size: 12px;
+        }
+
+
+        .mask {
+            position: absolute;
+            top: 0;
+            z-index: -2;
+            /* 使遮罩层位于背景容器层下方，背景容器模糊带消失 */
+        }
+
+        .mbl {
+            filter: alpha(Opacity=60);
+            -moz-opacity: 0.5;
+            opacity: 0.5;
+        }
+
+        .customIcon {
+            padding: 10;
+        }
+
+        .blocklyTreeRowContentContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .blocklyTreeRow {
+            height: initial;
+        }
+
+        .blocklyMenuItem {
+            color: rgba(0, 0, 0, .65);
+            font-size: 14px;
+        }
+
+        .blocklyMenuItemDisabled {
+            color: var(--menu-font-disable) !important;
+        }
+
+        .blocklyMenuItem {
+            -webkit-transition-duration: 0.1s;
+            /* Safari */
+            transition-duration: 0.1s;
+        }
+
+        .blocklyMenuItemHighlight {
+            color: var(--menu-font-hover) !important;
+        }
+
+        .swal-button-container {
+            padding: 0 25px;
+        }
+
+        .blocklyFlyout {
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 4px 0px;
+            background-color: #ffffff;
+        }
+
+        .blocklyWidgetDiv .blocklyMenu {
+            overflow: hidden;
+            background-color: var(--toolbox-color);
+        }
+
+        .blocklyMenuItem {
+            color: var(--menu-font);
+        }
+
+        * {
+            transition: color 0.5s, background-color 0.5s, border 0.5s;
+        }
+    </style>
+
+    <!-- 代码框 -->
+    <div id="myModal" class="modal">
+        <!-- 代码框内容 -->
+        <div class="modal-content" id="content">
+            <div class="modal-body">
+                <pre readonly id="codeArea"></pre>
+            </div>
+            <button class="copy">
+                <iconpark-icon style="width:50px;height: 50px;" name="copy" width="40px" height="40px"
+                               class='copyit'></iconpark-icon>
+                <iconpark-icon name="copyp-success" class='copyityes' style="display: none;width:50px;height: 50px;"
+                               width="40px" height="40px"></iconpark-icon>
+            </button>
+            <button class="modal-close" style="-webkit-user-select: none;-ms-user-select: none;user-select: none;"
+                    onclick="switch_code()">
+                <iconpark-icon name="close" style="width:50px;height: 50px;" width="40px" height="40px">
+                </iconpark-icon>
+            </button>
+        </div>
+    </div>
+
+    <style>
+        .copy,
+        .modal-close {
+            -webkit-transition-duration: 0.1s;
+            /* Safari */
+            transition-duration: 0.1s;
+            background: var(--main-color);
+            border: none;
+            color: white;
+            width: 70px;
+            height: 70px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100px;
+            position: absolute;
+            bottom: 40px;
+            box-shadow: 0 0 3px 1px rgba(0, 0, 0, .3);
+        }
+
+        .copy {
+            right: 40px;
+            font-size: 16px;
+        }
+
+        .modal-close {
+            left: 40px;
+        }
+
+        .copy:hover,
+        .modal-close:hover {
+            background: var(--nd-main-color);
+            cursor: pointer;
+            box-shadow: 0 0 6px 1px rgba(0, 0, 0, .6);
+        }
+
+        /* 代码框 (background) */
+
+        .modal {
+            display: none;
+            /* 默认隐藏 */
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            overflow: hidden;
+            margin-left: auto;
+        }
+
+        /* 代码框内容 */
+
+        .modal-content {
+            position: relative;
+            background: var(--common-background);
+            margin: 0 auto;
+            height: 100vh;
+            float: right;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .modal-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-clip: padding-box;
+            outline: 0
+        }
+
+        .modal-body {
+            position: relative;
+            flex: 1 1 auto;
+            padding: 1rem
+        }
+
+        /* 关闭按钮 */
+
+        .close {
+            color: white;
+            border: 13px solid var(--main-color);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            border-radius: 8px;
+            position: absolute;
+            right: 20px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: white !important;
+            border: 13px solid var(--nd-main-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            background-color: var(--main-color);
+            color: white;
+            min-height: 53px;
+            max-height: 53px;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+            padding: 1em 0 0 1em !important;
+            overflow-y: auto;
+            overflow-x: auto;
+            height: 75%;
+        }
+
+        #codeArea {
+            height: 100%;
+        }
+    </style>
+
+    <!-- 新建浮窗 -->
+    <div id="mynewsth" class="newsth">
+        <!-- 新建浮窗内容 -->
+        <div class="newsth-content">
+            <div class="newsth-header">
 					<span class="newsth-logo"
-						style="color: var(--main-color);font-weight: bold; font-size: 25px;">新建控件</span>
-					<span class="newsth-close">
+                          style="color: var(--main-color);font-weight: bold; font-size: 25px;">新建控件</span>
+                <span class="newsth-close">
 						<iconpark-icon name="close" width="30px" height="30px"></iconpark-icon>
 					</span>
-				</div>
-				<div class="newsth-body">
-					<div class="card" id="card"
-						onclick='newsth.style.display = "none";document.getElementsByClassName("groundglass")[0].className = "groundglass";document.getElementsByClassName("groundglass")[0].style.display = ""; workspace.clear();'>
-						<span class="sord">空白作品</span>
-					</div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/invisiblewidget.waddle')">
-						<span class="sord">不可见控件模版</span>
-					</div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hello.waddle')">
-						<span class="sord">[不可见控件]<br>Hello</span>
-					</div>
-					<div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>定时器</span></div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/base.waddle')"><span
-							class="sord">[不可见控件]<br>Base编解码</span>
-					</div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/visiblewidget.waddle')">
-						<span class="sord">可见控件模版</span>
-					</div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hyperlink.waddle')">
-						<span class="sord">[可见控件]<br>超链接</span>
-					</div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/blinkButton.waddle')">
-						<span class="sord">[可见控件]<br>闪烁按钮</span>
-					</div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/html.waddle')">
-						<span class="sord">[可见控件]<br>HTML控件</span>
-					</div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/password.waddle')">
-						<span class="sord">[可见控件]<br>密码框</span>
-					</div>
-					<div class="card" id="card"
-						onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/voteLine.waddle')">
-						<span class="sord">[可见控件]<br>投票条</span>
-					</div>
-				</div>
-			</div>
-		</div>
+            </div>
+            <div class="newsth-body">
+                <div class="card" id="card"
+                     onclick='newsth.style.display = "none";document.getElementsByClassName("groundglass")[0].className = "groundglass";document.getElementsByClassName("groundglass")[0].style.display = ""; workspace.clear();'>
+                    <span class="sord">空白作品</span>
+                </div>
+                <div class="card" id="card"
+                     onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/invisiblewidget.waddle')">
+                    <span class="sord">不可见控件模版</span>
+                </div>
+                <div class="card" id="card"
+                     onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hello.waddle')">
+                    <span class="sord">[不可见控件]<br>Hello</span>
+                </div>
+                <div class="card" id="card" onclick='swal("还没有呢～")'><span class="sord">[不可见控件]<br>定时器</span>
+                </div>
+                <div class="card" id="card"
+                     onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/base.waddle')"><span
+                        class="sord">[不可见控件]<br>Base编解码</span>
+                </div>
+                <div class="card" id="card"
+                     onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/visiblewidget.waddle')">
+                    <span class="sord">可见控件模版</span>
+                </div>
+                <div class="card" id="card"
+                     onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/hyperlink.waddle')">
+                    <span class="sord">[可见控件]<br>超链接</span>
+                </div>
+                <div class="card" id="card"
+                     onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/blinkButton.waddle')">
+                    <span class="sord">[可见控件]<br>闪烁按钮</span>
+                </div>
+                <div class="card" id="card"
+                     onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/html.waddle')">
+                    <span class="sord">[可见控件]<br>HTML控件</span>
+                </div>
+                <div class="card" id="card"
+                     onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/password.waddle')">
+                    <span class="sord">[可见控件]<br>密码框</span>
+                </div>
+                <div class="card" id="card"
+                     onclick="newsth.style.display = 'none';upload('./static/Waddle/tutorials/voteLine.waddle')">
+                    <span class="sord">[可见控件]<br>投票条</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-		<!-- 新建浮窗 -->
-		<div id="myaboutus" class="aboutus">
-			<!-- 新建浮窗内容 -->
-			<div class="aboutus-content" style="min-width: 305px;">
-				<div class="aboutus-header">
+    <!-- 新建浮窗 -->
+    <div id="myaboutus" class="aboutus">
+        <!-- 新建浮窗内容 -->
+        <div class="aboutus-content" style="min-width: 305px;">
+            <div class="aboutus-header">
 					<span class="aboutus-logo"
-						style="color: var(--main-color);font-weight: bold; font-size: 25px;">更多</span>
-					<span class="aboutus-close">
+                          style="color: var(--main-color);font-weight: bold; font-size: 25px;">更多</span>
+                <span class="aboutus-close">
 						<iconpark-icon name="close" width="30px" height="30px">
 					</span>
-				</div>
-				<div class="setting-second">
-					<button class="setting-button" onclick="settingThird(1)">偏好设置</button>
-					<button class="setting-button" onclick="settingThird(2)">关于Waddle</button>
-					<button class="setting-button" onclick="settingThird(3)">感谢</button>
-				</div>
-				<div class="setting-body">
-					<div
-						style="margin-block-start: 1em; display: flex; flex-direction: row-reverse; align-items: center; width: 100%; justify-content: space-between;">
-						<input id="showorkeep" onclick="settings(this)" style="width: 20px;height: 20px;"
-							type="checkbox">
-						<span>积木盒积木全显</span>
-					</div>
-					<div
-						style="margin-block-start: 1em; display: flex; flex-direction: row-reverse; align-items: center; width: 100%; justify-content: space-between;">
-						<input id="alwaykeep" onclick="holdToolboxs(this)" style="width: 20px;height: 20px;"
-							type="checkbox">
-						<span>积木盒常驻</span>
-					</div>
-					<div id="loadExtension" style="width: 100%;margin-top: calc(60vh - 325px);">
-						<button onclick="openExtension()"
-							style="width: 100%;background-color: var(--settings-button-set-background);color: #fff;height: 50px;border-radius: 10px;font-size: 16px;border: none;outline: none;">加载界面插件(实验性)</button>
-					</div>
-				</div>
-				<div class="aboutus-body">
-					<img id="about-img" width="240" src="./static/img/logo/logo-purple-full.png.svg"
-						style="margin: 30px 0;" alt="Waddle" onclick="east_chk()"></img>
-					<p>让CoCo没有<span onclick="count_oj()">难</span>做的控件</p>
-					</br>
-					<p>由所有Waddle的开源贡献者共同创造！</p>
-					</br>
-					</br>
-					<p id="version"></p>
-					<script>
-						$("#version").text("目前版本：" + version);
-					</script>
-				</div>
-				<div class="thanks-body">
-					<p style="margin-block-start: 1em;">Google Blockly</p>
-					<p style="margin-block-start: 1em;">IconPark</p>
-					<p style="margin-block-start: 1em;">Waddle编辑器的贡献者们</p>
-					<p style="margin-block-start: 1em;">CoCo编辑器</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
+            </div>
+            <div class="setting-second">
+                <button class="setting-button" onclick="settingThird(1)">偏好设置</button>
+                <button class="setting-button" onclick="settingThird(2)">关于Waddle</button>
+                <button class="setting-button" onclick="settingThird(3)">感谢</button>
+            </div>
+            <div class="setting-body">
+                <div
+                        style="margin-block-start: 1em; display: flex; flex-direction: row-reverse; align-items: center; width: 100%; justify-content: space-between;">
+                    <input id="showorkeep" onclick="settings(this)" style="width: 20px;height: 20px;"
+                           type="checkbox">
+                    <span>积木盒积木全显</span>
+                </div>
+                <div
+                        style="margin-block-start: 1em; display: flex; flex-direction: row-reverse; align-items: center; width: 100%; justify-content: space-between;">
+                    <input id="alwaykeep" onclick="holdToolboxs(this)" style="width: 20px;height: 20px;"
+                           type="checkbox">
+                    <span>积木盒常驻</span>
+                </div>
+                <div id="loadExtension" style="width: 100%;">
+                    <button onclick="openExtension()"
+                            style="width: 100%;background-color: var(--settings-button-set-background);color: #fff;height: 50px;border-radius: 10px;font-size: 16px;border: none;outline: none;">
+                        加载界面插件(实验性)
+                    </button>
+                </div>
+                <div id="saveBlocksSvg" style="width: 100%;">
+                    <button onclick="saveBlocksSvg()"
+                            style="width: 100%;background-color: var(--settings-button-set-background);color: #fff;height: 50px;border-radius: 10px;font-size: 16px;border: none;outline: none;margin-top: 10px;">
+                        保存作品积木SVG图片(实验性)
+                    </button>
+                </div>
+            </div>
+            <div class="aboutus-body">
+                <img id="about-img" width="240" src="./static/img/logo/logo-purple-full.png.svg"
+                     style="margin: 30px 0;" alt="Waddle" onclick="east_chk()"></img>
+                <p>让CoCo没有<span onclick="count_oj()">难</span>做的控件</p>
+                </br>
+                <p>由所有Waddle的开源贡献者共同创造！</p>
+                </br>
+                </br>
+                <p id="version"></p>
+                <script>
+                    $("#version").text("目前版本：" + version);
+                </script>
+            </div>
+            <div class="thanks-body">
+                <p style="margin-block-start: 1em;">Google Blockly</p>
+                <p style="margin-block-start: 1em;">IconPark</p>
+                <p style="margin-block-start: 1em;">Waddle编辑器的贡献者们</p>
+                <p style="margin-block-start: 1em;">CoCo编辑器</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </body>
 <!--引入Blockly必要文件-->
 
@@ -1123,8 +1118,6 @@ wwwwwww      wwwwww     wwwwwww
 <!--图标库-->
 
 <link rel="stylesheet" href="./static/css/toolBoxColor.css">
-<script
-	src="https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.es5.js"></script>
 
 <!--引入框架-->
 
@@ -1245,948 +1238,951 @@ wwwwwww      wwwwww     wwwwwww
 
 <!--彩蛋定义-->
 <script>
-	function east_chk() {
-		if (document.cookie.includes("easter")) {
-			swal("彩蛋", "恭喜，你貌似触发了彩蛋!", "success")
-				.then((value) => {
-					swal("马上去彩蛋!", { buttons: ["取消", "确认"], })
-						.then((value) => {
-							if (value) {
-								if (getCookie('logo-egg') == false) {
-									document.cookie = "logo-egg=1";
-								}
-								window.location.href = "./static/Waddle/eastegg/index.html";
-							}
-						})
-				})
+    function east_chk() {
+        if (document.cookie.includes("easter")) {
+            swal("彩蛋", "恭喜，你貌似触发了彩蛋!", "success")
+                .then((value) => {
+                    swal("马上去彩蛋!", {buttons: ["取消", "确认"],})
+                        .then((value) => {
+                            if (value) {
+                                if (getCookie('logo-egg') == false) {
+                                    document.cookie = "logo-egg=1";
+                                }
+                                window.location.href = "./static/Waddle/eastegg/index.html";
+                            }
+                        })
+                })
 
-		} else {
-			document.cookie = "easter=1";
-		}
-	}
+        } else {
+            document.cookie = "easter=1";
+        }
+    }
 </script>
 
 <script src="./static/js/dynamicToolBox.js"></script>
 
 <script>
-	//为了防锁死，改异步
-	$.ajax({
-		url: './static/Waddle/toolBox.xml',
-		type: 'get',
-		async: false,//使用同步的方式,true为异步方式
-		success: function (data) {
-			xmlDoc = data;
-			toolbox = document.getElementById('toolbox');
-			toolbox.innerHTML = xmlDoc.getElementsByTagName('toolbox')[0].innerHTML;
-			localStorage.setItem("toolbox", xmlDoc.getElementsByTagName('toolbox')[0].innerHTML);
-		},
-		error: function () {
-			xmlDoc = localStorage.getItem("toolbox");
-			toolbox = document.getElementById('toolbox');
-			toolbox.innerHTML = xmlDoc;
-		},
-		fail: function () {
-			xmlDoc = localStorage.getItem("toolbox");
-			toolbox = document.getElementById('toolbox');
-			toolbox.innerHTML = xmlDoc;
-		}
-	});
+    //为了防锁死，改异步
+    $.ajax({
+        url: './static/Waddle/toolBox.xml',
+        type: 'get',
+        async: false,//使用同步的方式,true为异步方式
+        success: function (data) {
+            xmlDoc = data;
+            toolbox = document.getElementById('toolbox');
+            toolbox.innerHTML = xmlDoc.getElementsByTagName('toolbox')[0].innerHTML;
+            localStorage.setItem("toolbox", xmlDoc.getElementsByTagName('toolbox')[0].innerHTML);
+        },
+        error: function () {
+            xmlDoc = localStorage.getItem("toolbox");
+            toolbox = document.getElementById('toolbox');
+            toolbox.innerHTML = xmlDoc;
+        },
+        fail: function () {
+            xmlDoc = localStorage.getItem("toolbox");
+            toolbox = document.getElementById('toolbox');
+            toolbox.innerHTML = xmlDoc;
+        }
+    });
 
-	$.ajax({
-		url: './static/Waddle/workspace.xml',
-		type: 'get',
-		async: false,//使用同步的方式,true为异步方式
-		success: function (data) {
-			xmlDoc = data;
-			workspaceblocks = document.getElementById('workspaceblocks');
-			workspaceblocks.innerHTML = xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML;
-			localStorage.setItem("workspace", xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML);
-		},
-		error: function () {
-			xmlDoc = localStorage.getItem("workspace");
-			workspaceblocks = document.getElementById('workspaceblocks');
-			workspaceblocks.innerHTML = xmlDoc;
-		},
-		fail: function () {
-			xmlDoc = localStorage.getItem("workspace");
-			workspaceblocks = document.getElementById('workspaceblocks');
-			workspaceblocks.innerHTML = xmlDoc;
-		}
-	});
+    $.ajax({
+        url: './static/Waddle/workspace.xml',
+        type: 'get',
+        async: false,//使用同步的方式,true为异步方式
+        success: function (data) {
+            xmlDoc = data;
+            workspaceblocks = document.getElementById('workspaceblocks');
+            workspaceblocks.innerHTML = xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML;
+            localStorage.setItem("workspace", xmlDoc.getElementsByTagName('workspaceblocks')[0].innerHTML);
+        },
+        error: function () {
+            xmlDoc = localStorage.getItem("workspace");
+            workspaceblocks = document.getElementById('workspaceblocks');
+            workspaceblocks.innerHTML = xmlDoc;
+        },
+        fail: function () {
+            xmlDoc = localStorage.getItem("workspace");
+            workspaceblocks = document.getElementById('workspaceblocks');
+            workspaceblocks.innerHTML = xmlDoc;
+        }
+    });
 
-	var workspaceBlocks = document.getElementById("workspaceblocks");
+    var workspaceBlocks = document.getElementById("workspaceblocks");
 
-	//定义主题
-	var theme = WaddleTheme;
-	//工作区
-	var workspace = Blockly.inject('blocklyDiv',
-		{
-			toolbox: document.getElementById('toolbox'),
-			grid: CustomGrid,
-			zoom:
-			{
-				controls: true,		// 控制按钮显示
-				wheel: true,		// Ctrl+鼠标滚轮可以控制大小
-				startScale: 0.8,	// 初始大小
-				maxScale: 1.8,		// 最大大小
-				minScale: 0.3,		// 最小大小
-			},
-			move:
-			{
-				wheel: true,
-			},
-			theme: theme,
-			renderer: 'zelos' //scratch风格，自定义的是custom_renderer
-		});
+    //定义主题
+    var theme = WaddleTheme;
+    //工作区
+    var workspace = Blockly.inject('blocklyDiv',
+        {
+            toolbox: document.getElementById('toolbox'),
+            grid: CustomGrid,
+            zoom:
+                {
+                    controls: true,		// 控制按钮显示
+                    wheel: true,		// Ctrl+鼠标滚轮可以控制大小
+                    startScale: 0.8,	// 初始大小
+                    maxScale: 1.8,		// 最大大小
+                    minScale: 0.3,		// 最小大小
+                },
+            move:
+                {
+                    wheel: true,
+                },
+            theme: theme,
+            renderer: 'zelos' //scratch风格，自定义的是custom_renderer
+        });
 
-	// 部分积木盒的特殊处理
-	workspace.registerToolboxCategoryCallback('UTILS_GAME', utilsFlyoutCallback);
-	workspace.registerToolboxCategoryCallback('COLOR_CARD', coloursFlyoutCallback);
-	workspace.registerButtonCallback("betawarning", function () { swal("这是实验性功能，正在测试，将来可能会频繁改动，若有bug请向作者反馈!") })
+    // 部分积木盒的特殊处理
+    workspace.registerToolboxCategoryCallback('UTILS_GAME', utilsFlyoutCallback);
+    workspace.registerToolboxCategoryCallback('COLOR_CARD', coloursFlyoutCallback);
+    workspace.registerButtonCallback("betawarning", function () {
+        swal("这是实验性功能，正在测试，将来可能会频繁改动，若有bug请向作者反馈!")
+    })
 
-	/* 加载初始积木 */
-	Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
+    /* 加载初始积木 */
+    Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
 
-	// 加载结束后，把积木栏文本整体调小一个像素，图标调大五个像素，这样不会喧宾夺主
-	$("span.blocklyTreeLabel").css("cssText", "font: 13px sans-serif !important");
-	$("span.iconfont").css("cssText", "font-size: 21px !important");
+    // 加载结束后，把积木栏文本整体调小一个像素，图标调大五个像素，这样不会喧宾夺主
+    $("span.blocklyTreeLabel").css("cssText", "font: 13px sans-serif !important");
+    $("span.iconfont").css("cssText", "font-size: 21px !important");
 </script>
 <script>
-	/*传入html字符串源码即可*/
-	function htmlEscape(text) {
-		return text.replace(/[<>"&]/g, function (match, pos, originalText) {
-			switch (match) {
-				case "<": return "&lt;";
-				case ">": return "&gt;";
-				case "&": return "&amp;";
-				case "\"": return "&quot;";
-			}
-		});
-	}
+    /*传入html字符串源码即可*/
+    function htmlEscape(text) {
+        return text.replace(/[<>"&]/g, function (match, pos, originalText) {
+            switch (match) {
+                case "<":
+                    return "&lt;";
+                case ">":
+                    return "&gt;";
+                case "&":
+                    return "&amp;";
+                case "\"":
+                    return "&quot;";
+            }
+        });
+    }
 
-	var isVisibleWidget = function () {
-		// 判断是否为可见控件
-		// 很好的解决了正则表达式的缺点，还省去了很多计算步骤
-		if (workspace.getBlocksByType('vw_defTypes').length == 0) { // 检查是否有可见控件积木vw_defTypes
-			return false;
-		}
-		else {
-			return true;
-		}
-		// let code = Blockly.JavaScript.workspaceToCode(workspace);
-		// code = code.replaceAll("\n", "");
-		// return (code.match(/return\((.+?)\)/g) != null);
-	}
+    var isVisibleWidget = function () {
+        // 判断是否为可见控件
+        // 很好的解决了正则表达式的缺点，还省去了很多计算步骤
+        if (workspace.getBlocksByType('vw_defTypes').length == 0) { // 检查是否有可见控件积木vw_defTypes
+            return false;
+        } else {
+            return true;
+        }
+        // let code = Blockly.JavaScript.workspaceToCode(workspace);
+        // code = code.replaceAll("\n", "");
+        // return (code.match(/return\((.+?)\)/g) != null);
+    }
 
-	// 打开可见控件预览框条件：周期判断或代码框更新
+    // 打开可见控件预览框条件：周期判断或代码框更新
 
 
-	function UpdateFunction(event) {
-		// 代码框更新
-		var code = Blockly.JavaScript.workspaceToCode(workspace);
-		document.getElementById("codeArea").innerHTML = htmlEscape(code);
-		hljs.highlightBlock(document.getElementById("codeArea"))
+    function UpdateFunction(event) {
+        // 代码框更新
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        document.getElementById("codeArea").innerHTML = htmlEscape(code);
+        hljs.highlightBlock(document.getElementById("codeArea"))
 
-		if (document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')') {
-			document.documentElement.style.setProperty('--pic-icon', 'url(' + myicon + ')');
-		}
+        if (document.documentElement.style.getPropertyValue('--pic-icon') != 'url(' + myicon + ')') {
+            document.documentElement.style.setProperty('--pic-icon', 'url(' + myicon + ')');
+        }
 
-		if (isVisibleWidget()) {
-			// 预览框显示在函数switch_code中
-			// 渲染控件
-			preview_render(code)
-		}
-	}
-	workspace.addChangeListener(UpdateFunction);
+        if (isVisibleWidget()) {
+            // 预览框显示在函数switch_code中
+            // 渲染控件
+            preview_render(code)
+        }
+    }
 
-	var modal = document.getElementById('myModal');
+    workspace.addChangeListener(UpdateFunction);
 
-	// 复制代码
-	var copy = document.getElementsByClassName("copy")[0];
+    var modal = document.getElementById('myModal');
 
-	// 点击按钮打开代码框
-	let switch_code = function () {
-		// 打开代码框的按钮对象
-		var btn = document.getElementsByClassName("switch_code")[0];
-		if (btn.className == "switch_code shown") {
-			document.getElementsByClassName("modal-content")[0].className = "modal-content show shown";
-			if ($(window).width() < 818) {
-				document.getElementById("blocklyDiv").style.width = '100vw';
-				document.getElementById("toolbox").style.width = '100vw';
-				document.getElementById("toolbox").style.width = '100vw';
-				document.getElementById("funcs").style.right = '40px';
-				document.getElementsByClassName("modal-close")[0].style.display = "inline-flex"
-			}
-			else {
-				document.getElementById("blocklyDiv").style.width = 'calc(100vw - 400px)';
-				document.getElementById("toolbox").style.width = 'calc(100vw - 400px)';
-				document.getElementById("funcs").style.right = '440px';
-				document.getElementsByClassName("modal-close")[0].style.display = "none"
-			}
-			Blockly.svgResize(workspace);
-			modal.style.display = "block";
-			document.getElementsByClassName("switch_code")[0].className = "switch_code show shown";
-		}
-		else {
-			document.getElementsByClassName("modal-content")[0].className = "modal-content";
-			document.getElementById("blocklyDiv").style.width = '100vw';
-			document.getElementById("toolbox").style.width = '100vw';
-			document.getElementById("funcs").style.right = '40px';
-			Blockly.svgResize(workspace);
-			modal.style.display = "none";
-			document.getElementsByClassName("switch_code")[0].className = "switch_code shown";
-		}
-		// 响应式适配
-		var toolboxcontents = document.getElementsByClassName('blocklyToolboxContents')[0];
-		var funcs = document.getElementById('funcs');
-		var toolboxcontents = document.getElementsByClassName('blocklyToolboxContents')[0];
-		var funcs = document.getElementById('funcs');
-		if ((x - 40 - w) <= toolboxcontents.style.width) {
-			w = x - toolboxcontents.style.width - 20;
-			h = w / 6;
-			funcs.style.borderTopRightRadius = '0px';
-			funcs.style.borderBottomRightRadius = '0px';
-			funcs.style.right = '0px';
-		}
-		if (isVisibleWidget()) {
-			document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
-		}
-		else {
-			document.getElementById("widgetPreview").style.display = 'none'
-		}
-	}
+    // 复制代码
+    var copy = document.getElementsByClassName("copy")[0];
 
-	// 点击复制，复制代码
-	copy.onclick = function () {
-		//window.Swal = swal;
-		var code = Blockly.JavaScript.workspaceToCode(workspace);
-		navigator.clipboard.writeText(code);
-		document.getElementsByClassName("copyit")[0].style.display = 'none'
-		document.getElementsByClassName("copyityes")[0].style.display = 'inline-flex'
-		setTimeout(() => {
-			document.getElementsByClassName("copyityes")[0].style.display = 'none'
-			document.getElementsByClassName("copyit")[0].style.display = 'inline-flex'
-		}, 400)
-	}
+    // 点击按钮打开代码框
+    let switch_code = function () {
+        // 打开代码框的按钮对象
+        var btn = document.getElementsByClassName("switch_code")[0];
+        if (btn.className == "switch_code shown") {
+            document.getElementsByClassName("modal-content")[0].className = "modal-content show shown";
+            if ($(window).width() <= 818) {
+                document.getElementById("blocklyDiv").style.width = '100vw';
+                document.getElementById("toolbox").style.width = '100vw';
+                document.getElementById("toolbox").style.width = '100vw';
+                document.getElementById("funcs").style.right = '40px';
+                document.getElementsByClassName("modal-close")[0].style.display = "inline-flex"
+            } else {
+                document.getElementById("blocklyDiv").style.width = 'calc(100vw - 400px)';
+                document.getElementById("toolbox").style.width = 'calc(100vw - 400px)';
+                document.getElementById("funcs").style.right = '440px';
+                document.getElementsByClassName("modal-close")[0].style.display = "none"
+            }
+            Blockly.svgResize(workspace);
+            modal.style.display = "block";
+            document.getElementsByClassName("switch_code")[0].className = "switch_code show shown";
+        } else {
+            document.getElementsByClassName("modal-content")[0].className = "modal-content";
+            document.getElementById("blocklyDiv").style.width = '100vw';
+            document.getElementById("toolbox").style.width = '100vw';
+            document.getElementById("funcs").style.right = '40px';
+            Blockly.svgResize(workspace);
+            modal.style.display = "none";
+            document.getElementsByClassName("switch_code")[0].className = "switch_code shown";
+        }
+        // 响应式适配
+        var toolboxcontents = document.getElementsByClassName('blocklyToolboxContents')[0];
+        var funcs = document.getElementById('funcs');
+        var toolboxcontents = document.getElementsByClassName('blocklyToolboxContents')[0];
+        var funcs = document.getElementById('funcs');
+        if ((x - 40 - w) <= toolboxcontents.style.width) {
+            w = x - toolboxcontents.style.width - 20;
+            h = w / 6;
+            funcs.style.borderTopRightRadius = '0px';
+            funcs.style.borderBottomRightRadius = '0px';
+            funcs.style.right = '0px';
+        }
+        if (isVisibleWidget()) {
+            document.getElementById("widgetPreview").style.display = document.getElementById("myModal").style.display
+        } else {
+            document.getElementById("widgetPreview").style.display = 'none'
+        }
+    }
+
+    // 点击复制，复制代码
+    copy.onclick = function () {
+        //window.Swal = swal;
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        navigator.clipboard.writeText(code);
+        document.getElementsByClassName("copyit")[0].style.display = 'none'
+        document.getElementsByClassName("copyityes")[0].style.display = 'inline-flex'
+        setTimeout(() => {
+            document.getElementsByClassName("copyityes")[0].style.display = 'none'
+            document.getElementsByClassName("copyit")[0].style.display = 'inline-flex'
+        }, 400)
+    }
 
 </script>
 
 <!-- 可见控件预览框 -->
 <style>
-	#widgetPreview {
-		height: 40vh;
-		width: 300px;
-		background-color: #ccc;
-		color: #ccc;
-		border-radius: 4px;
-		position: fixed;
-		top: 0px;
-		right: 400px;
-		display: none;
-		padding: 10px;
-	}
+    #widgetPreview {
+        height: 40vh;
+        width: 300px;
+        background-color: #ccc;
+        color: #ccc;
+        border-radius: 4px;
+        position: fixed;
+        top: 0px;
+        right: 400px;
+        display: none;
+        padding: 10px;
+    }
 </style>
 <div id="widgetPreview">
 </div>
 
 <style>
-	/* 代码框 (background) */
+    /* 代码框 (background) */
 
-	.newsth {
-		display: none;
-		/* 默认隐藏 */
-		position: fixed;
-		z-index: 100000;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		float: right;
-		background-color: rgba(0, 0, 0, .4);
-		box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
-		-webkit-box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
-		color: rgba(255, 255, 255, 0.75);
-	}
+    .newsth {
+        display: none;
+        /* 默认隐藏 */
+        position: fixed;
+        z-index: 100000;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        float: right;
+        background-color: rgba(0, 0, 0, .4);
+        box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+        -webkit-box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+        color: rgba(255, 255, 255, 0.75);
+    }
 
-	.show.newsth {
-		-webkit-animation: shownewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-		animation: shownewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	}
+    .show.newsth {
+        -webkit-animation: shownewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: shownewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
 
-	.newsth {
-		-webkit-animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-		animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	}
+    .newsth {
+        -webkit-animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: hidenewsth 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
 
-	.sord {
-		color: var(--close-color);
-		;
-		font-weight: bold;
-		font-size: 30px;
-	}
+    .sord {
+        color: var(--close-color);;
+        font-weight: bold;
+        font-size: 30px;
+    }
 
-	/* 代码框内容 */
+    /* 代码框内容 */
 
-	.newsth-content {
-		position: relative;
-		min-width: 300px;
-		border-radius: 10px;
-		background-color: #fefefe;
-		margin: 0 auto;
-		width: 60vw;
-		overflow: hidden;
-		height: 75vh;
-		top: 12.5vh;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-		background-color: #ffffff;
-	}
+    .newsth-content {
+        position: relative;
+        min-width: 300px;
+        border-radius: 10px;
+        background-color: #fefefe;
+        margin: 0 auto;
+        width: 60vw;
+        overflow: hidden;
+        height: 75vh;
+        top: 12.5vh;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        background-color: #ffffff;
+    }
 
-	.show.newsth-content {
-		-webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-		animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	}
+    .show.newsth-content {
+        -webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
 
-	.newsth-content {
-		-webkit-animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-		animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	}
+    .newsth-content {
+        -webkit-animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
 
-	.card {
-		margin: 10px;
-		width: 250px;
-		height: 250px;
-		background: var(--swal-color);
-		border-radius: 0.4em;
-		transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-		border: var(--card-border-color) 0.2em solid;
-		display: inline-flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
+    .card {
+        margin: 10px;
+        width: 250px;
+        height: 250px;
+        background: var(--swal-color);
+        border-radius: 0.4em;
+        transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: var(--card-border-color) 0.2em solid;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-	.card:hover {
-		border: var(--main-color) 0.2em solid;
-	}
+    .card:hover {
+        border: var(--main-color) 0.2em solid;
+    }
 
-	@-webkit-keyframes scale-up-center {
-		0% {
-			-webkit-transform: scale(0.9);
-			transform: scale(0.9);
-			opacity: 0
-		}
+    @-webkit-keyframes scale-up-center {
+        0% {
+            -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+            opacity: 0
+        }
 
-		50% {
-			-webkit-transform: scale(1.2);
-			transform: scale(1.05);
-		}
+        50% {
+            -webkit-transform: scale(1.2);
+            transform: scale(1.05);
+        }
 
-		90% {
-			-webkit-transform: scale(0.95);
-			transform: scale(0.95);
-		}
+        90% {
+            -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+        }
 
-		100% {
-			-webkit-transform: scale(1);
-			transform: scale(1);
-			opacity: 1
-		}
-	}
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 1
+        }
+    }
 
-	@keyframes scale-up-center {
-		0% {
-			-webkit-transform: scale(0.9);
-			transform: scale(0.9);
-			opacity: 0
-		}
+    @keyframes scale-up-center {
+        0% {
+            -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+            opacity: 0
+        }
 
-		50% {
-			-webkit-transform: scale(1.2);
-			transform: scale(1.05);
-		}
+        50% {
+            -webkit-transform: scale(1.2);
+            transform: scale(1.05);
+        }
 
-		90% {
-			-webkit-transform: scale(0.95);
-			transform: scale(0.95);
-		}
+        90% {
+            -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+        }
 
-		100% {
-			-webkit-transform: scale(1);
-			transform: scale(1);
-			opacity: 1
-		}
-	}
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 1
+        }
+    }
 
-	@-webkit-keyframes scale-hide {
-		0% {
-			opacity: 1
-		}
+    @-webkit-keyframes scale-hide {
+        0% {
+            opacity: 1
+        }
 
-		100% {
-			opacity: 0
-		}
-	}
+        100% {
+            opacity: 0
+        }
+    }
 
-	@keyframes scale-hide {
-		0% {
-			opacity: 1
-		}
+    @keyframes scale-hide {
+        0% {
+            opacity: 1
+        }
 
-		100% {
-			opacity: 0
-		}
-	}
+        100% {
+            opacity: 0
+        }
+    }
 
-	@keyframes shownewsth {
-		0% {
-			opacity: 0;
-			backdrop-filter: blur(0px);
-			-webkit-backdrop-filter: blur(0px);
-		}
+    @keyframes shownewsth {
+        0% {
+            opacity: 0;
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+        }
 
-		100% {
-			opacity: 1;
-			backdrop-filter: blur(10px);
-			-webkit-backdrop-filter: blur(10px);
-		}
-	}
+        100% {
+            opacity: 1;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+    }
 
-	@keyframes hidenewsth {
-		0% {
-			opacity: 1;
-			backdrop-filter: blur(10px);
-			-webkit-backdrop-filter: blur(10px);
-		}
+    @keyframes hidenewsth {
+        0% {
+            opacity: 1;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
 
-		100% {
-			opacity: 0;
-			backdrop-filter: blur(0px);
-			-webkit-backdrop-filter: blur(0px);
-			display: none;
-		}
-	}
+        100% {
+            opacity: 0;
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+            display: none;
+        }
+    }
 
-	/* 关闭按钮 */
+    /* 关闭按钮 */
 
-	.newsth-close {
-		color: var(--close-color);
-		font-weight: bold;
-		font-size: 25px;
-		float: right;
-		display: flex;
-		position: relative;
-		right: 4px;
-		align-content: center;
-		align-items: center;
-		justify-content: center;
-	}
+    .newsth-close {
+        color: var(--close-color);
+        font-weight: bold;
+        font-size: 25px;
+        float: right;
+        display: flex;
+        position: relative;
+        right: 4px;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+    }
 
-	.newsth-logo {
-		position: relative;
-		left: 10px;
-		color: var(--main-color);
-	}
+    .newsth-logo {
+        position: relative;
+        left: 10px;
+        color: var(--main-color);
+    }
 
-	.newsth-close:hover,
-	.newsth-close:focus {
-		color: #000;
-		text-decoration: none;
-		cursor: pointer;
-	}
+    .newsth-close:hover,
+    .newsth-close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-	.newsth-header {
-		padding: 20px 16px;
-		border-radius: 10px 10px 0 0;
-		background-color: rgb(245, 248, 250);
-		color: rgb(245, 248, 250);
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
+    .newsth-header {
+        padding: 20px 16px;
+        border-radius: 10px 10px 0 0;
+        background-color: rgb(245, 248, 250);
+        color: rgb(245, 248, 250);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-	.newsth-body {
-		padding: 2px 16px;
-		overflow-y: auto;
-		overflow-x: hidden;
-		height: calc(75vh - 78px);
-		width: 100%;
-		text-align: center;
-		display: flex;
-		align-items: center;
-		align-content: flex-start;
-		flex-wrap: wrap;
-		justify-content: space-evenly;
-	}
+    .newsth-body {
+        padding: 2px 16px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: calc(75vh - 78px);
+        width: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
 
-	.dropdown-item:hover {
-		background: var(--menu-hover);
-		color: var(--menu-font-hover);
-	}
+    .dropdown-item:hover {
+        background: var(--menu-hover);
+        color: var(--menu-font-hover);
+    }
 
-	.dropdown-item:active {
-		background: var(--menu-active);
-		color: var(--menu-font-hover);
-	}
+    .dropdown-item:active {
+        background: var(--menu-active);
+        color: var(--menu-font-hover);
+    }
 </style>
 <script>
-	var newsth = document.getElementById('mynewsth');
+    var newsth = document.getElementById('mynewsth');
 
-	// 获取 <span> 元素，用于关闭弹窗 that closes the newsth
-	var newsthspan = document.getElementsByClassName("newsth-close")[0];
+    // 获取 <span> 元素，用于关闭弹窗 that closes the newsth
+    var newsthspan = document.getElementsByClassName("newsth-close")[0];
 
-	// 点击 <span> (x), 关闭代码框
-	newsthspan.onclick = function () {
-		document.getElementsByClassName("groundglass")[0].className = "groundglass"
-		document.getElementsByClassName("groundglass")[0].style.display = "block"
-		document.getElementsByClassName("newsth-content")[0].className = "newsth-content"
-		document.getElementsByClassName("newsth")[0].className = "newsth"
-		setTimeout(() => { newsth.style.display = "none"; document.getElementsByClassName("groundglass")[0].style.display = ""; }, 320)
-	}
+    // 点击 <span> (x), 关闭代码框
+    newsthspan.onclick = function () {
+        document.getElementsByClassName("groundglass")[0].className = "groundglass"
+        document.getElementsByClassName("groundglass")[0].style.display = "block"
+        document.getElementsByClassName("newsth-content")[0].className = "newsth-content"
+        document.getElementsByClassName("newsth")[0].className = "newsth"
+        setTimeout(() => {
+            newsth.style.display = "none";
+            document.getElementsByClassName("groundglass")[0].style.display = "";
+        }, 320)
+    }
 
 </script>
 
 <style>
-	/* 代码框 (background) */
+    /* 代码框 (background) */
 
-	.aboutus {
-		display: none;
-		/* 默认隐藏 */
-		position: fixed;
-		z-index: 100000;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		float: right;
-		background-color: rgba(0, 0, 0, .4);
-		box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
-		-webkit-box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
-		color: rgba(255, 255, 255, 0.75);
-	}
+    .aboutus {
+        display: none;
+        /* 默认隐藏 */
+        position: fixed;
+        z-index: 100000;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        float: right;
+        background-color: rgba(0, 0, 0, .4);
+        box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+        -webkit-box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+        color: rgba(255, 255, 255, 0.75);
+    }
 
-	.show.aboutus {
-		-webkit-animation: showaboutus 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-		animation: showaboutus 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	}
+    .show.aboutus {
+        -webkit-animation: showaboutus 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: showaboutus 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
 
-	.aboutus {
-		-webkit-animation: hideaboutus 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-		animation: hideaboutus 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	}
+    .aboutus {
+        -webkit-animation: hideaboutus 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: hideaboutus 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
 
 
-	.setting-second {
-		width: 100%;
-		height: 77px;
-		display: flex;
-		align-items: center;
-		justify-content: space-evenly;
-	}
+    .setting-second {
+        width: 100%;
+        height: 77px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
 
-	.setting-button {
-		border: transparent;
-		width: calc(100% / 3 - 22px);
-		height: 50px;
-		border-radius: 10px;
-		background-color: rgba(105, 85, 231, 0.7);
-		color: white;
-		font-size: 16px;
-		transition: background-color 0.2s, color 0.2s;
-	}
+    .setting-button {
+        border: transparent;
+        width: calc(100% / 3 - 22px);
+        height: 50px;
+        border-radius: 10px;
+        background-color: rgba(105, 85, 231, 0.7);
+        color: white;
+        font-size: 16px;
+        transition: background-color 0.2s, color 0.2s;
+    }
 
-	/* 代码框内容 */
-	.aboutus-content {
-		position: relative;
-		border-radius: 10px;
-		margin: 0 auto;
-		width: 45vw;
-		overflow: hidden;
-		height: 60vh;
-		top: 20vh;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-		background-color: var(--main-color);
-		background: var(--aboutus-background);
-		background-size: cover;
-		min-width: 284px;
-	}
+    /* 代码框内容 */
+    .aboutus-content {
+        position: relative;
+        border-radius: 10px;
+        margin: 0 auto;
+        width: 45vw;
+        overflow: hidden;
+        height: 60vh;
+        top: 20vh;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        background-color: var(--main-color);
+        background: var(--aboutus-background);
+        background-size: cover;
+        min-width: 284px;
+    }
 
-	.show.aboutus-content {
-		-webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-		animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	}
+    .show.aboutus-content {
+        -webkit-animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: scale-up-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
 
-	.aboutus-content {
-		-webkit-animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-		animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	}
+    .aboutus-content {
+        -webkit-animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: scale-hide 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
 
-	@-webkit-keyframes scale-up-center {
-		0% {
-			-webkit-transform: scale(0.9);
-			transform: scale(0.9);
-			opacity: 0
-		}
+    @-webkit-keyframes scale-up-center {
+        0% {
+            -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+            opacity: 0
+        }
 
-		50% {
-			-webkit-transform: scale(1.2);
-			transform: scale(1.05);
-		}
+        50% {
+            -webkit-transform: scale(1.2);
+            transform: scale(1.05);
+        }
 
-		90% {
-			-webkit-transform: scale(0.95);
-			transform: scale(0.95);
-		}
+        90% {
+            -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+        }
 
-		100% {
-			-webkit-transform: scale(1);
-			transform: scale(1);
-			opacity: 1
-		}
-	}
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 1
+        }
+    }
 
-	@keyframes scale-up-center {
-		0% {
-			-webkit-transform: scale(0.9);
-			transform: scale(0.9);
-			opacity: 0
-		}
+    @keyframes scale-up-center {
+        0% {
+            -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+            opacity: 0
+        }
 
-		50% {
-			-webkit-transform: scale(1.2);
-			transform: scale(1.05);
-		}
+        50% {
+            -webkit-transform: scale(1.2);
+            transform: scale(1.05);
+        }
 
-		90% {
-			-webkit-transform: scale(0.95);
-			transform: scale(0.95);
-		}
+        90% {
+            -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+        }
 
-		100% {
-			-webkit-transform: scale(1);
-			transform: scale(1);
-			opacity: 1
-		}
-	}
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 1
+        }
+    }
 
-	@-webkit-keyframes scale-hide {
-		0% {
-			opacity: 1
-		}
+    @-webkit-keyframes scale-hide {
+        0% {
+            opacity: 1
+        }
 
-		100% {
-			opacity: 0
-		}
-	}
+        100% {
+            opacity: 0
+        }
+    }
 
-	@keyframes scale-hide {
-		0% {
-			opacity: 1
-		}
+    @keyframes scale-hide {
+        0% {
+            opacity: 1
+        }
 
-		100% {
-			opacity: 0
-		}
-	}
+        100% {
+            opacity: 0
+        }
+    }
 
-	@keyframes showaboutus {
-		0% {
-			opacity: 0;
-			backdrop-filter: blur(0px);
-			-webkit-backdrop-filter: blur(0px);
-		}
+    @keyframes showaboutus {
+        0% {
+            opacity: 0;
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+        }
 
-		100% {
-			opacity: 1;
-			backdrop-filter: blur(10px);
-			-webkit-backdrop-filter: blur(10px);
-		}
-	}
+        100% {
+            opacity: 1;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+    }
 
-	@keyframes hideaboutus {
-		0% {
-			opacity: 1;
-			backdrop-filter: blur(10px);
-			-webkit-backdrop-filter: blur(10px);
-		}
+    @keyframes hideaboutus {
+        0% {
+            opacity: 1;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
 
-		100% {
-			opacity: 0;
-			backdrop-filter: blur(0px);
-			-webkit-backdrop-filter: blur(0px);
-		}
-	}
+        100% {
+            opacity: 0;
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+        }
+    }
 
-	/* 关闭按钮 */
+    /* 关闭按钮 */
 
-	.aboutus-close {
-		color: var(--close-color);
-		font-weight: bold;
-		font-size: 25px;
-		float: right;
-		display: flex;
-		position: relative;
-		right: 4px;
-		align-content: center;
-		align-items: center;
-		justify-content: center;
-	}
+    .aboutus-close {
+        color: var(--close-color);
+        font-weight: bold;
+        font-size: 25px;
+        float: right;
+        display: flex;
+        position: relative;
+        right: 4px;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+    }
 
-	.aboutus-logo {
-		position: relative;
-		left: 10px;
-	}
+    .aboutus-logo {
+        position: relative;
+        left: 10px;
+    }
 
-	.aboutus-close:hover,
-	.aboutus-close:focus {
-		color: #000;
-		text-decoration: none;
-		cursor: pointer;
-	}
+    .aboutus-close:hover,
+    .aboutus-close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-	.aboutus-header {
-		padding: 20px 16px;
-		border-radius: 10px 10px 0 0;
-		background-color: rgb(245, 248, 250);
-		color: rgb(245, 248, 250);
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
+    .aboutus-header {
+        padding: 20px 16px;
+        border-radius: 10px 10px 0 0;
+        background-color: rgb(245, 248, 250);
+        color: rgb(245, 248, 250);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-	.aboutus-body,
-	.setting-body,
-	.thanks-body {
-		position: absolute;
-		display: flex;
-		padding: 2px 16px;
-		overflow-y: auto;
-		overflow-x: hidden;
-		height: calc(60vh - 154px);
-		text-align: center;
-		flex-direction: column;
-		width: 100%;
-		align-items: center;
-		align-content: center;
-		bottom: 0;
-		color: var(--funcs-color);
-		font-size: 20px;
-		font-weight: bold;
-	}
+    .aboutus-body,
+    .setting-body,
+    .thanks-body {
+        display: flex;
+        padding: 2px 16px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: calc(60vh - 154px);
+        text-align: center;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        align-content: center;
+        bottom: 0;
+        color: var(--funcs-color);
+        font-size: 20px;
+        font-weight: bold;
+    }
 
-	.setting-body {
-		align-items: flex-start !important;
-	}
+    .setting-body {
+        align-items: flex-start !important;
+    }
 
-	.brand {
-		color: #000;
-	}
+    .brand {
+        color: #000;
+    }
 </style>
 <script>
-	var aboutus = document.getElementById('myaboutus');
+    var aboutus = document.getElementById('myaboutus');
 
-	// 获取 <span> 元素，用于关闭弹窗 that closes the aboutus
-	var aboutusspan = document.getElementsByClassName("aboutus-close")[0];
+    // 获取 <span> 元素，用于关闭弹窗 that closes the aboutus
+    var aboutusspan = document.getElementsByClassName("aboutus-close")[0];
 
-	// 点击 <span> (x), 关闭代码框
-	aboutusspan.onclick = function () {
-		document.getElementsByClassName("groundglass")[0].className = "groundglass"
-		document.getElementsByClassName("groundglass")[0].style.display = "block"
-		document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content"
-		document.getElementsByClassName("aboutus")[0].className = "aboutus"
-		setTimeout(() => { aboutus.style.display = "none"; document.getElementsByClassName("groundglass")[0].style.display = ""; }, 320)
-	}
+    // 点击 <span> (x), 关闭代码框
+    aboutusspan.onclick = function () {
+        document.getElementsByClassName("groundglass")[0].className = "groundglass"
+        document.getElementsByClassName("groundglass")[0].style.display = "block"
+        document.getElementsByClassName("aboutus-content")[0].className = "aboutus-content"
+        document.getElementsByClassName("aboutus")[0].className = "aboutus"
+        setTimeout(() => {
+            aboutus.style.display = "none";
+            document.getElementsByClassName("groundglass")[0].style.display = "";
+        }, 320)
+    }
 </script>
 
 <!-- 右下导航栏样式 -->
 <style>
-	#funcs {
-		width: 300px;
-		height: 47px;
-		background: var(--funcs-bg-color);
-		position: absolute;
-		display: none;
-		bottom: 40px;
-		right: 40px;
-		z-index: 100;
-		border-radius: 77px;
-		border: 1px solid rgba(211, 208, 223, 0.5);
-		justify-content: center;
-		align-items: center;
-		justify-content: space-evenly;
-		box-shadow: 0px 3px 6px 2px rgb(0 0 0 / 30%);
-		backdrop-filter: blur(5px) saturate(200%);
-	}
+    #funcs {
+        width: 300px;
+        height: 47px;
+        background: var(--funcs-bg-color);
+        position: absolute;
+        display: none;
+        bottom: 40px;
+        right: 40px;
+        z-index: 100;
+        border-radius: 77px;
+        border: 1px solid rgba(211, 208, 223, 0.5);
+        justify-content: center;
+        align-items: center;
+        justify-content: space-evenly;
+        box-shadow: 0px 3px 6px 2px rgb(0 0 0 / 30%);
+        backdrop-filter: blur(5px) saturate(200%);
+    }
 
-	#funcs-buttons:hover {
-		cursor: pointer;
-	}
+    #funcs-buttons:hover {
+        cursor: pointer;
+    }
 
-	#funcs-buttons {
-		display: inline-flex;
-		width: 40px;
-		height: 40px;
-		justify-content: center;
-		align-items: center;
-	}
+    #funcs-buttons {
+        display: inline-flex;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+    }
 
-	.zoom-plus,
-	.zoom-minus,
-	.switch_code,
-	.waddle-theme {
-		color: var(--funcs-color);
-		-webkit-transition-duration: 0.1s;
-		transition-duration: 0.1s;
-	}
+    .zoom-plus,
+    .zoom-minus,
+    .switch_code,
+    .waddle-theme {
+        color: var(--funcs-color);
+        -webkit-transition-duration: 0.1s;
+        transition-duration: 0.1s;
+    }
 
-	.zoom-plus:hover,
-	.zoom-minus:hover,
-	.zoom-size:hover,
-	.switch_code:hover,
-	.waddle-theme:hover {
-		color: var(--funcs-hover-color);
-	}
+    .zoom-plus:hover,
+    .zoom-minus:hover,
+    .zoom-size:hover,
+    .switch_code:hover,
+    .waddle-theme:hover {
+        color: var(--funcs-hover-color);
+    }
 
-	.sun-round {
-		color: var(--funcs-color);
-	}
+    .sun-round {
+        color: var(--funcs-color);
+    }
 
-	.waddle-theme:hover .sun-round {
-		color: var(--funcs-hover-color);
-	}
+    .waddle-theme:hover .sun-round {
+        color: var(--funcs-hover-color);
+    }
 
-	.show.switch_code {
-		color: var(--show-code-color);
-	}
+    .show.switch_code {
+        color: var(--show-code-color);
+    }
 
-	.show.switch_code:hover {
-		color: var(--show-hover-code-color);
-	}
+    .show.switch_code:hover {
+        color: var(--show-hover-code-color);
+    }
 
-	.zoom-size {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		font-size: 17px;
-		color: var(--funcs-color);
-		font-weight: bold;
-		-webkit-transition-duration: 0.1s;
-		transition-duration: 0.1s;
-	}
+    .zoom-size {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        font-size: 17px;
+        color: var(--funcs-color);
+        font-weight: bold;
+        -webkit-transition-duration: 0.1s;
+        transition-duration: 0.1s;
+    }
 
-	@media only screen and (max-width: 818px) {
+    @media only screen and (max-width: 818px) {
 
-		.newsth-content,
-		.aboutus-content {
-			width: 100vw;
-			height: 100%;
-			top: 0;
-			animation: none !important;
-			-webkit-animation: none !important;
-			border-radius: 0;
-		}
+        .newsth-content,
+        .aboutus-content {
+            width: 100vw;
+            height: 100%;
+            top: 0;
+            animation: none !important;
+            -webkit-animation: none !important;
+            border-radius: 0;
+        }
 
-		.newsth-body {
-			height: calc(100vh - 78px);
-		}
+        .newsth-body {
+            height: calc(100% - 78px);
+        }
 
-		.aboutus-body,
-		.setting-body,
-		.thanks-body {
-			height: calc(100vh - 154px);
-		}
+        .aboutus-body,
+        .setting-body,
+        .thanks-body {
+            height: calc(100% - 154px);
+        }
 
-		.newsth-header,
-		.aboutus-header {
-			border-radius: 0;
-			background-color: var(--aboutus-background) !important;
-		}
+        .newsth-header,
+        .aboutus-header {
+            border-radius: 0;
+            background-color: var(--aboutus-background) !important;
+        }
 
-		.card {
-			width: 150px;
-			height: 150px;
-		}
+        .card {
+            width: 150px;
+            height: 150px;
+        }
 
-		.sord {
-			font-size: 20px;
-		}
-
-		#loadExtension{
-			margin-top: calc(100vh - 325px) !important;
-		}
-	}
+        .sord {
+            font-size: 20px;
+        }
+    }
 </style>
 <!-- 右下导航栏 -->
 <div id="funcs" class="funcs">
-	<div id="funcs-buttons" data-title="控件图标预览">
-		<div class="myicon"
-			style="border: 3px solid var(--nd-main-color); -webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px; width: 30px; height: 30px; display: flex; background-image: var(--pic-icon); background-repeat: no-repeat; background-size: 24px;">
-		</div>
-	</div>
-	<div id="funcs-buttons" data-title="切换主题" class="waddle-theme" onclick="switch_theme()">
-		<iconpark-icon name="day" class="theme-sun" style="height:30px;" width="30px" height="30px"></iconpark-icon>
-		<iconpark-icon name="night" class="theme-moon" style="height:30px;" width="30px" height="30px"></iconpark-icon>
-	</div>
-	<div id="funcs-buttons" data-title="转换代码" class="switch_code" onclick="switch_code()">
-		<iconpark-icon name="code" width="30px" height="30px"></iconpark-icon>
-	</div>
-	<div style="height: 30px; width: 2px; background: rgba(156, 137, 255, 0.5);"></div>
-	<div id="funcs-buttons" data-title="缩小" class="zoom-minus"
-		onclick="window.reast = 'minus';document.getElementsByClassName('blocklyZoom')[0].dispatchEvent(new PointerEvent('pointerdown'));window.reast = false;document.getElementById('zoom-size-number').innerHTML = Math.ceil(myscale * 100)+'%'">
-		<iconpark-icon name="smaller" width="30px" height="30px"></iconpark-icon>
-	</div>
-	<div id="funcs-buttons" data-title="恢复为100%" class="zoom-size"
-		onclick="window.reast = 'reast';document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent('pointerdown'));window.reast = false;document.getElementById('zoom-size-number').innerHTML = Math.ceil(myscale * 100)+'%'">
+    <div id="funcs-buttons" data-title="控件图标预览">
+        <div class="myicon"
+             style="border: 3px solid var(--nd-main-color); -webkit-user-select: none; -ms-user-select: none; user-select: none; border-radius: 20px; width: 30px; height: 30px; display: flex; background-image: var(--pic-icon); background-repeat: no-repeat; background-size: 24px;">
+        </div>
+    </div>
+    <div id="funcs-buttons" data-title="切换主题" class="waddle-theme" onclick="switch_theme()">
+        <iconpark-icon name="day" class="theme-sun" style="height:30px;" width="30px" height="30px"></iconpark-icon>
+        <iconpark-icon name="night" class="theme-moon" style="height:30px;" width="30px" height="30px"></iconpark-icon>
+    </div>
+    <div id="funcs-buttons" data-title="转换代码" class="switch_code" onclick="switch_code()">
+        <iconpark-icon name="code" width="30px" height="30px"></iconpark-icon>
+    </div>
+    <div style="height: 30px; width: 2px; background: rgba(156, 137, 255, 0.5);"></div>
+    <div id="funcs-buttons" data-title="缩小" class="zoom-minus"
+         onclick="window.reast = 'minus';document.getElementsByClassName('blocklyZoom')[0].dispatchEvent(new PointerEvent('pointerdown'));window.reast = false;document.getElementById('zoom-size-number').innerHTML = Math.ceil(myscale * 100)+'%'">
+        <iconpark-icon name="smaller" width="30px" height="30px"></iconpark-icon>
+    </div>
+    <div id="funcs-buttons" data-title="恢复为100%" class="zoom-size"
+         onclick="window.reast = 'reast';document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent('pointerdown'));window.reast = false;document.getElementById('zoom-size-number').innerHTML = Math.ceil(myscale * 100)+'%'">
 		<span id="zoom-size-number"
-			style="-webkit-user-select: none;-ms-user-select: none;user-select: none;">100%</span>
-	</div>
-	<div id="funcs-buttons" data-title="放大" class="zoom-plus"
-		onclick="window.reast = 'plus';document.getElementsByClassName('blocklyZoom')[1].dispatchEvent(new PointerEvent('pointerdown'));window.reast = false;document.getElementById('zoom-size-number').innerHTML = Math.ceil(myscale * 100)+'%'">
-		<iconpark-icon name="bigger" width="30px" height="30px"></iconpark-icon>
-	</div>
+              style="-webkit-user-select: none;-ms-user-select: none;user-select: none;">100%</span>
+    </div>
+    <div id="funcs-buttons" data-title="放大" class="zoom-plus"
+         onclick="window.reast = 'plus';document.getElementsByClassName('blocklyZoom')[1].dispatchEvent(new PointerEvent('pointerdown'));window.reast = false;document.getElementById('zoom-size-number').innerHTML = Math.ceil(myscale * 100)+'%'">
+        <iconpark-icon name="bigger" width="30px" height="30px"></iconpark-icon>
+    </div>
 </div>
 
 <script>
-	// 窗口大小重置时，重新设置位置
-	$(window).resize(function () {
-		if ($(window).width() < 818) {
-			document.getElementsByClassName("modal")[0].style.width = "100vw"
-			document.getElementById("blocklyDiv").style.width = '100vw';
-			document.getElementById("toolbox").style.width = '100vw';
-			document.getElementById("funcs").style.right = '40px';
-			document.getElementsByClassName("modal-close")[0].style.display = "inline-flex"
-		}
-		else {
-			document.getElementsByClassName("modal")[0].style.width = "400px";
-			document.getElementsByClassName("modal-close")[0].style.display = "none"
-			if (modal.style.display == "none" || modal.style.display == "") {
-				document.getElementById("blocklyDiv").style.width = '100vw';
-				document.getElementById("toolbox").style.width = '100vw';
-				document.getElementById("funcs").style.right = '40px';
-			}
-			else {
-				document.getElementById("blocklyDiv").style.width = 'calc(100vw - 400px)';
-				document.getElementById("toolbox").style.width = 'calc(100vw - 400px)';
-				document.getElementById("funcs").style.right = '440px';
-			}
-		}
-	});
-	$(window).resize(function () {
-		document.getElementById("table").style.height = (window.innerHeight + 'px');
-		document.getElementById("toolbox").style.height = (window.innerHeight + 'px');
-		document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
-		document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
-		document.getElementsByClassName("modal-content")[0].style.height = window.innerHeight + 'px';
-		document.getElementsByClassName("copy")[0].style.top = (window.innerHeight - 110) + 'px';
-		document.getElementsByClassName("modal-close")[0].style.top = (window.innerHeight - 110) + 'px';
-		document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
-		document.getElementById("delete-div").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
-		document.getElementById("delete-svg-up").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 35) / 2 + 'px';
-		document.getElementById("delete-svg-down").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 30) / 2 + 'px';
-		document.getElementById("delete-svg-up").style.top = (window.innerHeight - document.getElementById('delete-svg-up').style.height) / 2 - 7 + 'px';
-		document.getElementById("delete-svg-down").style.top = (window.innerHeight - document.getElementById('delete-svg-down').style.height) / 2 - 7 + 'px';
-		Blockly.svgResize(workspace);
-	});
+    // 窗口大小重置时，重新设置位置
+    $(window).resize(function () {
+        if ($(window).width() <= 818) {
+            document.getElementsByClassName("modal")[0].style.width = "100vw"
+            document.getElementById("blocklyDiv").style.width = '100vw';
+            document.getElementById("toolbox").style.width = '100vw';
+            document.getElementById("funcs").style.right = '40px';
+            document.getElementsByClassName("modal-close")[0].style.display = "inline-flex"
+            document.getElementById("loadExtension").style.marginTop = (window.innerHeight - 385) + "px"
+        } else {
+            document.getElementsByClassName("modal")[0].style.width = "400px";
+            document.getElementsByClassName("modal-close")[0].style.display = "none"
+            document.getElementById("loadExtension").style.marginTop = (window.innerHeight * 0.6 - 385) + "px"
+            if (modal.style.display == "none" || modal.style.display == "") {
+                document.getElementById("blocklyDiv").style.width = '100vw';
+                document.getElementById("toolbox").style.width = '100vw';
+                document.getElementById("funcs").style.right = '40px';
+            } else {
+                document.getElementById("blocklyDiv").style.width = 'calc(100vw - 400px)';
+                document.getElementById("toolbox").style.width = 'calc(100vw - 400px)';
+                document.getElementById("funcs").style.right = '440px';
+            }
+        }
+    });
+    $(window).resize(function () {
+        document.getElementById("table").style.height = (window.innerHeight + 'px');
+        document.getElementById("toolbox").style.height = (window.innerHeight + 'px');
+        document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
+        document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
+        document.getElementsByClassName("modal-content")[0].style.height = window.innerHeight + 'px';
+        document.getElementsByClassName("copy")[0].style.top = (window.innerHeight - 110) + 'px';
+        document.getElementsByClassName("modal-close")[0].style.top = (window.innerHeight - 110) + 'px';
+        document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
+        document.getElementById("delete-div").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
+        document.getElementById("delete-svg-up").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 35) / 2 + 'px';
+        document.getElementById("delete-svg-down").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 30) / 2 + 'px';
+        document.getElementById("delete-svg-up").style.top = (window.innerHeight - document.getElementById('delete-svg-up').style.height) / 2 - 7 + 'px';
+        document.getElementById("delete-svg-down").style.top = (window.innerHeight - document.getElementById('delete-svg-down').style.height) / 2 - 7 + 'px';
+        Blockly.svgResize(workspace);
+    });
 </script>
 
 <script src="./static/js/waddle_extension.js"></script>
@@ -2194,114 +2190,137 @@ wwwwwww      wwwwww     wwwwwww
 <script src="./static/js/themes.js"></script>
 
 <script>
-	// 右下角响应式布局
-	var size_changer = function () {
-		x = window.innerWidth;
-		h = 45 + 1 / (1 + Math.E ^ (10 * x)) * 35000;
-		w = h * 6;
-		var toolboxcontents = document.getElementsByClassName('blocklyToolboxContents')[0];
-		var funcs = document.getElementById('funcs');
-		if ((x - 40 - w) <= toolboxcontents.style.width) {
-			w = x - toolboxcontents.style.width - 20;
-			h = w / 6;
-			funcs.style.borderTopRightRadius = '0px';
-			funcs.style.borderBottomRightRadius = '0px';
-			funcs.style.right = '0px';
-			if (w < 250) {
-				w = 250;
-			}
-			if (h < 50) {
-				h = 50;
-			}
-		} else {
-			funcs.style.borderTopRightRadius = '77px';
-			funcs.style.borderBottomRightRadius = '77px';
-			if (modal.style.display == "none" || modal.style.display == "") {
-				funcs.style.right = '40px'
-			}
-			else {
-				funcs.style.right = '440px';
-			}
-		}
-		document.getElementById('funcs').style.height = h + 'px';
-		document.getElementById('funcs').style.width = w + 'px';
-	};
-	size_changer();
-	window.onresize = size_changer;
-	// 等待加载完毕
-	document.getElementById('table').style.height = window.innerHeight + 'px';
-	document.getElementById('toolbox').style.height = window.innerHeight + 'px';
-	document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
-	document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
-	document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
-	if (version.includes("beta")) {
-		document.getElementById("logo1").src = "./static/img/logo/logo-beta.svg"
-	}
-	else {
-		document.getElementById("logo1").src = "./static/img/logo/logo-purple.svg"
-	}
-	document.getElementById("delete-div").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
-	document.getElementById("delete-svg-up").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 35) / 2 + 'px';
-	document.getElementById("delete-svg-down").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 30) / 2 + 'px';
-	document.getElementById("delete-svg-up").style.top = (window.innerHeight - document.getElementById('delete-svg-up').style.height) / 2 - 7 + 'px';
-	document.getElementById("delete-svg-down").style.top = (window.innerHeight - document.getElementById('delete-svg-down').style.height) / 2 - 7 + 'px';
-	document.getElementsByClassName('blocklyToolboxDiv')[0].style.zIndex = 5;
+    // 右下角响应式布局
+    var size_changer = function () {
+        x = window.innerWidth;
+        h = 45 + 1 / (1 + Math.E ^ (10 * x)) * 35000;
+        w = h * 6;
+        var toolboxcontents = document.getElementsByClassName('blocklyToolboxContents')[0];
+        var funcs = document.getElementById('funcs');
+        if ((x - 40 - w) <= toolboxcontents.style.width) {
+            w = x - toolboxcontents.style.width - 20;
+            h = w / 6;
+            funcs.style.borderTopRightRadius = '0px';
+            funcs.style.borderBottomRightRadius = '0px';
+            funcs.style.right = '0px';
+            if (w < 250) {
+                w = 250;
+            }
+            if (h < 50) {
+                h = 50;
+            }
+        } else {
+            funcs.style.borderTopRightRadius = '77px';
+            funcs.style.borderBottomRightRadius = '77px';
+            if (modal.style.display == "none" || modal.style.display == "") {
+                funcs.style.right = '40px'
+            } else {
+                funcs.style.right = '440px';
+            }
+        }
+        document.getElementById('funcs').style.height = h + 'px';
+        document.getElementById('funcs').style.width = w + 'px';
+    };
+    size_changer();
+    window.onresize = size_changer;
+    // 等待加载完毕
+    document.getElementById('table').style.height = window.innerHeight + 'px';
+    document.getElementById('toolbox').style.height = window.innerHeight + 'px';
+    document.getElementById("blocklyDiv").style.height = window.innerHeight + 'px';
+    document.getElementsByClassName("modal")[0].style.height = window.innerHeight + 'px';
+    document.getElementById("logo1").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
+    if (version.includes("beta")) {
+        document.getElementById("logo1").src = "./static/img/logo/logo-beta.svg"
+    } else {
+        document.getElementById("logo1").src = "./static/img/logo/logo-purple.svg"
+    }
+    document.getElementById("delete-div").style.width = document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth + 'px';
+    document.getElementById("delete-svg-up").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 35) / 2 + 'px';
+    document.getElementById("delete-svg-down").style.left = (document.getElementsByClassName('blocklyToolboxDiv')[0].clientWidth - 30) / 2 + 'px';
+    document.getElementById("delete-svg-up").style.top = (window.innerHeight - document.getElementById('delete-svg-up').style.height) / 2 - 7 + 'px';
+    document.getElementById("delete-svg-down").style.top = (window.innerHeight - document.getElementById('delete-svg-down').style.height) / 2 - 7 + 'px';
+    document.getElementsByClassName('blocklyToolboxDiv')[0].style.zIndex = 5;
 
-	window.settingss = getCookie('settingss')
-	if (!window.settingss) {
-		document.getElementById("showorkeep").checked = true
-	}
+    window.settingss = getCookie('settingss')
+    if (!window.settingss) {
+        document.getElementById("showorkeep").checked = true
+    }
 
-	window.holdToolbox = getCookie('holdToolbox')
-	if (window.holdToolbox) {
-		document.getElementById("alwaykeep").checked = true
-	}
+    window.holdToolbox = getCookie('holdToolbox')
+    if (window.holdToolbox) {
+        document.getElementById("alwaykeep").checked = true
+    }
 
-	window.onbeforeunload = function (event) {
-		const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
-		localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
-	}
+    window.onbeforeunload = function (event) {
+        const xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
+        localStorage.setItem("xmlText", Blockly.Xml.domToText(xml));
+    }
 
-	setTimeout(() => {
-		document.getElementsByClassName('blocklyToolboxDiv')[0].id = "blocklyToolboxDiv";
-		document.getElementsByClassName("blocklyTrash")[0].style.display = "none";
-		Blockly.svgResize(workspace);
-		document.getElementById("body").style = "visibility: visible";
-		document.getElementsByClassName("funcs")[0].style.display = "inline-flex";
-		Blockly.getMainWorkspace().clear();
-		try {
-			const xml = Blockly.Xml.textToDom(localStorage.getItem("xmlText"));
-			Blockly.Xml.domToWorkspace(xml, Blockly.getMainWorkspace());
-		}
-		catch (err) {
-			upload('./static/Waddle/tutorials/invisiblewidget.waddle')
-		}
+    setTimeout(() => {
+        document.getElementsByClassName('blocklyToolboxDiv')[0].id = "blocklyToolboxDiv";
+        document.getElementsByClassName("blocklyTrash")[0].style.display = "none";
+        Blockly.svgResize(workspace);
+        document.getElementById("body").style = "visibility: visible";
+        document.getElementsByClassName("funcs")[0].style.display = "inline-flex";
+        Blockly.getMainWorkspace().clear();
+        try {
+            const xml = Blockly.Xml.textToDom(localStorage.getItem("xmlText"));
+            Blockly.Xml.domToWorkspace(xml, Blockly.getMainWorkspace());
+        } catch (err) {
+            upload('./static/Waddle/tutorials/invisiblewidget.waddle')
+        }
 
-		setTimeout(() => {
-			var box = document.querySelectorAll('#funcs-buttons');
-			for (var i = 0; i < box.length; i++) {
-				box[i].classList.add('shown');
-			}
-		}, 500);
+        setTimeout(() => {
+            var box = document.querySelectorAll('#funcs-buttons');
+            for (var i = 0; i < box.length; i++) {
+                box[i].classList.add('shown');
+            }
+        }, 500);
 
-		if (getCookie('logo-egg') == 1) {
-			document.cookie = 'logo-egg=true';
-			swal("获得成就：最简单的彩蛋");
-		}
-	}, 1000);
+        if (getCookie('logo-egg') == 1) {
+            document.cookie = 'logo-egg=true';
+            swal("获得成就：最简单的彩蛋");
+        }
+    }, 1000);
 
-	let to_center = function () {
-		// 加载完成积木居中
-		const el = document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent("pointerdown"));
-		try {
-			el.dispatchEvent(new PointerEvent("pointerdown"));
-		} catch (err) {
-			// pass
-		}
-	}
-	NProgress.done()
-	setTimeout(() => to_center(), 1000) //加载完成1s后执行
+    let to_center = function () {
+        // 加载完成积木居中
+        const el = document.getElementsByClassName('blocklyZoom')[2].dispatchEvent(new PointerEvent("pointerdown"));
+        try {
+            el.dispatchEvent(new PointerEvent("pointerdown"));
+        } catch (err) {
+            // pass
+        }
+    }
+    NProgress.done()
+    setTimeout(() => to_center(), 1000) //加载完成1s后执行
 
+</script>
+<script>
+    // 点击复制，复制代码
+    copy.onclick = function () {
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        if (window.parent == window.self) {
+            navigator.clipboard.writeText(code);
+            document.getElementsByClassName("copyit")[0].style.display = 'none'
+            document.getElementsByClassName("copyityes")[0].style.display = 'inline-flex'
+            setTimeout(() => {
+                document.getElementsByClassName("copyityes")[0].style.display = 'none'
+                document.getElementsByClassName("copyit")[0].style.display = 'inline-flex'
+            }, 400)
+        } else {
+            $(document).ready(function () {
+                $.post("./php/getToJs.php",
+                    {
+                        text: encodeURIComponent(code)
+                    },
+                    function (data, status) {
+                        navigator.clipboard.writeText(data);
+                        window.parent.postMessage('ImportFile', '*');
+                    });
+            });
+        }
+    }
 </script>
 <div class="groundglass"></div>
 <div id="del-groundglass" class="del-groundglass groundglass"></div>

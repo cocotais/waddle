@@ -249,7 +249,11 @@ TIP
 		</block>
 		<block type="js_settimeout">
 		</block>
+		<block type="js_settimeout2">
+		</block>
 		<block type="js_setinterval">
+		</block>
+		<block type="js_setinterval2">
 		</block>
 		<!--
 		<block type="js_str_index">
