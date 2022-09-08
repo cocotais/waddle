@@ -1452,19 +1452,6 @@ wwwwwww      wwwwww     wwwwwww
         }
     }
 
-    // 点击复制，复制代码
-    copy.onclick = function () {
-        //window.Swal = swal;
-        var code = Blockly.JavaScript.workspaceToCode(workspace);
-        navigator.clipboard.writeText(code);
-        document.getElementsByClassName("copyit")[0].style.display = 'none'
-        document.getElementsByClassName("copyityes")[0].style.display = 'inline-flex'
-        setTimeout(() => {
-            document.getElementsByClassName("copyityes")[0].style.display = 'none'
-            document.getElementsByClassName("copyit")[0].style.display = 'inline-flex'
-        }, 400)
-    }
-
 </script>
 
 <!-- 可见控件预览框 -->
