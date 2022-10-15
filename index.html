@@ -69,120 +69,30 @@ wwwwwww      wwwwww     wwwwwww
         document.head.appendChild(logo);
     </script>
     <link rel="stylesheet" href="./static/css/theme.css">
-
-    <div id="app-root"></div>
-    <!--在项目 html 中加载此段代码（最好是在body最后，这样如果你的应用有加载过一些polyfill, 可以避免一些重复加载），即可在项目中使用图标组件-->
     <script>
-        (function () {
-            function polyfillsLoader() {
-                function loadScript(src, type, attrs) {
-                    var attributes = attrs || [];
-                    return new Promise(function (resolve) {
-                        var script = document.createElement('script');
-
-                        function onLoaded() {
-                            if (script.parentElement) {
-                                script.parentElement.removeChild(script);
-                            }
-                            resolve();
-                        }
-
-                        script.src = src;
-                        script.onload = onLoaded;
-                        attributes.forEach(function (att) {
-                            script.setAttribute(att.name, att.value);
-                        });
-
-                        script.onerror = function () {
-                            console.error('[polyfills-loader] failed to load: ' + src + ' check the network tab for HTTP status.');
-                            onLoaded();
-                        };
-
-                        if (type) script.type = type;
-                        document.head.appendChild(script);
-                    });
-                }
-
-                var polyfills = [];
-
-                if (!('noModule' in HTMLScriptElement.prototype)) {
-                    // 这里的 polyfill 链接提供的是公共 cdn 上的地址，你可以将其中的polyfill代码下载下来传到自己的服务器/cdn后使用其链接，下同
-                    polyfills.push(loadScript('./static/js/runtime.js'));
-                }
-
-                if (!('attachShadow' in Element.prototype) || !('getRootNode' in Element.prototype) || window.ShadyDOM && window.ShadyDOM.force) {
-                    polyfills.push(loadScript('./static/js/webcomponents-bundle.js'));
-                }
-
-                if (!('noModule' in HTMLScriptElement.prototype) && 'getRootNode' in Element.prototype) {
-                    polyfills.push(loadScript('./static/js/custom-elements-es5-adapter.js'));
-                }
-
-                if (!('attachShadow' in Element.prototype)) {
-                    polyfills.push(loadScript('./static/js/polyfill-support.js'));
-                }
-
-                function loadFiles() {
-                    if (!('noModule' in HTMLScriptElement.prototype)) {
-                        // 加载 ES5 版本图标js
-                        loadScript('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.js')
-                    } else {
-                        // 加载 ES2019 版本图标js，类型为module的链接是自动defer的
-                        loadScript('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.es5.js', 'module', []);
-                    }
-                }
-
-                if (polyfills.length) {
-                    Promise.all(polyfills).then(loadFiles);
-                } else {
-                    loadFiles();
-                }
+        //获取cookie
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
             }
+            return "";
+        }
 
-            if (!('noModule' in HTMLScriptElement.prototype) || !(window.globalThis && typeof window.globalThis == 'object')) {
-                var s = document.createElement('script')
+        var theme = getCookie('mode');
 
-                function onLoaded() {
-                    document.head.removeChild(s);
-                    polyfillsLoader();
-                }
-
-                s.src = "./static/js/minified.min.js";
-                s.onload = onLoaded;
-                s.onerror = function () {
-                    console.error('[polyfills-loader] failed to load: ' + s.src + ' check the network tab for HTTP status.');
-                    onLoaded();
-                };
-
-                document.head.appendChild(s);
-            } else {
-                polyfillsLoader();
-            }
-        })();
+        // 2月21日（2·21事件） 12月13日（国家公祭日） 黑白
+        var date = new Date();
+        if ((date.getMonth() + 1 == 2 && date.getDate() == 21) || (date.getMonth() + 1 == 12 && date.getDate() == 13)) {
+            var rip = document.createElement('style');
+            rip.innerText = '/*R.I.P.*/html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
+            document.body.appendChild(rip);
+        }
     </script>
 </head>
-<script>
-    //获取cookie
-    function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i].trim();
-            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-        }
-        return "";
-    }
 
-    var theme = getCookie('mode');
-
-    // 2月21日（2·21事件） 12月13日（国家公祭日） 黑白
-    var date = new Date();
-    if ((date.getMonth() + 1 == 2 && date.getDate() == 21) || (date.getMonth() + 1 == 12 && date.getDate() == 13)) {
-        var rip = document.createElement('style');
-        rip.innerText = '/*R.I.P.*/html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}';
-        document.body.appendChild(rip);
-    }
-</script>
 
 <body>
 <!-- 加载页样式-->
@@ -504,7 +414,7 @@ wwwwwww      wwwwww     wwwwwww
         }
     </style>
     <script>
-        $(window).resize(function () {
+        function arrow_directions() {
             toolbox = document.getElementsByClassName('blocklyToolboxDiv')[0]
             bottom = Math.ceil(toolbox.scrollHeight - toolbox.clientHeight - 2);
             if (toolbox.scrollTop == 0) {
@@ -522,43 +432,14 @@ wwwwwww      wwwwww     wwwwwww
                 document.getElementById("toup").style.display = "block"
                 document.getElementById("todown").style.display = "block"
             }
+        }
+        $(window).resize(function () {
+            arrow_directions();
         })
         $('.blocklyToolboxDiv').ready(function () {
-            toolbox = document.getElementsByClassName('blocklyToolboxDiv')[0]
-            bottom = Math.ceil(toolbox.scrollHeight - toolbox.clientHeight - 2);
-            if (toolbox.scrollTop == 0) {
-                if (Math.ceil(toolbox.scrollTop) >= bottom) {
-                    document.getElementById("toup").style.display = "none"
-                    document.getElementById("todown").style.display = "none"
-                } else {
-                    document.getElementById("toup").style.display = "none"
-                    document.getElementById("todown").style.display = "block"
-                }
-            } else if (Math.ceil(toolbox.scrollTop) - bottom >= 0) {
-                document.getElementById("toup").style.display = "block"
-                document.getElementById("todown").style.display = "none"
-            } else {
-                document.getElementById("toup").style.display = "block"
-                document.getElementById("todown").style.display = "block"
-            }
+            arrow_directions();
             $('.blocklyToolboxDiv').scroll(function () {
-                toolbox = document.getElementsByClassName('blocklyToolboxDiv')[0]
-                bottom = Math.ceil(toolbox.scrollHeight - toolbox.clientHeight - 2);
-                if (toolbox.scrollTop == 0) {
-                    if (Math.ceil(toolbox.scrollTop) >= bottom) {
-                        document.getElementById("toup").style.display = "none"
-                        document.getElementById("todown").style.display = "none"
-                    } else {
-                        document.getElementById("toup").style.display = "none"
-                        document.getElementById("todown").style.display = "block"
-                    }
-                } else if (Math.ceil(toolbox.scrollTop) - bottom >= 0) {
-                    document.getElementById("toup").style.display = "block"
-                    document.getElementById("todown").style.display = "none"
-                } else {
-                    document.getElementById("toup").style.display = "block"
-                    document.getElementById("todown").style.display = "block"
-                }
+               arrow_directions();
             });
         });
     </script>
@@ -1108,6 +989,82 @@ wwwwwww      wwwwww     wwwwwww
     </div>
 </div>
 </div>
+    <div id="app-root"></div>
+    <!--在项目 html 中加载此段代码（最好是在body最后，这样如果你的应用有加载过一些polyfill, 可以避免一些重复加载），即可在项目中使用图标组件-->
+    <script>
+        (function () {
+            function polyfillsLoader() {
+                function loadScript(src, type, attrs) {
+                    var attributes = attrs || [];
+                    return new Promise(function (resolve) {
+                        var script = document.createElement('script');
+
+                        function onLoaded() {
+                            if (script.parentElement) {
+                                script.parentElement.removeChild(script);
+                            }
+                            resolve();
+                        }
+                        script.src = src;
+                        script.onload = onLoaded;
+                        attributes.forEach(function (att) {
+                            script.setAttribute(att.name, att.value);
+                        });
+                        script.onerror = function () {
+                            console.error('[polyfills-loader] failed to load: ' + src + ' check the network tab for HTTP status.');
+                            onLoaded();
+                        };
+                        if (type) script.type = type;
+                        document.head.appendChild(script);
+                    });
+                }
+                var polyfills = [];
+                if (!('noModule' in HTMLScriptElement.prototype)) {
+                    // 这里的 polyfill 链接提供的是公共 cdn 上的地址，你可以将其中的polyfill代码下载下来传到自己的服务器/cdn后使用其链接，下同
+                    polyfills.push(loadScript('./static/js/runtime.js'));
+                }
+                if (!('attachShadow' in Element.prototype) || !('getRootNode' in Element.prototype) || window.ShadyDOM && window.ShadyDOM.force) {
+                    polyfills.push(loadScript('./static/js/webcomponents-bundle.js'));
+                }
+                if (!('noModule' in HTMLScriptElement.prototype) && 'getRootNode' in Element.prototype) {
+                    polyfills.push(loadScript('./static/js/custom-elements-es5-adapter.js'));
+                }
+                if (!('attachShadow' in Element.prototype)) {
+                    polyfills.push(loadScript('./static/js/polyfill-support.js'));
+                }
+                function loadFiles() {
+                    if (!('noModule' in HTMLScriptElement.prototype)) {
+                        // 加载 ES5 版本图标js
+                        loadScript('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.js')
+                    } else {
+                        // 加载 ES2019 版本图标js，类型为module的链接是自动defer的
+                        loadScript('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.es5.js', 'module', []);
+                    }
+                }
+                if (polyfills.length) {
+                    Promise.all(polyfills).then(loadFiles);
+                } else {
+                    loadFiles();
+                }
+            }
+            if (!('noModule' in HTMLScriptElement.prototype) || !(window.globalThis && typeof window.globalThis == 'object')) {
+                var s = document.createElement('script')
+                function onLoaded() {
+                    document.head.removeChild(s);
+                    polyfillsLoader();
+                }
+                s.src = "./static/js/minified.min.js";
+                s.onload = onLoaded;
+                s.onerror = function () {
+                    console.error('[polyfills-loader] failed to load: ' + s.src + ' check the network tab for HTTP status.');
+                    onLoaded();
+                };
+                document.head.appendChild(s);
+            } else {
+                polyfillsLoader();
+            }
+        })();
+    </script>
 </body>
 <!--引入Blockly必要文件-->
 
@@ -1452,6 +1409,30 @@ wwwwwww      wwwwww     wwwwwww
         }
     }
 
+    // 点击复制，复制代码
+    copy.onclick = function () {
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        if (window.parent == window.self) {
+            navigator.clipboard.writeText(code);
+            document.getElementsByClassName("copyit")[0].style.display = 'none'
+            document.getElementsByClassName("copyityes")[0].style.display = 'inline-flex'
+            setTimeout(() => {
+                document.getElementsByClassName("copyityes")[0].style.display = 'none'
+                document.getElementsByClassName("copyit")[0].style.display = 'inline-flex'
+            }, 400)
+        } else {
+            $(document).ready(function () {
+                $.post("./php/getToJs.php",
+                    {
+                        text: encodeURIComponent(code)
+                    },
+                    function (data, status) {
+                        navigator.clipboard.writeText(data);
+                        window.parent.postMessage('ImportFile', '*');
+                    });
+            });
+        }
+    }
 </script>
 
 <!-- 可见控件预览框 -->
@@ -2283,32 +2264,7 @@ wwwwwww      wwwwww     wwwwwww
     setTimeout(() => to_center(), 1000) //加载完成1s后执行
 
 </script>
-<script>
-    // 点击复制，复制代码
-    copy.onclick = function () {
-        var code = Blockly.JavaScript.workspaceToCode(workspace);
-        if (window.parent == window.self) {
-            navigator.clipboard.writeText(code);
-            document.getElementsByClassName("copyit")[0].style.display = 'none'
-            document.getElementsByClassName("copyityes")[0].style.display = 'inline-flex'
-            setTimeout(() => {
-                document.getElementsByClassName("copyityes")[0].style.display = 'none'
-                document.getElementsByClassName("copyit")[0].style.display = 'inline-flex'
-            }, 400)
-        } else {
-            $(document).ready(function () {
-                $.post("./php/getToJs.php",
-                    {
-                        text: encodeURIComponent(code)
-                    },
-                    function (data, status) {
-                        navigator.clipboard.writeText(data);
-                        window.parent.postMessage('ImportFile', '*');
-                    });
-            });
-        }
-    }
-</script>
+
 <div class="groundglass"></div>
 <div id="del-groundglass" class="del-groundglass groundglass"></div>
 
