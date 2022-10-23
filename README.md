@@ -1,19 +1,22 @@
+
 <p align="center">
-    <br>
-    <img src="https://waddle.coco-central.cn/static/img/logo/logo-purple-full.png" alt="Waddle-Logo-Purple"/>
-    <br>
-    <br>
-    <a href='https://gitee.com/coco-central/waddle/stargazers'>
-    <img src='https://gitee.com/coco-central/waddle/badge/star.svg?theme=white' alt='star'></img>
-    </a>
-    <a href='https://gitee.com/coco-central/waddle/members'>
-    <img src='https://gitee.com/coco-central/waddle/badge/fork.svg?theme=white' alt='fork'></img>
-    </a>
-    <br>
+    <img width="100" src="https://waddle.coco-central.cn/static/img/logo/logo-white.png" alt="Waddle-logo-white"/>
 </p>
 
-# 简介
+<h1 align="center">
+Waddle
+</h1>
 
+<div align="center">
+
+让CoCo没有难做的控件
+
+[![star](https://gitee.com/coco-central/waddle/badge/star.svg?theme=white)](https://gitee.com/coco-central/waddle/stargazers)[![fork](https://gitee.com/coco-central/waddle/badge/fork.svg?theme=white)](https://gitee.com/coco-central/waddle/members)
+
+
+</div>
+
+# 简介
 Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形化编辑器
 
 # 使用
@@ -33,7 +36,7 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 3. 在命令行运行命令 python -m http.server 8000 或双击运行 runserver.cmd
 
 4. 确认8000端口没有占用（占用了请回到第三步自定义端口）
-
+ 
 5. 浏览器打开 http://localhost:8000 即可
 
 
