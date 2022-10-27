@@ -11,7 +11,7 @@ Waddle
 
 让CoCo没有难做的控件
 
-[![star](https://gitee.com/coco-central/waddle/badge/star.svg?theme=white)](https://gitee.com/coco-central/waddle/stargazers)[![fork](https://gitee.com/coco-central/waddle/badge/fork.svg?theme=white)](https://gitee.com/coco-central/waddle/members)
+[![star](https://gitee.com/coco-central/waddle/badge/star.svg?theme=gvp)](https://gitee.com/coco-central/waddle/stargazers) [![fork](https://gitee.com/coco-central/waddle/badge/fork.svg?theme=gvp)](https://gitee.com/coco-central/waddle/members)
 
 
 </div>
