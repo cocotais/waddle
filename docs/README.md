@@ -59,7 +59,7 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
   <br>
   <img src="https://waddle.coco-central.cn/static/img/donate.png" alt="donate" height="250" width="250" />
   <br>
-  <a href="https://waddle.coco-central.cn/docs/#/appendix/2-收入支出明细">收入支出明细</a>
+  <a href="https://coco-central.feishu.cn/docx/UzYgdhxEFowo4cxJs9icR71MnLt">收入支出明细</a>
   <br>
 </p>
 <br>
