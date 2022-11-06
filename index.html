@@ -1292,6 +1292,9 @@ wwwwwww      wwwwww     wwwwwww
     // 部分积木盒的特殊处理
     workspace.registerToolboxCategoryCallback('UTILS_GAME', utilsFlyoutCallback);
     workspace.registerToolboxCategoryCallback('COLOR_CARD', coloursFlyoutCallback);
+    workspace.registerToolboxCategoryCallback('SEARCH', searchFlyoutCallback);
+    
+    workspace.registerButtonCallback("searchBtn",searchToolbox);
     workspace.registerButtonCallback("betawarning", function () {
         swal("这是实验性功能，正在测试，将来可能会频繁改动，若有bug请向作者反馈!")
     })

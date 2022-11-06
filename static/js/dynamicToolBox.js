@@ -427,3 +427,38 @@ function coloursFlyoutCallback(workspace) {
     }
     return xmlList;
 };
+function searchFlyoutCallback() {
+  var xmlList = [],parser=new DOMParser();
+  xmlList.push(Blockly.Xml.textToDom(`<button text="更改搜索关键词..." callbackKey="searchBtn"></button>`));
+  if (window.searchKeyword == "") return xmlList; //没有搜索关键词
+  var toolboxXml = parser.parseFromString(`<xml>${localStorage.getItem("toolbox")}</xml>`,"text/xml").getElementsByTagName("category");
+  for (let i = 1; i < toolboxXml.length; i++) {
+    //从1开始是因为第0项是搜索
+    var category = toolboxXml[i].getElementsByTagName("block"); //只搜索积木
+    for (let j = 0; j < category.length; j++) {
+      try {
+        var block = category[j];
+        var blockType = block.getAttribute("type");
+        var blockInit = Blockly.Blocks[blockType].init.toString();
+        var blockInitStr = blockInit.match(/"(?:[^"\\]|\\.)*"/g);
+        if (blockInitStr != null) {
+          let flag = false;
+          for (let k = 0; k < blockInitStr.length; k++) {
+            if (blockInitStr[k].includes(window.searchKeyword)) {
+              flag = true;
+              break;
+            }
+          }
+          if (flag) xmlList.push(block);
+        }
+      } catch (_) {}
+      //这是一个不完美的方法
+    }
+  }
+  return xmlList;
+}
+function searchToolbox(){
+  window.searchKeyword = prompt("搜索什么？")
+  toolbox.children[0].children[0].children[0].click();
+  toolbox.children[0].children[0].children[0].click();
+}
