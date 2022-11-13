@@ -20,7 +20,7 @@
 **&emsp;OTHERS**
 
 * [VI手册](appendix/1-VI手册.md)
-* [收入支出明细](appendix/2-收入支出明细.md)
+* [🔗 收入支出明细](https://coco-central.feishu.cn/docx/UzYgdhxEFowo4cxJs9icR71MnLt)
 * [🔗 Gitee仓库](https://gitee.com/coco-central/waddle)
 * [🔗 兔小巢](https://support.qq.com/product/420668)
 * [🔗 官网](https://coco-central.cn/)

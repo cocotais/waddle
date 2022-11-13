@@ -813,7 +813,7 @@ Blockly.Msg.TEXT_INDEXOF_TOOLTIP = 'Returns the index of the first/last occurren
 /// [https://github.com/google/blockly/wiki/Text#finding-text
 /// https://github.com/google/blockly/wiki/Text#finding-text].
 /// [[File:Blockly-find-text.png]].
-/// In English the expanded message is "in text %1 find (first|last) occurance of text %3"
+/// In English the expanded message is "in text %1 find (first|last) occurrence of text %3"
 /// where %1 and %3 are added by the user. See TEXT_INDEXOF_OPERATOR_FIRST and
 /// TEXT_INDEXOF_OPERATOR_LAST for the dropdown text that replaces %2.
 Blockly.Msg.TEXT_INDEXOF_TITLE = 'in text %1 %2 %3';
@@ -1063,7 +1063,7 @@ Blockly.Msg.TEXT_REPLACE_MESSAGE0 = 'replace %1 with %2 in %3';
 Blockly.Msg.TEXT_REPLACE_HELPURL = 'https://github.com/google/blockly/wiki/Text#replacing-substrings';
 /** @type {string} */
 /// tooltip - Short description of a block that replaces copies of text in a large text with other text.
-Blockly.Msg.TEXT_REPLACE_TOOLTIP = 'Replace all occurances of some text within some other text.';
+Blockly.Msg.TEXT_REPLACE_TOOLTIP = 'Replace all occurrences of some text within some other text.';
 
 /** @type {string} */
 /// block text - Title of block that returns a copy of text (%1) with the order
