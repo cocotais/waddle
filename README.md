@@ -1,6 +1,6 @@
 
 <p align="center">
-    <img width="100" src="https://waddle.coco-central.cn/static/img/logo/logo-white.png" alt="Waddle-logo-white"/>
+    <img width="100" src="https://waddle.coco-central.cn/static/img/logo/logo-purple.png" alt="Waddle-logo-white"/>
 </p>
 
 <h1 align="center">
@@ -64,4 +64,4 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 </p>
 <br>
 
-<div class="waddle-version-bot">v1.6.0(1283)-release</div>
+<div class="waddle-version-bot">v1.6.0(1283)-dev</div>

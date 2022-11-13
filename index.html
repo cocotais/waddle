@@ -17,7 +17,7 @@
     <script>
         // 控制台输出
         window.reast = false;
-        var version = 'v1.6.0(1283)-release' //版本号
+        var version = 'v1.6.0(1283)-dev' //版本号
         console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -211,6 +211,7 @@ wwwwwww      wwwwww     wwwwwww
         "Just Waddle! lol~",  //你觉得啥彩蛋？
         "我 永远 喜欢 谷恒条野！", //小鱼发病录（划掉）
         "紧跟时事，005nb！"
+        "Waddle得GVP了！",
     ];
     document.getElementById("loading-text").innerText = tipList[Math.floor(Math.random() * tipList.length)];
 
@@ -1035,10 +1036,10 @@ wwwwwww      wwwwww     wwwwwww
                 function loadFiles() {
                     if (!('noModule' in HTMLScriptElement.prototype)) {
                         // 加载 ES5 版本图标js
-                        loadScript('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.js')
+                        loadScript('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_40.dbc7e210332f827b8f94f5809ab03276.es5.js')
                     } else {
                         // 加载 ES2019 版本图标js，类型为module的链接是自动defer的
-                        loadScript('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_62.7ec2f300625bb89bf0079e5c7dc6d344.es5.js', 'module', []);
+                        loadScript('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/icons_13540_40.dbc7e210332f827b8f94f5809ab03276.js', 'module', []);
                     }
                 }
                 if (polyfills.length) {
