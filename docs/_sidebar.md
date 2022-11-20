@@ -1,4 +1,4 @@
-**&emsp;FORE USERS**
+**&emsp;FOR USERS**
 
 * [编辑器介绍](/)
 * [使用手册](guide/1-使用手册.md)
