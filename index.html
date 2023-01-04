@@ -17,7 +17,7 @@
     <script>
         // 控制台输出
         window.reast = false;
-        var version = 'v1.6.0(1283)-release' //版本号
+        var version = 'v1.6.0(1300)-beta' //版本号
         console.log(`%c
 wwwwwww      wwwwww     wwwwwww
  wwwwwww    wwwwwww    wwwwwwww
@@ -188,7 +188,7 @@ wwwwwww      wwwwww     wwwwwww
     NProgress.start();
     document.body.style.overflow = 'hidden' //禁止页面滑动
     var tipList = [
-        "让CoCo没有 难 做的控件",//彩蛋提示
+        "让CoCo没有<span onclick='count_oj()'>难</span>做的控件",//彩蛋提示
         "你知道吗？在Waddle中有N个彩蛋!",
         "在关于页面点击2次Waddle图标有惊喜!",
         "试一试夜间模式!",
@@ -210,10 +210,9 @@ wwwwwww      wwwwww     wwwwwww
         "Wadddddddddddle!",
         "Just Waddle! lol~",  //你觉得啥彩蛋？
         "我 永远 喜欢 谷恒条野！", //小鱼发病录（划掉）
-        "紧跟时事，005nb！"
-        "Waddle得GVP了！",
+        "Waddle得GVP了！"
     ];
-    document.getElementById("loading-text").innerText = tipList[Math.floor(Math.random() * tipList.length)];
+    document.getElementById("loading-text").innerHTML = tipList[Math.floor(Math.random() * tipList.length)];
 
     // 加载完成后适应主题
     if (theme == "dark") {
