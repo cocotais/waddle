@@ -18,7 +18,7 @@ Waddle
 </div>
 
 ### 简介
-Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形化编辑器
+Waddle 是由 Coconut Studio 基于 Blockly 开发的 CoCo自定义控件 图形化编辑器
 
 ### 使用
 
@@ -43,7 +43,7 @@ Waddle 是由 CoCo中控台 基于 Blockly 开发的 CoCo自定义控件 图形�
 
 ### 反馈
 
-如果你遇到 Bug 或者有好建议，可以选择 [提交issues](https://gitee.com/coco-central/waddle/issues)（优先处理） ，也可以在 [兔小巢](https://support.qq.com/product/420668) 内反馈！我们会尽快处理！
+如果你遇到 Bug 或者有好建议，可以选择 [提交issues](https://gitee.com/coco-central/waddle/issues) ，我们会尽快处理！
 
 ### 捐赠
 
