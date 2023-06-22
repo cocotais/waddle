@@ -26,7 +26,7 @@ Waddle 是由 Coconut Studio 基于 Blockly 开发的 CoCo自定义控件 图形
 
 - 稳定版：https://waddle.coco-central.cn
 
-- 开发版：https://waddle-beta.coco-central.cn
+- 开发版：已下线，请本地部署或使用稳定版。
 
 本地部署
 
