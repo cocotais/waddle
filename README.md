@@ -26,7 +26,7 @@ Waddle 是由 Coconut Studio 基于 Blockly 开发的 CoCo自定义控件 图形
 
 - 稳定版：https://waddle.coco-central.cn
 
-- 开发版：已下线，请本地部署或使用稳定版。
+- 开发版：已下线，请使用稳定版。
 
 本地部署
 
@@ -56,4 +56,4 @@ Waddle 是由 Coconut Studio 基于 Blockly 开发的 CoCo自定义控件 图形
 </p>
 <br>
 
-<div class="waddle-version-bot">v1.6.0(1300)-beta</div>
+<div class="waddle-version-bot">v1.6.1(1312)-release</div>
