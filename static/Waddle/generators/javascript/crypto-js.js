@@ -333,3 +333,13 @@ Blockly.JavaScript["crypto_encutf16stringify"] = function (block) {
   var code = `CryptoJS.enc.Utf16.stringify(${value_name})`;
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript["crypto_createuuid"] = function (block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `crypto.randomUUID()`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};

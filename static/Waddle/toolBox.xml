@@ -430,6 +430,8 @@ TIP
 		</block>
 		<block type="crypto_encutf16stringify">
 		</block>
+		<block type="crypto_createuuid">
+		</block>
 	</category>
 	<category name="http" css-icon="waddle-http" css-class="waddle-http waddle-testing">
 		<button text="实验性功能提示" callbackKey="betawarning">

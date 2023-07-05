@@ -382,5 +382,17 @@ Blockly.Blocks['crypto_encutf16stringify'] = {
   }
 };
 
+Blockly.Blocks['crypto_createuuid'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck("String")
+        .appendField("使用Crypto生成UUID");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(BlockColors["crypto"]);
+ this.setTooltip("不要在后面加东西");
+ this.setHelpUrl("");
+  }
+};
 
 //额，我更了个啥玩意
