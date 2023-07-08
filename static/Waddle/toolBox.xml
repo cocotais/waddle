@@ -394,6 +394,10 @@ TIP
 		</block>
 		<block type="crypto_aes_decrypt">
 		</block>
+		<block type="crypto_des_encrypt">
+		</block>
+		<block type="crypto_des_decrypt">
+		</block>
 		<block type="crypto_hmacmd5str">
 		</block>
 		<block type="crypto_hmacsha1str">

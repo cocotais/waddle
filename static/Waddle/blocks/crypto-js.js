@@ -112,11 +112,40 @@ Blockly.Blocks["crypto_aes_encrypt"] = {
     this.setHelpUrl("");
   },
 };
+
 Blockly.Blocks["crypto_aes_decrypt"] = {
   init: function () {
     this.appendValueInput("TEXT")
       .setCheck(null)
       .appendField("使用Crypto AES解密");
+    this.appendValueInput("CODE").setCheck(null).appendField("密钥");
+    this.setInputsInline(true);
+    this.setOutput(true, "String");
+    this.setColour(BlockColors["crypto"]);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+
+Blockly.Blocks["crypto_des_encrypt"] = {
+  init: function () {
+    this.appendValueInput("TEXT")
+      .setCheck(null)
+      .appendField("使用Crypto DES加密");
+    this.appendValueInput("CODE").setCheck(null).appendField("密钥");
+    this.setInputsInline(true);
+    this.setOutput(true, "String");
+    this.setColour(BlockColors["crypto"]);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+
+Blockly.Blocks["crypto_des_decrypt"] = {
+  init: function () {
+    this.appendValueInput("TEXT")
+      .setCheck(null)
+      .appendField("使用Crypto DES解密");
     this.appendValueInput("CODE").setCheck(null).appendField("密钥");
     this.setInputsInline(true);
     this.setOutput(true, "String");
@@ -141,7 +170,6 @@ Blockly.Blocks["crypto_hmacmd5str"] = {
   },
 };
 
-
 Blockly.Blocks["crypto_hmacsha1str"] = {
   init: function () {
     this.appendValueInput("NAME")
@@ -156,7 +184,6 @@ Blockly.Blocks["crypto_hmacsha1str"] = {
     this.setHelpUrl("");
   },
 };
-
 
 Blockly.Blocks["crypto_hmacsha256str"] = {
   init: function () {
@@ -188,8 +215,6 @@ Blockly.Blocks["crypto_hmacsha512str"] = {
   },
 };
 
-
-
 Blockly.Blocks["crypto_hmacmd5"] = {
   init: function () {
     this.appendValueInput("NAME")
@@ -204,7 +229,6 @@ Blockly.Blocks["crypto_hmacmd5"] = {
     this.setHelpUrl("");
   },
 };
-
 
 Blockly.Blocks["crypto_hmacsha1"] = {
   init: function () {
@@ -328,7 +352,6 @@ Blockly.Blocks['crypto_enchexstringify'] = {
  this.setHelpUrl("");
   }
 };
-
 
 Blockly.Blocks['crypto_encutf8parse'] = {
   init: function() {
