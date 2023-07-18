@@ -100,6 +100,35 @@ Blockly.JavaScript["crypto_aes_decrypt"] = function (block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript["crypto_des_encrypt"] = function (block) {
+  var value_text = Blockly.JavaScript.valueToCode(
+    block,
+    "TEXT",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var value_code = Blockly.JavaScript.valueToCode(
+    block,
+    "CODE",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `CryptoJS.DES.encrypt(${value_text}, ${value_code})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+Blockly.JavaScript["crypto_des_decrypt"] = function (block) {
+  var value_text = Blockly.JavaScript.valueToCode(
+    block,
+    "TEXT",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var value_code = Blockly.JavaScript.valueToCode(
+    block,
+    "CODE",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `CryptoJS.DES.decrypt(${value_text}, ${value_code})`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
 Blockly.JavaScript["crypto_hmacmd5str"] = function (block) {
   var value_name = Blockly.JavaScript.valueToCode(
     block,
