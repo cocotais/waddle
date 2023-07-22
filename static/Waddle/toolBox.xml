@@ -442,6 +442,14 @@ TIP
 		</button>
 		<block type="http_import">
 		</block>
+		<block type="http_getpost">
+		</block>
+		<block type="http_response">
+		</block>
+		<block type="http_responsedropdown">
+		</block>
+		<block type="http_error">
+		</block>
 	</category>
 	<category name="lodash" css-icon="waddle-lodash" css-class="waddle-lodash">
 		<button text="实验性功能提示" callbackKey="betawarning">
