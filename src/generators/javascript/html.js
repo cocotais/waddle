@@ -707,10 +707,10 @@ let css_to_one = (css) => {
 javascriptGenerator["html_attribute"] = function (block) {
   var key = block.getFieldValue('KEY');
   var value =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "VALUE",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "''";
     var code = `${key}: ${value},\n`;
   return html_escape(code);
@@ -725,10 +725,10 @@ javascriptGenerator["html_attribute_event"] = function (block) {
 
 javascriptGenerator["html_attribute_href"] = function (block) {
   var value_name =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "URL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "''";
     var code = `href: ${value_name},\n`;
   return html_escape(code);
@@ -736,10 +736,10 @@ javascriptGenerator["html_attribute_href"] = function (block) {
 
 javascriptGenerator["html_attribute_src"] = function (block) {
   var value_name =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "URL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "''";
     var code = `src: ${value_name},\n`;
   return html_escape(code);
@@ -747,10 +747,10 @@ javascriptGenerator["html_attribute_src"] = function (block) {
 
 javascriptGenerator["html_attribute_id"] = function (block) {
   var value_name =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "URL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "''";
     var code = `id: ${value_name},\n`;
   return html_escape(code);
@@ -758,10 +758,10 @@ javascriptGenerator["html_attribute_id"] = function (block) {
 
 javascriptGenerator["html_attribute_class"] = function (block) {
   var value_name =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "URL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "''";
     var code = `className: ${value_name},\n`;
   return html_escape(code);
@@ -839,10 +839,10 @@ javascriptGenerator["html_plaintext"] = function (block) {
 
 javascriptGenerator["html_js"] = function (block) {
   var e =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "E",
-      Blockly.JavaScript.ORDER_ASSIGNMENT
+      javascriptGenerator.ORDER_ASSIGNMENT
     ) || "";
   var code = `${e}\n`;
   return html_escape(code);
@@ -850,10 +850,10 @@ javascriptGenerator["html_js"] = function (block) {
 
 javascriptGenerator["html_js2"] = function (block) {
   var e =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "E",
-      Blockly.JavaScript.ORDER_ASSIGNMENT
+      javascriptGenerator.ORDER_ASSIGNMENT
     ) || "";
   var code = `${e}`;
   return [html_escape(code), 0];
@@ -979,10 +979,10 @@ javascriptGenerator["html_attribute_style"] = function (block) {
 /*
 javascriptGenerator["html_css_background_color"] = function (block) {
   var val =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "VAL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "";
   var code = `background-color:${val};\n`;
   return html_escape(code);
@@ -990,10 +990,10 @@ javascriptGenerator["html_css_background_color"] = function (block) {
 
 javascriptGenerator["html_css_font_size"] = function (block) {
   var val =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "VAL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "''";
   var code = `font-size:${val};\n`;
   return html_escape(code);
@@ -1013,10 +1013,10 @@ javascriptGenerator["html_css_text_decoration"] = function (block) {
 
 javascriptGenerator["html_css"] = function (block) {
   var val =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "VAL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "''";
   var name = block.getFieldValue("NAME") || "attribute";
   var code = `${name}: ${val},\n`;
@@ -1025,7 +1025,7 @@ javascriptGenerator["html_css"] = function (block) {
 
 javascriptGenerator['html_css_background'] = function (block) {
   var dropdown_type = block.getFieldValue('TYPE');
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_name = javascriptGenerator.valueToCode(block, 'NAME', javascriptGenerator.ORDER_ATOMIC);
   var code = `${dropdown_type}: ${value_name},\n`;
   return code;
 };
@@ -1033,21 +1033,21 @@ javascriptGenerator['html_css_background'] = function (block) {
 javascriptGenerator['html_css_border'] = function (block) {
   var dropdown_name1 = block.getFieldValue('NAME1');
   var dropdown_name2 = block.getFieldValue('NAME2');
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC) || "none";
+  var value_name = javascriptGenerator.valueToCode(block, 'NAME', javascriptGenerator.ORDER_ATOMIC) || "none";
   var code = `border${dropdown_name1}${dropdown_name2}: ${value_name},\n`;
   return code;
 };
 
 javascriptGenerator['html_css_border2'] = function (block) {
   var dropdown_name = block.getFieldValue('NAME');
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC) || "none"
+  var value_name = javascriptGenerator.valueToCode(block, 'NAME', javascriptGenerator.ORDER_ATOMIC) || "none"
   var code = `border${dropdown_name}Radios: ${value_name},\n`;
   return code;
 };
 
 javascriptGenerator['html_css_dimension'] = function (block) {
   var dropdown_name1 = block.getFieldValue('NAME1');
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_name = javascriptGenerator.valueToCode(block, 'NAME', javascriptGenerator.ORDER_ATOMIC);
   var code = `${dropdown_name1}: ${value_name},\n`;
   return code;
 };
@@ -1055,17 +1055,17 @@ javascriptGenerator['html_css_dimension'] = function (block) {
 javascriptGenerator['html_css_marginpadding'] = function (block) {
   var dropdown_name1 = block.getFieldValue('NAME1');
   var dropdown_name = block.getFieldValue('NAME');
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_name = javascriptGenerator.valueToCode(block, 'NAME', javascriptGenerator.ORDER_ATOMIC);
   var code = `${dropdown_name1}${dropdown_name}: ${value_name},\n`;
   return code;
 };
 
 javascriptGenerator["html_other_px"] = function (block) {
   var val =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "VAL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}px"`;
   return [html_escape(code),0];
@@ -1073,10 +1073,10 @@ javascriptGenerator["html_other_px"] = function (block) {
 
 javascriptGenerator["html_other_cm"] = function (block) {
   var val =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "VAL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}cm"`;
   return [html_escape(code),0];
@@ -1084,10 +1084,10 @@ javascriptGenerator["html_other_cm"] = function (block) {
 
 javascriptGenerator["html_other_mm"] = function (block) {
   var val =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "VAL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}mm"`;
   return [html_escape(code),0];
@@ -1095,10 +1095,10 @@ javascriptGenerator["html_other_mm"] = function (block) {
 
 javascriptGenerator["html_other_in"] = function (block) {
   var val =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "VAL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}in"`;
   return [html_escape(code),0];
@@ -1106,10 +1106,10 @@ javascriptGenerator["html_other_in"] = function (block) {
 
 javascriptGenerator["html_other_pt"] = function (block) {
   var val =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "VAL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}pt"`;
   return [html_escape(code),0];
@@ -1117,10 +1117,10 @@ javascriptGenerator["html_other_pt"] = function (block) {
 
 javascriptGenerator["html_other_pc"] = function (block) {
   var val =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "VAL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}pc"`;
   return [html_escape(code),0];
@@ -1128,10 +1128,10 @@ javascriptGenerator["html_other_pc"] = function (block) {
 
 javascriptGenerator["html_other_%"] = function (block) {
   var val =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "VAL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}%"`;
   return [html_escape(code),0];
@@ -1139,10 +1139,10 @@ javascriptGenerator["html_other_%"] = function (block) {
 
 javascriptGenerator["html_other_em"] = function (block) {
   var val =
-    Blockly.JavaScript.valueToCode(
+    javascriptGenerator.valueToCode(
       block,
       "VAL",
-      Blockly.JavaScript.ORDER_ATOMIC
+      javascriptGenerator.ORDER_ATOMIC
     ) || "5";
   var code = `"${val}em"`;
   return [html_escape(code),0];
@@ -1210,10 +1210,10 @@ javascriptGenerator["html_script"] = function (block) {
 //wssb
 
 javascriptGenerator["html_html"] = function (block) {
-  var value_name = Blockly.JavaScript.valueToCode(
+  var value_name = javascriptGenerator.valueToCode(
     block,
     "NAME",
-    Blockly.JavaScript.ORDER_ATOMIC
+    javascriptGenerator.ORDER_ATOMIC
   );
   var statements_pro = html_attribute_to_str(
     javascriptGenerator.statementToCode(block, "PRO") || ""

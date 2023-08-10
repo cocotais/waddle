@@ -7,7 +7,7 @@ javascriptGenerator["http_get"] = function (block) {
     var mode = block.getFieldValue('MODE');
     var ok = javascriptGenerator.statementToCode(block, 'OK');
     var error = javascriptGenerator.statementToCode(block, 'ERROR');
-    var url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var url = javascriptGenerator.valueToCode(block, 'URL', javascriptGenerator.ORDER_ATOMIC) || "''";
     var code = `https.${mode}(${url},{},{},
    (response) => {
         if (response.data) {
@@ -24,15 +24,15 @@ javascriptGenerator["http_get"] = function (block) {
 };
 
 javascriptGenerator['axios_response'] = function () {
-    return ['response', Blockly.JavaScript.ORDER_NONE];
+    return ['response', javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['axios_responsedropdown'] = function (block) {
     var dropdown_mode = block.getFieldValue('MODE');
         var code = `response.${dropdown_mode}`;
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['axios_error'] = function () {
-    return ['e', Blockly.JavaScript.ORDER_NONE];
+    return ['e', javascriptGenerator.ORDER_NONE];
 };

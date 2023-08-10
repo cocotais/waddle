@@ -6,7 +6,7 @@ import { javascriptGenerator } from "blockly/javascript";import  Blockly from "b
 };
 
 javascriptGenerator['tools_only_run'] = function (block) {
-    var value_codes = Blockly.JavaScript.valueToCode(block, 'codes', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_codes = javascriptGenerator.valueToCode(block, 'codes', javascriptGenerator.ORDER_ATOMIC);
     var code = value_codes;
     return code + ';\n';
 };
@@ -30,14 +30,14 @@ javascriptGenerator['tools_list'] = function (block) {
 };
 
 javascriptGenerator['tools_dictItem'] = function (block) {
-    var value_key = Blockly.JavaScript.valueToCode(block, 'key', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_key = javascriptGenerator.valueToCode(block, 'key', javascriptGenerator.ORDER_ATOMIC);
+    var value_value = javascriptGenerator.valueToCode(block, 'value', javascriptGenerator.ORDER_ATOMIC);
     var code = `${value_key}: ${value_value},\n`;
     return code;
 };
 
 javascriptGenerator['tools_listItem'] = function (block) {
-    var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_value = javascriptGenerator.valueToCode(block, 'value', javascriptGenerator.ORDER_ATOMIC);
     var code = `$${value_value},\n`;
     return code;
 };

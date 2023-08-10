@@ -69,8 +69,8 @@ javascriptGenerator['ivw_addProperty'] = function (block) {
     var text_label = block.getFieldValue('label');
     //var statements_other = javascriptGenerator.statementToCode(block, 'other'); 弃用，改用配置表的方式，即value_config
     var text_valueType = block.getFieldValue('valueType');
-    var value_defaultValue = Blockly.JavaScript.valueToCode(block, 'defaultValue', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_config = Blockly.JavaScript.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
+    var value_defaultValue = javascriptGenerator.valueToCode(block, 'defaultValue', javascriptGenerator.ORDER_ATOMIC);
+    var value_config = javascriptGenerator.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
 
     var valueType = '';
     var multilineString = false;
@@ -130,7 +130,7 @@ javascriptGenerator['ivw_getproperty'] = function (block) {
     var text_key = block.getFieldValue('KEY');
     var code = `this.${text_key}`;
     // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['ivw_getparam'] = function (block) {
@@ -146,7 +146,7 @@ javascriptGenerator['ivw_addMethod'] = function (block) {
     var statements_params = javascriptGenerator.statementToCode(block, 'params');
     var statements_code = javascriptGenerator.statementToCode(block, 'code');
     // var statements_other = javascriptGenerator.statementToCode(block, 'other'); 弃用，改用配置表的方式，即value_config
-    var value_config = Blockly.JavaScript.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
+    var value_config = javascriptGenerator.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
     var params = '';
     if (statements_params) {
         eval('[' + statements_params + ']').forEach(value => {
@@ -171,7 +171,7 @@ javascriptGenerator['ivw_addParams'] = function (block) {
     var text_key = block.getFieldValue('key');
     var text_label = block.getFieldValue('label');
     var text_valueType = block.getFieldValue('valueType');
-    var value_defaultValue = Blockly.JavaScript.valueToCode(block, 'defaultValue', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_defaultValue = javascriptGenerator.valueToCode(block, 'defaultValue', javascriptGenerator.ORDER_ATOMIC);
     // var statements_other = javascriptGenerator.statementToCode(block, 'other');
 
     if (value_defaultValue == '') {
@@ -244,7 +244,7 @@ javascriptGenerator['ivw_addDropdownParams'] = function (block) {
 
 // javascriptGenerator['ivw_option_icon'] = function (block) {
 //     var text_name = block.getFieldValue('NAME');
-//     var value_icon = Blockly.JavaScript.valueToCode(block, 'ICON', Blockly.JavaScript.ORDER_ATOMIC);
+//     var value_icon = javascriptGenerator.valueToCode(block, 'ICON', javascriptGenerator.ORDER_ATOMIC);
 
 //     var code = `
 // types['methods'].forEach(element => {
@@ -271,7 +271,7 @@ javascriptGenerator['ivw_addDropdownParams'] = function (block) {
 
 // javascriptGenerator['ivw_option_color'] = function (block) {
 //     var text_name = block.getFieldValue('NAME');
-//     var value_icon = Blockly.JavaScript.valueToCode(block, 'ICON', Blockly.JavaScript.ORDER_ATOMIC);
+//     var value_icon = javascriptGenerator.valueToCode(block, 'ICON', javascriptGenerator.ORDER_ATOMIC);
 //     var code = `
 // types['methods'].forEach(element => {
 //   if(element.key=="${text_name}"){
@@ -307,7 +307,7 @@ javascriptGenerator['ivw_addEvent'] = function (block) {
     var text_key = block.getFieldValue('key');
     var text_label = block.getFieldValue('label');
     var statements_params = javascriptGenerator.statementToCode(block, 'params');
-    var value_config = Blockly.JavaScript.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
+    var value_config = javascriptGenerator.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
     var code = `
 types['events'].push({
     key: '${text_key}',
@@ -324,7 +324,7 @@ javascriptGenerator['vw_addEvent'] = function (block) {
     var text_label = block.getFieldValue('label');
     var statements_params = javascriptGenerator.statementToCode(block, 'params');
     var statements_code = javascriptGenerator.statementToCode(block, 'code');
-    var value_config = Blockly.JavaScript.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
+    var value_config = javascriptGenerator.valueToCode(block, 'config', 999); // 最高优先级，即不加括号
     var code = `
 types['events'].push({
     key: '${text_key}',
@@ -340,7 +340,7 @@ Widget.prototype.${text_key} = function (event) {
 };
 
 javascriptGenerator['ivw_methodReturn'] = function (block) {
-    var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_value = javascriptGenerator.valueToCode(block, 'value', javascriptGenerator.ORDER_ATOMIC);
     var code = `return ${value_value};`;
     return code;
 };
@@ -353,7 +353,7 @@ javascriptGenerator['ivw_emit'] = function (block) {
 };
 
 javascriptGenerator['ivw_emitParameter'] = function (block) {
-    var value_parameter = Blockly.JavaScript.valueToCode(block, 'parameter', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_parameter = javascriptGenerator.valueToCode(block, 'parameter', javascriptGenerator.ORDER_ATOMIC);
     var code = `, ${value_parameter}`;
     return code;
 };
@@ -370,7 +370,7 @@ for (const key in attris) {
     if (Object.hasOwnProperty.call(attris, key)) {
         const attri = attris[key];
         javascriptGenerator['ivwAttri_' + key] = function (block) {
-            var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
+            var value_value = javascriptGenerator.valueToCode(block, 'value', javascriptGenerator.ORDER_ATOMIC);
             var code = `${key}: ${value_value},\n`;
             return code;
         };
@@ -379,7 +379,7 @@ for (const key in attris) {
 
 javascriptGenerator['ivwAttri_custom'] = function (block) {
     var text_key = block.getFieldValue('key');
-    var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_value = javascriptGenerator.valueToCode(block, 'value', javascriptGenerator.ORDER_ATOMIC);
     var code = `${text_key}: ${value_value},\n`;
     return code;
 };
@@ -415,7 +415,7 @@ javascriptGenerator['ivw_propsinit'] = function (block) {
 
 
 javascriptGenerator['ivw_config'] = function (block) {
-    var value_color = Blockly.JavaScript.valueToCode(block, 'color', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_color = javascriptGenerator.valueToCode(block, 'color', javascriptGenerator.ORDER_ATOMIC);
     var text_icon = block.getFieldValue('icon');
     var checkbox_generateblock = block.getFieldValue('generateBlock') === 'TRUE';
     var checkbox_inputsinline = block.getFieldValue('inputsInline') === 'TRUE';
@@ -429,12 +429,12 @@ blockOptions: {
     space: ${number_space},
 },`;
     // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['ivw_setprop'] = function (block) {
     var text_name = block.getFieldValue('name');
-    var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_value = javascriptGenerator.valueToCode(block, 'value', javascriptGenerator.ORDER_ATOMIC);
     var code = `this.${text_name} = ${value_value};\n`;
     return code;
 };

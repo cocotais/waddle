@@ -33,5 +33,5 @@ javascriptGenerator['utils_import'] = function (block) {
 javascriptGenerator['utils_isnative'] = function (block) {
         var code = 'utils.isNative()';
     // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };

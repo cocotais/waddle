@@ -4,16 +4,16 @@ import { javascriptGenerator } from "blockly/javascript";import  Blockly from "b
 };
 
 javascriptGenerator['vika_auth_simple'] = function (block) {
-    var value_token = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_token = javascriptGenerator.valueToCode(block, 'token', javascriptGenerator.ORDER_ATOMIC);
     var code = `vika.auth({token:${value_token}});\n`;
     return code;
 };
 
 javascriptGenerator['vika_auth'] = function (block) {
-    var value_token = Blockly.JavaScript.valueToCode(block, 'token', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_fieldkey = Blockly.JavaScript.valueToCode(block, 'fieldKey', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_requesttimeout = Blockly.JavaScript.valueToCode(block, 'requestTimeout', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_host = Blockly.JavaScript.valueToCode(block, 'host', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_token = javascriptGenerator.valueToCode(block, 'token', javascriptGenerator.ORDER_ATOMIC);
+    var value_fieldkey = javascriptGenerator.valueToCode(block, 'fieldKey', javascriptGenerator.ORDER_ATOMIC);
+    var value_requesttimeout = javascriptGenerator.valueToCode(block, 'requestTimeout', javascriptGenerator.ORDER_ATOMIC);
+    var value_host = javascriptGenerator.valueToCode(block, 'host', javascriptGenerator.ORDER_ATOMIC);
     var code = `vika.auth({
   token: ${value_token},
   fieldKey: ${value_fieldkey},
@@ -24,7 +24,7 @@ javascriptGenerator['vika_auth'] = function (block) {
 };
 
 javascriptGenerator['vika_all_simple'] = function (block) {
-    var value_id = Blockly.JavaScript.valueToCode(block, 'id', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_id = javascriptGenerator.valueToCode(block, 'id', javascriptGenerator.ORDER_ATOMIC);
     var statements_then = javascriptGenerator.statementToCode(block, 'then');
     var code = `vika.datasheet(${value_id})
   .all({})
@@ -34,15 +34,15 @@ ${statements_then}
     return code;
 };
 javascriptGenerator['vika_all'] = function (block) {
-    var value_sid = Blockly.JavaScript.valueToCode(block, 'sid', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_id = Blockly.JavaScript.valueToCode(block, 'id', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_sort = Blockly.JavaScript.valueToCode(block, 'sort', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_recordids = Blockly.JavaScript.valueToCode(block, 'recordids', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_fields = Blockly.JavaScript.valueToCode(block, 'fields', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_formula = Blockly.JavaScript.valueToCode(block, 'formula', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_maxrecords = Blockly.JavaScript.valueToCode(block, 'maxRecords', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_sid = javascriptGenerator.valueToCode(block, 'sid', javascriptGenerator.ORDER_ATOMIC);
+    var value_id = javascriptGenerator.valueToCode(block, 'id', javascriptGenerator.ORDER_ATOMIC);
+    var value_sort = javascriptGenerator.valueToCode(block, 'sort', javascriptGenerator.ORDER_ATOMIC);
+    var value_recordids = javascriptGenerator.valueToCode(block, 'recordids', javascriptGenerator.ORDER_ATOMIC);
+    var value_fields = javascriptGenerator.valueToCode(block, 'fields', javascriptGenerator.ORDER_ATOMIC);
+    var value_formula = javascriptGenerator.valueToCode(block, 'formula', javascriptGenerator.ORDER_ATOMIC);
+    var value_maxrecords = javascriptGenerator.valueToCode(block, 'maxRecords', javascriptGenerator.ORDER_ATOMIC);
     var dropdown_cellformat = block.getFieldValue('cellFormat');
-    var value_fieldkey = Blockly.JavaScript.valueToCode(block, 'fieldKey', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_fieldkey = javascriptGenerator.valueToCode(block, 'fieldKey', javascriptGenerator.ORDER_ATOMIC);
     var statements_then = javascriptGenerator.statementToCode(block, 'then');
         var code = `Vika.datasheet(${value_sid})
   .all({
@@ -63,27 +63,27 @@ javascriptGenerator['vika_all'] = function (block) {
 
 javascriptGenerator['vika_response_success'] = function (block) {
     var code = 'response.success';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['vika_response_code'] = function (block) {
     var code = 'response.code';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['vika_response_message'] = function (block) {
     var code = 'response.message';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['vika_response_data'] = function (block) {
     var code = 'response.data';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['vika_sort'] = function (block) {
     var dropdown_sort = block.getFieldValue('sort');
-    var value_id = Blockly.JavaScript.valueToCode(block, 'id', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_id = javascriptGenerator.valueToCode(block, 'id', javascriptGenerator.ORDER_ATOMIC);
     var code = `{${value_id}:${dropdown_sort}}`;
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };

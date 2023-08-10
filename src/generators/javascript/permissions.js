@@ -18,22 +18,22 @@ var history = this.history;`;
 
 javascriptGenerator['permissions_document'] = function (block) {
     var code = 'document';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['permissions_window'] = function (block) {
     var code = 'window';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['permissions_navigator'] = function (block) {
     var code = 'navigator';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['permissions_history'] = function (block) {
     var code = 'history';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['permissions_call'] = function (block) {
@@ -47,5 +47,5 @@ javascriptGenerator['permissions_call_return'] = function (block) {
     var dropdown_type = block.getFieldValue('TYPE');
     var text_code = block.getFieldValue('CODE');
     var code = `${dropdown_type}.${text_code}`;
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };

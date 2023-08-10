@@ -98,7 +98,7 @@ return(
 
 javascriptGenerator['vw_setprop'] = function (block) {
   var text_name = block.getFieldValue('name');
-  var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_value = javascriptGenerator.valueToCode(block, 'value', javascriptGenerator.ORDER_ATOMIC);
     var code = `this.setProps({ '${text_name}': ${value_value} });\n`;
   return code;
 };

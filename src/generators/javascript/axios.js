@@ -8,7 +8,7 @@ javascriptGenerator['axios_getpost_simple'] = function (block) {
     var mode = block.getFieldValue('MODE');
     var ok = javascriptGenerator.statementToCode(block, 'OK');
     var error = javascriptGenerator.statementToCode(block, 'ERROR');
-    var url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var url = javascriptGenerator.valueToCode(block, 'URL', javascriptGenerator.ORDER_ATOMIC) || "''";
     var code = `axios.${mode}(${url})
   .then((response) => {
   ${ok}
@@ -21,23 +21,23 @@ javascriptGenerator['axios_getpost_simple'] = function (block) {
 };
 
 javascriptGenerator['axios_response'] = function () {
-    return ['response', Blockly.JavaScript.ORDER_NONE];
+    return ['response', javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['axios_responsedropdown'] = function (block) {
     var dropdown_mode = block.getFieldValue('MODE');
         var code = `response.${dropdown_mode}`;
     // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['axios_error'] = function () {
-    return ['error', Blockly.JavaScript.ORDER_NONE];
+    return ['error', javascriptGenerator.ORDER_NONE];
 };
 
 javascriptGenerator['axios_getpost'] = function (block) {
     var dropdown_mode = block.getFieldValue('MODE');
-    var value_url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+    var value_url = javascriptGenerator.valueToCode(block, 'URL', javascriptGenerator.ORDER_ATOMIC) || "''";
     var statements_par = javascriptGenerator.statementToCode(block, 'PAR');
     var statements_ok = javascriptGenerator.statementToCode(block, 'OK');
     var statements_error = javascriptGenerator.statementToCode(block, 'error');
@@ -56,19 +56,19 @@ axios.${dropdown_mode}(${value_url},{
 };
 
 javascriptGenerator['axios_timeout'] = function (block) {
-    var value_num = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    var value_num = javascriptGenerator.valueToCode(block, 'NUM', javascriptGenerator.ORDER_ATOMIC) || '0';
     var code = `timeout: ${value_num},\n`;
     return code;
 };
 
 javascriptGenerator['axios_maxcontentlength'] = function (block) {
-    var value_num = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    var value_num = javascriptGenerator.valueToCode(block, 'NUM', javascriptGenerator.ORDER_ATOMIC) || '0';
     var code = `maxContentLength: ${value_num},\n`;
     return code;
 };
 
 javascriptGenerator["axios_data"] = function(block){
-    var value_num = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    var value_num = javascriptGenerator.valueToCode(block, 'NUM', javascriptGenerator.ORDER_ATOMIC) || '0';
     var code = `data: ${value_num},\n`;
     return code;
 }
