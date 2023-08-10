@@ -3,7 +3,7 @@ import { IconClose } from "@arco-iconbox/vue-boxy";
 import Blockly from "blockly";
 import * as zh from "blockly/msg/zh-hans";
 import { onMounted, ref, shallowRef } from "vue";
-import axios from 'axios'
+import axios from "axios";
 import Dropdown from "@/dropdown/dropdown.vue";
 
 import BoxyCodespace from "../codespace/codespace";
@@ -35,9 +35,9 @@ let width = ref(0);
 defineExpose({ workspace });
 // 挂载时运行
 onMounted(async () => {
-  let d = await axios.get('/src/toolbox/toolbox.xml')
+  let d = await axios.get("/src/toolbox/toolbox.xml");
   const options = props.options || {};
-  options.toolbox = String(d.data)
+  options.toolbox = String(d.data);
   // 生成工作区
   workspace.value = Blockly.inject(blocklyDiv.value, options);
   // 添加搜索插件

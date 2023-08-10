@@ -1,5 +1,6 @@
+import "./blocks/index";
+
 import Blockly from "blockly";
-import './blocks/index'
 Blockly.defineBlocksWithJsonArray([
   {
     type: "controls_forever",

@@ -1,14 +1,16 @@
-import { javascriptGenerator } from "blockly/javascript";import  Blockly from "blockly";javascriptGenerator['vw_defTypes'] = function (block) {
+import Blockly from "blockly";
+import { javascriptGenerator } from "blockly/javascript";
+javascriptGenerator["vw_defTypes"] = function (block) {
   // var statements_types = javascriptGenerator.statementToCode(block, 'types');
-  var text_type = block.getFieldValue('type');
-  var text_icon = block.getFieldValue('icon');
-  var text_title = block.getFieldValue('title');
-  var text_version = block.getFieldValue('version');
-  var number_width = block.getFieldValue('width'); // 减少了waddle使用者的工作量，自动生成长宽的代码
-  var number_height = block.getFieldValue('height');
+  var text_type = block.getFieldValue("type");
+  var text_icon = block.getFieldValue("icon");
+  var text_title = block.getFieldValue("title");
+  var text_version = block.getFieldValue("version");
+  var number_width = block.getFieldValue("width"); // 减少了waddle使用者的工作量，自动生成长宽的代码
+  var number_height = block.getFieldValue("height");
   window.myicon = text_icon;
   window.mytitle = text_title;
-  window.mytype = 'jsx';
+  window.mytype = "jsx";
   // var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
   // 可见控件必须非全局
   var code = `
@@ -61,9 +63,9 @@ const types = {
   return code;
 };
 
-javascriptGenerator['vw_defWidget'] = function (block) {
-  var statements_constructor = javascriptGenerator.statementToCode(block, 'constructor');
-  var statements_render = javascriptGenerator.statementToCode(block, 'render');
+javascriptGenerator["vw_defWidget"] = function (block) {
+  var statements_constructor = javascriptGenerator.statementToCode(block, "constructor");
+  var statements_render = javascriptGenerator.statementToCode(block, "render");
   var code = `
 class Widget extends VisibleWidget {
   constructor(props) {
@@ -81,8 +83,8 @@ class Widget extends VisibleWidget {
   return code;
 };
 
-javascriptGenerator['vw_returnrender'] = function (block) {
-  var statements_html = javascriptGenerator.statementToCode(block, 'HTML');
+javascriptGenerator["vw_returnrender"] = function (block) {
+  var statements_html = javascriptGenerator.statementToCode(block, "HTML");
   if (statements_html.length > 0) {
     statements_html = statements_html.substring(0, statements_html.length - 2); // 去除最后一个多余的逗号
   } else if (statements_html.length == 0) {
@@ -96,9 +98,9 @@ return(
   return code;
 };
 
-javascriptGenerator['vw_setprop'] = function (block) {
-  var text_name = block.getFieldValue('name');
-  var value_value = javascriptGenerator.valueToCode(block, 'value', javascriptGenerator.ORDER_ATOMIC);
-    var code = `this.setProps({ '${text_name}': ${value_value} });\n`;
+javascriptGenerator["vw_setprop"] = function (block) {
+  var text_name = block.getFieldValue("name");
+  var value_value = javascriptGenerator.valueToCode(block, "value", javascriptGenerator.ORDER_ATOMIC);
+  var code = `this.setProps({ '${text_name}': ${value_value} });\n`;
   return code;
 };

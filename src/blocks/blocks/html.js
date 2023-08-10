@@ -1,4 +1,4 @@
-import Blockly from "blockly";/*Blockly.Blocks['html_noa_tag_comment'] = {
+import Blockly from "blockly"; /*Blockly.Blocks['html_noa_tag_comment'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("注释")
@@ -1496,9 +1496,7 @@ Blockly.Blocks['html_noa_tag_wbr'] = {
 
 Blockly.Blocks["html_code"] = {
   init: function () {
-    this.appendDummyInput()
-      .appendField("新建HTML代码")
-      .appendField(new Blockly.FieldTextInput("<p>你好</p>"), "CODE");
+    this.appendDummyInput().appendField("新建HTML代码").appendField(new Blockly.FieldTextInput("<p>你好</p>"), "CODE");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -1524,9 +1522,7 @@ Blockly.Blocks["html_tag"] = {
 
 Blockly.Blocks["html_attribute"] = {
   init: function () {
-    this.appendDummyInput()
-    .appendField("定义属性")
-    .appendField(new Blockly.FieldTextInput("href"), "KEY");
+    this.appendDummyInput().appendField("定义属性").appendField(new Blockly.FieldTextInput("href"), "KEY");
     this.appendValueInput("VALUE").setCheck(null).appendField("的值为");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1538,26 +1534,24 @@ Blockly.Blocks["html_attribute"] = {
 };
 
 Blockly.Blocks["html_attribute_event"] = {
-    init: function () {
-      this.appendDummyInput()
-        .appendField("定义事件属性 HTML事件名")
-        .appendField(new Blockly.FieldTextInput("onChange"), "eventName")
-        .appendField("触发控件事件 事件内部名")
-        .appendField(new Blockly.FieldTextInput("onChange"), "widgetEventName");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setInputsInline(true);
-      this.setColour("#00569c");
-      this.setTooltip("");
-      this.setHelpUrl("HTML事件名请用驼峰命名法，事件内部名就是你事件积木定义的那个");
-    },
-  };
+  init: function () {
+    this.appendDummyInput()
+      .appendField("定义事件属性 HTML事件名")
+      .appendField(new Blockly.FieldTextInput("onChange"), "eventName")
+      .appendField("触发控件事件 事件内部名")
+      .appendField(new Blockly.FieldTextInput("onChange"), "widgetEventName");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour("#00569c");
+    this.setTooltip("");
+    this.setHelpUrl("HTML事件名请用驼峰命名法，事件内部名就是你事件积木定义的那个");
+  },
+};
 
 Blockly.Blocks["html_attribute_id"] = {
   init: function () {
-    this.appendValueInput("URL")
-      .setCheck("String")
-      .appendField("定义属性 编号");
+    this.appendValueInput("URL").setCheck("String").appendField("定义属性 编号");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -1579,9 +1573,7 @@ Blockly.Blocks["html_attribute_class"] = {
 
 Blockly.Blocks["html_attribute_onclick"] = {
   init: function () {
-    this.appendStatementInput("FUN")
-      .setCheck(null)
-      .appendField("定义属性 当被点击时");
+    this.appendStatementInput("FUN").setCheck(null).appendField("定义属性 当被点击时");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -1592,9 +1584,7 @@ Blockly.Blocks["html_attribute_onclick"] = {
 
 Blockly.Blocks["html_attribute_ondblclick"] = {
   init: function () {
-    this.appendStatementInput("FUN")
-      .setCheck(null)
-      .appendField("定义属性 当被双击时");
+    this.appendStatementInput("FUN").setCheck(null).appendField("定义属性 当被双击时");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -1605,9 +1595,7 @@ Blockly.Blocks["html_attribute_ondblclick"] = {
 
 Blockly.Blocks["html_attribute_onmousemove"] = {
   init: function () {
-    this.appendStatementInput("FUN")
-      .setCheck(null)
-      .appendField("定义属性 当鼠标移到该元素上时");
+    this.appendStatementInput("FUN").setCheck(null).appendField("定义属性 当鼠标移到该元素上时");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -1618,9 +1606,7 @@ Blockly.Blocks["html_attribute_onmousemove"] = {
 
 Blockly.Blocks["html_attribute_onmouseout"] = {
   init: function () {
-    this.appendStatementInput("FUN")
-      .setCheck(null)
-      .appendField("定义属性 当鼠标移出该元素上时");
+    this.appendStatementInput("FUN").setCheck(null).appendField("定义属性 当鼠标移出该元素上时");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -1631,9 +1617,7 @@ Blockly.Blocks["html_attribute_onmouseout"] = {
 
 Blockly.Blocks["html_attribute_onemptied"] = {
   init: function () {
-    this.appendStatementInput("FUN")
-      .setCheck(null)
-      .appendField("定义属性 当媒体文件不可用时");
+    this.appendStatementInput("FUN").setCheck(null).appendField("定义属性 当媒体文件不可用时");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -1665,9 +1649,7 @@ Blockly.Blocks["html_js2"] = {
 
 Blockly.Blocks["html_attribute_href"] = {
   init: function () {
-    this.appendValueInput("URL")
-      .setCheck("String")
-      .appendField("定义属性 跳转链接");
+    this.appendValueInput("URL").setCheck("String").appendField("定义属性 跳转链接");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -1699,9 +1681,7 @@ Blockly.Blocks["html_attribute_target"] = {
 
 Blockly.Blocks["html_attribute_src"] = {
   init: function () {
-    this.appendValueInput("URL")
-      .setCheck("String")
-      .appendField("定义属性 外部资源链接");
+    this.appendValueInput("URL").setCheck("String").appendField("定义属性 外部资源链接");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -1712,9 +1692,7 @@ Blockly.Blocks["html_attribute_src"] = {
 
 Blockly.Blocks["html_attribute_alt"] = {
   init: function () {
-    this.appendValueInput("URL")
-      .setCheck("String")
-      .appendField("定义属性 图片替代链接");
+    this.appendValueInput("URL").setCheck("String").appendField("定义属性 图片替代链接");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -1782,9 +1760,7 @@ Blockly.Blocks["html_attribute_autoplay"] = {
 
 Blockly.Blocks["html_attribute_style"] = {
   init: function () {
-    this.appendStatementInput("CON")
-      .setCheck(null)
-      .appendField("定义属性 样式");
+    this.appendStatementInput("CON").setCheck(null).appendField("定义属性 样式");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -2108,9 +2084,7 @@ Blockly.Blocks["html_other_em"] = {
 
 Blockly.Blocks["html_other_color"] = {
   init: function () {
-    this.appendDummyInput()
-      .appendField("颜色值 #")
-      .appendField(new Blockly.FieldTextInput("ff4400"), "VAL");
+    this.appendDummyInput().appendField("颜色值 #").appendField(new Blockly.FieldTextInput("ff4400"), "VAL");
     this.setInputsInline();
     this.setOutput(true, null);
     this.setColour("#00569c");
@@ -2132,9 +2106,7 @@ Blockly.Blocks["html_css_background_color"] = {
 
 Blockly.Blocks["html_plaintext"] = {
   init: function () {
-    this.appendDummyInput()
-      .appendField("新建纯文本")
-      .appendField(new Blockly.FieldTextInput("文本"), "TEXT");
+    this.appendDummyInput().appendField("新建纯文本").appendField(new Blockly.FieldTextInput("文本"), "TEXT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#00569c");
@@ -2171,9 +2143,7 @@ Blockly.Blocks["html_h123456"] = {
 
 Blockly.Blocks["html_a"] = {
   init: function () {
-    this.appendStatementInput("CON")
-      .setCheck(null)
-      .appendField("新建超文本链接，内容");
+    this.appendStatementInput("CON").setCheck(null).appendField("新建超文本链接，内容");
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2288,9 +2258,7 @@ Blockly.Blocks["html_footer"] = {
 
 Blockly.Blocks["html_noscript"] = {
   init: function () {
-    this.appendStatementInput("CON")
-      .setCheck(null)
-      .appendField("新建脚本未被执行时显示");
+    this.appendStatementInput("CON").setCheck(null).appendField("新建脚本未被执行时显示");
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

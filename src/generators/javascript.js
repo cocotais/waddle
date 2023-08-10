@@ -1,8 +1,9 @@
 /**
  * Javascript语言生成
  */
+import "./javascript/index";
+
 import { javascriptGenerator } from "blockly/javascript";
-import './javascript/index'
 
 javascriptGenerator["controls_forever"] = function (block) {
   const branch = javascriptGenerator.statementToCode(block, "DO");

@@ -1,9 +1,8 @@
 import "../generators/javascript";
 
 import { javascriptGenerator } from "blockly/javascript";
-
-import javascript from "highlight.js/lib/languages/javascript";
 import highlight from "highlight.js/lib/core";
+import javascript from "highlight.js/lib/languages/javascript";
 import _ from "lodash";
 
 import platform from "../utils/platform";
@@ -32,7 +31,6 @@ class BoxyCodespace {
   load = () => {
     // 代码区高亮
     highlight.registerLanguage("javascript", javascript);
-
 
     window.addEventListener("resize", this.resize);
     this.resize();

@@ -1,4 +1,5 @@
-import Blockly from "blockly";Blockly.Blocks["http_import"] = {
+import Blockly from "blockly";
+Blockly.Blocks["http_import"] = {
   init: function () {
     this.appendDummyInput().appendField("引入http");
     this.setPreviousStatement(true, null);
@@ -23,9 +24,7 @@ Blockly.Blocks["http_get"] = {
       )
       .appendField("链接");
     this.appendStatementInput("OK").setCheck(null).appendField("当请求完成时");
-    this.appendStatementInput("ERROR")
-      .setCheck(null)
-      .appendField("当请求失败时");
+    this.appendStatementInput("ERROR").setCheck(null).appendField("当请求失败时");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

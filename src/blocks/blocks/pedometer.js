@@ -1,4 +1,5 @@
-import Blockly from "blockly";Blockly.Blocks["pedometer_import"] = {
+import Blockly from "blockly";
+Blockly.Blocks["pedometer_import"] = {
   init: function () {
     this.appendDummyInput().appendField("引入pedometer");
     this.setPreviousStatement(true, null);

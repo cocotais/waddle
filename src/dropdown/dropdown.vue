@@ -1,7 +1,7 @@
 <template>
   <a-trigger trigger="hover" position="rt">
     <div id="brand">
-      <img src="../icon/logo/waddle.png" alt="" height="40"/>
+      <img src="../icon/logo/waddle.png" alt="" height="40" />
     </div>
     <template #content>
       <div class="dropdown-select">
@@ -53,8 +53,7 @@
       </a-space>
       <a-typography-title :heading="6">关于Waddle</a-typography-title>
       <a-space size="large" :fill="fill" :style="{ justifyContent: 'space-between', color: 'var(--color-text-2)' }">
-        让CoCo没有难做的控件！
-        Powered by Boxy
+        让CoCo没有难做的控件！ Powered by Boxy
       </a-space>
     </div>
   </a-drawer>
@@ -142,14 +141,13 @@ const save_to_pc = () => {
 /**
  * 保存CoCo控件
  */
- const save_widget = () => {
+const save_widget = () => {
   let a = document.createElement("a");
-  let code = javascriptGenerator.workspaceToCode(props.workspace)
+  let code = javascriptGenerator.workspaceToCode(props.workspace);
   a.href = `data:,${code}`;
-  if(window.mytitle && window.mytype){
+  if (window.mytitle && window.mytype) {
     a.download = `${window.mytitle}.${window.mytype}`;
-  }
-  else{
+  } else {
     a.download = `我的控件.js`;
   }
   a.click();

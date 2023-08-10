@@ -1,4 +1,4 @@
-import Blockly from "blockly";//ooooooooo@^ ... @OooO\.]]/@oo@@@@@oO@ ... @@^****
+import Blockly from "blockly"; //ooooooooo@^ ... @OooO\.]]/@oo@@@@@oO@ ... @@^****
 //oooooooOOO^ ... @OooO@@@OoooooOOOooO^ ...=@@^****
 //ooooooOOoO@  .. @@Oooooo@OoO@OoooOOO^ ...@O@\****
 //OOOOOOOOOO@` .. @OOOOoooOoooO@@@Ooo@^.../@OO@***,
@@ -53,9 +53,7 @@ Blockly.Blocks["axios_getpost_simple"] = {
       )
       .appendField("链接");
     this.appendStatementInput("OK").setCheck(null).appendField("当请求完成时");
-    this.appendStatementInput("ERROR")
-      .setCheck(null)
-      .appendField("当请求失败时");
+    this.appendStatementInput("ERROR").setCheck(null).appendField("当请求失败时");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -122,9 +120,7 @@ Blockly.Blocks["axios_getpost"] = {
       .appendField("链接");
     this.appendStatementInput("PAR").setCheck(null).appendField("请求配置");
     this.appendStatementInput("OK").setCheck(null).appendField("当请求完成时");
-    this.appendStatementInput("error")
-      .setCheck(null)
-      .appendField("当请求失败时");
+    this.appendStatementInput("error").setCheck(null).appendField("当请求失败时");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#5a29e4");
@@ -146,9 +142,7 @@ Blockly.Blocks["axios_timeout"] = {
 
 Blockly.Blocks["axios_maxcontentlength"] = {
   init: function () {
-    this.appendValueInput("NUM")
-      .setCheck("Number")
-      .appendField("响应内容最大尺寸");
+    this.appendValueInput("NUM").setCheck("Number").appendField("响应内容最大尺寸");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#5a29e4");
@@ -159,9 +153,7 @@ Blockly.Blocks["axios_maxcontentlength"] = {
 
 Blockly.Blocks["axios_maxcontentlength"] = {
   init: function () {
-    this.appendValueInput("NUM")
-      .setCheck("Number")
-      .appendField("最大重定向次数");
+    this.appendValueInput("NUM").setCheck("Number").appendField("最大重定向次数");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#5a29e4");
@@ -172,9 +164,7 @@ Blockly.Blocks["axios_maxcontentlength"] = {
 
 Blockly.Blocks["axios_withcredentials"] = {
   init: function () {
-    this.appendDummyInput()
-      .appendField("跨域请求是否携带凭证")
-      .appendField(new Blockly.FieldCheckbox("TRUE"), "NAME");
+    this.appendDummyInput().appendField("跨域请求是否携带凭证").appendField(new Blockly.FieldCheckbox("TRUE"), "NAME");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#5a29e4");

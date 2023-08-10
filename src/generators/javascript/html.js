@@ -1,4 +1,5 @@
-import { javascriptGenerator } from "blockly/javascript";import  Blockly from "blockly";/*javascriptGenerator['html_noa_tag_a'] = function(block){
+import Blockly from "blockly";
+import { javascriptGenerator } from "blockly/javascript"; /*javascriptGenerator['html_noa_tag_a'] = function(block){
     var inner = javascriptGenerator.statementToCode(block, "INNER")
     let code = `<a>\n${inner}\n</a>`;
     return code;
@@ -683,10 +684,7 @@ let js_to_one = (code) => {
   let thisline = "";
   list.forEach((element) => {
     thisline = element.trim();
-    if (
-      !["{", ":", ";"].includes(thisline.charAt(thisline.length - 1)) &
-      (thisline != "")
-    ) {
+    if (!["{", ":", ";"].includes(thisline.charAt(thisline.length - 1)) & (thisline != "")) {
       //判断结尾是否为{ : ;
       newstr = newstr + thisline + ";";
     } else {
@@ -705,71 +703,46 @@ let css_to_one = (css) => {
 };
 
 javascriptGenerator["html_attribute"] = function (block) {
-  var key = block.getFieldValue('KEY');
-  var value =
-    javascriptGenerator.valueToCode(
-      block,
-      "VALUE",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "''";
-    var code = `${key}: ${value},\n`;
+  var key = block.getFieldValue("KEY");
+  var value = javascriptGenerator.valueToCode(block, "VALUE", javascriptGenerator.ORDER_ATOMIC) || "''";
+  var code = `${key}: ${value},\n`;
   return html_escape(code);
 };
 
 javascriptGenerator["html_attribute_event"] = function (block) {
-  var eventName = block.getFieldValue('eventName');
-  var widgetEventName = block.getFieldValue('widgetEventName');
+  var eventName = block.getFieldValue("eventName");
+  var widgetEventName = block.getFieldValue("widgetEventName");
   var code = `${eventName}: this.${widgetEventName}.bind(this),\n`;
   return html_escape(code);
 };
 
 javascriptGenerator["html_attribute_href"] = function (block) {
-  var value_name =
-    javascriptGenerator.valueToCode(
-      block,
-      "URL",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "''";
-    var code = `href: ${value_name},\n`;
+  var value_name = javascriptGenerator.valueToCode(block, "URL", javascriptGenerator.ORDER_ATOMIC) || "''";
+  var code = `href: ${value_name},\n`;
   return html_escape(code);
 };
 
 javascriptGenerator["html_attribute_src"] = function (block) {
-  var value_name =
-    javascriptGenerator.valueToCode(
-      block,
-      "URL",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "''";
-    var code = `src: ${value_name},\n`;
+  var value_name = javascriptGenerator.valueToCode(block, "URL", javascriptGenerator.ORDER_ATOMIC) || "''";
+  var code = `src: ${value_name},\n`;
   return html_escape(code);
 };
 
 javascriptGenerator["html_attribute_id"] = function (block) {
-  var value_name =
-    javascriptGenerator.valueToCode(
-      block,
-      "URL",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "''";
-    var code = `id: ${value_name},\n`;
+  var value_name = javascriptGenerator.valueToCode(block, "URL", javascriptGenerator.ORDER_ATOMIC) || "''";
+  var code = `id: ${value_name},\n`;
   return html_escape(code);
 };
 
 javascriptGenerator["html_attribute_class"] = function (block) {
-  var value_name =
-    javascriptGenerator.valueToCode(
-      block,
-      "URL",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "''";
-    var code = `className: ${value_name},\n`;
+  var value_name = javascriptGenerator.valueToCode(block, "URL", javascriptGenerator.ORDER_ATOMIC) || "''";
+  var code = `className: ${value_name},\n`;
   return html_escape(code);
 };
 
 javascriptGenerator["html_attribute_target"] = function (block) {
   var dropdown_mode = block.getFieldValue("MODE");
-    var code = `target: "${dropdown_mode}",\n`;
+  var code = `target: "${dropdown_mode}",\n`;
   return code;
 };
 
@@ -792,82 +765,58 @@ javascriptGenerator["html_attribute_autoplay"] = function (block) {
 };
 
 javascriptGenerator["html_attribute_onclick"] = function (block) {
-  var statements_fun = js_to_one(
-    javascriptGenerator.statementToCode(block, "FUN")
-  );
-    var code = `onClick: "${statements_fun}",\n`;
+  var statements_fun = js_to_one(javascriptGenerator.statementToCode(block, "FUN"));
+  var code = `onClick: "${statements_fun}",\n`;
   return code;
 };
 
 javascriptGenerator["html_attribute_ondblclick"] = function (block) {
-  var statements_fun = js_to_one(
-    javascriptGenerator.statementToCode(block, "FUN")
-  );
-    var code = `onDblClick: "${statements_fun}",\n`;
+  var statements_fun = js_to_one(javascriptGenerator.statementToCode(block, "FUN"));
+  var code = `onDblClick: "${statements_fun}",\n`;
   return code;
 };
 
 javascriptGenerator["html_attribute_onmousemove"] = function (block) {
-  var statements_fun = js_to_one(
-    javascriptGenerator.statementToCode(block, "FUN")
-  );
-    var code = `onMouseMove: "${statements_fun}",\n`;
+  var statements_fun = js_to_one(javascriptGenerator.statementToCode(block, "FUN"));
+  var code = `onMouseMove: "${statements_fun}",\n`;
   return code;
 };
 
 javascriptGenerator["html_attribute_onmouseout"] = function (block) {
-  var statements_fun = js_to_one(
-    javascriptGenerator.statementToCode(block, "FUN")
-  );
-    var code = `onMouseOut: "${statements_fun}",\n`;
+  var statements_fun = js_to_one(javascriptGenerator.statementToCode(block, "FUN"));
+  var code = `onMouseOut: "${statements_fun}",\n`;
   return code;
 };
 
 javascriptGenerator["html_attribute_onemptied"] = function (block) {
-  var statements_fun = js_to_one(
-    javascriptGenerator.statementToCode(block, "FUN")
-  );
-    var code = `onEmptied: "${statements_fun}",\n`;
+  var statements_fun = js_to_one(javascriptGenerator.statementToCode(block, "FUN"));
+  var code = `onEmptied: "${statements_fun}",\n`;
   return code;
 };
 
 javascriptGenerator["html_plaintext"] = function (block) {
   var text = block.getFieldValue("TEXT");
-    var code = `${text}\n`;
+  var code = `${text}\n`;
   return code;
 };
 
 javascriptGenerator["html_js"] = function (block) {
-  var e =
-    javascriptGenerator.valueToCode(
-      block,
-      "E",
-      javascriptGenerator.ORDER_ASSIGNMENT
-    ) || "";
+  var e = javascriptGenerator.valueToCode(block, "E", javascriptGenerator.ORDER_ASSIGNMENT) || "";
   var code = `${e}\n`;
   return html_escape(code);
 };
 
 javascriptGenerator["html_js2"] = function (block) {
-  var e =
-    javascriptGenerator.valueToCode(
-      block,
-      "E",
-      javascriptGenerator.ORDER_ASSIGNMENT
-    ) || "";
+  var e = javascriptGenerator.valueToCode(block, "E", javascriptGenerator.ORDER_ASSIGNMENT) || "";
   var code = `${e}`;
   return [html_escape(code), 0];
 };
 
 javascriptGenerator["html_h123456"] = function (block) {
   var dropdown_type = block.getFieldValue("TYPE");
-  var statements_con = (
-    javascriptGenerator.statementToCode(block, "CON") || ""
-  ).trim();
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
-    // console.log(statements_pro, statements_pro == '');
+  var statements_con = (javascriptGenerator.statementToCode(block, "CON") || "").trim();
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
+  // console.log(statements_pro, statements_pro == '');
   // React.createElement('h1', {}, [])
   // var code = `<${dropdown_type}${
   //   statements_pro == "" ? "" : " "
@@ -878,13 +827,9 @@ javascriptGenerator["html_h123456"] = function (block) {
 
 javascriptGenerator["html_tag"] = function (block) {
   var name = block.getFieldValue("NAME");
-  var statements_con = (
-    javascriptGenerator.statementToCode(block, "CON") || ""
-  ).trim();
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
-    // console.log(statements_pro, statements_pro == '');
+  var statements_con = (javascriptGenerator.statementToCode(block, "CON") || "").trim();
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
+  // console.log(statements_pro, statements_pro == '');
   // var code = `<${name}${
   //   statements_pro == "" ? "" : " "
   // }${statements_pro}>${statements_con}</${name}>\n`;
@@ -893,86 +838,61 @@ javascriptGenerator["html_tag"] = function (block) {
 };
 
 javascriptGenerator["html_a"] = function (block) {
-  var statements_con = (
-    javascriptGenerator.statementToCode(block, "CON") || ""
-  ).trim();
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
+  var statements_con = (javascriptGenerator.statementToCode(block, "CON") || "").trim();
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
   var code = `React.createElement("a", {${statements_pro}}, [${statements_con}]),\n`;
   return html_escape(code);
 };
 
 javascriptGenerator["html_button"] = function (block) {
-  var statements_con = (
-    javascriptGenerator.statementToCode(block, "CON") || ""
-  ).trim();
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
+  var statements_con = (javascriptGenerator.statementToCode(block, "CON") || "").trim();
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
   var code = `React.createElement("button", {${statements_pro}}, [${statements_con}]),\n`;
   return html_escape(code);
 };
 
 javascriptGenerator["html_img"] = function (block) {
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
   var code = `React.createElement("img", {${statements_pro}}, null),\n`;
   return html_escape(code);
 };
 
 javascriptGenerator["html_video"] = function (block) {
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
   var code = `React.createElement("video", {${statements_pro}}, null),\n`;
 
   return html_escape(code);
 };
 
 javascriptGenerator["html_input"] = function (block) {
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
   var code = `React.createElement("input", {${statements_pro}}, null),\n`;
   return html_escape(code);
 };
 
 javascriptGenerator["html_iframe"] = function (block) {
-
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
   var code = `React.createElement("iframe", {${statements_pro}}, null),\n`;
 
   return html_escape(code);
 };
 
 javascriptGenerator["html_b"] = function (block) {
-  var statements_con = (
-    javascriptGenerator.statementToCode(block, "CON") || ""
-  ).trim();
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
+  var statements_con = (javascriptGenerator.statementToCode(block, "CON") || "").trim();
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
   var code = `React.createElement("b", {${statements_pro}}, [${statements_con}]),\n`;
 
   return html_escape(code);
 };
 
 javascriptGenerator["html_br"] = function (block) {
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
   var code = `React.createElement("br", {${statements_pro}}, null),\n`;
   return html_escape(code);
 };
 
 javascriptGenerator["html_attribute_style"] = function (block) {
-  var statements_con = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "CON") || ""
-  );
+  var statements_con = html_attribute_to_str(javascriptGenerator.statementToCode(block, "CON") || "");
   var code = `style: {${statements_con}},\n`;
   return html_escape(code);
 };
@@ -1012,146 +932,101 @@ javascriptGenerator["html_css_text_decoration"] = function (block) {
 };*/
 
 javascriptGenerator["html_css"] = function (block) {
-  var val =
-    javascriptGenerator.valueToCode(
-      block,
-      "VAL",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "''";
+  var val = javascriptGenerator.valueToCode(block, "VAL", javascriptGenerator.ORDER_ATOMIC) || "''";
   var name = block.getFieldValue("NAME") || "attribute";
   var code = `${name}: ${val},\n`;
   return html_escape(code);
 };
 
-javascriptGenerator['html_css_background'] = function (block) {
-  var dropdown_type = block.getFieldValue('TYPE');
-  var value_name = javascriptGenerator.valueToCode(block, 'NAME', javascriptGenerator.ORDER_ATOMIC);
+javascriptGenerator["html_css_background"] = function (block) {
+  var dropdown_type = block.getFieldValue("TYPE");
+  var value_name = javascriptGenerator.valueToCode(block, "NAME", javascriptGenerator.ORDER_ATOMIC);
   var code = `${dropdown_type}: ${value_name},\n`;
   return code;
 };
 
-javascriptGenerator['html_css_border'] = function (block) {
-  var dropdown_name1 = block.getFieldValue('NAME1');
-  var dropdown_name2 = block.getFieldValue('NAME2');
-  var value_name = javascriptGenerator.valueToCode(block, 'NAME', javascriptGenerator.ORDER_ATOMIC) || "none";
+javascriptGenerator["html_css_border"] = function (block) {
+  var dropdown_name1 = block.getFieldValue("NAME1");
+  var dropdown_name2 = block.getFieldValue("NAME2");
+  var value_name = javascriptGenerator.valueToCode(block, "NAME", javascriptGenerator.ORDER_ATOMIC) || "none";
   var code = `border${dropdown_name1}${dropdown_name2}: ${value_name},\n`;
   return code;
 };
 
-javascriptGenerator['html_css_border2'] = function (block) {
-  var dropdown_name = block.getFieldValue('NAME');
-  var value_name = javascriptGenerator.valueToCode(block, 'NAME', javascriptGenerator.ORDER_ATOMIC) || "none"
+javascriptGenerator["html_css_border2"] = function (block) {
+  var dropdown_name = block.getFieldValue("NAME");
+  var value_name = javascriptGenerator.valueToCode(block, "NAME", javascriptGenerator.ORDER_ATOMIC) || "none";
   var code = `border${dropdown_name}Radios: ${value_name},\n`;
   return code;
 };
 
-javascriptGenerator['html_css_dimension'] = function (block) {
-  var dropdown_name1 = block.getFieldValue('NAME1');
-  var value_name = javascriptGenerator.valueToCode(block, 'NAME', javascriptGenerator.ORDER_ATOMIC);
+javascriptGenerator["html_css_dimension"] = function (block) {
+  var dropdown_name1 = block.getFieldValue("NAME1");
+  var value_name = javascriptGenerator.valueToCode(block, "NAME", javascriptGenerator.ORDER_ATOMIC);
   var code = `${dropdown_name1}: ${value_name},\n`;
   return code;
 };
 
-javascriptGenerator['html_css_marginpadding'] = function (block) {
-  var dropdown_name1 = block.getFieldValue('NAME1');
-  var dropdown_name = block.getFieldValue('NAME');
-  var value_name = javascriptGenerator.valueToCode(block, 'NAME', javascriptGenerator.ORDER_ATOMIC);
+javascriptGenerator["html_css_marginpadding"] = function (block) {
+  var dropdown_name1 = block.getFieldValue("NAME1");
+  var dropdown_name = block.getFieldValue("NAME");
+  var value_name = javascriptGenerator.valueToCode(block, "NAME", javascriptGenerator.ORDER_ATOMIC);
   var code = `${dropdown_name1}${dropdown_name}: ${value_name},\n`;
   return code;
 };
 
 javascriptGenerator["html_other_px"] = function (block) {
-  var val =
-    javascriptGenerator.valueToCode(
-      block,
-      "VAL",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "5";
+  var val = javascriptGenerator.valueToCode(block, "VAL", javascriptGenerator.ORDER_ATOMIC) || "5";
   var code = `"${val}px"`;
-  return [html_escape(code),0];
+  return [html_escape(code), 0];
 };
 
 javascriptGenerator["html_other_cm"] = function (block) {
-  var val =
-    javascriptGenerator.valueToCode(
-      block,
-      "VAL",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "5";
+  var val = javascriptGenerator.valueToCode(block, "VAL", javascriptGenerator.ORDER_ATOMIC) || "5";
   var code = `"${val}cm"`;
-  return [html_escape(code),0];
+  return [html_escape(code), 0];
 };
 
 javascriptGenerator["html_other_mm"] = function (block) {
-  var val =
-    javascriptGenerator.valueToCode(
-      block,
-      "VAL",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "5";
+  var val = javascriptGenerator.valueToCode(block, "VAL", javascriptGenerator.ORDER_ATOMIC) || "5";
   var code = `"${val}mm"`;
-  return [html_escape(code),0];
+  return [html_escape(code), 0];
 };
 
 javascriptGenerator["html_other_in"] = function (block) {
-  var val =
-    javascriptGenerator.valueToCode(
-      block,
-      "VAL",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "5";
+  var val = javascriptGenerator.valueToCode(block, "VAL", javascriptGenerator.ORDER_ATOMIC) || "5";
   var code = `"${val}in"`;
-  return [html_escape(code),0];
+  return [html_escape(code), 0];
 };
 
 javascriptGenerator["html_other_pt"] = function (block) {
-  var val =
-    javascriptGenerator.valueToCode(
-      block,
-      "VAL",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "5";
+  var val = javascriptGenerator.valueToCode(block, "VAL", javascriptGenerator.ORDER_ATOMIC) || "5";
   var code = `"${val}pt"`;
-  return [html_escape(code),0];
+  return [html_escape(code), 0];
 };
 
 javascriptGenerator["html_other_pc"] = function (block) {
-  var val =
-    javascriptGenerator.valueToCode(
-      block,
-      "VAL",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "5";
+  var val = javascriptGenerator.valueToCode(block, "VAL", javascriptGenerator.ORDER_ATOMIC) || "5";
   var code = `"${val}pc"`;
-  return [html_escape(code),0];
+  return [html_escape(code), 0];
 };
 
 javascriptGenerator["html_other_%"] = function (block) {
-  var val =
-    javascriptGenerator.valueToCode(
-      block,
-      "VAL",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "5";
+  var val = javascriptGenerator.valueToCode(block, "VAL", javascriptGenerator.ORDER_ATOMIC) || "5";
   var code = `"${val}%"`;
-  return [html_escape(code),0];
+  return [html_escape(code), 0];
 };
 
 javascriptGenerator["html_other_em"] = function (block) {
-  var val =
-    javascriptGenerator.valueToCode(
-      block,
-      "VAL",
-      javascriptGenerator.ORDER_ATOMIC
-    ) || "5";
+  var val = javascriptGenerator.valueToCode(block, "VAL", javascriptGenerator.ORDER_ATOMIC) || "5";
   var code = `"${val}em"`;
-  return [html_escape(code),0];
+  return [html_escape(code), 0];
 };
 
 javascriptGenerator["html_other_color"] = function (block) {
   var val = block.getFieldValue("VAL");
   var code = `"#${val}"`;
-  return [html_escape(code),0];
+  return [html_escape(code), 0];
 };
 
 javascriptGenerator["html_code"] = function (block) {
@@ -1161,48 +1036,32 @@ javascriptGenerator["html_code"] = function (block) {
 };
 
 javascriptGenerator["html_div"] = function (block) {
-  var statements_con = (
-    javascriptGenerator.statementToCode(block, "CON") || ""
-  ).trim();
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
+  var statements_con = (javascriptGenerator.statementToCode(block, "CON") || "").trim();
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
   var code = `React.createElement("div", {${statements_pro}}, [${statements_con}]),\n`;
 
   return html_escape(code);
 };
 
 javascriptGenerator["html_footer"] = function (block) {
-  var statements_con = (
-    javascriptGenerator.statementToCode(block, "CON") || ""
-  ).trim();
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
+  var statements_con = (javascriptGenerator.statementToCode(block, "CON") || "").trim();
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
   var code = `React.createElement("footer", {${statements_pro}}, [${statements_con}]),\n`;
 
   return html_escape(code);
 };
 
 javascriptGenerator["html_noscript"] = function (block) {
-  var statements_con = (
-    javascriptGenerator.statementToCode(block, "CON") || ""
-  ).trim();
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
+  var statements_con = (javascriptGenerator.statementToCode(block, "CON") || "").trim();
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
   var code = `React.createElement("noscript", {${statements_pro}}, [${statements_con}]),\n`;
 
   return html_escape(code);
 };
 
 javascriptGenerator["html_script"] = function (block) {
-  var statements_con = (
-    javascriptGenerator.statementToCode(block, "CON") || ""
-  ).trim();
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
+  var statements_con = (javascriptGenerator.statementToCode(block, "CON") || "").trim();
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
   var code = `React.createElement("script", {${statements_pro}}, [${statements_con}]),\n`;
 
   return html_escape(code);
@@ -1210,14 +1069,8 @@ javascriptGenerator["html_script"] = function (block) {
 //wssb
 
 javascriptGenerator["html_html"] = function (block) {
-  var value_name = javascriptGenerator.valueToCode(
-    block,
-    "NAME",
-    javascriptGenerator.ORDER_ATOMIC
-  );
-  var statements_pro = html_attribute_to_str(
-    javascriptGenerator.statementToCode(block, "PRO") || ""
-  );
+  var value_name = javascriptGenerator.valueToCode(block, "NAME", javascriptGenerator.ORDER_ATOMIC);
+  var statements_pro = html_attribute_to_str(javascriptGenerator.statementToCode(block, "PRO") || "");
   var code = `React.createElement("div", {${statements_pro}dangerouslySetInnerHTML: {__html: ${value_name}}}, null),\n`;
 
   return code;
