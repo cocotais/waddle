@@ -16,7 +16,7 @@ import Blockly from "blockly";Blockly.Blocks['vw_defTypes'] = {
         this.setNextStatement(true, null);
         this.setColour('#00c79f');
         this.setTooltip('定义可见控件类型，在添加积木中添加积木');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -31,7 +31,7 @@ Blockly.Blocks['vw_defWidget'] = {
         this.setNextStatement(true, null);
         this.setColour('#00c79f');
         this.setTooltip('定义可见控件实体，控件初始化里放初始化属性（懂js的随意）');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 

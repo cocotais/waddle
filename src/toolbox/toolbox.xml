@@ -1,0 +1,874 @@
+<xml>
+	<category name="控制" css-class="waddle-control" css-icon="waddle-control">
+		<label text="循环">
+		</label>
+		<block type="controls_repeat_ext">
+			<value name="TIMES">
+				<block type="math_number">
+					<field name="TEXT">10</field>
+				</block>
+			</value>
+		</block>
+		<block type="controls_for">
+			<field name="TEXT">i</field>
+			<value name="FROM">
+				<block type="math_number">
+					<field name="TEXT">1</field>
+				</block>
+			</value>
+			<value name="TO">
+				<block type="math_number">
+					<field name="TEXT">10</field>
+				</block>
+			</value>
+			<value name="BY">
+				<block type="math_number">
+					<field name="TEXT">1</field>
+				</block>
+			</value>
+		</block>
+		<block type="controls_forEach">
+		</block>
+		<block type="controls_whileUntil">
+		</block>
+		<block type="controls_flow_statements">
+		</block>
+		<label text="逻辑">
+		</label>
+		<block type="controls_if">
+		</block>
+		<block type="logic_ternary">
+		</block>
+		<label text="注释">
+		</label>
+		<block type="tools_clip">
+		</block>
+		<block type="tools_exegesis">
+		</block>
+		<label text="执行">
+		</label>
+		<block type="tools_only_run">
+		</block>
+	</category>
+	<category name="运算" css-icon="waddle-math" css-class="waddle-math">
+		<label text="数学">
+		</label>
+		<block type="math_number">
+			<field name="TEXT">114514</field>
+		</block>
+		<block type="math_arithmetic">
+		</block>
+		<block type="math_single">
+		</block>
+		<block type="math_trig">
+		</block>
+		<block type="math_constant">
+		</block>
+		<block type="math_number_property">
+		</block>
+		<block type="math_round">
+		</block>
+		<block type="math_on_list">
+		</block>
+		<block type="math_modulo">
+		</block>
+		<block type="math_constrain">
+			<value name="LOW">
+				<block type="math_number">
+					<field name="TEXT">114</field>
+				</block>
+			</value>
+			<value name="HIGH">
+				<block type="math_number">
+					<field name="TEXT">514</field>
+				</block>
+			</value>
+		</block>
+		<block type="math_random_int">
+			<value name="FROM">
+				<block type="math_number">
+					<field name="TEXT">191</field>
+				</block>
+			</value>
+			<value name="TO">
+				<block type="math_number">
+					<field name="TEXT">9810</field>
+				</block>
+			</value>
+		</block>
+		<block type="math_random_float">
+		</block>
+		<block type="math_atan2">
+		</block>
+		<block type="js_base">
+		</block>
+		<label text="逻辑">
+		</label>
+		<block type="logic_compare">
+		</block>
+		<block type="js_comparisons">
+		</block>
+		<block type="js_bitwise">
+		</block>
+		<block type="logic_operation">
+		</block>
+		<block type="logic_boolean">
+		</block>
+		<block type="logic_negate">
+		</block>
+		<block type="logic_null">
+		</block>
+		<label text="文本">
+		</label>
+		<block type="text">
+		</block>
+		<block type="text_length">
+		</block>
+		<block type="text_print">
+		</block>
+		<block type="text_join">
+		</block>
+		<block type="text_append">
+			<value name="TEXT">
+				<block type="text">
+				</block>
+			</value>
+		</block>
+		<block type="text_length">
+		</block>
+		<block type="text_isEmpty">
+		</block>
+		<block type="text_indexOf">
+		</block>
+		<block type="text_getSubstring">
+			<value name="STRING">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="text_charAt">
+		</block>
+		<block type="text_changeCase">
+		</block>
+		<block type="text_trim">
+		</block>
+		<block type="js_replace">
+		</block>
+		<block type="js_powerandlower">
+		</block>
+		<block type="js_with">
+		</block>
+		<block type="js_pad">
+		</block>
+		<block type="js_escape">
+		</block>
+		<block type="js_base64">
+		</block>
+		<block type="js_uri">
+		</block>
+		<block type="text_prompt_ext">
+			<value name="TEXT">
+				<shadow type="text">
+					<field name="TEXT">abc</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="text_prompt_ext">
+			<value name="TEXT">
+				<block type="text">
+				</block>
+			</value>
+		</block>
+	</category>
+	<category name="函数" css-icon="waddle-fx" css-class="waddle-fx" custom="PROCEDURE">
+	</category>
+	<category name="功能" css-icon="waddle-function" css-class="waddle-function">
+		<block type="js_run">
+		</block>
+		<block type="js_run2">
+		</block>
+		<block type="js_run_join">
+		</block>
+		<block type="js_usestrict">
+		</block>
+		<block type="js_time">
+		</block>
+		<!--
+		<block type="js_popup_alert">
+		</block>
+		<block type="js_popup_confirm">
+		</block>
+		<block type="js_popup_prompt">
+		</block>
+		-->
+		<block type="js_json_parse">
+		</block>
+		<block type="js_json_stringify">
+		</block>
+		<block type="js_json_access">
+		</block>
+		<block type="js_math_constant">
+		</block>
+		<block type="js_console_clean">
+		</block>
+		<block type="js_console_count">
+		</block>
+		<block type="js_console_error">
+		</block>
+		<block type="js_console_warn">
+		</block>
+		<block type="js_console_log">
+		</block>
+		<block type="js_console_time">
+		</block>
+		<block type="js_console_timeend">
+		</block>
+		<block type="js_function_value">
+		</block>
+		<block type="js_function_param_define">
+		</block>
+		<block type="js_function_run">
+		</block>
+		<block type="js_function_param">
+		</block>
+		<block type="js_settimeout">
+		</block>
+		<block type="js_settimeout2">
+		</block>
+		<block type="js_setinterval">
+		</block>
+		<block type="js_setinterval2">
+		</block>
+		<!--
+		<block type="js_str_index">
+		</block>
+		<block type="js_array_sort">
+		</block>
+		<block type="js_array_reverse">
+		</block>
+		<block type="js_array_join">
+		</block>
+		-->
+	</category>
+	<sep>
+	</sep>
+	<category name="变量" css-icon="waddle-variable" css-class="waddle-variable" custom="VARIABLE">
+	</category>
+	<category name="列表" css-icon="waddle-list" css-class="waddle-list">
+		<block type="lists_create_with">
+			<mutation items="0">
+			</mutation>
+		</block>
+		<block type="lists_create_with">
+		</block>
+		<block type="lists_repeat">
+			<value name="NUM">
+				<shadow type="math_number">
+					<field name="TEXT">5</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="lists_length">
+		</block>
+		<block type="lists_isEmpty">
+		</block>
+		<block type="lists_indexOf">
+			<value name="VALUE">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="lists_getIndex">
+			<value name="VALUE">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="lists_setIndex">
+			<value name="LIST">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="lists_getSublist">
+			<value name="LIST">
+				<block type="variables_get">
+				</block>
+			</value>
+		</block>
+		<block type="lists_split">
+			<value name="DELIM">
+				<shadow type="text">
+					<field name="TEXT">,</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="lists_sort">
+		</block>
+	</category>
+	<category name="颜色" css-icon="waddle-color" css-class="waddle-color">
+        <block type="color_import">
+		</block>
+        <block type="color_strobj">
+		</block>
+        <block type="color_get">
+		</block>
+        <block type="color_gethue">
+		</block>
+        <block type="color_getsaturation">
+		</block>
+	</category>
+	<category name="DOM" css-icon="waddle-dom" css-class="waddle-dom">
+		<block type="htmldom_document">
+		</block>
+		<block type="html_getelementbytagname">
+		</block>
+		<block type="html_getelementbyid">
+		</block>
+		<block type="html_getelementbyclass">
+		</block>
+		<block type="htmldom_appendchild">
+		</block>
+	</category>
+
+	<category name="crypto" css-icon="waddle-crypto" css-class="waddle-crypto">
+		<block type="crypto_import">
+		</block>
+		<block type="crypto_md5_s">
+		</block>
+		<block type="crypto_sha1_s">
+		</block>
+		<block type="crypto_sha256_s">
+		</block>
+		<block type="crypto_md5">
+		</block>
+		<block type="crypto_sha1">
+		</block>
+		<block type="crypto_sha256">
+		</block>
+		<block type="crypto_tostr">
+		</block>
+		<block type="crypto_aes_encrypt">
+		</block>
+		<block type="crypto_aes_decrypt">
+		</block>
+		<block type="crypto_des_encrypt">
+		</block>
+		<block type="crypto_des_decrypt">
+		</block>
+		<block type="crypto_hmacmd5str">
+		</block>
+		<block type="crypto_hmacsha1str">
+		</block>
+		<block type="crypto_hmacsha256str">
+		</block>
+		<block type="crypto_hmacsha512str">
+		</block>
+		<block type="crypto_hmacmd5">
+		</block>
+		<block type="crypto_hmacsha1">
+		</block>
+		<block type="crypto_hmacsha256">
+		</block>
+		<block type="crypto_hmacsha512">
+		</block>
+		<block type="crypto_encbase64parse">
+		</block>
+		<block type="crypto_encbase64stringify">
+		</block>
+		<block type="crypto_enclatin1parse">
+		</block>
+		<block type="crypto_enclatin1stringify">
+		</block>
+		<block type="crypto_enchexparse">
+		</block>
+		<block type="crypto_enchexstringify">
+		</block>
+		<block type="crypto_encutf8parse">
+		</block>
+		<block type="crypto_encutf8stringify">
+		</block>
+		<block type="crypto_encutf16parse">
+		</block>
+		<block type="crypto_encutf16stringify">
+		</block>
+		<block type="crypto_createuuid">
+		</block>
+	</category>
+	<category name="http" css-icon="waddle-http" css-class="waddle-http waddle-testing">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="http_import">
+		</block>
+		<block type="http_getpost">
+		</block>
+		<block type="http_response">
+		</block>
+		<block type="http_responsedropdown">
+		</block>
+		<block type="http_error">
+		</block>
+	</category>
+	<category name="lodash" css-icon="waddle-lodash" css-class="waddle-lodash">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="lodash_import">
+		</block>
+		<block type="lodash_chunk">
+		</block>
+		<block type="lodash_compact">
+		</block>
+		<block type="lodash_concat">
+		</block>
+		<block type="lodash_difference">
+		</block>
+		<block type="lodash_differencebydropdown">
+		</block>
+		<block type="lodash_differenceby">
+		</block>
+		<block type="lodash_differencewithdropdown">
+		</block>
+		<block type="lodash_differencewith">
+		</block>
+		<block type="lodash_drop">
+		</block>
+		<block type="lodash_dropright">
+		</block>
+		<block type="lodash_dropwhiledropdown">
+		</block>
+		<block type="lodash_droprightwhiledropdown">
+		</block>
+		<block type="lodash_dropwhile">
+		</block>
+		<block type="lodash_droprightwhile">
+		</block>
+		<block type="lodash_fill">
+		</block>
+		<block type="lodash_findindexdropdown">
+		</block>
+		<block type="lodash_findlastindexdropdown">
+		</block>
+		<block type="lodash_findindex">
+		</block>
+		<block type="lodash_findlastindex">
+		</block>
+		<block type="lodash_first">
+		</block>
+		<block type="lodash_flatten">
+		</block>
+		<block type="lodash_flattendeep">
+		</block>
+	</category>
+	<category name="qrcode" css-icon="waddle-qrcode" css-class="waddle-qrcode">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="qrcode_import">
+		</block>
+		<block type="qrcode_tocanvas">
+		</block>
+		<block type="qrcode_err">
+		</block>
+		<block type="qrcode_tocanvas_c">
+		</block>
+		<block type="qrcode_err">
+		</block>
+		<block type="qrcode_canvas">
+		</block>
+	</category>
+	<category name="pedo meter" css-icon="waddle-pedometer" css-class="waddle-pedometer waddle-testing">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="pedometer_import">
+		</block>
+	</category>
+	<category name="axios" css-icon="waddle-axios" css-class="waddle-axios">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="axios_import">
+		</block>
+		<block type="axios_getpost_simple">
+		</block>
+		<block type="axios_response">
+		</block>
+		<block type="axios_responsedropdown">
+		</block>
+		<block type="axios_error">
+		</block>
+		<block type="axios_getpost">
+		</block>
+		<block type="axios_timeout">
+		</block>
+		<block type="axios_maxcontentlength">
+		</block>
+		<block type="axios_withcredentials">
+		</block>
+		<block type="axios_data">
+		</block>
+	</category>
+	<category name="utils" css-icon="waddle-utils" css-class="waddle-utils">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="utils_import">
+		</block>
+		<block type="utils_isnative">
+		</block>
+	</category>
+	<category name="vika" css-icon="waddle-vika" css-class="waddle-vika">
+		<block type="vika_import">
+		</block>
+		<block type="vika_auth_simple">
+		</block>
+		<block type="vika_auth">
+		</block>
+		<block type="vika_all_simple">
+		</block>
+		<block type="vika_all">
+		</block>
+		<block type="vika_response_success">
+		</block>
+		<block type="vika_response_code">
+		</block>
+		<block type="vika_response_message">
+		</block>
+		<block type="vika_response_data">
+		</block>
+		<block type="lists_create_with">
+			<mutation items="1">
+			</mutation>
+			<value name="ADD0">
+				<block type="vika_sort">
+					<field name="TEXT">asc</field>
+				</block>
+			</value>
+		</block>
+	</category>
+	<category name="antd" css-icon="waddle-antd" css-class="waddle-antd waddle-testing">
+		<button text="实验性功能提示" callbackKey="betawarning">
+		</button>
+		<block type="antd_import">
+		</block>
+		<block type="antd_button">
+		</block>
+		<block type="antd_auto_center">
+		</block>
+		<block type="antd_divider">
+		</block>
+	</category>
+
+	<category name="权限" css-icon="waddle-permission" css-class="waddle-permission">
+		<block type="permissions_getall">
+		</block>
+		<block type="permissions_get">
+		</block>
+		<block type="permissions_window">
+		</block>
+		<block type="permissions_document">
+		</block>
+		<block type="permissions_navigator">
+		</block>
+		<block type="permissions_history">
+		</block>
+		<block type="permissions_call">
+		</block>
+		<block type="permissions_call_return">
+		</block>
+		<label text="在使用以下积木前，请先在程序开头放一个‘获取四个权限’">
+		</label>
+		<block type="js_window_screen">
+		</block>
+		<block type="js_window_avail_screen">
+		</block>
+		<block type="js_window_depth">
+		</block>
+		<block type="js_window_pixeldepth">
+		</block>
+		<block type="js_navigator_online">
+		</block>
+		<block type="js_navigator_language">
+		</block>
+		<block type="js_navigator_platform">
+		</block>
+		<block type="js_location">
+		</block>
+	</category>
+	<sep>
+	</sep>
+	<category name="构造" css-icon="waddle-build" css-class="waddle-build">
+		<label text="不可见控件基本框架">
+		</label>
+		<block type="ivw_defTypes">
+			<value name="types">
+				<block type="ivw_itemType">
+					<next>
+						<block type="ivw_itemIcon">
+							<next>
+								<block type="ivw_itemTitle">
+									<next>
+										<block type="ivw_itemVersion">
+										</block>
+									</next>
+								</block>
+							</next>
+						</block>
+					</next>
+				</block>
+			</value>
+			<next>
+				<block type="ivw_defWidget">
+					<next>
+						<block type="ivw_export">
+						</block>
+					</next>
+				</block>
+			</next>
+		</block>
+		<label text="可见控件基本框架">
+		</label>
+		<block type="vw_defTypes">
+			<value name="types">
+				<block type="ivw_itemType">
+					<next>
+						<block type="ivw_itemIcon">
+							<next>
+								<block type="ivw_itemTitle">
+									<next>
+										<block type="ivw_itemVersion">
+										</block>
+									</next>
+								</block>
+							</next>
+						</block>
+					</next>
+				</block>
+			</value>
+			<next>
+				<block type="vw_defWidget">
+					<value name="render">
+						<block type="vw_returnrender">
+						</block>
+					</value>
+					<next>
+						<block type="ivw_export">
+						</block>
+					</next>
+				</block>
+			</next>
+		</block>
+		<label text="构造传入">
+		</label>
+		<block type="ivw_propsinit">
+		</block>
+	</category>
+	<category name="积木" css-icon="waddle-block" css-class="waddle-block">
+		<label text="属性定义">
+		</label>
+		<block type="ivw_addProperty">
+		</block>
+		<block type="ivw_getproperty">
+		</block>
+		<block type="ivw_setprop">
+		</block>
+		<block type="vw_setprop">
+		</block>
+		<block type="ivw_propsinit">
+		</block>
+		<label text="方法定义">
+		</label>
+		<block type="ivw_addMethod">
+		</block>
+		<block type="ivw_methodReturn">
+		</block>
+		<label text="事件定义">
+		</label>
+		<block type="ivw_addEvent">
+		</block>
+		<block type="vw_addEvent">
+			<statement name="code">
+				<block type="ivw_emit">
+				</block>
+			</statement>
+		</block>
+		<block type="ivw_emit">
+		</block>
+		<block type="ivw_emitParameter">
+		</block>
+		<label text="参数设置">
+		</label>
+		<block type="ivw_addParams">
+		</block>
+		<block type="ivw_addEventParams">
+		</block>
+		<block type="ivw_addDropdownParams">
+			<value name="dropdownItems">
+				<block type="ivw_addDropdownItem">
+				</block>
+			</value>
+		</block>
+		<block type="ivw_addDropdownItem">
+		</block>
+		<block type="ivw_getparam">
+		</block>
+		<label text="积木设置">
+		</label>
+		<!-- <block type="ivw_option_icon">
+		</block>
+		<block type="ivw_option_color">
+		</block> -->
+		<block type="ivw_config">
+			<value name="color">
+				<shadow type="colour_picker">
+					<field name="COLOUR">#ffbb55</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="widget_config">
+		</block>
+		<label text="CoCo控制台">
+		</label>
+		<block type="widget_widgetlog">
+		</block>
+		<block type="widget_widgetwarn">
+		</block>
+		<block type="widget_widgeterror">
+		</block>
+	</category>
+	<category name="渲染" css-icon="waddle-render" css-class="waddle-render">
+		<button text="实验性功能提示，看我看我" callbackKey="betawarning">
+		</button>
+		<!-- <block type="html_code">
+		</block> -->
+		<!-- 暂时弃用 -->
+		<block type="html_tag">
+		</block>
+		<block type="html_html">
+		</block>
+		<block type="html_js">
+		</block>
+		<block type="html_js2">
+		</block>
+		<block type="html_div">
+		</block>
+		<block type="html_h123456">
+		</block>
+		<block type="html_a">
+		</block>
+		<block type="html_button">
+		</block>
+		<block type="html_img">
+		</block>
+		<block type="html_video">
+		</block>
+		<block type="html_input">
+		</block>
+		<block type="html_br">
+		</block>
+		<block type="html_iframe">
+		</block>
+		<block type="html_b">
+		</block>
+		<block type="html_footer">
+		</block>
+		<block type="html_noscript">
+		</block>
+		<block type="html_script">
+		</block>
+		<block type="html_attribute">
+		</block>
+		<block type="html_attribute_event">
+		</block>
+		<block type="html_attribute_href">
+		</block>
+		<block type="html_attribute_src">
+		</block>
+		<block type="html_attribute_target">
+		</block>
+		<block type="html_attribute_disabled">
+		</block>
+		<block type="html_attribute_loading">
+		</block>
+		<block type="html_attribute_id">
+		</block>
+		<block type="html_attribute_class">
+		</block>
+		<block type="html_attribute_onclick">
+		</block>
+		<block type="html_attribute_ondblclick">
+		</block>
+		<block type="html_attribute_onmousemove">
+		</block>
+		<block type="html_attribute_onmouseout">
+		</block>
+		<block type="html_attribute_autoplay">
+		</block>
+		<block type="html_attribute_onemptied">
+		</block>
+		<block type="html_attribute_style">
+		</block>
+		<block type="html_css">
+		</block>
+		<block type="html_css_background">
+		</block>
+		<block type="html_css_border">
+		</block>
+		<block type="html_css_border2">
+		</block>
+		<block type="html_other_px">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="html_other_cm">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="html_other_mm">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="html_other_in">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="html_other_pt">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="html_other_pc">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="html_other_%">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="html_other_em">
+			<value name="VAL">
+				<shadow type="math_number">
+					<field name="NUM">10</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="html_other_color">
+		</block>
+	</category>
+</xml>

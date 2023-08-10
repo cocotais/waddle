@@ -5,8 +5,8 @@ import { javascriptGenerator } from "blockly/javascript";import  Blockly from "b
 
 javascriptGenerator["http_get"] = function (block) {
     var mode = block.getFieldValue('MODE');
-    var ok = Blockly.JavaScript.statementToCode(block, 'OK');
-    var error = Blockly.JavaScript.statementToCode(block, 'ERROR');
+    var ok = javascriptGenerator.statementToCode(block, 'OK');
+    var error = javascriptGenerator.statementToCode(block, 'ERROR');
     var url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
     var code = `https.${mode}(${url},{},{},
    (response) => {

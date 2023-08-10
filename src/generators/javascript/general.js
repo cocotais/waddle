@@ -1,5 +1,5 @@
 import { javascriptGenerator } from "blockly/javascript";import  Blockly from "blockly";javascriptGenerator['ivw_defTypes'] = function (block) {
-    var statements_types = Blockly.JavaScript.statementToCode(block, 'types');
+    var statements_types = javascriptGenerator.statementToCode(block, 'types');
     var code = `
 
 const types = {
@@ -41,7 +41,7 @@ javascriptGenerator['ivw_itemIsGlobalWidget'] = function (block) {
 };
 
 javascriptGenerator['ivw_properties'] = function (block) {
-    var statements_properties = Blockly.JavaScript.statementToCode(block, 'properties');
+    var statements_properties = javascriptGenerator.statementToCode(block, 'properties');
     var code = `
 
 	properties: [
@@ -53,7 +53,7 @@ javascriptGenerator['ivw_properties'] = function (block) {
 };
 
 javascriptGenerator['ivw_methods'] = function (block) {
-    var statements_methods = Blockly.JavaScript.statementToCode(block, 'methods');
+    var statements_methods = javascriptGenerator.statementToCode(block, 'methods');
     var code = `
 
 methods: [
@@ -65,7 +65,7 @@ methods: [
 };
 
 javascriptGenerator['ivw_events'] = function (block) {
-    var statements_events = Blockly.JavaScript.statementToCode(block, 'events');
+    var statements_events = javascriptGenerator.statementToCode(block, 'events');
     var code = `
 
 events: [

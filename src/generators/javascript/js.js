@@ -441,8 +441,8 @@ javascriptGenerator["js_array_join"] = function (block) {
   return `${value_array}.join(${value_str})`;
 };
 javascriptGenerator["js_function_value"] = function (block) {
-  var statements_p = Blockly.JavaScript.statementToCode(block, "P");
-  var statements_c = Blockly.JavaScript.statementToCode(block, "C");
+  var statements_p = javascriptGenerator.statementToCode(block, "P");
+  var statements_c = javascriptGenerator.statementToCode(block, "C");
   var code = `((${statements_p.trim().trim(",")})=>{${statements_c}})`;
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -453,7 +453,7 @@ javascriptGenerator["js_function_run"] = function (block) {
     "V",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  var statements_p = Blockly.JavaScript.statementToCode(block, "P");
+  var statements_p = javascriptGenerator.statementToCode(block, "P");
   var code = `${value_v}(${statements_p.trim().trim(",")});\n`;
   return code;
 };

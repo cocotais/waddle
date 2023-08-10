@@ -22,7 +22,7 @@ Blockly.Blocks['ivw_defTypes'] = {
         this.setNextStatement(true, null);
         this.setColour('#8647F3');
         this.setTooltip('定义不可见控件类型，在添加积木中添加积木');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -35,7 +35,7 @@ Blockly.Blocks['ivw_defTypes'] = {
 // 		this.setNextStatement(true, null);
 // 		this.setColour("#5574F8");
 // 		this.setTooltip("type属性，控件类型，必须唯一");
-// 		this.setHelpUrl(HELP_URL);
+// 		
 // 	}
 // };
 
@@ -48,7 +48,7 @@ Blockly.Blocks['ivw_defTypes'] = {
 // 		this.setNextStatement(true, null);
 // 		this.setColour("#5574F8");
 // 		this.setTooltip("icon属性，控件图标，url");
-// 		this.setHelpUrl(HELP_URL);
+// 		
 // 	}
 // };
 
@@ -61,7 +61,7 @@ Blockly.Blocks['ivw_defTypes'] = {
 // 		this.setNextStatement(true, null);
 // 		this.setColour("#5574F8");
 // 		this.setTooltip("title属性，显示出来的名称");
-// 		this.setHelpUrl(HELP_URL);
+// 		
 // 	}
 // };
 
@@ -74,7 +74,7 @@ Blockly.Blocks['ivw_defTypes'] = {
 // 		this.setNextStatement(true, null);
 // 		this.setColour("#5574F8");
 // 		this.setTooltip("version属性，版本号x.y.z");
-// 		this.setHelpUrl(HELP_URL);
+// 		
 // 	}
 // };
 
@@ -87,7 +87,7 @@ Blockly.Blocks['ivw_defTypes'] = {
 // 		this.setNextStatement(true, null);
 // 		this.setColour("#5574F8");
 // 		this.setTooltip("isGlobalWidget属性，是否为全局控件");
-// 		this.setHelpUrl(HELP_URL);
+// 		
 // 	}
 // };
 
@@ -116,7 +116,7 @@ Blockly.Blocks['ivw_addProperty'] = {
         this.setNextStatement(true, null);
         this.setColour('#e76cea');
         this.setTooltip('定义一个属性积木\n变量名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！，需要配合初始化积木使用，初始化积木放在控件初始化里');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -174,7 +174,7 @@ Blockly.Blocks['ivw_addMethod'] = {
         this.setNextStatement(true, null);
         this.setColour('#ffbb55');
         this.setTooltip('定义一个方法积木\n函数名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -200,7 +200,7 @@ Blockly.Blocks['ivw_addParams'] = {
         this.setNextStatement(true, null);
         this.setColour('#3CA9FF');
         this.setTooltip('定义控件用于方法的参数');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -224,7 +224,7 @@ Blockly.Blocks['ivw_addEventParams'] = {
         this.setNextStatement(true, null);
         this.setColour('#3CA9FF');
         this.setTooltip('定义控件用于事件的参数');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -237,7 +237,7 @@ Blockly.Blocks['ivw_addDropdownParams'] = {
         this.setNextStatement(true, null);
         this.setColour('#3CA9FF');
         this.setTooltip('定义控件用于方法的参数');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -248,7 +248,7 @@ Blockly.Blocks['ivw_addDropdownItem'] = {
         this.setNextStatement(true, null);
         this.setColour('#3CA9FF');
         this.setTooltip('放到“添加下拉参数”里');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -264,7 +264,7 @@ Blockly.Blocks['ivw_addEvent'] = {
         this.setNextStatement(true, null);
         this.setColour('#608fee');
         this.setTooltip('（不可见控件）定义一个事件积木\n事件名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！\n执行代码里面的出发事件不能删，不然事件还是没触发！');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -282,7 +282,7 @@ Blockly.Blocks['vw_addEvent'] = {
         this.setNextStatement(true, null);
         this.setColour('#608fee');
         this.setTooltip('（可见控件）定义一个事件积木\n事件名是内部代码调用的名称（建议英文）\n标签是CoCo积木上显示的名称\n实在没理解就导入到CoCo看一下效果\n不可以动态添加！！！\n执行代码里面的出发事件不能删，不然事件还是没触发！');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -293,7 +293,7 @@ Blockly.Blocks['ivw_methodReturn'] = {
         this.setNextStatement(false, null);
         this.setColour('#ffbb55');
         this.setTooltip('触发事件并传参（可选，请用事件传参积木）');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -305,7 +305,7 @@ Blockly.Blocks['ivw_emit'] = {
         this.setNextStatement(true, null);
         this.setColour('#608fee');
         this.setTooltip('触发事件并传参（可选，请用事件传参积木）');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -316,11 +316,11 @@ Blockly.Blocks['ivw_emitParameter'] = {
         this.setNextStatement(true, null);
         this.setColour('#608fee');
         this.setTooltip('传参（可选）');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
-attris = {
+let attris = {
     key: "名称",
     valueType: "值类型",
     label: "标签",
@@ -338,7 +338,7 @@ for (const key in attris) {
                 this.setNextStatement(true, null);
                 this.setColour('#5574F8');
                 this.setTooltip(`${key}，${attri}`);
-                this.setHelpUrl(HELP_URL);
+                
             }
         };
     }
@@ -351,7 +351,7 @@ Blockly.Blocks['ivwAttri_custom'] = {
         this.setNextStatement(true, null);
         this.setColour('#5574F8');
         this.setTooltip('自定义属性');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -362,7 +362,7 @@ Blockly.Blocks['ivw_export'] = {
         this.setNextStatement(false, null);
         this.setColour('#5574F8');
         this.setTooltip('导出控件，一般为最后一行代码，这是必要的，不然没法在coco中使用');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -375,7 +375,7 @@ Blockly.Blocks['ivw_defWidget'] = {
         this.setNextStatement(true, null);
         this.setColour('#8647F3');
         this.setTooltip('定义不可见控件实体，控件初始化里放初始化属性（懂js的随意）');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -386,7 +386,7 @@ Blockly.Blocks['ivw_propsinit'] = {
         this.setNextStatement(true, null);
         this.setColour('#e76cea');
         this.setTooltip('根据定义属性积木时的值初始化控件属性，放在控件初始化里');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -497,7 +497,7 @@ Blockly.Blocks['ivw_addFunction'] = {
         this.setNextStatement(true, null);
         this.setColour('#f88767');
         this.setTooltip('定义一个控件方法，使用this.xxx()调用');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -511,7 +511,7 @@ Blockly.Blocks['ivw_addFunctionParam'] = {
         this.setNextStatement(true, null);
         this.setColour('#f88767');
         this.setTooltip('定义一个自定义函数参数');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 

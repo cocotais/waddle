@@ -26,13 +26,12 @@ import Blockly from "blockly";//ooooooooo@^ ... @OooO\.]]/@oo@@@@@oO@ ... @@^***
 //                 于勤保佑 无bug
 
 //使用的是axios图标中的颜色
-
 Blockly.Blocks["axios_import"] = {
   init: function () {
     this.appendDummyInput().appendField("引入axios");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(BlockColors["axios"]);
+    this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -60,7 +59,7 @@ Blockly.Blocks["axios_getpost_simple"] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(BlockColors["axios"]);
+    this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -70,7 +69,7 @@ Blockly.Blocks["axios_response"] = {
   init: function () {
     this.appendDummyInput().appendField("响应内容");
     this.setOutput(true, null);
-    this.setColour(BlockColors["axios"]);
+    this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -90,7 +89,7 @@ Blockly.Blocks["axios_responsedropdown"] = {
         "MODE"
       );
     this.setOutput(true, null);
-    this.setColour(BlockColors["axios"]);
+    this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -100,7 +99,7 @@ Blockly.Blocks["axios_error"] = {
   init: function () {
     this.appendDummyInput().appendField("获取错误");
     this.setOutput(true, null);
-    this.setColour(BlockColors["axios"]);
+    this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -128,7 +127,7 @@ Blockly.Blocks["axios_getpost"] = {
       .appendField("当请求失败时");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(BlockColors["axios"]);
+    this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -139,7 +138,7 @@ Blockly.Blocks["axios_timeout"] = {
     this.appendValueInput("NUM").setCheck("Number").appendField("超时限制");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(BlockColors["axios"]);
+    this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -152,7 +151,7 @@ Blockly.Blocks["axios_maxcontentlength"] = {
       .appendField("响应内容最大尺寸");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(BlockColors["axios"]);
+    this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -165,7 +164,7 @@ Blockly.Blocks["axios_maxcontentlength"] = {
       .appendField("最大重定向次数");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(BlockColors["axios"]);
+    this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -178,7 +177,7 @@ Blockly.Blocks["axios_withcredentials"] = {
       .appendField(new Blockly.FieldCheckbox("TRUE"), "NAME");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(BlockColors["axios"]);
+    this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -189,7 +188,7 @@ Blockly.Blocks["axios_headers"] = {
     this.appendValueInput("NUM").setCheck("dict").appendField("自定义请求头");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(BlockColors["axios"]);
+    this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -200,7 +199,7 @@ Blockly.Blocks["axios_data"] = {
     this.appendValueInput("NUM").setCheck(null).appendField("请求数据");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(BlockColors["axios"]);
+    this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },

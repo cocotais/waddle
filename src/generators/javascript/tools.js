@@ -1,6 +1,6 @@
 import { javascriptGenerator } from "blockly/javascript";import  Blockly from "blockly";javascriptGenerator['tools_clip'] = function (block) {
     var text_tag = block.getFieldValue('tag');
-    var statements_codes = Blockly.JavaScript.statementToCode(block, 'codes');
+    var statements_codes = javascriptGenerator.statementToCode(block, 'codes');
     var code = '// ' + text_tag + '\n' + statements_codes;
     return code + '\n';
 };
@@ -18,13 +18,13 @@ javascriptGenerator['tools_exegesis'] = function (block) {
 };
 
 javascriptGenerator['tools_dict'] = function (block) {
-    var statements_items = Blockly.JavaScript.statementToCode(block, 'items');
+    var statements_items = javascriptGenerator.statementToCode(block, 'items');
     var code = '{' + statements_items + '}';
     return [code, 0];
 };
 
 javascriptGenerator['tools_list'] = function (block) {
-    var statements_items = Blockly.JavaScript.statementToCode(block, 'items');
+    var statements_items = javascriptGenerator.statementToCode(block, 'items');
     var code = '[' + statements_items + ']';
     return [code, 0];
 };

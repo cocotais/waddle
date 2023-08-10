@@ -5,7 +5,7 @@ Blockly.Blocks['vika_import'] = {
         this.appendDummyInput().appendField('引入vika');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(BlockColors['vika']);
+        this.setColour("#f88767");
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -18,7 +18,7 @@ Blockly.Blocks['vika_auth_simple'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(BlockColors['vika']);
+        this.setColour("#f88767");
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -34,7 +34,7 @@ Blockly.Blocks['vika_auth'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(BlockColors['vika']);
+        this.setColour("#f88767");
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -48,7 +48,7 @@ Blockly.Blocks['vika_all_simple'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(BlockColors['vika']);
+        this.setColour("#f88767");
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -78,7 +78,7 @@ Blockly.Blocks['vika_all'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(BlockColors['vika']);
+        this.setColour("#f88767");
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -89,7 +89,7 @@ Blockly.Blocks['vika_response_success'] = {
     init: function () {
         this.appendDummyInput().appendField('请求是否成功?');
         this.setOutput(true, 'Boolean');
-        this.setColour(BlockColors['vika']);
+        this.setColour("#f88767");
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -99,7 +99,7 @@ Blockly.Blocks['vika_response_code'] = {
     init: function () {
         this.appendDummyInput().appendField('请求返回码');
         this.setOutput(true, 'Number');
-        this.setColour(BlockColors['vika']);
+        this.setColour("#f88767");
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -109,7 +109,7 @@ Blockly.Blocks['vika_response_message'] = {
     init: function () {
         this.appendDummyInput().appendField('请求返回消息');
         this.setOutput(true, 'String');
-        this.setColour(BlockColors['vika']);
+        this.setColour("#f88767");
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -119,7 +119,7 @@ Blockly.Blocks['vika_response_data'] = {
     init: function () {
         this.appendDummyInput().appendField('请求返回数据');
         this.setOutput(true, 'String');
-        this.setColour(BlockColors['vika']);
+        this.setColour("#f88767");
         this.setTooltip('');
         this.setHelpUrl('');
     }
@@ -139,7 +139,7 @@ Blockly.Blocks['vika_sort'] = {
         this.appendValueInput('id').setCheck(null).appendField('列名称或ID');
         this.setInputsInline(true);
         this.setOutput(true, null);
-        this.setColour(BlockColors['vika']);
+        this.setColour("#f88767");
         this.setTooltip('');
         this.setHelpUrl('');
     }

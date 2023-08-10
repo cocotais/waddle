@@ -6,8 +6,8 @@ javascriptGenerator['axios_import'] = function () {
 
 javascriptGenerator['axios_getpost_simple'] = function (block) {
     var mode = block.getFieldValue('MODE');
-    var ok = Blockly.JavaScript.statementToCode(block, 'OK');
-    var error = Blockly.JavaScript.statementToCode(block, 'ERROR');
+    var ok = javascriptGenerator.statementToCode(block, 'OK');
+    var error = javascriptGenerator.statementToCode(block, 'ERROR');
     var url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
     var code = `axios.${mode}(${url})
   .then((response) => {
@@ -38,9 +38,9 @@ javascriptGenerator['axios_error'] = function () {
 javascriptGenerator['axios_getpost'] = function (block) {
     var dropdown_mode = block.getFieldValue('MODE');
     var value_url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC) || "''";
-    var statements_par = Blockly.JavaScript.statementToCode(block, 'PAR');
-    var statements_ok = Blockly.JavaScript.statementToCode(block, 'OK');
-    var statements_error = Blockly.JavaScript.statementToCode(block, 'error');
+    var statements_par = javascriptGenerator.statementToCode(block, 'PAR');
+    var statements_ok = javascriptGenerator.statementToCode(block, 'OK');
+    var statements_error = javascriptGenerator.statementToCode(block, 'error');
         var code = `
 axios.${dropdown_mode}(${value_url},{
   ${statements_par}

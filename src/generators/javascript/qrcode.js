@@ -6,7 +6,7 @@ import { javascriptGenerator } from "blockly/javascript";import  Blockly from "b
 javascriptGenerator['qrcode_tocanvas'] = function (block) {
     var value_text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_ATOMIC);
     var value_canva = Blockly.JavaScript.valueToCode(block, 'CANVA', Blockly.JavaScript.ORDER_ATOMIC);
-    var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
+    var statements_name = javascriptGenerator.statementToCode(block, 'NAME');
     var code = `qrcode.toCanvas(${value_canva},${value_text}, function (error) {
 ${statements_name}
 })`;
@@ -20,7 +20,7 @@ javascriptGenerator['qrcode_err'] = function (block) {
 
 javascriptGenerator['qrcode_tocanvas_c'] = function (block) {
     var value_text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_ATOMIC);
-    var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
+    var statements_name = javascriptGenerator.statementToCode(block, 'NAME');
     var code = `qrode.toCanvas(${value_text},function (error, canvas) {
 ${statements_name}  
 })`;

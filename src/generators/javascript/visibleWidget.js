@@ -1,5 +1,5 @@
 import { javascriptGenerator } from "blockly/javascript";import  Blockly from "blockly";javascriptGenerator['vw_defTypes'] = function (block) {
-  // var statements_types = Blockly.JavaScript.statementToCode(block, 'types');
+  // var statements_types = javascriptGenerator.statementToCode(block, 'types');
   var text_type = block.getFieldValue('type');
   var text_icon = block.getFieldValue('icon');
   var text_title = block.getFieldValue('title');
@@ -61,8 +61,8 @@ const types = {
 };
 
 javascriptGenerator['vw_defWidget'] = function (block) {
-  var statements_constructor = Blockly.JavaScript.statementToCode(block, 'constructor');
-  var statements_render = Blockly.JavaScript.statementToCode(block, 'render');
+  var statements_constructor = javascriptGenerator.statementToCode(block, 'constructor');
+  var statements_render = javascriptGenerator.statementToCode(block, 'render');
   var code = `
 class Widget extends VisibleWidget {
   constructor(props) {
@@ -81,7 +81,7 @@ class Widget extends VisibleWidget {
 };
 
 javascriptGenerator['vw_returnrender'] = function (block) {
-  var statements_html = Blockly.JavaScript.statementToCode(block, 'HTML');
+  var statements_html = javascriptGenerator.statementToCode(block, 'HTML');
   if (statements_html.length > 0) {
     statements_html = statements_html.substring(0, statements_html.length - 2); // 去除最后一个多余的逗号
   } else if (statements_html.length == 0) {

@@ -25,7 +25,7 @@ javascriptGenerator['vika_auth'] = function (block) {
 
 javascriptGenerator['vika_all_simple'] = function (block) {
     var value_id = Blockly.JavaScript.valueToCode(block, 'id', Blockly.JavaScript.ORDER_ATOMIC);
-    var statements_then = Blockly.JavaScript.statementToCode(block, 'then');
+    var statements_then = javascriptGenerator.statementToCode(block, 'then');
     var code = `vika.datasheet(${value_id})
   .all({})
   .then(response => {
@@ -43,7 +43,7 @@ javascriptGenerator['vika_all'] = function (block) {
     var value_maxrecords = Blockly.JavaScript.valueToCode(block, 'maxRecords', Blockly.JavaScript.ORDER_ATOMIC);
     var dropdown_cellformat = block.getFieldValue('cellFormat');
     var value_fieldkey = Blockly.JavaScript.valueToCode(block, 'fieldKey', Blockly.JavaScript.ORDER_ATOMIC);
-    var statements_then = Blockly.JavaScript.statementToCode(block, 'then');
+    var statements_then = javascriptGenerator.statementToCode(block, 'then');
         var code = `Vika.datasheet(${value_sid})
   .all({
     viewId: ${value_id},

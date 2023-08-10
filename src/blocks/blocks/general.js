@@ -8,7 +8,7 @@ Blockly.Blocks['ivw_defTypes'] = {
         this.setNextStatement(true, null);
         this.setColour('#5574F8');
         this.setTooltip('定义不可见控件类型');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -19,7 +19,7 @@ Blockly.Blocks['ivw_itemType'] = {
         this.setNextStatement(true, null);
         this.setColour('#5574F8');
         this.setTooltip('type属性，控件类型，必须唯一');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -30,7 +30,7 @@ Blockly.Blocks['ivw_itemIcon'] = {
         this.setNextStatement(true, null);
         this.setColour('#5574F8');
         this.setTooltip('icon属性，控件图标，url');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -41,7 +41,7 @@ Blockly.Blocks['ivw_itemTitle'] = {
         this.setNextStatement(true, null);
         this.setColour('#5574F8');
         this.setTooltip('title属性，显示出来的名称');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -52,7 +52,7 @@ Blockly.Blocks['ivw_itemVersion'] = {
         this.setNextStatement(true, null);
         this.setColour('#5574F8');
         this.setTooltip('version属性，版本号x.y.z');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -63,7 +63,7 @@ Blockly.Blocks['ivw_itemIsGlobalWidget'] = {
         this.setNextStatement(true, null);
         this.setColour('#5574F8');
         this.setTooltip('isGlobalWidget属性，是否为全局控件');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -75,7 +75,7 @@ Blockly.Blocks['ivw_properties'] = {
         this.setNextStatement(true, null);
         this.setColour('#5574F8');
         this.setTooltip('定义控件属性');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -87,7 +87,7 @@ Blockly.Blocks['ivw_methods'] = {
         this.setNextStatement(true, null);
         this.setColour('#5574F8');
         this.setTooltip('定义控件方法');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
 
@@ -99,6 +99,6 @@ Blockly.Blocks['ivw_events'] = {
         this.setNextStatement(true, null);
         this.setColour('#5574F8');
         this.setTooltip('定义事件方法');
-        this.setHelpUrl(HELP_URL);
+        
     }
 };
