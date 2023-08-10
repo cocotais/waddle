@@ -217,7 +217,7 @@ const open_doc = () => {
   }
   100% {
     width: 150px;
-    height: 210px;
+    height: 100%;
   }
 }
 </style>
