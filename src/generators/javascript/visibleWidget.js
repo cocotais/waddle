@@ -8,6 +8,7 @@ import { javascriptGenerator } from "blockly/javascript";import  Blockly from "b
   var number_height = block.getFieldValue('height');
   window.myicon = text_icon;
   window.mytitle = text_title;
+  window.mytype = 'jsx';
   // var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
   // 可见控件必须非全局
   var code = `

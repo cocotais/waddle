@@ -17,6 +17,7 @@ javascriptGenerator['ivw_defTypes'] = function (block) {
     var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
     window.myicon = text_icon;
     window.mytitle = text_title;
+    window.mytype = 'js';
     var code = `
 const types = {
     isInvisibleWidget: true,

@@ -7,6 +7,7 @@
       <div class="dropdown-select">
         <a-doption>新建</a-doption>
         <a-doption @click="save_to_pc">保存到电脑</a-doption>
+        <a-doption @click="save_widget">导出控件</a-doption>
         <a-doption @click="open_file">打开本地文件</a-doption>
         <a-divider margin="1px" />
         <a-doption @click="open_doc">文档</a-doption>
@@ -66,6 +67,7 @@ const props = defineProps(["workspace"]);
 import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
 
 import Theme from "@/theme/theme";
+import { javascriptGenerator } from "blockly/javascript";
 // 初始化数值
 const visible = ref(false);
 const fill = ref(true);
@@ -135,6 +137,21 @@ const save_to_pc = () => {
   let a = document.createElement("a");
   a.href = `data:,${JSON.stringify(Blockly.serialization.workspaces.save(props.workspace))}`;
   a.download = "project.boxy";
+  a.click();
+};
+/**
+ * 保存CoCo控件
+ */
+ const save_widget = () => {
+  let a = document.createElement("a");
+  let code = javascriptGenerator.workspaceToCode(props.workspace)
+  a.href = `data:,${code}`;
+  if(window.mytitle && window.mytype){
+    a.download = `${window.mytitle}.${window.mytype}`;
+  }
+  else{
+    a.download = `我的控件.js`;
+  }
   a.click();
 };
 /**
