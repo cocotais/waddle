@@ -781,12 +781,7 @@
     {
       "kind": "CATEGORY",
       "contents": [
-        {
-          "kind": "BUTTON",
-          "contents": [],
-          "text": "实验性功能提示",
-          "callbackKey": "betawarning"
-        },
+      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"http_import\"></block>",
@@ -823,12 +818,7 @@
     {
       "kind": "CATEGORY",
       "contents": [
-        {
-          "kind": "BUTTON",
-          "contents": [],
-          "text": "实验性功能提示",
-          "callbackKey": "betawarning"
-        },
+      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"lodash_import\"></block>",
@@ -955,12 +945,7 @@
     {
       "kind": "CATEGORY",
       "contents": [
-        {
-          "kind": "BUTTON",
-          "contents": [],
-          "text": "实验性功能提示",
-          "callbackKey": "betawarning"
-        },
+      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"qrcode_import\"></block>",
@@ -1002,12 +987,7 @@
     {
       "kind": "CATEGORY",
       "contents": [
-        {
-          "kind": "BUTTON",
-          "contents": [],
-          "text": "实验性功能提示",
-          "callbackKey": "betawarning"
-        },
+      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"pedometer_import\"></block>",
@@ -1024,12 +1004,7 @@
     {
       "kind": "CATEGORY",
       "contents": [
-        {
-          "kind": "BUTTON",
-          "contents": [],
-          "text": "实验性功能提示",
-          "callbackKey": "betawarning"
-        },
+      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"axios_import\"></block>",
@@ -1091,12 +1066,7 @@
     {
       "kind": "CATEGORY",
       "contents": [
-        {
-          "kind": "BUTTON",
-          "contents": [],
-          "text": "实验性功能提示",
-          "callbackKey": "betawarning"
-        },
+      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"utils_import\"></block>",
@@ -1179,12 +1149,7 @@
     {
       "kind": "CATEGORY",
       "contents": [
-        {
-          "kind": "BUTTON",
-          "contents": [],
-          "text": "实验性功能提示",
-          "callbackKey": "betawarning"
-        },
+      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"antd_import\"></block>",
@@ -1503,12 +1468,6 @@
     {
       "kind": "CATEGORY",
       "contents": [
-        {
-          "kind": "BUTTON",
-          "contents": [],
-          "text": "实验性功能提示，看我看我",
-          "callbackKey": "betawarning"
-        },
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"html_tag\"></block>",
