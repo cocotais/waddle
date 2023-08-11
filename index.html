@@ -16,9 +16,48 @@
     <link rel="icon" type="image/png" href="./src/icon/logo/waddle2.png" />
     <link rel="apple-touch-icon" type="image/png" href="./src/icon/logo/waddle2.png" />
     <title>Waddle</title>
+    <style>
+      .loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .loading img {
+        width: 250px;
+        height: 250px;
+      }
+    </style>
   </head>
 
   <body>
+    <div class="loading">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
+      <script>
+        switch (localStorage.getItem("theme")) {
+          case "亮色模式":
+            document.querySelector(".loading").style.background = "#ffffff";
+            document.querySelector(".loading img").src = "./src/icon/logo/loading.gif";
+            break;
+          case "暗黑模式":
+            document.querySelector(".loading").style.background = "#17171A";
+            document.querySelector(".loading img").src = "./src/icon/logo/loading-dark.gif";
+            break;
+          default:
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+              document.querySelector(".loading").style.background = "#17171A";
+              document.querySelector(".loading img").src = "./src/icon/logo/loading-dark.gif";
+            } else {
+              document.querySelector(".loading").style.background = "#ffffff";
+              document.querySelector(".loading img").src = "./src/icon/logo/loading.gif";
+            }
+        }
+      </script>
+    </div>
     <div id="app"></div>
     <script type="module" src="./src/main.js"></script>
   </body>

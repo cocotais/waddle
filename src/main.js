@@ -77,3 +77,5 @@ if ("serviceWorker" in navigator) {
   // && !/localhost/.test(window.location)) {
   registerSW();
 }
+
+document.querySelector(".loading").remove();
