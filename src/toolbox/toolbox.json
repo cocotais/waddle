@@ -2,6 +2,7 @@
   "contents": [
     {
       "kind": "CATEGORY",
+      "categorystyle": "controller",
       "contents": [
         {
           "kind": "LABEL",
@@ -82,6 +83,7 @@
     },
     {
       "kind": "CATEGORY",
+      "categorystyle": "calculation",
       "contents": [
         {
           "kind": "LABEL",
@@ -462,6 +464,7 @@
     {
       "kind": "CATEGORY",
       "contents": [],
+      "categorystyle": "variable",
       "name": "变量",
       "cssconfig": {
         "icon": "waddle-variable",
