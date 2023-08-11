@@ -57,7 +57,19 @@ class BoxyCategory extends Blockly.ToolboxCategory {
    * @private
    */
   addColourBorder_(colour) {
-    this.rowDiv_.children[0].children[0].style.backgroundColor = colour;
+    switch (this.name_) {
+      case "构造":
+        this.rowDiv_.children[0].children[0].style.backgroundImage = `linear-gradient(to right, #8647f3cc, #00c79faa)`;
+        break;
+      case "积木":
+        this.rowDiv_.children[0].children[0].style.backgroundImage = `linear-gradient(to right, #e76cea, #ffbb55)`;
+        break;
+      case "渲染":
+        this.rowDiv_.children[0].children[0].style.backgroundImage = `linear-gradient(to right, #01adffee, #5098fc88)`;
+        break;
+      default:
+        this.rowDiv_.children[0].children[0].style.backgroundColor = colour;
+    }
   }
 }
 

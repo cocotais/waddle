@@ -37,15 +37,63 @@ let codemaoTheme = Blockly.Theme.defineTheme("codemao", {
     },
     function: {
       colourPrimary: "#5ab45b",
-      colourTertiary: "#5ab45b",
+      colourTertiary: "#388d3c",
     },
     dom: {
       colourPrimary: "#a073ff",
-      colourTertiary: "#a073ff",
+      colourTertiary: "#6944bb",
     },
     crypto: {
       colourPrimary: "#5574f8",
-      colourTertiary: "#5574f8",
+      colourTertiary: "#334db2",
+    },
+    antd: {
+      colourPrimary: "#3d92ef",
+      colourTertiary: "#2574c7",
+    },
+    http: {
+      colourPrimary: "#3d92ef",
+      colourTertiary: "#2574c7",
+    },
+    lodash: {
+      colourPrimary: "#5098fc",
+      colourTertiary: "#2574c7",
+    },
+    qrcode: {
+      colourPrimary: "#c367f9",
+      colourTertiary: "#9128d0",
+    },
+    axios: {
+      colourPrimary: "#5a29e4",
+      colourTertiary: "#3b12af",
+    },
+    utils: {
+      colourPrimary: "#14b390",
+      colourTertiary: "#117962",
+    },
+    vi: {
+      colourPrimary: "#f88767",
+      colourTertiary: "#ab6551",
+    },
+    permission: {
+      colourPrimary: "#a073ff",
+      colourTertiary: "#6847af",
+    },
+    build: {
+      colourPrimary: "#8647f3",
+      colourTertiary: "#6337b0",
+    },
+    block: {
+      colourPrimary: "#3d92ef",
+      colourTertiary: "#2574c7",
+    },
+    render: {
+      colourPrimary: "#01adff",
+      colourTertiary: "#35a6d9",
+    },
+    pedometer: {
+      colourPrimary: "#3d92ef",
+      colourTertiary: "#2574c7",
     },
   },
   categoryStyles: {
@@ -80,43 +128,43 @@ let codemaoTheme = Blockly.Theme.defineTheme("codemao", {
       colour: "#a073ff",
     },
     crypto: {
-      colour: "#5574f8"
+      colour: "#5574f8",
     },
     lodash: {
-      colour: "#5098fc"
+      colour: "#5098fc",
     },
     qrcode: {
-      colour: "#c367f9"
+      colour: "#c367f9",
     },
     axios: {
-      colour: "#5a29e4"
+      colour: "#5a29e4",
     },
     utils: {
-      colour: "#14b390"
+      colour: "#14b390",
     },
     vi: {
-      colour: "#f88767"
+      colour: "#f88767",
     },
     permission: {
-      colour: "#a073ff"
+      colour: "#a073ff",
     },
     build: {
-      colour: "#a073ff"
+      colour: "#8647f3",
     },
     block: {
-      colour: "#a073ff"
+      colour: "#e76cea",
     },
     render: {
-      colour: "#a073ff"
+      colour: "#01adff",
     },
     http: {
-      colour: "#3d92ef"
+      colour: "#3d92ef",
     },
     pedometer: {
-      colour: "#3d92ef"
+      colour: "#3d92ef",
     },
     antd: {
-      colour: "#3d92ef"
+      colour: "#3d92ef",
     },
   },
 });

@@ -20,8 +20,9 @@ function block_style(name, style) {
 toolboxConfig["contents"].forEach(function (category) {
   if ("contents" in category) {
     let style = category["categorystyle"];
+    if (style === "block" || style === "build") return;
     category["contents"].forEach(function (element) {
-      if (element["kind"] === "block") {
+      if (element["kind"].toLowerCase() === "block") {
         block_style(element.type, style);
       }
     });

@@ -1,8 +1,8 @@
 import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
 var del_indentation = function (code) {
-  codelist = code.split("\n");
-  newcode = "";
+  let codelist = code.split("\n");
+  let newcode = "";
   codelist.forEach((item) => {
     newcode += item.slice(2);
     newcode += "\n";
@@ -10,7 +10,7 @@ var del_indentation = function (code) {
   return newcode;
 };
 
-javascriptGenerator["ivw_defTypes"] = function (block) {
+javascriptGenerator.forBlock["ivw_defTypes"] = function (block) {
   // var statements_types = javascriptGenerator.statementToCode(block, 'types');
   var text_type = block.getFieldValue("type");
   var text_icon = block.getFieldValue("icon");
@@ -36,37 +36,37 @@ const types = {
   return code;
 };
 
-// javascriptGenerator['ivw_itemType'] = function (block) {
+// javascriptGenerator.forBlock['ivw_itemType'] = function (block) {
 //     var text_type = block.getFieldValue('type');
 //     var code = `type: "${text_type}",\n`;
 //     return code;
 // };
 
-// javascriptGenerator['ivw_itemIcon'] = function (block) {
+// javascriptGenerator.forBlock['ivw_itemIcon'] = function (block) {
 //     var text_icon = block.getFieldValue('icon');
 //     var code = `icon: "${text_icon}",\n`;
 //     return code;
 // };
 
-// javascriptGenerator['ivw_itemTitle'] = function (block) {
+// javascriptGenerator.forBlock['ivw_itemTitle'] = function (block) {
 //     var text_title = block.getFieldValue('title');
 //     var code = `title: "${text_title}",\n`;
 //     return code;
 // };
 
-// javascriptGenerator['ivw_itemVersion'] = function (block) {
+// javascriptGenerator.forBlock['ivw_itemVersion'] = function (block) {
 //     var text_version = block.getFieldValue('version');
 //     var code = `version: "${text_version}",\n`;
 //     return code;
 // };
 
-// javascriptGenerator['ivw_itemIsGlobalWidget'] = function (block) {
+// javascriptGenerator.forBlock['ivw_itemIsGlobalWidget'] = function (block) {
 //     var dropdown_isglobalwidget = block.getFieldValue('isGlobalWidget');
 //     var code = `isGlobalWidget: ${dropdown_isglobalwidget},\n`;
 //     return code;
 // };
 
-javascriptGenerator["ivw_addProperty"] = function (block) {
+javascriptGenerator.forBlock["ivw_addProperty"] = function (block) {
   var text_key = block.getFieldValue("key");
   var text_label = block.getFieldValue("label");
   //var statements_other = javascriptGenerator.statementToCode(block, 'other'); 弃用，改用配置表的方式，即value_config
@@ -126,20 +126,20 @@ types['properties'].push({
   return code;
 };
 
-javascriptGenerator["ivw_getproperty"] = function (block) {
+javascriptGenerator.forBlock["ivw_getproperty"] = function (block) {
   var text_key = block.getFieldValue("KEY");
   var code = `this.${text_key}`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator["ivw_getparam"] = function (block) {
+javascriptGenerator.forBlock["ivw_getparam"] = function (block) {
   var code = block.getFieldValue("KEY");
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, 0];
 };
 
-javascriptGenerator["ivw_addMethod"] = function (block) {
+javascriptGenerator.forBlock["ivw_addMethod"] = function (block) {
   var text_key = block.getFieldValue("key");
   var text_label = block.getFieldValue("label");
   var text_valueType = block.getFieldValue("valueType");
@@ -167,7 +167,7 @@ Widget.prototype.${text_key} = function (${params}) {
   return code;
 };
 
-javascriptGenerator["ivw_addParams"] = function (block) {
+javascriptGenerator.forBlock["ivw_addParams"] = function (block) {
   var text_key = block.getFieldValue("key");
   var text_label = block.getFieldValue("label");
   var text_valueType = block.getFieldValue("valueType");
@@ -213,7 +213,7 @@ javascriptGenerator["ivw_addParams"] = function (block) {
   return code;
 };
 
-javascriptGenerator["ivw_addEventParams"] = function (block) {
+javascriptGenerator.forBlock["ivw_addEventParams"] = function (block) {
   var text_key = block.getFieldValue("key");
   var text_label = block.getFieldValue("label");
   var text_valueType = block.getFieldValue("valueType");
@@ -226,7 +226,7 @@ javascriptGenerator["ivw_addEventParams"] = function (block) {
   return code;
 };
 
-javascriptGenerator["ivw_addDropdownParams"] = function (block) {
+javascriptGenerator.forBlock["ivw_addDropdownParams"] = function (block) {
   var text_key = block.getFieldValue("key");
   var text_label = block.getFieldValue("label");
   var statements_dropdownItems = javascriptGenerator.statementToCode(block, "dropdownItems");
@@ -242,7 +242,7 @@ javascriptGenerator["ivw_addDropdownParams"] = function (block) {
   return code;
 };
 
-// javascriptGenerator['ivw_option_icon'] = function (block) {
+// javascriptGenerator.forBlock['ivw_option_icon'] = function (block) {
 //     var text_name = block.getFieldValue('NAME');
 //     var value_icon = javascriptGenerator.valueToCode(block, 'ICON', javascriptGenerator.ORDER_ATOMIC);
 
@@ -269,7 +269,7 @@ javascriptGenerator["ivw_addDropdownParams"] = function (block) {
 //     return code;
 // };
 
-// javascriptGenerator['ivw_option_color'] = function (block) {
+// javascriptGenerator.forBlock['ivw_option_color'] = function (block) {
 //     var text_name = block.getFieldValue('NAME');
 //     var value_icon = javascriptGenerator.valueToCode(block, 'ICON', javascriptGenerator.ORDER_ATOMIC);
 //     var code = `
@@ -295,7 +295,7 @@ javascriptGenerator["ivw_addDropdownParams"] = function (block) {
 //     return code;
 // };
 
-javascriptGenerator["ivw_addDropdownItem"] = function (block) {
+javascriptGenerator.forBlock["ivw_addDropdownItem"] = function (block) {
   var text_label = block.getFieldValue("label");
   var code = `
 { label: '${text_label}', value: '${text_label}', },
@@ -303,7 +303,7 @@ javascriptGenerator["ivw_addDropdownItem"] = function (block) {
   return code;
 };
 
-javascriptGenerator["ivw_addEvent"] = function (block) {
+javascriptGenerator.forBlock["ivw_addEvent"] = function (block) {
   var text_key = block.getFieldValue("key");
   var text_label = block.getFieldValue("label");
   var statements_params = javascriptGenerator.statementToCode(block, "params");
@@ -319,7 +319,7 @@ types['events'].push({
   return code;
 };
 
-javascriptGenerator["vw_addEvent"] = function (block) {
+javascriptGenerator.forBlock["vw_addEvent"] = function (block) {
   var text_key = block.getFieldValue("key");
   var text_label = block.getFieldValue("label");
   var statements_params = javascriptGenerator.statementToCode(block, "params");
@@ -339,20 +339,20 @@ Widget.prototype.${text_key} = function (event) {
   return code;
 };
 
-javascriptGenerator["ivw_methodReturn"] = function (block) {
+javascriptGenerator.forBlock["ivw_methodReturn"] = function (block) {
   var value_value = javascriptGenerator.valueToCode(block, "value", javascriptGenerator.ORDER_ATOMIC);
   var code = `return ${value_value};`;
   return code;
 };
 
-javascriptGenerator["ivw_emit"] = function (block) {
+javascriptGenerator.forBlock["ivw_emit"] = function (block) {
   var value_event = block.getFieldValue("event");
   var statements_parameters = javascriptGenerator.statementToCode(block, "parameters");
   var code = `this.emit("${value_event}"${statements_parameters});`;
   return code;
 };
 
-javascriptGenerator["ivw_emitParameter"] = function (block) {
+javascriptGenerator.forBlock["ivw_emitParameter"] = function (block) {
   var value_parameter = javascriptGenerator.valueToCode(block, "parameter", javascriptGenerator.ORDER_ATOMIC);
   var code = `, ${value_parameter}`;
   return code;
@@ -369,7 +369,7 @@ let attris = {
 for (const key in attris) {
   if (Object.hasOwnProperty.call(attris, key)) {
     const attri = attris[key];
-    javascriptGenerator["ivwAttri_" + key] = function (block) {
+    javascriptGenerator.forBlock["ivwAttri_" + key] = function (block) {
       var value_value = javascriptGenerator.valueToCode(block, "value", javascriptGenerator.ORDER_ATOMIC);
       var code = `${key}: ${value_value},\n`;
       return code;
@@ -377,14 +377,14 @@ for (const key in attris) {
   }
 }
 
-javascriptGenerator["ivwAttri_custom"] = function (block) {
+javascriptGenerator.forBlock["ivwAttri_custom"] = function (block) {
   var text_key = block.getFieldValue("key");
   var value_value = javascriptGenerator.valueToCode(block, "value", javascriptGenerator.ORDER_ATOMIC);
   var code = `${text_key}: ${value_value},\n`;
   return code;
 };
 
-javascriptGenerator["ivw_export"] = function (block) {
+javascriptGenerator.forBlock["ivw_export"] = function (block) {
   var code = `
 exports.types = types;
 exports.widget = Widget;
@@ -392,7 +392,7 @@ exports.widget = Widget;
   return code;
 };
 
-javascriptGenerator["ivw_defWidget"] = function (block) {
+javascriptGenerator.forBlock["ivw_defWidget"] = function (block) {
   var statements_constructor = javascriptGenerator.statementToCode(block, "constructor");
   var statements_functions = javascriptGenerator.statementToCode(block, "functions");
   var code = `
@@ -407,13 +407,13 @@ class Widget extends InvisibleWidget {
   return code;
 };
 
-javascriptGenerator["ivw_propsinit"] = function (block) {
+javascriptGenerator.forBlock["ivw_propsinit"] = function (block) {
   var text_props_name = block.getFieldValue("props_name");
   var code = `this.${text_props_name}=props.${text_props_name};\n`;
   return code;
 };
 
-javascriptGenerator["ivw_config"] = function (block) {
+javascriptGenerator.forBlock["ivw_config"] = function (block) {
   var value_color = javascriptGenerator.valueToCode(block, "color", javascriptGenerator.ORDER_ATOMIC);
   var text_icon = block.getFieldValue("icon");
   var checkbox_generateblock = block.getFieldValue("generateBlock") === "TRUE";
@@ -431,14 +431,14 @@ blockOptions: {
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator["ivw_setprop"] = function (block) {
+javascriptGenerator.forBlock["ivw_setprop"] = function (block) {
   var text_name = block.getFieldValue("name");
   var value_value = javascriptGenerator.valueToCode(block, "value", javascriptGenerator.ORDER_ATOMIC);
   var code = `this.${text_name} = ${value_value};\n`;
   return code;
 };
 
-javascriptGenerator["ivw_addFunction"] = function (block) {
+javascriptGenerator.forBlock["ivw_addFunction"] = function (block) {
   var functionName = block.getFieldValue("functionName");
   var statements_params = javascriptGenerator.statementToCode(block, "params");
   var statements_code = javascriptGenerator.statementToCode(block, "code");
@@ -449,13 +449,13 @@ Widget.prototype.${functionName} = function (${statements_params}) {
   return code;
 };
 
-javascriptGenerator["ivw_addFunctionParam"] = function (block) {
+javascriptGenerator.forBlock["ivw_addFunctionParam"] = function (block) {
   var paramName = block.getFieldValue("paramName");
   var code = paramName + ", ";
   return code;
 };
 
-javascriptGenerator["widget_config"] = function (block) {
+javascriptGenerator.forBlock["widget_config"] = function (block) {
   var text_name = block.getFieldValue("NAME");
   var dropdown_s = block.getFieldValue("S");
   var code = `types.docs={url:"${text_name}"};

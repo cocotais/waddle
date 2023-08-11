@@ -62,11 +62,10 @@
   <a-modal v-model:visible="cloudVisible" :footer="false">
     <template #title>
       <a-space>
-      <p>Cloud</p>
-      <a-tag color="arcoblue" bordered> Beta </a-tag>
+        <p>Cloud</p>
+        <a-tag color="arcoblue" bordered> Beta </a-tag>
       </a-space>
     </template>
-    
   </a-modal>
 </template>
 
@@ -84,7 +83,7 @@ const cloudVisible = ref(false);
 const fill = ref(true);
 const theme_value = ref(localStorage.getItem("theme") || "跟随系统");
 const block_all_shown_value = ref(!!localStorage.getItem("block_all_shown"));
-const isLogined = ref(false)
+const isLogined = ref(false);
 /**
  * 积木框全显时运行代码
  */
@@ -102,7 +101,7 @@ const more_opinion = () => {
 /**
  * “更多”打开
  */
- const cloud_opinion = () => {
+const cloud_opinion = () => {
   cloudVisible.value = true;
 };
 /**

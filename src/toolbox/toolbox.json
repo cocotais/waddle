@@ -1,4 +1,5 @@
 {
+  "kind": "categoryToolbox",
   "contents": [
     {
       "kind": "CATEGORY",
@@ -781,7 +782,6 @@
     {
       "kind": "CATEGORY",
       "contents": [
-      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"http_import\"></block>",
@@ -818,7 +818,6 @@
     {
       "kind": "CATEGORY",
       "contents": [
-      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"lodash_import\"></block>",
@@ -945,7 +944,6 @@
     {
       "kind": "CATEGORY",
       "contents": [
-      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"qrcode_import\"></block>",
@@ -987,7 +985,6 @@
     {
       "kind": "CATEGORY",
       "contents": [
-      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"pedometer_import\"></block>",
@@ -1004,7 +1001,6 @@
     {
       "kind": "CATEGORY",
       "contents": [
-      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"axios_import\"></block>",
@@ -1066,7 +1062,6 @@
     {
       "kind": "CATEGORY",
       "contents": [
-      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"utils_import\"></block>",
@@ -1149,7 +1144,6 @@
     {
       "kind": "CATEGORY",
       "contents": [
-      
         {
           "kind": "BLOCK",
           "blockxml": "<block type=\"antd_import\"></block>",
@@ -1300,16 +1294,6 @@
           "kind": "BLOCK",
           "blockxml": "<block type=\"vw_defTypes\"><value name=\"types\"><block type=\"ivw_itemType\"><next><block type=\"ivw_itemIcon\"><next><block type=\"ivw_itemTitle\"><next><block type=\"ivw_itemVersion\"></block></next></block></next></block></next></block></value><next><block type=\"vw_defWidget\"><value name=\"render\"><block type=\"vw_returnrender\"></block></value><next><block type=\"ivw_export\"></block></next></block></next></block>",
           "type": "vw_defTypes"
-        },
-        {
-          "kind": "LABEL",
-          "contents": [],
-          "text": "构造传入"
-        },
-        {
-          "kind": "BLOCK",
-          "blockxml": "<block type=\"ivw_propsinit\"></block>",
-          "type": "ivw_propsinit"
         }
       ],
       "name": "构造",

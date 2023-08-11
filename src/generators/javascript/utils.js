@@ -26,12 +26,12 @@ import { javascriptGenerator } from "blockly/javascript";
 //**************]/OOO@^  =@OO@` ./@OOOOO@/*********
 //                 于勤保佑 无bug
 
-javascriptGenerator["utils_import"] = function (block) {
+javascriptGenerator.forBlock["utils_import"] = function (block) {
   var code = `const utils = require('utils');\n`;
   return code;
 };
 
-javascriptGenerator["utils_isnative"] = function (block) {
+javascriptGenerator.forBlock["utils_isnative"] = function (block) {
   var code = "utils.isNative()";
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, javascriptGenerator.ORDER_NONE];

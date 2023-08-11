@@ -19,7 +19,7 @@ import "@blockly/block-plus-minus";
 import "./dialog/dialog.vue";
 import "highlight.js/styles/atom-one-dark.css";
 import "highlight.js/lib/common";
-import "@arco-themes/vue-boxy/index.less";
+import "@arco-themes/vue-waddle/index.less";
 
 import ArcoVue from "@arco-design/web-vue";
 import hljsVuePlugin from "@highlightjs/vue-plugin";

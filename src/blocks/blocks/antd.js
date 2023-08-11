@@ -4,7 +4,7 @@ Blockly.Blocks["antd_import"] = {
     this.appendDummyInput().appendField("引入antdesign-mobile");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#3d92ef");
+    this.setStyle("antd");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -16,7 +16,7 @@ Blockly.Blocks["antd_button"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#3d92ef");
+    this.setStyle("antd");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -27,7 +27,7 @@ Blockly.Blocks["antd_auto_center"] = {
     this.appendStatementInput("CON").setCheck(null).appendField("新建自动居中 内容");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#3d92ef");
+    this.setStyle("antd");
     this.setTooltip("");
     this.setHelpUrl("");
   },
@@ -39,7 +39,7 @@ Blockly.Blocks["antd_divider"] = {
     this.appendStatementInput("PRO").setCheck(null).appendField("属性");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour("#3d92ef");
+    this.setStyle("antd");
     this.setTooltip("");
     this.setHelpUrl("");
   },

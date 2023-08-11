@@ -1,11 +1,11 @@
 import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
-javascriptGenerator["axios_import"] = function () {
+javascriptGenerator.forBlock["axios_import"] = function () {
   var code = `const axios = require('axios');\n`;
   return code;
 };
 
-javascriptGenerator["axios_getpost_simple"] = function (block) {
+javascriptGenerator.forBlock["axios_getpost_simple"] = function (block) {
   var mode = block.getFieldValue("MODE");
   var ok = javascriptGenerator.statementToCode(block, "OK");
   var error = javascriptGenerator.statementToCode(block, "ERROR");
@@ -21,22 +21,22 @@ javascriptGenerator["axios_getpost_simple"] = function (block) {
   return code;
 };
 
-javascriptGenerator["axios_response"] = function () {
+javascriptGenerator.forBlock["axios_response"] = function () {
   return ["response", javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator["axios_responsedropdown"] = function (block) {
+javascriptGenerator.forBlock["axios_responsedropdown"] = function (block) {
   var dropdown_mode = block.getFieldValue("MODE");
   var code = `response.${dropdown_mode}`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator["axios_error"] = function () {
+javascriptGenerator.forBlock["axios_error"] = function () {
   return ["error", javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator["axios_getpost"] = function (block) {
+javascriptGenerator.forBlock["axios_getpost"] = function (block) {
   var dropdown_mode = block.getFieldValue("MODE");
   var value_url = javascriptGenerator.valueToCode(block, "URL", javascriptGenerator.ORDER_ATOMIC) || "''";
   var statements_par = javascriptGenerator.statementToCode(block, "PAR");
@@ -56,25 +56,25 @@ axios.${dropdown_mode}(${value_url},{
   return code;
 };
 
-javascriptGenerator["axios_timeout"] = function (block) {
+javascriptGenerator.forBlock["axios_timeout"] = function (block) {
   var value_num = javascriptGenerator.valueToCode(block, "NUM", javascriptGenerator.ORDER_ATOMIC) || "0";
   var code = `timeout: ${value_num},\n`;
   return code;
 };
 
-javascriptGenerator["axios_maxcontentlength"] = function (block) {
+javascriptGenerator.forBlock["axios_maxcontentlength"] = function (block) {
   var value_num = javascriptGenerator.valueToCode(block, "NUM", javascriptGenerator.ORDER_ATOMIC) || "0";
   var code = `maxContentLength: ${value_num},\n`;
   return code;
 };
 
-javascriptGenerator["axios_data"] = function (block) {
+javascriptGenerator.forBlock["axios_data"] = function (block) {
   var value_num = javascriptGenerator.valueToCode(block, "NUM", javascriptGenerator.ORDER_ATOMIC) || "0";
   var code = `data: ${value_num},\n`;
   return code;
 };
 
-javascriptGenerator["axios_withcredentials"] = function (block) {
+javascriptGenerator.forBlock["axios_withcredentials"] = function (block) {
   var checkbox_name = block.getFieldValue("NAME") === "TRUE";
   var code = `withCredentials: ${checkbox_name},\n`;
   return code;

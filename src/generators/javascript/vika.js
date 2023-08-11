@@ -1,17 +1,17 @@
 import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
-javascriptGenerator["vika_import"] = function (block) {
+javascriptGenerator.forBlock["vika_import"] = function (block) {
   var code = "const vika = require('@vikadata/vika').default;\n";
   return code;
 };
 
-javascriptGenerator["vika_auth_simple"] = function (block) {
+javascriptGenerator.forBlock["vika_auth_simple"] = function (block) {
   var value_token = javascriptGenerator.valueToCode(block, "token", javascriptGenerator.ORDER_ATOMIC);
   var code = `vika.auth({token:${value_token}});\n`;
   return code;
 };
 
-javascriptGenerator["vika_auth"] = function (block) {
+javascriptGenerator.forBlock["vika_auth"] = function (block) {
   var value_token = javascriptGenerator.valueToCode(block, "token", javascriptGenerator.ORDER_ATOMIC);
   var value_fieldkey = javascriptGenerator.valueToCode(block, "fieldKey", javascriptGenerator.ORDER_ATOMIC);
   var value_requesttimeout = javascriptGenerator.valueToCode(block, "requestTimeout", javascriptGenerator.ORDER_ATOMIC);
@@ -25,7 +25,7 @@ javascriptGenerator["vika_auth"] = function (block) {
   return code;
 };
 
-javascriptGenerator["vika_all_simple"] = function (block) {
+javascriptGenerator.forBlock["vika_all_simple"] = function (block) {
   var value_id = javascriptGenerator.valueToCode(block, "id", javascriptGenerator.ORDER_ATOMIC);
   var statements_then = javascriptGenerator.statementToCode(block, "then");
   var code = `vika.datasheet(${value_id})
@@ -35,7 +35,7 @@ ${statements_then}
 });`;
   return code;
 };
-javascriptGenerator["vika_all"] = function (block) {
+javascriptGenerator.forBlock["vika_all"] = function (block) {
   var value_sid = javascriptGenerator.valueToCode(block, "sid", javascriptGenerator.ORDER_ATOMIC);
   var value_id = javascriptGenerator.valueToCode(block, "id", javascriptGenerator.ORDER_ATOMIC);
   var value_sort = javascriptGenerator.valueToCode(block, "sort", javascriptGenerator.ORDER_ATOMIC);
@@ -63,27 +63,27 @@ javascriptGenerator["vika_all"] = function (block) {
   return code;
 };
 
-javascriptGenerator["vika_response_success"] = function (block) {
+javascriptGenerator.forBlock["vika_response_success"] = function (block) {
   var code = "response.success";
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator["vika_response_code"] = function (block) {
+javascriptGenerator.forBlock["vika_response_code"] = function (block) {
   var code = "response.code";
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator["vika_response_message"] = function (block) {
+javascriptGenerator.forBlock["vika_response_message"] = function (block) {
   var code = "response.message";
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator["vika_response_data"] = function (block) {
+javascriptGenerator.forBlock["vika_response_data"] = function (block) {
   var code = "response.data";
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator["vika_sort"] = function (block) {
+javascriptGenerator.forBlock["vika_sort"] = function (block) {
   var dropdown_sort = block.getFieldValue("sort");
   var value_id = javascriptGenerator.valueToCode(block, "id", javascriptGenerator.ORDER_ATOMIC);
   var code = `{${value_id}:${dropdown_sort}}`;

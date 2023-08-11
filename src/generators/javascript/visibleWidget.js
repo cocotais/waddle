@@ -1,6 +1,6 @@
 import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
-javascriptGenerator["vw_defTypes"] = function (block) {
+javascriptGenerator.forBlock["vw_defTypes"] = function (block) {
   // var statements_types = javascriptGenerator.statementToCode(block, 'types');
   var text_type = block.getFieldValue("type");
   var text_icon = block.getFieldValue("icon");
@@ -63,7 +63,7 @@ const types = {
   return code;
 };
 
-javascriptGenerator["vw_defWidget"] = function (block) {
+javascriptGenerator.forBlock["vw_defWidget"] = function (block) {
   var statements_constructor = javascriptGenerator.statementToCode(block, "constructor");
   var statements_render = javascriptGenerator.statementToCode(block, "render");
   var code = `
@@ -83,7 +83,7 @@ class Widget extends VisibleWidget {
   return code;
 };
 
-javascriptGenerator["vw_returnrender"] = function (block) {
+javascriptGenerator.forBlock["vw_returnrender"] = function (block) {
   var statements_html = javascriptGenerator.statementToCode(block, "HTML");
   if (statements_html.length > 0) {
     statements_html = statements_html.substring(0, statements_html.length - 2); // 去除最后一个多余的逗号
@@ -98,7 +98,7 @@ return(
   return code;
 };
 
-javascriptGenerator["vw_setprop"] = function (block) {
+javascriptGenerator.forBlock["vw_setprop"] = function (block) {
   var text_name = block.getFieldValue("name");
   var value_value = javascriptGenerator.valueToCode(block, "value", javascriptGenerator.ORDER_ATOMIC);
   var code = `this.setProps({ '${text_name}': ${value_value} });\n`;
