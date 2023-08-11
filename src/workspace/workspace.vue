@@ -132,7 +132,7 @@ let moveEnd = () => {
       ><a-select
         @change="generator_change"
         v-model:model-value="generator_value"
-        :style="{ width: '150px' }"
+        :style="{ width: '150px', display:'none' }"
         default-value="Javascript"
         class="codespace-change"
       >
