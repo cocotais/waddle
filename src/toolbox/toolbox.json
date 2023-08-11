@@ -321,6 +321,7 @@
       "kind": "CATEGORY",
       "contents": [],
       "name": "函数",
+      "categorystyle": "fx",
       "cssconfig": {
         "icon": "waddle-fx",
         "class": "waddle-fx"
@@ -452,6 +453,7 @@
         }
       ],
       "name": "功能",
+      "categorystyle": "function",
       "cssconfig": {
         "icon": "waddle-function",
         "class": "waddle-function"
@@ -532,6 +534,7 @@
         }
       ],
       "name": "列表",
+      "categorystyle": "list",
       "cssconfig": {
         "icon": "waddle-list",
         "class": "waddle-list"
@@ -567,6 +570,7 @@
         }
       ],
       "name": "颜色",
+      "categorystyle": "color",
       "cssconfig": {
         "icon": "waddle-color",
         "class": "waddle-color"
@@ -602,6 +606,7 @@
         }
       ],
       "name": "DOM",
+      "categorystyle": "dom",
       "cssconfig": {
         "icon": "waddle-dom",
         "class": "waddle-dom"
@@ -767,6 +772,7 @@
         }
       ],
       "name": "crypto",
+      "categorystyle": "crypto",
       "cssconfig": {
         "icon": "waddle-crypto",
         "class": "waddle-crypto"
@@ -808,6 +814,7 @@
         }
       ],
       "name": "http",
+      "categorystyle": "http",
       "cssconfig": {
         "icon": "waddle-http",
         "class": "waddle-http waddle-testing"
@@ -939,6 +946,7 @@
         }
       ],
       "name": "lodash",
+      "categorystyle": "lodash",
       "cssconfig": {
         "icon": "waddle-lodash",
         "class": "waddle-lodash"
@@ -985,6 +993,7 @@
         }
       ],
       "name": "qrcode",
+      "categorystyle": "qrcode",
       "cssconfig": {
         "icon": "waddle-qrcode",
         "class": "waddle-qrcode"
@@ -1006,6 +1015,7 @@
         }
       ],
       "name": "pedo meter",
+      "categorystyle": "pedometer",
       "cssconfig": {
         "icon": "waddle-pedometer",
         "class": "waddle-pedometer waddle-testing"
@@ -1072,6 +1082,7 @@
         }
       ],
       "name": "axios",
+      "categorystyle": "axios",
       "cssconfig": {
         "icon": "waddle-axios",
         "class": "waddle-axios"
@@ -1098,6 +1109,7 @@
         }
       ],
       "name": "utils",
+      "categorystyle": "utils",
       "cssconfig": {
         "icon": "waddle-utils",
         "class": "waddle-utils"
@@ -1158,6 +1170,7 @@
         }
       ],
       "name": "vika",
+      "categorystyle": "vi",
       "cssconfig": {
         "icon": "waddle-vika",
         "class": "waddle-vika"
@@ -1194,6 +1207,7 @@
         }
       ],
       "name": "antd",
+      "categorystyle": "antd",
       "cssconfig": {
         "icon": "waddle-antd",
         "class": "waddle-antd waddle-testing"
@@ -1289,6 +1303,7 @@
         }
       ],
       "name": "权限",
+      "categorystyle": "permission",
       "cssconfig": {
         "icon": "waddle-permission",
         "class": "waddle-permission"
@@ -1333,6 +1348,7 @@
         }
       ],
       "name": "构造",
+      "categorystyle": "build",
       "cssconfig": {
         "icon": "waddle-build",
         "class": "waddle-build"
@@ -1478,6 +1494,7 @@
         }
       ],
       "name": "积木",
+      "categorystyle": "block",
       "cssconfig": {
         "icon": "waddle-block",
         "class": "waddle-block"
@@ -1724,6 +1741,7 @@
         }
       ],
       "name": "渲染",
+      "categorystyle": "render",
       "cssconfig": {
         "icon": "waddle-render",
         "class": "waddle-render"
