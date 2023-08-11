@@ -1,7 +1,7 @@
 <template>
   <a-trigger trigger="hover" position="rt">
     <div id="brand">
-      <img src="../icon/logo/waddle.png" alt="" height="40" />
+      <img src="../icon/logo/waddle.png" alt="" height="36" />
     </div>
     <template #content>
       <div class="dropdown-select">
@@ -12,6 +12,8 @@
         <a-divider margin="1px" />
         <a-doption @click="open_doc">文档</a-doption>
         <a-doption @click="more_opinion">更多选项</a-doption>
+        <a-divider margin="1px" />
+        <a-doption @click="cloud_opinion">Cloud</a-doption>
       </div>
     </template>
   </a-trigger>
@@ -57,6 +59,15 @@
       </a-space>
     </div>
   </a-drawer>
+  <a-modal v-model:visible="cloudVisible" :footer="false">
+    <template #title>
+      <a-space>
+      <p>Cloud</p>
+      <a-tag color="arcoblue" bordered> Beta </a-tag>
+      </a-space>
+    </template>
+    
+  </a-modal>
 </template>
 
 <script setup>
@@ -69,10 +80,11 @@ import Theme from "@/theme/theme";
 import { javascriptGenerator } from "blockly/javascript";
 // 初始化数值
 const visible = ref(false);
+const cloudVisible = ref(false);
 const fill = ref(true);
 const theme_value = ref(localStorage.getItem("theme") || "跟随系统");
 const block_all_shown_value = ref(!!localStorage.getItem("block_all_shown"));
-
+const isLogined = ref(false)
 /**
  * 积木框全显时运行代码
  */
@@ -86,6 +98,12 @@ const block_all_shown = (value) => {
  */
 const more_opinion = () => {
   visible.value = true;
+};
+/**
+ * “更多”打开
+ */
+ const cloud_opinion = () => {
+  cloudVisible.value = true;
 };
 /**
  * “跟随系统”主题切换
