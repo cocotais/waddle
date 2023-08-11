@@ -1,243 +1,1730 @@
 {
-  "kind": "categoryToolbox",
   "contents": [
     {
-      "kind": "category",
-      "name": "控制",
-      "categorystyle": "controller",
+      "kind": "CATEGORY",
       "contents": [
         {
-          "kind": "block",
-          "type": "controls_if"
+          "kind": "LABEL",
+          "contents": [],
+          "text": "循环"
         },
         {
-          "kind": "block",
-          "type": "controls_if",
-          "extraState": {
-            "hasElse": true
-          }
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"math_number\"><field name=\"TEXT\">10</field></block></value></block>",
+          "type": "controls_repeat_ext"
         },
         {
-          "kind": "sep",
-          "gap": "64"
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"controls_for\"><field name=\"TEXT\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"TEXT\">1</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"TEXT\">10</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"TEXT\">1</field></block></value></block>",
+          "type": "controls_for"
         },
         {
-          "kind": "block",
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"controls_forEach\"></block>",
+          "type": "controls_forEach"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"controls_whileUntil\"></block>",
           "type": "controls_whileUntil"
         },
         {
-          "kind": "block",
-          "type": "controls_repeat_ext",
-          "inputs": {
-            "TIMES": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 1
-                }
-              }
-            }
-          }
-        },
-        {
-          "kind": "block",
-          "type": "controls_forever"
-        },
-        {
-          "kind": "block",
-          "type": "controls_for",
-          "inputs": {
-            "FROM": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 1
-                }
-              }
-            },
-            "TO": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            },
-            "BY": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 1
-                }
-              }
-            }
-          }
-        },
-        {
-          "kind": "block",
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"controls_flow_statements\"></block>",
           "type": "controls_flow_statements"
         },
         {
-          "kind": "sep",
-          "gap": "64"
+          "kind": "LABEL",
+          "contents": [],
+          "text": "逻辑"
         },
         {
-          "kind": "block",
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"controls_if\"></block>",
+          "type": "controls_if"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"logic_ternary\"></block>",
           "type": "logic_ternary"
+        },
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "注释"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"tools_clip\"></block>",
+          "type": "tools_clip"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"tools_exegesis\"></block>",
+          "type": "tools_exegesis"
+        },
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "执行"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"tools_only_run\"></block>",
+          "type": "tools_only_run"
         }
-      ]
+      ],
+      "name": "控制",
+      "cssconfig": {
+        "class": "waddle-control",
+        "icon": "waddle-control"
+      }
     },
     {
-      "kind": "category",
-      "name": "逻辑",
-      "categorystyle": "calculation",
+      "kind": "CATEGORY",
       "contents": [
         {
-          "kind": "block",
-          "type": "math_number",
-          "fields": {
-            "NUM": 0
-          }
+          "kind": "LABEL",
+          "contents": [],
+          "text": "数学"
         },
         {
-          "kind": "block",
-          "type": "math_arithmetic",
-          "inputs": {
-            "A": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 0
-                }
-              }
-            },
-            "B": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 0
-                }
-              }
-            }
-          }
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"math_number\"><field name=\"TEXT\">114514</field></block>",
+          "type": "math_number"
         },
         {
-          "kind": "block",
-          "type": "math_random_int",
-          "inputs": {
-            "FROM": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 0
-                }
-              }
-            },
-            "TO": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 5
-                }
-              }
-            }
-          }
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"math_arithmetic\"></block>",
+          "type": "math_arithmetic"
         },
         {
-          "kind": "sep",
-          "gap": "64"
-        },
-        {
-          "kind": "block",
-          "type": "math_round"
-        },
-        {
-          "kind": "block",
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"math_single\"></block>",
           "type": "math_single"
         },
         {
-          "kind": "block",
-          "type": "math_modulo"
-        },
-        {
-          "kind": "block",
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"math_trig\"></block>",
           "type": "math_trig"
         },
         {
-          "kind": "sep",
-          "gap": "64"
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"math_constant\"></block>",
+          "type": "math_constant"
         },
         {
-          "kind": "block",
-          "type": "math_evenly_divisible",
-          "inputs": {
-            "DIVIDEND": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 9
-                }
-              }
-            },
-            "DIVISOR": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 3
-                }
-              }
-            }
-          }
-        },
-        {
-          "kind": "block",
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"math_number_property\"></block>",
           "type": "math_number_property"
         },
         {
-          "kind": "sep",
-          "gap": "64"
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"math_round\"></block>",
+          "type": "math_round"
         },
         {
-          "kind": "block",
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"math_on_list\"></block>",
+          "type": "math_on_list"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"math_modulo\"></block>",
+          "type": "math_modulo"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"math_constrain\"><value name=\"LOW\"><block type=\"math_number\"><field name=\"TEXT\">114</field></block></value><value name=\"HIGH\"><block type=\"math_number\"><field name=\"TEXT\">514</field></block></value></block>",
+          "type": "math_constrain"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"math_random_int\"><value name=\"FROM\"><block type=\"math_number\"><field name=\"TEXT\">191</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"TEXT\">9810</field></block></value></block>",
+          "type": "math_random_int"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"math_random_float\"></block>",
+          "type": "math_random_float"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"math_atan2\"></block>",
+          "type": "math_atan2"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_base\"></block>",
+          "type": "js_base"
+        },
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "逻辑"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"logic_compare\"></block>",
           "type": "logic_compare"
         },
         {
-          "kind": "block",
-          "type": "antd_import"
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_comparisons\"></block>",
+          "type": "js_comparisons"
         },
         {
-          "kind": "block",
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_bitwise\"></block>",
+          "type": "js_bitwise"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"logic_operation\"></block>",
           "type": "logic_operation"
         },
         {
-          "kind": "block",
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"logic_boolean\"></block>",
+          "type": "logic_boolean"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"logic_negate\"></block>",
           "type": "logic_negate"
         },
         {
-          "kind": "block",
-          "type": "logic_boolean"
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"logic_null\"></block>",
+          "type": "logic_null"
+        },
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "文本"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text\"></block>",
+          "type": "text"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text_length\"></block>",
+          "type": "text_length"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text_print\"></block>",
+          "type": "text_print"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text_join\"></block>",
+          "type": "text_join"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text_append\"><value name=\"TEXT\"><block type=\"text\"></block></value></block>",
+          "type": "text_append"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text_length\"></block>",
+          "type": "text_length"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text_isEmpty\"></block>",
+          "type": "text_isEmpty"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text_indexOf\"></block>",
+          "type": "text_indexOf"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text_getSubstring\"><value name=\"STRING\"><block type=\"variables_get\"></block></value></block>",
+          "type": "text_getSubstring"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text_charAt\"></block>",
+          "type": "text_charAt"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text_changeCase\"></block>",
+          "type": "text_changeCase"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text_trim\"></block>",
+          "type": "text_trim"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_replace\"></block>",
+          "type": "js_replace"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_powerandlower\"></block>",
+          "type": "js_powerandlower"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_with\"></block>",
+          "type": "js_with"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_pad\"></block>",
+          "type": "js_pad"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_escape\"></block>",
+          "type": "js_escape"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_base64\"></block>",
+          "type": "js_base64"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_uri\"></block>",
+          "type": "js_uri"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text_prompt_ext\"><value name=\"TEXT\"><shadow type=\"text\"><field name=\"TEXT\">abc</field></shadow></value></block>",
+          "type": "text_prompt_ext"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"text_prompt_ext\"><value name=\"TEXT\"><block type=\"text\"></block></value></block>",
+          "type": "text_prompt_ext"
         }
-      ]
+      ],
+      "name": "运算",
+      "cssconfig": {
+        "icon": "waddle-math",
+        "class": "waddle-math"
+      }
     },
     {
-      "kind": "category",
-      "name": "变量",
-      "categorystyle": "variable",
-      "custom": "VARIABLE",
+      "kind": "CATEGORY",
+      "contents": [],
+      "name": "函数",
+      "cssconfig": {
+        "icon": "waddle-fx",
+        "class": "waddle-fx"
+      },
+      "custom": "PROCEDURE"
+    },
+    {
+      "kind": "CATEGORY",
       "contents": [
         {
-          "kind": "block",
-          "type": "variables_set"
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_run\"></block>",
+          "type": "js_run"
         },
         {
-          "kind": "block",
-          "type": "math_change"
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_run2\"></block>",
+          "type": "js_run2"
         },
         {
-          "kind": "block",
-          "type": "variables_get"
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_run_join\"></block>",
+          "type": "js_run_join"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_usestrict\"></block>",
+          "type": "js_usestrict"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_time\"></block>",
+          "type": "js_time"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_json_parse\"></block>",
+          "type": "js_json_parse"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_json_stringify\"></block>",
+          "type": "js_json_stringify"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_json_access\"></block>",
+          "type": "js_json_access"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_math_constant\"></block>",
+          "type": "js_math_constant"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_console_clean\"></block>",
+          "type": "js_console_clean"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_console_count\"></block>",
+          "type": "js_console_count"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_console_error\"></block>",
+          "type": "js_console_error"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_console_warn\"></block>",
+          "type": "js_console_warn"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_console_log\"></block>",
+          "type": "js_console_log"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_console_time\"></block>",
+          "type": "js_console_time"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_console_timeend\"></block>",
+          "type": "js_console_timeend"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_function_value\"></block>",
+          "type": "js_function_value"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_function_param_define\"></block>",
+          "type": "js_function_param_define"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_function_run\"></block>",
+          "type": "js_function_run"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_function_param\"></block>",
+          "type": "js_function_param"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_settimeout\"></block>",
+          "type": "js_settimeout"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_settimeout2\"></block>",
+          "type": "js_settimeout2"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_setinterval\"></block>",
+          "type": "js_setinterval"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_setinterval2\"></block>",
+          "type": "js_setinterval2"
         }
-      ]
+      ],
+      "name": "功能",
+      "cssconfig": {
+        "icon": "waddle-function",
+        "class": "waddle-function"
+      }
+    },
+    {
+      "kind": "SEP",
+      "contents": []
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [],
+      "name": "变量",
+      "cssconfig": {
+        "icon": "waddle-variable",
+        "class": "waddle-variable"
+      },
+      "custom": "VARIABLE"
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block>",
+          "type": "lists_create_with"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lists_create_with\"></block>",
+          "type": "lists_create_with"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lists_repeat\"><value name=\"NUM\"><shadow type=\"math_number\"><field name=\"TEXT\">5</field></shadow></value></block>",
+          "type": "lists_repeat"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lists_length\"></block>",
+          "type": "lists_length"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lists_isEmpty\"></block>",
+          "type": "lists_isEmpty"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lists_indexOf\"><value name=\"VALUE\"><block type=\"variables_get\"></block></value></block>",
+          "type": "lists_indexOf"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lists_getIndex\"><value name=\"VALUE\"><block type=\"variables_get\"></block></value></block>",
+          "type": "lists_getIndex"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lists_setIndex\"><value name=\"LIST\"><block type=\"variables_get\"></block></value></block>",
+          "type": "lists_setIndex"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lists_getSublist\"><value name=\"LIST\"><block type=\"variables_get\"></block></value></block>",
+          "type": "lists_getSublist"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lists_split\"><value name=\"DELIM\"><shadow type=\"text\"><field name=\"TEXT\">,</field></shadow></value></block>",
+          "type": "lists_split"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lists_sort\"></block>",
+          "type": "lists_sort"
+        }
+      ],
+      "name": "列表",
+      "cssconfig": {
+        "icon": "waddle-list",
+        "class": "waddle-list"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"color_import\"></block>",
+          "type": "color_import"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"color_strobj\"></block>",
+          "type": "color_strobj"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"color_get\"></block>",
+          "type": "color_get"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"color_gethue\"></block>",
+          "type": "color_gethue"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"color_getsaturation\"></block>",
+          "type": "color_getsaturation"
+        }
+      ],
+      "name": "颜色",
+      "cssconfig": {
+        "icon": "waddle-color",
+        "class": "waddle-color"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"htmldom_document\"></block>",
+          "type": "htmldom_document"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_getelementbytagname\"></block>",
+          "type": "html_getelementbytagname"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_getelementbyid\"></block>",
+          "type": "html_getelementbyid"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_getelementbyclass\"></block>",
+          "type": "html_getelementbyclass"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"htmldom_appendchild\"></block>",
+          "type": "htmldom_appendchild"
+        }
+      ],
+      "name": "DOM",
+      "cssconfig": {
+        "icon": "waddle-dom",
+        "class": "waddle-dom"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_import\"></block>",
+          "type": "crypto_import"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_md5_s\"></block>",
+          "type": "crypto_md5_s"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_sha1_s\"></block>",
+          "type": "crypto_sha1_s"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_sha256_s\"></block>",
+          "type": "crypto_sha256_s"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_md5\"></block>",
+          "type": "crypto_md5"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_sha1\"></block>",
+          "type": "crypto_sha1"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_sha256\"></block>",
+          "type": "crypto_sha256"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_tostr\"></block>",
+          "type": "crypto_tostr"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_aes_encrypt\"></block>",
+          "type": "crypto_aes_encrypt"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_aes_decrypt\"></block>",
+          "type": "crypto_aes_decrypt"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_des_encrypt\"></block>",
+          "type": "crypto_des_encrypt"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_des_decrypt\"></block>",
+          "type": "crypto_des_decrypt"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_hmacmd5str\"></block>",
+          "type": "crypto_hmacmd5str"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_hmacsha1str\"></block>",
+          "type": "crypto_hmacsha1str"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_hmacsha256str\"></block>",
+          "type": "crypto_hmacsha256str"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_hmacsha512str\"></block>",
+          "type": "crypto_hmacsha512str"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_hmacmd5\"></block>",
+          "type": "crypto_hmacmd5"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_hmacsha1\"></block>",
+          "type": "crypto_hmacsha1"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_hmacsha256\"></block>",
+          "type": "crypto_hmacsha256"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_hmacsha512\"></block>",
+          "type": "crypto_hmacsha512"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_encbase64parse\"></block>",
+          "type": "crypto_encbase64parse"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_encbase64stringify\"></block>",
+          "type": "crypto_encbase64stringify"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_enclatin1parse\"></block>",
+          "type": "crypto_enclatin1parse"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_enclatin1stringify\"></block>",
+          "type": "crypto_enclatin1stringify"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_enchexparse\"></block>",
+          "type": "crypto_enchexparse"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_enchexstringify\"></block>",
+          "type": "crypto_enchexstringify"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_encutf8parse\"></block>",
+          "type": "crypto_encutf8parse"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_encutf8stringify\"></block>",
+          "type": "crypto_encutf8stringify"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_encutf16parse\"></block>",
+          "type": "crypto_encutf16parse"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_encutf16stringify\"></block>",
+          "type": "crypto_encutf16stringify"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"crypto_createuuid\"></block>",
+          "type": "crypto_createuuid"
+        }
+      ],
+      "name": "crypto",
+      "cssconfig": {
+        "icon": "waddle-crypto",
+        "class": "waddle-crypto"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BUTTON",
+          "contents": [],
+          "text": "实验性功能提示",
+          "callbackKey": "betawarning"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"http_import\"></block>",
+          "type": "http_import"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"http_get\"></block>",
+          "type": "http_get"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"http_response\"></block>",
+          "type": "http_response"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"http_responsedropdown\"></block>",
+          "type": "http_responsedropdown"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"http_error\"></block>",
+          "type": "http_error"
+        }
+      ],
+      "name": "http",
+      "cssconfig": {
+        "icon": "waddle-http",
+        "class": "waddle-http waddle-testing"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BUTTON",
+          "contents": [],
+          "text": "实验性功能提示",
+          "callbackKey": "betawarning"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_import\"></block>",
+          "type": "lodash_import"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_chunk\"></block>",
+          "type": "lodash_chunk"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_compact\"></block>",
+          "type": "lodash_compact"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_concat\"></block>",
+          "type": "lodash_concat"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_difference\"></block>",
+          "type": "lodash_difference"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_differencebydropdown\"></block>",
+          "type": "lodash_differencebydropdown"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_differenceby\"></block>",
+          "type": "lodash_differenceby"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_differencewithdropdown\"></block>",
+          "type": "lodash_differencewithdropdown"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_differencewith\"></block>",
+          "type": "lodash_differencewith"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_drop\"></block>",
+          "type": "lodash_drop"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_dropright\"></block>",
+          "type": "lodash_dropright"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_dropwhiledropdown\"></block>",
+          "type": "lodash_dropwhiledropdown"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_droprightwhiledropdown\"></block>",
+          "type": "lodash_droprightwhiledropdown"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_dropwhile\"></block>",
+          "type": "lodash_dropwhile"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_droprightwhile\"></block>",
+          "type": "lodash_droprightwhile"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_fill\"></block>",
+          "type": "lodash_fill"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_findindexdropdown\"></block>",
+          "type": "lodash_findindexdropdown"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_findlastindexdropdown\"></block>",
+          "type": "lodash_findlastindexdropdown"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_findindex\"></block>",
+          "type": "lodash_findindex"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_findlastindex\"></block>",
+          "type": "lodash_findlastindex"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_first\"></block>",
+          "type": "lodash_first"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_flatten\"></block>",
+          "type": "lodash_flatten"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lodash_flattendeep\"></block>",
+          "type": "lodash_flattendeep"
+        }
+      ],
+      "name": "lodash",
+      "cssconfig": {
+        "icon": "waddle-lodash",
+        "class": "waddle-lodash"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BUTTON",
+          "contents": [],
+          "text": "实验性功能提示",
+          "callbackKey": "betawarning"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"qrcode_import\"></block>",
+          "type": "qrcode_import"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"qrcode_tocanvas\"></block>",
+          "type": "qrcode_tocanvas"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"qrcode_err\"></block>",
+          "type": "qrcode_err"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"qrcode_tocanvas_c\"></block>",
+          "type": "qrcode_tocanvas_c"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"qrcode_err\"></block>",
+          "type": "qrcode_err"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"qrcode_canvas\"></block>",
+          "type": "qrcode_canvas"
+        }
+      ],
+      "name": "qrcode",
+      "cssconfig": {
+        "icon": "waddle-qrcode",
+        "class": "waddle-qrcode"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BUTTON",
+          "contents": [],
+          "text": "实验性功能提示",
+          "callbackKey": "betawarning"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"pedometer_import\"></block>",
+          "type": "pedometer_import"
+        }
+      ],
+      "name": "pedo meter",
+      "cssconfig": {
+        "icon": "waddle-pedometer",
+        "class": "waddle-pedometer waddle-testing"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BUTTON",
+          "contents": [],
+          "text": "实验性功能提示",
+          "callbackKey": "betawarning"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_import\"></block>",
+          "type": "axios_import"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_getpost_simple\"></block>",
+          "type": "axios_getpost_simple"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_response\"></block>",
+          "type": "axios_response"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_responsedropdown\"></block>",
+          "type": "axios_responsedropdown"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_error\"></block>",
+          "type": "axios_error"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_getpost\"></block>",
+          "type": "axios_getpost"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_timeout\"></block>",
+          "type": "axios_timeout"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_maxcontentlength\"></block>",
+          "type": "axios_maxcontentlength"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_withcredentials\"></block>",
+          "type": "axios_withcredentials"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_data\"></block>",
+          "type": "axios_data"
+        }
+      ],
+      "name": "axios",
+      "cssconfig": {
+        "icon": "waddle-axios",
+        "class": "waddle-axios"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BUTTON",
+          "contents": [],
+          "text": "实验性功能提示",
+          "callbackKey": "betawarning"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"utils_import\"></block>",
+          "type": "utils_import"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"utils_isnative\"></block>",
+          "type": "utils_isnative"
+        }
+      ],
+      "name": "utils",
+      "cssconfig": {
+        "icon": "waddle-utils",
+        "class": "waddle-utils"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"vika_import\"></block>",
+          "type": "vika_import"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"vika_auth_simple\"></block>",
+          "type": "vika_auth_simple"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"vika_auth\"></block>",
+          "type": "vika_auth"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"vika_all_simple\"></block>",
+          "type": "vika_all_simple"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"vika_all\"></block>",
+          "type": "vika_all"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"vika_response_success\"></block>",
+          "type": "vika_response_success"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"vika_response_code\"></block>",
+          "type": "vika_response_code"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"vika_response_message\"></block>",
+          "type": "vika_response_message"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"vika_response_data\"></block>",
+          "type": "vika_response_data"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"lists_create_with\"><mutation items=\"1\"></mutation><value name=\"ADD0\"><block type=\"vika_sort\"><field name=\"TEXT\">asc</field></block></value></block>",
+          "type": "lists_create_with"
+        }
+      ],
+      "name": "vika",
+      "cssconfig": {
+        "icon": "waddle-vika",
+        "class": "waddle-vika"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BUTTON",
+          "contents": [],
+          "text": "实验性功能提示",
+          "callbackKey": "betawarning"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"antd_import\"></block>",
+          "type": "antd_import"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"antd_button\"></block>",
+          "type": "antd_button"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"antd_auto_center\"></block>",
+          "type": "antd_auto_center"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"antd_divider\"></block>",
+          "type": "antd_divider"
+        }
+      ],
+      "name": "antd",
+      "cssconfig": {
+        "icon": "waddle-antd",
+        "class": "waddle-antd waddle-testing"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"permissions_getall\"></block>",
+          "type": "permissions_getall"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"permissions_get\"></block>",
+          "type": "permissions_get"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"permissions_window\"></block>",
+          "type": "permissions_window"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"permissions_document\"></block>",
+          "type": "permissions_document"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"permissions_navigator\"></block>",
+          "type": "permissions_navigator"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"permissions_history\"></block>",
+          "type": "permissions_history"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"permissions_call\"></block>",
+          "type": "permissions_call"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"permissions_call_return\"></block>",
+          "type": "permissions_call_return"
+        },
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "在使用以下积木前，请先在程序开头放一个‘获取四个权限’"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_window_screen\"></block>",
+          "type": "js_window_screen"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_window_avail_screen\"></block>",
+          "type": "js_window_avail_screen"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_window_depth\"></block>",
+          "type": "js_window_depth"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_window_pixeldepth\"></block>",
+          "type": "js_window_pixeldepth"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_navigator_online\"></block>",
+          "type": "js_navigator_online"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_navigator_language\"></block>",
+          "type": "js_navigator_language"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_navigator_platform\"></block>",
+          "type": "js_navigator_platform"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"js_location\"></block>",
+          "type": "js_location"
+        }
+      ],
+      "name": "权限",
+      "cssconfig": {
+        "icon": "waddle-permission",
+        "class": "waddle-permission"
+      }
+    },
+    {
+      "kind": "SEP",
+      "contents": []
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "不可见控件基本框架"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_defTypes\"><value name=\"types\"><block type=\"ivw_itemType\"><next><block type=\"ivw_itemIcon\"><next><block type=\"ivw_itemTitle\"><next><block type=\"ivw_itemVersion\"></block></next></block></next></block></next></block></value><next><block type=\"ivw_defWidget\"><next><block type=\"ivw_export\"></block></next></block></next></block>",
+          "type": "ivw_defTypes"
+        },
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "可见控件基本框架"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"vw_defTypes\"><value name=\"types\"><block type=\"ivw_itemType\"><next><block type=\"ivw_itemIcon\"><next><block type=\"ivw_itemTitle\"><next><block type=\"ivw_itemVersion\"></block></next></block></next></block></next></block></value><next><block type=\"vw_defWidget\"><value name=\"render\"><block type=\"vw_returnrender\"></block></value><next><block type=\"ivw_export\"></block></next></block></next></block>",
+          "type": "vw_defTypes"
+        },
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "构造传入"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_propsinit\"></block>",
+          "type": "ivw_propsinit"
+        }
+      ],
+      "name": "构造",
+      "cssconfig": {
+        "icon": "waddle-build",
+        "class": "waddle-build"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "属性定义"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_addProperty\"></block>",
+          "type": "ivw_addProperty"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_getproperty\"></block>",
+          "type": "ivw_getproperty"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_setprop\"></block>",
+          "type": "ivw_setprop"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"vw_setprop\"></block>",
+          "type": "vw_setprop"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_propsinit\"></block>",
+          "type": "ivw_propsinit"
+        },
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "方法定义"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_addMethod\"></block>",
+          "type": "ivw_addMethod"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_methodReturn\"></block>",
+          "type": "ivw_methodReturn"
+        },
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "事件定义"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_addEvent\"></block>",
+          "type": "ivw_addEvent"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"vw_addEvent\"><statement name=\"code\"><block type=\"ivw_emit\"></block></statement></block>",
+          "type": "vw_addEvent"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_emit\"></block>",
+          "type": "ivw_emit"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_emitParameter\"></block>",
+          "type": "ivw_emitParameter"
+        },
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "参数设置"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_addParams\"></block>",
+          "type": "ivw_addParams"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_addEventParams\"></block>",
+          "type": "ivw_addEventParams"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_addDropdownParams\"><value name=\"dropdownItems\"><block type=\"ivw_addDropdownItem\"></block></value></block>",
+          "type": "ivw_addDropdownParams"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_addDropdownItem\"></block>",
+          "type": "ivw_addDropdownItem"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_getparam\"></block>",
+          "type": "ivw_getparam"
+        },
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "积木设置"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"ivw_config\"><value name=\"color\"><shadow type=\"colour_picker\"><field name=\"COLOUR\">#ffbb55</field></shadow></value></block>",
+          "type": "ivw_config"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"widget_config\"></block>",
+          "type": "widget_config"
+        },
+        {
+          "kind": "LABEL",
+          "contents": [],
+          "text": "CoCo控制台"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"widget_widgetlog\"></block>",
+          "type": "widget_widgetlog"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"widget_widgetwarn\"></block>",
+          "type": "widget_widgetwarn"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"widget_widgeterror\"></block>",
+          "type": "widget_widgeterror"
+        }
+      ],
+      "name": "积木",
+      "cssconfig": {
+        "icon": "waddle-block",
+        "class": "waddle-block"
+      }
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BUTTON",
+          "contents": [],
+          "text": "实验性功能提示，看我看我",
+          "callbackKey": "betawarning"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_tag\"></block>",
+          "type": "html_tag"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_html\"></block>",
+          "type": "html_html"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_js\"></block>",
+          "type": "html_js"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_js2\"></block>",
+          "type": "html_js2"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_div\"></block>",
+          "type": "html_div"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_h123456\"></block>",
+          "type": "html_h123456"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_a\"></block>",
+          "type": "html_a"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_button\"></block>",
+          "type": "html_button"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_img\"></block>",
+          "type": "html_img"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_video\"></block>",
+          "type": "html_video"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_input\"></block>",
+          "type": "html_input"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_br\"></block>",
+          "type": "html_br"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_iframe\"></block>",
+          "type": "html_iframe"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_b\"></block>",
+          "type": "html_b"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_footer\"></block>",
+          "type": "html_footer"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_noscript\"></block>",
+          "type": "html_noscript"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_script\"></block>",
+          "type": "html_script"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute\"></block>",
+          "type": "html_attribute"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_event\"></block>",
+          "type": "html_attribute_event"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_href\"></block>",
+          "type": "html_attribute_href"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_src\"></block>",
+          "type": "html_attribute_src"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_target\"></block>",
+          "type": "html_attribute_target"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_disabled\"></block>",
+          "type": "html_attribute_disabled"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_loading\"></block>",
+          "type": "html_attribute_loading"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_id\"></block>",
+          "type": "html_attribute_id"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_class\"></block>",
+          "type": "html_attribute_class"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_onclick\"></block>",
+          "type": "html_attribute_onclick"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_ondblclick\"></block>",
+          "type": "html_attribute_ondblclick"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_onmousemove\"></block>",
+          "type": "html_attribute_onmousemove"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_onmouseout\"></block>",
+          "type": "html_attribute_onmouseout"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_autoplay\"></block>",
+          "type": "html_attribute_autoplay"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_onemptied\"></block>",
+          "type": "html_attribute_onemptied"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_attribute_style\"></block>",
+          "type": "html_attribute_style"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_css\"></block>",
+          "type": "html_css"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_css_background\"></block>",
+          "type": "html_css_background"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_css_border\"></block>",
+          "type": "html_css_border"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_css_border2\"></block>",
+          "type": "html_css_border2"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_other_px\"><value name=\"VAL\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block>",
+          "type": "html_other_px"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_other_cm\"><value name=\"VAL\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block>",
+          "type": "html_other_cm"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_other_mm\"><value name=\"VAL\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block>",
+          "type": "html_other_mm"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_other_in\"><value name=\"VAL\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block>",
+          "type": "html_other_in"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_other_pt\"><value name=\"VAL\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block>",
+          "type": "html_other_pt"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_other_pc\"><value name=\"VAL\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block>",
+          "type": "html_other_pc"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_other_%\"><value name=\"VAL\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block>",
+          "type": "html_other_%"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_other_em\"><value name=\"VAL\"><shadow type=\"math_number\"><field name=\"NUM\">10</field></shadow></value></block>",
+          "type": "html_other_em"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"html_other_color\"></block>",
+          "type": "html_other_color"
+        }
+      ],
+      "name": "渲染",
+      "cssconfig": {
+        "icon": "waddle-render",
+        "class": "waddle-render"
+      }
     }
   ]
 }
