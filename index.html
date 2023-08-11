@@ -36,24 +36,25 @@
 
   <body>
     <div class="loading">
-      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
+      <img id="light" style="display: none" src="./src/icon/logo/loading.gif" alt="" />
+      <img id="dark" style="display: none" src="./src/icon/logo/loading-dark.gif" alt="" />
       <script>
         switch (localStorage.getItem("theme")) {
           case "亮色模式":
             document.querySelector(".loading").style.background = "#ffffff";
-            document.querySelector(".loading img").src = "./src/icon/logo/loading.gif";
+            document.querySelector(".loading #light").style.display = "block";
             break;
           case "暗黑模式":
             document.querySelector(".loading").style.background = "#17171A";
-            document.querySelector(".loading img").src = "./src/icon/logo/loading-dark.gif";
+            document.querySelector(".loading #dark").style.display = "block";
             break;
           default:
             if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
               document.querySelector(".loading").style.background = "#17171A";
-              document.querySelector(".loading img").src = "./src/icon/logo/loading-dark.gif";
+              document.querySelector(".loading #dark").style.display = "block";
             } else {
               document.querySelector(".loading").style.background = "#ffffff";
-              document.querySelector(".loading img").src = "./src/icon/logo/loading.gif";
+              document.querySelector(".loading #light").style.display = "block";
             }
         }
       </script>
