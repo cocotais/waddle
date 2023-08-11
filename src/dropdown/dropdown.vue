@@ -196,7 +196,7 @@ const open_file = () => {
  * 打开文档
  */
 const open_doc = () => {
-  window.open("https://www.yuque.com/hzsn/boxy");
+  window.open("https://www.yuque.com/hzsn/waddle");
 };
 </script>
 
