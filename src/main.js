@@ -39,7 +39,7 @@ app.mount("#app");
  * 设置Flyout鼠标移入事件
  */
 document.querySelector(".blocklyFlyout").addEventListener("mouseenter", function () {
-  if (this.getBoundingClientRect().width < this.getAttribute("width")) {
+  if (this.getBoundingClientRect().width < this.getAttribute("width") && this.style.display === "block") {
     this.style.width = this.getAttribute("width");
   }
 });
@@ -59,6 +59,7 @@ observer("#boxy > .blocklyDiv > div > svg.blocklyFlyout", ["style", "width"], fu
     element.style.transform = `translate(${
       -(localStorage.getItem("block_all_shown") ? element.getAttribute("width") || 320 : 320) + 60
     }px,0px)`;
+    element.style.width = localStorage.getItem("block_all_shown") ? "" : "320px";
   }
 });
 /**
