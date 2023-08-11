@@ -75,7 +75,7 @@ Blockly.Blocks["vika_all"] = {
       );
     this.appendValueInput("fieldKey").setCheck("Array").appendField("指定field和key");
     this.appendStatementInput("then").setCheck(null).appendField("当获得请求时");
-    this.setInputsInline(true);
+    this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#f88767");
