@@ -1,7 +1,7 @@
 <template>
   <a-trigger trigger="hover" position="rt">
     <div id="brand">
-      <img src="../icon/logo/waddle.png" alt="" height="36" />
+      <img src="../icon/logo/waddle2.svg" alt="" height="36" />
     </div>
     <template #content>
       <div class="dropdown-select">

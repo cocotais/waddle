@@ -25,7 +25,7 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: fileURLToPath(new URL("./src/icon/logo/waddle.png", import.meta.url)),
+          src: fileURLToPath(new URL("./src/icon/logo/waddle2.svg", import.meta.url)),
           dest: "./",
         },
         {
