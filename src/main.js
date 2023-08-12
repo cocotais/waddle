@@ -14,6 +14,7 @@ import "./icon/category/category";
 import "./toolbox/toolbox";
 import "./blocks/boxy";
 import "./blocks/patch";
+import { block_style } from  "./blocks/patch";
 import "@arco-design/web-vue/dist/arco.css";
 import "@blockly/block-plus-minus";
 import "./dialog/dialog.vue";
@@ -34,6 +35,13 @@ const app = createApp(App);
 app.use(ArcoVue);
 app.use(hljsVuePlugin);
 app.mount("#app");
+
+block_style("lists_create_with", "list");
+block_style("procedures_defnoreturn", "fx");
+block_style("procedures_defreturn", "fx");
+block_style("procedures_ifreturn", "fx");
+block_style("procedures_callnoreturn", "fx");
+block_style("procedures_callreturn", "fx");
 
 /**
  * 设置Flyout鼠标移入事件

@@ -7,7 +7,7 @@ import toolboxConfig from "../toolbox/toolbox.json";
  * @param name 积木名称
  * @param style 想要改成的样式
  */
-function block_style(name, style) {
+export function block_style(name, style) {
   // https://groups.google.com/g/blockly/c/byDoKnftEcc/m/qbaF9M8vBAAJ
   const savedIfInit = Blockly.Blocks[name].init;
   Blockly.Blocks[name].init = function () {
@@ -34,6 +34,8 @@ toolboxConfig["contents"].forEach(function (category) {
     );
   }
 });
+
+
 // 设置Blockly部分组件数值
 Blockly.FlyoutButton.BORDER_RADIUS = 4;
 Blockly.FlyoutButton.TEXT_MARGIN_X = 25;

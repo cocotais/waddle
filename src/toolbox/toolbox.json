@@ -320,14 +320,23 @@
     },
     {
       "kind": "CATEGORY",
-      "contents": [],
+      "custom": "PROCEDURE",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "procedures_defnoreturn"
+        },
+        {
+          "kind": "block",
+          "type": "procedures_defreturn"
+        }
+      ],
       "name": "函数",
       "categorystyle": "fx",
       "cssconfig": {
         "icon": "waddle-fx",
         "class": "waddle-fx"
-      },
-      "custom": "PROCEDURE"
+      }
     },
     {
       "kind": "CATEGORY",
@@ -466,7 +475,20 @@
     },
     {
       "kind": "CATEGORY",
-      "contents": [],
+      "contents": [
+        {
+          "kind": "block",
+          "type": "variables_set"
+        },
+        {
+          "kind": "block",
+          "type": "variables_get"
+        },
+        {
+          "kind": "block",
+          "type": "math_change"
+        }
+      ],
       "categorystyle": "variable",
       "name": "变量",
       "cssconfig": {

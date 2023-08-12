@@ -152,7 +152,7 @@ const handleCancel = () => {
 const save_to_pc = () => {
   let a = document.createElement("a");
   a.href = `data:,${JSON.stringify(Blockly.serialization.workspaces.save(props.workspace))}`;
-  a.download = "project.boxy";
+  a.download = "project.waddle2";
   a.click();
 };
 /**
@@ -178,7 +178,7 @@ const open_file = () => {
   input.setAttribute("type", "file");
   input.setAttribute("name", "file");
   input.setAttribute("style", "visibility:hidden");
-  input.setAttribute("accept", ".boxy");
+  input.setAttribute("accept", ".waddle2");
   document.body.appendChild(input);
   input.click();
   input.onchange = (event) => {
@@ -232,7 +232,7 @@ const open_doc = () => {
   }
   100% {
     width: 150px;
-    height: 100%;
+    height: 284px;
   }
 }
 </style>
