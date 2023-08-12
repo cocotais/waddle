@@ -182,15 +182,38 @@ const open_file = () => {
   input.setAttribute("type", "file");
   input.setAttribute("name", "file");
   input.setAttribute("style", "visibility:hidden");
-  input.setAttribute("accept", ".waddle2");
+  input.setAttribute("accept", ".waddle2,.waddle");
   document.body.appendChild(input);
   input.click();
   input.onchange = (event) => {
     let file = event.target.files[0];
+    function isJSON (str) {
+      if (typeof str === 'string') {
+        try {
+          let obj = JSON.parse(str);
+          return !!(typeof obj === 'object' && obj);
+        } catch (e) {
+          return false
+        }
+      }
+    }
+
     let file_reader = new FileReader();
     file_reader.onload = () => {
-      let fc = JSON.parse(file_reader.result);
-      Blockly.serialization.workspaces.load(fc, props.workspace);
+      if (isJSON(file_reader.result)) {
+        let fc = JSON.parse(file_reader.result);
+        Blockly.serialization.workspaces.load(fc, props.workspace);
+      }
+      else {
+        let parser = new DOMParser();
+        let xml = parser.parseFromString(file_reader.result, "text/xml");
+        let blocks = xml
+            .getElementsByTagName("body")[0]
+            .getElementsByTagName("blocks")[0]
+            .getElementsByTagName("xml")[0];
+        props.workspace.clear();
+        Blockly.Xml.domToWorkspace(blocks, props.workspace);
+      }
     };
     file_reader.readAsText(file, "UTF-8");
   };
