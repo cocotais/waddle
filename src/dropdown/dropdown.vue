@@ -71,12 +71,13 @@
 
 <script setup>
 import Blockly from "blockly";
-import { defineProps, ref } from "vue";
-const props = defineProps(["workspace"]);
-import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
+import {defineProps, ref} from "vue";
+import {IconAuto, IconDark, IconLight} from "@arco-iconbox/vue-boxy";
 
 import Theme from "@/theme/theme";
-import { javascriptGenerator } from "blockly/javascript";
+import {javascriptGenerator} from "blockly/javascript";
+
+const props = defineProps(["workspace"]);
 // 初始化数值
 const visible = ref(false);
 const cloudVisible = ref(false);
@@ -151,7 +152,10 @@ const handleCancel = () => {
  */
 const save_to_pc = () => {
   let a = document.createElement("a");
-  a.href = `data:,${JSON.stringify(Blockly.serialization.workspaces.save(props.workspace))}`;
+  const blob = new Blob([JSON.stringify(Blockly.serialization.workspaces.save(props.workspace))], {
+    type: 'application/json'
+  })
+  a.href = URL.createObjectURL(blob);
   a.download = "project.waddle2";
   a.click();
 };
