@@ -11,6 +11,7 @@ import BoxySearch from "../search/search";
 import toolbox from "../toolbox/toolbox";
 import trashcan from "../trashcan/trashcan";
 import BoxyZoomBox from "../zoomBox/zoomBox";
+import {javascriptGenerator} from "blockly/javascript";
 
 // 设置Blockly使用语言
 Blockly.setLocale(zh);
@@ -67,6 +68,7 @@ onMounted(() => {
   workspace.value.addChangeListener(function (event) {
     // 代码框代码更新
     boxyCodespace.updateCode();
+    spaceChange();
     // 检测垃圾桶是否需要打开
     trashcan.switch(event);
   });
@@ -109,6 +111,37 @@ let move = (size) => {
 let moveEnd = () => {
   window.zoomBoxResize();
 };
+
+let spaceDisabled = ref(true);
+let spaceSize = ref(0);
+
+const spaceChange = () => {
+  let blockCode = Blockly.serialization.workspaces.save(workspace.value);
+  let code = javascriptGenerator.workspaceToCode(workspace.value);
+  try {
+    for (let i of blockCode.blocks.blocks) {
+      switch (i.type) {
+        case "ivw_defTypes":
+          spaceDisabled.value = true;
+          spaceSize.value = 0;
+          break
+        case "vw_defTypes":
+          spaceDisabled.value = false;
+          spaceSize.value = "300px";
+          // window.preview_render(code);
+          break
+        default:
+          spaceDisabled.value = true;
+          spaceSize.value = 0;
+          break
+      }
+    }
+  }
+  catch (e) {
+    spaceDisabled.value = true;
+    spaceSize.value = 0;
+  }
+}
 </script>
 
 <template>
@@ -142,7 +175,14 @@ let moveEnd = () => {
         <iconpark-icon id="codespaceClose" name="close" onclick="codespaceSwitch();zoomBoxResize()"></iconpark-icon>
         <icon-close id="codespaceClose" onclick="codespaceSwitch();zoomBoxResize()" />
       </div>
-      <pre><code id="code" class="language-javascript"></code></pre>
+      <a-split id="splitCodespace" direction="vertical" v-model:size="spaceSize" :disabled="spaceDisabled">
+        <template #first>
+          <div id="widgetPreview"></div>
+        </template>
+        <template #second>
+          <pre><code id="code" class="language-javascript"></code></pre>
+        </template>
+      </a-split>
     </a-resize-box>
     <!--垃圾桶-->
     <div id="trashcan" class="blocklyToolboxDelete" style="cursor: grabbing">

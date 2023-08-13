@@ -21,6 +21,7 @@ class BoxyCodespace {
     this.workspaceDiv = document.getElementById("workspace");
     this.codespaceButton = document.getElementById("switchCode");
     this.codeSelect = document.querySelector(".codespace-change");
+    this.splitCodespace = document.getElementById("splitCodespace");
     this.language = javascriptGenerator;
   }
 
@@ -58,11 +59,13 @@ class BoxyCodespace {
     window.changeSize(this.currentWidth());
     if (this.currentWidth() === window.innerWidth) {
       this.codespaceHeadDiv.style.display = "block";
+      this.splitCodespace.style.height = "calc(100% - 62px)";
       this.codeDiv.style.marginTop = "0px";
       this.codeSelect.style.top = "15px";
       this.codeSelect.style.left = "20px";
     } else {
       this.codespaceHeadDiv.style.display = "none";
+      this.splitCodespace.style.height = "calc(100% - 2px)";
       this.codeDiv.style.marginTop = "20px";
       this.codeSelect.style.top = "0";
       this.codeSelect.style.left = "0";
@@ -148,22 +151,6 @@ class BoxyCodespace {
       case "Javascript":
         this.language = javascriptGenerator;
         this.codeDiv.className = "language-javascript hljs";
-        break;
-      case "Dart":
-        this.language = dartGenerator;
-        this.codeDiv.className = "language-dart hljs";
-        break;
-      case "Python":
-        this.language = pythonGenerator;
-        this.codeDiv.className = "language-python hljs";
-        break;
-      case "Lua":
-        this.language = luaGenerator;
-        this.codeDiv.className = "language-lua hljs";
-        break;
-      case "PHP":
-        this.language = phpGenerator;
-        this.codeDiv.className = "language-php hljs";
         break;
       default:
         break;
