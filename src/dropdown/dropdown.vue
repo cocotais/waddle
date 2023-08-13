@@ -151,26 +151,58 @@ const handleCancel = () => {
  * 保存到本地
  */
 const save_to_pc = () => {
+  let title = "我的控件";
   let a = document.createElement("a");
-  const blob = new Blob([JSON.stringify(Blockly.serialization.workspaces.save(props.workspace))], {
+  let blockCode = Blockly.serialization.workspaces.save(props.workspace);
+  const blob = new Blob([JSON.stringify(blockCode)], {
     type: 'application/json'
-  })
+  });
+  try {
+    for (let i of blockCode.blocks.blocks) {
+      switch (i.type) {
+        case "ivw_defTypes":
+          title = i.fields.title;
+          break
+        case "vw_defTypes":
+          title = i.fields.title;
+          break
+        default:
+          break
+      }
+    }
+  }
+  catch (e) {}
   a.href = URL.createObjectURL(blob);
-  a.download = "project.waddle2";
+  a.download = title + ".waddle2";
   a.click();
 };
 /**
  * 保存CoCo控件
  */
 const save_widget = () => {
+  let title = "我的控件", type = "js";
   let a = document.createElement("a");
   let code = javascriptGenerator.workspaceToCode(props.workspace);
-  a.href = `data:,${code}`;
-  if (window.mytitle && window.mytype) {
-    a.download = `${window.mytitle}.${window.mytype}`;
-  } else {
-    a.download = `我的控件.js`;
+  let blockCode = Blockly.serialization.workspaces.save(props.workspace);
+  try {
+    for (let i of blockCode.blocks.blocks) {
+      switch (i.type) {
+        case "ivw_defTypes":
+          title = i.fields.title;
+          type = "js"
+          break
+        case "vw_defTypes":
+          title = i.fields.title;
+          type = "jsx"
+          break
+        default:
+          break
+      }
+    }
   }
+  catch (e) {}
+  a.href = `data:,${code}`;
+  a.download = `${title}.${type}`;
   a.click();
 };
 /**
