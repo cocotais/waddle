@@ -5,7 +5,7 @@
     </div>
     <template #content>
       <div class="dropdown-select">
-        <a-doption>新建</a-doption>
+        <a-doption @click="new_opinion">新建</a-doption>
         <a-doption @click="save_to_pc">保存到电脑</a-doption>
         <a-doption @click="save_widget">导出控件</a-doption>
         <a-doption @click="open_file">打开本地文件</a-doption>
@@ -67,6 +67,77 @@
       </a-space>
     </template>
   </a-modal>
+  <a-modal class="newModal" v-model:visible="newVisible" :footer="false">
+    <template #title>
+      <a-space>
+        <p>新建控件</p>
+      </a-space>
+    </template>
+    <template #default>
+      <div class="newContent">
+        <a-card title="空白控件" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/blank.waddle2')">添加</a-link>
+          </template>
+          <span>全新的开始～</span>
+        </a-card>
+        <a-card title="不可见控件模版" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/invisiblewidget.waddle')">添加</a-link>
+          </template>
+          <span>开始创作你的不可见控件吧！</span>
+        </a-card>
+        <a-card title="可见控件模版" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/visiblewidget.waddle')">添加</a-link>
+          </template>
+          <span>开始创作你的可见控件吧！</span>
+        </a-card>
+        <a-card title="Hello!" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/hello.waddle')">添加</a-link>
+          </template>
+          <span>[不可见控件]<br>来跟Waddle打声招呼吧！</span>
+        </a-card>
+        <a-card title="Base编解码" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/base.waddle')">添加</a-link>
+          </template>
+          <span>[不可见控件]<br>快速Base64加密/解密</span>
+        </a-card>
+        <a-card title="超链接" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/hyperlink.waddle')">添加</a-link>
+          </template>
+          <span>[可见控件]<br>超链接控件捏～</span>
+        </a-card>
+        <a-card title="闪烁按钮" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/blinkButton.waddle')">添加</a-link>
+          </template>
+          <span>[可见控件]<br>一闪一闪亮按钮～</span>
+        </a-card>
+        <a-card title="HTML控件" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/html.waddle')">添加</a-link>
+          </template>
+          <span>[可见控件]<br>富文本吗？太强了！</span>
+        </a-card>
+        <a-card title="密码框" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/password.waddle')">添加</a-link>
+          </template>
+          <span>[可见控件]<br>密码输入有保障！</span>
+        </a-card>
+        <a-card title="投票条" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/voteLine.waddle')">添加</a-link>
+          </template>
+          <span>[可见控件]<br>支持！反对！看谁票更多</span>
+        </a-card>
+      </div>
+    </template>
+  </a-modal>
 </template>
 
 <script setup>
@@ -76,11 +147,13 @@ import {IconAuto, IconDark, IconLight} from "@arco-iconbox/vue-boxy";
 
 import Theme from "@/theme/theme";
 import {javascriptGenerator} from "blockly/javascript";
+import axios from "axios";
 
 const props = defineProps(["workspace"]);
 // 初始化数值
 const visible = ref(false);
 const cloudVisible = ref(false);
+const newVisible = ref(false);
 const fill = ref(true);
 const theme_value = ref(localStorage.getItem("theme") || "跟随系统");
 const block_all_shown_value = ref(!!localStorage.getItem("block_all_shown"));
@@ -104,6 +177,10 @@ const more_opinion = () => {
  */
 const cloud_opinion = () => {
   cloudVisible.value = true;
+};
+
+const new_opinion = () => {
+  newVisible.value = true;
 };
 /**
  * “跟随系统”主题切换
@@ -205,6 +282,17 @@ const save_widget = () => {
   a.download = `${title}.${type}`;
   a.click();
 };
+
+function isJSON (str) {
+  if (typeof str === 'string') {
+    try {
+      let obj = JSON.parse(str);
+      return !!(typeof obj === 'object' && obj);
+    } catch (e) {
+      return false
+    }
+  }
+}
 /**
  * 打开本地文件
  */
@@ -219,17 +307,6 @@ const open_file = () => {
   input.click();
   input.onchange = (event) => {
     let file = event.target.files[0];
-    function isJSON (str) {
-      if (typeof str === 'string') {
-        try {
-          let obj = JSON.parse(str);
-          return !!(typeof obj === 'object' && obj);
-        } catch (e) {
-          return false
-        }
-      }
-    }
-
     let file_reader = new FileReader();
     file_reader.onload = () => {
       if (isJSON(file_reader.result)) {
@@ -256,6 +333,29 @@ const open_file = () => {
 const open_doc = () => {
   window.open("https://www.yuque.com/hzsn/waddle");
 };
+
+const upload = (file) => {
+  axios({
+    method: 'get',
+    url: file,
+  }).then(function (response) {
+    if (isJSON(JSON.stringify(response.data))) {
+      let fc = response.data;
+      Blockly.serialization.workspaces.load(fc, props.workspace);
+    }
+    else {
+      let parser = new DOMParser();
+      let xml = parser.parseFromString(response.data, "text/xml");
+      let blocks = xml
+          .getElementsByTagName("body")[0]
+          .getElementsByTagName("blocks")[0]
+          .getElementsByTagName("xml")[0];
+      props.workspace.clear();
+      Blockly.Xml.domToWorkspace(blocks, props.workspace);
+    }
+    newVisible.value = false;
+      });
+}
 </script>
 
 <style scoped>
@@ -294,10 +394,34 @@ const open_doc = () => {
     height: 284px;
   }
 }
+
+.newContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 </style>
 
 <style>
 .arco-drawer-container .arco-drawer {
   max-width: 100%;
+}
+
+.newModal .arco-modal{
+  max-width: 800px;
+  height: 90%;
+  max-height: 600px;
+}
+
+.newModal .arco-modal .arco-modal-body{
+  max-width: 800px;
+  height: calc(90% - 48px);
+}
+
+.newContent .arco-card{
+  margin: 0 0 20px 0;
+  height: 150px;
+  min-width: 200px;
+  width: 200px;
 }
 </style>

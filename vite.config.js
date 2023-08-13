@@ -36,6 +36,10 @@ export default defineConfig({
           src: fileURLToPath(new URL("./node_modules/blockly/media/*", import.meta.url)),
           dest: "media",
         },
+        {
+          src: fileURLToPath(new URL("./src/tutorials/*", import.meta.url)),
+          dest: "tutorials",
+        },
       ],
     }),
     // vite-plugin-pwa配置，可以查看 https://vite-pwa-org.netlify.app/guide/ 获得配置详情
