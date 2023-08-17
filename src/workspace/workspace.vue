@@ -12,6 +12,7 @@ import toolbox from "../toolbox/toolbox";
 import trashcan from "../trashcan/trashcan";
 import BoxyZoomBox from "../zoomBox/zoomBox";
 import {javascriptGenerator} from "blockly/javascript";
+import { preview_render } from "@/codespace/widget-preview";
 
 // 设置Blockly使用语言
 Blockly.setLocale(zh);
@@ -128,7 +129,7 @@ const spaceChange = () => {
         case "vw_defTypes":
           spaceDisabled.value = false;
           spaceSize.value = "300px";
-          // window.preview_render(code);
+          preview_render(code);
           break
         default:
           spaceDisabled.value = true;
@@ -177,7 +178,7 @@ const spaceChange = () => {
       </div>
       <a-split id="splitCodespace" direction="vertical" v-model:size="spaceSize" :disabled="spaceDisabled">
         <template #first>
-          <div id="widgetPreview"></div>
+          <iframe id="widgetPreview" src="./react/preview.html"></iframe>
         </template>
         <template #second>
           <pre><code id="code" class="language-javascript"></code></pre>
@@ -197,6 +198,12 @@ const spaceChange = () => {
   height: 100%;
   width: 100%;
   text-align: left;
+}
+
+#widgetPreview {
+  border: unset;
+  width: 100%;
+  height: 100%;
 }
 </style>
 

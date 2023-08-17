@@ -40,6 +40,18 @@ export default defineConfig({
           src: fileURLToPath(new URL("./src/tutorials/*", import.meta.url)),
           dest: "tutorials",
         },
+        {
+          src: fileURLToPath(new URL("./src/codespace/react.development.js", import.meta.url)),
+          dest: "react",
+        },
+        {
+          src: fileURLToPath(new URL("./src/codespace/react-dom.development.js", import.meta.url)),
+          dest: "react",
+        },
+        {
+          src: fileURLToPath(new URL("./src/codespace/preview.html", import.meta.url)),
+          dest: "react",
+        },
       ],
     }),
     // vite-plugin-pwa配置，可以查看 https://vite-pwa-org.netlify.app/guide/ 获得配置详情
