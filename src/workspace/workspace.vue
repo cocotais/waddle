@@ -127,8 +127,10 @@ const spaceChange = () => {
           spaceSize.value = 0;
           break
         case "vw_defTypes":
+          if (spaceDisabled.value === true) {
+            spaceSize.value = "300px";
+          }
           spaceDisabled.value = false;
-          spaceSize.value = "300px";
           preview_render(code);
           break
         default:
