@@ -52,23 +52,26 @@ export default defineConfig({
           src: fileURLToPath(new URL("./src/codespace/preview.html", import.meta.url)),
           dest: "react",
         },
+        {
+          src: fileURLToPath(new URL("./src/icon/logo/waddle2.svg", import.meta.url)),
+          dest: "./",
+        },
       ],
     }),
     // vite-plugin-pwa配置，可以查看 https://vite-pwa-org.netlify.app/guide/ 获得配置详情
     VitePWA({
       mode: "production",
       base: "/",
-      registerType: "autoUpdate",
+      registerType: "prompt",
       injectRegister: "auto",
       // 配置Service Worker当中的Workbox
       workbox: {
         runtimeCaching: [
           {
-            // 根据正则表达式进行缓存
             urlPattern: /.*/i,
             handler: "NetworkFirst",
             options: {
-              cacheName: "boxy-cache",
+              cacheName: "waddle-cache",
               expiration: {
                 maxEntries: 10,
                 maxAgeSeconds: 60 * 60 * 1.5,
@@ -92,7 +95,14 @@ export default defineConfig({
           {
             src: "favicon.ico",
             sizes: "256x256",
+            type: "image/x-icon",
           },
+          {
+            src: "waddle2.svg",
+            type: "image/svg+xml",
+            sizes: "any",
+            purpose: "any",
+          }
         ],
       },
     }),
