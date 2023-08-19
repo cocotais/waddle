@@ -97,43 +97,50 @@
           <template #extra>
             <a-link @click="upload('./tutorials/hello.waddle')">添加</a-link>
           </template>
-          <span>[不可见控件]<br>来跟Waddle打声招呼吧！</span>
+          <span>来跟Waddle打声招呼吧！</span>
+          <a-tag color="purple" bordered>不可见控件</a-tag>
         </a-card>
         <a-card title="Base编解码" hoverable>
           <template #extra>
             <a-link @click="upload('./tutorials/base.waddle')">添加</a-link>
           </template>
-          <span>[不可见控件]<br>快速Base64加密/解密</span>
+          <span>快速Base64加密/解密</span>
+          <a-tag color="purple" bordered>不可见控件</a-tag>
         </a-card>
         <a-card title="超链接" hoverable>
           <template #extra>
             <a-link @click="upload('./tutorials/hyperlink.waddle')">添加</a-link>
           </template>
-          <span>[可见控件]<br>超链接控件捏～</span>
+          <span>超链接控件捏～</span>
+          <a-tag color="green" bordered>可见控件</a-tag>
         </a-card>
         <a-card title="闪烁按钮" hoverable>
           <template #extra>
             <a-link @click="upload('./tutorials/blinkButton.waddle')">添加</a-link>
           </template>
-          <span>[可见控件]<br>一闪一闪亮按钮～</span>
+          <span>一闪一闪亮按钮～</span>
+          <a-tag color="green" bordered>可见控件</a-tag>
         </a-card>
         <a-card title="HTML控件" hoverable>
           <template #extra>
             <a-link @click="upload('./tutorials/html.waddle')">添加</a-link>
           </template>
-          <span>[可见控件]<br>富文本吗？太强了！</span>
+          <span>富文本吗？太强了！</span>
+          <a-tag color="green" bordered>可见控件</a-tag>
         </a-card>
         <a-card title="密码框" hoverable>
           <template #extra>
             <a-link @click="upload('./tutorials/password.waddle')">添加</a-link>
           </template>
-          <span>[可见控件]<br>密码输入有保障！</span>
+          <span>密码输入有保障！</span>
+          <a-tag color="green" bordered>可见控件</a-tag>
         </a-card>
         <a-card title="投票条" hoverable>
           <template #extra>
             <a-link @click="upload('./tutorials/voteLine.waddle')">添加</a-link>
           </template>
-          <span>[可见控件]<br>支持！反对！看谁票更多</span>
+          <span>支持！反对！看谁票更多</span>
+          <a-tag color="green" bordered>可见控件</a-tag>
         </a-card>
       </div>
     </template>
@@ -396,9 +403,11 @@ const upload = (file) => {
 }
 
 .newContent {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-gap:20px 20px;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fill, 200px);
+  justify-items: center;
 }
 </style>
 
@@ -416,6 +425,13 @@ const upload = (file) => {
 .newModal .arco-modal .arco-modal-body{
   max-width: 800px;
   height: calc(90% - 48px);
+  padding: 24px 0;
+}
+
+.newContent .arco-tag{
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
 }
 
 .newContent .arco-card{
