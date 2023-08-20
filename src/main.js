@@ -14,6 +14,7 @@ import "./icon/category/category";
 import "./toolbox/toolbox";
 import "./blocks/boxy";
 import "./blocks/patch";
+import { block_style } from  "./blocks/patch";
 import "@arco-design/web-vue/dist/arco.css";
 import "@blockly/block-plus-minus";
 import "./dialog/dialog.vue";
@@ -21,7 +22,7 @@ import "highlight.js/styles/atom-one-dark.css";
 import "highlight.js/lib/common";
 import "@arco-themes/vue-waddle/index.less";
 
-import ArcoVue from "@arco-design/web-vue";
+import ArcoVue, {Modal} from "@arco-design/web-vue";
 import hljsVuePlugin from "@highlightjs/vue-plugin";
 import { registerSW } from "virtual:pwa-register";
 import { createApp } from "vue";
@@ -34,6 +35,13 @@ const app = createApp(App);
 app.use(ArcoVue);
 app.use(hljsVuePlugin);
 app.mount("#app");
+
+block_style("lists_create_with", "list");
+block_style("procedures_defnoreturn", "fx");
+block_style("procedures_defreturn", "fx");
+block_style("procedures_ifreturn", "fx");
+block_style("procedures_callnoreturn", "fx");
+block_style("procedures_callreturn", "fx");
 
 /**
  * 设置Flyout鼠标移入事件
@@ -75,7 +83,23 @@ observer("#boxy > .blocklyDiv > div >  div.blocklyToolboxDiv.blocklyNonSelectabl
 
 if ("serviceWorker" in navigator) {
   // && !/localhost/.test(window.location)) {
-  registerSW();
+  const updateSW = registerSW({
+    onNeedRefresh() {
+      Modal.confirm({
+        title: "注意",
+        content: "当前版本有更新，请问是否立即更新",
+        okText: "确认",
+        onOk: () => {
+          updateSW(true);
+        },
+        onCancel: false,
+        hideCancel: false,
+      });
+    },
+    onOfflineReady() {
+      console.log("onOfflineReady")
+    }
+  });
 }
 
 document.querySelector(".loading").remove();
