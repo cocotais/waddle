@@ -27,12 +27,8 @@
       </a-space>
       <a-space size="large" :fill="fill" :style="{ justifyContent: 'space-between', color: 'var(--color-text-2)' }">
         <p>主题</p>
-        <a-select
-          @change="theme_change"
-          v-model:model-value="theme_value"
-          :style="{ width: '150px' }"
-          default-value="跟随系统"
-        >
+        <a-select @change="theme_change" v-model:model-value="theme_value" :style="{ width: '150px' }"
+          default-value="跟随系统">
           <a-option>
             <template #icon>
               <icon-light />
@@ -65,6 +61,9 @@
         <p>Cloud</p>
         <a-tag color="arcoblue" bordered> Beta </a-tag>
       </a-space>
+    </template>
+    <template #default>
+
     </template>
   </a-modal>
   <a-modal class="newModal" v-model:visible="newVisible" :footer="false">
@@ -149,11 +148,11 @@
 
 <script setup>
 import Blockly from "blockly";
-import {defineProps, ref} from "vue";
-import {IconAuto, IconDark, IconLight} from "@arco-iconbox/vue-boxy";
+import { defineProps, ref } from "vue";
+import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
 
 import Theme from "@/theme/theme";
-import {javascriptGenerator} from "blockly/javascript";
+import { javascriptGenerator } from "blockly/javascript";
 import axios from "axios";
 
 const props = defineProps(["workspace"]);
@@ -255,7 +254,7 @@ const save_to_pc = () => {
       }
     }
   }
-  catch (e) {}
+  catch (e) { }
   a.href = URL.createObjectURL(blob);
   a.download = title + ".waddle2";
   a.click();
@@ -284,13 +283,13 @@ const save_widget = () => {
       }
     }
   }
-  catch (e) {}
+  catch (e) { }
   a.href = `data:,${code}`;
   a.download = `${title}.${type}`;
   a.click();
 };
 
-function isJSON (str) {
+function isJSON(str) {
   if (typeof str === 'string') {
     try {
       let obj = JSON.parse(str);
@@ -324,9 +323,9 @@ const open_file = () => {
         let parser = new DOMParser();
         let xml = parser.parseFromString(file_reader.result, "text/xml");
         let blocks = xml
-            .getElementsByTagName("body")[0]
-            .getElementsByTagName("blocks")[0]
-            .getElementsByTagName("xml")[0];
+          .getElementsByTagName("body")[0]
+          .getElementsByTagName("blocks")[0]
+          .getElementsByTagName("xml")[0];
         props.workspace.clear();
         Blockly.Xml.domToWorkspace(blocks, props.workspace);
       }
@@ -354,15 +353,83 @@ const upload = (file) => {
       let parser = new DOMParser();
       let xml = parser.parseFromString(response.data, "text/xml");
       let blocks = xml
-          .getElementsByTagName("body")[0]
-          .getElementsByTagName("blocks")[0]
-          .getElementsByTagName("xml")[0];
+        .getElementsByTagName("body")[0]
+        .getElementsByTagName("blocks")[0]
+        .getElementsByTagName("xml")[0];
       props.workspace.clear();
       Blockly.Xml.domToWorkspace(blocks, props.workspace);
     }
     newVisible.value = false;
-      });
+  });
 }
+
+function sync() {
+  axios.get('/api/file_list.php')
+    .then(function (response) {
+      if (response.data.length == 0) {
+        haswork.value = false;
+      } else {
+        res.value = response.data
+        haswork.value = true;
+      }
+    }).catch(function (err) {
+      haswork.value = false
+    });
+}
+let del = (time) => {
+  axios.post('/api/del_file.php', String(time))
+    .then(function (response) {
+      if (response.data == 'okay') {
+        Message.success("已删除")
+        sync()
+      } else {
+        Message.error(response.data)
+      }
+    }).catch(function (err) {
+      Message.error("删除失败")
+    });
+
+
+}
+let res = ref([["作品加载失败", -1, "作品加`载失败"], ["请刷新后重试", -1, "请刷新后重试"]])
+
+
+let userLogined = ref(false)
+let userName = ref('未登录')
+let userAvatar = ref('')
+
+let loginOkay = (name, avatar, first) => {
+  userAvatar.value = avatar
+  userName.value = name
+  userLogined.value = true
+  if (first) {
+    Message.success('登录成功')
+    location.reload()
+  }
+}
+
+axios.get('/api/details.php')
+  .then((x) => {
+    if (x.status == 200) {
+      loginOkay(x.data.nickname, x.data.avatar_url, false)
+    }
+  })
+
+let login = async (username, password) => {
+  axios.get("/api/login.php?username=" + username + "&password=" + password)
+    .then((data) => {
+      if (data.status != 200) {
+        Message.error("登录失败！错误：" + String(data.data))
+      }
+      else {
+        loginOkay(data.data.user_info.nickname, data.data.user_info.avatar_url, true)
+      }
+    })
+    .catch((err) => {
+      Message.error("登录失败！错误：" + String(err))
+    })
+}
+
 </script>
 
 <style scoped>
@@ -396,6 +463,7 @@ const upload = (file) => {
     width: 0;
     height: 0;
   }
+
   100% {
     width: 150px;
     height: 284px;
@@ -404,7 +472,7 @@ const upload = (file) => {
 
 .newContent {
   display: grid;
-  grid-gap:20px 20px;
+  grid-gap: 20px 20px;
   justify-content: space-evenly;
   grid-template-columns: repeat(auto-fill, 200px);
   justify-items: center;
@@ -416,25 +484,25 @@ const upload = (file) => {
   max-width: 100%;
 }
 
-.newModal .arco-modal{
+.newModal .arco-modal {
   max-width: 800px;
   height: 90%;
   max-height: 600px;
 }
 
-.newModal .arco-modal .arco-modal-body{
+.newModal .arco-modal .arco-modal-body {
   max-width: 800px;
   height: calc(90% - 48px);
   padding: 24px 0;
 }
 
-.newContent .arco-tag{
+.newContent .arco-tag {
   position: absolute;
   bottom: 20px;
   left: 15px;
 }
 
-.newContent .arco-card{
+.newContent .arco-card {
   margin: 0 0 20px 0;
   height: 150px;
   min-width: 200px;
