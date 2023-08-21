@@ -368,6 +368,10 @@ let loginModal = ()=>{
     })
   })
 }
+let run = (id) => {
+  window.location.hash = id
+  window.location.reload()
+}
 </script>
 
 <template>
