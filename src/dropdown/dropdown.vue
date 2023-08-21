@@ -63,7 +63,46 @@
       </a-space>
     </template>
     <template #default>
-
+      <a-row class="grid-demo">
+        <a-col flex="200px">
+          <a-space>
+            <a-avatar v-if="!userLogined">未登录</a-avatar>
+            <a-avatar v-else>
+              <img :src="userAvatar">
+            </a-avatar>
+            <p>
+              {{ userLogined ? userName : "未登录" }}
+            </p>
+          </a-space>
+          <div style="margin-top:10px;" v-if="!userLogined">
+            <a-space>
+              <a-button>立刻登录</a-button>
+              <a-button>立刻登录</a-button>
+            </a-space>
+          </div>
+          <div style="margin-top:10px;" v-else>
+            <a-space>
+              <a-button>打开作品</a-button>
+              <a-button>保存作品</a-button>
+            </a-space>
+          </div>
+        </a-col>
+        <a-col flex="auto">
+          <a-empty v-if="!hasWork" />
+          <a-list v-else style="height: 100%;">
+            <a-list-item v-for="[name, time, title] in res" :key="name">
+              <a-list-item-meta :title="String(title)" :description="String(name)">
+              </a-list-item-meta>
+              <template #actions>
+                <icon-edit @click="run(Number(time))" />
+                <a-popconfirm content="你真的要删除吗?" type="warning" @ok="del(Number(time))">
+                  <icon-delete />
+                </a-popconfirm>
+              </template>
+            </a-list-item>
+          </a-list>
+        </a-col>
+      </a-row>
     </template>
   </a-modal>
   <a-modal class="newModal" v-model:visible="newVisible" :footer="false">
@@ -163,7 +202,6 @@ const newVisible = ref(false);
 const fill = ref(true);
 const theme_value = ref(localStorage.getItem("theme") || "跟随系统");
 const block_all_shown_value = ref(!!localStorage.getItem("block_all_shown"));
-const isLogined = ref(false);
 /**
  * 积木框全显时运行代码
  */
@@ -362,46 +400,21 @@ const upload = (file) => {
     newVisible.value = false;
   });
 }
-
-function sync() {
-  axios.get('/api/file_list.php')
-    .then(function (response) {
-      if (response.data.length == 0) {
-        haswork.value = false;
-      } else {
-        res.value = response.data
-        haswork.value = true;
-      }
-    }).catch(function (err) {
-      haswork.value = false
-    });
-}
-let del = (time) => {
-  axios.post('/api/del_file.php', String(time))
-    .then(function (response) {
-      if (response.data == 'okay') {
-        Message.success("已删除")
-        sync()
-      } else {
-        Message.error(response.data)
-      }
-    }).catch(function (err) {
-      Message.error("删除失败")
-    });
-
-
-}
-let res = ref([["作品加载失败", -1, "作品加`载失败"], ["请刷新后重试", -1, "请刷新后重试"]])
-
-
+////////////////////////////////Cloud////////////////////////////////
 let userLogined = ref(false)
 let userName = ref('未登录')
 let userAvatar = ref('')
+let res = ref([["作品加载失败", -1, "作品加载失败"], ["请刷新后重试", -1, "请刷新后重试"]])
+
+let run = (id) => {
+
+}
 
 let loginOkay = (name, avatar, first) => {
   userAvatar.value = avatar
   userName.value = name
   userLogined.value = true
+  sync()
   if (first) {
     Message.success('登录成功')
     location.reload()
@@ -428,6 +441,32 @@ let login = async (username, password) => {
     .catch((err) => {
       Message.error("登录失败！错误：" + String(err))
     })
+}
+function sync() {
+  axios.get('/api/file_list.php')
+    .then(function (response) {
+      if (response.data.length == 0) {
+        haswork.value = false;
+      } else {
+        res.value = response.data
+        haswork.value = true;
+      }
+    }).catch(function (err) {
+      haswork.value = false
+    });
+}
+let del = (time) => {
+  axios.post('/api/del_file.php', String(time))
+    .then(function (response) {
+      if (response.data == 'okay') {
+        Message.success("已删除")
+        sync()
+      } else {
+        Message.error(response.data)
+      }
+    }).catch(function (err) {
+      Message.error("删除失败")
+    });
 }
 
 </script>
