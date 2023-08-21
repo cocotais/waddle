@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 $_req = json_decode(file_get_contents('php://input'));
  $t=time();
 $sql = "INSERT INTO Files (file_name, content, uid, title, time)
-VALUES ('".$_req->filename."', '".base64_encode($_req->content)."', $uname, '".$_req->title."', $t)";
+VALUES ('".$_req->filename."', '".base64_encode(json_encode($_req->content))."', $uname, '".$_req->title."', $t)";
  
 if ($conn->query($sql) === TRUE) {
     http_response_code(200);

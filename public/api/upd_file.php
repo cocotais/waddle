@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 } 
 $_req = json_decode(file_get_contents('php://input'));
  $t=$_req->time;
-$sql = "UPDATE Files SET `file_name`='$_req->filename',`content`='".base64_encode($_req->content)."',`uid`=$uname,`title`='$_req->title' WHERE time=$t";
+$sql = "UPDATE Files SET `file_name`='$_req->filename',`content`='".base64_encode(json_encode($_req->content))."',`uid`=$uname,`title`='$_req->title' WHERE time=$t";
  
 if ($conn->query($sql) === TRUE) {
     http_response_code(200);
