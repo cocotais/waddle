@@ -317,15 +317,16 @@ let login = async (username, password) => {
         }
       }, [
         h("img", {
-          src: "/api/code/generate.php"
+          src: "/api/code"
         }),
         h(Input, {
           placeholder: "请输入验证码",
-          onChange: (v)=>{
+          onChange: (v) => {
             code = v
           }
         }),
-      ])
+      ]),
+      onOk: () => { login() }
     }
   )
   function login() {
