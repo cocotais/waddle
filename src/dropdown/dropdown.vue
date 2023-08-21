@@ -2,7 +2,7 @@
 import Blockly from "blockly";
 import { defineProps, ref } from "vue";
 import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
-import { Message,Modal,Input,Space } from '@arco-design/web-vue'
+import { Message, Modal, Input, Space } from '@arco-design/web-vue'
 import Theme from "@/theme/theme";
 import { javascriptGenerator } from "blockly/javascript";
 import axios from "axios";
@@ -222,10 +222,10 @@ let userAvatar = ref('')
 let res = ref([["作品加载失败", -1, "作品加载失败"], ["请刷新后重试", -1, "请刷新后重试"]])
 let haswork = ref(false)
 if (window.location.hash.length > 0) {
-  axios.get("/api/get_file.php?time=" + window.location.hash.substring(1, window.location.hash.length + 1)).then((x)=>{
+  axios.get("/api/get_file.php?time=" + window.location.hash.substring(1, window.location.hash.length + 1)).then((x) => {
     if (x.data.length != 0) {
-        Blockly.serialization.workspaces.load((x.data), props.workspace)
-      }
+      Blockly.serialization.workspaces.load((x.data), props.workspace)
+    }
   })
 }
 function save() {
@@ -283,7 +283,7 @@ function save() {
   } catch (error) {
     Message.info("导出出现问题，请检查积木是否拼接错误，如无误请反馈给Waddle开发人员")
   }
-  
+
 }
 
 let loginOkay = (name, avatar, first) => {
@@ -305,19 +305,44 @@ axios.get('/api/details.php')
   })
 
 let login = async (username, password) => {
-  axios.get("/api/login.php?username=" + username + "&password=" + password)
-    .then((data) => {
-      if (data.status != 200) {
-        Message.error("登录失败！错误：" + String(data.data))
-      }
-      else {
-        loginOkay(data.data.user_info.nickname, data.data.user_info.avatar_url, true)
-      }
-    })
-    .catch((err) => {
-      Message.error("登录失败！错误：" + String(err))
-    })
+  let code = "0000";
+  Modal.info(
+    {
+      title: "验证码",
+      content: h(Space, {
+        size: "large",
+        direction: "vertical",
+        style: {
+          width: "100%"
+        }
+      }, [
+        h("img", {
+          src: "/api/code/generate.php"
+        }),
+        h(Input, {
+          placeholder: "请输入验证码",
+          onChange: (v)=>{
+            code = v
+          }
+        }),
+      ])
+    }
+  )
+  function login() {
+    axios.get("/api/login.php?username=" + username + "&password=" + password + "&code=" + code)
+      .then((data) => {
+        if (data.status != 200) {
+          Message.error("登录失败！错误：" + String(data.data))
+        }
+        else {
+          loginOkay(data.data.user_info.nickname, data.data.user_info.avatar_url, true)
+        }
+      })
+      .catch((err) => {
+        Message.error("登录失败！错误：" + String(err))
+      })
     sync()
+  }
 }
 function sync() {
   axios.get('/api/file_list.php')
@@ -347,32 +372,32 @@ let del = (time) => {
 }
 let uname = ""
 let upass = ""
-let loginModal = ()=>{
+let loginModal = () => {
   Modal.info({
     title: "登录",
-    content: h(Space,{
+    content: h(Space, {
       size: "medium",
       direction: "vertical",
       style: {
         width: "100%"
       }
-    },[
-      h(Input,{
+    }, [
+      h(Input, {
         placeholder: "请输入编程猫账号",
-        onChange: (x)=>{
+        onChange: (x) => {
           uname = x
         }
       }),
-      h(Input,{
+      h(Input, {
         placeholder: "请输入编程猫密码",
         type: "password",
-        onChange: (x)=>{
+        onChange: (x) => {
           upass = x
         }
       }),
     ]),
-    onOk: (()=>{
-      login(uname,upass)
+    onOk: (() => {
+      login(uname, upass)
     })
   })
 }

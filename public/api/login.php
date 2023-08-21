@@ -1,4 +1,9 @@
 <?php
+session_start();
+if($_REQUEST["code"] != $_SESSION["code"]){
+    http_response_code(400);
+    die(json_encode(array("error"=>"code incorrect")));
+}
 $data  = json_encode(array("pid"=>"7KeVbBdw","identity"=>$_REQUEST["username"],"password"=>$_REQUEST['password']));
 $headerArray = array("Content-type:application/json;charset='utf-8'", "Accept:application/json");
 $curl = curl_init();
