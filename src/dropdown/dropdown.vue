@@ -2,7 +2,7 @@
 import Blockly from "blockly";
 import { defineProps, ref } from "vue";
 import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
-import { Message,Modal,Input } from '@arco-design/web-vue'
+import { Message,Modal,Input,Space } from '@arco-design/web-vue'
 import Theme from "@/theme/theme";
 import { javascriptGenerator } from "blockly/javascript";
 import axios from "axios";
@@ -298,7 +298,7 @@ let loginOkay = (name, avatar, first) => {
 axios.get('/api/details.php')
   .then((x) => {
     if (x.status == 200) {
-      loginOkay(x.data.nickname, x.data.avatar_url, false)
+      //loginOkay(x.data.nickname, x.data.avatar_url, false)
     }
   })
 
@@ -348,7 +348,13 @@ let upass = ""
 let loginModal = ()=>{
   Modal.info({
     title: "登录",
-    content: h("div",[
+    content: h(Space,{
+      size: "medium",
+      direction: "vertical",
+      style: {
+        width: "100%"
+      }
+    },[
       h(Input,{
         placeholder: "请输入编程猫账号",
         onChange: (x)=>{
