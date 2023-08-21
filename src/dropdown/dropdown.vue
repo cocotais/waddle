@@ -1,5 +1,5 @@
 <script setup>
-import Blockly, { zelos } from "blockly";
+import Blockly from "blockly";
 import { defineProps, ref } from "vue";
 import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
 import { Message } from '@arco-design/web-vue'
@@ -239,12 +239,6 @@ function save() {
           case "vw_defTypes":
             title = i.fields.title;
             break
-          case "ivw_itemTitle":
-            type = i.fields.title;
-            break
-          case "vw_itemTitle":
-            type = i.fields.title;
-            break
           default:
             break
         }
@@ -285,6 +279,7 @@ function save() {
   } catch (error) {
     Message.info("导出出现问题，请检查积木是否拼接错误，如无误请反馈给Waddle开发人员")
   }
+  sync()
 }
 
 let loginOkay = (name, avatar, first) => {
@@ -318,6 +313,7 @@ let login = async (username, password) => {
     .catch((err) => {
       Message.error("登录失败！错误：" + String(err))
     })
+    sync()
 }
 function sync() {
   axios.get('/api/file_list.php')
@@ -435,7 +431,7 @@ let del = (time) => {
           <a-empty v-if="!haswork" />
           <a-list v-else style="height: 100%;">
             <a-list-item v-for="[name, time, title] in res" :key="name">
-              <a-list-item-meta :title="String(title)" :description="String(name)">
+              <a-list-item-meta :title="String(title)" :description="String(time)">
               </a-list-item-meta>
               <template #actions>
                 <icon-edit @click="run(Number(time))" />
