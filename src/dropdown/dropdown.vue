@@ -298,7 +298,7 @@ let loginOkay = (name, avatar, first) => {
 axios.get('/api/details.php')
   .then((x) => {
     if (x.status == 200) {
-      //loginOkay(x.data.nickname, x.data.avatar_url, false)
+      loginOkay(x.data.nickname, x.data.avatar_url, false)
     }
   })
 
