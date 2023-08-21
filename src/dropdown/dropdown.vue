@@ -256,6 +256,7 @@ function save() {
       fetch(myRequest)
         .then(async response => {
           if (response.status === 200) {
+            sync()
             Message.info("保存成功！")
             window.location.hash = await response.text()
           } else {
@@ -271,6 +272,7 @@ function save() {
       fetch(myRequest)
         .then(async response => {
           if (response.status === 200) {
+            sync()
             Message.info("保存成功！")
             window.location.hash = await response.text()
           } else {
@@ -281,7 +283,7 @@ function save() {
   } catch (error) {
     Message.info("导出出现问题，请检查积木是否拼接错误，如无误请反馈给Waddle开发人员")
   }
-  sync()
+  
 }
 
 let loginOkay = (name, avatar, first) => {
