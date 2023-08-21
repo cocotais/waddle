@@ -2,10 +2,11 @@
 import Blockly from "blockly";
 import { defineProps, ref } from "vue";
 import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
-import { Message } from '@arco-design/web-vue'
+import { Message,Modal,Input } from '@arco-design/web-vue'
 import Theme from "@/theme/theme";
 import { javascriptGenerator } from "blockly/javascript";
 import axios from "axios";
+import { h } from "vue";
 
 const props = defineProps(["workspace"]);
 // 初始化数值
@@ -39,6 +40,7 @@ const cloud_opinion = () => {
 const new_opinion = () => {
   newVisible.value = true;
 };
+
 /**
  * “跟随系统”主题切换
  */
@@ -296,7 +298,7 @@ let loginOkay = (name, avatar, first) => {
 axios.get('/api/details.php')
   .then((x) => {
     if (x.status == 200) {
-      loginOkay(x.data.nickname, x.data.avatar_url, false)
+      //loginOkay(x.data.nickname, x.data.avatar_url, false)
     }
   })
 
@@ -341,7 +343,31 @@ let del = (time) => {
       Message.error("删除失败")
     });
 }
-
+let uname = ""
+let upass = ""
+let loginModal = ()=>{
+  Modal.info({
+    title: "登录",
+    content: h("div",[
+      h(Input,{
+        placeholder: "请输入编程猫账号",
+        onChange: (x)=>{
+          uname = x
+        }
+      }),
+      h(Input,{
+        placeholder: "请输入编程猫密码",
+        type: "password",
+        onChange: (x)=>{
+          upass = x
+        }
+      }),
+    ]),
+    onOk: (()=>{
+      login(uname,upass)
+    })
+  })
+}
 </script>
 
 <template>
@@ -421,7 +447,7 @@ let del = (time) => {
             </p>
           </a-space>
           <div style="margin-top:10px;" v-if="!userLogined">
-            <a-button style="width: 100%;">立刻登录</a-button>
+            <a-button style="width: 100%;" @click="loginModal">立刻登录</a-button>
           </div>
           <div style="margin-top:10px;" v-else>
             <a-button @click="save" style="width:100%">保存作品</a-button>
