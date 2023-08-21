@@ -1,195 +1,8 @@
-<template>
-  <a-trigger trigger="hover" position="rt">
-    <div id="brand">
-      <img src="../icon/logo/waddle2mini.png" alt="" height="36" />
-    </div>
-    <template #content>
-      <div class="dropdown-select">
-        <a-doption @click="new_opinion">新建</a-doption>
-        <a-doption @click="save_to_pc">保存到电脑</a-doption>
-        <a-doption @click="save_widget">导出控件</a-doption>
-        <a-doption @click="open_file">打开本地文件</a-doption>
-        <a-divider margin="1px" />
-        <a-doption @click="open_doc">文档</a-doption>
-        <a-doption @click="more_opinion">更多选项</a-doption>
-        <a-divider margin="1px" />
-        <a-doption @click="cloud_opinion">Cloud</a-doption>
-      </div>
-    </template>
-  </a-trigger>
-  <a-drawer :width="340" :visible="visible" @cancel="handleCancel" unmountOnClose :footer="false">
-    <template #title> 更多 </template>
-    <div>
-      <a-typography-title :heading="6">偏好设置</a-typography-title>
-      <a-space size="large" :fill="fill" :style="{ justifyContent: 'space-between', color: 'var(--color-text-2)' }">
-        <p>积木盒积木全显</p>
-        <a-switch @change="block_all_shown" v-model:model-value="block_all_shown_value" />
-      </a-space>
-      <a-space size="large" :fill="fill" :style="{ justifyContent: 'space-between', color: 'var(--color-text-2)' }">
-        <p>主题</p>
-        <a-select @change="theme_change" v-model:model-value="theme_value" :style="{ width: '150px' }"
-          default-value="跟随系统">
-          <a-option>
-            <template #icon>
-              <icon-light />
-            </template>
-            <template #default>亮色模式</template>
-          </a-option>
-          <a-option>
-            <template #icon>
-              <icon-dark />
-            </template>
-            <template #default>暗黑模式</template>
-          </a-option>
-          <a-option>
-            <template #icon>
-              <icon-auto />
-            </template>
-            <template #default>跟随系统</template>
-          </a-option>
-        </a-select>
-      </a-space>
-      <a-typography-title :heading="6">关于Waddle</a-typography-title>
-      <a-space size="large" :fill="fill" :style="{ justifyContent: 'space-between', color: 'var(--color-text-2)' }">
-        让CoCo没有难做的控件！ Powered by Boxy
-      </a-space>
-    </div>
-  </a-drawer>
-  <a-modal v-model:visible="cloudVisible" :footer="false">
-    <template #title>
-      <a-space>
-        <p>Cloud</p>
-        <a-tag color="arcoblue" bordered> Beta </a-tag>
-      </a-space>
-    </template>
-    <template #default>
-      <a-row class="grid-demo">
-        <a-col flex="200px">
-          <a-space>
-            <a-avatar v-if="!userLogined">未登录</a-avatar>
-            <a-avatar v-else>
-              <img :src="userAvatar">
-            </a-avatar>
-            <p>
-              {{ userLogined ? userName : "未登录" }}
-            </p>
-          </a-space>
-          <div style="margin-top:10px;" v-if="!userLogined">
-            <a-space>
-              <a-button>立刻登录</a-button>
-              <a-button>立刻登录</a-button>
-            </a-space>
-          </div>
-          <div style="margin-top:10px;" v-else>
-            <a-space>
-              <a-button>打开作品</a-button>
-              <a-button>保存作品</a-button>
-            </a-space>
-          </div>
-        </a-col>
-        <a-col flex="auto">
-          <a-empty v-if="!hasWork" />
-          <a-list v-else style="height: 100%;">
-            <a-list-item v-for="[name, time, title] in res" :key="name">
-              <a-list-item-meta :title="String(title)" :description="String(name)">
-              </a-list-item-meta>
-              <template #actions>
-                <icon-edit @click="run(Number(time))" />
-                <a-popconfirm content="你真的要删除吗?" type="warning" @ok="del(Number(time))">
-                  <icon-delete />
-                </a-popconfirm>
-              </template>
-            </a-list-item>
-          </a-list>
-        </a-col>
-      </a-row>
-    </template>
-  </a-modal>
-  <a-modal class="newModal" v-model:visible="newVisible" :footer="false">
-    <template #title>
-      <a-space>
-        <p>新建控件</p>
-      </a-space>
-    </template>
-    <template #default>
-      <div class="newContent">
-        <a-card title="空白控件" hoverable>
-          <template #extra>
-            <a-link @click="upload('./tutorials/blank.waddle2')">添加</a-link>
-          </template>
-          <span>全新的开始～</span>
-        </a-card>
-        <a-card title="不可见控件模版" hoverable>
-          <template #extra>
-            <a-link @click="upload('./tutorials/invisiblewidget.waddle')">添加</a-link>
-          </template>
-          <span>开始创作你的不可见控件吧！</span>
-        </a-card>
-        <a-card title="可见控件模版" hoverable>
-          <template #extra>
-            <a-link @click="upload('./tutorials/visiblewidget.waddle')">添加</a-link>
-          </template>
-          <span>开始创作你的可见控件吧！</span>
-        </a-card>
-        <a-card title="Hello!" hoverable>
-          <template #extra>
-            <a-link @click="upload('./tutorials/hello.waddle')">添加</a-link>
-          </template>
-          <span>来跟Waddle打声招呼吧！</span>
-          <a-tag color="purple" bordered>不可见控件</a-tag>
-        </a-card>
-        <a-card title="Base编解码" hoverable>
-          <template #extra>
-            <a-link @click="upload('./tutorials/base.waddle')">添加</a-link>
-          </template>
-          <span>快速Base64加密/解密</span>
-          <a-tag color="purple" bordered>不可见控件</a-tag>
-        </a-card>
-        <a-card title="超链接" hoverable>
-          <template #extra>
-            <a-link @click="upload('./tutorials/hyperlink.waddle')">添加</a-link>
-          </template>
-          <span>超链接控件捏～</span>
-          <a-tag color="green" bordered>可见控件</a-tag>
-        </a-card>
-        <a-card title="闪烁按钮" hoverable>
-          <template #extra>
-            <a-link @click="upload('./tutorials/blinkButton.waddle')">添加</a-link>
-          </template>
-          <span>一闪一闪亮按钮～</span>
-          <a-tag color="green" bordered>可见控件</a-tag>
-        </a-card>
-        <a-card title="HTML控件" hoverable>
-          <template #extra>
-            <a-link @click="upload('./tutorials/html.waddle')">添加</a-link>
-          </template>
-          <span>富文本吗？太强了！</span>
-          <a-tag color="green" bordered>可见控件</a-tag>
-        </a-card>
-        <a-card title="密码框" hoverable>
-          <template #extra>
-            <a-link @click="upload('./tutorials/password.waddle')">添加</a-link>
-          </template>
-          <span>密码输入有保障！</span>
-          <a-tag color="green" bordered>可见控件</a-tag>
-        </a-card>
-        <a-card title="投票条" hoverable>
-          <template #extra>
-            <a-link @click="upload('./tutorials/voteLine.waddle')">添加</a-link>
-          </template>
-          <span>支持！反对！看谁票更多</span>
-          <a-tag color="green" bordered>可见控件</a-tag>
-        </a-card>
-      </div>
-    </template>
-  </a-modal>
-</template>
-
 <script setup>
 import Blockly from "blockly";
 import { defineProps, ref } from "vue";
 import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
-
+import { Message } from '@arco-design/web-vue'
 import Theme from "@/theme/theme";
 import { javascriptGenerator } from "blockly/javascript";
 import axios from "axios";
@@ -405,9 +218,77 @@ let userLogined = ref(false)
 let userName = ref('未登录')
 let userAvatar = ref('')
 let res = ref([["作品加载失败", -1, "作品加载失败"], ["请刷新后重试", -1, "请刷新后重试"]])
-
-let run = (id) => {
-
+let haswork = ref(false)
+if (window.location.hash.length > 0) {
+  const myRequest = new Request("/api/get_file.php?time=" + window.location.hash.substring(1, window.location.hash.length + 1), {
+    method: 'GET'
+  })
+  fetch(myRequest)
+    .then(async (x) => {
+      if ((await x.text()).length != 0) {
+        Blockly.serialization.workspaces.load((await x.text()), props.workspace)
+      }
+    })
+}
+function save() {
+  try {
+    let title = "我的控件", type = "MY_WIDGET";
+    let blockCode = Blockly.serialization.workspaces.save(props.workspace);
+    try {
+      for (let i of blockCode.blocks.blocks) {
+        switch (i.type) {
+          case "ivw_defTypes":
+            title = i.fields.title;
+            break
+          case "vw_defTypes":
+            title = i.fields.title;
+            break
+          case "ivw_itemTitle":
+            type = i.fields.title;
+            break
+          case "vw_itemTitle":
+            type = i.fields.title;
+            break
+          default:
+            break
+        }
+      }
+    }
+    catch (e) { }
+    if (window.location.hash.length == 0) {
+      const myRequest = new Request('/api/save_file.php', {
+        method: 'POST', body: JSON.stringify({ filename: type, content: blockCode, title: title }), headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      fetch(myRequest)
+        .then(async response => {
+          if (response.status === 200) {
+            Message.info("保存成功！")
+            window.location.hash = await response.text()
+          } else {
+            Message.info("保存失败！错误码：" + response.status.toString())
+          }
+        })
+    } else {
+      const myRequest = new Request('/api/upd_file.php', {
+        method: 'POST', body: JSON.stringify({ filename: type, content: blockCode, title: title, time: window.location.hash.slice(1) }), headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      fetch(myRequest)
+        .then(async response => {
+          if (response.status === 200) {
+            Message.info("保存成功！")
+            window.location.hash = await response.text()
+          } else {
+            Message.info("保存失败！错误码：" + response.status.toString())
+          }
+        })
+    }
+  } catch (error) {
+    Message.info("导出出现问题，请检查积木是否拼接错误，如无误请反馈给Waddle开发人员")
+  }
 }
 
 let loginOkay = (name, avatar, first) => {
@@ -470,6 +351,187 @@ let del = (time) => {
 }
 
 </script>
+
+<template>
+  <a-trigger trigger="hover" position="rt">
+    <div id="brand">
+      <img src="../icon/logo/waddle2mini.png" alt="" height="36" />
+    </div>
+    <template #content>
+      <div class="dropdown-select">
+        <a-doption @click="new_opinion">新建</a-doption>
+        <a-doption @click="save_to_pc">保存到电脑</a-doption>
+        <a-doption @click="save_widget">导出控件</a-doption>
+        <a-doption @click="open_file">打开本地文件</a-doption>
+        <a-divider margin="1px" />
+        <a-doption @click="open_doc">文档</a-doption>
+        <a-doption @click="more_opinion">更多选项</a-doption>
+        <a-divider margin="1px" />
+        <a-doption @click="cloud_opinion">Cloud</a-doption>
+      </div>
+    </template>
+  </a-trigger>
+  <a-drawer :width="340" :visible="visible" @cancel="handleCancel" unmountOnClose :footer="false">
+    <template #title> 更多 </template>
+    <div>
+      <a-typography-title :heading="6">偏好设置</a-typography-title>
+      <a-space size="large" :fill="fill" :style="{ justifyContent: 'space-between', color: 'var(--color-text-2)' }">
+        <p>积木盒积木全显</p>
+        <a-switch @change="block_all_shown" v-model:model-value="block_all_shown_value" />
+      </a-space>
+      <a-space size="large" :fill="fill" :style="{ justifyContent: 'space-between', color: 'var(--color-text-2)' }">
+        <p>主题</p>
+        <a-select @change="theme_change" v-model:model-value="theme_value" :style="{ width: '150px' }"
+          default-value="跟随系统">
+          <a-option>
+            <template #icon>
+              <icon-light />
+            </template>
+            <template #default>亮色模式</template>
+          </a-option>
+          <a-option>
+            <template #icon>
+              <icon-dark />
+            </template>
+            <template #default>暗黑模式</template>
+          </a-option>
+          <a-option>
+            <template #icon>
+              <icon-auto />
+            </template>
+            <template #default>跟随系统</template>
+          </a-option>
+        </a-select>
+      </a-space>
+      <a-typography-title :heading="6">关于Waddle</a-typography-title>
+      <a-space size="large" :fill="fill" :style="{ justifyContent: 'space-between', color: 'var(--color-text-2)' }">
+        让CoCo没有难做的控件！ Powered by Boxy
+      </a-space>
+    </div>
+  </a-drawer>
+  <a-modal v-model:visible="cloudVisible" :footer="false">
+    <template #title>
+      <a-space>
+        <p>Cloud</p>
+        <a-tag color="arcoblue" bordered> Beta </a-tag>
+      </a-space>
+    </template>
+    <template #default>
+      <a-row class="grid-demo" gutter="20">
+        <a-col flex="200px">
+          <a-space>
+            <a-avatar v-if="!userLogined">未登录</a-avatar>
+            <a-avatar v-else>
+              <img :src="userAvatar">
+            </a-avatar>
+            <p>
+              {{ userLogined ? userName : "未登录" }}
+            </p>
+          </a-space>
+          <div style="margin-top:10px;" v-if="!userLogined">
+            <a-button style="width: 100%;">立刻登录</a-button>
+          </div>
+          <div style="margin-top:10px;" v-else>
+            <a-button @click="save" style="width:100%">保存作品</a-button>
+          </div>
+        </a-col>
+        <a-col flex="auto">
+          <a-empty v-if="!haswork" />
+          <a-list v-else style="height: 100%;">
+            <a-list-item v-for="[name, time, title] in res" :key="name">
+              <a-list-item-meta :title="String(title)" :description="String(name)">
+              </a-list-item-meta>
+              <template #actions>
+                <icon-edit @click="run(Number(time))" />
+                <a-popconfirm content="你真的要删除吗?" type="warning" @ok="del(Number(time))">
+                  <icon-delete />
+                </a-popconfirm>
+              </template>
+            </a-list-item>
+          </a-list>
+        </a-col>
+      </a-row>
+    </template>
+  </a-modal>
+  <a-modal class="newModal" v-model:visible="newVisible" :footer="false">
+    <template #title>
+      <a-space>
+        <p>新建控件</p>
+      </a-space>
+    </template>
+    <template #default>
+      <div class="newContent">
+        <a-card title="空白控件" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/blank.waddle2')">添加</a-link>
+          </template>
+          <span>全新的开始～</span>
+        </a-card>
+        <a-card title="不可见控件模版" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/invisiblewidget.waddle')">添加</a-link>
+          </template>
+          <span>开始创作你的不可见控件吧！</span>
+        </a-card>
+        <a-card title="可见控件模版" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/visiblewidget.waddle')">添加</a-link>
+          </template>
+          <span>开始创作你的可见控件吧！</span>
+        </a-card>
+        <a-card title="Hello!" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/hello.waddle')">添加</a-link>
+          </template>
+          <span>来跟Waddle打声招呼吧！</span>
+          <a-tag color="purple" bordered>不可见控件</a-tag>
+        </a-card>
+        <a-card title="Base编解码" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/base.waddle')">添加</a-link>
+          </template>
+          <span>快速Base64加密/解密</span>
+          <a-tag color="purple" bordered>不可见控件</a-tag>
+        </a-card>
+        <a-card title="超链接" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/hyperlink.waddle')">添加</a-link>
+          </template>
+          <span>超链接控件捏～</span>
+          <a-tag color="green" bordered>可见控件</a-tag>
+        </a-card>
+        <a-card title="闪烁按钮" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/blinkButton.waddle')">添加</a-link>
+          </template>
+          <span>一闪一闪亮按钮～</span>
+          <a-tag color="green" bordered>可见控件</a-tag>
+        </a-card>
+        <a-card title="HTML控件" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/html.waddle')">添加</a-link>
+          </template>
+          <span>富文本吗？太强了！</span>
+          <a-tag color="green" bordered>可见控件</a-tag>
+        </a-card>
+        <a-card title="密码框" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/password.waddle')">添加</a-link>
+          </template>
+          <span>密码输入有保障！</span>
+          <a-tag color="green" bordered>可见控件</a-tag>
+        </a-card>
+        <a-card title="投票条" hoverable>
+          <template #extra>
+            <a-link @click="upload('./tutorials/voteLine.waddle')">添加</a-link>
+          </template>
+          <span>支持！反对！看谁票更多</span>
+          <a-tag color="green" bordered>可见控件</a-tag>
+        </a-card>
+      </div>
+    </template>
+  </a-modal>
+</template>
 
 <style scoped>
 #brand {
