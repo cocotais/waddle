@@ -1,5 +1,5 @@
 <script setup>
-import Blockly from "blockly";
+import Blockly, { zelos } from "blockly";
 import { defineProps, ref } from "vue";
 import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
 import { Message } from '@arco-design/web-vue'
@@ -220,15 +220,11 @@ let userAvatar = ref('')
 let res = ref([["作品加载失败", -1, "作品加载失败"], ["请刷新后重试", -1, "请刷新后重试"]])
 let haswork = ref(false)
 if (window.location.hash.length > 0) {
-  const myRequest = new Request("/api/get_file.php?time=" + window.location.hash.substring(1, window.location.hash.length + 1), {
-    method: 'GET'
-  })
-  fetch(myRequest)
-    .then(async (x) => {
-      if ((await x.text()).length != 0) {
-        Blockly.serialization.workspaces.load((await x.text()), props.workspace)
+  axios.get("/api/get_file.php?time=" + window.location.hash.substring(1, window.location.hash.length + 1)).then((x)=>{
+    if (x.data.length != 0) {
+        Blockly.serialization.workspaces.load((x.data), props.workspace)
       }
-    })
+  })
 }
 function save() {
   try {
