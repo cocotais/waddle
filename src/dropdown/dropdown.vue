@@ -185,6 +185,7 @@ const open_file = () => {
     };
     file_reader.readAsText(file, "UTF-8");
   };
+  window.location.hash = ""
 };
 /**
  * 打开文档
@@ -213,6 +214,7 @@ const upload = (file) => {
       Blockly.Xml.domToWorkspace(blocks, props.workspace);
     }
     newVisible.value = false;
+    window.location.hash = ""
   });
 }
 ////////////////////////////////Cloud////////////////////////////////
@@ -247,7 +249,7 @@ function save() {
       }
     }
     catch (e) { }
-    if (window.location.hash.length == 0) {
+    if (window.location.hash.length <= 1) {
       const myRequest = new Request('/api/save_file.php', {
         method: 'POST', body: JSON.stringify({ filename: type, content: blockCode, title: title }), headers: {
           'Content-Type': 'application/json'
