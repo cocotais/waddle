@@ -37,7 +37,7 @@ Waddle 是由 Coconut Studio 基于 [Boxy](https://gitee.com/coco-central/boxy)2
   <br>
   <img src="https://public.coco-central.cn/other/donate.png" alt="donate" height="200" width="200" />
   <br>
-  <a href="https://www.yuque.com/hzsn/coconut/wtef3wwqkb99cto3?singleDoc# ">收入支出明细</a>
+  <a href="https://cocotais.feishu.cn/wiki/Cg5swWcPAi42pXk01sOcE0QTnxe?from=from_copylink">收入支出明细</a>
   <br>
 </p>
 <br>
