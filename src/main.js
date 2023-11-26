@@ -22,7 +22,8 @@ import "highlight.js/styles/atom-one-dark.css";
 import "highlight.js/lib/common";
 import "@arco-themes/vue-waddle/index.less";
 
-import ArcoVue, { Modal } from "@arco-design/web-vue";
+import ArcoVue, {Modal} from "@arco-design/web-vue";
+import ArcoVueIcon from '@arco-design/web-vue/es/icon';
 import hljsVuePlugin from "@highlightjs/vue-plugin";
 import { registerSW } from "virtual:pwa-register";
 import { createApp } from "vue";
@@ -34,6 +35,7 @@ import observer from "./utils/observer";
 const app = createApp(App);
 app.use(ArcoVue);
 app.use(hljsVuePlugin);
+app.use(ArcoVueIcon)
 app.mount("#app");
 
 block_style("lists_create_with", "list");

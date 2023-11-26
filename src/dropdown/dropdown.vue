@@ -1,3 +1,415 @@
+<script setup>
+import Blockly from "blockly";
+import { defineProps, ref } from "vue";
+import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
+import { Message, Modal, Input, Space } from '@arco-design/web-vue'
+import Theme from "@/theme/theme";
+import { javascriptGenerator } from "blockly/javascript";
+import axios from "axios";
+import { h } from "vue";
+
+const props = defineProps(["workspace"]);
+// 初始化数值
+const visible = ref(false);
+const cloudVisible = ref(false);
+const newVisible = ref(false);
+const fill = ref(true);
+const theme_value = ref(localStorage.getItem("theme") || "跟随系统");
+const block_all_shown_value = ref(!!localStorage.getItem("block_all_shown"));
+/**
+ * 积木框全显时运行代码
+ */
+const block_all_shown = (value) => {
+  localStorage.setItem("block_all_shown", value ? "true" : "");
+  block_all_shown_value.value = value;
+  document.querySelector(".blocklyFlyout").style.width = value ? "" : 320;
+};
+/**
+ * “更多”打开
+ */
+const more_opinion = () => {
+  visible.value = true;
+};
+/**
+ * “更多”打开
+ */
+const cloud_opinion = () => {
+  cloudVisible.value = true;
+};
+
+const new_opinion = () => {
+  newVisible.value = true;
+};
+
+/**
+ * “跟随系统”主题切换
+ */
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+  if (event.matches && theme_value.value === "跟随系统") {
+    Theme.switch("dark");
+  } else {
+    Theme.switch("light");
+  }
+});
+
+switch_theme();
+/**
+ * 主题切换
+ * @function
+ */
+function switch_theme() {
+  localStorage.setItem("theme", theme_value.value);
+  switch (theme_value.value) {
+    case "亮色模式":
+      Theme.switch("light");
+      break;
+    case "暗黑模式":
+      Theme.switch("dark");
+      break;
+    default:
+      Theme.switch(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  }
+}
+/**
+ * 主题切换获取值
+ */
+const theme_change = (value) => {
+  theme_value.value = value;
+  switch_theme();
+};
+/**
+ * 关闭“更多”
+ */
+const handleCancel = () => {
+  visible.value = false;
+};
+/**
+ * 保存到本地
+ */
+const save_to_pc = () => {
+  let title = "我的控件";
+  let a = document.createElement("a");
+  let blockCode = Blockly.serialization.workspaces.save(props.workspace);
+  const blob = new Blob([JSON.stringify(blockCode)], {
+    type: 'application/json'
+  });
+  try {
+    for (let i of blockCode.blocks.blocks) {
+      switch (i.type) {
+        case "ivw_defTypes":
+          title = i.fields.title;
+          break
+        case "vw_defTypes":
+          title = i.fields.title;
+          break
+        default:
+          break
+      }
+    }
+  }
+  catch (e) { }
+  a.href = URL.createObjectURL(blob);
+  a.download = title + ".waddle2";
+  a.click();
+};
+/**
+ * 保存CoCo控件
+ */
+const save_widget = () => {
+  let title = "我的控件", type = "js";
+  let a = document.createElement("a");
+  let code = javascriptGenerator.workspaceToCode(props.workspace);
+  let blockCode = Blockly.serialization.workspaces.save(props.workspace);
+  try {
+    for (let i of blockCode.blocks.blocks) {
+      switch (i.type) {
+        case "ivw_defTypes":
+          title = i.fields.title;
+          type = "js"
+          break
+        case "vw_defTypes":
+          title = i.fields.title;
+          type = "jsx"
+          break
+        default:
+          break
+      }
+    }
+  }
+  catch (e) { }
+  a.href = `data:,${code}`;
+  a.download = `${title}.${type}`;
+  a.click();
+};
+
+function isJSON(str) {
+  if (typeof str === 'string') {
+    try {
+      let obj = JSON.parse(str);
+      return !!(typeof obj === 'object' && obj);
+    } catch (e) {
+      return false
+    }
+  }
+}
+/**
+ * 打开本地文件
+ */
+const open_file = () => {
+  let input = document.createElement("input");
+  input.setAttribute("id", "file");
+  input.setAttribute("type", "file");
+  input.setAttribute("name", "file");
+  input.setAttribute("style", "visibility:hidden");
+  input.setAttribute("accept", ".waddle2,.waddle");
+  document.body.appendChild(input);
+  input.click();
+  input.onchange = (event) => {
+    let file = event.target.files[0];
+    let file_reader = new FileReader();
+    file_reader.onload = () => {
+      if (isJSON(file_reader.result)) {
+        let fc = JSON.parse(file_reader.result);
+        Blockly.serialization.workspaces.load(fc, props.workspace);
+      }
+      else {
+        let parser = new DOMParser();
+        let xml = parser.parseFromString(file_reader.result, "text/xml");
+        let blocks = xml
+          .getElementsByTagName("body")[0]
+          .getElementsByTagName("blocks")[0]
+          .getElementsByTagName("xml")[0];
+        props.workspace.clear();
+        Blockly.Xml.domToWorkspace(blocks, props.workspace);
+      }
+    };
+    file_reader.readAsText(file, "UTF-8");
+  };
+  window.location.hash = ""
+};
+/**
+ * 打开文档
+ */
+const open_doc = () => {
+  window.open("https://www.yuque.com/hzsn/waddle");
+};
+
+const upload = (file) => {
+  axios({
+    method: 'get',
+    url: file,
+  }).then(function (response) {
+    if (isJSON(JSON.stringify(response.data))) {
+      let fc = response.data;
+      Blockly.serialization.workspaces.load(fc, props.workspace);
+    }
+    else {
+      let parser = new DOMParser();
+      let xml = parser.parseFromString(response.data, "text/xml");
+      let blocks = xml
+        .getElementsByTagName("body")[0]
+        .getElementsByTagName("blocks")[0]
+        .getElementsByTagName("xml")[0];
+      props.workspace.clear();
+      Blockly.Xml.domToWorkspace(blocks, props.workspace);
+    }
+    newVisible.value = false;
+    window.location.hash = ""
+  });
+}
+////////////////////////////////Cloud////////////////////////////////
+let userLogined = ref(false)
+let userName = ref('未登录')
+let userAvatar = ref('')
+let res = ref([["作品加载失败", -1, "作品加载失败"], ["请刷新后重试", -1, "请刷新后重试"]])
+let haswork = ref(false)
+if (window.location.hash.length > 0) {
+  axios.get("/api/get_file.php?time=" + window.location.hash.substring(1, window.location.hash.length + 1)).then((x) => {
+    if (x.data.length != 0) {
+      Blockly.serialization.workspaces.load((x.data), props.workspace)
+    }
+  })
+}
+function save() {
+  try {
+    let title = "我的控件", type = "MY_WIDGET";
+    let blockCode = Blockly.serialization.workspaces.save(props.workspace);
+    try {
+      for (let i of blockCode.blocks.blocks) {
+        switch (i.type) {
+          case "ivw_defTypes":
+            title = i.fields.title;
+            break
+          case "vw_defTypes":
+            title = i.fields.title;
+            break
+          default:
+            break
+        }
+      }
+    }
+    catch (e) { }
+    if (window.location.hash.length <= 1) {
+      const myRequest = new Request('/api/save_file.php', {
+        method: 'POST', body: JSON.stringify({ filename: type, content: blockCode, title: title }), headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      fetch(myRequest)
+        .then(async response => {
+          if (response.status === 200) {
+            sync()
+            Message.info("保存成功！")
+            window.location.hash = await response.text()
+          } else {
+            Message.info("保存失败！错误码：" + response.status.toString())
+          }
+        })
+    } else {
+      const myRequest = new Request('/api/upd_file.php', {
+        method: 'POST', body: JSON.stringify({ filename: type, content: blockCode, title: title, time: window.location.hash.slice(1) }), headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      fetch(myRequest)
+        .then(async response => {
+          if (response.status === 200) {
+            sync()
+            Message.info("保存成功！")
+            window.location.hash = await response.text()
+          } else {
+            Message.info("保存失败！错误码：" + response.status.toString())
+          }
+        })
+    }
+  } catch (error) {
+    Message.info("导出出现问题，请检查积木是否拼接错误，如无误请反馈给Waddle开发人员")
+  }
+
+}
+
+let loginOkay = (name, avatar, first) => {
+  userAvatar.value = avatar
+  userName.value = name
+  userLogined.value = true
+  sync()
+  if (first) {
+    Message.success('登录成功')
+    location.reload()
+  }
+}
+
+axios.get('/api/details.php')
+  .then((x) => {
+    if (x.status == 200) {
+      loginOkay(x.data.nickname, x.data.avatar_url, false)
+    }
+  })
+
+let login = async (username, password) => {
+  let code = "0000";
+  Modal.info(
+    {
+      title: "验证码",
+      content: h(Space, {
+        size: "large",
+        direction: "vertical",
+        style: {
+          width: "100%"
+        }
+      }, [
+        h("img", {
+          src: "/api/code"
+        }),
+        h(Input, {
+          placeholder: "请输入验证码",
+          onChange: (v) => {
+            code = v
+          }
+        }),
+      ]),
+      onOk: () => { login() }
+    }
+  )
+  function login() {
+    axios.get("/api/login.php?username=" + username + "&password=" + password + "&code=" + code)
+      .then((data) => {
+        if (data.status != 200) {
+          Message.error("登录失败！错误：" + String(data.data))
+        }
+        else {
+          loginOkay(data.data.user_info.nickname, data.data.user_info.avatar_url, true)
+        }
+      })
+      .catch((err) => {
+        Message.error("登录失败！错误：" + String(err))
+      })
+    sync()
+  }
+}
+function sync() {
+  axios.get('/api/file_list.php')
+    .then(function (response) {
+      if (response.data.length == 0) {
+        haswork.value = false;
+      } else {
+        res.value = response.data
+        haswork.value = true;
+      }
+    }).catch(function (err) {
+      haswork.value = false
+    });
+}
+let del = (time) => {
+  axios.post('/api/del_file.php', String(time))
+    .then(function (response) {
+      if (response.data == 'okay') {
+        Message.success("已删除")
+        sync()
+      } else {
+        Message.error(response.data)
+      }
+    }).catch(function (err) {
+      Message.error("删除失败")
+    });
+}
+let uname = ""
+let upass = ""
+let loginModal = () => {
+  Modal.info({
+    title: "登录",
+    content: h(Space, {
+      size: "medium",
+      direction: "vertical",
+      style: {
+        width: "100%"
+      }
+    }, [
+      h(Input, {
+        placeholder: "请输入编程猫账号",
+        onChange: (x) => {
+          uname = x
+        }
+      }),
+      h(Input, {
+        placeholder: "请输入编程猫密码",
+        type: "password",
+        onChange: (x) => {
+          upass = x
+        }
+      }),
+    ]),
+    onOk: (() => {
+      login(uname, upass)
+    })
+  })
+}
+let run = (id) => {
+  window.location.hash = id
+  window.location.reload()
+}
+</script>
+
 <template>
   <a-trigger trigger="hover" position="rt">
     <div id="brand">
@@ -27,12 +439,8 @@
       </a-space>
       <a-space size="large" :fill="fill" :style="{ justifyContent: 'space-between', color: 'var(--color-text-2)' }">
         <p>主题</p>
-        <a-select
-          @change="theme_change"
-          v-model:model-value="theme_value"
-          :style="{ width: '150px' }"
-          default-value="跟随系统"
-        >
+        <a-select @change="theme_change" v-model:model-value="theme_value" :style="{ width: '150px' }"
+          default-value="跟随系统">
           <a-option>
             <template #icon>
               <icon-light />
@@ -65,6 +473,42 @@
         <p>Cloud</p>
         <a-tag color="arcoblue" bordered> Beta </a-tag>
       </a-space>
+    </template>
+    <template #default>
+      <a-row class="grid-demo" gutter="20">
+        <a-col flex="200px">
+          <a-space>
+            <a-avatar v-if="!userLogined">未登录</a-avatar>
+            <a-avatar v-else>
+              <img :src="userAvatar">
+            </a-avatar>
+            <p>
+              {{ userLogined ? userName : "未登录" }}
+            </p>
+          </a-space>
+          <div style="margin-top:10px;" v-if="!userLogined">
+            <a-button style="width: 100%;" @click="loginModal">立刻登录</a-button>
+          </div>
+          <div style="margin-top:10px;" v-else>
+            <a-button @click="save" style="width:100%">保存作品</a-button>
+          </div>
+        </a-col>
+        <a-col flex="auto">
+          <a-empty v-if="!haswork" />
+          <a-list v-else style="height: 100%;">
+            <a-list-item v-for="[name, time, title] in res" :key="name">
+              <a-list-item-meta :title="String(title)" :description="String(time)">
+              </a-list-item-meta>
+              <template #actions>
+                <icon-edit @click="run(Number(time))" />
+                <a-popconfirm content="你真的要删除吗?" type="warning" @ok="del(Number(time))">
+                  <icon-delete />
+                </a-popconfirm>
+              </template>
+            </a-list-item>
+          </a-list>
+        </a-col>
+      </a-row>
     </template>
   </a-modal>
   <a-modal class="newModal" v-model:visible="newVisible" :footer="false">
@@ -147,224 +591,6 @@
   </a-modal>
 </template>
 
-<script setup>
-import Blockly from "blockly";
-import {defineProps, ref} from "vue";
-import {IconAuto, IconDark, IconLight} from "@arco-iconbox/vue-boxy";
-
-import Theme from "@/theme/theme";
-import {javascriptGenerator} from "blockly/javascript";
-import axios from "axios";
-
-const props = defineProps(["workspace"]);
-// 初始化数值
-const visible = ref(false);
-const cloudVisible = ref(false);
-const newVisible = ref(false);
-const fill = ref(true);
-const theme_value = ref(localStorage.getItem("theme") || "跟随系统");
-const block_all_shown_value = ref(!!localStorage.getItem("block_all_shown"));
-const isLogined = ref(false);
-/**
- * 积木框全显时运行代码
- */
-const block_all_shown = (value) => {
-  localStorage.setItem("block_all_shown", value ? "true" : "");
-  block_all_shown_value.value = value;
-  document.querySelector(".blocklyFlyout").style.width = value ? "" : 320;
-};
-/**
- * “更多”打开
- */
-const more_opinion = () => {
-  visible.value = true;
-};
-/**
- * “更多”打开
- */
-const cloud_opinion = () => {
-  cloudVisible.value = true;
-};
-
-const new_opinion = () => {
-  newVisible.value = true;
-};
-/**
- * “跟随系统”主题切换
- */
-window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
-  if (event.matches && theme_value.value === "跟随系统") {
-    Theme.switch("dark");
-  } else {
-    Theme.switch("light");
-  }
-});
-
-switch_theme();
-/**
- * 主题切换
- * @function
- */
-function switch_theme() {
-  localStorage.setItem("theme", theme_value.value);
-  switch (theme_value.value) {
-    case "亮色模式":
-      Theme.switch("light");
-      break;
-    case "暗黑模式":
-      Theme.switch("dark");
-      break;
-    default:
-      Theme.switch(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  }
-}
-/**
- * 主题切换获取值
- */
-const theme_change = (value) => {
-  theme_value.value = value;
-  switch_theme();
-};
-/**
- * 关闭“更多”
- */
-const handleCancel = () => {
-  visible.value = false;
-};
-/**
- * 保存到本地
- */
-const save_to_pc = () => {
-  let title = "我的控件";
-  let a = document.createElement("a");
-  let blockCode = Blockly.serialization.workspaces.save(props.workspace);
-  const blob = new Blob([JSON.stringify(blockCode)], {
-    type: 'application/json'
-  });
-  try {
-    for (let i of blockCode.blocks.blocks) {
-      switch (i.type) {
-        case "ivw_defTypes":
-          title = i.fields.title;
-          break
-        case "vw_defTypes":
-          title = i.fields.title;
-          break
-        default:
-          break
-      }
-    }
-  }
-  catch (e) {}
-  a.href = URL.createObjectURL(blob);
-  a.download = title + ".waddle2";
-  a.click();
-};
-/**
- * 保存CoCo控件
- */
-const save_widget = () => {
-  let title = "我的控件", type = "js";
-  let a = document.createElement("a");
-  let code = javascriptGenerator.workspaceToCode(props.workspace);
-  let blockCode = Blockly.serialization.workspaces.save(props.workspace);
-  try {
-    for (let i of blockCode.blocks.blocks) {
-      switch (i.type) {
-        case "ivw_defTypes":
-          title = i.fields.title;
-          type = "js"
-          break
-        case "vw_defTypes":
-          title = i.fields.title;
-          type = "jsx"
-          break
-        default:
-          break
-      }
-    }
-  }
-  catch (e) {}
-  a.href = `data:,${code}`;
-  a.download = `${title}.${type}`;
-  a.click();
-};
-
-function isJSON (str) {
-  if (typeof str === 'string') {
-    try {
-      let obj = JSON.parse(str);
-      return !!(typeof obj === 'object' && obj);
-    } catch (e) {
-      return false
-    }
-  }
-}
-/**
- * 打开本地文件
- */
-const open_file = () => {
-  let input = document.createElement("input");
-  input.setAttribute("id", "file");
-  input.setAttribute("type", "file");
-  input.setAttribute("name", "file");
-  input.setAttribute("style", "visibility:hidden");
-  input.setAttribute("accept", ".waddle2,.waddle");
-  document.body.appendChild(input);
-  input.click();
-  input.onchange = (event) => {
-    let file = event.target.files[0];
-    let file_reader = new FileReader();
-    file_reader.onload = () => {
-      if (isJSON(file_reader.result)) {
-        let fc = JSON.parse(file_reader.result);
-        Blockly.serialization.workspaces.load(fc, props.workspace);
-      }
-      else {
-        let parser = new DOMParser();
-        let xml = parser.parseFromString(file_reader.result, "text/xml");
-        let blocks = xml
-            .getElementsByTagName("body")[0]
-            .getElementsByTagName("blocks")[0]
-            .getElementsByTagName("xml")[0];
-        props.workspace.clear();
-        Blockly.Xml.domToWorkspace(blocks, props.workspace);
-      }
-    };
-    file_reader.readAsText(file, "UTF-8");
-  };
-};
-/**
- * 打开文档
- */
-const open_doc = () => {
-  window.open("https://www.yuque.com/hzsn/waddle");
-};
-
-const upload = (file) => {
-  axios({
-    method: 'get',
-    url: file,
-  }).then(function (response) {
-    if (isJSON(JSON.stringify(response.data))) {
-      let fc = response.data;
-      Blockly.serialization.workspaces.load(fc, props.workspace);
-    }
-    else {
-      let parser = new DOMParser();
-      let xml = parser.parseFromString(response.data, "text/xml");
-      let blocks = xml
-          .getElementsByTagName("body")[0]
-          .getElementsByTagName("blocks")[0]
-          .getElementsByTagName("xml")[0];
-      props.workspace.clear();
-      Blockly.Xml.domToWorkspace(blocks, props.workspace);
-    }
-    newVisible.value = false;
-      });
-}
-</script>
-
 <style scoped>
 #brand {
   background-color: var(--toolbox-background);
@@ -396,6 +622,7 @@ const upload = (file) => {
     width: 0;
     height: 0;
   }
+
   100% {
     width: 150px;
     height: 284px;
@@ -404,7 +631,7 @@ const upload = (file) => {
 
 .newContent {
   display: grid;
-  grid-gap:20px 20px;
+  grid-gap: 20px 20px;
   justify-content: space-evenly;
   grid-template-columns: repeat(auto-fill, 200px);
   justify-items: center;
@@ -416,25 +643,25 @@ const upload = (file) => {
   max-width: 100%;
 }
 
-.newModal .arco-modal{
+.newModal .arco-modal {
   max-width: 800px;
   height: 90%;
   max-height: 600px;
 }
 
-.newModal .arco-modal .arco-modal-body{
+.newModal .arco-modal .arco-modal-body {
   max-width: 800px;
   height: calc(90% - 48px);
   padding: 24px 0;
 }
 
-.newContent .arco-tag{
+.newContent .arco-tag {
   position: absolute;
   bottom: 20px;
   left: 15px;
 }
 
-.newContent .arco-card{
+.newContent .arco-card {
   margin: 0 0 20px 0;
   height: 150px;
   min-width: 200px;
