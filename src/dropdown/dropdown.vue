@@ -2,7 +2,7 @@
 import Blockly from "blockly";
 import { defineProps, ref } from "vue";
 import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
-import { Message, Modal, Input, Space } from '@arco-design/web-vue'
+import { Message, Modal, Input, Space } from "@arco-design/web-vue";
 import Theme from "@/theme/theme";
 import { javascriptGenerator } from "blockly/javascript";
 import axios from "axios";
@@ -13,16 +13,22 @@ const props = defineProps(["workspace"]);
 const visible = ref(false);
 const cloudVisible = ref(false);
 const newVisible = ref(false);
-const fill = ref(true);
 const theme_value = ref(localStorage.getItem("theme") || "跟随系统");
 const block_all_shown_value = ref(!!localStorage.getItem("block_all_shown"));
+
+function setFlyout() {
+  const flyout = document.querySelector("div.injectionDiv > svg.blocklyFlyout");
+  if (flyout) {
+    flyout.style.width = "320px";
+  }
+}
 /**
  * 积木框全显时运行代码
  */
-const block_all_shown = (value) => {
+const handleFlyoutChange = (value) => {
   localStorage.setItem("block_all_shown", value ? "true" : "");
   block_all_shown_value.value = value;
-  document.querySelector(".blocklyFlyout").style.width = value ? "" : 320;
+  setFlyout();
 };
 /**
  * “更多”打开
@@ -78,12 +84,6 @@ const theme_change = (value) => {
   switch_theme();
 };
 /**
- * 关闭“更多”
- */
-const handleCancel = () => {
-  visible.value = false;
-};
-/**
  * 保存到本地
  */
 const save_to_pc = () => {
@@ -91,23 +91,22 @@ const save_to_pc = () => {
   let a = document.createElement("a");
   let blockCode = Blockly.serialization.workspaces.save(props.workspace);
   const blob = new Blob([JSON.stringify(blockCode)], {
-    type: 'application/json'
+    type: "application/json",
   });
   try {
     for (let i of blockCode.blocks.blocks) {
       switch (i.type) {
         case "ivw_defTypes":
           title = i.fields.title;
-          break
+          break;
         case "vw_defTypes":
           title = i.fields.title;
-          break
+          break;
         default:
-          break
+          break;
       }
     }
-  }
-  catch (e) { }
+  } catch (e) {}
   a.href = URL.createObjectURL(blob);
   a.download = title + ".waddle2";
   a.click();
@@ -116,7 +115,8 @@ const save_to_pc = () => {
  * 保存CoCo控件
  */
 const save_widget = () => {
-  let title = "我的控件", type = "js";
+  let title = "我的控件",
+    type = "js";
   let a = document.createElement("a");
   let code = javascriptGenerator.workspaceToCode(props.workspace);
   let blockCode = Blockly.serialization.workspaces.save(props.workspace);
@@ -125,30 +125,29 @@ const save_widget = () => {
       switch (i.type) {
         case "ivw_defTypes":
           title = i.fields.title;
-          type = "js"
-          break
+          type = "js";
+          break;
         case "vw_defTypes":
           title = i.fields.title;
-          type = "jsx"
-          break
+          type = "jsx";
+          break;
         default:
-          break
+          break;
       }
     }
-  }
-  catch (e) { }
+  } catch (e) {}
   a.href = `data:,${code}`;
   a.download = `${title}.${type}`;
   a.click();
 };
 
 function isJSON(str) {
-  if (typeof str === 'string') {
+  if (typeof str === "string") {
     try {
       let obj = JSON.parse(str);
-      return !!(typeof obj === 'object' && obj);
+      return !!(typeof obj === "object" && obj);
     } catch (e) {
-      return false
+      return false;
     }
   }
 }
@@ -171,8 +170,7 @@ const open_file = () => {
       if (isJSON(file_reader.result)) {
         let fc = JSON.parse(file_reader.result);
         Blockly.serialization.workspaces.load(fc, props.workspace);
-      }
-      else {
+      } else {
         let parser = new DOMParser();
         let xml = parser.parseFromString(file_reader.result, "text/xml");
         let blocks = xml
@@ -185,7 +183,7 @@ const open_file = () => {
     };
     file_reader.readAsText(file, "UTF-8");
   };
-  window.location.hash = ""
+  window.location.hash = "";
 };
 /**
  * 打开文档
@@ -196,224 +194,237 @@ const open_doc = () => {
 
 const upload = (file) => {
   axios({
-    method: 'get',
+    method: "get",
     url: file,
   }).then(function (response) {
     if (isJSON(JSON.stringify(response.data))) {
       let fc = response.data;
       Blockly.serialization.workspaces.load(fc, props.workspace);
-    }
-    else {
+    } else {
       let parser = new DOMParser();
       let xml = parser.parseFromString(response.data, "text/xml");
-      let blocks = xml
-        .getElementsByTagName("body")[0]
-        .getElementsByTagName("blocks")[0]
-        .getElementsByTagName("xml")[0];
+      let blocks = xml.getElementsByTagName("body")[0].getElementsByTagName("blocks")[0].getElementsByTagName("xml")[0];
       props.workspace.clear();
       Blockly.Xml.domToWorkspace(blocks, props.workspace);
     }
     newVisible.value = false;
-    window.location.hash = ""
+    window.location.hash = "";
   });
-}
+};
 ////////////////////////////////Cloud////////////////////////////////
-let userLogined = ref(false)
-let userName = ref('未登录')
-let userAvatar = ref('')
-let res = ref([["作品加载失败", -1, "作品加载失败"], ["请刷新后重试", -1, "请刷新后重试"]])
-let haswork = ref(false)
+let userLogined = ref(false);
+let userName = ref("未登录");
+let userAvatar = ref("");
+let res = ref([
+  ["作品加载失败", -1, "作品加载失败"],
+  ["请刷新后重试", -1, "请刷新后重试"],
+]);
+let haswork = ref(false);
 if (window.location.hash.length > 0) {
-  axios.get("/api/get_file.php?time=" + window.location.hash.substring(1, window.location.hash.length + 1)).then((x) => {
-    if (x.data.length != 0) {
-      Blockly.serialization.workspaces.load((x.data), props.workspace)
-    }
-  })
+  axios
+    .get("/api/get_file.php?time=" + window.location.hash.substring(1, window.location.hash.length + 1))
+    .then((x) => {
+      if (x.data.length !== 0) {
+        Blockly.serialization.workspaces.load(x.data, props.workspace);
+      }
+    });
 }
 function save() {
   try {
-    let title = "我的控件", type = "MY_WIDGET";
+    let title = "我的控件",
+      type = "MY_WIDGET";
     let blockCode = Blockly.serialization.workspaces.save(props.workspace);
     try {
       for (let i of blockCode.blocks.blocks) {
         switch (i.type) {
           case "ivw_defTypes":
             title = i.fields.title;
-            break
+            break;
           case "vw_defTypes":
             title = i.fields.title;
-            break
+            break;
           default:
-            break
+            break;
         }
       }
-    }
-    catch (e) { }
+    } catch (e) {}
     if (window.location.hash.length <= 1) {
-      const myRequest = new Request('/api/save_file.php', {
-        method: 'POST', body: JSON.stringify({ filename: type, content: blockCode, title: title }), headers: {
-          'Content-Type': 'application/json'
+      const myRequest = new Request("/api/save_file.php", {
+        method: "POST",
+        body: JSON.stringify({ filename: type, content: blockCode, title: title }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      fetch(myRequest).then(async (response) => {
+        if (response.status === 200) {
+          sync();
+          Message.info("保存成功！");
+          window.location.hash = await response.text();
+        } else {
+          Message.info("保存失败！错误码：" + response.status.toString());
         }
       });
-      fetch(myRequest)
-        .then(async response => {
-          if (response.status === 200) {
-            sync()
-            Message.info("保存成功！")
-            window.location.hash = await response.text()
-          } else {
-            Message.info("保存失败！错误码：" + response.status.toString())
-          }
-        })
     } else {
-      const myRequest = new Request('/api/upd_file.php', {
-        method: 'POST', body: JSON.stringify({ filename: type, content: blockCode, title: title, time: window.location.hash.slice(1) }), headers: {
-          'Content-Type': 'application/json'
+      const myRequest = new Request("/api/upd_file.php", {
+        method: "POST",
+        body: JSON.stringify({ filename: type, content: blockCode, title: title, time: window.location.hash.slice(1) }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      fetch(myRequest).then(async (response) => {
+        if (response.status === 200) {
+          sync();
+          Message.info("保存成功！");
+          window.location.hash = await response.text();
+        } else {
+          Message.info("保存失败！错误码：" + response.status.toString());
         }
       });
-      fetch(myRequest)
-        .then(async response => {
-          if (response.status === 200) {
-            sync()
-            Message.info("保存成功！")
-            window.location.hash = await response.text()
-          } else {
-            Message.info("保存失败！错误码：" + response.status.toString())
-          }
-        })
     }
   } catch (error) {
-    Message.info("导出出现问题，请检查积木是否拼接错误，如无误请反馈给Waddle开发人员")
+    Message.info("导出出现问题，请检查积木是否拼接错误，如无误请反馈给Waddle开发人员");
   }
-
 }
 
 let loginOkay = (name, avatar, first) => {
-  userAvatar.value = avatar
-  userName.value = name
-  userLogined.value = true
-  sync()
+  userAvatar.value = avatar;
+  userName.value = name;
+  userLogined.value = true;
+  sync();
   if (first) {
-    Message.success('登录成功')
-    location.reload()
+    Message.success("登录成功");
+    location.reload();
   }
-}
+};
 
-axios.get('/api/details.php')
-  .then((x) => {
-    if (x.status == 200) {
-      loginOkay(x.data.nickname, x.data.avatar_url, false)
-    }
-  })
+axios.get("/api/details.php").then((x) => {
+  if (x.status === 200) {
+    loginOkay(x.data.nickname, x.data.avatar_url, false);
+  }
+});
 
 let login = async (username, password) => {
   let code = "0000";
-  Modal.info(
-    {
-      title: "验证码",
-      content: h(Space, {
+  Modal.info({
+    title: "验证码",
+    content: h(
+      Space,
+      {
         size: "large",
         direction: "vertical",
         style: {
-          width: "100%"
-        }
-      }, [
+          width: "100%",
+        },
+      },
+      [
         h("img", {
-          src: "/api/code"
+          src: "/api/code",
         }),
         h(Input, {
           placeholder: "请输入验证码",
           onChange: (v) => {
-            code = v
-          }
+            code = v;
+          },
         }),
-      ]),
-      onOk: () => { login() }
-    }
-  )
+      ]
+    ),
+    onOk: () => {
+      login();
+    },
+  });
   function login() {
-    axios.get("/api/login.php?username=" + username + "&password=" + password + "&code=" + code)
+    axios
+      .get("/api/login.php?username=" + username + "&password=" + password + "&code=" + code)
       .then((data) => {
-        if (data.status != 200) {
-          Message.error("登录失败！错误：" + String(data.data))
-        }
-        else {
-          loginOkay(data.data.user_info.nickname, data.data.user_info.avatar_url, true)
+        if (data.status !== 200) {
+          Message.error("登录失败！错误：" + String(data.data));
+        } else {
+          loginOkay(data.data.user_info.nickname, data.data.user_info.avatar_url, true);
         }
       })
       .catch((err) => {
-        Message.error("登录失败！错误：" + String(err))
-      })
-    sync()
+        Message.error("登录失败！错误：" + String(err));
+      });
+    sync();
   }
-}
+};
 function sync() {
-  axios.get('/api/file_list.php')
+  axios
+    .get("/api/file_list.php")
     .then(function (response) {
-      if (response.data.length == 0) {
+      if (response.data.length === 0) {
         haswork.value = false;
       } else {
-        res.value = response.data
+        res.value = response.data;
         haswork.value = true;
       }
-    }).catch(function (err) {
-      haswork.value = false
+    })
+    .catch(function () {
+      haswork.value = false;
     });
 }
 let del = (time) => {
-  axios.post('/api/del_file.php', String(time))
+  axios
+    .post("/api/del_file.php", String(time))
     .then(function (response) {
-      if (response.data == 'okay') {
-        Message.success("已删除")
-        sync()
+      if (response.data === "okay") {
+        Message.success("已删除");
+        sync();
       } else {
-        Message.error(response.data)
+        Message.error(response.data);
       }
-    }).catch(function (err) {
-      Message.error("删除失败")
+    })
+    .catch(function () {
+      Message.error("删除失败");
     });
-}
-let uname = ""
-let upass = ""
+};
+let uname = "";
+let upass = "";
 let loginModal = () => {
   Modal.info({
     title: "登录",
-    content: h(Space, {
-      size: "medium",
-      direction: "vertical",
-      style: {
-        width: "100%"
-      }
-    }, [
-      h(Input, {
-        placeholder: "请输入编程猫账号",
-        onChange: (x) => {
-          uname = x
-        }
-      }),
-      h(Input, {
-        placeholder: "请输入编程猫密码",
-        type: "password",
-        onChange: (x) => {
-          upass = x
-        }
-      }),
-    ]),
-    onOk: (() => {
-      login(uname, upass)
-    })
-  })
-}
+    content: h(
+      Space,
+      {
+        size: "medium",
+        direction: "vertical",
+        style: {
+          width: "100%",
+        },
+      },
+      [
+        h(Input, {
+          placeholder: "请输入编程猫账号",
+          onChange: (x) => {
+            uname = x;
+          },
+        }),
+        h(Input, {
+          placeholder: "请输入编程猫密码",
+          type: "password",
+          onChange: (x) => {
+            upass = x;
+          },
+        }),
+      ]
+    ),
+    onOk: () => {
+      login(uname, upass);
+    },
+  });
+};
 let run = (id) => {
-  window.location.hash = id
-  window.location.reload()
-}
+  window.location.hash = id;
+  window.location.reload();
+};
 </script>
 
 <template>
   <a-trigger trigger="hover" position="rt">
     <div id="brand">
-      <img src="../icon/logo/waddle2mini.png" alt="" height="36" />
+      <img alt="" style="height: 36px" src="../icon/logo/waddle2mini.png" />
     </div>
     <template #content>
       <div class="dropdown-select">
@@ -423,24 +434,30 @@ let run = (id) => {
         <a-doption @click="open_file">打开本地文件</a-doption>
         <a-divider margin="1px" />
         <a-doption @click="open_doc">文档</a-doption>
-        <a-doption @click="more_opinion">更多选项</a-doption>
+        <a-doption @click="more_opinion">设置</a-doption>
         <a-divider margin="1px" />
         <a-doption @click="cloud_opinion">Cloud</a-doption>
       </div>
     </template>
   </a-trigger>
-  <a-drawer :width="340" :visible="visible" @cancel="handleCancel" unmountOnClose :footer="false">
-    <template #title> 更多 </template>
-    <div>
-      <a-typography-title :heading="6">偏好设置</a-typography-title>
-      <a-space size="large" :fill="fill" :style="{ justifyContent: 'space-between', color: 'var(--color-text-2)' }">
-        <p>积木盒积木全显</p>
-        <a-switch @change="block_all_shown" v-model:model-value="block_all_shown_value" />
+  <a-modal v-model:visible="visible" width="auto">
+    <template #title>设置</template>
+    <div id="modal-content">
+      <a-space>
+        <p>积木盒宽度</p>
+        <a-radio-group :model-value="block_all_shown_value" @change="handleFlyoutChange" type="button">
+          <a-radio :value="true">适应</a-radio>
+          <a-radio :value="false">固定</a-radio>
+        </a-radio-group>
       </a-space>
-      <a-space size="large" :fill="fill" :style="{ justifyContent: 'space-between', color: 'var(--color-text-2)' }">
+      <a-space>
         <p>主题</p>
-        <a-select @change="theme_change" v-model:model-value="theme_value" :style="{ width: '150px' }"
-          default-value="跟随系统">
+        <a-select
+          @change="theme_change"
+          v-model:model-value="theme_value"
+          style="text-align: justify"
+          default-value="跟随系统"
+        >
           <a-option>
             <template #icon>
               <icon-light />
@@ -461,12 +478,11 @@ let run = (id) => {
           </a-option>
         </a-select>
       </a-space>
-      <a-typography-title :heading="6">关于Waddle</a-typography-title>
-      <a-space size="large" :fill="fill" :style="{ justifyContent: 'space-between', color: 'var(--color-text-2)' }">
-        让CoCo没有难做的控件！ Powered by Boxy
-      </a-space>
     </div>
-  </a-drawer>
+    <template #footer>
+      <span style="color: var(--color-text-4)">Copyright 2023 Coconut Studio</span>
+    </template>
+  </a-modal>
   <a-modal v-model:visible="cloudVisible" :footer="false">
     <template #title>
       <a-space>
@@ -475,30 +491,29 @@ let run = (id) => {
       </a-space>
     </template>
     <template #default>
-      <a-row class="grid-demo" gutter="20">
+      <a-row class="grid-demo" :gutter="20">
         <a-col flex="200px">
           <a-space>
             <a-avatar v-if="!userLogined">未登录</a-avatar>
             <a-avatar v-else>
-              <img :src="userAvatar">
+              <img :src="userAvatar" alt="" />
             </a-avatar>
             <p>
               {{ userLogined ? userName : "未登录" }}
             </p>
           </a-space>
-          <div style="margin-top:10px;" v-if="!userLogined">
-            <a-button style="width: 100%;" @click="loginModal">立刻登录</a-button>
+          <div style="margin-top: 10px" v-if="!userLogined">
+            <a-button style="width: 100%" @click="loginModal">立刻登录</a-button>
           </div>
-          <div style="margin-top:10px;" v-else>
-            <a-button @click="save" style="width:100%">保存作品</a-button>
+          <div style="margin-top: 10px" v-else>
+            <a-button @click="save" style="width: 100%">保存作品</a-button>
           </div>
         </a-col>
         <a-col flex="auto">
           <a-empty v-if="!haswork" />
-          <a-list v-else style="height: 100%;">
+          <a-list v-else style="height: 100%">
             <a-list-item v-for="[name, time, title] in res" :key="name">
-              <a-list-item-meta :title="String(title)" :description="String(time)">
-              </a-list-item-meta>
+              <a-list-item-meta :title="String(title)" :description="String(time)"> </a-list-item-meta>
               <template #actions>
                 <icon-edit @click="run(Number(time))" />
                 <a-popconfirm content="你真的要删除吗?" type="warning" @ok="del(Number(time))">
@@ -666,5 +681,12 @@ let run = (id) => {
   height: 150px;
   min-width: 200px;
   width: 200px;
+}
+
+#modal-content > div {
+  justify-content: space-between;
+  width: 100%;
+
+  -webkit-tap-highlight-color: transparent;
 }
 </style>
