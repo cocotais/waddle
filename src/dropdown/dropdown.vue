@@ -381,7 +381,7 @@ const upload = (file) => {
 
   100% {
     width: 150px;
-    height: 284px;
+    height: 248px;
   }
 }
 
