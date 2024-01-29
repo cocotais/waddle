@@ -15,6 +15,7 @@
     <meta name="description" content="Basic available instance built on Google Blockly." />
     <link rel="icon" type="image/png" href="./src/icon/logo/waddle2mini.png" />
     <link rel="apple-touch-icon" type="image/png" href="./src/icon/logo/waddle2mini.png" />
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <title>Waddle</title>
     <style>
       .loading {
@@ -27,36 +28,36 @@
         align-items: center;
         justify-content: center;
       }
-      .loading img {
-        width: 150px;
-        height: 150px;
-      }
     </style>
   </head>
 
   <body>
     <div class="loading">
-      <img id="light" style="display: none" src="https://public.coco-central.cn/waddle/2/loading.gif" alt="" />
-      <img id="dark" style="display: none" src="https://public.coco-central.cn/waddle/2/loading-dark.gif" alt="" />
+      <dotlottie-player
+        src="https://lottie.host/c25ba7ee-630d-49ad-baac-f9c547ffa20a/fF7eOl0RZM.lottie"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 300px"
+        loop
+        autoplay
+      ></dotlottie-player>
       <script>
+        let a;
         switch (localStorage.getItem("theme")) {
           case "亮色模式":
-            document.querySelector(".loading").style.background = "#ffffff";
-            document.querySelector(".loading #light").style.display = "block";
+            a = "#ffffff";
             break;
           case "暗黑模式":
-            document.querySelector(".loading").style.background = "#17171A";
-            document.querySelector(".loading #dark").style.display = "block";
+            a = "#17171A";
             break;
           default:
             if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-              document.querySelector(".loading").style.background = "#17171A";
-              document.querySelector(".loading #dark").style.display = "block";
+              a = "#17171A";
             } else {
-              document.querySelector(".loading").style.background = "#ffffff";
-              document.querySelector(".loading #light").style.display = "block";
+              a = "#ffffff";
             }
         }
+        document.querySelector(".loading").style.background = a;
       </script>
     </div>
     <div id="app"></div>

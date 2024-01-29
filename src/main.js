@@ -14,7 +14,7 @@ import "./icon/category/category";
 import "./toolbox/toolbox";
 import "./blocks/boxy";
 import "./blocks/patch";
-import { block_style } from  "./blocks/patch";
+import { block_style } from "./blocks/patch";
 import "@arco-design/web-vue/dist/arco.css";
 import "@blockly/block-plus-minus";
 import "./dialog/dialog.vue";
@@ -99,9 +99,10 @@ if ("serviceWorker" in navigator) {
       });
     },
     onOfflineReady() {
-      console.log("onOfflineReady")
-    }
+      console.log("onOfflineReady");
+    },
   });
 }
 
+// 移除加载界面
 document.querySelector(".loading").remove();
