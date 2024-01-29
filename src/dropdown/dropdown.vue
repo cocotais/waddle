@@ -2,16 +2,13 @@
 import Blockly from "blockly";
 import { defineProps, ref } from "vue";
 import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
-import { Message, Modal, Input, Space } from "@arco-design/web-vue";
 import Theme from "@/theme/theme";
 import { javascriptGenerator } from "blockly/javascript";
 import axios from "axios";
-import { h } from "vue";
 
 const props = defineProps(["workspace"]);
 // 初始化数值
 const visible = ref(false);
-const cloudVisible = ref(false);
 const newVisible = ref(false);
 const theme_value = ref(localStorage.getItem("theme") || "跟随系统");
 const block_all_shown_value = ref(!!localStorage.getItem("block_all_shown"));
@@ -39,9 +36,6 @@ const more_opinion = () => {
 /**
  * “更多”打开
  */
-const cloud_opinion = () => {
-  cloudVisible.value = true;
-};
 
 const new_opinion = () => {
   newVisible.value = true;
@@ -211,214 +205,6 @@ const upload = (file) => {
     window.location.hash = "";
   });
 };
-////////////////////////////////Cloud////////////////////////////////
-let userLogined = ref(false);
-let userName = ref("未登录");
-let userAvatar = ref("");
-let res = ref([
-  ["作品加载失败", -1, "作品加载失败"],
-  ["请刷新后重试", -1, "请刷新后重试"],
-]);
-let haswork = ref(false);
-if (window.location.hash.length > 0) {
-  axios
-    .get("/api/get_file.php?time=" + window.location.hash.substring(1, window.location.hash.length + 1))
-    .then((x) => {
-      if (x.data.length !== 0) {
-        Blockly.serialization.workspaces.load(x.data, props.workspace);
-      }
-    });
-}
-function save() {
-  try {
-    let title = "我的控件",
-      type = "MY_WIDGET";
-    let blockCode = Blockly.serialization.workspaces.save(props.workspace);
-    try {
-      for (let i of blockCode.blocks.blocks) {
-        switch (i.type) {
-          case "ivw_defTypes":
-            title = i.fields.title;
-            break;
-          case "vw_defTypes":
-            title = i.fields.title;
-            break;
-          default:
-            break;
-        }
-      }
-    } catch (e) {}
-    if (window.location.hash.length <= 1) {
-      const myRequest = new Request("/api/save_file.php", {
-        method: "POST",
-        body: JSON.stringify({ filename: type, content: blockCode, title: title }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      fetch(myRequest).then(async (response) => {
-        if (response.status === 200) {
-          sync();
-          Message.info("保存成功！");
-          window.location.hash = await response.text();
-        } else {
-          Message.info("保存失败！错误码：" + response.status.toString());
-        }
-      });
-    } else {
-      const myRequest = new Request("/api/upd_file.php", {
-        method: "POST",
-        body: JSON.stringify({ filename: type, content: blockCode, title: title, time: window.location.hash.slice(1) }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      fetch(myRequest).then(async (response) => {
-        if (response.status === 200) {
-          sync();
-          Message.info("保存成功！");
-          window.location.hash = await response.text();
-        } else {
-          Message.info("保存失败！错误码：" + response.status.toString());
-        }
-      });
-    }
-  } catch (error) {
-    Message.info("导出出现问题，请检查积木是否拼接错误，如无误请反馈给Waddle开发人员");
-  }
-}
-
-let loginOkay = (name, avatar, first) => {
-  userAvatar.value = avatar;
-  userName.value = name;
-  userLogined.value = true;
-  sync();
-  if (first) {
-    Message.success("登录成功");
-    location.reload();
-  }
-};
-
-axios.get("/api/details.php").then((x) => {
-  if (x.status === 200) {
-    loginOkay(x.data.nickname, x.data.avatar_url, false);
-  }
-});
-
-let login = async (username, password) => {
-  let code = "0000";
-  Modal.info({
-    title: "验证码",
-    content: h(
-      Space,
-      {
-        size: "large",
-        direction: "vertical",
-        style: {
-          width: "100%",
-        },
-      },
-      [
-        h("img", {
-          src: "/api/code",
-        }),
-        h(Input, {
-          placeholder: "请输入验证码",
-          onChange: (v) => {
-            code = v;
-          },
-        }),
-      ]
-    ),
-    onOk: () => {
-      login();
-    },
-  });
-  function login() {
-    axios
-      .get("/api/login.php?username=" + username + "&password=" + password + "&code=" + code)
-      .then((data) => {
-        if (data.status !== 200) {
-          Message.error("登录失败！错误：" + String(data.data));
-        } else {
-          loginOkay(data.data.user_info.nickname, data.data.user_info.avatar_url, true);
-        }
-      })
-      .catch((err) => {
-        Message.error("登录失败！错误：" + String(err));
-      });
-    sync();
-  }
-};
-function sync() {
-  axios
-    .get("/api/file_list.php")
-    .then(function (response) {
-      if (response.data.length === 0) {
-        haswork.value = false;
-      } else {
-        res.value = response.data;
-        haswork.value = true;
-      }
-    })
-    .catch(function () {
-      haswork.value = false;
-    });
-}
-let del = (time) => {
-  axios
-    .post("/api/del_file.php", String(time))
-    .then(function (response) {
-      if (response.data === "okay") {
-        Message.success("已删除");
-        sync();
-      } else {
-        Message.error(response.data);
-      }
-    })
-    .catch(function () {
-      Message.error("删除失败");
-    });
-};
-let uname = "";
-let upass = "";
-let loginModal = () => {
-  Modal.info({
-    title: "登录",
-    content: h(
-      Space,
-      {
-        size: "medium",
-        direction: "vertical",
-        style: {
-          width: "100%",
-        },
-      },
-      [
-        h(Input, {
-          placeholder: "请输入编程猫账号",
-          onChange: (x) => {
-            uname = x;
-          },
-        }),
-        h(Input, {
-          placeholder: "请输入编程猫密码",
-          type: "password",
-          onChange: (x) => {
-            upass = x;
-          },
-        }),
-      ]
-    ),
-    onOk: () => {
-      login(uname, upass);
-    },
-  });
-};
-let run = (id) => {
-  window.location.hash = id;
-  window.location.reload();
-};
 </script>
 
 <template>
@@ -435,8 +221,6 @@ let run = (id) => {
         <a-divider margin="1px" />
         <a-doption @click="open_doc">文档</a-doption>
         <a-doption @click="more_opinion">设置</a-doption>
-        <a-divider margin="1px" />
-        <a-doption @click="cloud_opinion">Cloud</a-doption>
       </div>
     </template>
   </a-trigger>
@@ -481,49 +265,6 @@ let run = (id) => {
     </div>
     <template #footer>
       <span style="color: var(--color-text-4)">Copyright 2023 Coconut Studio</span>
-    </template>
-  </a-modal>
-  <a-modal v-model:visible="cloudVisible" :footer="false">
-    <template #title>
-      <a-space>
-        <p>Cloud</p>
-        <a-tag color="arcoblue" bordered> Beta </a-tag>
-      </a-space>
-    </template>
-    <template #default>
-      <a-row class="grid-demo" :gutter="20">
-        <a-col flex="200px">
-          <a-space>
-            <a-avatar v-if="!userLogined">未登录</a-avatar>
-            <a-avatar v-else>
-              <img :src="userAvatar" alt="" />
-            </a-avatar>
-            <p>
-              {{ userLogined ? userName : "未登录" }}
-            </p>
-          </a-space>
-          <div style="margin-top: 10px" v-if="!userLogined">
-            <a-button style="width: 100%" @click="loginModal">立刻登录</a-button>
-          </div>
-          <div style="margin-top: 10px" v-else>
-            <a-button @click="save" style="width: 100%">保存作品</a-button>
-          </div>
-        </a-col>
-        <a-col flex="auto">
-          <a-empty v-if="!haswork" />
-          <a-list v-else style="height: 100%">
-            <a-list-item v-for="[name, time, title] in res" :key="name">
-              <a-list-item-meta :title="String(title)" :description="String(time)"> </a-list-item-meta>
-              <template #actions>
-                <icon-edit @click="run(Number(time))" />
-                <a-popconfirm content="你真的要删除吗?" type="warning" @ok="del(Number(time))">
-                  <icon-delete />
-                </a-popconfirm>
-              </template>
-            </a-list-item>
-          </a-list>
-        </a-col>
-      </a-row>
     </template>
   </a-modal>
   <a-modal class="newModal" v-model:visible="newVisible" :footer="false">
