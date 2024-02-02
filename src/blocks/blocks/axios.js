@@ -1,4 +1,5 @@
-import Blockly from "blockly"; //ooooooooo@^ ... @OooO\.]]/@oo@@@@@oO@ ... @@^****
+import Blockly from "blockly";
+//ooooooooo@^ ... @OooO\.]]/@oo@@@@@oO@ ... @@^****
 //oooooooOOO^ ... @OooO@@@OoooooOOOooO^ ...=@@^****
 //ooooooOOoO@  .. @@Oooooo@OoO@OoooOOO^ ...@O@\****
 //OOOOOOOOOO@` .. @OOOOoooOoooO@@@Ooo@^.../@OO@***,
@@ -103,32 +104,33 @@ Blockly.Blocks["axios_error"] = {
   },
 };
 
-Blockly.Blocks["axios_getpost"] = {
+Blockly.Blocks['axios_getpost'] = {
   init: function () {
     this.appendValueInput("URL")
       .setCheck("String")
       .appendField("使用axios")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["get", "get"],
-          ["post", "post"],
-          ["put", "put"],
-          ["delete", "delete"],
-        ]),
-        "MODE"
-      )
+      .appendField(new Blockly.FieldDropdown([["get", "get"], ["post", "post"], ["put", "put"], ["delete", "delete"]]), "MODE")
       .appendField("链接");
-    this.appendStatementInput("PAR").setCheck(null).appendField("请求配置");
-    this.appendStatementInput("OK").setCheck(null).appendField("当请求完成时");
-    this.appendStatementInput("error").setCheck(null).appendField("当请求失败时");
+    this.appendValueInput("HEAD")
+      .setCheck(null)
+      .appendField("请求头");
+    this.appendValueInput("BODY")
+      .setCheck(null)
+      .appendField("请求体");
+    this.appendStatementInput("OK")
+      .setCheck(null)
+      .appendField("当返回结果时");
+    this.appendStatementInput("error")
+      .setCheck(null)
+      .appendField("当请求失败时");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
-  },
+  }
 };
-
+/*
 Blockly.Blocks["axios_timeout"] = {
   init: function () {
     this.appendValueInput("NUM").setCheck("Number").appendField("超时限制");
@@ -194,3 +196,4 @@ Blockly.Blocks["axios_data"] = {
     this.setHelpUrl("");
   },
 };
+*/

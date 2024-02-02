@@ -37,25 +37,42 @@ javascriptGenerator.forBlock["axios_error"] = function () {
 };
 
 javascriptGenerator.forBlock["axios_getpost"] = function (block) {
-  var dropdown_mode = block.getFieldValue("MODE");
-  var value_url = javascriptGenerator.valueToCode(block, "URL", javascriptGenerator.ORDER_ATOMIC) || "''";
-  var statements_par = javascriptGenerator.statementToCode(block, "PAR");
-  var statements_ok = javascriptGenerator.statementToCode(block, "OK");
-  var statements_error = javascriptGenerator.statementToCode(block, "error");
+  var dropdown_mode = block.getFieldValue('MODE');
+  var value_url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_head = Blockly.JavaScript.valueToCode(block, 'HEAD', Blockly.JavaScript.ORDER_ATOMIC) || ''
+  var value_body = Blockly.JavaScript.valueToCode(block, 'BODY', Blockly.JavaScript.ORDER_ATOMIC) || ''
+  if (value_body != '') {
+    const params = new URLSearchParams();
+    for (const key in value_body) {
+      if (data.hasOwnProperty(key)) {
+        params.append(key, value_body[key]);
+      }
+    }
+    var value_body = params.toString();
+  }
+
+  var statements_ok = Blockly.JavaScript.statementToCode(block, 'OK');
+  var statements_error = Blockly.JavaScript.statementToCode(block, 'error');
   var code = `
-axios.${dropdown_mode}(${value_url},{
-  ${statements_par}
-  })
-  .then((response) => {
+axios({
+  method:'${dropdown_mode}',
+  url:'${value_url}?${value_body}'
+  `+ value_head == '' ? '' : `
+  headers:{
+    ${value_head}
+  }
+  `+ `
+})
+.then((response)=>{
   ${statements_ok}
-  })
-  .catch((error) => {
+})
+.catch((error)=>{
   ${statements_error}
-  });
+})
 `;
   return code;
 };
-
+/*
 javascriptGenerator.forBlock["axios_timeout"] = function (block) {
   var value_num = javascriptGenerator.valueToCode(block, "NUM", javascriptGenerator.ORDER_ATOMIC) || "0";
   var code = `timeout: ${value_num},\n`;
@@ -79,3 +96,4 @@ javascriptGenerator.forBlock["axios_withcredentials"] = function (block) {
   var code = `withCredentials: ${checkbox_name},\n`;
   return code;
 };
+*/
