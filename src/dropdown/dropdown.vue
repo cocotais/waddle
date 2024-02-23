@@ -97,7 +97,6 @@ const save_to_pc = () => {
           title = i.fields.title;
           break;
         default:
-          break;
       }
     }
   } catch (e) {}
