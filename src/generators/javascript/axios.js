@@ -37,11 +37,11 @@ javascriptGenerator.forBlock["axios_error"] = function () {
 };
 
 javascriptGenerator.forBlock["axios_getpost"] = function (block) {
-  var dropdown_mode = block.getFieldValue('MODE');
-  var value_url = Blockly.JavaScript.valueToCode(block, 'URL', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_head = Blockly.JavaScript.valueToCode(block, 'HEAD', Blockly.JavaScript.ORDER_ATOMIC) || ''
-  var value_body = Blockly.JavaScript.valueToCode(block, 'BODY', Blockly.JavaScript.ORDER_ATOMIC) || ''
-  if (value_body != '') {
+  var dropdown_mode = block.getFieldValue("MODE");
+  var value_url = Blockly.JavaScript.valueToCode(block, "URL", Blockly.JavaScript.ORDER_ATOMIC);
+  var value_head = Blockly.JavaScript.valueToCode(block, "HEAD", Blockly.JavaScript.ORDER_ATOMIC) || "";
+  var value_body = Blockly.JavaScript.valueToCode(block, "BODY", Blockly.JavaScript.ORDER_ATOMIC) || "";
+  if (value_body != "") {
     const params = new URLSearchParams();
     for (const key in value_body) {
       if (data.hasOwnProperty(key)) {
@@ -51,17 +51,23 @@ javascriptGenerator.forBlock["axios_getpost"] = function (block) {
     var value_body = params.toString();
   }
 
-  var statements_ok = Blockly.JavaScript.statementToCode(block, 'OK');
-  var statements_error = Blockly.JavaScript.statementToCode(block, 'error');
-  var code = `
+  var statements_ok = Blockly.JavaScript.statementToCode(block, "OK");
+  var statements_error = Blockly.JavaScript.statementToCode(block, "error");
+  var code =
+    `
 axios({
   method:'${dropdown_mode}',
   url:'${value_url}?${value_body}'
-  `+ value_head == '' ? '' : `
+  ` +
+      value_head ==
+    ""
+      ? ""
+      : `
   headers:{
     ${value_head}
   }
-  `+ `
+  ` +
+        `
 })
 .then((response)=>{
   ${statements_ok}

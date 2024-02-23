@@ -35,7 +35,6 @@ toolboxConfig["contents"].forEach(function (category) {
   }
 });
 
-
 // 设置Blockly部分组件数值
 Blockly.FlyoutButton.BORDER_RADIUS = 10;
 Blockly.FlyoutButton.TEXT_MARGIN_X = 25;

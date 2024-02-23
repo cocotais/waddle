@@ -102,7 +102,7 @@ export default defineConfig({
             type: "image/svg+xml",
             sizes: "any",
             purpose: "any",
-          }
+          },
         ],
       },
     }),

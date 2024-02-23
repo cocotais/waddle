@@ -11,7 +11,7 @@ import BoxySearch from "../search/search";
 import toolbox from "../toolbox/toolbox";
 import trashcan from "../trashcan/trashcan";
 import BoxyZoomBox from "../zoomBox/zoomBox";
-import {javascriptGenerator} from "blockly/javascript";
+import { javascriptGenerator } from "blockly/javascript";
 import { preview_render } from "@/codespace/widget-preview";
 
 // 设置Blockly使用语言
@@ -125,26 +125,25 @@ const spaceChange = () => {
         case "ivw_defTypes":
           spaceDisabled.value = true;
           spaceSize.value = 0;
-          break
+          break;
         case "vw_defTypes":
           if (spaceDisabled.value === true) {
             spaceSize.value = "300px";
           }
           spaceDisabled.value = false;
           preview_render(code);
-          break
+          break;
         default:
           spaceDisabled.value = true;
           spaceSize.value = 0;
-          break
+          break;
       }
     }
-  }
-  catch (e) {
+  } catch (e) {
     spaceDisabled.value = true;
     spaceSize.value = 0;
   }
-}
+};
 </script>
 
 <template>
@@ -168,7 +167,7 @@ const spaceChange = () => {
       ><a-select
         @change="generator_change"
         v-model:model-value="generator_value"
-        :style="{ width: '150px', display:'none' }"
+        :style="{ width: '150px', display: 'none' }"
         default-value="Javascript"
         class="codespace-change"
       >
