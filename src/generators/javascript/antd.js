@@ -1,6 +1,5 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
-javascriptGenerator.forBlock["antd_import"] = function (block) {
+javascriptGenerator.forBlock["antd_import"] = function () {
   var code = "const antd = require('antd-mobile');\n";
   return code;
 };

@@ -1,4 +1,3 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
 javascriptGenerator.forBlock["widget_widgetlog"] = function (block) {
   var value_value = javascriptGenerator.valueToCode(block, "value", javascriptGenerator.ORDER_ATOMIC);

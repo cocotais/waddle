@@ -1,6 +1,5 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
-javascriptGenerator.forBlock["color_import"] = function (block) {
+javascriptGenerator.forBlock["color_import"] = function () {
   var code = "const color = require('color');\n";
   return code;
 };

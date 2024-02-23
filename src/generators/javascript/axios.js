@@ -44,11 +44,9 @@ javascriptGenerator.forBlock["axios_getpost"] = function (block) {
   if (value_body != "") {
     const params = new URLSearchParams();
     for (const key in value_body) {
-      if (data.hasOwnProperty(key)) {
-        params.append(key, value_body[key]);
-      }
+      params.append(key, value_body[key]);
     }
-    var value_body = params.toString();
+    value_body = params.toString();
   }
 
   var statements_ok = Blockly.JavaScript.statementToCode(block, "OK");

@@ -1,5 +1,4 @@
 import Blockly from "blockly";
-const HELP_URL = "https://www.yuque.com/coco-central/widget/widgetguide";
 
 Blockly.Blocks["ivw_defTypes"] = {
   init: function () {

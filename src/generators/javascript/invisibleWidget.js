@@ -1,14 +1,4 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
-var del_indentation = function (code) {
-  let codelist = code.split("\n");
-  let newcode = "";
-  codelist.forEach((item) => {
-    newcode += item.slice(2);
-    newcode += "\n";
-  });
-  return newcode;
-};
 
 javascriptGenerator.forBlock["ivw_defTypes"] = function (block) {
   // var statements_types = javascriptGenerator.statementToCode(block, 'types');
@@ -105,9 +95,6 @@ javascriptGenerator.forBlock["ivw_addProperty"] = function (block) {
       case "object":
         value_defaultValue = '""';
         break;
-      case "object":
-        value_defaultValue = '""';
-        break;
       default:
         value_defaultValue = '""';
         break;
@@ -190,9 +177,6 @@ javascriptGenerator.forBlock["ivw_addParams"] = function (block) {
         break;
       case "color":
         value_defaultValue = '"#6e4ff4"';
-        break;
-      case "object":
-        value_defaultValue = '""';
         break;
       case "object":
         value_defaultValue = '""';
@@ -368,7 +352,6 @@ let attris = {
 
 for (const key in attris) {
   if (Object.hasOwnProperty.call(attris, key)) {
-    const attri = attris[key];
     javascriptGenerator.forBlock["ivwAttri_" + key] = function (block) {
       var value_value = javascriptGenerator.valueToCode(block, "value", javascriptGenerator.ORDER_ATOMIC);
       var code = `${key}: ${value_value},\n`;
@@ -384,7 +367,7 @@ javascriptGenerator.forBlock["ivwAttri_custom"] = function (block) {
   return code;
 };
 
-javascriptGenerator.forBlock["ivw_export"] = function (block) {
+javascriptGenerator.forBlock["ivw_export"] = function () {
   var code = `
 exports.types = types;
 exports.widget = Widget;

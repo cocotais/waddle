@@ -1,6 +1,5 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
-javascriptGenerator.forBlock["http_import"] = function (block) {
+javascriptGenerator.forBlock["http_import"] = function () {
   var code = "const http = require('http');\n";
   return code;
 };

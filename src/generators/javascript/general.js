@@ -1,4 +1,3 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
 javascriptGenerator.forBlock["ivw_defTypes"] = function (block) {
   var statements_types = javascriptGenerator.statementToCode(block, "types");

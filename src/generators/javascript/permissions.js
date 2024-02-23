@@ -1,4 +1,3 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
 javascriptGenerator.forBlock["permissions_get"] = function (block) {
   var dropdown_gettype = block.getFieldValue("GETTYPE");
@@ -18,22 +17,22 @@ var navigator = this.navigator;
 var history = this.history;`;
 };
 
-javascriptGenerator.forBlock["permissions_document"] = function (block) {
+javascriptGenerator.forBlock["permissions_document"] = function () {
   var code = "document";
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["permissions_window"] = function (block) {
+javascriptGenerator.forBlock["permissions_window"] = function () {
   var code = "window";
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["permissions_navigator"] = function (block) {
+javascriptGenerator.forBlock["permissions_navigator"] = function () {
   var code = "navigator";
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["permissions_history"] = function (block) {
+javascriptGenerator.forBlock["permissions_history"] = function () {
   var code = "history";
   return [code, javascriptGenerator.ORDER_NONE];
 };

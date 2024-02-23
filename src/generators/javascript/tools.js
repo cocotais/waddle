@@ -1,4 +1,3 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
 javascriptGenerator.forBlock["tools_clip"] = function (block) {
   var text_tag = block.getFieldValue("tag");

@@ -1,6 +1,5 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
-javascriptGenerator.forBlock["crypto_import"] = function (block) {
+javascriptGenerator.forBlock["crypto_import"] = function () {
   return `var CryptoJS = require("crypto-js");\n`;
 };
 
@@ -201,8 +200,7 @@ javascriptGenerator.forBlock["crypto_encutf16stringify"] = function (block) {
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["crypto_createuuid"] = function (block) {
-  var value_name = javascriptGenerator.valueToCode(block, "NAME", javascriptGenerator.ORDER_ATOMIC);
+javascriptGenerator.forBlock["crypto_createuuid"] = function () {
   var code = `crypto.randomUUID()`;
   return [code, javascriptGenerator.ORDER_NONE];
 };
