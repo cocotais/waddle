@@ -263,7 +263,7 @@ const upload = (file) => {
       </a-space>
     </div>
     <template #footer>
-      <span style="color: var(--color-text-4)">Copyright 2023 Coconut Studio</span>
+      <span style="color: var(--color-text-4)">Copyright 2024 CoCo中控台</span>
     </template>
   </a-modal>
   <a-modal class="newModal" v-model:visible="newVisible" :footer="false">
