@@ -75,6 +75,12 @@ onMounted(() => {
   });
   // 重置toolbox大小
   toolbox.resize();
+  // 恢复上次保存的工作区
+  if (localStorage["backup"])
+    Blockly.serialization.workspaces.load(JSON.parse(localStorage["backup"]), workspace.value);
+  window.addEventListener("beforeunload", (event) => {
+    localStorage.setItem("backup", JSON.stringify(Blockly.serialization.workspaces.save(workspace.value)));
+  });
 });
 /**
  * 设置代码框的拉条是否启用
