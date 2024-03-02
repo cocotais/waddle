@@ -129,7 +129,7 @@ const save_widget = () => {
       }
     }
   } catch (e) {}
-  a.href = `data:,${code}`;
+  a.href = URL.createObjectURL(new Blob([code]));
   a.download = `${title}.${type}`;
   a.click();
 };
