@@ -261,6 +261,7 @@ const upload = (file) => {
           </a-option>
         </a-select>
       </a-space>
+      <a-space><p>当前版本</p><p>V2.2</p></a-space>
     </div>
     <template #footer>
       <span style="color: var(--color-text-4)">Copyright 2024 CoCo中控台</span>
