@@ -1,6 +1,6 @@
 <p align="center">
     <br>
-    <img width="100" src="https://public.coco-central.cn/waddle/2/waddle2.png" alt="Waddle2-logo"/>
+    <img width="100" src="src\icon\logo\waddle2mini.png" alt="Waddle2-logo"/>
 </p>
 
 <h1 align="center">

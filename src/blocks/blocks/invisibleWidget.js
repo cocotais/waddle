@@ -7,7 +7,7 @@ Blockly.Blocks["ivw_defTypes"] = {
       .appendField("类型名")
       .appendField(new Blockly.FieldTextInput("MY_WIDGET"), "type")
       .appendField("图标")
-      .appendField(new Blockly.FieldTextInput("https://public.coco-central.cn/waddle/2/waddle2.svg"), "icon");
+      .appendField(new Blockly.FieldTextInput("https://cdn.cocotais.cn/project/waddle-2/logo/waddle2-logo.svg"), "icon");
     // 五个参数分两行输入
     this.appendDummyInput()
       .appendField("名称")
