@@ -14,7 +14,6 @@ import "./icon/category/category";
 import "./toolbox/toolbox";
 import "./blocks/boxy";
 import "./blocks/patch";
-import { block_style } from "./blocks/patch";
 import "@arco-design/web-vue/dist/arco.css";
 import "@blockly/block-plus-minus";
 import "./dialog/dialog.vue";
@@ -22,20 +21,21 @@ import "highlight.js/styles/atom-one-dark.css";
 import "highlight.js/lib/common";
 import "@arco-themes/vue-waddle/index.less";
 
-import ArcoVue, {Modal} from "@arco-design/web-vue";
-import ArcoVueIcon from '@arco-design/web-vue/es/icon';
+import ArcoVue, { Modal } from "@arco-design/web-vue";
+import ArcoVueIcon from "@arco-design/web-vue/es/icon";
 import hljsVuePlugin from "@highlightjs/vue-plugin";
 import { registerSW } from "virtual:pwa-register";
 import { createApp } from "vue";
 
 import App from "./App.vue";
+import { block_style } from "./blocks/patch";
 import trashcan from "./trashcan/trashcan";
 import observer from "./utils/observer";
 
 const app = createApp(App);
 app.use(ArcoVue);
 app.use(hljsVuePlugin);
-app.use(ArcoVueIcon)
+app.use(ArcoVueIcon);
 app.mount("#app");
 
 block_style("lists_create_with", "list");

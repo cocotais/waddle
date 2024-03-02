@@ -1,4 +1,4 @@
-import Blockly from "blockly"; //ooooooooo@^ ... @OooO\.]]/@oo@@@@@oO@ ... @@^****
+//ooooooooo@^ ... @OooO\.]]/@oo@@@@@oO@ ... @@^****
 import { javascriptGenerator } from "blockly/javascript";
 //oooooooOOO^ ... @OooO@@@OoooooOOOooO^ ...=@@^****
 //ooooooOOoO@  .. @@Oooooo@OoO@OoooOOO^ ...@O@\****

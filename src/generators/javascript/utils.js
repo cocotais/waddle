@@ -1,4 +1,4 @@
-import Blockly from "blockly"; //ooooooooo@^ ... @OooO\.]]/@oo@@@@@oO@ ... @@^****
+//ooooooooo@^ ... @OooO\.]]/@oo@@@@@oO@ ... @@^****
 import { javascriptGenerator } from "blockly/javascript";
 //oooooooOOO^ ... @OooO@@@OoooooOOOooO^ ...=@@^****
 //ooooooOOoO@  .. @@Oooooo@OoO@OoooOOO^ ...@O@\****
@@ -26,12 +26,12 @@ import { javascriptGenerator } from "blockly/javascript";
 //**************]/OOO@^  =@OO@` ./@OOOOO@/*********
 //                 于勤保佑 无bug
 
-javascriptGenerator.forBlock["utils_import"] = function (block) {
+javascriptGenerator.forBlock["utils_import"] = function () {
   var code = `const utils = require('utils');\n`;
   return code;
 };
 
-javascriptGenerator.forBlock["utils_isnative"] = function (block) {
+javascriptGenerator.forBlock["utils_isnative"] = function () {
   var code = "utils.isNative()";
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, javascriptGenerator.ORDER_NONE];

@@ -1,10 +1,7 @@
 import Blockly from "blockly";
 Blockly.Blocks["permissions_getall"] = {
   init: function () {
-    this.appendDummyInput()
-      .appendField("获取权限")
-      .appendField(new Blockly.FieldDropdown([["使用this方法获取", "THIS"]]), "GETTYPE")
-      .appendField("获取四个权限");
+    this.appendDummyInput().appendField("使用this方法").appendField("获取四个权限");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#a073ff");
@@ -16,8 +13,7 @@ Blockly.Blocks["permissions_getall"] = {
 Blockly.Blocks["permissions_get"] = {
   init: function () {
     this.appendDummyInput()
-      .appendField("获取权限")
-      .appendField(new Blockly.FieldDropdown([["使用this方法获取", "THIS"]]), "GETTYPE")
+      .appendField("使用this方法")
       .appendField("获取")
       .appendField(
         new Blockly.FieldDropdown([

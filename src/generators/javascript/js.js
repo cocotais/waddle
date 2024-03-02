@@ -1,4 +1,3 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
 javascriptGenerator.forBlock["js_run"] = function (block) {
   var code = block.getFieldValue("CODE") || "console.log(233);";
@@ -17,7 +16,7 @@ javascriptGenerator.forBlock["js_run_join"] = function (block) {
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["js_usestrict"] = function (block) {
+javascriptGenerator.forBlock["js_usestrict"] = function () {
   let code = '"use strict";\n';
   return code;
 };
@@ -90,27 +89,27 @@ javascriptGenerator.forBlock["js_window_avail_screen"] = function (block) {
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["js_window_depth"] = function (block) {
+javascriptGenerator.forBlock["js_window_depth"] = function () {
   var code = `screen.colorDepth`;
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["js_window_pixeldepth"] = function (block) {
+javascriptGenerator.forBlock["js_window_pixeldepth"] = function () {
   var code = `screen.pixelDepth`;
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["js_navigator_online"] = function (block) {
+javascriptGenerator.forBlock["js_navigator_online"] = function () {
   var code = `navigator.onLine`;
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["js_navigator_language"] = function (block) {
+javascriptGenerator.forBlock["js_navigator_language"] = function () {
   var code = `navigator.language`;
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["js_navigator_platform"] = function (block) {
+javascriptGenerator.forBlock["js_navigator_platform"] = function () {
   var code = `navigator.platform`;
   return [code, javascriptGenerator.ORDER_NONE];
 };
@@ -120,7 +119,7 @@ javascriptGenerator.forBlock["js_math_constant"] = function (block) {
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["js_console_clean"] = function (block) {
+javascriptGenerator.forBlock["js_console_clean"] = function () {
   var code = `console.clear();\n`;
   return code;
 };

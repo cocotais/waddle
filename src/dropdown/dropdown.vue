@@ -97,7 +97,6 @@ const save_to_pc = () => {
           title = i.fields.title;
           break;
         default:
-          break;
       }
     }
   } catch (e) {}
@@ -130,7 +129,7 @@ const save_widget = () => {
       }
     }
   } catch (e) {}
-  a.href = `data:,${code}`;
+  a.href = URL.createObjectURL(new Blob([code]));
   a.download = `${title}.${type}`;
   a.click();
 };
@@ -262,9 +261,10 @@ const upload = (file) => {
           </a-option>
         </a-select>
       </a-space>
+      <a-space><p>当前版本</p><p>V2.2</p></a-space>
     </div>
     <template #footer>
-      <span style="color: var(--color-text-4)">Copyright 2023 Coconut Studio</span>
+      <span style="color: var(--color-text-4)">Copyright 2024 CoCo中控台</span>
     </template>
   </a-modal>
   <a-modal class="newModal" v-model:visible="newVisible" :footer="false">

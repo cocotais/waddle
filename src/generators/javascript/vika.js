@@ -1,6 +1,5 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
-javascriptGenerator.forBlock["vika_import"] = function (block) {
+javascriptGenerator.forBlock["vika_import"] = function () {
   var code = "const vika = require('@vikadata/vika').default;\n";
   return code;
 };
@@ -63,22 +62,22 @@ javascriptGenerator.forBlock["vika_all"] = function (block) {
   return code;
 };
 
-javascriptGenerator.forBlock["vika_response_success"] = function (block) {
+javascriptGenerator.forBlock["vika_response_success"] = function () {
   var code = "response.success";
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["vika_response_code"] = function (block) {
+javascriptGenerator.forBlock["vika_response_code"] = function () {
   var code = "response.code";
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["vika_response_message"] = function (block) {
+javascriptGenerator.forBlock["vika_response_message"] = function () {
   var code = "response.message";
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator.forBlock["vika_response_data"] = function (block) {
+javascriptGenerator.forBlock["vika_response_data"] = function () {
   var code = "response.data";
   return [code, javascriptGenerator.ORDER_NONE];
 };

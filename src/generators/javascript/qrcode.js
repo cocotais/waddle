@@ -1,6 +1,5 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
-javascriptGenerator.forBlock["qrcode_import"] = function (block) {
+javascriptGenerator.forBlock["qrcode_import"] = function () {
   var code = "const qrcode = require('qrcode');\n";
   return code;
 };
@@ -15,7 +14,7 @@ ${statements_name}
   return code;
 };
 
-javascriptGenerator.forBlock["qrcode_err"] = function (block) {
+javascriptGenerator.forBlock["qrcode_err"] = function () {
   var code = "error";
   return [code, javascriptGenerator.ORDER_NONE];
 };
@@ -29,7 +28,7 @@ ${statements_name}
   return code;
 };
 
-javascriptGenerator.forBlock["qrcode_canvas"] = function (block) {
+javascriptGenerator.forBlock["qrcode_canvas"] = function () {
   var code = "canvas";
   return [code, javascriptGenerator.ORDER_NONE];
 };

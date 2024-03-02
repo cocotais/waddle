@@ -1,4 +1,3 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript"; /*javascriptGenerator.forBlock['html_noa_tag_a'] = function(block){
     var inner = javascriptGenerator.statementToCode(block, "INNER")
     let code = `<a>\n${inner}\n</a>`;
@@ -696,10 +695,6 @@ let js_to_one = (code) => {
 let escape_quotes = (str) => {
   //转义引号
   return str.replaceAll('"', '"');
-};
-let css_to_one = (css) => {
-  //css转一行
-  return escape_quotes(css.split("\n").join(""));
 };
 
 javascriptGenerator.forBlock["html_attribute"] = function (block) {

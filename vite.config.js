@@ -7,6 +7,9 @@ import { fileURLToPath, URL } from "url";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 import { viteStaticCopy } from "vite-plugin-static-copy";
+import { normalizePath } from 'vite'
+import path from 'node:path'
+
 
 export default defineConfig({
   // 插件引入
@@ -25,35 +28,35 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: fileURLToPath(new URL("./src/icon/logo/waddle2mini.png", import.meta.url)),
+          src: normalizePath(path.resolve(__dirname,"./src/icon/logo/waddle2mini.png")),
           dest: "./",
         },
         {
-          src: fileURLToPath(new URL("./src/icon/logo/favicon.ico", import.meta.url)),
+          src: normalizePath(path.resolve(__dirname,"./src/icon/logo/favicon.ico")),
           dest: "./",
         },
         {
-          src: fileURLToPath(new URL("./node_modules/blockly/media/*", import.meta.url)),
+          src: normalizePath(path.resolve(__dirname,"./node_modules/blockly/media/*")),
           dest: "media",
         },
         {
-          src: fileURLToPath(new URL("./src/tutorials/*", import.meta.url)),
+          src: normalizePath(path.resolve(__dirname,"./src/tutorials/*")),
           dest: "tutorials",
         },
         {
-          src: fileURLToPath(new URL("./src/codespace/react.development.js", import.meta.url)),
+          src: normalizePath(path.resolve(__dirname,"./src/codespace/react.development.js")),
           dest: "react",
         },
         {
-          src: fileURLToPath(new URL("./src/codespace/react-dom.development.js", import.meta.url)),
+          src: normalizePath(path.resolve(__dirname,"./src/codespace/react-dom.development.js")),
           dest: "react",
         },
         {
-          src: fileURLToPath(new URL("./src/codespace/preview.html", import.meta.url)),
+          src: normalizePath(path.resolve(__dirname,"./src/codespace/preview.html")),
           dest: "react",
         },
         {
-          src: fileURLToPath(new URL("./src/icon/logo/waddle2.svg", import.meta.url)),
+          src: normalizePath(path.resolve(__dirname,"./src/icon/logo/waddle2.svg")),
           dest: "./",
         },
       ],

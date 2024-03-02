@@ -1,0 +1,22 @@
+[
+  {
+    "kind": "BLOCK",
+    "blockxml": "<block type=\"axios_timeout\"></block>",
+    "type": "axios_timeout"
+  },
+  {
+    "kind": "BLOCK",
+    "blockxml": "<block type=\"axios_maxcontentlength\"></block>",
+    "type": "axios_maxcontentlength"
+  },
+  {
+    "kind": "BLOCK",
+    "blockxml": "<block type=\"axios_withcredentials\"></block>",
+    "type": "axios_withcredentials"
+  },
+  {
+    "kind": "BLOCK",
+    "blockxml": "<block type=\"axios_data\"></block>",
+    "type": "axios_data"
+  }
+]

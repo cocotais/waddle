@@ -1,6 +1,5 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
-javascriptGenerator.forBlock["htmldom_document"] = function (block) {
+javascriptGenerator.forBlock["htmldom_document"] = function () {
   var code = "document";
   return [code, javascriptGenerator.ORDER_NONE];
 };
