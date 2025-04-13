@@ -32,7 +32,7 @@ class BoxyCodespace {
   load = () => {
     // 代码区高亮
     highlight.registerLanguage("javascript", javascript);
-
+    
     window.addEventListener("resize", this.resize);
     this.resize();
   };
@@ -48,6 +48,7 @@ class BoxyCodespace {
     } else {
       this.codeDiv.innerHTML = _.escape(code);
     }
+    delete this.codeDiv.dataset.highlighted;
     highlight.highlightAll();
   };
 
