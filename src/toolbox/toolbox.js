@@ -41,13 +41,6 @@ class BoxyCategory extends Blockly.ToolboxCategory {
     const img = document.createElement("iconpark-icon");
     img.name = this.toolboxItemDef_.categorystyle;
     img.size = "21";
-    img.style = `
-      -webkit-mask-size: 100% 100%;
-      -webkit-mask-image: url(${superellipse});
-      mask-size: 100% 100%;
-      mask-image: url(${superellipse});
-      color: white;
-    `;
     return img;
   };
 
