@@ -16,7 +16,7 @@ export function block_style(name, style) {
       this.setStyle(style);
     };
   } catch (e) {
-    console.werror("Blockly.Blocks[" + name + "]未定义，请检查积木盒");
+    console.error("Blockly.Blocks[" + name + "]未定义，请检查积木盒");
   }
 }
 
