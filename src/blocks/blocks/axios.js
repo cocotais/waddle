@@ -59,53 +59,57 @@ Blockly.Blocks["axios_responsedropdown"] = {
   },
 };
 
-Blockly.Blocks['axios_error'] = {
+Blockly.Blocks["axios_error"] = {
   init: function () {
     this.appendDummyInput()
       .appendField("错误的")
-      .appendField(new Blockly.FieldDropdown([["完整内容（返回错误）", "error.response"], ["响应状态码", "error.response.status"], ["信息", "error.response.data"], ["完整内容（请求无响应）", "error.request"], ["客户端信息", "error.message"], ["配置", "error.config"]]), "axios_error_type");
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["完整内容（返回错误）", "error.response"],
+          ["响应状态码", "error.response.status"],
+          ["信息", "error.response.data"],
+          ["完整内容（请求无响应）", "error.request"],
+          ["客户端信息", "error.message"],
+          ["配置", "error.config"],
+        ]),
+        "axios_error_type"
+      );
     this.setOutput(true, null);
     this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
-  }
+  },
 };
 
-Blockly.Blocks['axios_getpost'] = {
+Blockly.Blocks["axios_getpost"] = {
   init: function () {
     this.appendValueInput("URL")
       .setCheck("String")
       .appendField("使用axios")
-      .appendField(new Blockly.FieldDropdown([["get", "get"], ["post", "post"], ["put", "put"], ["delete", "delete"]]), "MODE")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["get", "get"],
+          ["post", "post"],
+          ["put", "put"],
+          ["delete", "delete"],
+        ]),
+        "MODE"
+      )
       .appendField("链接");
-    this.appendValueInput("PARAMS")
-      .setCheck(null)
-      .appendField("请求参数");
-    this.appendValueInput("HEAD")
-      .setCheck(null)
-      .appendField("请求头");
-    this.appendValueInput("BODY")
-      .setCheck(null)
-      .appendField("请求体");
-    this.appendStatementInput("OK")
-      .setCheck(null)
-      .appendField("当返回结果时");
-    this.appendStatementInput("error_response")
-      .setCheck(null)
-      .appendField("当返回错误时");
-    this.appendStatementInput("error_request")
-      .setCheck(null)
-      .appendField("当请求无响应时");
-    this.appendStatementInput("error_other")
-      .setCheck(null)
-      .appendField("当客户端错误时");
+    this.appendValueInput("PARAMS").setCheck(null).appendField("请求参数");
+    this.appendValueInput("HEAD").setCheck(null).appendField("请求头");
+    this.appendValueInput("BODY").setCheck(null).appendField("请求体");
+    this.appendStatementInput("OK").setCheck(null).appendField("当返回结果时");
+    this.appendStatementInput("error_response").setCheck(null).appendField("当返回错误时");
+    this.appendStatementInput("error_request").setCheck(null).appendField("当请求无响应时");
+    this.appendStatementInput("error_other").setCheck(null).appendField("当客户端错误时");
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
-  }
+  },
 };
 /*
 Blockly.Blocks["axios_timeout"] = {

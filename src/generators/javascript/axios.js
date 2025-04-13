@@ -8,7 +8,7 @@ javascriptGenerator.forBlock["axios_import"] = function () {
 
 javascriptGenerator.forBlock["axios_responsedropdown"] = function (block) {
   var dropdown_mode = block.getFieldValue("MODE");
-  var code = dropdown_mode == 'all' ? `response` : `response.${dropdown_mode}`;
+  var code = dropdown_mode == "all" ? `response` : `response.${dropdown_mode}`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, javascriptGenerator.ORDER_NONE];
 };
@@ -26,18 +26,24 @@ javascriptGenerator.forBlock["axios_getpost"] = function (block) {
   var value_body = javascriptGenerator.valueToCode(block, "BODY", javascriptGenerator.ORDER_ATOMIC) || "";
   var statements_ok = javascriptGenerator.statementToCode(block, "OK");
   var statements_error_response = javascriptGenerator.statementToCode(block, "error_response");
-  var statements_error_request = javascriptGenerator.statementToCode(block, 'error_request')
-  var statements_error_other = javascriptGenerator.statementToCode(block, 'error_other')
+  var statements_error_request = javascriptGenerator.statementToCode(block, "error_request");
+  var statements_error_other = javascriptGenerator.statementToCode(block, "error_other");
   var code =
     `
 axios({
   method:'${dropdown_mode}',
   url:${value_url},
-  ` + (value_head == "" ? ""
+  ` +
+    (value_head == ""
+      ? ""
       : `headers:${value_head},
-  `) + (value_params == "" ? ""
+  `) +
+    (value_params == ""
+      ? ""
       : `params:${value_params},
-  `) + (value_body == "" ? ""
+  `) +
+    (value_body == ""
+      ? ""
       : `body:${value_body},
   `) +
     `

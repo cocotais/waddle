@@ -16,7 +16,7 @@ export function block_style(name, style) {
       this.setStyle(style);
     };
   } catch (e) {
-    console.werror("Blockly.Blocks[" + name + "]未定义，请检查积木盒")
+    console.werror("Blockly.Blocks[" + name + "]未定义，请检查积木盒");
   }
 }
 
@@ -32,7 +32,7 @@ toolboxConfig["contents"].forEach(function (category) {
     });
   } else {
     console.warn(
-      "积木盒"+category+"是空的",
+      "积木盒" + category + "是空的",
       "If you are using a custom approach, ",
       "please list all possible blocks in contents for a unified format."
     );
