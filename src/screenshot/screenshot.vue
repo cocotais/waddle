@@ -13,7 +13,14 @@ function setBlockToImage(onClick) {
       return "enabled";
     },
     callback: function (scope) {
-      let a = { blocks: { languageVersion: 0, blocks: [scope.block.toCopyData().saveInfo] } };
+      const blockData = scope.block.toCopyData();
+      console.log(blockData)
+      if (!blockData || !blockData.blockState) {
+        console.error("无效的积木数据");
+        return;
+      }
+      blockData.saveInfo = blockData.saveInfo || blockData.blockState;
+      let a = { blocks: { languageVersion: 0, blocks: [blockData.saveInfo] } };
       let b = document.createElement("div");
       b.id = "secondaryDiv";
       let secondaryWorkspace = Blockly.inject(b, {
@@ -108,9 +115,9 @@ function workspaceToSvg_(workspace, callback, customCss) {
   svg.setAttribute(
     "class",
     "blocklySvg " +
-      (workspace.options.renderer || "geras") +
-      "-renderer " +
-      (workspace.getTheme ? workspace.getTheme().name + "-theme" : "")
+    (workspace.options.renderer || "geras") +
+    "-renderer " +
+    (workspace.getTheme ? workspace.getTheme().name + "-theme" : "")
   );
   svg.setAttribute("width", width);
   svg.setAttribute("height", height);

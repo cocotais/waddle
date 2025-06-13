@@ -105,4 +105,4 @@ if ("serviceWorker" in navigator) {
 }
 
 // 移除加载界面
-document.querySelector(".loading").remove();
+// document.querySelector(".loading").remove();
