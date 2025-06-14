@@ -1030,18 +1030,18 @@
         },
         {
           "kind": "BLOCK",
-          "blockxml": "<block type=\"axios_responsedropdown\"></block>",
-          "type": "axios_responsedropdown"
+          "blockxml": "<block type=\"axios_send\"></block>",
+          "type": "axios_send"
         },
         {
           "kind": "BLOCK",
-          "blockxml": "<block type=\"axios_error\"></block>",
-          "type": "axios_error"
+          "blockxml": "<block type=\"axios_config_item_valueinput\"></block>",
+          "type": "axios_config_item_valueinput"
         },
         {
           "kind": "BLOCK",
-          "blockxml": "<block type=\"axios_getpost\"></block>",
-          "type": "axios_getpost"
+          "blockxml": "<block type=\"axios_config_item_statementinput\"></block>",
+          "type": "axios_config_item_statementinput"
         }
       ],
       "name": "axios",

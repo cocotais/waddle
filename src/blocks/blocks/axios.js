@@ -38,6 +38,7 @@ Blockly.Blocks["axios_import"] = {
   },
 };
 
+/*
 Blockly.Blocks["axios_responsedropdown"] = {
   init: function () {
     this.appendDummyInput()
@@ -80,8 +81,60 @@ Blockly.Blocks["axios_error"] = {
     this.setHelpUrl("");
   },
 };
+*/
 
-Blockly.Blocks["axios_getpost"] = {
+Blockly.Blocks['axios_send'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("使用axios向")
+      .appendField(new Blockly.FieldTextInput("url"), "axios_url")
+      .appendField("发送")
+      .appendField(new Blockly.FieldDropdown([["get", "get"], ["post", "post"], ["put", "put"], ["delete", "delete"], ["head", "head"], ["options", "options"], ["patch", "patch"], ["purge", "purge"], ["link", "link"], ["unlink", "unlink"]]), "axios_method")
+      .appendField("请求");
+    this.appendStatementInput("axios_config")
+      .setCheck("axios_config_item")
+      .appendField("请求配置");
+    this.appendStatementInput("axios_response")
+      .setCheck(null)
+      .appendField("当返回结果时");
+    this.appendStatementInput("axios_error")
+      .setCheck(null)
+      .appendField("当发生错误时");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#5a29e4");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['axios_config_item_valueinput'] = {
+  init: function () {
+    this.appendValueInput("axios_config_item_valueinput_input")
+      .setCheck(null)
+      .appendField(new Blockly.FieldDropdown([["baseURL", "baseURL"], ["allowAbsoluteUrls", "allowAbsoluteUrls"], ["transformRequest", "transformRequest"], ["transformResponse", "transformResponse"], ["headers", "headers"], ["params", "params"], ["paramsSerializer", "paramsSerializer"], ["data", "data"], ["timeout", "timeout"], ["timeoutErrorMessage", "timeoutErrorMessage"], ["withCredentials", "withCredentials"], ["adapter", "adapter"], ["auth", "auth"], ["responseType", "responseType"], ["responseEncoding", "responseEncoding"], ["xsrfCookieName", "xsrfCookieName"], ["xsrfHeaderName", "xsrfHeaderName"], ["maxContentLength", "maxContentLength"], ["maxBodyLength", "maxBodyLength"], ["maxRedirects", "maxRedirects"], ["maxRate", "maxRate"], ["socketPath", "socketPath"], ["transport", "transport"], ["httpAgent", "httpAgent"], ["httpsAgent", "httpsAgent"], ["proxy", "proxy"], ["cancelToken", "cancelToken"], ["decompress", "decompress"], ["transitional", "transitional"], ["signal", "signal"], ["insecureHTTPParser", "insecureHTTPParser"], ["env", "env"], ["formSerializer", "formSerializer"], ["family", "family"], ["fetchOptions", "fetchOptions"]]), "axios_config_item_valueinput_input_type");
+    this.setPreviousStatement(true, "axios_config_item");
+    this.setNextStatement(true, "axios_config_item");
+    this.setColour("#5a29e4");
+    this.setTooltip("axios的请求配置的条目");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['axios_config_item_statementinput'] = {
+  init: function () {
+    this.appendStatementInput("axios_config_item_statementinput")
+      .setCheck(null)
+      .appendField(new Blockly.FieldDropdown([["onUploadProgress", "onUploadProgress"], ["onDownloadProgress", "onDownloadProgress"], ["validateStatus", "validateStatus"], ["beforeRedirect", "beforeRedirect"], ["lookup", "lookup"], ["withXSRFToken", "withXSRFToken"]]), "axios_config_item_statementinput_input_type");
+    this.setPreviousStatement(true, "axios_config_item");
+    this.setNextStatement(true, "axios_config_item");
+    this.setColour("#5a29e4");
+    this.setTooltip("axios的请求配置的条目");
+    this.setHelpUrl("");
+  }
+};
+
+/*Blockly.Blocks["axios_getpost"] = {
   init: function () {
     this.appendValueInput("URL")
       .setCheck("String")
@@ -110,71 +163,4 @@ Blockly.Blocks["axios_getpost"] = {
     this.setTooltip("");
     this.setHelpUrl("");
   },
-};
-/*
-Blockly.Blocks["axios_timeout"] = {
-  init: function () {
-    this.appendValueInput("NUM").setCheck("Number").appendField("超时限制");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#5a29e4");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
-};
-
-Blockly.Blocks["axios_maxcontentlength"] = {
-  init: function () {
-    this.appendValueInput("NUM").setCheck("Number").appendField("响应内容最大尺寸");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#5a29e4");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
-};
-
-Blockly.Blocks["axios_maxcontentlength"] = {
-  init: function () {
-    this.appendValueInput("NUM").setCheck("Number").appendField("最大重定向次数");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#5a29e4");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
-};
-
-Blockly.Blocks["axios_withcredentials"] = {
-  init: function () {
-    this.appendDummyInput().appendField("跨域请求是否携带凭证").appendField(new Blockly.FieldCheckbox("TRUE"), "NAME");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#5a29e4");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
-};
-
-Blockly.Blocks["axios_headers"] = {
-  init: function () {
-    this.appendValueInput("NUM").setCheck("dict").appendField("自定义请求头");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#5a29e4");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
-};
-
-Blockly.Blocks["axios_data"] = {
-  init: function () {
-    this.appendValueInput("NUM").setCheck(null).appendField("请求数据");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#5a29e4");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
-};
-*/
+};*/
