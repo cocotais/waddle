@@ -68,6 +68,7 @@ export default defineConfig({
       injectRegister: "auto",
       // 配置Service Worker当中的Workbox
       workbox: {
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
         runtimeCaching: [
           {
             urlPattern: /.*/i,
