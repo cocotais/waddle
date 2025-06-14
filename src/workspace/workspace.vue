@@ -193,7 +193,7 @@ const spaceChange = () => {
         direction="vertical"
         @move-start="isMoving = true"
         @move-end="isMoving = false"
-        model:size="spaceSize"
+        v-model:size="spaceSize"
         :disabled="spaceDisabled"
       >
         <template #first>
