@@ -134,6 +134,20 @@ Blockly.Blocks['axios_config_item_statementinput'] = {
   }
 };
 
+Blockly.Blocks['axios_error_todo'] = {
+  init: function () {
+    this.appendDummyInput().appendField("错误类型")
+    this.appendStatementInput("error_response").setCheck(null).appendField("返回了异常HTTP状态码");
+    this.appendStatementInput("error_request").setCheck(null).appendField("请求无响应");
+    this.appendStatementInput("error_other").setCheck(null).appendField("axios客户端发生错误");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#5a29e4");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
 /*Blockly.Blocks["axios_getpost"] = {
   init: function () {
     this.appendValueInput("URL")

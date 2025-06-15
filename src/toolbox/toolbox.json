@@ -1042,6 +1042,11 @@
           "kind": "BLOCK",
           "blockxml": "<block type=\"axios_config_item_statementinput\"></block>",
           "type": "axios_config_item_statementinput"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_error_todo\"></block>",
+          "type": "axios_error_todo"
         }
       ],
       "name": "axios",

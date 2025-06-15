@@ -47,6 +47,18 @@ javascriptGenerator.forBlock['axios_config_item_statementinput'] = function(bloc
   return code;
 };
 
+javascriptGenerator.forBlock['axios_error_todo'] = function (block) {
+  var statements_error_response = javascriptGenerator.statementToCode(block, "error_response");
+  var statements_error_request = javascriptGenerator.statementToCode(block, "error_request");
+  var statements_error_other = javascriptGenerator.statementToCode(block, "error_other");
+  var code = `if (error.response) {
+${statements_error_response}} else if (error.request) {
+${statements_error_request}} else {
+${statements_error_other}}
+`
+  return code
+}
+
 /*javascriptGenerator.forBlock["axios_getpost"] = function (block) {
   var dropdown_mode = block.getFieldValue("MODE");
   var value_url = javascriptGenerator.valueToCode(block, "URL", javascriptGenerator.ORDER_ATOMIC) || "''";
