@@ -110,11 +110,7 @@ Blockly.Blocks['axios_send'] = {
 Blockly.Blocks['axios_config_item_valueinput'] = {
   init: function () {
     this.appendValueInput("axios_config_item_valueinput_input")
-      .setCheck(/*function (block) {
-        let type = block.getFieldValue('axios_config_item_valueinput_input_type');
-        console.log(type)
-        return axios_config_types[type] || null
-      }*/null)
+      .setCheck(axios_config_types[this.getFieldValue('axios_config_item_valueinput_input_type')])
       .appendField("非函数类配置")
       .appendField(new Blockly.FieldDropdown([["baseURL", "baseURL"], ["allowAbsoluteUrls", "allowAbsoluteUrls"], ["transformRequest", "transformRequest"], ["transformResponse", "transformResponse"], ["headers", "headers"], ["params", "params"], ["paramsSerializer", "paramsSerializer"], ["data", "data"], ["timeout", "timeout"], ["timeoutErrorMessage", "timeoutErrorMessage"], ["withCredentials", "withCredentials"], ["adapter", "adapter"], ["auth", "auth"], ["responseType", "responseType"], ["responseEncoding", "responseEncoding"], ["xsrfCookieName", "xsrfCookieName"], ["xsrfHeaderName", "xsrfHeaderName"], ["maxContentLength", "maxContentLength"], ["maxBodyLength", "maxBodyLength"], ["maxRedirects", "maxRedirects"], ["maxRate", "maxRate"], ["socketPath", "socketPath"], ["transport", "transport"], ["httpAgent", "httpAgent"], ["httpsAgent", "httpsAgent"], ["proxy", "proxy"], ["cancelToken", "cancelToken"], ["decompress", "decompress"], ["transitional", "transitional"], ["signal", "signal"], ["insecureHTTPParser", "insecureHTTPParser"], ["env", "env"], ["formSerializer", "formSerializer"], ["family", "family"], ["fetchOptions", "fetchOptions"]]), "axios_config_item_valueinput_input_type")
       .appendField(": ");
@@ -123,6 +119,34 @@ Blockly.Blocks['axios_config_item_valueinput'] = {
     this.setColour("#5a29e4");
     this.setTooltip("axios的请求配置的条目");
     this.setHelpUrl("");
+  },
+  onchange: function (event) {
+    // 忽略非自身变更或初始化事件
+    if (!event || event.type !== Blockly.Events.CHANGE ||
+      event.blockId !== this.id || event.element !== 'field') {
+      return;
+    }
+
+    // 当类型下拉菜单变化时
+    if (event.name === 'axios_config_item_valueinput_input_type') {
+      const type = this.getFieldValue('axios_config_item_valueinput_input_type');
+      let checkType = axios_config_types[type]
+
+      // 更新输入连接的类型检查
+      const input = this.getInput("axios_config_item_valueinput_input");
+      if (input) {
+        input.connection.setCheck(checkType);
+
+        // 断开不匹配的连接
+        if (input.connection.targetConnection &&
+          !input.connection.checkType_(input.connection.targetConnection)) {
+          input.connection.disconnect();
+        }
+
+        // 强制刷新渲染
+        this.render();
+      }
+    }
   }
 };
 
