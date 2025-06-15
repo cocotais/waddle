@@ -1,4 +1,3 @@
-import Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
 
 javascriptGenerator.forBlock["axios_import"] = function () {
@@ -6,43 +5,37 @@ javascriptGenerator.forBlock["axios_import"] = function () {
   return code;
 };
 
-/*
-javascriptGenerator.forBlock["axios_responsedropdown"] = function (block) {
-  var dropdown_mode = block.getFieldValue("MODE");
-  var code = dropdown_mode == "all" ? `response` : `response.${dropdown_mode}`;
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, javascriptGenerator.ORDER_NONE];
-};
-
-javascriptGenerator.forBlock["axios_error"] = function (block) {
-  var code = block.getFieldValue("axios_error_type");
-  return [code, javascriptGenerator.ORDER_NONE];
-};
-*/
-
-javascriptGenerator.forBlock['axios_send'] = function(block) {
+javascriptGenerator.forBlock['axios_send'] = function (block) {
   var text_axios_url = block.getFieldValue('axios_url');
   var dropdown_axios_method = block.getFieldValue('axios_method');
   var statements_axios_config = javascriptGenerator.statementToCode(block, 'axios_config');
   var statements_axios_response = javascriptGenerator.statementToCode(block, 'axios_response');
   var statements_axios_error = javascriptGenerator.statementToCode(block, 'axios_error');
-  var code = `...
+  var code = `axios({
+  method: '${dropdown_axios_method}',
+  url: '${text_axios_url}',
+${statements_axios_config}})
+.then((response)=>{
+${statements_axios_response}})
+.catch((error)=>{
+${statements_axios_error}})
 `;
   return code;
 };
 
-javascriptGenerator.forBlock['axios_config_item_valueinput'] = function(block) {
+javascriptGenerator.forBlock['axios_config_item_valueinput'] = function (block) {
   var dropdown_axios_config_item_valueinput_input_type = block.getFieldValue('axios_config_item_valueinput_input_type');
   var value_axios_config_item_valueinput_input = javascriptGenerator.valueToCode(block, 'axios_config_item_valueinput_input', javascriptGenerator.ORDER_ATOMIC);
-  var code = `...
+  var code = `${dropdown_axios_config_item_valueinput_input_type}: ${value_axios_config_item_valueinput_input}
 `
   return code;
 };
 
-javascriptGenerator.forBlock['axios_config_item_statementinput'] = function(block) {
+javascriptGenerator.forBlock['axios_config_item_statementinput'] = function (block) {
   var dropdown_axios_config_item_statementinput_input_type = block.getFieldValue('axios_config_item_statementinput_input_type');
   var statements_axios_config_item_statementinput = javascriptGenerator.statementToCode(block, 'axios_config_item_statementinput');
-  var code = `...
+  var code = `${dropdown_axios_config_item_statementinput_input_type}: ()=>{
+${statements_axios_config_item_statementinput}}
 `
   return code;
 };
