@@ -32,7 +32,7 @@ class BoxyCodespace {
   load = () => {
     // 代码区高亮
     highlight.registerLanguage("javascript", javascript);
-    
+
     window.addEventListener("resize", this.resize);
     this.resize();
   };

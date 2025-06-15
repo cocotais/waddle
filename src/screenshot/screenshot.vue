@@ -14,7 +14,7 @@ function setBlockToImage(onClick) {
     },
     callback: function (scope) {
       const blockData = scope.block.toCopyData();
-      console.log(blockData)
+      console.log(blockData);
       if (!blockData || !blockData.blockState) {
         console.error("无效的积木数据");
         return;
@@ -115,9 +115,9 @@ function workspaceToSvg_(workspace, callback, customCss) {
   svg.setAttribute(
     "class",
     "blocklySvg " +
-    (workspace.options.renderer || "geras") +
-    "-renderer " +
-    (workspace.getTheme ? workspace.getTheme().name + "-theme" : "")
+      (workspace.options.renderer || "geras") +
+      "-renderer " +
+      (workspace.getTheme ? workspace.getTheme().name + "-theme" : "")
   );
   svg.setAttribute("width", width);
   svg.setAttribute("height", height);
