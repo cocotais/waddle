@@ -32,13 +32,16 @@ importers:
       vue:
         specifier: ^3.5.13
         version: 3.5.16(typescript@5.8.3)
+      workbox-window:
+        specifier: ^7.3.0
+        version: 7.3.0
     devDependencies:
       '@arco-design/web-vue':
         specifier: ^2.57.0
         version: 2.57.0(vue@3.5.16(typescript@5.8.3))
       '@arco-iconbox/vue-boxy':
         specifier: ^0.0.4
-        version: 0.0.4
+        version: 0.0.4(vue@3.5.16(typescript@5.8.3))
       '@arco-themes/vue-boxy':
         specifier: ^0.0.1
         version: 0.0.1(@arco-design/web-vue@2.57.0(vue@3.5.16(typescript@5.8.3)))
@@ -122,6 +125,8 @@ packages:
 
   '@arco-iconbox/vue-boxy@0.0.4':
     resolution: {integrity: sha512-lk0XfDKHl7ygW34R7/KBNUokDSW6lUjYUZ/OCDQ+fylIb791IXzU0QpjtDzqJof3/oWvHB6e9S4IF7qgpkj/xg==}
+    peerDependencies:
+      vue: '>=3.0.0'
 
   '@arco-themes/vue-boxy@0.0.1':
     resolution: {integrity: sha512-ZFtPZ3RrR8S3kLQd/YKVulwwM/tJD8zudrFMF+RjxMOzxSZUFm4qw641EoM1CcVrmxAV3YUMN8Gkc+AttPxTwA==}
@@ -3080,7 +3085,9 @@ snapshots:
       scroll-into-view-if-needed: 2.2.31
       vue: 3.5.16(typescript@5.8.3)
 
-  '@arco-iconbox/vue-boxy@0.0.4': {}
+  '@arco-iconbox/vue-boxy@0.0.4(vue@3.5.16(typescript@5.8.3))':
+    dependencies:
+      vue: 3.5.16(typescript@5.8.3)
 
   '@arco-themes/vue-boxy@0.0.1(@arco-design/web-vue@2.57.0(vue@3.5.16(typescript@5.8.3)))':
     dependencies:
