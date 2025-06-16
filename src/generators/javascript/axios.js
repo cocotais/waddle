@@ -30,7 +30,7 @@ javascriptGenerator.forBlock["axios_config_item_valueinput"] = function (block) 
     "axios_config_item_valueinput_input",
     javascriptGenerator.ORDER_ATOMIC
   );
-  var code = `${dropdown_axios_config_item_valueinput_input_type}: ${value_axios_config_item_valueinput_input}
+  var code = `${dropdown_axios_config_item_valueinput_input_type}: ${value_axios_config_item_valueinput_input},
 `;
   return code;
 };
@@ -44,7 +44,7 @@ javascriptGenerator.forBlock["axios_config_item_statementinput"] = function (blo
     "axios_config_item_statementinput"
   );
   var code = `${dropdown_axios_config_item_statementinput_input_type}: ()=>{
-${statements_axios_config_item_statementinput}}
+${statements_axios_config_item_statementinput}},
 `;
   return code;
 };
