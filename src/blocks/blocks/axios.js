@@ -80,10 +80,8 @@ Blockly.Blocks["axios_import"] = {
 
 Blockly.Blocks["axios_send"] = {
   init: function () {
-    this.appendDummyInput()
-      .appendField("使用axios向")
-      .appendField(new Blockly.FieldTextInput("url"), "axios_url")
-      .appendField("发送")
+    this.appendValueInput("axios_url").setCheck("String").appendField("使用axios向")
+    this.appendDummyInput().appendField("发送")
       .appendField(
         new Blockly.FieldDropdown([
           ["get", "get"],
@@ -108,7 +106,7 @@ Blockly.Blocks["axios_send"] = {
     this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
-  },
+  }
 };
 
 Blockly.Blocks["axios_config_item_valueinput"] = {

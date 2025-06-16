@@ -6,14 +6,14 @@ javascriptGenerator.forBlock["axios_import"] = function () {
 };
 
 javascriptGenerator.forBlock["axios_send"] = function (block) {
-  var text_axios_url = block.getFieldValue("axios_url");
+  var value_axios_url = javascriptGenerator.valueToCode(block, "axios_url", javascriptGenerator.ORDER_ATOMIC);
   var dropdown_axios_method = block.getFieldValue("axios_method");
   var statements_axios_config = javascriptGenerator.statementToCode(block, "axios_config");
   var statements_axios_response = javascriptGenerator.statementToCode(block, "axios_response");
   var statements_axios_error = javascriptGenerator.statementToCode(block, "axios_error");
   var code = `axios({
   method: '${dropdown_axios_method}',
-  url: '${text_axios_url}',
+  url: ${value_axios_url},
 ${statements_axios_config}})
 .then((response)=>{
 ${statements_axios_response}})

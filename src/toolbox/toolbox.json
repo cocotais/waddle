@@ -1030,7 +1030,7 @@
         },
         {
           "kind": "BLOCK",
-          "blockxml": "<block type=\"axios_send\"><value name=\"axios_error\"><block type=\"axios_error_todo\"></block></value></block>",
+          "blockxml": "<block type=\"axios_send\"><value name=\"axios_url\"><block type=\"text\"></block></value><value name=\"axios_error\"><block type=\"axios_error_todo\"></block></value></block>",
           "type": "axios_send"
         },
         {
