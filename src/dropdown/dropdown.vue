@@ -99,7 +99,7 @@ const save_to_pc = () => {
         default:
       }
     }
-  } catch (e) {}
+  } catch (e) { }
   a.href = URL.createObjectURL(blob);
   a.download = title + ".waddle2";
   a.click();
@@ -128,7 +128,7 @@ const save_widget = () => {
           break;
       }
     }
-  } catch (e) {}
+  } catch (e) { }
   a.href = URL.createObjectURL(new Blob([code]));
   a.download = `${title}.${type}`;
   a.click();
@@ -235,12 +235,8 @@ const upload = (file) => {
       </a-space>
       <a-space>
         <p>主题</p>
-        <a-select
-          @change="theme_change"
-          v-model:model-value="theme_value"
-          style="text-align: justify"
-          default-value="跟随系统"
-        >
+        <a-select @change="theme_change" v-model:model-value="theme_value" style="text-align: justify"
+          default-value="跟随系统">
           <a-option>
             <template #icon>
               <icon-light />
@@ -261,13 +257,13 @@ const upload = (file) => {
           </a-option>
         </a-select>
       </a-space>
-      <a-space
-        ><p>当前版本</p>
-        <p>V2.3.0</p></a-space
-      >
+      <a-space>
+        <p>当前版本</p>
+        <p>V2.3.0</p>
+      </a-space>
     </div>
     <template #footer>
-      <span style="color: var(--color-text-4)">Copyright 2024 CoCo中控台</span>
+      <span style="color: var(--color-text-4)">{{ `Copyright © 2023 - ${new Date().getFullYear()} CoCo中控台 ` }}</span>
     </template>
   </a-modal>
   <a-modal class="newModal" v-model:visible="newVisible" :footer="false">
@@ -427,7 +423,7 @@ const upload = (file) => {
   width: 200px;
 }
 
-#modal-content > div {
+#modal-content>div {
   justify-content: space-between;
   width: 100%;
 
