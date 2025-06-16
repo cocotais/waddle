@@ -61,24 +61,24 @@ ${statements_error_other}}
   return code;
 };
 
-javascriptGenerator['axios_response_all'] = function (block) {
-  var code = 'response';
+javascriptGenerator["axios_response_all"] = function (block) {
+  var code = "response";
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator['axios_response_items'] = function (block) {
-  var dropdown_axios_response_item = block.getFieldValue('axios_response_item');
+javascriptGenerator["axios_response_items"] = function (block) {
+  var dropdown_axios_response_item = block.getFieldValue("axios_response_item");
   var code = `response.${dropdown_axios_response_item}`;
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator['axios_error_all'] = function (block) {
-  var code = 'error';
+javascriptGenerator["axios_error_all"] = function (block) {
+  var code = "error";
   return [code, javascriptGenerator.ORDER_NONE];
 };
 
-javascriptGenerator['axios_error_items'] = function (block) {
-  var dropdown_axios_error_item = block.getFieldValue('axios_error_item');
+javascriptGenerator["axios_error_items"] = function (block) {
+  var dropdown_axios_error_item = block.getFieldValue("axios_error_item");
   var code = `error.${dropdown_axios_error_item}`;
   return [code, javascriptGenerator.ORDER_NONE];
 };

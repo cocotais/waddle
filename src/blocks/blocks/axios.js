@@ -74,7 +74,7 @@ const axios_response_item_type = {
   headers: null,
   config: null,
   request: null,
-}
+};
 
 //axios的错误回调数据结构
 const axios_error_item_type = {
@@ -85,8 +85,8 @@ const axios_error_item_type = {
   response: null,
   isAxiosError: "Boolean",
   status: "Number",
-  cause: null
-}
+  cause: null,
+};
 
 // 使用的是axios图标中的颜色
 Blockly.Blocks["axios_import"] = {
@@ -102,8 +102,9 @@ Blockly.Blocks["axios_import"] = {
 
 Blockly.Blocks["axios_send"] = {
   init: function () {
-    this.appendValueInput("axios_url").setCheck("String").appendField("使用axios向")
-    this.appendDummyInput().appendField("发送")
+    this.appendValueInput("axios_url").setCheck("String").appendField("使用axios向");
+    this.appendDummyInput()
+      .appendField("发送")
       .appendField(
         new Blockly.FieldDropdown([
           ["get", "get"],
@@ -128,7 +129,7 @@ Blockly.Blocks["axios_send"] = {
     this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
-  }
+  },
 };
 
 Blockly.Blocks["axios_config_item_valueinput"] = {
@@ -250,28 +251,31 @@ Blockly.Blocks["axios_error_todo"] = {
   },
 };
 
-Blockly.Blocks['axios_response_all'] = {
+Blockly.Blocks["axios_response_all"] = {
   init: function () {
     this.appendDummyInput().appendField("响应内容");
     this.setOutput(true, null);
     this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
-  }
+  },
 };
 
-Blockly.Blocks['axios_response_items'] = {
+Blockly.Blocks["axios_response_items"] = {
   init: function () {
     this.appendDummyInput()
       .appendField("响应内容的")
-      .appendField(new Blockly.FieldDropdown([
-        ["data", "data"],
-        ["status", "status"],
-        ["statusText", "statusText"],
-        ["headers", "headers"],
-        ["config", "config"],
-        ["request", "request"]
-      ]), "axios_response_item");
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["data", "data"],
+          ["status", "status"],
+          ["statusText", "statusText"],
+          ["headers", "headers"],
+          ["config", "config"],
+          ["request", "request"],
+        ]),
+        "axios_response_item"
+      );
     this.setOutput(true, null);
     this.setColour("#5a29e4");
     this.setTooltip("");
@@ -285,38 +289,40 @@ Blockly.Blocks['axios_response_items'] = {
 
     // 当类型下拉菜单变化时
     if (event.name === "axios_response_item") {
-      this.setOutput(true, axios_response_item_type[this.getFieldValue("axios_response_item")])
+      this.setOutput(true, axios_response_item_type[this.getFieldValue("axios_response_item")]);
       // 强制刷新渲染
       this.render();
     }
-  }
+  },
 };
 
-Blockly.Blocks['axios_error_all'] = {
+Blockly.Blocks["axios_error_all"] = {
   init: function () {
-    this.appendDummyInput()
-      .appendField("获取错误");
+    this.appendDummyInput().appendField("获取错误");
     this.setOutput(true, null);
     this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
-  }
+  },
 };
 
-Blockly.Blocks['axios_error_items'] = {
+Blockly.Blocks["axios_error_items"] = {
   init: function () {
     this.appendDummyInput()
       .appendField("获取错误的")
-      .appendField(new Blockly.FieldDropdown([
-        ["message", "message"],
-        ["code", "code"],
-        ["config", "config"],
-        ["request", "request"],
-        ["response", "response"],
-        ["isAxiosError", "isAxiosError"],
-        ["status", "status"],
-        ["cause", "cause"]
-      ]), "axios_error_item");
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["message", "message"],
+          ["code", "code"],
+          ["config", "config"],
+          ["request", "request"],
+          ["response", "response"],
+          ["isAxiosError", "isAxiosError"],
+          ["status", "status"],
+          ["cause", "cause"],
+        ]),
+        "axios_error_item"
+      );
     this.setOutput(true, null);
     this.setColour("#5a29e4");
     this.setTooltip("");
@@ -330,9 +336,9 @@ Blockly.Blocks['axios_error_items'] = {
 
     // 当类型下拉菜单变化时
     if (event.name === "axios_error_item") {
-      this.setOutput(true, axios_error_item_type[this.getFieldValue("axios_error_item")])
+      this.setOutput(true, axios_error_item_type[this.getFieldValue("axios_error_item")]);
       // 强制刷新渲染
       this.render();
     }
-  }
+  },
 };
