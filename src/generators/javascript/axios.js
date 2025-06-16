@@ -61,48 +61,24 @@ ${statements_error_other}}
   return code;
 };
 
-/*javascriptGenerator.forBlock["axios_getpost"] = function (block) {
-  var dropdown_mode = block.getFieldValue("MODE");
-  var value_url = javascriptGenerator.valueToCode(block, "URL", javascriptGenerator.ORDER_ATOMIC) || "''";
-  var value_params = javascriptGenerator.valueToCode(block, "PARAMS", javascriptGenerator.ORDER_ATOMIC) || "";
-  var value_head = javascriptGenerator.valueToCode(block, "HEAD", javascriptGenerator.ORDER_ATOMIC) || "";
-  var value_body = javascriptGenerator.valueToCode(block, "BODY", javascriptGenerator.ORDER_ATOMIC) || "";
-  var statements_ok = javascriptGenerator.statementToCode(block, "OK");
-  var statements_error_response = javascriptGenerator.statementToCode(block, "error_response");
-  var statements_error_request = javascriptGenerator.statementToCode(block, "error_request");
-  var statements_error_other = javascriptGenerator.statementToCode(block, "error_other");
-  var code =
-    `
-axios({
-  method:'${dropdown_mode}',
-  url:${value_url},
-  ` +
-    (value_head == ""
-      ? ""
-      : `headers:${value_head},
-  `) +
-    (value_params == ""
-      ? ""
-      : `params:${value_params},
-  `) +
-    (value_body == ""
-      ? ""
-      : `body:${value_body},
-  `) +
-    `
-})
-.then((response)=>{
-  ${statements_ok}
-})
-.catch((error)=>{
-  if (error.response) {
-    ${statements_error_response}
-  } else if (error.request) {
-    ${statements_error_request}
-  } else {
-    ${statements_error_other}
-  }
-})
-`;
-  return code;
-};*/
+javascriptGenerator['axios_response_all'] = function (block) {
+  var code = 'response';
+  return [code, javascriptGenerator.ORDER_NONE];
+};
+
+javascriptGenerator['axios_response_items'] = function (block) {
+  var dropdown_axios_response_item = block.getFieldValue('axios_response_item');
+  var code = `response.${dropdown_axios_response_item}`;
+  return [code, javascriptGenerator.ORDER_NONE];
+};
+
+javascriptGenerator['axios_error_all'] = function (block) {
+  var code = 'error';
+  return [code, javascriptGenerator.ORDER_NONE];
+};
+
+javascriptGenerator['axios_error_items'] = function (block) {
+  var dropdown_axios_error_item = block.getFieldValue('axios_error_item');
+  var code = `error.${dropdown_axios_error_item}`;
+  return [code, javascriptGenerator.ORDER_NONE];
+};

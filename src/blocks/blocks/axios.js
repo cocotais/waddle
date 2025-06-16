@@ -66,7 +66,29 @@ const axios_config_types = {
   fetchOptions: null,
 };
 
-//使用的是axios图标中的颜色
+// axios的响应返回数据结构
+const axios_response_item_type = {
+  data: null,
+  status: "Number",
+  statusText: "String",
+  headers: null,
+  config: null,
+  request: null,
+}
+
+//axios的错误回调数据结构
+const axios_error_item_type = {
+  message: "String",
+  code: "String",
+  config: null,
+  request: null,
+  response: null,
+  isAxiosError: "Boolean",
+  status: "Number",
+  cause: null
+}
+
+// 使用的是axios图标中的颜色
 Blockly.Blocks["axios_import"] = {
   init: function () {
     this.appendDummyInput().appendField("引入axios");
@@ -228,33 +250,89 @@ Blockly.Blocks["axios_error_todo"] = {
   },
 };
 
-/*Blockly.Blocks["axios_getpost"] = {
+Blockly.Blocks['axios_response_all'] = {
   init: function () {
-    this.appendValueInput("URL")
-      .setCheck("String")
-      .appendField("使用axios")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["get", "get"],
-          ["post", "post"],
-          ["put", "put"],
-          ["delete", "delete"],
-        ]),
-        "MODE"
-      )
-      .appendField("链接");
-    this.appendValueInput("PARAMS").setCheck(null).appendField("请求参数");
-    this.appendValueInput("HEAD").setCheck(null).appendField("请求头");
-    this.appendValueInput("BODY").setCheck(null).appendField("请求体");
-    this.appendStatementInput("OK").setCheck(null).appendField("当返回结果时");
-    this.appendStatementInput("error_response").setCheck(null).appendField("当返回错误时");
-    this.appendStatementInput("error_request").setCheck(null).appendField("当请求无响应时");
-    this.appendStatementInput("error_other").setCheck(null).appendField("当客户端错误时");
-    this.setInputsInline(false);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
+    this.appendDummyInput().appendField("响应内容");
+    this.setOutput(true, null);
+    this.setColour("#5a29e4");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['axios_response_items'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("响应内容的")
+      .appendField(new Blockly.FieldDropdown([
+        ["data", "data"],
+        ["status", "status"],
+        ["statusText", "statusText"],
+        ["headers", "headers"],
+        ["config", "config"],
+        ["request", "request"]
+      ]), "axios_response_item");
+    this.setOutput(true, null);
     this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
-};*/
+  onchange: function (event) {
+    // 忽略非自身变更或初始化事件
+    if (!event || event.type !== Blockly.Events.CHANGE || event.blockId !== this.id || event.element !== "field") {
+      return;
+    }
+
+    // 当类型下拉菜单变化时
+    if (event.name === "axios_response_item") {
+      this.setOutput(true, axios_response_item_type[this.getFieldValue("axios_response_item")])
+      // 强制刷新渲染
+      this.render();
+    }
+  }
+};
+
+Blockly.Blocks['axios_error_all'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("获取错误");
+    this.setOutput(true, null);
+    this.setColour("#5a29e4");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['axios_error_items'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("获取错误的")
+      .appendField(new Blockly.FieldDropdown([
+        ["message", "message"],
+        ["code", "code"],
+        ["config", "config"],
+        ["request", "request"],
+        ["response", "response"],
+        ["isAxiosError", "isAxiosError"],
+        ["status", "status"],
+        ["cause", "cause"]
+      ]), "axios_error_item");
+    this.setOutput(true, null);
+    this.setColour("#5a29e4");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+  onchange: function (event) {
+    // 忽略非自身变更或初始化事件
+    if (!event || event.type !== Blockly.Events.CHANGE || event.blockId !== this.id || event.element !== "field") {
+      return;
+    }
+
+    // 当类型下拉菜单变化时
+    if (event.name === "axios_error_item") {
+      this.setOutput(true, axios_error_item_type[this.getFieldValue("axios_error_item")])
+      // 强制刷新渲染
+      this.render();
+    }
+  }
+};

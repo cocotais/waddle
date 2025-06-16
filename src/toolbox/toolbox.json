@@ -1042,6 +1042,26 @@
           "kind": "BLOCK",
           "blockxml": "<block type=\"axios_config_item_statementinput\"></block>",
           "type": "axios_config_item_statementinput"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_response_all\"></block>",
+          "type": "axios_response_all"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_response_items\"></block>",
+          "type": "axios_response_items"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_error_all\"></block>",
+          "type": "axios_error_all"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_error_items\"></block>",
+          "type": "axios_error_items"
         }
       ],
       "name": "axios",
