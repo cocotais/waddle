@@ -26,9 +26,8 @@ import Blockly from "blockly";
 //**************]/OOO@^  =@OO@` ./@OOOOO@/*********
 //                 于勤保佑 无bug
 
+// axios的config支持设定的参数，去掉了url和method和函数类型
 const axios_config_types = {
-  url: "String",
-  method: null,
   baseURL: "String",
   allowAbsoluteUrls: "Boolean",
   transformRequest: null,
@@ -37,21 +36,19 @@ const axios_config_types = {
   params: null,
   paramsSerializer: null,
   data: null,
-  timeout: null,
+  timeout: "Number",
   timeoutErrorMessage: "String",
   withCredentials: "Boolean",
   adapter: null,
   auth: null,
   responseType: null,
-  responseEncoding: null,
+  responseEncoding: "String",
   xsrfCookieName: "String",
   xsrfHeaderName: "String",
   maxContentLength: "Number",
-  validateStatus: null,
   maxBodyLength: "Number",
   maxRedirects: "Number",
   maxRate: null,
-  beforeRedirect: null,
   socketPath: "String",
   transport: null,
   httpAgent: null,
@@ -64,8 +61,7 @@ const axios_config_types = {
   insecureHTTPParser: "Boolean",
   env: null,
   formSerializer: null,
-  family: null,
-  lookup: null,
+  family: "Number",
   withXSRFToken: null,
   fetchOptions: null,
 };
