@@ -3,7 +3,7 @@
   "version": "2.3.0",
   "description": "让CoCo没有难做的控件",
   "scripts": {
-    "start": "vite --host",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview --port 4173 --host",
     "lint": "prettier --write . & eslint --fix --ext .js src & stylelint src/**/*.less --fix --custom-syntax postcss-less"
