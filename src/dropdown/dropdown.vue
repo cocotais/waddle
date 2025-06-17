@@ -263,7 +263,9 @@ const upload = (file) => {
       </a-space>
     </div>
     <template #footer>
-      <span style="color: var(--color-text-4)">{{ `Copyright © 2022 - ${new Date().getFullYear()} CoCo中控台 ` }}</span>
+      <span style="color: var(--color-text-4)">{{ `Copyright © 2022 - ${new Date().getFullYear()} ` }}</span><a
+        href="https://cocotais.cn" target="_blank" style="text-decoration: none;"><a-link :hoverable="false"
+          style="color: var(--color-text-4)">CoCo中控台 </a-link></a>
     </template>
   </a-modal>
   <a-modal class="newModal" v-model:visible="newVisible" :footer="false">
