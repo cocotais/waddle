@@ -280,7 +280,7 @@ const upload = (file) => {
       </a-space>
       <a-space>
         <p>当前版本</p>
-        <p>V2.3.0</p>
+        <p>V2.4.0</p>
       </a-space>
     </div>
     <template #footer>
