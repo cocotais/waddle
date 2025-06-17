@@ -175,16 +175,24 @@ const open_file = () => {
     file_reader.onload = () => {
       if (isJSON(file_reader.result)) {
         let fc = JSON.parse(file_reader.result);
-        Blockly.serialization.workspaces.load(fc, props.workspace);
+        try {
+          Blockly.serialization.workspaces.load(fc, props.workspace);
+        } catch (e) {
+          Message.error('读取工程文件失败：' + e)
+        }
       } else {
-        let parser = new DOMParser();
-        let xml = parser.parseFromString(file_reader.result, "text/xml");
-        let blocks = xml
-          .getElementsByTagName("body")[0]
-          .getElementsByTagName("blocks")[0]
-          .getElementsByTagName("xml")[0];
-        props.workspace.clear();
-        Blockly.Xml.domToWorkspace(blocks, props.workspace);
+        try {
+          let parser = new DOMParser();
+          let xml = parser.parseFromString(file_reader.result, "text/xml");
+          let blocks = xml
+            .getElementsByTagName("body")[0]
+            .getElementsByTagName("blocks")[0]
+            .getElementsByTagName("xml")[0];
+          props.workspace.clear();
+          Blockly.Xml.domToWorkspace(blocks, props.workspace);
+        } catch (e) {
+          Message.error('读取工程文件失败：' + e)
+        }
       }
     };
     file_reader.readAsText(file, "UTF-8");
