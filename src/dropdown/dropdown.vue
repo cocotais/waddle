@@ -1,6 +1,7 @@
 <script setup>
 import Blockly from "blockly";
 import { defineProps, ref } from "vue";
+import { Message } from '@arco-design/web-vue';
 import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
 import Theme from "@/theme/theme";
 import { javascriptGenerator } from "blockly/javascript";
@@ -81,58 +82,70 @@ const theme_change = (value) => {
  * 保存到本地
  */
 const save_to_pc = () => {
-  let title = "我的控件";
-  let a = document.createElement("a");
   let blockCode = Blockly.serialization.workspaces.save(props.workspace);
-  const blob = new Blob([JSON.stringify(blockCode)], {
-    type: "application/json",
-  });
-  try {
-    for (let i of blockCode.blocks.blocks) {
-      switch (i.type) {
-        case "ivw_defTypes":
-          title = i.fields.title;
-          break;
-        case "vw_defTypes":
-          title = i.fields.title;
-          break;
-        default:
+  if (Object.keys(blockCode).length === 0) {
+    Message.warning('舞台上空空如也，试着拼接几块积木先吧')
+  } else {
+    let title = "我的控件";
+    let a = document.createElement("a");
+    const blob = new Blob([JSON.stringify(blockCode)], {
+      type: "application/json",
+    });
+    try {
+      for (let i of blockCode.blocks.blocks) {
+        switch (i.type) {
+          case "ivw_defTypes":
+            title = i.fields.title;
+            break;
+          case "vw_defTypes":
+            title = i.fields.title;
+            break;
+          default:
+        }
       }
+    } catch (e) {
+      Message.error('识别控件类型时发生错误：' + e)
     }
-  } catch (e) { }
-  a.href = URL.createObjectURL(blob);
-  a.download = title + ".waddle2";
-  a.click();
-};
+    a.href = URL.createObjectURL(blob);
+    a.download = title + ".waddle2";
+    a.click();
+  }
+}
 /**
  * 保存CoCo控件
  */
 const save_widget = () => {
-  let title = "我的控件",
-    type = "js";
-  let a = document.createElement("a");
-  let code = javascriptGenerator.workspaceToCode(props.workspace);
   let blockCode = Blockly.serialization.workspaces.save(props.workspace);
-  try {
-    for (let i of blockCode.blocks.blocks) {
-      switch (i.type) {
-        case "ivw_defTypes":
-          title = i.fields.title;
-          type = "js";
-          break;
-        case "vw_defTypes":
-          title = i.fields.title;
-          type = "jsx";
-          break;
-        default:
-          break;
+  if (Object.keys(blockCode).length === 0) {
+    Message.warning('舞台上空空如也，试着拼接几块积木先吧')
+  } else {
+    let title = "我的控件",
+      type = "js";
+    let a = document.createElement("a");
+    let code = javascriptGenerator.workspaceToCode(props.workspace);
+    try {
+      for (let i of blockCode.blocks.blocks) {
+        switch (i.type) {
+          case "ivw_defTypes":
+            title = i.fields.title;
+            type = "js";
+            break;
+          case "vw_defTypes":
+            title = i.fields.title;
+            type = "jsx";
+            break;
+          default:
+            break;
+        }
       }
+    } catch (e) {
+      Message.error('识别控件类型时发生错误：' + e)
     }
-  } catch (e) { }
-  a.href = URL.createObjectURL(new Blob([code]));
-  a.download = `${title}.${type}`;
-  a.click();
-};
+    a.href = URL.createObjectURL(new Blob([code]));
+    a.download = `${title}.${type}`;
+    a.click();
+  }
+}
 
 function isJSON(str) {
   if (typeof str === "string") {
@@ -214,7 +227,7 @@ const upload = (file) => {
     <template #content>
       <div class="dropdown-select">
         <a-doption @click="new_opinion">新建</a-doption>
-        <a-doption @click="save_to_pc">保存到电脑</a-doption>
+        <a-doption @click="save_to_pc">保存到本地</a-doption>
         <a-doption @click="save_widget">导出控件</a-doption>
         <a-doption @click="open_file">打开本地文件</a-doption>
         <a-divider margin="1px" />
