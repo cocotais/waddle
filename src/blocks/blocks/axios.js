@@ -26,7 +26,7 @@ import Blockly from "blockly";
 //**************]/OOO@^  =@OO@` ./@OOOOO@/*********
 //                 于勤保佑 无bug
 
-// axios的config支持设定的参数，去掉了url和method和函数类型
+// axios的config支持设定的参数，去掉了url和method和仅函数类型
 const axios_config_types = {
   baseURL: "String",
   allowAbsoluteUrls: "Boolean",
@@ -62,7 +62,7 @@ const axios_config_types = {
   env: null,
   formSerializer: null,
   family: "Number",
-  withXSRFToken: null,
+  withXSRFToken: "Boolean",
   fetchOptions: null,
 };
 
@@ -174,6 +174,7 @@ Blockly.Blocks["axios_config_item_valueinput"] = {
           ["formSerializer", "formSerializer"],
           ["family", "family"],
           ["fetchOptions", "fetchOptions"],
+          ["withXSRFToken", "withXSRFToken"]
         ]),
         "axios_config_item_valueinput_input_type"
       )
