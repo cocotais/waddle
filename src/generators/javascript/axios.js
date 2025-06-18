@@ -1,5 +1,14 @@
 import { javascriptGenerator } from "blockly/javascript";
 
+const functionConfig = {
+  "onUploadProgress": ["progressEvent"],
+  "onDownloadProgress": ["progressEvent"],
+  "validateStatus": ["status"],
+  "beforeRedirect": ["options", "responseDetails"],
+  "lookup": ["hostname", "options", "cb"],
+  "withXSRFToken": ["config"]
+}
+
 javascriptGenerator.forBlock["axios_import"] = function () {
   var code = `const axios = require('axios');\n`;
   return code;
@@ -43,7 +52,7 @@ javascriptGenerator.forBlock["axios_config_item_statementinput"] = function (blo
     block,
     "axios_config_item_statementinput"
   );
-  var code = `${dropdown_axios_config_item_statementinput_input_type}: ()=>{
+  var code = `${dropdown_axios_config_item_statementinput_input_type}: (${functionConfig[dropdown_axios_config_item_statementinput_input_type].join(",")})=>{
 ${statements_axios_config_item_statementinput}},
 `;
   return code;
