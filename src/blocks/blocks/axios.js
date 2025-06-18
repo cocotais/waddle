@@ -136,7 +136,7 @@ Blockly.Blocks["axios_config_item_valueinput"] = {
   init: function () {
     this.appendValueInput("axios_config_item_valueinput_input")
       .setCheck(axios_config_types[this.getFieldValue("axios_config_item_valueinput_input_type")])
-      .appendField("非函数类配置")
+      .appendField("非函数类型配置")
       .appendField(
         new Blockly.FieldDropdown([
           ["baseURL", "baseURL"],
@@ -217,7 +217,7 @@ Blockly.Blocks["axios_config_item_statementinput"] = {
   init: function () {
     this.appendStatementInput("axios_config_item_statementinput")
       .setCheck(null)
-      .appendField("函数类配置")
+      .appendField("函数类型配置")
       .appendField(
         new Blockly.FieldDropdown([
           ["onUploadProgress", "onUploadProgress"],
