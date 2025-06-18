@@ -52,8 +52,9 @@ javascriptGenerator.forBlock["axios_config_item_statementinput"] = function (blo
     block,
     "axios_config_item_statementinput"
   );
-  var code = `${dropdown_axios_config_item_statementinput_input_type}: (${functionConfig[dropdown_axios_config_item_statementinput_input_type].join(",")})=>{
-${statements_axios_config_item_statementinput}},
+  var value_axios_config_item_statementinput_return = javascriptGenerator.valueToCode(block, "axios_config_item_statementinput_return",javascriptGenerator.ORDER_ATOMIC) || null
+  var code = `${dropdown_axios_config_item_statementinput_input_type}: (${functionConfig[dropdown_axios_config_item_statementinput_input_type].join(",")}) => {
+${statements_axios_config_item_statementinput}${!value_axios_config_item_statementinput_return ? '' : `return ${value_axios_config_item_statementinput_return}\n`}},
 `;
   return code;
 };

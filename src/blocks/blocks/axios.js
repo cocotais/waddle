@@ -66,6 +66,15 @@ const axios_config_types = {
   fetchOptions: null,
 };
 
+const axios_config_function_types = {
+  "onUploadProgress": undefined,
+  "onDownloadProgress": undefined,
+  "validateStatus": "Boolean",
+  "beforeRedirect": undefined,
+  "lookup": undefined,
+  "withXSRFToken": "Boolean"
+}
+
 // axios的响应返回数据结构
 const axios_response_item_type = {
   data: null,
@@ -230,12 +239,49 @@ Blockly.Blocks["axios_config_item_statementinput"] = {
         "axios_config_item_statementinput_input_type"
       )
       .appendField(": ");
+    this.appendValueInput("axios_config_item_statementinput_return").setCheck(null).appendField("返回")
     this.setPreviousStatement(true, "axios_config_item");
     this.setNextStatement(true, "axios_config_item");
     this.setColour("#5a29e4");
     this.setTooltip("axios的请求配置的条目");
     this.setHelpUrl("");
   },
+  onchange: function (event) {
+    // 忽略非自身变更或初始化事件
+    if (!event || event.type !== Blockly.Events.CHANGE || event.blockId !== this.id || event.element !== "field") {
+      return;
+    }
+
+    // 当类型下拉菜单变化时
+    if (event.name === "axios_config_item_statementinput_input_type") {
+      const type = this.getFieldValue("axios_config_item_statementinput_input_type");
+      let checkType = axios_config_function_types[type];
+
+      // 获取是否存在返回值input
+      const input = this.getInput("axios_config_item_statementinput_return");
+      if (input) {
+        // 如果存在，判断是否存在返回值
+        if (checkType === undefined) {
+          // 不存在返回值，移除返回值input
+          this.removeInput("axios_config_item_statementinput_return")
+        } else {
+          // 存在返回值，更新类型限制
+          input.connection.setCheck(checkType);
+
+          // 断开不匹配的连接
+          if (input.connection.targetConnection && !input.connection.checkType_(input.connection.targetConnection)) {
+            input.connection.disconnect();
+          }
+        }
+      } else if (checkType !== undefined) {
+        // 如果不存在返回值input但是参数需要返回值，新增一个返回值input
+        this.appendValueInput("axios_config_item_statementinput_return").setCheck(checkType).appendField("返回")
+      }
+
+      // 强制刷新渲染
+      this.render();
+    }
+  }
 };
 
 Blockly.Blocks["axios_error_todo"] = {
