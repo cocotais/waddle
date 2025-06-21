@@ -1,6 +1,7 @@
 <script setup>
 import Blockly from "blockly";
 import { defineProps, ref } from "vue";
+import { Message } from '@arco-design/web-vue';
 import { IconAuto, IconDark, IconLight } from "@arco-iconbox/vue-boxy";
 import Theme from "@/theme/theme";
 import { javascriptGenerator } from "blockly/javascript";
@@ -81,58 +82,70 @@ const theme_change = (value) => {
  * 保存到本地
  */
 const save_to_pc = () => {
-  let title = "我的控件";
-  let a = document.createElement("a");
   let blockCode = Blockly.serialization.workspaces.save(props.workspace);
-  const blob = new Blob([JSON.stringify(blockCode)], {
-    type: "application/json",
-  });
-  try {
-    for (let i of blockCode.blocks.blocks) {
-      switch (i.type) {
-        case "ivw_defTypes":
-          title = i.fields.title;
-          break;
-        case "vw_defTypes":
-          title = i.fields.title;
-          break;
-        default:
+  if (Object.keys(blockCode).length === 0) {
+    Message.warning('舞台上空空如也，试着拼接几块积木先吧')
+  } else {
+    let title = "我的控件";
+    let a = document.createElement("a");
+    const blob = new Blob([JSON.stringify(blockCode)], {
+      type: "application/json",
+    });
+    try {
+      for (let i of blockCode.blocks.blocks) {
+        switch (i.type) {
+          case "ivw_defTypes":
+            title = i.fields.title;
+            break;
+          case "vw_defTypes":
+            title = i.fields.title;
+            break;
+          default:
+        }
       }
+    } catch (e) {
+      Message.error('识别控件类型时发生错误：' + e)
     }
-  } catch (e) {}
-  a.href = URL.createObjectURL(blob);
-  a.download = title + ".waddle2";
-  a.click();
-};
+    a.href = URL.createObjectURL(blob);
+    a.download = title + ".waddle2";
+    a.click();
+  }
+}
 /**
  * 保存CoCo控件
  */
 const save_widget = () => {
-  let title = "我的控件",
-    type = "js";
-  let a = document.createElement("a");
-  let code = javascriptGenerator.workspaceToCode(props.workspace);
   let blockCode = Blockly.serialization.workspaces.save(props.workspace);
-  try {
-    for (let i of blockCode.blocks.blocks) {
-      switch (i.type) {
-        case "ivw_defTypes":
-          title = i.fields.title;
-          type = "js";
-          break;
-        case "vw_defTypes":
-          title = i.fields.title;
-          type = "jsx";
-          break;
-        default:
-          break;
+  if (Object.keys(blockCode).length === 0) {
+    Message.warning('舞台上空空如也，试着拼接几块积木先吧')
+  } else {
+    let title = "我的控件",
+      type = "js";
+    let a = document.createElement("a");
+    let code = javascriptGenerator.workspaceToCode(props.workspace);
+    try {
+      for (let i of blockCode.blocks.blocks) {
+        switch (i.type) {
+          case "ivw_defTypes":
+            title = i.fields.title;
+            type = "js";
+            break;
+          case "vw_defTypes":
+            title = i.fields.title;
+            type = "jsx";
+            break;
+          default:
+            break;
+        }
       }
+    } catch (e) {
+      Message.error('识别控件类型时发生错误：' + e)
     }
-  } catch (e) {}
-  a.href = URL.createObjectURL(new Blob([code]));
-  a.download = `${title}.${type}`;
-  a.click();
-};
+    a.href = URL.createObjectURL(new Blob([code]));
+    a.download = `${title}.${type}`;
+    a.click();
+  }
+}
 
 function isJSON(str) {
   if (typeof str === "string") {
@@ -162,16 +175,24 @@ const open_file = () => {
     file_reader.onload = () => {
       if (isJSON(file_reader.result)) {
         let fc = JSON.parse(file_reader.result);
-        Blockly.serialization.workspaces.load(fc, props.workspace);
+        try {
+          Blockly.serialization.workspaces.load(fc, props.workspace);
+        } catch (e) {
+          Message.error('读取工程文件失败：' + e)
+        }
       } else {
-        let parser = new DOMParser();
-        let xml = parser.parseFromString(file_reader.result, "text/xml");
-        let blocks = xml
-          .getElementsByTagName("body")[0]
-          .getElementsByTagName("blocks")[0]
-          .getElementsByTagName("xml")[0];
-        props.workspace.clear();
-        Blockly.Xml.domToWorkspace(blocks, props.workspace);
+        try {
+          let parser = new DOMParser();
+          let xml = parser.parseFromString(file_reader.result, "text/xml");
+          let blocks = xml
+            .getElementsByTagName("body")[0]
+            .getElementsByTagName("blocks")[0]
+            .getElementsByTagName("xml")[0];
+          props.workspace.clear();
+          Blockly.Xml.domToWorkspace(blocks, props.workspace);
+        } catch (e) {
+          Message.error('读取工程文件失败：' + e)
+        }
       }
     };
     file_reader.readAsText(file, "UTF-8");
@@ -214,7 +235,7 @@ const upload = (file) => {
     <template #content>
       <div class="dropdown-select">
         <a-doption @click="new_opinion">新建</a-doption>
-        <a-doption @click="save_to_pc">保存到电脑</a-doption>
+        <a-doption @click="save_to_pc">保存到本地</a-doption>
         <a-doption @click="save_widget">导出控件</a-doption>
         <a-doption @click="open_file">打开本地文件</a-doption>
         <a-divider margin="1px" />
@@ -235,12 +256,8 @@ const upload = (file) => {
       </a-space>
       <a-space>
         <p>主题</p>
-        <a-select
-          @change="theme_change"
-          v-model:model-value="theme_value"
-          style="text-align: justify"
-          default-value="跟随系统"
-        >
+        <a-select @change="theme_change" v-model:model-value="theme_value" style="text-align: justify"
+          default-value="跟随系统">
           <a-option>
             <template #icon>
               <icon-light />
@@ -261,13 +278,15 @@ const upload = (file) => {
           </a-option>
         </a-select>
       </a-space>
-      <a-space
-        ><p>当前版本</p>
-        <p>V2.3.0</p></a-space
-      >
+      <a-space>
+        <p>当前版本</p>
+        <p>V2.4.0</p>
+      </a-space>
     </div>
     <template #footer>
-      <span style="color: var(--color-text-4)">Copyright 2024 CoCo中控台</span>
+      <span style="color: var(--color-text-4)">{{ `Copyright © 2022 - ${new Date().getFullYear()} ` }}</span><a
+        href="https://cocotais.cn" target="_blank" style="text-decoration: none;"><a-link :hoverable="false"
+          style="color: var(--color-text-4)">CoCo中控台 </a-link></a>
     </template>
   </a-modal>
   <a-modal class="newModal" v-model:visible="newVisible" :footer="false">
@@ -427,7 +446,7 @@ const upload = (file) => {
   width: 200px;
 }
 
-#modal-content > div {
+#modal-content>div {
   justify-content: space-between;
   width: 100%;
 

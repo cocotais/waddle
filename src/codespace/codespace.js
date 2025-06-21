@@ -48,6 +48,7 @@ class BoxyCodespace {
     } else {
       this.codeDiv.innerHTML = _.escape(code);
     }
+    delete this.codeDiv.dataset.highlighted;
     highlight.highlightAll();
   };
 
@@ -66,7 +67,7 @@ class BoxyCodespace {
     } else {
       this.codespaceHeadDiv.style.display = "none";
       this.splitCodespace.style.height = "calc(100% - 2px)";
-      this.codeDiv.style.marginTop = "20px";
+      this.codeDiv.style.marginTop = "0";
       this.codeSelect.style.top = "0";
       this.codeSelect.style.left = "0";
     }

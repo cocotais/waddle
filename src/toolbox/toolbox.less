@@ -26,10 +26,10 @@
   //width: 320px;
   max-width: calc(100% - 60px);
   height: 100vh;
-
-  background: var(--toolbox-background);
   //box-shadow: rgb(0 0 0 / 10%) 0 4px 4px 0;
   border-right: 1px solid rgb(5 5 5 / 8%);
+
+  background: var(--toolbox-background);
 
   transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), width 0.5s;
 }
@@ -91,4 +91,10 @@
 
 .codemao-renderer.codemao-theme .blocklyFlyoutLabelText {
   fill: var(--toolbox-color);
+}
+
+.blocklyTreeRowContentContainer > iconpark-icon {
+  color: white;
+  mask-image: url("@/icon/category/superellipse.svg");
+  mask-size: 100% 100%;
 }

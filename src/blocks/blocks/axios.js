@@ -26,7 +26,78 @@ import Blockly from "blockly";
 //**************]/OOO@^  =@OO@` ./@OOOOO@/*********
 //                 于勤保佑 无bug
 
-//使用的是axios图标中的颜色
+// axios的config支持设定的参数，去掉了url和method和仅函数类型
+const axios_config_types = {
+  baseURL: "String",
+  allowAbsoluteUrls: "Boolean",
+  transformRequest: null,
+  transformResponse: null,
+  headers: null,
+  params: null,
+  paramsSerializer: null,
+  data: null,
+  timeout: "Number",
+  timeoutErrorMessage: "String",
+  withCredentials: "Boolean",
+  adapter: null,
+  auth: null,
+  responseType: null,
+  responseEncoding: "String",
+  xsrfCookieName: "String",
+  xsrfHeaderName: "String",
+  maxContentLength: "Number",
+  maxBodyLength: "Number",
+  maxRedirects: "Number",
+  maxRate: null,
+  socketPath: "String",
+  transport: null,
+  httpAgent: null,
+  httpsAgent: null,
+  proxy: null,
+  cancelToken: null,
+  decompress: "Boolean",
+  transitional: null,
+  signal: null,
+  insecureHTTPParser: "Boolean",
+  env: null,
+  formSerializer: null,
+  family: "Number",
+  withXSRFToken: "Boolean",
+  fetchOptions: null,
+};
+
+const axios_config_function_types = {
+  "onUploadProgress": undefined,
+  "onDownloadProgress": undefined,
+  "validateStatus": "Boolean",
+  "beforeRedirect": undefined,
+  "lookup": undefined,
+  "withXSRFToken": "Boolean"
+}
+
+// axios的响应返回数据结构
+const axios_response_item_type = {
+  data: null,
+  status: "Number",
+  statusText: "String",
+  headers: null,
+  config: null,
+  request: null,
+};
+
+//axios的错误回调数据结构
+const axios_error_item_type = {
+  message: "String",
+  code: "String",
+  config: null,
+  request: null,
+  response: null,
+  isAxiosError: "Boolean",
+  status: "Number",
+  cause: null,
+};
+
+// 使用的是axios图标中的颜色
 Blockly.Blocks["axios_import"] = {
   init: function () {
     this.appendDummyInput().appendField("引入axios");
@@ -38,139 +109,283 @@ Blockly.Blocks["axios_import"] = {
   },
 };
 
-Blockly.Blocks["axios_responsedropdown"] = {
+Blockly.Blocks["axios_send"] = {
+  init: function () {
+    this.appendValueInput("axios_url").setCheck("String").appendField("使用axios向");
+    this.appendDummyInput()
+      .appendField("发送")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["get", "get"],
+          ["post", "post"],
+          ["put", "put"],
+          ["delete", "delete"],
+          ["head", "head"],
+          ["options", "options"],
+          ["patch", "patch"],
+          ["purge", "purge"],
+          ["link", "link"],
+          ["unlink", "unlink"],
+        ]),
+        "axios_method"
+      )
+      .appendField("请求");
+    this.appendStatementInput("axios_config").setCheck("axios_config_item").appendField("请求配置");
+    this.appendStatementInput("axios_response").setCheck(null).appendField("当返回结果时");
+    this.appendStatementInput("axios_error").setCheck(null).appendField("当发生错误时");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#5a29e4");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+
+Blockly.Blocks["axios_config_item_valueinput"] = {
+  init: function () {
+    this.appendValueInput("axios_config_item_valueinput_input")
+      .setCheck(axios_config_types[this.getFieldValue("axios_config_item_valueinput_input_type")])
+      .appendField("非函数类型配置")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["baseURL", "baseURL"],
+          ["allowAbsoluteUrls", "allowAbsoluteUrls"],
+          ["transformRequest", "transformRequest"],
+          ["transformResponse", "transformResponse"],
+          ["headers", "headers"],
+          ["params", "params"],
+          ["paramsSerializer", "paramsSerializer"],
+          ["data", "data"],
+          ["timeout", "timeout"],
+          ["timeoutErrorMessage", "timeoutErrorMessage"],
+          ["withCredentials", "withCredentials"],
+          ["adapter", "adapter"],
+          ["auth", "auth"],
+          ["responseType", "responseType"],
+          ["responseEncoding", "responseEncoding"],
+          ["xsrfCookieName", "xsrfCookieName"],
+          ["xsrfHeaderName", "xsrfHeaderName"],
+          ["maxContentLength", "maxContentLength"],
+          ["maxBodyLength", "maxBodyLength"],
+          ["maxRedirects", "maxRedirects"],
+          ["maxRate", "maxRate"],
+          ["socketPath", "socketPath"],
+          ["transport", "transport"],
+          ["httpAgent", "httpAgent"],
+          ["httpsAgent", "httpsAgent"],
+          ["proxy", "proxy"],
+          ["cancelToken", "cancelToken"],
+          ["decompress", "decompress"],
+          ["transitional", "transitional"],
+          ["signal", "signal"],
+          ["insecureHTTPParser", "insecureHTTPParser"],
+          ["env", "env"],
+          ["formSerializer", "formSerializer"],
+          ["family", "family"],
+          ["fetchOptions", "fetchOptions"],
+          ["withXSRFToken", "withXSRFToken"]
+        ]),
+        "axios_config_item_valueinput_input_type"
+      )
+      .appendField(": ");
+    this.setPreviousStatement(true, "axios_config_item");
+    this.setNextStatement(true, "axios_config_item");
+    this.setColour("#5a29e4");
+    this.setTooltip("axios的请求配置的条目");
+    this.setHelpUrl("");
+  },
+  onchange: function (event) {
+    // 忽略非自身变更或初始化事件
+    if (!event || event.type !== Blockly.Events.CHANGE || event.blockId !== this.id || event.element !== "field") {
+      return;
+    }
+
+    // 当类型下拉菜单变化时
+    if (event.name === "axios_config_item_valueinput_input_type") {
+      const type = this.getFieldValue("axios_config_item_valueinput_input_type");
+      let checkType = axios_config_types[type];
+
+      // 更新输入连接的类型检查
+      const input = this.getInput("axios_config_item_valueinput_input");
+      if (input) {
+        input.connection.setCheck(checkType);
+
+        // 断开不匹配的连接
+        if (input.connection.targetConnection && !input.connection.checkType_(input.connection.targetConnection)) {
+          input.connection.disconnect();
+        }
+
+        // 强制刷新渲染
+        this.render();
+      }
+    }
+  },
+};
+
+Blockly.Blocks["axios_config_item_statementinput"] = {
+  init: function () {
+    this.appendStatementInput("axios_config_item_statementinput")
+      .setCheck(null)
+      .appendField("函数类型配置")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["onUploadProgress", "onUploadProgress"],
+          ["onDownloadProgress", "onDownloadProgress"],
+          ["validateStatus", "validateStatus"],
+          ["beforeRedirect", "beforeRedirect"],
+          ["lookup", "lookup"],
+          ["withXSRFToken", "withXSRFToken"],
+        ]),
+        "axios_config_item_statementinput_input_type"
+      )
+      .appendField(": ");
+    this.appendValueInput("axios_config_item_statementinput_return").setCheck(null).appendField("返回")
+    this.setPreviousStatement(true, "axios_config_item");
+    this.setNextStatement(true, "axios_config_item");
+    this.setColour("#5a29e4");
+    this.setTooltip("axios的请求配置的条目");
+    this.setHelpUrl("");
+  },
+  onchange: function (event) {
+    // 忽略非自身变更或初始化事件
+    if (!event || event.type !== Blockly.Events.CHANGE || event.blockId !== this.id || event.element !== "field") {
+      return;
+    }
+
+    // 当类型下拉菜单变化时
+    if (event.name === "axios_config_item_statementinput_input_type") {
+      const type = this.getFieldValue("axios_config_item_statementinput_input_type");
+      let checkType = axios_config_function_types[type];
+
+      // 获取是否存在返回值input
+      const input = this.getInput("axios_config_item_statementinput_return");
+      if (input) {
+        // 如果存在，判断是否存在返回值
+        if (checkType === undefined) {
+          // 不存在返回值，移除返回值input
+          this.removeInput("axios_config_item_statementinput_return")
+        } else {
+          // 存在返回值，更新类型限制
+          input.connection.setCheck(checkType);
+
+          // 断开不匹配的连接
+          if (input.connection.targetConnection && !input.connection.checkType_(input.connection.targetConnection)) {
+            input.connection.disconnect();
+          }
+        }
+      } else if (checkType !== undefined) {
+        // 如果不存在返回值input但是参数需要返回值，新增一个返回值input
+        this.appendValueInput("axios_config_item_statementinput_return").setCheck(checkType).appendField("返回")
+      }
+
+      // 强制刷新渲染
+      this.render();
+    }
+  }
+};
+
+Blockly.Blocks["axios_error_todo"] = {
+  init: function () {
+    this.appendDummyInput().appendField("错误类型");
+    this.appendStatementInput("error_response").setCheck(null).appendField("返回了异常HTTP状态码");
+    this.appendStatementInput("error_request").setCheck(null).appendField("请求无响应");
+    this.appendStatementInput("error_other").setCheck(null).appendField("axios客户端发生错误");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour("#5a29e4");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+
+Blockly.Blocks["axios_response_all"] = {
+  init: function () {
+    this.appendDummyInput().appendField("响应内容");
+    this.setOutput(true, null);
+    this.setColour("#5a29e4");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  },
+};
+
+Blockly.Blocks["axios_response_items"] = {
   init: function () {
     this.appendDummyInput()
       .appendField("响应内容的")
       .appendField(
         new Blockly.FieldDropdown([
-          ["完整内容", "all"],
-          ["数据", "data"],
-          ["响应头", "headers"],
-          ["HTTP状态码", "status"],
-          ["HTTP状态信息", "statusText"],
+          ["data", "data"],
+          ["status", "status"],
+          ["statusText", "statusText"],
+          ["headers", "headers"],
+          ["config", "config"],
+          ["request", "request"],
         ]),
-        "MODE"
+        "axios_response_item"
       );
     this.setOutput(true, null);
     this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
+  onchange: function (event) {
+    // 忽略非自身变更或初始化事件
+    if (!event || event.type !== Blockly.Events.CHANGE || event.blockId !== this.id || event.element !== "field") {
+      return;
+    }
+
+    // 当类型下拉菜单变化时
+    if (event.name === "axios_response_item") {
+      this.setOutput(true, axios_response_item_type[this.getFieldValue("axios_response_item")]);
+      // 强制刷新渲染
+      this.render();
+    }
+  },
 };
 
-Blockly.Blocks['axios_error'] = {
+Blockly.Blocks["axios_error_all"] = {
   init: function () {
-    this.appendDummyInput()
-      .appendField("错误的")
-      .appendField(new Blockly.FieldDropdown([["完整内容（返回错误）", "error.response"], ["响应状态码", "error.response.status"], ["信息", "error.response.data"], ["完整内容（请求无响应）", "error.request"], ["客户端信息", "error.message"], ["配置", "error.config"]]), "axios_error_type");
+    this.appendDummyInput().appendField("获取错误");
     this.setOutput(true, null);
     this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
-  }
+  },
 };
 
-Blockly.Blocks['axios_getpost'] = {
+Blockly.Blocks["axios_error_items"] = {
   init: function () {
-    this.appendValueInput("URL")
-      .setCheck("String")
-      .appendField("使用axios")
-      .appendField(new Blockly.FieldDropdown([["get", "get"], ["post", "post"], ["put", "put"], ["delete", "delete"]]), "MODE")
-      .appendField("链接");
-    this.appendValueInput("PARAMS")
-      .setCheck(null)
-      .appendField("请求参数");
-    this.appendValueInput("HEAD")
-      .setCheck(null)
-      .appendField("请求头");
-    this.appendValueInput("BODY")
-      .setCheck(null)
-      .appendField("请求体");
-    this.appendStatementInput("OK")
-      .setCheck(null)
-      .appendField("当返回结果时");
-    this.appendStatementInput("error_response")
-      .setCheck(null)
-      .appendField("当返回错误时");
-    this.appendStatementInput("error_request")
-      .setCheck(null)
-      .appendField("当请求无响应时");
-    this.appendStatementInput("error_other")
-      .setCheck(null)
-      .appendField("当客户端错误时");
-    this.setInputsInline(false);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#5a29e4");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  }
-};
-/*
-Blockly.Blocks["axios_timeout"] = {
-  init: function () {
-    this.appendValueInput("NUM").setCheck("Number").appendField("超时限制");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
+    this.appendDummyInput()
+      .appendField("获取错误的")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["message", "message"],
+          ["code", "code"],
+          ["config", "config"],
+          ["request", "request"],
+          ["response", "response"],
+          ["isAxiosError", "isAxiosError"],
+          ["status", "status"],
+          ["cause", "cause"],
+        ]),
+        "axios_error_item"
+      );
+    this.setOutput(true, null);
     this.setColour("#5a29e4");
     this.setTooltip("");
     this.setHelpUrl("");
   },
-};
+  onchange: function (event) {
+    // 忽略非自身变更或初始化事件
+    if (!event || event.type !== Blockly.Events.CHANGE || event.blockId !== this.id || event.element !== "field") {
+      return;
+    }
 
-Blockly.Blocks["axios_maxcontentlength"] = {
-  init: function () {
-    this.appendValueInput("NUM").setCheck("Number").appendField("响应内容最大尺寸");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#5a29e4");
-    this.setTooltip("");
-    this.setHelpUrl("");
+    // 当类型下拉菜单变化时
+    if (event.name === "axios_error_item") {
+      this.setOutput(true, axios_error_item_type[this.getFieldValue("axios_error_item")]);
+      // 强制刷新渲染
+      this.render();
+    }
   },
 };
-
-Blockly.Blocks["axios_maxcontentlength"] = {
-  init: function () {
-    this.appendValueInput("NUM").setCheck("Number").appendField("最大重定向次数");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#5a29e4");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
-};
-
-Blockly.Blocks["axios_withcredentials"] = {
-  init: function () {
-    this.appendDummyInput().appendField("跨域请求是否携带凭证").appendField(new Blockly.FieldCheckbox("TRUE"), "NAME");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#5a29e4");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
-};
-
-Blockly.Blocks["axios_headers"] = {
-  init: function () {
-    this.appendValueInput("NUM").setCheck("dict").appendField("自定义请求头");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#5a29e4");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
-};
-
-Blockly.Blocks["axios_data"] = {
-  init: function () {
-    this.appendValueInput("NUM").setCheck(null).appendField("请求数据");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour("#5a29e4");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  },
-};
-*/

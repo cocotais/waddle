@@ -1030,18 +1030,38 @@
         },
         {
           "kind": "BLOCK",
-          "blockxml": "<block type=\"axios_responsedropdown\"></block>",
-          "type": "axios_responsedropdown"
+          "blockxml": "<block type=\"axios_send\"><value name=\"axios_url\"><block type=\"text\"></block></value><value name=\"axios_error\"><block type=\"axios_error_todo\"></block></value></block>",
+          "type": "axios_send"
         },
         {
           "kind": "BLOCK",
-          "blockxml": "<block type=\"axios_error\"></block>",
-          "type": "axios_error"
+          "blockxml": "<block type=\"axios_config_item_valueinput\"></block>",
+          "type": "axios_config_item_valueinput"
         },
         {
           "kind": "BLOCK",
-          "blockxml": "<block type=\"axios_getpost\"></block>",
-          "type": "axios_getpost"
+          "blockxml": "<block type=\"axios_config_item_statementinput\"></block>",
+          "type": "axios_config_item_statementinput"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_response_all\"></block>",
+          "type": "axios_response_all"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_response_items\"></block>",
+          "type": "axios_response_items"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_error_all\"></block>",
+          "type": "axios_error_all"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": "<block type=\"axios_error_items\"></block>",
+          "type": "axios_error_items"
         }
       ],
       "name": "axios",

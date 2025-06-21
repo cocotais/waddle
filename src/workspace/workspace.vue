@@ -31,6 +31,7 @@ const workspace = shallowRef();
 
 const generator_value = ref("Javascript");
 let generator_change;
+const isMoving = ref(false);
 
 let directions = ref([]);
 let width = ref(0);
@@ -167,8 +168,12 @@ const spaceChange = () => {
       id="codespace"
       v-model:width="width"
       :directions="directions"
+      @moving-start="isMoving = true"
       @moving="move"
-      @moving-end="moveEnd"
+      @moving-end="
+        moveEnd();
+        isMoving = false;
+      "
       :style="{ width: '0px' }"
       ><a-select
         @change="generator_change"
@@ -183,9 +188,20 @@ const spaceChange = () => {
         <iconpark-icon id="codespaceClose" name="close" onclick="codespaceSwitch();zoomBoxResize()"></iconpark-icon>
         <icon-close id="codespaceClose" onclick="codespaceSwitch();zoomBoxResize()" />
       </div>
-      <a-split id="splitCodespace" direction="vertical" v-model:size="spaceSize" :disabled="spaceDisabled">
+      <a-split
+        id="splitCodespace"
+        direction="vertical"
+        @move-start="isMoving = true"
+        @move-end="isMoving = false"
+        v-model:size="spaceSize"
+        :disabled="spaceDisabled"
+      >
         <template #first>
-          <iframe id="widgetPreview" src="./react/preview.html"></iframe>
+          <iframe
+            id="widgetPreview"
+            :style="{ pointerEvents: isMoving ? 'none' : 'auto' }"
+            src="./react/preview.html"
+          ></iframe>
         </template>
         <template #second>
           <pre><code id="code" class="language-javascript"></code></pre>
